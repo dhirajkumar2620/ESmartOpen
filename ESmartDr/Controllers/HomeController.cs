@@ -11,7 +11,6 @@ namespace EsmartDr.Controllers
         public ActionResult Index()
         {
             return View("LogIn");
-           
         }
 
         public ActionResult Registration()
