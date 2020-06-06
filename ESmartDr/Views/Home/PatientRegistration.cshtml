@@ -1,0 +1,197 @@
+﻿
+@{
+    ViewBag.Title = "PatientRegistration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <!-- Page Header-->
+    <header class="page-header">
+        <div class="container-fluid">
+            <h2 class="no-margin-bottom">New Patient</h2>
+        </div>
+    </header>
+    <!-- Breadcrumb-->
+    <!-- <div class="breadcrumb-holder container-fluid">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Forms</li>
+      </ul>
+    </div> -->
+    <!-- Forms Section-->
+    <section class="forms">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Basic Form-->
+                <div class="col-lg-12">
+                    <div class="card">
+                        <!-- <div class="card-close">
+                          <div class="dropdown">
+                            <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                            <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                          </div>
+                        </div> -->
+                        <!-- <div class="card-header d-flex align-items-center">
+                          <h3 class="h4">Basic Form</h3>
+                        </div> -->
+                        <div class="card-body">
+                            <p>Need to fill mandatory fields.</p>
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Name<span class="star">*</span></label>
+                                            <input type="text" placeholder="Name" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Gender<span class="star">*</span></label>
+                                            <select name="account" class="form-control mb-3">
+                                                <option>Select Gender</option>
+                                                <option>Male</option>
+                                                <option>Female</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Date of Birth<span class="star">*</span></label>
+                                            <input type="Date" placeholder="Email Address" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Age</label>
+                                            <input type="number" placeholder="Age" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Marital Status<span class="star">*</span></label>
+                                            <select name="account" class="form-control mb-3">
+                                                <option>Select Marital Status</option>
+                                                <option>Married</option>
+                                                <option>Unmarried</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Blood Group</label>
+                                            <select name="account" class="form-control mb-3">
+                                                <option>Select Blood Group</option>
+                                                <option>A+</option>
+                                                <option>B+</option>
+                                                <option>AB+</option>
+                                                <option>O+</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Whats App No.<span class="star">*</span></label>
+                                            <input type="number" placeholder="Whats App No." class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Other No.</label>
+                                            <input type="number" placeholder="Other No." class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Email ID<span class="star">*</span></label>
+                                            <input type="text" placeholder="Email ID" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Address<span class="star">*</span></label>
+                                            <input type="number" placeholder="Address" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Referred By Doctor</label>
+                                            <input type="text" placeholder="Referred By Doctor" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Doctor Address</label>
+                                            <input type="text" placeholder="Doctor Address" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="form-control-label">Mediclaim</label>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <div class="i-checks ">
+                                                    <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                                                    <label for="radioCustom2">Yes</label>
+                                                </div>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <div class="i-checks ">
+                                                    <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                                                    <label for="radioCustom2">No</label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Mediclaim Company Name</label>
+                                            <input type="text" placeholder="Mediclaim Company Name" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Case Paper Fees<span class="star">*</span></label>
+                                            <input type="Number" placeholder="Case Paper Fees" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Role</label>
+                                            <input type="text" placeholder="Role" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 text-right">
+                                        <input type="submit" value="Back" class="btn btn_1 btn-primary">
+                                        <input type="submit" value="Save" class="btn btn_2 btn-primary">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Page Footer-->
+    <footer class="main-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- <div class="col-sm-6">
+                  <p>Your company &copy; 2017-2020</p>
+                </div> -->
+                <div class="col-sm-12 footer-img text-right">
+                    <p><span class="small">Powered by</span> <img src="img/Powered By company logo.png" class="img-responsive"></p>
+                    <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

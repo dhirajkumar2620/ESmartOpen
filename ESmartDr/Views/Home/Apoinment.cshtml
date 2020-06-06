@@ -1,0 +1,388 @@
+﻿
+@{
+    ViewBag.Title = "Apoinment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <!-- Page Header-->
+    <header class="page-header">
+        <div class="container-fluid">
+            <h2 class="no-margin-bottom">Todays Appointment</h2>
+        </div>
+    </header>
+    <!-- Breadcrumb-->
+    <!-- <div class="breadcrumb-holder container-fluid">
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">Tables</li>
+        </ul>
+      </div> -->
+    <section>
+        <div class="container-fluid">
+            <div class="row reg-counter">
+                <div class="col col-12 col-md-6 col-xl-3">
+                    <div class="card animated fadeInUp delay-01s bg-light">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col col-5 text-center">
+                                    <i class="fa fa-medkit" aria-hidden="true"></i>
+                                </div>
+                                <div class="col col-7">
+                                    <h6 class="mt-0 mb-1">Todays <br />Appointment</h6>
+                                    <div class="count text-primary fs-20">213</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-12 col-md-6 col-xl-3">
+                    <div class="card animated fadeInUp delay-02s bg-light">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col col-5 text-center">
+                                    <i class="fa fa-wheelchair" aria-hidden="true"></i>
+                                </div>
+                                <div class="col col-7">
+                                    <h6 class="mt-0 mb-1">New <br /> patients</h6>
+                                    <div class="count text-primary fs-20">104</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-12 col-md-6 col-xl-3">
+                    <div class="card animated fadeInUp delay-03s bg-light">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col col-5 text-center">
+                                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                                </div>
+                                <div class="col col-7">
+                                    <h6 class="mt-0 mb-1">Operations Count</h6>
+                                    <div class="count text-primary fs-20">24</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-12 col-md-6 col-xl-3">
+                    <div class="card animated fadeInUp delay-04s bg-light">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col col-5 text-center">
+                                    <i class="fa fa-usd" aria-hidden="true"></i>
+                                </div>
+                                <div class="col col-7">
+                                    <h6 class="mt-0 mb-1">Hospital Earning</h6>
+                                    <div class="count text-primary fs-20">$5238</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="tables">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-close">
+                            <!-- <div class="dropdown">
+                                <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                              </div> -->
+                        </div>
+
+                        <div class="card-body">
+                            <div class="row grid-datepic">
+                                <div class="col-md-4">
+                                    <div class="grid-btn">
+                                        <input type="text" placeholder="Search..." class="form-control grid-search-box">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="grid-btn">
+                                        <input type="Date" placeholder="Email Address" class="form-control date-for-grid">
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="grid-btn pull-right">
+                                        <input type="button" value="Add New Patient" class="btn btn_2 btn-primary">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Select</th>
+                                            <th>ID No.</th>
+                                            <th>Patient Name</th>
+                                            <th>Gender</th>
+                                            <th>Age</th>
+                                            <th>Mobile No.</th>
+                                            <th>Symptoms</th>
+                                            <th>Dr. Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="i-checks ">
+                                                    <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                </div>
+                                            </td>
+                                            <td>AA077</td>
+                                            <td>Dhiraj</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Edit">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
+                                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="i-checks ">
+                                                    <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                </div>
+                                            </td>
+                                            <td>AA077</td>
+                                            <td>Dhiraj</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Edit">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
+                                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="i-checks ">
+                                                    <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                </div>
+                                            </td>
+                                            <td>AA077</td>
+                                            <td>Dhiraj</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Edit">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
+                                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="i-checks ">
+                                                    <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                </div>
+                                            </td>
+                                            <td>AA077</td>
+                                            <td>Dhiraj</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Edit">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
+                                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="i-checks ">
+                                                    <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                </div>
+                                            </td>
+                                            <td>AA077</td>
+                                            <td>Dhiraj</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Edit">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
+                                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ul class="pagination">
+                                        <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                                        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+        </div>
+    </section>
+    <!-- Page Footer-->
+    <footer class="main-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- <div class="col-sm-6">
+                    <p>Your company &copy; 2017-2020</p>
+                  </div> -->
+                <div class="col-sm-12 footer-img text-right">
+                    <p><span class="small">Powered by</span> <img src="img/Powered By company logo.png" class="img-responsive"></p>
+                    <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-header" style="border-bottom:none;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1>Do you want to get an Appointment?</h1>
+            </div>
+            <div class="modal-footer" style="border-top:none;">
+
+                <button type="button" class="btn btn_2 btn-primary">Yes</button>
+                <button type="button" class="btn btn_1 btn-primary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="whatsappModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-header" style="border-bottom:none;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Enter your text here...</p>
+                        <textarea placeholder="Enter your text here ...">            </textarea>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer" style="border-top:none;">
+
+                <button type="button" class="btn btn_2 btn-primary">Send</button>
+                <button type="button" class="btn btn_1 btn-primary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="forAppontment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-header" style="border-bottom:none;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1>Do you want to get an Appointment?</h1>
+            </div>
+            <div class="modal-footer" style="border-top:none;">
+
+                <button type="button" class="btn btn_2 btn-primary">Yes</button>
+                <button type="button" class="btn btn_1 btn-primary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,234 @@
+﻿
+@{
+    ViewBag.Title = "CampaignMaster";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <!-- Page Header-->
+    <header class="page-header">
+        <div class="container-fluid">
+            <h2 class="no-margin-bottom">Campaign Master</h2>
+        </div>
+    </header>
+    <section class="tables">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="grid-btn">
+                                        <input type="text" placeholder="Search..." class="form-control grid-search-box">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table compaign-grid">
+                                    <thead>
+                                        <tr>
+                                            <th>Campaign Name</th>
+                                            <th>Created On</th>
+                                            <th>Campaign Details</th>
+                                            <!-- <th>Action</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Dhiraj</td>
+                                            <td>22/02/2020</td>
+                                            <td>English</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ul class="pagination">
+                                        <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                                        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <section class="forms">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <!-- Basic Form-->
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <p>Need to fill mandatory fields.</p>
+                                            <form>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">Name<span class="star">*</span></label>
+                                                            <input type="text" placeholder="Name" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">Select SMS Language</label>
+                                                            <select name="account" class="form-control mb-3">
+                                                                <option>Select Language</option>
+                                                                <option>English</option>
+                                                                <option>Hindi</option>
+                                                                <option>Marathi</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">Date</label>
+                                                            <input type="Date" placeholder="Registration No." class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">SMS Text Here<span class="star">*</span></label>
+                                                            <textarea class="form-control"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+
+                                                    <div class="col-md-12">
+                                                        <div class="card-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table compaign-grid">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>
+                                                                                <div class="i-checks">
+                                                                                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template">
+                                                                                </div>
+                                                                            </th>
+                                                                            <th>Select Group</th>
+                                                                            <th>Patients</th>
+                                                                            <!-- <th>Action</th> -->
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div class="i-checks">
+                                                                                    <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template">
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>All</td>
+                                                                            <td>1</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div class="i-checks">
+                                                                                    <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template">
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>All</td>
+                                                                            <td>1</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div class="i-checks">
+                                                                                    <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template">
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>All</td>
+                                                                            <td>1</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div class="i-checks">
+                                                                                    <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template">
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>All</td>
+                                                                            <td>1</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <ul class="pagination">
+                                                                        <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                                                                        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                                        <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row campaign-shadow">
+                                                    <div class="col-md-12">
+                                                        <div class="card reg-counter animated fadeInUp delay-01s bg-light">
+                                                            <div class="card-body patient-det">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-md-3 text-center">
+                                                                        <h6 class="mt-0 mb-1">Total Recipients</h6>
+                                                                        <div class="count text-primary fs-20">12</div>
+                                                                    </div>
+                                                                    <div class="col-md-3 text-center">
+                                                                        <h6 class="mt-0 mb-1">Credits Required</h6>
+                                                                        <div class="count text-primary fs-20">25</div>
+                                                                    </div>
+                                                                    <div class="col-md-3 text-center">
+                                                                        <h6 class="mt-0 mb-1">Credits Available</h6>
+                                                                        <div class="count text-primary fs-20">50</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-12 text-right">
+                                                        <input type="submit" value="Send" class="btn btn_1 btn-primary">
+                                                        <input type="submit" value="Reset" class="btn btn_2 btn-primary">
+                                                        <input type="submit" value="Close" class="btn btn_1 btn-primary">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Page Footer-->
+    <footer class="main-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- <div class="col-sm-6">
+                    <p>Your company &copy; 2017-2020</p>
+                  </div> -->
+                <div class="col-sm-12 footer-img text-right">
+                    <p><span class="small">Powered by</span> <img src="img/Powered By company logo.png" class="img-responsive"></p>
+                    <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+
+
