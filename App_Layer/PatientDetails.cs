@@ -8,6 +8,7 @@ namespace App_Layer
 {
     public class PatientDetails
     {
+        // by shital
         public int Id { get; set; }
         public string PatientName { get; set; }
         public string CasePapaerNo { get; set; }
