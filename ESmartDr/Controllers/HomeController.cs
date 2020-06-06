@@ -8,8 +8,7 @@ namespace EsmartDr.Controllers
 {
     public class HomeController : Controller
     {
-        //Check in by shital
-        public ActionResult Index()  
+        public ActionResult Index()
         {
             return View("LogIn");
         }
