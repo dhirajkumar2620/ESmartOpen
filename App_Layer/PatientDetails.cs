@@ -24,8 +24,9 @@ namespace App_Layer
         public string MediClmCompany { get; set; }
         public int CasePaperFees { get; set; }
         public string Role { get; set; }
-        public string Age { get; set; }
-        public string MaritalStatus { get; set; }
+        public string Age { get; set; }           //New
+        public string DoctorAddress { get; set; } //New
+        public string MaritalStatus { get; set; } //New
         public string HospitalId { get; set; }
         public int DoctorReceptionId { get; set; }
         public string IsActive { get; set; }

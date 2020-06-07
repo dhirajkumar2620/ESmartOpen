@@ -14,7 +14,7 @@
     </header>
 
     <section class="forms">
-        @using (Html.BeginForm("ManageCrud", "SuitCRUD", FormMethod.Post, new { @id = "frmCrude" }))
+        @using (Html.BeginForm("ManagePatientDetails", "PatientDetails", FormMethod.Post, new { @id = "frmPatientDetails" }))
         {
             <div class="container-fluid">
                 <div class="row">
@@ -29,8 +29,6 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="form-control-label">Name<span class="star">*</span></label>
-                                                @*<input type="text" placeholder="Name" class="form-control">*@
-
                                                 @Html.TextBoxFor(m => m.PatientName, new { @id = "txtName", @class = "form-control", required = "required", @placeholder = "Patient Name" })
                                                 @Html.ValidationMessageFor(model => model.PatientName, "", new { @class = "text-danger" })
                                             </div>
@@ -38,18 +36,22 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="form-control-label">Gender<span class="star">*</span></label>
-                                                <select name="account" class="form-control mb-3">
-                                                    <option>Select Gender</option>
-                                                    <option>Male</option>
-                                                    <option>Female</option>
-                                                    <option>Other</option>
-                                                </select>
+                                                @Html.DropDownListFor(m=>m.Gender, new List<SelectListItem>
+                                                     {
+                                                         new SelectListItem{ Text="Select Gender", Value = "0" },
+                                                         new SelectListItem{ Text="Male", Value = "Male" },
+                                                         new SelectListItem{ Text="Female", Value = "Female" },
+                                                          new SelectListItem{ Text="Other", Value = "Other" },
+                                                      },new { @class = "form-control mb-3", @id = "ddlGender" })
+      
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="form-control-label">Date of Birth<span class="star">*</span></label>
-                                                <input type="Date" placeholder="Email Address" class="form-control">
+                                                @Html.TextBoxFor(m => m.DOB, new { @id = "txtDOB", @type= "Date", @class = "form-control", required = "required", @placeholder = "Date of Birth" })
+                                                @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                                                @*<input type="Date" placeholder="Email Address" class="form-control">*@
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -93,13 +95,17 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="form-control-label">Whats App No.<span class="star">*</span></label>
-                                                <input type="number" placeholder="Whats App No." class="form-control">
+                                                @Html.TextBoxFor(m => m.WhatsAppNo, new { @id = "txtWhatsAppNo", @class = "form-control", required = "required", @placeholder = "Whats AppNo." })
+                                                @Html.ValidationMessageFor(model => model.WhatsAppNo, "", new { @class = "text-danger" })
+                                                
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="form-control-label">Other No.</label>
-                                                <input type="number" placeholder="Other No." class="form-control">
+                                                @Html.TextBoxFor(m => m.OtherNo, new { @id = "txtOtherNo", @type= "number", @class = "form-control", required = "required", @placeholder = "Other Number" })
+                                                @Html.ValidationMessageFor(model => model.OtherNo, "", new { @class = "text-danger" })
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -107,25 +113,31 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="form-control-label">Email ID<span class="star">*</span></label>
-                                                <input type="text" placeholder="Email ID" class="form-control">
+                                                
+                                                @Html.TextBoxFor(m => m.EmailId, new { @id = "txtEmailId", @class = "form-control", required = "required", @placeholder = "Email ID" })
+                                                @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="form-control-label">Address<span class="star">*</span></label>
-                                                <input type="number" placeholder="Address" class="form-control">
+                                                
+                                                @Html.TextBoxFor(m => m.Address, new { @id = "txtAddress", @class = "form-control", required = "required", @placeholder = "Address" })
+                                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="form-control-label">Referred By Doctor</label>
-                                                <input type="text" placeholder="Referred By Doctor" class="form-control">
+                                                @Html.TextBoxFor(m => m.ReferedByDoctor, new { @id = "txtReferedByDoctor", @class = "form-control", required = "required", @placeholder = "Refered By Doctor" })
+                                                @Html.ValidationMessageFor(model => model.ReferedByDoctor, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="form-control-label">Doctor Address</label>
-                                                <input type="text" placeholder="Doctor Address" class="form-control">
+                                                @Html.TextBoxFor(m => m.DoctorAddress, new { @id = "txtDoctorAddress", @class = "form-control", required = "required", @placeholder = "Doctor Address" })
+                                                @Html.ValidationMessageFor(model => model.DoctorAddress, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                     </div>
@@ -136,6 +148,7 @@
                                                 <li class="list-inline-item">
                                                     <div class="i-checks ">
                                                         <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                                                        
                                                         <label for="radioCustom2">Yes</label>
                                                     </div>
                                                 </li>
@@ -150,25 +163,30 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="form-control-label">Mediclaim Company Name</label>
-                                                <input type="text" placeholder="Mediclaim Company Name" class="form-control">
+                                                @Html.TextBoxFor(m => m.MediClmCompany, new { @id = "txtMediclaimCompanyName", @class = "form-control", required = "required", @placeholder = "Mediclaim Company Name" })
+                                                @Html.ValidationMessageFor(model => model.MediClmCompany, "", new { @class = "text-danger" })
+                                                
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="form-control-label">Case Paper Fees<span class="star">*</span></label>
-                                                <input type="Number" placeholder="Case Paper Fees" class="form-control">
+                                                @Html.TextBoxFor(m => m.CasePaperFees, new { @id = "txtCasePaperFees", @class = "form-control", required = "required", @placeholder = "Case Paper Fees" })
+                                                @Html.ValidationMessageFor(model => model.CasePaperFees, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="form-control-label">Role</label>
-                                                <input type="text" placeholder="Role" class="form-control">
+                                                @Html.TextBoxFor(m => m.Role, new { @id = "txtRole", @class = "form-control", required = "required", @placeholder = "Role" })
+                                                @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+                                                
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 text-right">
-                                            <input type="submit" value="Back" class="btn btn_1 btn-primary">
+                                            <input  value="Back" class="btn btn_1 btn-primary">
                                             <input type="submit" value="Save" class="btn btn_2 btn-primary">
                                         </div>
                                     </div>
