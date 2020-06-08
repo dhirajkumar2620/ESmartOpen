@@ -14,13 +14,13 @@ https://bootstrapious.com/p/admin-template
 *     GENERAL STYLES
 * ==========================================================
 */
-@font-face {
+/*@font-face {
     font-family: 'Rajdhani-Regular';
     src: url('../fonts/Rajdhani-Regular.ttf') format('truetype');
 }
 body{
     font-family: 'Rajdhani-Regular'!important;
-}
+}*/
 body {
   overflow-x: hidden;
 }
@@ -2826,7 +2826,7 @@ STYLE SWITCHER FOR DEMO
  * 3. TYPE  
  */
 body {
-  font-family: "Poppins", sans-serif;
+  /*font-family: "Poppins", sans-serif!important;*/
   font-size: 0.9em;
   font-weight: 400;
   line-height: 1.5;
@@ -3559,14 +3559,16 @@ select{
 .table tbody{
   background: #f9f9f9;
 }
+.habit-grid{
+   width: 50%;
+   margin: 0 auto;
+}
+
 .table td{
   border-top: 1px solid #ffffff!important;
-  padding-top: 17px;
-  padding-bottom: 0px;
+  vertical-align:middle!important;
 }
-.table td:last-child {
-  padding-top: 19px;
-}
+
 .table th{
   border-top: 1px solid #ffffff!important;
   padding-top: 15px;
@@ -3687,7 +3689,7 @@ cursor: pointer;
 }
 .reg-counter h6{
   color: #25a1a1;
-  font-size: 1.5em;
+  font-size: .9em;
 }
 .reg-counter i{
   font-size: 3em;

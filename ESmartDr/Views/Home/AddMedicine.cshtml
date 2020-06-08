@@ -39,35 +39,41 @@
                             <p>Need to fill mandatory fields.</p>
                             <form>
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="form-control-label">Precription Name<span class="star">*</span></label>
                                             <input type="text" placeholder="Name" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="form-control-label">Purpose<span class="star">*</span></label>
+                                            <label class="form-control-label">Type<span class="star">*</span></label>
                                             <input type="text" placeholder="Name" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="form-control-label">Is Misspelled?<span class="star">*</span></label>
-                                            <input type="text" placeholder="Name" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="form-control-label">Inventory Quantity<span class="star">*</span></label>
+                                            <label class="form-control-label">Generic Name<span class="star">*</span></label>
                                             <input type="text" placeholder="Name" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="form-control-label">Reorder Level<span class="star">*</span></label>
+                                            <label class="form-control-label">Company Name<span class="star">*</span></label>
+                                            <input type="text" placeholder="Name" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Range<span class="star">*</span></label>
+                                            <input type="text" placeholder="Name" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Other</label>
                                             <input type="text" placeholder="Name" class="form-control">
                                         </div>
                                     </div>
@@ -112,10 +118,11 @@
                                         <tr>
                                            
                                             <th>Precription Name</th>
-                                            <th>Purpose</th>
-                                            <th>Is Misspelled?</th>
-                                            <th>Inventory Quantity</th>
-                                            <th>Reorder Level</th>
+                                            <th>Type</th>
+                                            <th>Generic Name</th>
+                                            <th>Company Name</th>
+                                            <th>Range</th>
+                                            <th>Other</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -133,6 +140,7 @@
                                             <td >No</td>
                                             <td >12</td>
                                             <td >Low</td>
+                                            <td>Other</td>
                                             <td>
                                                 <ul class="list-inline">
                                                     <li class="list-inline-item" title="Edit">
@@ -158,6 +166,7 @@
                                             <td >No</td>
                                             <td >12</td>
                                             <td >Low</td>
+                                            <td>Other</td>
                                             <td>
                                                 <ul class="list-inline">
                                                     <li class="list-inline-item" title="Edit">
@@ -183,6 +192,7 @@
                                             <td >No</td>
                                             <td >12</td>
                                             <td >Low</td>
+                                            <td>Other</td>
                                             <td>
                                                 <ul class="list-inline">
                                                     <li class="list-inline-item" title="Edit">
@@ -208,6 +218,7 @@
                                             <td >No</td>
                                             <td >12</td>
                                             <td >Low</td>
+                                            <td>Other</td>
                                             <td>
                                                 <ul class="list-inline">
                                                     <li class="list-inline-item" title="Edit">
@@ -233,6 +244,7 @@
                                             <td >No</td>
                                             <td >12</td>
                                             <td >Low</td>
+                                            <td>Other</td>
                                             <td>
                                                 <ul class="list-inline">
                                                     <li class="list-inline-item" title="Edit">
@@ -309,8 +321,8 @@
 <script>
     $('.b33').click(function () {
         swal({
-            title: "Good job!",
-            text: "You clicked the button!",
+            title: "New Medicine added successfully.",
+            //text: "You clicked the button!",
             icon: "success",
             button: "OK",
         });

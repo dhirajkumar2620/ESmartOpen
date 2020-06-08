@@ -105,8 +105,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="grid-btn pull-right">
-                                        <a href="~/PatientDetails/PatientDetails"> <input type="button" value="Add New Patient" class="btn btn_2 btn-primary"></a>
-</div>
+                                        <a href="~/PatientDetails/PatientDetails"> <input type="button" value="Add New Patient" class="btn btn_2 btn-primary"></a></div>
                                 </div>
                             </div>
                             <div class="table-responsive">
@@ -140,13 +139,13 @@
                                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                                     </li>
 
-                                                    <li class="list-inline-item" title="History">
-                                                        <i class="fa fa-history" aria-hidden="true"></i>
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
                                                     </li>
                                                     <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal"  title="Whatsapp">
                                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                                     </li>
-                                                    <li class="list-inline-item" title="Message">
+                                                    <li class="list-inline-item msg" title="Message">
                                                         <i class="fa fa-envelope" aria-hidden="true"></i>
                                                     </li>
                                                 </ul>
@@ -168,12 +167,12 @@
                                                     </li>
 
                                                     <li class="list-inline-item" title="History">
-                                                        <i class="fa fa-history" aria-hidden="true"></i>
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
                                                     </li>
                                                     <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal"  title="Whatsapp">
                                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                                     </li>
-                                                    <li class="list-inline-item" title="Message">
+                                                    <li class="list-inline-item msg" title="Message">
                                                         <i class="fa fa-envelope" aria-hidden="true"></i>
                                                     </li>
                                                 </ul>
@@ -195,12 +194,12 @@
                                                     </li>
 
                                                     <li class="list-inline-item" title="History">
-                                                        <i class="fa fa-history" aria-hidden="true"></i>
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
                                                     </li>
                                                     <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal"  title="Whatsapp">
                                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                                     </li>
-                                                    <li class="list-inline-item" title="Message">
+                                                    <li class="list-inline-item msg" title="Message">
                                                         <i class="fa fa-envelope" aria-hidden="true"></i>
                                                     </li>
                                                 </ul>
@@ -222,12 +221,12 @@
                                                     </li>
 
                                                     <li class="list-inline-item" title="History">
-                                                        <i class="fa fa-history" aria-hidden="true"></i>
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
                                                     </li>
                                                     <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal"  title="Whatsapp">
                                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                                     </li>
-                                                    <li class="list-inline-item" title="Message">
+                                                    <li class="list-inline-item msg" title="Message">
                                                         <i class="fa fa-envelope" aria-hidden="true"></i>
                                                     </li>
                                                 </ul>
@@ -249,12 +248,12 @@
                                                     </li>
 
                                                     <li class="list-inline-item" title="History">
-                                                        <i class="fa fa-history" aria-hidden="true"></i>
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
                                                     </li>
                                                     <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
                                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                                     </li>
-                                                    <li class="list-inline-item" title="Message">
+                                                    <li class="list-inline-item msg" title="Message">
                                                         <i class="fa fa-envelope" aria-hidden="true"></i>
                                                     </li>
                                                 </ul>
@@ -277,6 +276,7 @@
                             <div class="row">
                                 <div class="col-md-12 text-right">
                                     <a href="~/Home/Apoinment"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
+                                    <a href="#"><input type="button" value="Export to Excel" class="btn btn_2 btn-primary"></a>
                                 </div>
                             </div>
                         </div>
@@ -347,7 +347,7 @@
         </div>
     </div>
 </div>*@
-<div class="modal fade" id="forAppontment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="mypatient" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content text-center">
             <div class="modal-header" style="border-bottom:none;">
@@ -356,12 +356,56 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h1>Do you want to get an Appointment?</h1>
+                <h1>Patients habit</h1>
+                <table class="table habit-grid">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="i-checks">
+                                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template">
+                                </div>
+                            </td>
+                            <td class="text-left">Smoking</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="i-checks">
+                                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template">
+                                </div>
+                            </td>
+                            <td class="text-left">Drinking</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="i-checks">
+                                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template">
+                                </div>
+                            </td>
+                            <td class="text-left">Blood Pressure</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="i-checks">
+                                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template">
+                                </div>
+                            </td>
+                            <td class="text-left">Sugar</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="i-checks">
+                                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template">
+                                </div>
+                            </td>
+                            <td class="text-left">Blindness</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="modal-footer" style="border-top:none;">
 
-                <button type="button" class="btn btn_2 btn-primary">Yes</button>
-                <button type="button" class="btn btn_1 btn-primary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn_2 btn-primary">Save</button>
+                <button type="button" class="btn btn_1 btn-primary" data-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>
@@ -376,6 +420,45 @@
         })
 .then((value) => {
     swal(`You typed: ${value}`);
+});
+    });
+
+    $('.msg').click(function () {
+        swal("Write something here:", {
+            content: "input",
+        })
+.then((value) => {
+    swal(`You typed: ${value}`);
+});
+    });
+
+
+
+
+    $('.fa.fa-calendar').click(function () {
+        swal({
+            title: "Do you want to get an Appointment?",
+            //text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            //dangerMode: true,
+            buttons: true,
+            confirmButtonText: 'YES',
+            cancelButtonText: "NO",
+
+        })
+.then((willDelete) => {
+    if (willDelete) {
+        swal("Your Appointment Is Now Confirmed.", {
+            icon: "success",
+        });
+    }
+    else {
+
+        swal("You Are Successfully Canceled An Appointment", {
+            icon: "success",
+
+        });
+    }
 });
     });
     

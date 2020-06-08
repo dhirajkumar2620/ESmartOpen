@@ -20,7 +20,7 @@
     <section>
         <div class="container-fluid">
             <div class="row reg-counter">
-                <div class="col col-12 col-md-6 col-xl-3">
+                <div class="col col-12 col-md-3 col-xl-3">
                     <div class="card animated fadeInUp delay-01s bg-light">
                         <div class="card-body">
                             <div class="row align-items-center">
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col col-12 col-md-6 col-xl-3">
+                <div class="col col-12 col-md-3 col-xl-3">
                     <div class="card animated fadeInUp delay-02s bg-light">
                         <div class="card-body">
                             <div class="row align-items-center">
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col col-12 col-md-6 col-xl-3">
+                <div class="col col-12 col-md-3 col-xl-3">
                     <div class="card animated fadeInUp delay-03s bg-light">
                         <div class="card-body">
                             <div class="row align-items-center">
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col col-12 col-md-6 col-xl-3">
+                <div class="col col-12 col-md-3 col-xl-3">
                     <div class="card animated fadeInUp delay-04s bg-light">
                         <div class="card-body">
                             <div class="row align-items-center">
@@ -148,12 +148,11 @@
                                             </td>
                                             <td>
                                                 <ul class="list-inline">
-                                                    @*<li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>*@
-
                                                     <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
                                                         <i class="fa fa-check" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item" title="History">
+                                                        <a href="~/Home/MyOPD"><i class="fa fa-history" aria-hidden="true"></i></a>
                                                     </li>
                                                     <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
                                                         <i class="fa fa-times" aria-hidden="true"></i>
@@ -188,38 +187,8 @@
                                                     <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
                                                         <i class="fa fa-check" aria-hidden="true"></i>
                                                     </li>
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                    
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>AA077</td>
-                                            <td>Dhiraj</td>
-                                            <td>Male</td>
-                                            <td>29</td>
-                                            <td>8888888888</td>
-                                            <td>Cough And Fever</td>
-                                            <td>Dr. Sujit</td>
-                                            <td>
-                                                <div class="form-group">
-                                                    <select name="account" class="form-control mb-3">
-                                                        <option>In Queue</option>
-                                                        <option>With Doctor</option>
-                                                        <option>Visited</option>
-                                                    </select>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    @*<li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>*@
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
-                                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                                    <li class="list-inline-item" title="History">
+                                                        <a href="~/Home/MyOPD"><i class="fa fa-history" aria-hidden="true"></i></a>
                                                     </li>
                                                     <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
                                                         <i class="fa fa-times" aria-hidden="true"></i>
@@ -253,6 +222,45 @@
 
                                                     <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
                                                         <i class="fa fa-check" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item" title="History">
+                                                        <a href="~/Home/MyOPD"><i class="fa fa-history" aria-hidden="true"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                                    </li>
+                                                    
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>AA077</td>
+                                            <td>Dhiraj</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <select name="account" class="form-control mb-3">
+                                                        <option>In Queue</option>
+                                                        <option>With Doctor</option>
+                                                        <option>Visited</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    @*<li class="list-inline-item" title="Edit">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                    </li>*@
+
+                                                    <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
+                                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item" title="History">
+                                                        <a href="~/Home/MyOPD"><i class="fa fa-history" aria-hidden="true"></i></a>
                                                     </li>
                                                     <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
                                                         <i class="fa fa-times" aria-hidden="true"></i>
@@ -286,6 +294,9 @@
 
                                                     <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
                                                         <i class="fa fa-check" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item" title="History">
+                                                        <a href="~/Home/MyOPD"><i class="fa fa-history" aria-hidden="true"></i></a>
                                                     </li>
                                                     <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
                                                         <i class="fa fa-times" aria-hidden="true"></i>
@@ -398,32 +409,7 @@
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-    $('.fa.fa-check').click(function () {
-        swal({
-            title: "Do you want to get an Appointment?",
-            //text: "Once deleted, you will not be able to recover this imaginary file!",
-            icon: "warning",
-            //dangerMode: true,
-            buttons: true,
-            confirmButtonText: 'YES',
-            cancelButtonText: "NO",
-            
-        })
-.then((willDelete) => {
-    if (willDelete) {
-        swal("Your Appointment Is Now Confirmed.", {
-            icon: "success",
-        });
-    }
-    else {
-        
-        swal("You Are Successfully Canceled An Appointment", {
-            icon: "success",
-
-        });
-    }
-});
-    });
+    
 
 
     $('.fa.fa-times').click(function () {
