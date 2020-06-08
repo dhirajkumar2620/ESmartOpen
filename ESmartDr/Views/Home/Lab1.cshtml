@@ -34,7 +34,6 @@
                   <h3 class="h4">Basic Form</h3>
                 </div> -->
                         <div class="card-body">
-                            <p>Need to fill mandatory fields.</p>
                             <form>
                                 <div class="row">
                                     <div class="col-md-3">
@@ -59,7 +58,7 @@
             <tr>
                 <td style="padding: 0; background-color: #FFFFFF;">
 
-                    <div style="min-width:200px; font-family:'Arial' , sans-serif; font-size:16px; background-color:#FFFFFF; line-height:1.4; color:#4A4A4A; border:1px solid #DFDFDF; border-radius:10px; overflow:hidden;">
+                    <div style="min-width:200px; font-family:'Arial' , sans-serif; font-size:16px; background-color:#FFFFFF; line-height:1.4; color:#4A4A4A; border:1px solid #DFDFDF; overflow:hidden;">
 
                         <div style="background-color: #f5a433; height: 60px;">
                         </div>
@@ -71,142 +70,51 @@
                         <div class="row">
                             <!-- Basic Form-->
                             <div class="col-lg-12">
-                                <div class="card" style="margin-bottom:0;">
+                                <div class="card " style="margin-bottom:0;">
                                     <div class="card-body">
                                         <p>Need to fill mandatory fields.</p>
+                                        <form class="form-inline lab_1-data" action="/action_page.php">
+                                            <div class="form-group">
+                                                <label for="patient" class="form-control-label">Name of Patient</label>
+                                                <input type="text"placeholder="Name of Patient"class="form-control text-letter">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Age" class="form-control-label">Age</label>
+                                                <input type="number" class="form-control" id="pwd">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Age" class="form-control-label">Gender</label>
+                                                <select name="account" class="form-control mb-3 text-letter">
+                                                    <option>Select Gender</option>
+                                                    <option>Male</option>
+                                                    <option>Female</option>
+                                                    <option>Other</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                        <br />
+                                        <form class="form-inline lab_1-data" action="/action_page.php">
+                                            <div class="form-group">
+                                                <label for="Address" class="form-control-label">Address</label>
+                                                <input type="text" placeholder="Address" class="form-control text-letter">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Date" class="form-control-label">Date</label>
+                                                <input type="Date" class="form-control text-letter">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Age" class="form-control-label">Ref. by Dr.</label>
+                                                <input type="text" placeholder="Ref. by Dr." class="form-control text-letter">
+                                            </div>
+                                        </form>
+                                        <br />
+                                        <form class="form-inline lab_1-data" action="/action_page.php">
+                                            <div class="form-group">
+                                                <label for="Address" class="form-control-label">Mobile No.</label>
+                                                <input type="text" placeholder="Mobile No." class="form-control text-letter">
+                                            </div>
+                                        </form>
                                         <form>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <table style="width: 100%;">
-                                                        <tr>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item">
-                                                                        <label class="form-control-label">
-                                                                            Name
-                                                                            of
-                                                                            Patient<span class="star">*</span>
-                                                                        </label>
-                                                                    </li>
-                                                                    <li class="list-inline-item">
-                                                                        <input type="text"
-                                                                               placeholder="Name of Patient"
-                                                                               class="form-control text-letter">
-                                                                    </li>
-                                                                </ul>
-
-                                                            </td>
-
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item">
-                                                                        <label class="form-control-label">
-                                                                            Age<span class="star">*</span>
-                                                                        </label>
-                                                                    </li>
-                                                                    <li class="list-inline-item">
-                                                                        <input type="text" placeholder="Age"
-                                                                               class="form-control text-letter">
-                                                                    </li>
-                                                                </ul>
-
-                                                            </td>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item">
-                                                                        <label class="form-control-label">
-                                                                            Gender<span class="star">*</span>
-                                                                        </label>
-                                                                    </li>
-                                                                    <li class="list-inline-item">
-                                                                        <select name="account"
-                                                                                class="form-control mb-3 text-letter">
-                                                                            <option>Select Gender</option>
-                                                                            <option>Male</option>
-                                                                            <option>Female</option>
-                                                                            <option>Other</option>
-                                                                        </select>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <table style="width: 100%;">
-                                                        <tr>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item">
-                                                                        <label class="form-control-label">
-                                                                            Address<span class="star">*</span>
-                                                                        </label>
-                                                                    </li>
-                                                                    <li class="list-inline-item">
-                                                                        <input type="text" placeholder="Address"
-                                                                               class="form-control text-letter">
-                                                                    </li>
-                                                                </ul>
-
-                                                            </td>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item">
-                                                                        <label class="form-control-label">
-                                                                            Date<span class="star">*</span>
-                                                                        </label>
-                                                                    </li>
-                                                                    <li class="list-inline-item">
-                                                                        <input type="Date"
-                                                                               class="form-control text-letter">
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item">
-                                                                        <label class="form-control-label">
-                                                                            Ref.
-                                                                            by
-                                                                            Dr.<span class="star">*</span>
-                                                                        </label>
-                                                                    </li>
-                                                                    <li class="list-inline-item">
-                                                                        <input type="text"
-                                                                               placeholder="Ref. by Dr."
-                                                                               class="form-control text-letter">
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <table style="width: 100%;">
-                                                        <tr>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item">
-                                                                        <label class="form-control-label">
-                                                                            Mobile
-                                                                            No.<span class="star">*</span>
-                                                                        </label>
-                                                                    </li>
-                                                                    <li class="list-inline-item">
-                                                                        <input type="text"
-                                                                               placeholder="Mobile No."
-                                                                               class="form-control text-letter">
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                            </div>
                                             <hr>
                                             <div class="row letter-li">
                                                 <div class="col-md-6">
@@ -519,7 +427,7 @@
                                                 </div>
                                             </div>
                                             <hr>
-                                            <div class="row">
+                                            <div class="row letter-li">
                                                 <div class="col-md-12">
                                                     <table style="width: 100%;">
                                                         <tr>
@@ -535,9 +443,9 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12 text-right">
-                                                    <input type="submit" value="Save" class="btn btn_2 btn-primary">
-                                                    <input type="submit" value="Print" class="btn btn_1 btn-primary">
-                                                    <input type="submit" value="Share on Whatsapp" class="btn whatsapp-btn btn_2 btn-primary">
+                                                    <input type="button" value="Save" class="btn btn_2 btn-primary b22">
+                                                    <input type="button" value="Print"  onclick="window.print()" class="btn btn_1 btn-primary">
+                                                    <input type="button" value="Share on Whatsapp" class="btn whatsapp-btn btn_2 btn-primary">
                                                 </div>
                                             </div>
                                         </form>
@@ -565,5 +473,19 @@
         </div>
     </footer>
 </div>
+
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $('.b22').click(function () {
+        swal({
+            title: "Good job!",
+            text: "You clicked the button!",
+            icon: "success",
+            button: "OK",
+        });
+    });
+
+</script>
 
 

@@ -145,7 +145,7 @@
                                                     <li class="list-inline-item" title="Edit">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                                     </li>
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal"  title="Whatsapp">
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal"  title="Whatsapp">
                                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                                     </li>
                                                     <li class="list-inline-item" title="Message">
@@ -173,7 +173,7 @@
                                                     <li class="list-inline-item" title="Edit">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                                     </li>
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal"  title="Whatsapp">
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal"  title="Whatsapp">
                                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                                     </li>
                                                     <li class="list-inline-item" title="Message">
@@ -201,7 +201,7 @@
                                                     <li class="list-inline-item" title="Edit">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                                     </li>
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal"  title="Whatsapp">
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal"  title="Whatsapp">
                                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                                     </li>
                                                     <li class="list-inline-item" title="Message">
@@ -229,7 +229,7 @@
                                                     <li class="list-inline-item" title="Edit">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                                     </li>
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal"  title="Whatsapp">
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal"  title="Whatsapp">
                                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                                     </li>
                                                     <li class="list-inline-item" title="Message">
@@ -257,7 +257,7 @@
                                                     <li class="list-inline-item" title="Edit">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                                     </li>
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal"  title="Whatsapp">
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal"  title="Whatsapp">
                                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                                     </li>
                                                     <li class="list-inline-item" title="Message">
@@ -323,7 +323,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="whatsappModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+@*<div class="modal fade" id="whatsappModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content text-center">
             <div class="modal-header" style="border-bottom:none;">
@@ -347,7 +347,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
 <div class="modal fade" id="forAppontment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content text-center">
@@ -367,5 +367,20 @@
         </div>
     </div>
 </div>
+
+
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $('.whtap').click(function () {
+        swal("Write something here:", {
+            content: "input",
+        })
+.then((value) => {
+    swal(`You typed: ${value}`);
+});
+    });
+
+</script>
 
 

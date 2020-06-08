@@ -8,7 +8,7 @@
     <!-- Page Header-->
     <header class="page-header">
         <div class="container-fluid">
-            <h2 class="no-margin-bottom">Registration</h2>
+            <h2 class="no-margin-bottom">CREATE ADMIN</h2>
         </div>
     </header>
    
@@ -44,13 +44,13 @@
                                             <label class="form-control-label">
                                                 Degree<span class="star">*</span>
                                             </label>
-                                            <input type="number" placeholder="Degree" class="form-control">
+                                            <input type="text" placeholder="Degree" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="form-control-label">Registration No.<span class="star">*</span></label>
-                                            <input type="number" placeholder="Registration No." class="form-control">
+                                            <input type="text" placeholder="Registration No." class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -151,11 +151,25 @@
                                                    class="form-control">
                                         </div>
                                     </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">
+                                                Roll<span class="star">*</span>
+                                            </label>
+                                            <select name="account" class="form-control mb-3">
+                                                <option>Select Roll</option>
+                                                <option>Admin OPD</option>
+                                                <option>Admin Dignosis</option>
+                                                <option>Admin Laboratory</option>
+                                                <option>Admin Dental</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 text-right">
-                                        <input type="submit" value="Back" class="btn btn_1 btn-primary">
-                                        <input type="submit" value="Save" class="btn btn_2 btn-primary">
+                                        <a href="~/Home/Apoinment"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
+                                        <input type="button" value="Save" class="btn btn_2 btn-primary b22">
                                     </div>
                                 </div>
                             </form>
@@ -168,4 +182,22 @@
     <!-- Page Footer-->
     
 </div>
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $('.b22').click(function () {
+        swal({
+            title: "Your Admin Created Successfully.",
+            //text: "You clicked the button!",
+            icon: "success",
+            button: "OK",
+        });
+    });
+
+</script>
+
+
+
+
+
 

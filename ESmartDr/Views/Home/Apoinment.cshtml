@@ -7,7 +7,7 @@
     <!-- Page Header-->
     <header class="page-header">
         <div class="container-fluid">
-            <h2 class="no-margin-bottom">Todays Appointment</h2>
+            <h2 class="no-margin-bottom">QUEUE LIST</h2>
         </div>
     </header>
     <!-- Breadcrumb-->
@@ -58,7 +58,7 @@
                                     <i class="fa fa-heartbeat" aria-hidden="true"></i>
                                 </div>
                                 <div class="col col-7">
-                                    <h6 class="mt-0 mb-1">Operations Count</h6>
+                                    <h6 class="mt-0 mb-1">Operations<br /> Count</h6>
                                     <div class="count text-primary fs-20">24</div>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                                     <i class="fa fa-usd" aria-hidden="true"></i>
                                 </div>
                                 <div class="col col-7">
-                                    <h6 class="mt-0 mb-1">Hospital Earning</h6>
+                                    <h6 class="mt-0 mb-1">Hospital<br /> Earning</h6>
                                     <div class="count text-primary fs-20">$5238</div>
                                 </div>
                             </div>
@@ -117,7 +117,6 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Select</th>
                                             <th>ID No.</th>
                                             <th>Patient Name</th>
                                             <th>Gender</th>
@@ -125,16 +124,12 @@
                                             <th>Mobile No.</th>
                                             <th>Symptoms</th>
                                             <th>Dr. Name</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>
-                                                <div class="i-checks ">
-                                                    <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                </div>
-                                            </td>
                                             <td>AA077</td>
                                             <td>Dhiraj</td>
                                             <td>Male</td>
@@ -143,10 +138,19 @@
                                             <td>Cough And Fever</td>
                                             <td>Dr. Sujit</td>
                                             <td>
+                                                <div class="form-group">
+                                                    <select name="account" class="form-control mb-3">
+                                                        <option>In Queue</option>
+                                                        <option>With Doctor</option>
+                                                        <option>Visited</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
                                                 <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
+                                                    @*<li class="list-inline-item" title="Edit">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
+                                                    </li>*@
 
                                                     <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
                                                         <i class="fa fa-check" aria-hidden="true"></i>
@@ -159,11 +163,6 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <div class="i-checks ">
-                                                    <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                </div>
-                                            </td>
                                             <td>AA077</td>
                                             <td>Dhiraj</td>
                                             <td>Male</td>
@@ -172,10 +171,19 @@
                                             <td>Cough And Fever</td>
                                             <td>Dr. Sujit</td>
                                             <td>
+                                                <div class="form-group">
+                                                    <select name="account" class="form-control mb-3">
+                                                        <option>In Queue</option>
+                                                        <option>With Doctor</option>
+                                                        <option>Visited</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
                                                 <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
+                                                    @*<li class="list-inline-item" title="Edit">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
+                                                    </li>*@
 
                                                     <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
                                                         <i class="fa fa-check" aria-hidden="true"></i>
@@ -188,11 +196,6 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <div class="i-checks ">
-                                                    <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                </div>
-                                            </td>
                                             <td>AA077</td>
                                             <td>Dhiraj</td>
                                             <td>Male</td>
@@ -201,10 +204,19 @@
                                             <td>Cough And Fever</td>
                                             <td>Dr. Sujit</td>
                                             <td>
+                                                <div class="form-group">
+                                                    <select name="account" class="form-control mb-3">
+                                                        <option>In Queue</option>
+                                                        <option>With Doctor</option>
+                                                        <option>Visited</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
                                                 <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
+                                                    @*<li class="list-inline-item" title="Edit">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
+                                                    </li>*@
 
                                                     <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
                                                         <i class="fa fa-check" aria-hidden="true"></i>
@@ -217,11 +229,6 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <div class="i-checks ">
-                                                    <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                </div>
-                                            </td>
                                             <td>AA077</td>
                                             <td>Dhiraj</td>
                                             <td>Male</td>
@@ -230,10 +237,19 @@
                                             <td>Cough And Fever</td>
                                             <td>Dr. Sujit</td>
                                             <td>
+                                                <div class="form-group">
+                                                    <select name="account" class="form-control mb-3">
+                                                        <option>In Queue</option>
+                                                        <option>With Doctor</option>
+                                                        <option>Visited</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
                                                 <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
+                                                    @*<li class="list-inline-item" title="Edit">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
+                                                    </li>*@
 
                                                     <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
                                                         <i class="fa fa-check" aria-hidden="true"></i>
@@ -246,11 +262,6 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <div class="i-checks ">
-                                                    <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                </div>
-                                            </td>
                                             <td>AA077</td>
                                             <td>Dhiraj</td>
                                             <td>Male</td>
@@ -259,10 +270,19 @@
                                             <td>Cough And Fever</td>
                                             <td>Dr. Sujit</td>
                                             <td>
+                                                <div class="form-group">
+                                                    <select name="account" class="form-control mb-3">
+                                                        <option>In Queue</option>
+                                                        <option>With Doctor</option>
+                                                        <option>Visited</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
                                                 <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
+                                                    @*<li class="list-inline-item" title="Edit">
                                                         <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
+                                                    </li>*@
 
                                                     <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
                                                         <i class="fa fa-check" aria-hidden="true"></i>
@@ -331,7 +351,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="whatsappModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+@*<div class="modal fade" id="whatsappModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content text-center">
             <div class="modal-header" style="border-bottom:none;">
@@ -355,8 +375,8 @@
             </div>
         </div>
     </div>
-</div>
-<div class="modal fade" id="forAppontment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+</div>*@
+@*<div class="modal fade" id="forAppontment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content text-center">
             <div class="modal-header" style="border-bottom:none;">
@@ -374,5 +394,59 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $('.fa.fa-check').click(function () {
+        swal({
+            title: "Do you want to get an Appointment?",
+            //text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            //dangerMode: true,
+            buttons: true,
+            confirmButtonText: 'YES',
+            cancelButtonText: "NO",
+            
+        })
+.then((willDelete) => {
+    if (willDelete) {
+        swal("Your Appointment Is Now Confirmed.", {
+            icon: "success",
+        });
+    }
+    else {
+        
+        swal("You Are Successfully Canceled An Appointment", {
+            icon: "success",
+
+        });
+    }
+});
+    });
+
+
+    $('.fa.fa-times').click(function () {
+        swal({
+            title: "Do you want to cancel an appointment?",
+            //text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            //dangerMode: true,
+            buttons: true,
+            confirmButtonText: 'YES',
+            cancelButtonText: "NO",
+
+        })
+.then((willDelete) => {
+    if (willDelete) {
+        swal("Your appointment is canceled.", {
+            icon: "success",
+        });
+    }
+   
+});
+    });
+
+   
+</script>
 

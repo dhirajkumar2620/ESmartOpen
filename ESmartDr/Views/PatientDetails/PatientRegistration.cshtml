@@ -9,7 +9,7 @@
     <!-- Page Header-->
     <header class="page-header">
         <div class="container-fluid">
-            <h2 class="no-margin-bottom">New Patient</h2>
+            <h2 class="no-margin-bottom">ADD PATIENT</h2>
         </div>
     </header>
 
@@ -190,8 +190,8 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 text-right">
-                                            <input type="button" value="Back" class="btn btn_1 btn-primary">
-                                            <input type="submit" value="Save" class="btn btn_2 btn-primary">
+                                            <a href="~/Home/Apoinment"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
+                                            <input type="submit" value="Save" class="btn btn_2 b22 btn-primary">
                                         </div>
                                     </div>
                                 </form>
@@ -217,3 +217,16 @@
 </div>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $('.b22').click(function () {
+        swal({
+            title: "New Patient Added Successfully.",
+            //text: "You clicked the button!",
+            icon: "success",
+            button: "OK",
+        });
+    });
+
+</script>

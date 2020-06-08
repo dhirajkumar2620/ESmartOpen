@@ -74,8 +74,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 text-right">
-                                        <input type="submit" value="Back" class="btn btn_1 btn-primary">
-                                        <input type="submit" value="Save" class="btn btn_2 btn-primary">
+                                        <a href="~/Home/Apoinment"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
+                                        <input type="button" value="Save" class="btn btn_2 b33 btn-primary">
                                     </div>
                                 </div>
                             </form>
@@ -283,7 +283,7 @@
         </div>
     </footer>
 </div>
-<div class="modal fade" id="ComfirmationPopup" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+@*<div class="modal fade" id="ComfirmationPopup" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content text-center">
             <div class="modal-header" style="border-bottom:none;">
@@ -301,4 +301,55 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
+
+
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $('.b33').click(function () {
+        swal({
+            title: "Good job!",
+            text: "You clicked the button!",
+            icon: "success",
+            button: "OK",
+        });
+    });
+
+
+
+
+
+    $('.fa.fa-times').click(function () {
+        swal({
+            title: "Do you want to delete admin?",
+            //text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            //dangerMode: true,
+            buttons: true,
+            confirmButtonText: 'YES',
+            cancelButtonText: "NO",
+
+        })
+.then((willDelete) => {
+    if (willDelete) {
+        swal("Your are deleted admin successfully.", {
+            icon: "success",
+        });
+    }
+    else {
+
+        swal("Your admin is safe", {
+            icon: "success",
+
+        });
+    }
+});
+    });
+
+</script>
+
+  
+
+
+

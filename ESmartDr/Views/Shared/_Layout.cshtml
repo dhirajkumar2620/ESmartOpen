@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="~/css/custom.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="~/img/favicon.ico">
+    
     <!-- Tweaks for older IEs-->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -44,8 +45,8 @@
                     <div class="navbar-holder d-flex align-items-center justify-content-between">
                         <!-- Navbar Header-->
                         <div class="navbar-header">
-                            <!-- Navbar Brand --><a href="index.html" class="navbar-brand" style="width: 17%;">
-                                <div class="brand-text d-lg-inline-block"><img src="~/img/logo_new.jpeg"></div>
+                            <!-- Navbar Brand --><a href="~/Home/Apoinment" class="navbar-brand" style="width: 17%;">
+                                <div class="brand-text d-lg-inline-block"><img src="~/img/logo_new.jpeg" class="img-fluid"></div>
                             </a>
                             <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
                         </div>
@@ -154,9 +155,9 @@
                             <i class="icon-interface-windows"></i>Create User
                         </a>
                         <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                            <li><a href='@Url.Content("~/Home/Registration")'> Registration</a></li>
-                            <li><a  href='@Url.Content("~/Home/StaffRegistration")'>Staff Registration</a></li>
-                            <li><a href='@Url.Content("~/PatientDetails/PatientDetails")'> Patient Registration</a></li>
+                            <li><a href='@Url.Content("~/Home/Registration")'> Create Admin</a></li>
+                            <li><a  href='@Url.Content("~/Home/StaffRegistration")'>Add Staff Member</a></li>
+                            <li><a href='@Url.Content("~/PatientDetails/PatientDetails")'> Add Patient</a></li>
                         </ul>
                     </li>
                     <li><a href="@Url.Content("~/Home/MyOPD")"> <i class="icon-padnote"></i>My OPD</a></li>
@@ -211,9 +212,11 @@
     <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/vendor/jquery.cookie/jquery.cookie.js"></script>
     <script src="~/vendor/chart.js/Chart.min.js"></script>
+    
     <script src="~/vendor/jquery-validation/jquery.validate.min.js"></script>
     <!-- Main File-->
     <script src="~/js/front.js"></script>
 
+   
 </body>
 </html>

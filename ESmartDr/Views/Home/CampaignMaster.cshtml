@@ -197,9 +197,9 @@
 
                                                 <div class="row">
                                                     <div class="col-md-12 text-right">
-                                                        <input type="submit" value="Send" class="btn btn_1 btn-primary">
-                                                        <input type="submit" value="Reset" class="btn btn_2 btn-primary">
-                                                        <input type="submit" value="Close" class="btn btn_1 btn-primary">
+                                                        <input type="button" value="Send" class="btn btn_1 b44 btn-primary">
+                                                        <input type="button" value="Reset" class="btn btn_2 btn-primary">
+                                                        <input type="button" value="Close" class="btn btn_1 btn-primary">
                                                     </div>
                                                 </div>
                                             </form>
@@ -228,6 +228,20 @@
         </div>
     </footer>
 </div>
+
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $('.b44').click(function () {
+        swal({
+            title: "Your data is successfully sent.",
+            //text: "You clicked the button!",
+            icon: "success",
+            button: "OK",
+        });
+    });
+
+</script>
 
 
 

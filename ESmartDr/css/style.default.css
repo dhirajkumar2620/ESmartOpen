@@ -132,10 +132,10 @@ table, .table {
   z-index: 8;
 }
 
-*[class*="icon-"] {
+/**[class*="icon-"] {
   -webkit-transform: translateY(3px);
   transform: translateY(3px);
-}
+}*/
 
 button,
 input {
@@ -3588,6 +3588,16 @@ select{
   border-color: #25a1a1;
   cursor: pointer;
 }
+.fa.fa-calendar{
+    border: 1px solid #ccc;
+  padding: 6px 7px;
+  border-radius: 50%;
+  font-size: 12px;
+  background: #2fd6d6;
+  color: #fff;
+  border-color: #2fd6d6;
+  cursor: pointer;
+}
 .fa.fa-whatsapp{
   border: 1px solid #ccc;
   padding: 6px 7px;
@@ -3623,9 +3633,9 @@ select{
   padding: 6px 7px;
   border-radius: 50%;
   font-size: 12px;
-  background: #f5a433;
+  background: #25a1a1;
   color: #fff;
-  border-color: #f5a433;
+  border-color: #25a1a1;
   cursor: pointer;
 }
 .fa.fa-plus{
@@ -3640,13 +3650,13 @@ select{
 }
 .fa.fa-times{
   border: 1px solid #ccc;
-  padding: 6px 7px;
-  border-radius: 50%;
-  font-size: 12px;
-  background: #ffa01b;
-  color: #fff;
-  border-color: #ffa01b;
-  cursor: pointer;
+padding: 6px 7px;
+border-radius: 50%;
+font-size: 12px;
+background: #f57a7a;
+color: #fff;
+border-color: #f57a7a;
+cursor: pointer;
 }
 .brand-text img{
   width: 80%;
@@ -3677,6 +3687,7 @@ select{
 }
 .reg-counter h6{
   color: #25a1a1;
+  font-size: 1.5em;
 }
 .reg-counter i{
   font-size: 3em;
@@ -3701,8 +3712,8 @@ select{
   color: #fff;
   cursor: pointer;
   display: block;
-  min-height: 2.14286rem;
-  min-width: 2.14286rem;
+  min-height: 2rem;
+  min-width: 2rem;
   padding: .35714rem;
   text-align: center;
   text-decoration: none;
@@ -3789,6 +3800,19 @@ table, .table {
     border: none;
     padding: 0px;
     border: 1px solid #fff;
+}
+  .lab_1-data .form-group{
+      width:100%;
+  }
+  .touch-section{
+    background: #f5a433;
+    padding: 0em!important;
+}
+  .content img{
+      position:initial!important;
+  }
+  .login-data {
+    padding: 2em 2em!important;
 }
 .grid-search-box{
   position: inherit;
@@ -3887,9 +3911,9 @@ nav.navbar .menu-btn {
 .content-log{
   background: #f5a433;
 }
-.landing .container-fluid {
+/*.landing .container-fluid {
   padding: 0 0px;
-}
+}*/
 .abt-us-heading h1{
   font-size: 3.5em;
   padding: 7vh 0vh;
@@ -4043,7 +4067,97 @@ nav.navbar .menu-btn {
     cursor: pointer;
 }
 
+.swal-button.swal-button--confirm{
+    background-color:#f5a433;
+    border-color:#f5a433;
+}
+.swal-button.swal-button--confirm:hover{
+    background-color:#f5a433;
+}
+.swal-footer{
+    text-align:center;
+}
+.swal-content__input:focus{
+    border-color: #f5a433!important;
+}
+.lab_1-data .form-group input{
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+.lab_1-data .form-group select{
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+.letter-li li {
+    margin-bottom: .3em;
+}
+.letter-li h4{
+    color: #f5a433;
+}
 
+
+
+
+.counter {
+  background-color:#f5f5f5;
+  padding: 20px 0;
+  border-radius: 5px;
+}
+
+.count-title {
+  font-size: 40px;
+  font-weight: normal;
+  margin-top: 10px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.count-text {
+  font-size: 13px;
+  font-weight: normal;
+  margin-top: 10px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.fa-2x {
+  margin: 0 auto;
+  float: none;
+  display: table;
+  color: #4ad1e5;
+}
+.landing-tab{
+  margin-bottom: 6em;
+}
+.mb-top{
+  margin-top: 1rem;
+}
+.our-suc{
+  padding-bottom: 7em;
+}
+footer.main-footer1 {
+    width: 100%;
+    background: #2f333e;
+    color: #fff;
+    padding: 18px 15px 8px;
+}
+.break-text1{
+    color:#fff;
+}
+.landing-touch p{
+    color:#fff;
+}
+.cont-us label{
+    color:#fff;
+}
+.touch-section{
+    background: #f5a433;
+    padding: 5em;
+}
+.forgot-popup h3{
+    font-size: 2em;
+    padding-bottom: .8em;
+}
 
 
 
