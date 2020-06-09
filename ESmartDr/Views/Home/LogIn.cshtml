@@ -51,10 +51,10 @@
     <section class="landing">
         <div class="container-fluid full-w">
             <div class="row ">
-                <div class="col-md-5 col-xs-12 content">
+                <div class="col-md-5 col-xs-12 col-sm-12 content">
                     <img src="~/img/banner_img.png" class="img-fluid">
                 </div>
-                <div class="col-md-7 col-xs-12 content-log">
+                <div class="col-md-7 col-xs-12 col-sm-12 content-log">
                     <div class="login-data login-pg">
                         <h1>Login</h1><br>
                         <div class="form social-icons">
@@ -71,8 +71,11 @@
                                 <label>Username</label>
                                 <input type="text" placeholder="Email-ID / Mobile No." class="form-control">
                                 <br>
-                                <label>Password</label>
-                                <input type="Password" placeholder="Password" class="form-control">
+                                <div class="form-group pass_show">
+                                    <label>Password</label>
+                                    <input type="password" value="faisal.khan@123" class="form-control" placeholder="New Password">
+                                </div>
+
                                 <br>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -397,17 +400,6 @@
                             <div class="box-content">
                                 <h3 class="title">Dr. Rachel Parker</h3>
                                 <span>OPHTHALMOLOGIST</span>
-                                
-                            </div>
-                            <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="box10">
-                            <img src="~/img/doc-1.jpg" class="img-fluid">
-                            <div class="box-content">
-                                <h3 class="title">Dr. Rachel Parker</h3>
-                                <span>OPHTHALMOLOGIST</span>
 
                             </div>
                             <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
@@ -435,7 +427,18 @@
                             <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
                         </div>
                     </div>
-                    
+                    <div class="col-md-3">
+                        <div class="box10">
+                            <img src="~/img/doc-1.jpg" class="img-fluid">
+                            <div class="box-content">
+                                <h3 class="title">Dr. Rachel Parker</h3>
+                                <span>OPHTHALMOLOGIST</span>
+
+                            </div>
+                            <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -482,12 +485,16 @@
             <div class="row landing-touch">
                 <div class="col-md-6 abt-us-heading">
                     <h1 class="text-center">Get In <span class="break-text1">Touch</span></h1>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, </p>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                    </p>
                     <form>
                         <div class="form-group">
                             <label>Email-ID</label>
                             <h4>esmartdoctor@gmail.com</h4>
+                            <h4>carrer@esmartdoctor.com</h4>
+                            <h4>support@esmartdoctor.com</h4>
                         </div>
                     </form>
                     <form>
@@ -506,7 +513,7 @@
                             </ul>
                         </div>
                     </form>
-                    
+
                 </div>
                 <div class="col-md-6">
                     <div class="login-btn cont-us">
@@ -523,7 +530,7 @@
                         <textarea class="form-control"></textarea>
                         <br>
                         <div class="text-right sn-in">
-                            <input type="submit" value="SEND"  class="btn btn_1 btn-primary">
+                            <input type="submit" value="SEND" class="btn btn_1 btn-primary">
                         </div>
                     </div>
                 </div>
@@ -544,29 +551,29 @@
     </section>
 
     <div class="modal fade" id="whatsappModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content text-center">
-                    <div class="modal-header" style="border-bottom:none;">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body forgot-popup">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3>Forgot Password</h3>
-                                <input type="text" class="form-control" />
-                            </div>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content text-center">
+                <div class="modal-header" style="border-bottom:none;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body forgot-popup">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Forgot Password</h3>
+                            <input type="text" class="form-control" />
                         </div>
-
                     </div>
-                    <div class="modal-footer" style="border-top:none;">
 
-                        <button type="button" class="btn btn_2 btn-primary">Reset my Password</button>
-                    </div>
+                </div>
+                <div class="modal-footer" style="border-top:none;">
+
+                    <button type="button" class="btn btn_2 btn-primary">Reset my Password</button>
                 </div>
             </div>
         </div>
+    </div>
 
 
     <!-- JavaScript files-->
@@ -653,14 +660,14 @@
             };
 
             $.fn.countTo.defaults = {
-                from: 0,               
-                to: 0,                 
-                speed: 1000,           
-                refreshInterval: 100,  
-                decimals: 0,           
-                formatter: formatter,  
-                onUpdate: null,        
-                onComplete: null      
+                from: 0,
+                to: 0,
+                speed: 1000,
+                refreshInterval: 100,
+                decimals: 0,
+                formatter: formatter,
+                onUpdate: null,
+                onComplete: null
             };
 
             function formatter(value, settings) {
@@ -694,6 +701,21 @@
                 icon: "success",
                 button: "OK",
             });
+        });
+
+
+
+        $(document).ready(function () {
+            $('.pass_show').append('<span class="ptxt">Show</span>');
+        });
+
+
+        $(document).on('click', '.pass_show .ptxt', function () {
+
+            $(this).text($(this).text() == "Show" ? "Hide" : "Show");
+
+            $(this).prev().attr('type', function (index, attr) { return attr == 'password' ? 'text' : 'password'; });
+
         });
     </script>
 </body>

@@ -89,27 +89,12 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-close">
-                            <!-- <div class="dropdown">
-                                <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                                <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                              </div> -->
-                        </div>
-
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="grid-btn">
-                                        <input type="text" placeholder="Search..." class="form-control grid-search-box">
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="grid-btn pull-right">
-                                        <a href="~/PatientDetails/PatientDetails"> <input type="button" value="Add New Patient" class="btn btn_2 btn-primary"></a></div>
-                                </div>
-                            </div>
                             <div class="table-responsive">
-                                <table class="table">
+                                <div class="grid-btn pull-right">
+                                    <a href="~/PatientDetails/PatientDetails">   <input type="button" value="Add New Patient" style="margin-left: 1em;border-radius: 22px;" class="btn btn_2 btn-primary"></a>
+                                </div>
+                                <table id="example1" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>SR. No.</th>
@@ -142,7 +127,7 @@
                                                     <li class="list-inline-item" title="General Information">
                                                         <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
                                                     </li>
-                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal"  title="Whatsapp">
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
                                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                                     </li>
                                                     <li class="list-inline-item msg" title="Message">
@@ -154,7 +139,7 @@
                                         <tr>
                                             <td>001</td>
                                             <td>AA077</td>
-                                            <td>Dhiraj</td>
+                                            <td>Ramesh</td>
                                             <td>Male</td>
                                             <td>29</td>
                                             <td>8888888888</td>
@@ -166,10 +151,10 @@
                                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                                     </li>
 
-                                                    <li class="list-inline-item" title="History">
+                                                    <li class="list-inline-item" title="General Information">
                                                         <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
                                                     </li>
-                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal"  title="Whatsapp">
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
                                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                                     </li>
                                                     <li class="list-inline-item msg" title="Message">
@@ -181,7 +166,7 @@
                                         <tr>
                                             <td>001</td>
                                             <td>AA077</td>
-                                            <td>Dhiraj</td>
+                                            <td>Vivek</td>
                                             <td>Male</td>
                                             <td>29</td>
                                             <td>8888888888</td>
@@ -193,10 +178,10 @@
                                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                                     </li>
 
-                                                    <li class="list-inline-item" title="History">
+                                                    <li class="list-inline-item" title="General Information">
                                                         <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
                                                     </li>
-                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal"  title="Whatsapp">
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
                                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                                     </li>
                                                     <li class="list-inline-item msg" title="Message">
@@ -208,7 +193,7 @@
                                         <tr>
                                             <td>001</td>
                                             <td>AA077</td>
-                                            <td>Dhiraj</td>
+                                            <td>Neha</td>
                                             <td>Male</td>
                                             <td>29</td>
                                             <td>8888888888</td>
@@ -220,10 +205,10 @@
                                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                                     </li>
 
-                                                    <li class="list-inline-item" title="History">
+                                                    <li class="list-inline-item" title="General Information">
                                                         <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
                                                     </li>
-                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal"  title="Whatsapp">
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
                                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                                     </li>
                                                     <li class="list-inline-item msg" title="Message">
@@ -235,7 +220,7 @@
                                         <tr>
                                             <td>001</td>
                                             <td>AA077</td>
-                                            <td>Dhiraj</td>
+                                            <td>Neha</td>
                                             <td>Male</td>
                                             <td>29</td>
                                             <td>8888888888</td>
@@ -247,7 +232,952 @@
                                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                                     </li>
 
-                                                    <li class="list-inline-item" title="History">
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
+                                                        <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
+                                                    </li>
+                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                    </li>
+                                                    <li class="list-inline-item msg" title="Message">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>AA077</td>
+                                            <td>Neha</td>
+                                            <td>Male</td>
+                                            <td>29</td>
+                                            <td>8888888888</td>
+                                            <td>Cough And Fever</td>
+                                            <td>Dr. Sujit</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Appointment">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" title="General Information">
                                                         <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#mypatient"></i>
                                                     </li>
                                                     <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
@@ -260,19 +1190,22 @@
                                             </td>
                                         </tr>
                                     </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID No.</th>
+                                            <th>Patient Name</th>
+                                            <th>Gender</th>
+                                            <th>Age</th>
+                                            <th>Mobile No.</th>
+                                            <th>Symptoms</th>
+                                            <th>Dr. Name</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
                                 </table>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <ul class="pagination">
-                                        <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-                                        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
+
                             <div class="row">
                                 <div class="col-md-12 text-right">
                                     <a href="~/Home/Apoinment"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
@@ -461,6 +1394,8 @@
     }
 });
     });
-    
+    $(document).ready(function () {
+        $('#example1').DataTable();
+    });
 </script>
 

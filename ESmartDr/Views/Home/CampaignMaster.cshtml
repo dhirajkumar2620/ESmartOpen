@@ -16,15 +16,8 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="grid-btn">
-                                        <input type="text" placeholder="Search..." class="form-control grid-search-box">
-                                    </div>
-                                </div>
-                            </div>
                             <div class="table-responsive">
-                                <table class="table compaign-grid">
+                                <table id="example4" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>Campaign Name</th>
@@ -41,17 +34,6 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <ul class="pagination">
-                                        <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-                                        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -104,7 +86,7 @@
                                                     <div class="col-md-12">
                                                         <div class="card-body">
                                                             <div class="table-responsive">
-                                                                <table class="table compaign-grid">
+                                                                <table id="example5" class="table table-striped" style="width:100%">
                                                                     <thead>
                                                                         <tr>
                                                                             <th>
@@ -156,17 +138,6 @@
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <ul class="pagination">
-                                                                        <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-                                                                        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                                        <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                                                                    </ul>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -241,6 +212,14 @@
         });
     });
 
+
+    $(document).ready(function () {
+        $('#example4').DataTable();
+    });
+
+    $(document).ready(function () {
+        $('#example5').DataTable();
+    });
 </script>
 
 

@@ -4,11 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div >
+<div>
     <!-- Page Header-->
     <header class="page-header">
         <div class="container-fluid">
-            <h2 class="no-margin-bottom">My OPD</h2>
+            <h2 class="no-margin-bottom">MY OPD</h2>
         </div>
     </header>
     <!-- Breadcrumb-->
@@ -25,22 +25,761 @@
                     <div class="card animated fadeInUp delay-01s bg-light">
                         <div class="card-body patient-det">
                             <div class="row align-items-center">
-                                <div class="col-md-3 text-center">
-                                    <h6 class="mt-0 mb-1">Case paper No.</h6>
+                                <div class="col-md-2 text-center">
+                                    <h6 class="mt-0 mb-1">Patient Name</h6>
                                     <div class="count text-primary fs-20">003</div>
                                 </div>
-                                <div class="col-md-3 text-center">
-                                    <h6 class="mt-0 mb-1">Patient Name</h6>
-                                    <div class="count text-primary fs-20">Dhiraj</div>
-                                </div>
-                                <div class="col-md-3 text-center">
+                                <div class="col-md-2 text-center">
                                     <h6 class="mt-0 mb-1">Gender</h6>
                                     <div class="count text-primary fs-20">Male</div>
                                 </div>
-                                <div class="col-md-3 text-center">
+                                <div class="col-md-2 text-center">
                                     <h6 class="mt-0 mb-1">Age</h6>
                                     <div class="count text-primary fs-20">32</div>
                                 </div>
+                                <div class="col-md-2 text-center">
+                                    <h6 class="mt-0 mb-1">Visit No.</h6>
+                                    <div class="count text-primary fs-20">002</div>
+                                </div>
+                                <div class="col-md-3 text-center">
+                                    <h6 class="mt-0 mb-1">Prv. Balance</h6>
+                                    <div class="count text-primary fs-20">300</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container-fluid accordn">
+            <div class="row ">
+                <div class="col col-12 col-md-12 col-xl-">
+                    <div class="card animated fadeInUp delay-01s bg-light">
+                        <div class="card-body patient-det">
+                            <div class="row align-items-center">
+                                <div class="col-md-12">
+                                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="pills-patient-tab" data-toggle="pill" href="#pills-patient" role="tab" aria-controls="pills-patient" aria-selected="true">Patient Details</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-examination-tab" data-toggle="pill" href="#pills-examination" role="tab" aria-controls="pills-examination" aria-selected="false">Examination</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-precription-tab" data-toggle="pill" href="#pills-precription" role="tab" aria-controls="pills-precription" aria-selected="false">Precription</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-history-tab" data-toggle="pill" href="#pills-history" role="tab" aria-controls="pills-history" aria-selected="false">History</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-billing-tab" data-toggle="pill" href="#pills-billing" role="tab" aria-controls="pills-billing" aria-selected="false">Billing</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-certificate-tab" data-toggle="pill" href="#pills-certificate" role="tab" aria-controls="pills-certificate" aria-selected="false">Certificate</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-Referral-tab" data-toggle="pill" href="#pills-Referral" role="tab" aria-controls="pills-Referral" aria-selected="false">Referral Letter</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <br>
+                                <div class="col-md-12 tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-patient" role="tabpanel" aria-labelledby="pills-patient-tab">
+                                        <div class="bs-example">
+                                            <div class="accordion" id="accordionExample">
+                                                <div class="first-tab">
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingOne">
+                                                            <h2 class="mb-0">
+                                                                <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"><i class="fa fa-plus"></i> <span class="accor-heading">Personal Details</span></button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                            <div class="card-body">
+                                                                <form>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    Patient Name<span class="star">*</span>
+                                                                                </label>
+                                                                                <input type="text" placeholder="Patient Name" class="form-control">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    Patient Mobile No.<span class="star">*</span>
+                                                                                </label>
+                                                                                <input type="number" placeholder="Patient Mobile No." class="form-control">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    Date of Birth<span class="star">*</span>
+                                                                                </label>
+                                                                                <input type="date" placeholder="Date of Birth" class="form-control">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">Age<span class="star">*</span></label>
+                                                                                <input type="text" placeholder="Age" class="form-control">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    Gender<span class="star">*</span>
+                                                                                </label>
+                                                                                <select name="account" class="form-control mb-3">
+                                                                                    <option>Select Gender</option>
+                                                                                    <option>Male</option>
+                                                                                    <option>Female</option>
+                                                                                    <option>Other</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    Blood Group<span class="star">*</span>
+                                                                                </label>
+                                                                                <select name="account" class="form-control mb-3">
+                                                                                    <option>Select Blood Group</option>
+                                                                                    <option>A</option>
+                                                                                    <option>B</option>
+                                                                                    <option>AB</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    Address
+                                                                                </label>
+                                                                                <textarea class="form-control"></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-7">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    Area & City<span class="star">*</span>
+                                                                                </label>
+                                                                                <select name="account" class="form-control mb-3">
+                                                                                    <option>Select Blood Group</option>
+                                                                                    <option>A</option>
+                                                                                    <option>B</option>
+                                                                                    <option>AB</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-5">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    Pincode
+                                                                                </label>
+                                                                                <input type="text" placeholder="Age" class="form-control">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingTwo">
+                                                            <h2 class="mb-0">
+                                                                <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"><i class="fa fa-plus"></i> <span class="accor-heading">Medical Information</span></button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                                            <div class="card-body">
+                                                                <div>
+                                                                    <p>Have you Ever suffered from any of these?</p>
+                                                                    <ul class="list-inline">
+                                                                        <li class="list-inline-item">
+                                                                            <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;Diabetes
+                                                                        </li>
+                                                                        <li class="list-inline-item">
+                                                                            <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;Asthma
+                                                                        </li>
+                                                                        <li class="list-inline-item">
+                                                                            <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;Thyroid Problem
+                                                                        </li>
+                                                                        <li class="list-inline-item">
+                                                                            <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;Jaundice
+                                                                        </li>
+                                                                        <li class="list-inline-item">
+                                                                            <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;Migraine
+                                                                        </li>
+                                                                        <li class="list-inline-item">
+                                                                            <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;AIDS
+                                                                        </li>
+                                                                        <li class="list-inline-item">
+                                                                            <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;Heart Problem
+                                                                        </li>
+                                                                        <li class="list-inline-item">
+                                                                            <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;Blood Pressure High/Low
+                                                                        </li>
+                                                                        <li class="list-inline-item">
+                                                                            <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;TB
+                                                                        </li>
+                                                                        <li class="list-inline-item">
+                                                                            <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;Cancer
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label class="form-control-label">
+                                                                                Others
+                                                                            </label>
+                                                                            <input type="text" placeholder="Please add" class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <p>Allergies</p>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label class="form-control-label">
+                                                                                Food
+                                                                            </label>
+                                                                            <select name="account" class="form-control mb-3">
+                                                                                <option>Please Select</option>
+                                                                                <option>Mango</option>
+                                                                                <option>Banana</option>
+                                                                                <option>Apple</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label class="form-control-label">
+                                                                                Drugs
+                                                                            </label>
+                                                                            <select name="account" class="form-control mb-3">
+                                                                                <option>Please Select</option>
+                                                                                <option>1</option>
+                                                                                <option>2</option>
+                                                                                <option>3</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingThree">
+                                                            <h2 class="mb-0">
+                                                                <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"><i class="fa fa-plus"></i> <span class="accor-heading">Life Style</span></button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-control-label">Diat</label>
+                                                                        <ul class="list-inline">
+                                                                            <li class="list-inline-item">
+                                                                                <div class="i-checks ">
+                                                                                    <input id="radioCustom2" type="radio" checked="" value="option5" name="a" class="radio-template">
+
+                                                                                    <label for="radioCustom2">Veg</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="list-inline-item">
+                                                                                <div class="i-checks ">
+                                                                                    <input id="radioCustom2" type="radio" checked="" value="option5" name="a" class="radio-template">
+                                                                                    <label for="radioCustom2">Non Veg</label>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-control-label">Smoking</label>
+                                                                        <ul class="list-inline">
+                                                                            <li class="list-inline-item">
+                                                                                <div class="i-checks ">
+                                                                                    <input id="radioCustom2" type="radio" checked="" value="option6" name="a" class="radio-template">
+
+                                                                                    <label for="radioCustom2">Yes</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="list-inline-item">
+                                                                                <div class="i-checks ">
+                                                                                    <input id="radioCustom2" type="radio" checked="" value="option6" name="a" class="radio-template">
+                                                                                    <label for="radioCustom2">No</label>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-control-label">Alcohol</label>
+                                                                        <ul class="list-inline">
+                                                                            <li class="list-inline-item">
+                                                                                <div class="i-checks ">
+                                                                                    <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+
+                                                                                    <label for="radioCustom2">Yes</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="list-inline-item">
+                                                                                <div class="i-checks ">
+                                                                                    <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                                                                                    <label for="radioCustom2">No</label>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-control-label">Bowel</label>
+                                                                        <ul class="list-inline">
+                                                                            <li class="list-inline-item">
+                                                                                <div class="i-checks ">
+                                                                                    <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+
+                                                                                    <label for="radioCustom2">Yes</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="list-inline-item">
+                                                                                <div class="i-checks ">
+                                                                                    <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                                                                                    <label for="radioCustom2">No</label>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label class="form-control-label">Bladder</label>
+                                                                        <ul class="list-inline">
+                                                                            <li class="list-inline-item">
+                                                                                <div class="i-checks ">
+                                                                                    <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+
+                                                                                    <label for="radioCustom2">Yes</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="list-inline-item">
+                                                                                <div class="i-checks ">
+                                                                                    <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                                                                                    <label for="radioCustom2">No</label>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label class="form-control-label">Sleep</label>
+                                                                        <ul class="list-inline">
+                                                                            <li class="list-inline-item">
+                                                                                <div class="i-checks ">
+                                                                                    <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+
+                                                                                    <label for="radioCustom2">Regular</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="list-inline-item">
+                                                                                <div class="i-checks ">
+                                                                                    <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                                                                                    <label for="radioCustom2">Irregular</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="list-inline-item">
+                                                                                <div class="i-checks ">
+                                                                                    <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                                                                                    <label for="radioCustom2">Disturbed</label>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12 text-center">
+                                                                        <input type="button" value="Save" class="btn btn_1 btn-primary">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-examination" role="tabpanel" aria-labelledby="pills-examination-tab">
+                                        <div class="bs-example">
+                                            <div class="accordion" id="accordionExample1">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <ul class="list-inline">
+                                                            <li class="list-inline-item">
+                                                                Prescription For :
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <input type="date" class="form-control" />
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="button" value="Copy Previous" class="btn btn_1 btn-primary pull-right">
+                                                    </div>
+                                                </div>
+                                                <div class="second-tab">
+                                                    <div class="card">
+
+                                                        <div class="card-header" id="headingFour">
+                                                            <h2 class="mb-0">
+                                                                <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseFour"><i class="fa fa-plus"></i> <span class="accor-heading">Observation</span></button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#accordionExample1">
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col-lg-12">
+                                                                        <div class="card">
+                                                                            <div class="row">
+                                                                                <div class="col-md-12 text-right">
+                                                                                    <input type="button" value="Copy Previous" class="btn btn_1 btn-primary">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="card-body">
+                                                                                <div class="table-responsive opd-table">
+                                                                                    <table class="table">
+                                                                                        <thead>
+                                                                                            <tr>
+                                                                                                <th>Complaints</th>
+                                                                                                <th>Since</th>
+                                                                                                <th>Period</th>
+                                                                                                <th>Action</th>
+                                                                                            </tr>
+                                                                                        </thead>
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td contenteditable="true">001</td>
+                                                                                                <td contenteditable="true">Fever</td>
+                                                                                                <td contenteditable="true">2 Week</td>
+                                                                                                <td>
+                                                                                                    <ul class="list-inline">
+                                                                                                        <li class="list-inline-item" title="Edit">
+                                                                                                            <i class="fa fa-plus add-row" aria-hidden="true"></i>
+                                                                                                        </li>
+                                                                                                    </ul>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <form>
+                                                                    <div class="row">
+                                                                        <div class="col-md-7">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    Physical Examination / Observation
+                                                                                </label>
+                                                                                <textarea class="form-control" placeholder="Add Notes"></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-5">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    Diagnosis
+                                                                                </label>
+                                                                                <input type="text" placeholder="Type & Select" class="form-control">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingFive">
+                                                            <h2 class="mb-0">
+                                                                <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive"><i class="fa fa-plus"></i> <span class="accor-heading">Investigation</span></button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample1">
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col-lg-12">
+                                                                        <div class="card">
+                                                                            <div class="row">
+                                                                                <div class="col-md-12 text-right">
+                                                                                    <input type="button" value="Test Groups" class="btn btn_1 btn-primary">
+                                                                                    <input type="button" value="Copy Previous" class="btn btn_2 btn-primary">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="card-body">
+                                                                                <div class="table-responsive opd-table">
+                                                                                    <table class="table">
+                                                                                        <thead>
+                                                                                            <tr>
+                                                                                                <th>Select Tests</th>
+                                                                                                <th>Notes</th>
+                                                                                                <th>Action</th>
+                                                                                            </tr>
+                                                                                        </thead>
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td contenteditable="true">Fever</td>
+                                                                                                <td contenteditable="true">Since night</td>
+                                                                                                <td>
+                                                                                                    <ul class="list-inline">
+                                                                                                        <li class="list-inline-item" title="Edit">
+                                                                                                            <i class="fa fa-plus add-row1" aria-hidden="true"></i>
+                                                                                                        </li>
+                                                                                                    </ul>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingSix">
+                                                            <h2 class="mb-0">
+                                                                <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix"><i class="fa fa-plus"></i> <span class="accor-heading">Medication</span></button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample1">
+                                                            <div class="card-body">
+                                                                <form>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12 text-right">
+                                                                            <input type="button" value="Medicine Group" class="btn btn_1 btn-primary">
+                                                                            <input type="button" value="Copy Previous" class="btn btn_2 btn-primary">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-7">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    Medicine Name
+                                                                                </label>
+                                                                                <textarea class="form-control" placeholder="Enter a medicine name"></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-5">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    When
+                                                                                </label>
+                                                                                <input type="text" placeholder="When" class="form-control">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    Repeat<span class="star">*</span>
+                                                                                </label>
+                                                                                <select name="account" class="form-control mb-3">
+                                                                                    <option>Daily</option>
+                                                                                    <option>A</option>
+                                                                                    <option>B</option>
+                                                                                    <option>C</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    For
+                                                                                </label>
+                                                                                <input type="text" placeholder="e.g.10" class="form-control">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    Days<span class="star">*</span>
+                                                                                </label>
+                                                                                <select name="account" class="form-control mb-3">
+                                                                                    <option>Select Days</option>
+                                                                                    <option>A</option>
+                                                                                    <option>B</option>
+                                                                                    <option>C</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                                <div class="row">
+                                                                    <div class="col-lg-12">
+                                                                        <div class="card">
+                                                                            <div class="card-body">
+                                                                                <div class="table-responsive opd-table">
+                                                                                    <table class="table">
+                                                                                        <thead>
+                                                                                            <tr>
+                                                                                                <th>Special Instructions</th>
+                                                                                                <th>Alternate Medicine</th>
+                                                                                                <th>Action</th>
+                                                                                            </tr>
+                                                                                        </thead>
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td contenteditable="true">Fever</td>
+                                                                                                <td contenteditable="true">Since night</td>
+                                                                                                <td>
+                                                                                                    <ul class="list-inline">
+                                                                                                        <li class="list-inline-item" title="Edit">
+                                                                                                            <i class="fa fa-plus add-row3" aria-hidden="true"></i>
+                                                                                                        </li>
+                                                                                                    </ul>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingSeven">
+                                                            <h2 class="mb-0">
+                                                                <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven"><i class="fa fa-plus"></i> <span class="accor-heading">Advice</span></button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample1">
+                                                            <div class="card-body">
+                                                                <form>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12 text-right">
+                                                                            <input type="button" value="Advice Group" class="btn btn_1 btn-primary">
+                                                                            <input type="button" value="Copy Previous" class="btn btn_2 btn-primary">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    Add Advice
+                                                                                </label>
+                                                                                <textarea class="form-control" placeholder="Add Advice"></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingEight">
+                                                            <h2 class="mb-0">
+                                                                <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight"><i class="fa fa-plus"></i> <span class="accor-heading">Diet & Exercise</span></button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample1">
+                                                            <div class="card-body">
+                                                                <form>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12 text-right">
+                                                                            <input type="button" value="Diet Group" class="btn btn_1 btn-primary">
+                                                                            <input type="button" value="Copy Previous" class="btn btn_2 btn-primary">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    Add Diet
+                                                                                </label>
+                                                                                <textarea class="form-control" placeholder="Add Diet"></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingNine">
+                                                            <h2 class="mb-0">
+                                                                <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine"><i class="fa fa-plus"></i> <span class="accor-heading">Next Visit</span></button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample1">
+                                                            <div class="card-body">
+                                                                <form>
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    Next Visit After
+                                                                                </label>
+                                                                                <input type="text" placeholder="e.g.10" class="form-control">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    Frequency
+                                                                                </label>
+                                                                                <input type="date" placeholder="e.g.10" class="form-control">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                                <div class="row">
+                                                                    <div class="col-md-12 text-center">
+                                                                        <input type="button" value="Save" class="btn btn_1 btn-primary">
+                                                                        <input type="button" value="Finalize" class="btn btn_2 btn-primary">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-precription" role="tabpanel" aria-labelledby="pills-precription-tab">
+                                        3
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
+                                        4
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-billing" role="tabpanel" aria-labelledby="pills-billing-tab">
+                                        5
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-certificate" role="tabpanel" aria-labelledby="pills-certificate-tab">
+                                        6
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-Referral" role="tabpanel" aria-labelledby="pills-Referral-tab">
+                                        7
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -55,10 +794,10 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table">
+                                <table id="example2" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>SR. No.</th>
+                                            <th>Sr. No.</th>
                                             <th>Date</th>
                                             <th>Symptoms</th>
                                             <th>Action</th>
@@ -80,6 +819,66 @@
                                         <tr>
                                             <td>001</td>
                                             <td>05/02/2019</td>
+                                            <td>Cough</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Asthma</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Blood Pressure</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Fever</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Fever</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
                                             <td>Fever</td>
                                             <td>
                                                 <ul class="list-inline">
@@ -124,116 +923,210 @@
                                                     </div>
                                                 </ul>
                                             </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Fever</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Fever</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Fever</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Fever</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Fever</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Fever</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Fever</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Fever</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Fever</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Fever</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Fever</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Fever</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Fever</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Fever</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Fever</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>05/02/2019</td>
+                                            <td>Fever</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                    </div>
+                                                </ul>
+                                            </td>
+                                        </tr>
+
+                                        </tr>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- <div class="row">
-                              <div class="col-md-12">
-                                <ul class="pagination">
-                                  <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"
-                                      tabindex="-1" aria-disabled="true"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-                                  <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                  <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                                </ul>
-                              </div>
-                            </div> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section>
-        <div class="container-fluid">
-            <div class="row reg-counter">
-                <div class="col col-12 col-md-12 col-xl-">
-                    <div class="card animated fadeInUp delay-01s bg-light">
-                        <div class="card-body patient-det">
-                            <div class="row align-items-center">
-                                <div class="col-md-12">
-                                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <br>
-                                <div class="col-md-12 tab-content" id="pills-tabContent">
-                                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                        <section class="tables">
-                                            <div class="container-fluid opd-table">
-                                                <div class="row">
-                                                    <div class="col-lg-12">
-                                                        <div class="card">
-                                                            <div class="card-body">
-                                                                <div class="table-responsive">
-                                                                    <table class="table">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th>Case Paper No.</th>
-                                                                                <th>Complaint</th>
-                                                                                <th>Period</th>
-                                                                                <th>Action</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td contenteditable="true">001</td>
-                                                                                <td contenteditable="true">Fever</td>
-                                                                                <td contenteditable="true">2 Week</td>
-                                                                                <td>
-                                                                                    <ul class="list-inline">
-                                                                                        <li class="list-inline-item" title="Edit">
-                                                                                            <i class="fa fa-plus" aria-hidden="true"></i>
-                                                                                        </li>
-                                                                                    </ul>
-                                                                                </td>
-                                                                            </tr>
 
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                                <!-- <div class="row">
-                                                                  <div class="col-md-12">
-                                                                    <ul class="pagination">
-                                                                      <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"
-                                                                          tabindex="-1" aria-disabled="true"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-                                                                      <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                                                                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                                      <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                                                                    </ul>
-                                                                  </div>
-                                                                </div> -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </section>
-                                    </div>
-                                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-
-                                    </div>
-                                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">333333333333</div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- Page Footer-->
     <footer class="main-footer">
         <div class="container-fluid">
@@ -249,3 +1142,43 @@
         </div>
     </footer>
 </div>
+
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+
+    $('.opd-table .add-row').click(function () {
+        $('.opd-table .table').append('<tr><td contenteditable="true">001</td><td contenteditable="true">Fever</td><td contenteditable="true">2 Week</td><td><ul class="list-inline"><li class="list-inline-item" title="Edit"><i class="fa fa-times"  onclick="SomeDeleteRowFunction(this);" aria-hidden="true"></i></li></ul></td></tr>');
+    });
+
+    function SomeDeleteRowFunction(btndel) {
+        if (typeof (btndel) == "object") {
+            $(btndel).closest("tr").remove();
+        } else {
+            return false;
+        }
+    }
+
+
+    $(document).ready(function () {
+        $('#example2').DataTable();
+    });
+
+
+
+    $(document).ready(function () {
+        // Add minus icon for collapse element which is open by default
+        $(".collapse.show").each(function () {
+            $(this).prev(".card-header").find(".fa").addClass("fa-minus").removeClass("fa-plus");
+        });
+
+        // Toggle plus minus icon on show hide of collapse element
+        $(".collapse").on('show.bs.collapse', function () {
+            $(this).prev(".card-header").find(".fa").removeClass("fa-plus").addClass("fa-minus");
+        }).on('hide.bs.collapse', function () {
+            $(this).prev(".card-header").find(".fa").removeClass("fa-minus").addClass("fa-plus");
+        });
+
+
+    });
+</script>
