@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2026
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESmartDr", "ESmartDr\ESmartDr.csproj", "{2AD77192-3963-485C-89D3-C79EA10E4032}"
 EndProject
@@ -11,9 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bal_Layer", "Bal_Layer\Bal_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App_Layer", "App_Layer\App_Layer.csproj", "{2D7E9623-5B77-4527-AADA-0166733CDF9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{57228B36-F542-4B06-8924-96AA4213386B}"
-EndProject
 Global
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -35,10 +36,6 @@ Global
 		{2D7E9623-5B77-4527-AADA-0166733CDF9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D7E9623-5B77-4527-AADA-0166733CDF9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D7E9623-5B77-4527-AADA-0166733CDF9E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{57228B36-F542-4B06-8924-96AA4213386B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57228B36-F542-4B06-8924-96AA4213386B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57228B36-F542-4B06-8924-96AA4213386B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57228B36-F542-4B06-8924-96AA4213386B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,7 +16,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[20];
+                sqlparam = new SqlParameter[21];
                 sqlparam[0] = new SqlParameter("@UserId", AD.UserId);
                 sqlparam[1] = new SqlParameter("@Name", AD.FirstName);
                 sqlparam[2] = new SqlParameter("@Education", AD.Education);

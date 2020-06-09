@@ -200,6 +200,7 @@
     <Compile Include="Controllers\AdminDetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MedicineDetailsController.cs" />
     <Compile Include="Controllers\PatientDetailsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -500,6 +501,7 @@
     <Content Include="Views\Home\Lab2.cshtml" />
     <Content Include="Views\PatientDetails\PatientRegistration.cshtml" />
     <Content Include="Views\AdminDetails\AdminRegistration.cshtml" />
+    <Content Include="Views\MedicineDetails\MedicineDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

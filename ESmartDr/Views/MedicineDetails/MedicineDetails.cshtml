@@ -1,0 +1,386 @@
+﻿
+@model App_Layer.MedicineDetails
+@{
+    ViewBag.Title = "MedicineDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <!-- Page Header-->
+    <header class="page-header">
+        <div class="container-fluid">
+            <h2 class="no-margin-bottom">Add Medicines</h2>
+        </div>
+    </header>
+    <!-- Breadcrumb-->
+    <!-- <div class="breadcrumb-holder container-fluid">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Forms</li>
+      </ul>
+    </div> -->
+    <!-- Forms Section-->
+    <section class="forms">
+@using (Html.BeginForm("ManageMedicineDetails", "MedicineDetails", FormMethod.Post, new { @id = "frmMedicineDetails" }))
+{
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Basic Form-->
+                <div class="col-lg-12">
+                    <div class="card">
+                        <!-- <div class="card-close">
+                          <div class="dropdown">
+                            <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                            <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                          </div>
+                        </div> -->
+                        <!-- <div class="card-header d-flex align-items-center">
+                          <h3 class="h4">Basic Form</h3>
+                        </div> -->
+                        <div class="card-body">
+                            <p>Need to fill mandatory fields.</p>
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Precription Name<span class="star">*</span></label>
+                                            @Html.TextBoxFor(m => m.MedicineName, new { @id = "txtName", @class = "form-control", required = "required", @placeholder = "Precription Name" })
+                                            @Html.ValidationMessageFor(model => model.MedicineName, "", new { @class = "text-danger" })
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Type<span class="star">*</span></label>
+                                            @Html.TextBoxFor(m => m.MedicineType, new { @id = "txtName", @class = "form-control", required = "required", @placeholder = "Type" })
+                                            @Html.ValidationMessageFor(model => model.MedicineType, "", new { @class = "text-danger" })
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Generic Name<span class="star">*</span></label>
+                                            @Html.TextBoxFor(m => m.GenericName, new { @id = "txtName", @class = "form-control", required = "required", @placeholder = "Generic Name" })
+                                            @Html.ValidationMessageFor(model => model.GenericName, "", new { @class = "text-danger" })
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Company Name<span class="star">*</span></label>
+                                            @Html.TextBoxFor(m => m.CompanyName, new { @id = "txtName", @class = "form-control", required = "required", @placeholder = "Company Name" })
+                                            @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Range<span class="star">*</span></label>
+                                            @Html.TextBoxFor(m => m.Range, new { @id = "txtName", @class = "form-control", required = "required", @placeholder = "Range" })
+                                            @Html.ValidationMessageFor(model => model.Range, "", new { @class = "text-danger" })
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Other</label>
+                                            @Html.TextBoxFor(m => m.Other, new { @id = "txtName", @class = "form-control", @placeholder = "Other" })
+                                            @Html.ValidationMessageFor(model => model.Other, "", new { @class = "text-danger" })
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 text-right">
+                                        <a href="~/Home/Apoinment"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
+                                        <input type="submit" value="Save" class="btn btn_2 b33 btn-primary">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+}
+    </section>
+    <section class="tables">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-close">
+                            <!-- <div class="dropdown">
+                                <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                              </div> -->
+                        </div>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="grid-btn">
+                                        <input type="text" placeholder="Search..." class="form-control grid-search-box">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+
+                                            <th>Precription Name</th>
+                                            <th>Type</th>
+                                            <th>Generic Name</th>
+                                            <th>Company Name</th>
+                                            <th>Range</th>
+                                            <th>Other</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            @*<td>
+                                                    <ul class="list-inline">
+                                                        <div class="i-checks ">
+                                                            <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                        </div>
+                                                    </ul>
+                                                </td*@
+                                            <td>Crocine</td>
+                                            <td>Fever</td>
+                                            <td>No</td>
+                                            <td>12</td>
+                                            <td>Low</td>
+                                            <td>Other</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Edit">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            @*<td>
+                                                    <ul class="list-inline">
+                                                        <div class="i-checks ">
+                                                            <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                        </div>
+                                                    </ul>
+                                                </td>*@
+                                            <td>Crocine</td>
+                                            <td>Fever</td>
+                                            <td>No</td>
+                                            <td>12</td>
+                                            <td>Low</td>
+                                            <td>Other</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Edit">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            @*<td>
+                                                    <ul class="list-inline">
+                                                        <div class="i-checks ">
+                                                            <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                        </div>
+                                                    </ul>
+                                                </td>*@
+                                            <td>Crocine</td>
+                                            <td>Fever</td>
+                                            <td>No</td>
+                                            <td>12</td>
+                                            <td>Low</td>
+                                            <td>Other</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Edit">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            @*<td>
+                                                    <ul class="list-inline">
+                                                        <div class="i-checks ">
+                                                            <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                        </div>
+                                                    </ul>
+                                                </td>*@
+                                            <td>Crocine</td>
+                                            <td>Fever</td>
+                                            <td>No</td>
+                                            <td>12</td>
+                                            <td>Low</td>
+                                            <td>Other</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Edit">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            @*<td>
+                                                    <ul class="list-inline">
+                                                        <div class="i-checks ">
+                                                            <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
+                                                        </div>
+                                                    </ul>
+                                                </td>*@
+                                            <td>Crocine</td>
+                                            <td>Fever</td>
+                                            <td>No</td>
+                                            <td>12</td>
+                                            <td>Low</td>
+                                            <td>Other</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Edit">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                    </li>
+
+                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ul class="pagination">
+                                        <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                                        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+        </div>
+    </section>
+    <!-- Page Footer-->
+    <footer class="main-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- <div class="col-sm-6">
+                  <p>Your company &copy; 2017-2020</p>
+                </div> -->
+                <div class="col-sm-12 footer-img text-right">
+                    <p><span class="small">Powered by</span> <img src="img/Powered By company logo.png" class="img-responsive"></p>
+                    <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+@*<div class="modal fade" id="ComfirmationPopup" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content text-center">
+                <div class="modal-header" style="border-bottom:none;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h1>Do you want to Delete Admin?</h1>
+                </div>
+                <div class="modal-footer" style="border-top:none;">
+
+                    <button type="button" class="btn btn_2 btn-primary">Yes</button>
+                    <button type="button" class="btn btn_1 btn-primary" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $('.b33').click(function () {
+        swal({
+            title: "New Medicine added successfully.",
+            //text: "You clicked the button!",
+            icon: "success",
+            button: "OK",
+        });
+    });
+
+
+
+
+
+    $('.fa.fa-times').click(function () {
+        swal({
+            title: "Do you want to delete admin?",
+            //text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            //dangerMode: true,
+            buttons: true,
+            confirmButtonText: 'YES',
+            cancelButtonText: "NO",
+
+        })
+.then((willDelete) => {
+    if (willDelete) {
+        swal("Your are deleted admin successfully.", {
+            icon: "success",
+        });
+    }
+    else {
+
+        swal("Your admin is safe", {
+            icon: "success",
+
+        });
+    }
+});
+    });
+
+</script>
+
+
+

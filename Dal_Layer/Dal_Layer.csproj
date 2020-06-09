@@ -45,6 +45,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="CommonFunction.cs" />
     <Compile Include="Dal_AdminDetails.cs" />
+    <Compile Include="Dal_MedicineDetails.cs" />
     <Compile Include="Dal_PatientDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

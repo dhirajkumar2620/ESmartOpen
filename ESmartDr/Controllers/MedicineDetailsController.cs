@@ -8,24 +8,24 @@ using System.Web.Mvc;
 
 namespace ESmartDr.Controllers
 {
-    public class AdminDetailsController : Controller
+    public class MedicineDetailsController : Controller
     {
-        // GET: AdminDetails Added by Dhiraj 
-        Bal_AdminDetails BP = new Bal_AdminDetails();
+        // GET: Created by Dhiraj
+        Bal_MedicineDetails BL = new Bal_MedicineDetails();
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult AdminDetails()
+        public ActionResult MedicineDetails()
         {
-            return View("AdminRegistration");
+            return View("MedicineDetails");
         }
-        public ActionResult ManageAdminDetails(AdminDetails AD)
+        public ActionResult ManageMedicineDetails(MedicineDetails MD)
         {
             try
             {
-                int Flag = BP.ManagePatientDetails(AD);
-                return View("AdminRegistration");
+                int Flag = BL.ManageMedicineDetails(MD);
+                return View("MedicineDetails");
             }
             catch (Exception ex)
             {
