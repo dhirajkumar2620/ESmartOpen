@@ -16,7 +16,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[21];
+                sqlparam = new SqlParameter[20];
                 sqlparam[0] = new SqlParameter("@UserId", AD.UserId);
                 sqlparam[1] = new SqlParameter("@Name", AD.FirstName);
                 sqlparam[2] = new SqlParameter("@Education", AD.Education);
@@ -37,10 +37,10 @@ namespace Dal_Layer
                 sqlparam[17] = new SqlParameter("@ParentId", AD.ParentId);
                 sqlparam[18] = new SqlParameter("@HospitalId", AD.HospitalId);
                 sqlparam[19] = new SqlParameter("@CreatedBy", AD.UserId);
-                sqlparam[17] = new SqlParameter("@Createddate",null);
-                sqlparam[18] = new SqlParameter("@ModifiedBy", AD.ModifiedBy);
+                sqlparam[17] = new SqlParameter("@CreatedDate", null);
+                sqlparam[18] = new SqlParameter("@ModifiedBy",AD.UserId);
                 sqlparam[19] = new SqlParameter("@ModifiedDate", null);
-                sqlparam[20] = new SqlParameter("@ModifiedDate", AD.UserId);
+                
                 return CommonFunction.Save("USP_AdminDetails", sqlparam, "");
             }
             catch (Exception)
