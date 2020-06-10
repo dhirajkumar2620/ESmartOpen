@@ -20,12 +20,41 @@ namespace ESmartDr.Controllers
         {
             return View("PatientRegistration");
         }
+        public ActionResult ViewAllPatient()
+        {
+            try
+            {
+                List<PatientDetails> LST = new List<PatientDetails>();
+                LST = BP.GetPatientDetails();
+                return View("AllPatient", LST);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public ActionResult ManagePatientDetails(PatientDetails PD)
         {
             try
             {
                 int Flag = BP.ManagePatientDetails(PD);
-                return View("PatientRegistration");
+                return RedirectToAction("ViewAllPatient", "PatientDetails");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public ActionResult GetDetailsById(int  Id)
+        {
+            try
+            {
+                PatientDetails pd = new PatientDetails();
+                pd = BP.GetDetailsById(Id);
+                pd.BloodGroup.Trim();
+                return View("PatientRegistration", pd);
             }
             catch (Exception)
             {

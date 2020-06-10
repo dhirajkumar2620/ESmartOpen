@@ -2,6 +2,7 @@
 using DataLayer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -43,6 +44,63 @@ namespace Dal_Layer
             {
 
                 throw;
+            }
+        }
+        public List<PatientDetails> GetPatientDetails()
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[1];
+                sqlparam[0] = new SqlParameter("@Flag", "1");
+
+                DataTable ds = CommonFunction.GetDataTable("USP_GET_PATIENTDETAILS", sqlparam, "");
+                List<PatientDetails> lst = new List<PatientDetails>();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        PatientDetails Model = new PatientDetails();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        lst.Add(Model);
+                    }
+                }
+                return lst;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+
+        public PatientDetails GetPatientDetailsById(int id)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[1];
+                sqlparam[0] = new SqlParameter("@Id", id);
+
+                DataTable ds = CommonFunction.GetDataTable("USP_GET_PATIENTDETAILS", sqlparam, "");
+                PatientDetails lst = new PatientDetails();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        //PatientDetails Model = new PatientDetails();
+                        CommonFunction.ReflectSingleData(lst, dr);
+                        
+                    }
+                }
+                return lst;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
             }
         }
     }

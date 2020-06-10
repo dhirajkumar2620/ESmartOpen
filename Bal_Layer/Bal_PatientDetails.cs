@@ -17,5 +17,15 @@ namespace Bal_Layer
         {
             return DP.ManagePatientDetails(PD);
         }
+
+        public List<PatientDetails> GetPatientDetails()
+        {
+            return DP.GetPatientDetails();
+        }
+
+        public PatientDetails GetDetailsById(int id)
+        {
+            return DP.GetPatientDetailsById(id);
+        }
     }
 }

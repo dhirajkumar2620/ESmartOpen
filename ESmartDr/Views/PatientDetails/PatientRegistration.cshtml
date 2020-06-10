@@ -16,6 +16,7 @@
     <section class="forms">
         @using (Html.BeginForm("ManagePatientDetails", "PatientDetails", FormMethod.Post, new { @id = "frmPatientDetails" }))
         {
+            @Html.HiddenFor(m => m.Id);
             <div class="container-fluid">
                 <div class="row">
                     <!-- Basic Form-->
@@ -49,12 +50,12 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Date of Birth<span class="star">*</span></label>
-                                                @Html.TextBoxFor(m => m.DOB, new { @id = "txtDOB", @type = "Date", @class = "form-control",  @placeholder = "Date of Birth" })
+                                                @Html.TextBoxFor(m => m.DOB, new { @id = "txtDOB", @type = "Date", @class = "form-control", @placeholder = "Date of Birth" })
                                                 @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
                                                 @*<input type="Date" placeholder="Email Address" class="form-control">*@
                                             </div>
                                         </div>
-                                       
+
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
@@ -98,7 +99,7 @@
 
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
@@ -126,7 +127,7 @@
                                                 @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
-                                       
+
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
@@ -183,11 +184,11 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Case Paper Fees<span class="star">*</span></label>
-                                                @Html.TextBoxFor(m => m.CasePaperFees, new { @id = "txtCasePaperFees", @class = "form-control",  @placeholder = "Case Paper Fees" })
+                                                @Html.TextBoxFor(m => m.CasePaperFees, new { @id = "txtCasePaperFees", @class = "form-control", @placeholder = "Case Paper Fees" })
                                                 @Html.ValidationMessageFor(model => model.CasePaperFees, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
@@ -231,13 +232,13 @@
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-    $('.b22').click(function () {
-        swal({
-            title: "New Patient Added Successfully.",
-            //text: "You clicked the button!",
-            icon: "success",
-            button: "OK",
-        });
-    });
+    //$('.b22').click(function () {
+    //    swal({
+    //        title: "New Patient Added Successfully.",
+    //        //text: "You clicked the button!",
+    //        icon: "success",
+    //        button: "OK",
+    //    });
+    //});
 
 </script>
