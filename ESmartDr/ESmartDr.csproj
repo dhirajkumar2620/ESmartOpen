@@ -198,7 +198,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminDetailsController.cs" />
+    <Compile Include="Controllers\DignosticDetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LaboratoryDetailsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MedicineDetailsController.cs" />
     <Compile Include="Controllers\PatientDetailsController.cs" />
@@ -502,6 +504,8 @@
     <Content Include="Views\PatientDetails\PatientRegistration.cshtml" />
     <Content Include="Views\AdminDetails\AdminRegistration.cshtml" />
     <Content Include="Views\MedicineDetails\MedicineDetails.cshtml" />
+    <Content Include="Views\DignosticDetails\DignosticDetails.cshtml" />
+    <Content Include="Views\LaboratoryDetails\LaboratoryDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

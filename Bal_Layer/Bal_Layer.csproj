@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bal_AdminDetails.cs" />
+    <Compile Include="Bal_DignosticDetails.cs" />
+    <Compile Include="Bal_LaboratoryDetails.cs" />
     <Compile Include="Bal_MedicineDetails.cs" />
     <Compile Include="Bal_PatientDetails.cs" />
     <Compile Include="Class1.cs" />

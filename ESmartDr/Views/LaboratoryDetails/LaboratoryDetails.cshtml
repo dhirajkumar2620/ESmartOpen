@@ -1,0 +1,692 @@
+﻿
+@{
+    ViewBag.Title = "LaboratoryDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="">
+    <header class="page-header">
+        <div class="container-fluid">
+            <h2 class="no-margin-bottom">LABORATORY</h2>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Basic Form-->
+            <div class="col-lg-12">
+                <div class="card">
+                    <!-- <div class="card-close">
+                      <div class="dropdown">
+                        <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                        <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                      </div>
+                    </div> -->
+                    <!-- <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Basic Form</h3>
+                    </div> -->
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Select<span class="star">*</span></label>
+                                        <select name="account" class="form-control mb-3">
+                                            <option>Select </option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table style="border: none; margin: 0 auto ; padding: 0;" id="tblPrint">
+        <tr>
+            <td style="padding: 0; background-color: #FFFFFF;">
+
+                <div style="min-width:200px; font-family:'Arial' , sans-serif; font-size:16px; background-color:#FFFFFF; line-height:1.4; color:#4A4A4A; border:1px solid #DFDFDF; overflow:hidden;">
+
+                    <div style="background-color: #f5a433; height: 60px;">
+                    </div>
+
+                    <header style="text-align: center;">
+                        <img src="img/banner.png"
+                             style="display: block; background-size: cover; width: 100%;">
+                    </header>
+                    <div class="row">
+                        <!-- Basic Form-->
+                        <div class="col-lg-12">
+                            <div class="card" style="margin-bottom:0;">
+                                <div class="card-body">
+                                    <p>Need to fill mandatory fields.</p>
+                                    <form class="form-inline lab_1-data" action="/action_page.php">
+                                        <div class="form-group">
+                                            <label for="patient" class="form-control-label">Name of Patient</label>
+                                            <input type="text" placeholder="Name of Patient" class="form-control text-letter">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Age" class="form-control-label">Age</label>
+                                            <input type="number" class="form-control" id="pwd">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Age" class="form-control-label">Gender</label>
+                                            <select name="account" class="form-control mb-3 text-letter">
+                                                <option>Select Gender</option>
+                                                <option>Male</option>
+                                                <option>Female</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                    <br />
+                                    <form class="form-inline lab_1-data" action="/action_page.php">
+                                        <div class="form-group">
+                                            <label for="Address" class="form-control-label">Address</label>
+                                            <input type="text" placeholder="Address" class="form-control text-letter">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Date" class="form-control-label">Date</label>
+                                            <input type="Date" class="form-control text-letter">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Age" class="form-control-label">Ref. by Dr.</label>
+                                            <input type="text" placeholder="Ref. by Dr." class="form-control text-letter">
+                                        </div>
+                                    </form>
+                                    <br />
+                                    <form class="form-inline lab_1-data" action="/action_page.php">
+                                        <div class="form-group">
+                                            <label for="Address" class="form-control-label">Mobile No.</label>
+                                            <input type="text" placeholder="Mobile No." class="form-control text-letter">
+                                        </div>
+                                    </form>
+                                    <form>
+                                        <hr>
+                                        <div class="row letter-li">
+                                            <div class="col-md-6">
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td>
+                                                            <h4>HEMATOLOGY & CLINICAL PATHOLOGY</h4>
+                                                            <br>
+                                                            <ul class="list-unstyled">
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;HB
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;CBC Platelet Count
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;CBC with ESR
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Malarial Parasite
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Absolute Eosinophilic Count
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Retic Count / LDH
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Blood Group / RH Type
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Bleeding Time / Clotting Time
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Prothrombin Time (PT INR)
+
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Urine Routine / Micro
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Bile Salt & Bile Pigments
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Pregnancy Test
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Stool Routine / Reducing Substance
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Stool For Occ. Blood
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h4>SEROLOGICAL TESTS</h4>
+                                                            <br>
+                                                            <ul class="list-unstyled">
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Widal Test
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Brucella Test
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;V. D. R. L.
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;R. A. Test
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;A. S. O.
+                                                                </li>
+                                                                <ul class="list-unstyled">
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;C. R. P.
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;H. I. V. Test (Spot)
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Australia Antigen (HBsAg)
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;HCV Test
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;T. B. Gold
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;TORCH IgG / IgM
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Dengue Fever Test
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Chikungunya Test
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Weil Felix Test
+                                                                    </li>
+                                                                </ul>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h4>BIOCHEMISTRY</h4>
+                                                            <br>
+                                                            <ul class="list-unstyled">
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Blood Sugar (F / PP / R)
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;HBA1C
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Blood Urea
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Sr. Creatinine
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Trop. T / CPK-MB
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;All Cardiac Markers
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Sr. Amylase / Lipase / Ammonia
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Sr. Phosphorous
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Sr. Uric Acid
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Sr. Mangnesium
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <h4>HARMONAL ASSAY</h4>
+                                                            <br>
+                                                            <ul class="list-unstyled">
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;T3, T4, TSH
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;LH, FSH, Prolacin, Testosterone
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h4>MICROBIOLOGY</h4>
+                                                            <br />
+                                                            <ul class="list-unstyled">
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Urine Culture & Sensitivity
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Sputum Routine / AFB / C / S
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h4>LFT</h4>
+                                                            <br />
+                                                            <ul class="list-unstyled">
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Sr. Bilirubin
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;S. G. O. T.
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;S. G. P. T.
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Alk. Phosphatase
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;S. Proteins
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h4>LIPID PROFILE</h4>
+                                                            <br />
+                                                            <ul class="list-unstyled">
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Sr. Cholesterol
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;HDL
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Sr. Triglyceride
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h4>Sr. ELECTROLYTES</h4>
+                                                            <br />
+                                                            <ul class="list-unstyled">
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Na+, K+
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Sr. Calcium
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h4>FLUID EXAMINATION</h4>
+                                                            <br />
+                                                            <ul class="list-unstyled">
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;C.S.F. Examination
+                                                                </li>
+                                                                <li>
+                                                                    <input id="checkboxCustom"
+                                                                           type="checkbox" value=""
+                                                                           onchange="checkAll(this)"
+                                                                           class="checkbox-template">
+                                                                    &nbsp;Ascitic / Pleural Fluid Cytology
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row letter-li">
+                                            <div class="col-md-12">
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td>
+                                                            <h4>Clinical History</h4>
+                                                            <div class="form-group">
+                                                                <textarea style="width: 100%;"></textarea>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <input type="button" value="Save" class="btn btn_2 btn-primary b22">
+            <input type="button" value="Print" onclick='PrintDiv("tblPrint")' class="btn btn_1 btn-primary">
+            <input type="button" value="Share on Whatsapp" class="btn whatsapp-btn btn_2 btn-primary">
+        </div>
+    </div>
+</div>
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $('.b22').click(function () {
+        swal({
+            title: "Good job!",
+            text: "You clicked the button!",
+            icon: "success",
+            button: "OK",
+        });
+    });
+
+
+</script>
+
+<script type="text/javascript" language="javascript">
+    function PrintDiv(divID) {
+        //Get the HTML of div
+        var divElements = document.getElementById(divID).innerHTML;
+        //Get the HTML of whole page
+        var oldPage = document.body.innerHTML;
+        //Reset the page's HTML with div's HTML only
+        document.body.innerHTML =
+         "<html><head><title></title></head><body>" +
+         divElements + "</body>";
+
+        //Print Page
+        window.print();
+
+        //Restore orignal HTML
+        document.body.innerHTML = oldPage;
+
+
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

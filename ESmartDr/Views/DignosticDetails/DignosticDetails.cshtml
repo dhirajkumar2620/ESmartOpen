@@ -1,0 +1,515 @@
+﻿
+
+@{
+    ViewBag.Title = "DignosticDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <!-- Page Header-->
+    <header class="page-header">
+        <div class="container-fluid">
+            <h2 class="no-margin-bottom">DIGNOSTIC</h2>
+        </div>
+    </header>
+    <!-- Breadcrumb-->
+    <!-- <div class="breadcrumb-holder container-fluid">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Forms</li>
+      </ul>
+    </div> -->
+    <!-- Forms Section-->
+    <div class="">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Basic Form-->
+                <div class="col-lg-12">
+                    <div class="card">
+                        <!-- <div class="card-close">
+                          <div class="dropdown">
+                            <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                            <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                          </div>
+                        </div> -->
+                        <!-- <div class="card-header d-flex align-items-center">
+                          <h3 class="h4">Basic Form</h3>
+                        </div> -->
+                        <div class="card-body">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Select<span class="star">*</span></label>
+                                            <select name="account" class="form-control mb-3">
+                                                <option>Select </option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table style="border: none; margin: 0 auto ; padding: 0;" id="tblPrint">
+            <tr>
+                <td style="padding: 0; background-color: #FFFFFF;">
+
+                    <div style="min-width:200px; font-family:'Arial' , sans-serif; font-size:16px; background-color:#FFFFFF; line-height:1.4; color:#4A4A4A; border:1px solid #DFDFDF; overflow:hidden;">
+
+                        <div style="background-color: #f5a433; height: 60px;">
+                        </div>
+
+                        <header style="text-align: center;">
+                            <img src="img/banner.png"
+                                 style="display: block; background-size: cover; width: 100%;">
+                        </header>
+                        <div class="row">
+                            <!-- Basic Form-->
+                            <div class="col-lg-12">
+                                <div class="card " style="margin-bottom:0;">
+                                    <div class="card-body">
+                                        <p>Need to fill mandatory fields.</p>
+                                        <form class="form-inline lab_1-data" action="/action_page.php">
+                                            <div class="form-group">
+                                                <label for="patient" class="form-control-label">Name of Patient</label>
+                                                <input type="text" placeholder="Name of Patient" class="form-control text-letter">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Age" class="form-control-label">Age</label>
+                                                <input type="number" class="form-control" id="pwd">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Age" class="form-control-label">Gender</label>
+                                                <select name="account" class="form-control mb-3 text-letter">
+                                                    <option>Select Gender</option>
+                                                    <option>Male</option>
+                                                    <option>Female</option>
+                                                    <option>Other</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                        <br />
+                                        <form class="form-inline lab_1-data" action="/action_page.php">
+                                            <div class="form-group">
+                                                <label for="Address" class="form-control-label">Address</label>
+                                                <input type="text" placeholder="Address" class="form-control text-letter">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Date" class="form-control-label">Date</label>
+                                                <input type="Date" class="form-control text-letter">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Age" class="form-control-label">Ref. by Dr.</label>
+                                                <input type="text" placeholder="Ref. by Dr." class="form-control text-letter">
+                                            </div>
+                                        </form>
+                                        <br />
+                                        <form class="form-inline lab_1-data" action="/action_page.php">
+                                            <div class="form-group">
+                                                <label for="Address" class="form-control-label">Mobile No.</label>
+                                                <input type="text" placeholder="Mobile No." class="form-control text-letter">
+                                            </div>
+                                        </form>
+                                        <form>
+                                            <hr>
+                                            <div class="row letter-li">
+                                                <div class="col-md-6">
+                                                    <table style="width: 100%;">
+                                                        <tr>
+                                                            <td>
+                                                                <h4>SONOGRAPHY</h4>
+                                                                <br>
+                                                                <ul class="list-unstyled">
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Abdomen Pelvis
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Pelvis
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;KUB
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Chest
+                                                                    </li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h4>OBSTRETRIC USG</h4>
+                                                                <br>
+                                                                <ul class="list-unstyled">
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Routine obs USG
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;NT Scan
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Anomaly Scan (18-22 Wk)
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Obstretric USG with Doppler
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;3D / 4D Obstretric USG
+                                                                    </li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h4>COLOUR DOPPLER STUDY</h4>
+                                                                <br>
+                                                                <ul class="list-unstyled">
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Venous System
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Upper Limb Rt / Lt
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Lower Limb Rt / Lt
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Arterial System
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Upper Limb Rt / Lt
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Lower Limb Rt / Lt
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Carotid Doppler
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Renal Doppler
+                                                                    </li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <h4>SMALL PART USG</h4>
+                                                                <br>
+                                                                <ul class="list-unstyled">
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Thyroid
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Neck
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Scrotum
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Orbit
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Muskeulokeletal
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Breast / Sonomammography Rt / Lt
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Local Parts
+                                                                    </li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h4>DIGITAL X-RAY</h4>
+                                                                <br>
+                                                                <ul class="list-unstyled">
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Chest PA / AP
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Spine CS / DL / LS
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;KUB
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Abdomen Erect / Supine
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Joint / Bone
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;PNS
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Other
+                                                                    </li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h4>DIGITAL X-RAY & PROCEDURES</h4>
+                                                                <br>
+                                                                <ul class="list-unstyled">
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;IVU / RGU / MCU / HSG
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Sinogram / Fistulogram
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Pleural Fluid Tapping
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;Ascitic Fluid Tapping
+                                                                    </li>
+                                                                    <li>
+                                                                        <input id="checkboxCustom"
+                                                                               type="checkbox" value=""
+                                                                               onchange="checkAll(this)"
+                                                                               class="checkbox-template">
+                                                                        &nbsp;FNAC / BIOPSY
+                                                                    </li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row letter-li">
+                                                <div class="col-md-12">
+                                                    <table style="width: 100%;">
+                                                        <tr>
+                                                            <td>
+                                                                <h4>Clinical History</h4>
+                                                                <div class="form-group">
+                                                                    <textarea style="width: 100%;"></textarea>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <input type="button" value="Save" class="btn btn_2 btn-primary b22">
+                <input type="button" value="Print" onclick='PrintDiv("tblPrint")' class="btn btn_1 btn-primary">
+                <input type="button" value="Share on Whatsapp" class="btn whatsapp-btn btn_2 btn-primary">
+            </div>
+        </div>
+    </div>
+    <!-- Page Footer-->
+    <footer class="main-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- <div class="col-sm-6">
+                  <p>Your company &copy; 2017-2020</p>
+                </div> -->
+                <div class="col-sm-12 footer-img text-right">
+                    <p><span class="small">Powered by</span> <img src="img/Powered By company logo.png" class="img-responsive"></p>
+                    <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $('.b22').click(function () {
+        swal({
+            title: "Good job!",
+            text: "You clicked the button!",
+            icon: "success",
+            button: "OK",
+        });
+    });
+
+</script>
+<script type="text/javascript" language="javascript">
+    function PrintDiv(divID) {
+        //Get the HTML of div
+        var divElements = document.getElementById(divID).innerHTML;
+        //Get the HTML of whole page
+        var oldPage = document.body.innerHTML;
+        //Reset the page's HTML with div's HTML only
+        document.body.innerHTML =
+         "<html><head><title></title></head><body>" +
+         divElements + "</body>";
+
+        //Print Page
+        window.print();
+
+        //Restore orignal HTML
+        document.body.innerHTML = oldPage;
+
+
+    }
+
+</script>
+
+
+
