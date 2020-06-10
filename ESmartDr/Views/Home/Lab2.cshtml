@@ -9,7 +9,7 @@
 <div class="">
     <header class="page-header">
         <div class="container-fluid">
-            <h2 class="no-margin-bottom">Lab Second</h2>
+            <h2 class="no-margin-bottom">LABORATORY</h2>
         </div>
     </header>
     <div class="container-fluid">
@@ -47,7 +47,7 @@
             </div>
         </div>
     </div>
-    <table style="border: none; margin: 0 auto ; padding: 0;">
+    <table style="border: none; margin: 0 auto ; padding: 0;" id="tblPrint">
         <tr>
             <td style="padding: 0; background-color: #FFFFFF;">
 
@@ -586,13 +586,7 @@
                                                 </table>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-12 text-right">
-                                                <input type="button" value="Save" class="btn btn_2 btn-primary b22">
-                                                <input type="button" value="Print"  onclick="window.print()" class="btn btn_1 btn-primary">
-                                                <input type="button" value="Share on Whatsapp" class="btn whatsapp-btn btn_2 btn-primary">
-                                            </div>
-                                        </div>
+                                        
                                     </form>
                                 </div>
                             </div>
@@ -602,6 +596,13 @@
             </td>
         </tr>
     </table>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <input type="button" value="Save" class="btn btn_2 btn-primary b22">
+            <input type="button" value="Print" onclick='PrintDiv("tblPrint")' class="btn btn_1 btn-primary">
+            <input type="button" value="Share on Whatsapp" class="btn whatsapp-btn btn_2 btn-primary">
+        </div>
+    </div>
 </div>
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -618,7 +619,27 @@
 
 </script>
 
+<script type="text/javascript" language="javascript">
+    function PrintDiv(divID) {
+        //Get the HTML of div
+        var divElements = document.getElementById(divID).innerHTML;
+        //Get the HTML of whole page
+        var oldPage = document.body.innerHTML;
+        //Reset the page's HTML with div's HTML only
+        document.body.innerHTML =
+         "<html><head><title></title></head><body>" +
+         divElements + "</body>";
 
+        //Print Page
+        window.print();
+
+        //Restore orignal HTML
+        document.body.innerHTML = oldPage;
+
+
+    }
+
+</script>
 
 
 
