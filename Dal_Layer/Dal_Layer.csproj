@@ -45,6 +45,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="CommonFunction.cs" />
     <Compile Include="Dal_AdminDetails.cs" />
+    <Compile Include="Dal_AppoinmentDeatils.cs" />
     <Compile Include="Dal_DignosticDetails.cs" />
     <Compile Include="Dal_LaboratoryDetails.cs" />
     <Compile Include="Dal_MedicineDetails.cs" />

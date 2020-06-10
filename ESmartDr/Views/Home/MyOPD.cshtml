@@ -65,11 +65,12 @@
                                             <a class="nav-link active" id="pills-patient-tab" data-toggle="pill" href="#pills-patient" role="tab" aria-controls="pills-patient" aria-selected="true">Patient Details</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-examination-tab" data-toggle="pill" href="#pills-examination" role="tab" aria-controls="pills-examination" aria-selected="false">Examination</a>
-                                        </li>
-                                        <li class="nav-item">
                                             <a class="nav-link" id="pills-precription-tab" data-toggle="pill" href="#pills-precription" role="tab" aria-controls="pills-precription" aria-selected="false">Precription</a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-examination-tab" data-toggle="pill" href="#pills-examination" role="tab" aria-controls="pills-examination" aria-selected="false">Examination</a>
+                                        </li>
+
                                         <li class="nav-item">
                                             <a class="nav-link" id="pills-history-tab" data-toggle="pill" href="#pills-history" role="tab" aria-controls="pills-history" aria-selected="false">History</a>
                                         </li>
@@ -77,11 +78,9 @@
                                             <a class="nav-link" id="pills-billing-tab" data-toggle="pill" href="#pills-billing" role="tab" aria-controls="pills-billing" aria-selected="false">Billing</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-certificate-tab" data-toggle="pill" href="#pills-certificate" role="tab" aria-controls="pills-certificate" aria-selected="false">Certificate</a>
+                                            <a class="nav-link" id="pills-certificate-tab" data-toggle="pill" href="#pills-certificate" role="tab" aria-controls="pills-certificate" aria-selected="false"> Document Certificate</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="pills-Referral-tab" data-toggle="pill" href="#pills-Referral" role="tab" aria-controls="pills-Referral" aria-selected="false">Referral Letter</a>
-                                        </li>
+
 
                                     </ul>
                                 </div>
@@ -420,7 +419,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="pills-examination" role="tabpanel" aria-labelledby="pills-examination-tab">
+
+                                    <div class="tab-pane fade" id="pills-precription" role="tabpanel" aria-labelledby="pills-precription-tab">
                                         <div class="bs-example">
                                             <div class="accordion" id="accordionExample1">
                                                 <div class="row">
@@ -763,21 +763,332 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="pills-precription" role="tabpanel" aria-labelledby="pills-precription-tab">
+                                    <div class="tab-pane fade" id="pills-examination" role="tabpanel" aria-labelledby="pills-examination-tab">
                                         3
                                     </div>
                                     <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
                                         4
                                     </div>
                                     <div class="tab-pane fade" id="pills-billing" role="tabpanel" aria-labelledby="pills-billing-tab">
-                                        5
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="table-responsive opd-table1">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Sr. No.</th>
+                                                                        <th>Service Name</th>
+                                                                        <th>Bill</th>
+                                                                        <th>Paid</th>
+                                                                        <th>Balance</th>
+                                                                        <th>Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td contenteditable="true">Fever</td>
+                                                                        <td contenteditable="true">1000</td>
+                                                                        <td contenteditable="true">Paid</td>
+                                                                        <td contenteditable="true">0</td>
+                                                                        <td>
+                                                                            <ul class="list-inline">
+                                                                                <li class="list-inline-item" title="Edit">
+                                                                                    <i class="fa fa-plus add-row-billing" aria-hidden="true"></i>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row reg-counter">
+                                            <div class=" col-md-12">
+                                                <div class="card animated fadeInUp delay-01s bg-light">
+                                                    <div class="card-body patient-det">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-md-2 text-center">
+                                                                <h6 class="mt-0 mb-1">Total</h6>
+                                                                <div class="count text-primary fs-20">4000</div>
+                                                            </div>
+                                                            <div class="col-md-2 text-center">
+                                                                <h6 class="mt-0 mb-1">Bill</h6>
+                                                                <div class="count text-primary fs-20">2000</div>
+                                                            </div>
+                                                            <div class="col-md-2 text-center">
+                                                                <h6 class="mt-0 mb-1">Paid</h6>
+                                                                <div class="count text-primary fs-20">1000</div>
+                                                            </div>
+                                                            <div class="col-md-2 text-center">
+                                                                <h6 class="mt-0 mb-1">Balance</h6>
+                                                                <div class="count text-primary fs-20">1000</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-top: .5em;">
+                                            <div class="col-md-12 text-center">
+                                                <input type="button" value="Print" onclick='PrintDiv("tblPrint")' class="btn btn_1 btn-primary">
+                                                <input type="button" value="Share" class="btn btn_2 btn-primary">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="tab-pane fade" id="pills-certificate" role="tabpanel" aria-labelledby="pills-certificate-tab">
-                                        6
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label class="form-control-label">Select Certificate</label>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item">
+                                                        <div class="i-checks ">
+                                                            <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+
+                                                            <label for="radioCustom2">Fitness Certificate</label>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <div class="i-checks ">
+                                                            <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                                                            <label for="radioCustom2">Medical Certificate</label>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <div class="i-checks ">
+                                                            <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                                                            <label for="radioCustom2">No</label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div style="min-width:200px; font-family:'Arial' , sans-serif; font-size:16px; background-color:#FFFFFF; line-height:1.4; color:#4A4A4A; border:1px solid #DFDFDF; overflow:hidden;">
+
+                                                    <div style="background-color: #f5a433; height: 60px;padding: 1em;text-align: center;">
+                                                        <h3 style="font-size: 2em;color: #fff;">Fitness Certificate</h3>
+                                                    </div>
+                                                    <div class="row">
+                                                        <!-- Basic Form-->
+                                                        <div class="col-lg-12">
+                                                            <div class="card " style="margin-bottom:0;">
+                                                                <div class="card-body">
+                                                                    <h2 style="font-size: 1.5em;color: #f5a433;">Create Fitness Certificate</h2>
+                                                                    <p>This is to certify that i have examined </p>
+                                                                    <hr />
+                                                                    <div class="row">
+                                                                        <div class="col-md-8">
+                                                                            <div class="row">
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <select name="account" class="form-control mb-3">
+                                                                                            <option>Mr.</option>
+                                                                                            <option>1</option>
+                                                                                            <option>2</option>
+                                                                                            <option>3</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-8">
+                                                                                    <input class="form-control" id="txtName" name="FirstName" placeholder="Name" required="required" type="text" value="">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">Name<span class="star">*</span></label>
+                                                                                <input class="form-control" id="txtName" name="FirstName" placeholder="Name" required="required" type="text" value="">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <form class="form-horizontal form-label-left">
+                                                                                <fieldset class="custom-border">
+                                                                                    <legend class="custom-border">Health Condition Selection</legend>
+                                                                                    <div class="form-group">
+                                                                                        <ul class="list-inline">
+                                                                                            <li class="list-inline-item">
+                                                                                                <p>He</p>
+                                                                                            </li>
+                                                                                            <li class="list-inline-item">
+                                                                                                <div class="form-group">
+                                                                                                    <select name="account" class="form-control mb-3">
+                                                                                                        <option>is not having</option>
+                                                                                                        <option>Has</option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                        <ul class="list-inline certifi-check">
+
+                                                                                            <li class="list-inline-item">
+                                                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Asthma
+                                                                                            </li>
+                                                                                            <li class="list-inline-item">
+                                                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Fits/Convulsions
+                                                                                            </li>
+                                                                                            <li class="list-inline-item">
+                                                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Diabetes
+                                                                                            </li>
+                                                                                            <li class="list-inline-item">
+                                                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Physical Disability
+                                                                                            </li>
+                                                                                            <li class="list-inline-item">
+                                                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Hypertension
+                                                                                            </li>
+                                                                                            <li class="list-inline-item">
+                                                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Mental Disability
+                                                                                            </li>
+                                                                                            <li class="list-inline-item">
+                                                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Allergy
+                                                                                            </li>
+                                                                                            <li class="list-inline-item">
+                                                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Other
+                                                                                            </li>
+                                                                                            <li class="list-inline-item">
+                                                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;He has taken all necessary vaccination
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <hr />
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="form-group">
+                                                                                                <label class="form-control-label">
+                                                                                                    Any other major disease<span class="star">*</span>
+                                                                                                </label>
+                                                                                                <input type="text" placeholder="Name" class="form-control">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="form-group">
+                                                                                                <label class="form-control-label">
+                                                                                                    I certify that this person is<span class="star">*</span>
+                                                                                                </label>
+                                                                                                <select name="account" class="form-control mb-3">
+                                                                                                    <option>Physically</option>
+                                                                                                    <option>Physically and Mentally</option>
+                                                                                                    <option>Physically Mentally and Psychologically</option>
+                                                                                                    <option>3</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-5">
+                                                                                            <select name="account" class="form-control mb-3">
+                                                                                                <option>Fit</option>
+                                                                                                <option>Unfit</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <div class="col-md-2 text-center">
+                                                                                            <p style="margin-top: 0.3em!important;">For</p>
+                                                                                        </div>
+                                                                                        <div class="col-md-5">
+                                                                                            <select name="account" class="form-control mb-3">
+                                                                                                <option>Work</option>
+                                                                                                <option>Duty</option>
+                                                                                                <option>School</option>
+                                                                                                <option>College</option>
+                                                                                                <option>Surgery</option>
+                                                                                                <option>Other</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-12">
+                                                                                            <ul class="list-inline certifi-check">
+                                                                                                <li class="list-inline-item">
+                                                                                                    <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Include patient signature
+                                                                                                </li>
+                                                                                            </ul>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-12 text-center">
+                                                                                            <input type="button" value="Print Preview" class="btn btn_1 btn-primary b22">
+                                                                                            <input type="button" value="Print" onclick='PrintDiv("tblPrint")' class="btn btn_2 btn-primary">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </fieldset>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div>
+                                                    <div class="row">
+                                                        <!-- Basic Form-->
+                                                        <div class="col-lg-12">
+                                                            <div class="card " style="margin-bottom:0;">
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-md-3">
+                                                                            <img src="~/img/doc_snake.png" class="img-fluid" />
+                                                                        </div>
+                                                                        <div class="col-md-3" style="padding: 2em;">
+                                                                            <h5>Dr. Dhiraj S</h5>
+                                                                            <p>MBBS</p>
+                                                                            <p>Reg. No.:<span>12345</span></p>
+                                                                        </div>
+                                                                        <div class="col-md-6" style="padding: 2em;text-align: right;">
+                                                                            <h5>Dr. Dhiraj S'S Clinic</h5>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr />
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="text-center">
+                                                                                <h3 style="margin-bottom:2em;text-decoration: underline;">MEDICAL CERTIFICATE</h3>
+                                                                                <h3>TO WHOMSOEVER IT MAY CONCERN </h3>
+                                                                            </div>
+                                                                            <br />
+                                                                            <p>This is to certify that <b>Mr. ABC</b> has been under my treatment for ACNE, ACIDOSIS, INFLUENZA from 09-Jun-2020 to 09-Jun-2020</p>
+                                                                            <p>He is advised complete rest from 09-Jun-2020 to 09-Jun-2020 which is absolutely essential for the restoration on his health</p>
+                                                                            <p style="margin-top: 3em;">Patient signature/thumb impression</p>
+                                                                            <div style="margin-top:4em;">
+                                                                                <ul class="list-unstyled">
+                                                                                    <li><b>Place : </b></li>
+                                                                                    <li><b>Date : 09-Jun-2020</b></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row text-right">
+                                                                        <div class="col-md-12" style="padding: 2em;">
+                                                                            <h5>Dr. Dhiraj S</h5>
+                                                                            <p>MBBS</p>
+                                                                            <p>Reg. No.:<span>12345</span></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="tab-pane fade" id="pills-Referral" role="tabpanel" aria-labelledby="pills-Referral-tab">
-                                        7
-                                    </div>
+
                                 </div>
 
                             </div>
@@ -1151,7 +1462,20 @@
         $('.opd-table .table').append('<tr><td contenteditable="true">001</td><td contenteditable="true">Fever</td><td contenteditable="true">2 Week</td><td><ul class="list-inline"><li class="list-inline-item" title="Edit"><i class="fa fa-times"  onclick="SomeDeleteRowFunction(this);" aria-hidden="true"></i></li></ul></td></tr>');
     });
 
+
+    $('.opd-table1 .add-row-billing').click(function () {
+        $('.opd-table1 .table').append('<tr><td>1</td><td contenteditable="true">Fever</td><td contenteditable="true">1000</td><td contenteditable="true">Paid</td><td contenteditable="true">0</td><td><ul class="list-inline"><li class="list-inline-item" title="Edit"><i class="fa fa-times add-row-billing" onclick="SomeDeleteRowFunction(this);" aria-hidden="true"></i></li></ul></td></tr>');
+    });
+
     function SomeDeleteRowFunction(btndel) {
+        if (typeof (btndel) == "object") {
+            $(btndel).closest("tr").remove();
+        } else {
+            return false;
+        }
+    }
+
+    function SomeDeleteRowFunction1(btndel) {
         if (typeof (btndel) == "object") {
             $(btndel).closest("tr").remove();
         } else {

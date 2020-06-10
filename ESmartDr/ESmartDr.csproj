@@ -236,6 +236,7 @@
     <Content Include="img\doc-1.jpg" />
     <Content Include="img\doc-2.jpg" />
     <Content Include="img\doc-3.jpg" />
+    <Content Include="img\doc_snake.png" />
     <Content Include="img\favicon.png" />
     <Content Include="img\feature-image1.jpg" />
     <Content Include="img\F_icon.png" />
