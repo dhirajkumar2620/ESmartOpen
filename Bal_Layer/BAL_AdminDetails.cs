@@ -17,6 +17,15 @@ namespace Bal_Layer
         {
             return DP.ManageAdminDetails(PD);
         }
+
+        public List<AdminDetails> GetAllAdminDetails()
+        {
+            return DP.GetAllAdminDetails();
+        }
+        public AdminDetails GetAdminById(int id)
+        {
+            return DP.GetAdminById(id);
+        }
     }
 }
 

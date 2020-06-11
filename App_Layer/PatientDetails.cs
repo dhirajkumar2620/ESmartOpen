@@ -36,6 +36,8 @@ namespace App_Layer
         public string ModifiedBy { get; set; }
         public string ModifiedDate { get; set; }
         public string ImagePath { get; set; }
+        public bool IsAppoinment { get; set; }
+        public string AppoinmentDate { get; set; }
         public List <PatientDetails> lst { get; set; }
     }
 }

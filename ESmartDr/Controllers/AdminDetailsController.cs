@@ -20,14 +20,47 @@ namespace ESmartDr.Controllers
         {
             return View("AdminRegistration");
         }
+
+        public ActionResult ViewAllAdmin()
+        {
+            try
+            {
+                List<AdminDetails> LST = new List<AdminDetails>();
+                LST = BP.GetAllAdminDetails();
+                return View("AllAdmin", LST);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public ActionResult ManageAdminDetails(AdminDetails AD)
         {
             try
             {
                 int Flag = BP.ManagePatientDetails(AD);
-                return View("AdminRegistration");
+                List<AdminDetails> LST = new List<AdminDetails>();
+                LST = BP.GetAllAdminDetails();
+                return View("AllAdmin", LST);
             }
             catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        public ActionResult GetAdminById(int Id)
+        {
+            try
+            {
+                AdminDetails pd = new AdminDetails();
+                pd = BP.GetAdminById(Id);
+               
+                return View("AdminRegistration", pd);
+            }
+            catch (Exception)
             {
 
                 throw;

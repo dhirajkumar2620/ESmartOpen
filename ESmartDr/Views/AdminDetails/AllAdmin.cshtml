@@ -1,0 +1,254 @@
+﻿
+@model List<App_Layer.AdminDetails>
+@{
+    ViewBag.Title = "AllAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <!-- Page Header-->
+    <header class="page-header">
+        <div class="container-fluid">
+            <h2 class="no-margin-bottom">ADMIN MANAGEMENT</h2>
+        </div>
+    </header>
+    <!-- Breadcrumb-->
+    <!-- <div class="breadcrumb-holder container-fluid">
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">Tables</li>
+        </ul>
+      </div> -->
+    <section>
+        <div class="container-fluid">
+            <div class="row reg-counter">
+                <div class="col col-12 col-md-6 col-xl-3">
+                    <div class="card animated fadeInUp delay-01s bg-light">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col col-5 text-center">
+                                    <i class="fa fa-medkit" aria-hidden="true"></i>
+                                </div>
+                                <div class="col col-7">
+                                    <h6 class="mt-0 mb-1">Total <br />Account</h6>
+                                    <div class="count text-primary fs-20">100</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-12 col-md-6 col-xl-3">
+                    <div class="card animated fadeInUp delay-02s bg-light">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col col-5 text-center">
+                                    <i class="fa fa-wheelchair" aria-hidden="true"></i>
+                                </div>
+                                <div class="col col-7">
+                                    <h6 class="mt-0 mb-1">Active <br />Account</h6>
+                                    <div class="count text-primary fs-20">70</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-12 col-md-6 col-xl-3">
+                    <div class="card animated fadeInUp delay-03s bg-light">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col col-5 text-center">
+                                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                                </div>
+                                <div class="col col-7">
+                                    <h6 class="mt-0 mb-1">De-Atvive <br />Account</h6>
+                                    <div class="count text-primary fs-20">30</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col col-12 col-md-6 col-xl-3">
+                        <div class="card animated fadeInUp delay-04s bg-light">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col col-5 text-center">
+                                        <i class="fa fa-usd" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="col col-7">
+                                        <h6 class="mt-0 mb-1">Hospital Earning</h6>
+                                        <div class="count text-primary fs-20">$5238</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+    </section>
+    <section class="tables">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <div class="grid-btn pull-right">
+                                    <a href="~/PatientDetails/PatientDetails">   <input type="button" value="Add New Patient" style="margin-left: 1em;border-radius: 22px;" class="btn btn_2 btn-primary"></a>
+                                </div>
+                                <table id="example6" class="table table-striped" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th hidden>UserId</th>
+                                            <th>Dr. Name</th>
+                                            <th>Hospital Name</th>
+                                            <th>Address</th>
+                                            <th>Mobile No.</th>
+                                            <th>Other No.</th>
+                                            <th>Account Expired Date</th>
+                                            <th>Status</th>
+                                            <th>Remark</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td hidden>@item.UserId</td>
+                                                <td>@item.FirstName</td>
+                                                <td>@item.HostClincName</td>
+                                                <td>@item.HospClinicAddess</td>
+                                                <td>@item.WhatsAppNumber</td>
+                                                <td>@item.OtherNumber</td>
+                                                <td>@item.ExpiryDate</td>
+                                                <td>@item.IsActive</td>
+                                                <td>@item.LastName</td>
+                                                <td>
+                                                    <ul class="list-inline">
+                                                        <li class="list-inline-item" title="Appointment">
+                                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                        </li>
+
+                                                        <li class="list-inline-item" title="General Information">
+                                                            <a href="@Url.Content("~/AdminDetails/GetAdminById?Id="+item.UserId+"")">   <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal"></i></a>
+                                                        </li>
+                                                        <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                            <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                        </li>
+                                                        <li class="list-inline-item msg" title="Message">
+                                                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+        </div>
+    </section>
+    <!-- Page Footer-->
+    <footer class="main-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- <div class="col-sm-6">
+                    <p>Your company &copy; 2017-2020</p>
+                  </div> -->
+                <div class="col-sm-12 footer-img text-right">
+                    <p><span class="small">Powered by</span> <img src="img/Powered By company logo.png" class="img-responsive"></p>
+                    <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-header" style="border-bottom:none;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1>Do you want to get an Appointment?</h1>
+            </div>
+            <div class="modal-footer" style="border-top:none;">
+
+                <button type="button" class="btn btn_2 btn-primary">Yes</button>
+                <button type="button" class="btn btn_1 btn-primary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+@*<div class="modal fade" id="whatsappModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content text-center">
+                <div class="modal-header" style="border-bottom:none;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Enter your text here...</p>
+                            <textarea placeholder="Enter your text here ...">            </textarea>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer" style="border-top:none;">
+
+                    <button type="button" class="btn btn_2 btn-primary">Send</button>
+                    <button type="button" class="btn btn_1 btn-primary" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>*@
+<div class="modal fade" id="forAppontment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-header" style="border-bottom:none;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1>Do you want to get an Appointment?</h1>
+            </div>
+            <div class="modal-footer" style="border-top:none;">
+
+                <button type="button" class="btn btn_2 btn-primary">Yes</button>
+                <button type="button" class="btn btn_1 btn-primary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $('.whtap').click(function () {
+        swal("Write something here:", {
+            content: "input",
+        })
+.then((value) => {
+    swal(`You typed: ${value}`);
+});
+    });
+    $(document).ready(function () {
+        $('#example6').DataTable();
+    });
+</script>
+
+
+

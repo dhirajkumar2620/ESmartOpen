@@ -14,7 +14,8 @@
 
     <section class="forms">
 @using (Html.BeginForm("ManageAdminDetails", "AdminDetails", FormMethod.Post, new { @id = "frmAdminDetails" }))
-{
+{  
+    @Html.HiddenFor(m => m.UserId);
         <div class="container-fluid">
             <div class="row">
                 <!-- Basic Form-->
@@ -82,7 +83,7 @@
                                             <label class="form-control-label">
                                                 Country Code<span class="star">*</span>
                                             </label>
-                                            <input type="text" placeholder="Email ID" class="form-control">
+                                            <input value="+91" placeholder="Country Code" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -141,16 +142,16 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="form-control-label">Activation For</label>
-                                            @Html.TextBoxFor(m => m.ActivationFor, new { @id = "txtActivationFor", @class = "form-control", @type = "number", required = "required", @placeholder = "Activation For (in months)" })
-                                            @Html.ValidationMessageFor(model => model.ActivationFor, "", new { @class = "text-danger" })
+                                            <label class="form-control-label">Activation For<span class="star">*</span></label>
+                                            @Html.TextBoxFor(m => m.ActivationPeriod, new { @id = "txtActivationFor", @class = "form-control", @type = "number", required = "required", @placeholder = "Activation For (in months)" })
+                                            @Html.ValidationMessageFor(model => model.ActivationPeriod, "", new { @class = "text-danger" })
 
 
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="form-control-label">Activation Date</label>
+                                            <label class="form-control-label">Activation Date<span class="star">*</span></label>
                                            @Html.TextBoxFor(m => m.ActivationDate, new { @id = "txtActivationDate", @type = "Date", @class = "form-control", @placeholder = "Activation Date" })
                                         @Html.ValidationMessageFor(model => model.ActivationDate, "", new { @class = "text-danger" })
 
@@ -159,7 +160,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="form-control-label">Expiry Date</label>
+                                            <label class="form-control-label">Expiry Date<span class="star">*</span></label>
                                             @Html.TextBoxFor(m => m.ExpiryDate, new { @id = "txtExpiryDate", @type = "Date", @class = "form-control", @placeholder = "Expiry Date" })
                                             @Html.ValidationMessageFor(model => model.ExpiryDate, "", new { @class = "text-danger" })
 
@@ -170,7 +171,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="form-control-label">
-                                                Roll<span class="star">*</span>
+                                                Role<span class="star">*</span>
                                             </label>
                                             @Html.DropDownListFor(m => m.RoleId, new List<SelectListItem>
                                                      {

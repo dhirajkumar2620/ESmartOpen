@@ -480,7 +480,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Registration.cshtml" />
     <Content Include="Views\Home\StaffRegistration.cshtml" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
@@ -491,12 +490,10 @@
     <Content Include="vendor\jquery.cookie\cookie.jquery.json" />
     <Content Include="vendor\popper.js\umd\popper.js.flow" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\PatientRegistration.cshtml" />
     <Content Include="Views\Home\MyOPD.cshtml" />
     <Content Include="Views\Home\AddMedicine.cshtml" />
     <Content Include="Views\Home\CampaignMaster.cshtml" />
     <Content Include="Views\Home\Apoinment.cshtml" />
-    <Content Include="Views\Home\AllPatient.cshtml" />
     <Content Include="Views\Home\LogIn.cshtml" />
     <Content Include="Views\Home\AdminManagement.cshtml" />
     <Content Include="Views\Home\ReceptionManagement.cshtml" />
@@ -507,6 +504,8 @@
     <Content Include="Views\MedicineDetails\MedicineDetails.cshtml" />
     <Content Include="Views\DignosticDetails\DignosticDetails.cshtml" />
     <Content Include="Views\LaboratoryDetails\LaboratoryDetails.cshtml" />
+    <Content Include="Views\PatientDetails\AllPatient.cshtml" />
+    <Content Include="Views\AdminDetails\AllAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
