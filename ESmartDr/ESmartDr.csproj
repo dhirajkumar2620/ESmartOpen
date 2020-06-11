@@ -204,6 +204,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MedicineDetailsController.cs" />
     <Compile Include="Controllers\PatientDetailsController.cs" />
+    <Compile Include="Controllers\StaffDetailsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -480,7 +481,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\StaffRegistration.cshtml" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.woff" />
@@ -495,7 +495,6 @@
     <Content Include="Views\Home\CampaignMaster.cshtml" />
     <Content Include="Views\Home\Apoinment.cshtml" />
     <Content Include="Views\Home\LogIn.cshtml" />
-    <Content Include="Views\Home\ReceptionManagement.cshtml" />
     <Content Include="Views\Home\Lab1.cshtml" />
     <Content Include="Views\Home\Lab2.cshtml" />
     <Content Include="Views\PatientDetails\PatientRegistration.cshtml" />
@@ -505,6 +504,8 @@
     <Content Include="Views\LaboratoryDetails\LaboratoryDetails.cshtml" />
     <Content Include="Views\PatientDetails\AllPatient.cshtml" />
     <Content Include="Views\AdminDetails\AllAdmin.cshtml" />
+    <Content Include="Views\StaffDetails\StaffRegistration.cshtml" />
+    <Content Include="Views\StaffDetails\Allstaff.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

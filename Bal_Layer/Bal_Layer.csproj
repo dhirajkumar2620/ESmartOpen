@@ -47,6 +47,7 @@
     <Compile Include="Bal_LaboratoryDetails.cs" />
     <Compile Include="Bal_MedicineDetails.cs" />
     <Compile Include="Bal_PatientDetails.cs" />
+    <Compile Include="Bal_StaffDetails.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

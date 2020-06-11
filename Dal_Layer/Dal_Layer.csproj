@@ -50,6 +50,7 @@
     <Compile Include="Dal_LaboratoryDetails.cs" />
     <Compile Include="Dal_MedicineDetails.cs" />
     <Compile Include="Dal_PatientDetails.cs" />
+    <Compile Include="Dal_StaffDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

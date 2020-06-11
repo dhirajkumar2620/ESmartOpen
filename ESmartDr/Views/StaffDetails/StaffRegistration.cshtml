@@ -1,0 +1,169 @@
+﻿@model App_Layer.ReceptionStaffReg
+@{
+    ViewBag.Title = "StaffRegistration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <!-- Page Header-->
+    <header class="page-header">
+        <div class="container-fluid">
+            <h2 class="no-margin-bottom"> ADD STAFF MEMBER</h2>
+        </div>
+    </header>
+    <!-- Breadcrumb-->
+    <!-- <div class="breadcrumb-holder container-fluid">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Forms</li>
+      </ul>
+    </div> -->
+    <!-- Forms Section-->
+    <section class="forms">
+@using (Html.BeginForm("ManageStaffDetails", "StaffDetails", FormMethod.Post, new { @id = "frmStaffDetails" }))
+{
+    @Html.HiddenFor(m => m.ReceptionId);
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Basic Form-->
+                <div class="col-lg-12">
+                    <div class="card">
+                        <!-- <div class="card-close">
+                          <div class="dropdown">
+                            <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                            <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                          </div>
+                        </div> -->
+                        <!-- <div class="card-header d-flex align-items-center">
+                          <h3 class="h4">Basic Form</h3>
+                        </div> -->
+                        <div class="card-body">
+                            <p>Need to fill mandatory fields.</p>
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">
+                                                Name<span class="star">*</span>
+                                            </label>
+                                            @Html.TextBoxFor(m => m.Name, new { @id = "txtName", @class = "form-control", required = "required", @placeholder = "Staff Name" })
+                                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">
+                                                Degree<span class="star">*</span>
+                                            </label>
+                                            @Html.TextBoxFor(m => m.Education, new { @id = "txtName", @class = "form-control", required = "required", @placeholder = "Degree" })
+                                            @Html.ValidationMessageFor(model => model.Education, "", new { @class = "text-danger" })
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">
+                                                Gender<span class="star">*</span>
+                                            </label>
+                                            @Html.DropDownListFor(m => m.Gender, new List<SelectListItem>
+                                                     {
+                                                         new SelectListItem{ Text="Select Gender", Value = "0" },
+                                                         new SelectListItem{ Text="Male", Value = "Male" },
+                                                         new SelectListItem{ Text="Female", Value = "Female" },
+                                                          new SelectListItem{ Text="Other", Value = "Other" },
+                                                      }, new { @class = "form-control mb-3", @id = "ddlGender" })
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Department<span class="star">*</span></label>
+                                            @Html.TextBoxFor(m => m.Department, new { @id = "txtName", @class = "form-control", required = "required", @placeholder = "Department" })
+                                            @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger" })
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Designation<span class="star">*</span></label>
+                                            @Html.TextBoxFor(m => m.Designation, new { @id = "txtName", @class = "form-control", required = "required", @placeholder = "Designation" })
+                                            @Html.ValidationMessageFor(model => model.Designation, "", new { @class = "text-danger" })
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">
+                                                Whats App No.<span class="star">*</span>
+                                            </label>
+                                            @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtName", @type = "number", @class = "form-control", required = "required", @placeholder = "Whats App No." })
+                                            @Html.ValidationMessageFor(model => model.WhatsAppNumber, "", new { @class = "text-danger" })
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">
+                                                Other No.
+                                            </label>
+                                            @Html.TextBoxFor(m => m.OtherNumber, new { @id = "txtName", @type = "number", @class = "form-control", required = "required", @placeholder = "Other No." })
+                                            @Html.ValidationMessageFor(model => model.OtherNumber, "", new { @class = "text-danger" })
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">
+                                                Email ID
+                                            </label>
+                                            @Html.TextBoxFor(m => m.EmailId, new { @id = "txtName",@class = "form-control", required = "required", @placeholder = "Email ID" })
+                                            @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 text-right">
+                                        <a href="~/Home/Apoinment"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
+                                        <input type="submit" value="Save" class="btn btn_2 btn-primary b33">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+}
+    </section>
+    <!-- Page Footer-->
+
+</div>
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $('.b33').click(function () {
+        swal({
+            title: "Staff Member Added Successfully.",
+            //text: "You clicked the button!",
+            icon: "success",
+            button: "OK",
+        });
+    });
+
+</script>
+
+
+
