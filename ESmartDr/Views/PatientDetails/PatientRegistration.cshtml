@@ -176,7 +176,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Mediclaim Company Name</label>
-                                                @Html.TextBoxFor(m => m.MediClmCompany, new { @id = "txtMediclaimCompanyName", @class = "form-control", required = "required", @placeholder = "Mediclaim Company Name" })
+                                                @Html.TextBoxFor(m => m.MediClmCompany, new { @id = "txtMediclaimCompanyName", @class = "form-control", @placeholder = "Mediclaim Company Name" })
                                                 @Html.ValidationMessageFor(model => model.MediClmCompany, "", new { @class = "text-danger" })
 
                                             </div>

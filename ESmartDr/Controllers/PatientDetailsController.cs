@@ -34,7 +34,7 @@ namespace ESmartDr.Controllers
                 throw;
             }
         }
-        public ActionResult s(PatientDetails PD)
+        public ActionResult ManagePatientDetails(PatientDetails PD)
         {
             try
             {
