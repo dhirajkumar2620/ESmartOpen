@@ -10,7 +10,7 @@
     <!-- Page Header-->
     <header class="page-header">
         <div class="container-fluid">
-            <h2 class="no-margin-bottom">RECEPTION MANAGEMENT</h2>
+            <h2 class="no-margin-bottom">Staff Management</h2>
         </div>
     </header>
     <!-- Breadcrumb-->
@@ -100,8 +100,8 @@
                                     <thead>
                                         <tr>
                                             <th hidden>ReceptionId</th>
-                                            <th>Reception Name</th>
-                                            <th>Hospital Name</th>
+                                            <th>Name</th>
+                                            <th>Hospital</th>
                                             <th>Address</th>
                                             <th>Mobile No.</th>
                                             <th>Other No.</th>
@@ -122,8 +122,8 @@
                                                 <td>@item.WhatsAppNumber</td>
                                                 <td>@item.OtherNumber</td>
                                                 <td>@item.ModifiedDate</td>
-                                                <td>@item.Designation</td>
-                                                <td>@item.Designation</td>
+                                                <td>@item.isActive</td>
+                                                <td>@item.Remark</td>
                                                 <td>
                                                     <ul class="list-inline">
                                                         <li class="list-inline-item" title="Appointment">
@@ -146,6 +146,20 @@
                                         }
 
                                     </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th hidden>ReceptionId</th>
+                                            <th>Name</th>
+                                            <th>Hospital</th>
+                                            <th>Address</th>
+                                            <th>Mobile No.</th>
+                                            <th>Other No.</th>
+                                            <th>Account Expired Date</th>
+                                            <th>Status</th>
+                                            <th>Remark</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
                                 </table>
                             </div>
                         </div>

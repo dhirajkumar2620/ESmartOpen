@@ -491,8 +491,6 @@
     <Content Include="vendor\popper.js\umd\popper.js.flow" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\MyOPD.cshtml" />
-    <Content Include="Views\Home\AddMedicine.cshtml" />
-    <Content Include="Views\Home\CampaignMaster.cshtml" />
     <Content Include="Views\Home\Apoinment.cshtml" />
     <Content Include="Views\Home\LogIn.cshtml" />
     <Content Include="Views\Home\Lab1.cshtml" />

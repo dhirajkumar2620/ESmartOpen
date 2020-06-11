@@ -8,7 +8,7 @@
     <!-- Page Header-->
     <header class="page-header">
         <div class="container-fluid">
-            <h2 class="no-margin-bottom">PATIENT EXAMINATION</h2>
+            <h2 class="no-margin-bottom">Patient Examination</h2>
         </div>
     </header>
     <!-- Breadcrumb-->
@@ -842,182 +842,292 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="pills-certificate" role="tabpanel" aria-labelledby="pills-certificate-tab">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <label class="form-control-label">Select Certificate</label>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item">
-                                                        <div class="i-checks ">
-                                                            <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                                        <div class="card" style="padding: 1em;">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label class="form-control-label">Select Certificate</label>
+                                                    <ul class="list-inline">
+                                                        <li class="list-inline-item">
+                                                            <div class="i-checks ">
+                                                                <input id="r1" type="radio" checked="" value="option2" name="a" class="radio-template">
 
-                                                            <label for="radioCustom2">Fitness Certificate</label>
-                                                        </div>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <div class="i-checks ">
-                                                            <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                                                            <label for="radioCustom2">Medical Certificate</label>
-                                                        </div>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <div class="i-checks ">
-                                                            <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                                                            <label for="radioCustom2">No</label>
-                                                        </div>
-                                                    </li>
-                                                </ul>
+                                                                <label for="radioCustom2">Referral Letter</label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <div class="i-checks ">
+                                                                <input id="r2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                                                                <label for="radioCustom2">Fitness Certificate </label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <div class="i-checks ">
+                                                                <input id="r3" type="radio" checked="" value="option2" name="a" class="radio-template">
+                                                                <label for="radioCustom2">Medical Certificate</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div style="min-width:200px; font-family:'Arial' , sans-serif; font-size:16px; background-color:#FFFFFF; line-height:1.4; color:#4A4A4A; border:1px solid #DFDFDF; overflow:hidden;">
+                                            <div class="row refe-letr" style="display:none;">
+                                                <div class="col-md-6">
+                                                    <div style="min-width:200px; font-family:'Arial' , sans-serif; font-size:16px; background-color:#FFFFFF; line-height:1.4; color:#4A4A4A; border:1px solid #DFDFDF; overflow:hidden;">
 
-                                                    <div style="background-color: #f5a433; height: 60px;padding: 1em;text-align: center;">
-                                                        <h3 style="font-size: 2em;color: #fff;">Fitness Certificate</h3>
-                                                    </div>
-                                                    <div class="row">
-                                                        <!-- Basic Form-->
-                                                        <div class="col-lg-12">
-                                                            <div class="card " style="margin-bottom:0;">
-                                                                <div class="card-body">
-                                                                    <h2 style="font-size: 1.5em;color: #f5a433;">Create Fitness Certificate</h2>
-                                                                    <p>This is to certify that i have examined </p>
-                                                                    <hr />
-                                                                    <div class="row">
-                                                                        <div class="col-md-8">
-                                                                            <div class="row">
-                                                                                <div class="col-md-4">
-                                                                                    <div class="form-group">
-                                                                                        <select name="account" class="form-control mb-3">
-                                                                                            <option>Mr.</option>
-                                                                                            <option>1</option>
-                                                                                            <option>2</option>
-                                                                                            <option>3</option>
-                                                                                        </select>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-md-8">
-                                                                                    <input class="form-control" id="txtName" name="FirstName" placeholder="Name" required="required" type="text" value="">
+                                                        <div style="background-color: #f5a433;padding: 1em;text-align: center;">
+                                                            <h3 style="font-size: 2em;color: #fff;">Create Referral Letter</h3>
+                                                        </div>
+                                                        <div class="row">
+                                                            <!-- Basic Form-->
+                                                            <div class="col-lg-12">
+                                                                <div class="card " style="margin-bottom:0;">
+                                                                    <div class="card-body">
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-control-label">
+                                                                                        Referred Doctor Name
+                                                                                    </label>
+                                                                                    <input type="text" placeholder="Referred Doctor Name" class="form-control">
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="form-group">
-                                                                                <label class="form-control-label">Name<span class="star">*</span></label>
-                                                                                <input class="form-control" id="txtName" name="FirstName" placeholder="Name" required="required" type="text" value="">
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-control-label">
+                                                                                        Contact No.
+                                                                                    </label>
+                                                                                    <input type="number" placeholder="Contact No." class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-control-label">
+                                                                                        Hospital Name
+                                                                                    </label>
+                                                                                    <input type="text" placeholder="Hospital Name" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-control-label">
+                                                                                        Hospital Address
+                                                                                    </label>
+                                                                                    <input type="text" placeholder="Hospital Address" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <p>Dear Dr. <span>Nita Jadhav</span></p>
+                                                                                <textarea placeholder="Enter text here..." class="form-control"></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-control-label">
+                                                                                        Aditional Note..
+                                                                                    </label>
+                                                                                    <textarea placeholder="Enter text here..." class="form-control"></textarea>
+                                                                                    <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Patient History
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-control-label">
+                                                                                        Referred By
+                                                                                    </label>
+                                                                                    <input type="text" placeholder="Referred By" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-control-label">
+                                                                                        Doctor Name
+                                                                                    </label>
+                                                                                    <input type="number" placeholder="Doctor Name" class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-control-label">
+                                                                                        Contact No.
+                                                                                    </label>
+                                                                                    <input type="text" placeholder="Contact No." class="form-control">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-control-label">
+                                                                                        Address
+                                                                                    </label>
+                                                                                    <textarea placeholder="Enter Address here..." class="form-control"></textarea>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="row">
-                                                                        <div class="col-md-12">
-                                                                            <form class="form-horizontal form-label-left">
-                                                                                <fieldset class="custom-border">
-                                                                                    <legend class="custom-border">Health Condition Selection</legend>
-                                                                                    <div class="form-group">
-                                                                                        <ul class="list-inline">
-                                                                                            <li class="list-inline-item">
-                                                                                                <p>He</p>
-                                                                                            </li>
-                                                                                            <li class="list-inline-item">
-                                                                                                <div class="form-group">
-                                                                                                    <select name="account" class="form-control mb-3">
-                                                                                                        <option>is not having</option>
-                                                                                                        <option>Has</option>
-                                                                                                    </select>
-                                                                                                </div>
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                        <ul class="list-inline certifi-check">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
 
-                                                                                            <li class="list-inline-item">
-                                                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Asthma
-                                                                                            </li>
-                                                                                            <li class="list-inline-item">
-                                                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Fits/Convulsions
-                                                                                            </li>
-                                                                                            <li class="list-inline-item">
-                                                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Diabetes
-                                                                                            </li>
-                                                                                            <li class="list-inline-item">
-                                                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Physical Disability
-                                                                                            </li>
-                                                                                            <li class="list-inline-item">
-                                                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Hypertension
-                                                                                            </li>
-                                                                                            <li class="list-inline-item">
-                                                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Mental Disability
-                                                                                            </li>
-                                                                                            <li class="list-inline-item">
-                                                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Allergy
-                                                                                            </li>
-                                                                                            <li class="list-inline-item">
-                                                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Other
-                                                                                            </li>
-                                                                                            <li class="list-inline-item">
-                                                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;He has taken all necessary vaccination
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                    </div>
-                                                                                    <hr />
-                                                                                    <div class="row">
-                                                                                        <div class="col-md-6">
-                                                                                            <div class="form-group">
-                                                                                                <label class="form-control-label">
-                                                                                                    Any other major disease<span class="star">*</span>
-                                                                                                </label>
-                                                                                                <input type="text" placeholder="Name" class="form-control">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-md-6">
-                                                                                            <div class="form-group">
-                                                                                                <label class="form-control-label">
-                                                                                                    I certify that this person is<span class="star">*</span>
-                                                                                                </label>
-                                                                                                <select name="account" class="form-control mb-3">
-                                                                                                    <option>Physically</option>
-                                                                                                    <option>Physically and Mentally</option>
-                                                                                                    <option>Physically Mentally and Psychologically</option>
-                                                                                                    <option>3</option>
-                                                                                                </select>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="row">
-                                                                                        <div class="col-md-5">
+                                                </div>
+                                            </div>
+                                            <div class="row fitn-cert" style="display:none;">
+                                                <div class="col-md-6">
+                                                    <div style="min-width:200px; font-family:'Arial' , sans-serif; font-size:16px; background-color:#FFFFFF; line-height:1.4; color:#4A4A4A; border:1px solid #DFDFDF; overflow:hidden;">
+
+                                                        <div style="background-color: #f5a433;padding: 1em;text-align: center;">
+                                                            <h3 style="font-size: 2em;color: #fff;">Fitness Certificate</h3>
+                                                        </div>
+                                                        <div class="row">
+                                                            <!-- Basic Form-->
+                                                            <div class="col-lg-12">
+                                                                <div class="card " style="margin-bottom:0;">
+                                                                    <div class="card-body">
+                                                                        <h2 style="font-size: 1.5em;color: #f5a433;">Create Fitness Certificate</h2>
+                                                                        <p>This is to certify that i have examined </p>
+                                                                        <hr />
+                                                                        <div class="row">
+                                                                            <div class="col-md-8">
+                                                                                <div class="row">
+                                                                                    <div class="col-md-4">
+                                                                                        <div class="form-group">
                                                                                             <select name="account" class="form-control mb-3">
-                                                                                                <option>Fit</option>
-                                                                                                <option>Unfit</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                        <div class="col-md-2 text-center">
-                                                                                            <p style="margin-top: 0.3em!important;">For</p>
-                                                                                        </div>
-                                                                                        <div class="col-md-5">
-                                                                                            <select name="account" class="form-control mb-3">
-                                                                                                <option>Work</option>
-                                                                                                <option>Duty</option>
-                                                                                                <option>School</option>
-                                                                                                <option>College</option>
-                                                                                                <option>Surgery</option>
-                                                                                                <option>Other</option>
+                                                                                                <option>Mr.</option>
+                                                                                                <option>1</option>
+                                                                                                <option>2</option>
+                                                                                                <option>3</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="row">
-                                                                                        <div class="col-md-12">
-                                                                                            <ul class="list-inline certifi-check">
+                                                                                    <div class="col-md-8">
+                                                                                        <input class="form-control" id="txtName" name="FirstName" placeholder="Name" required="required" type="text" value="">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <form class="form-horizontal form-label-left">
+                                                                                    <fieldset class="custom-border">
+                                                                                        <legend class="custom-border">Health Condition Selection</legend>
+                                                                                        <div class="form-group">
+                                                                                            <ul class="list-inline">
                                                                                                 <li class="list-inline-item">
-                                                                                                    <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Include patient signature
+                                                                                                    <p>He</p>
+                                                                                                </li>
+                                                                                                <li class="list-inline-item">
+                                                                                                    <div class="form-group">
+                                                                                                        <select name="account" class="form-control mb-3">
+                                                                                                            <option>is not having</option>
+                                                                                                            <option>Has</option>
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                </li>
+                                                                                            </ul>
+                                                                                            <ul class="list-inline certifi-check">
+
+                                                                                                <li class="list-inline-item">
+                                                                                                    <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Asthma
+                                                                                                </li>
+                                                                                                <li class="list-inline-item">
+                                                                                                    <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Fits/Convulsions
+                                                                                                </li>
+                                                                                                <li class="list-inline-item">
+                                                                                                    <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Diabetes
+                                                                                                </li>
+                                                                                                <li class="list-inline-item">
+                                                                                                    <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Physical Disability
+                                                                                                </li>
+                                                                                                <li class="list-inline-item">
+                                                                                                    <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Hypertension
+                                                                                                </li>
+                                                                                                <li class="list-inline-item">
+                                                                                                    <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Mental Disability
+                                                                                                </li>
+                                                                                                <li class="list-inline-item">
+                                                                                                    <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Allergy
+                                                                                                </li>
+                                                                                                <li class="list-inline-item">
+                                                                                                    <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Other
+                                                                                                </li>
+                                                                                                <li class="list-inline-item">
+                                                                                                    <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;He has taken all necessary vaccination
                                                                                                 </li>
                                                                                             </ul>
                                                                                         </div>
-                                                                                    </div>
+                                                                                        <hr />
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-6">
+                                                                                                <div class="form-group">
+                                                                                                    <label class="form-control-label">
+                                                                                                        Any other major disease<span class="star">*</span>
+                                                                                                    </label>
+                                                                                                    <input type="text" placeholder="Name" class="form-control">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="col-md-6">
+                                                                                                <div class="form-group">
+                                                                                                    <label class="form-control-label">
+                                                                                                        I certify that this person is<span class="star">*</span>
+                                                                                                    </label>
+                                                                                                    <select name="account" class="form-control mb-3">
+                                                                                                        <option>Physically</option>
+                                                                                                        <option>Physically and Mentally</option>
+                                                                                                        <option>Physically Mentally and Psychologically</option>
+                                                                                                        <option>3</option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-5">
+                                                                                                <select name="account" class="form-control mb-3">
+                                                                                                    <option>Fit</option>
+                                                                                                    <option>Unfit</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                            <div class="col-md-2 text-center">
+                                                                                                <p style="margin-top: 0.3em!important;">For</p>
+                                                                                            </div>
+                                                                                            <div class="col-md-5">
+                                                                                                <select name="account" class="form-control mb-3">
+                                                                                                    <option>Work</option>
+                                                                                                    <option>Duty</option>
+                                                                                                    <option>School</option>
+                                                                                                    <option>College</option>
+                                                                                                    <option>Surgery</option>
+                                                                                                    <option>Other</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-12">
+                                                                                                <ul class="list-inline certifi-check">
+                                                                                                    <li class="list-inline-item">
+                                                                                                        <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Include patient signature
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                    </fieldset>
                                                                                     <div class="row">
                                                                                         <div class="col-md-12 text-center">
                                                                                             <input type="button" value="Print Preview" class="btn btn_1 btn-primary b22">
                                                                                             <input type="button" value="Print" onclick='PrintDiv("tblPrint")' class="btn btn_2 btn-primary">
                                                                                         </div>
                                                                                     </div>
-                                                                                </fieldset>
-                                                                            </form>
+                                                                                </form>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1025,56 +1135,56 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-6">
+                                                <div class="col-md-6">
 
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div>
-                                                    <div class="row">
-                                                        <!-- Basic Form-->
-                                                        <div class="col-lg-12">
-                                                            <div class="card " style="margin-bottom:0;">
-                                                                <div class="card-body">
-                                                                    <div class="row">
-                                                                        <div class="col-md-3">
-                                                                            <img src="~/img/doc_snake.png" class="img-fluid" />
-                                                                        </div>
-                                                                        <div class="col-md-3" style="padding: 2em;">
-                                                                            <h5>Dr. Dhiraj S</h5>
-                                                                            <p>MBBS</p>
-                                                                            <p>Reg. No.:<span>12345</span></p>
-                                                                        </div>
-                                                                        <div class="col-md-6" style="padding: 2em;text-align: right;">
-                                                                            <h5>Dr. Dhiraj S'S Clinic</h5>
-                                                                        </div>
-                                                                    </div>
-                                                                    <hr />
-                                                                    <div class="row">
-                                                                        <div class="col-md-12">
-                                                                            <div class="text-center">
-                                                                                <h3 style="margin-bottom:2em;text-decoration: underline;">MEDICAL CERTIFICATE</h3>
-                                                                                <h3>TO WHOMSOEVER IT MAY CONCERN </h3>
+                                            <div class="row medicl-cert" style="display:none;">
+                                                <div class="col-md-6">
+                                                    <div>
+                                                        <div class="row">
+                                                            <!-- Basic Form-->
+                                                            <div class="col-lg-12">
+                                                                <div class="card " style="margin-bottom:0;">
+                                                                    <div class="card-body">
+                                                                        <div class="row">
+                                                                            <div class="col-md-3">
+                                                                                <img src="~/img/doc_snake.png" class="img-fluid" />
                                                                             </div>
-                                                                            <br />
-                                                                            <p>This is to certify that <b>Mr. ABC</b> has been under my treatment for ACNE, ACIDOSIS, INFLUENZA from 09-Jun-2020 to 09-Jun-2020</p>
-                                                                            <p>He is advised complete rest from 09-Jun-2020 to 09-Jun-2020 which is absolutely essential for the restoration on his health</p>
-                                                                            <p style="margin-top: 3em;">Patient signature/thumb impression</p>
-                                                                            <div style="margin-top:4em;">
-                                                                                <ul class="list-unstyled">
-                                                                                    <li><b>Place : </b></li>
-                                                                                    <li><b>Date : 09-Jun-2020</b></li>
-                                                                                </ul>
+                                                                            <div class="col-md-3" style="padding: 2em;">
+                                                                                <h5>Dr. Dhiraj S</h5>
+                                                                                <p>MBBS</p>
+                                                                                <p>Reg. No.:<span>12345</span></p>
+                                                                            </div>
+                                                                            <div class="col-md-6" style="padding: 2em;text-align: right;">
+                                                                                <h5>Dr. Dhiraj S'S Clinic</h5>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="row text-right">
-                                                                        <div class="col-md-12" style="padding: 2em;">
-                                                                            <h5>Dr. Dhiraj S</h5>
-                                                                            <p>MBBS</p>
-                                                                            <p>Reg. No.:<span>12345</span></p>
+                                                                        <hr />
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="text-center">
+                                                                                    <h3 style="margin-bottom:2em;text-decoration: underline;">MEDICAL CERTIFICATE</h3>
+                                                                                    <h3>TO WHOMSOEVER IT MAY CONCERN </h3>
+                                                                                </div>
+                                                                                <br />
+                                                                                <p>This is to certify that <span contenteditable="true" style="text-decoration:underline;"><b>ABD</b></span> has been under my treatment for ACNE, ACIDOSIS, INFLUENZA from <span contenteditable="true" style="text-decoration:underline;"> 09-Jun-2020</span> to <span contenteditable="true" style="text-decoration:underline;"> 09-Jun-2020</span></p>
+                                                                                <p>He is advised complete rest from <span contenteditable="true" style="text-decoration:underline;"> 09-Jun-2020</span> to <span contenteditable="true" style="text-decoration:underline;"> 09-Jun-2020</span> which is absolutely essential for the restoration on his health</p>
+                                                                                <p style="margin-top: 5em;">Patient signature/thumb impression<span contenteditable="true" style="text-decoration:underline;"></span></p>
+                                                                                <div style="margin-top:4em;">
+                                                                                    <ul class="list-unstyled">
+                                                                                        <li><b>Place : <span contenteditable="true" style="text-decoration:underline;">Mumbai</span></b></li>
+                                                                                        <li><b>Date : <span contenteditable="true" style="text-decoration:underline;"> 09-Jun-2020</span></b></li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row text-right">
+                                                                            <div class="col-md-12" style="padding: 2em;">
+                                                                                <h5>Dr. Dhiraj S</h5>
+                                                                                <p>MBBS</p>
+                                                                                <p>Reg. No.:<span>12345</span></p>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1082,9 +1192,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-6">
+                                                <div class="col-md-6">
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1098,345 +1208,7 @@
             </div>
         </div>
     </section>
-    <section class="tables">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="example2" class="table table-striped" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Sr. No.</th>
-                                            <th>Date</th>
-                                            <th>Symptoms</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Cough</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Asthma</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Blood Pressure</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>001</td>
-                                            <td>05/02/2019</td>
-                                            <td>Fever</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="unchecked" value="option2" name="a" class="radio-template">
-                                                    </div>
-                                                </ul>
-                                            </td>
-                                        </tr>
 
-                                        </tr>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Page Footer-->
     <footer class="main-footer">
@@ -1504,5 +1276,23 @@
         });
 
 
+    });
+
+
+
+    $('#r1').click(function () {
+        $('.refe-letr').css("display", "block");
+        $('.fitn-cert').css("display", "none");
+        $('.medicl-cert').css("display", "none");
+    });
+    $('#r2').click(function () {
+        $('.refe-letr').css("display", "none");
+        $('.fitn-cert').css("display", "block");
+        $('.medicl-cert').css("display", "none");
+    });
+    $('#r3').click(function () {
+        $('.refe-letr').css("display", "none");
+        $('.fitn-cert').css("display", "none");
+        $('.medicl-cert').css("display", "block");
     });
 </script>

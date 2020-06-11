@@ -51,12 +51,12 @@ namespace ESmartDr.Controllers
             }
         }
 
-        public ActionResult GetAdminById(int Id)
+        public ActionResult GetAdminById(int UserId)
         {
             try
             {
                 AdminDetails pd = new AdminDetails();
-                pd = BP.GetAdminById(Id);
+                pd = BP.GetAdminById(UserId);
                
                 return View("AdminRegistration", pd);
             }

@@ -9,7 +9,7 @@
     <!-- Page Header-->
     <header class="page-header">
         <div class="container-fluid">
-            <h2 class="no-margin-bottom">ADMIN MANAGEMENT</h2>
+            <h2 class="no-margin-bottom">Admin Management</h2>
         </div>
     </header>
     <!-- Breadcrumb-->
@@ -99,8 +99,8 @@
                                     <thead>
                                         <tr>
                                             <th hidden>UserId</th>
-                                            <th>Dr. Name</th>
-                                            <th>Hospital Name</th>
+                                            <th>Doctor</th>
+                                            <th>Hospital</th>
                                             <th>Address</th>
                                             <th>Mobile No.</th>
                                             <th>Other No.</th>
@@ -130,7 +130,7 @@
                                                         </li>
 
                                                         <li class="list-inline-item" title="General Information">
-                                                            <a href="@Url.Content("~/AdminDetails/GetAdminById?Id="+item.UserId+"")">   <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal"></i></a>
+                                                            <a href="@Url.Content("~/AdminDetails/GetAdminById?UserId="+item.UserId+"")">   <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal"></i></a>
                                                         </li>
                                                         <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
                                                             <i class="fa fa-whatsapp" aria-hidden="true"></i>
@@ -143,6 +143,20 @@
                                             </tr>
                                         }
                                     </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th hidden>UserId</th>
+                                            <th>Doctor</th>
+                                            <th>Hospital</th>
+                                            <th>Address</th>
+                                            <th>Mobile No.</th>
+                                            <th>Other No.</th>
+                                            <th>Account Expired Date</th>
+                                            <th>Status</th>
+                                            <th>Remark</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
                                 </table>
                             </div>
                         </div>

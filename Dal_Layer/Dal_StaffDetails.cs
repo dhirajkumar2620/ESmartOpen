@@ -31,7 +31,7 @@ namespace Dal_Layer
                 sqlparam[10] = new SqlParameter("@Designation", PD.Designation);
                 sqlparam[11] = new SqlParameter("@EmailId", PD.EmailId);
                 sqlparam[12] = new SqlParameter("@Password", "staf123");
-                sqlparam[13] = new SqlParameter("@AdharNo", PD.AdharNo);
+                sqlparam[13] = new SqlParameter("@Remark", PD.Remark);
                 sqlparam[14] = new SqlParameter("@Address", PD.Address);
                 sqlparam[15] = new SqlParameter("@RoleId", PD.RoleId);
                 sqlparam[16] = new SqlParameter("@CreatedBy", PD.CreatedBy);

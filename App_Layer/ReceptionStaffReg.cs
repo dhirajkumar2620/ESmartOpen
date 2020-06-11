@@ -21,7 +21,7 @@ namespace App_Layer
         public string Designation { get; set; }
         public string EmailId { get; set; }
         public string Password { get; set; }
-        public string AdharNo { get; set; }
+        public string Remark { get; set; }
         public string Address { get; set; }
         public string RoleId { get; set; }
         public string isActive { get; set; }

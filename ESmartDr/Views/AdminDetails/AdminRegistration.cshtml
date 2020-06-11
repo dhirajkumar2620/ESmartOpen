@@ -8,7 +8,7 @@
     <!-- Page Header-->
     <header class="page-header">
         <div class="container-fluid">
-            <h2 class="no-margin-bottom">CREATE ADMIN</h2>
+            <h2 class="no-margin-bottom">Create Admin</h2>
         </div>
     </header>
 
@@ -190,8 +190,8 @@
                                             </label>
                                             @Html.DropDownListFor(m => m.RoleId, new List<SelectListItem>
                                                      {
-                                                         new SelectListItem{ Text="Active", Value = "active" },
-                                                         new SelectListItem{ Text="De-Active", Value = "deactive" },
+                                                         new SelectListItem{ Text="Active", Value = "1" },
+                                                         new SelectListItem{ Text="De-Active", Value = "0" },
                                                         
                                                       }, new { @class = "form-control mb-4", @id = "ddlStatus" })
                                         </div>
@@ -219,14 +219,14 @@
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-    $('.b22').click(function () {
-        swal({
-            title: "Your Admin Created Successfully.",
-            //text: "You clicked the button!",
-            icon: "success",
-            button: "OK",
-        });
-    });
+    //$('.b22').click(function () {
+    //    swal({
+    //        title: "Your Admin Created Successfully.",
+    //        //text: "You clicked the button!",
+    //        icon: "success",
+    //        button: "OK",
+    //    });
+    //});
 
 </script>
 
