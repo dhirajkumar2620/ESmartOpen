@@ -149,7 +149,7 @@ namespace Dal_Layer
                 sqlparam[0] = new SqlParameter("@userID", ad.UserId);
                 sqlparam[1] = new SqlParameter("@password", ad.Passwod1);
 
-                return CommonFunction.Save("USP_AdminDetails", sqlparam, "");
+                return CommonFunction.Save("USP_Update_Password", sqlparam, "");
             }
             catch (Exception Ex)
             {
