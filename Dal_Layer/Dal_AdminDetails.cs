@@ -145,9 +145,10 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[2];
+                sqlparam = new SqlParameter[3];
                 sqlparam[0] = new SqlParameter("@userID", ad.UserId);
                 sqlparam[1] = new SqlParameter("@password", ad.Passwod1);
+                sqlparam[2] = new SqlParameter("@mobileNo", ad.Passwod1);
 
                 return CommonFunction.Save("USP_Update_Password", sqlparam, "");
             }
