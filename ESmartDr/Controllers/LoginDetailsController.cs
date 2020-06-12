@@ -17,25 +17,6 @@ namespace ESmartDr.Controllers
         {
             return View("LoginDetails");
         }
-        //[HttpPost]
-        //public ActionResult User(AdminDetails AD)
-        //{
-        //    List<AdminDetails> LST = new List<AdminDetails>();
-
-        //    LST = BP.GetAllAdminDetails();
-        //    bool isValid = LST.Any(x => x.WhatsAppNumber == AD.WhatsAppNumber && x.Passwod1 == AD.Passwod1);
-        //    if (isValid)
-        //    {
-               
-        //    var user = LST.Where(x => x.UserId == AD.UserId);
-                
-        //        FormsAuthentication.SetAuthCookie(AD.WhatsAppNumber, false);
-        //        return RedirectToAction("ViewAllPatient","PatientDetails");
-        //    }
-            
-        //    ModelState.AddModelError("", "Invalid username and password");
-        //    return View("LoginDetails");
-        //}
 
         [HttpPost]
         public ActionResult Login(AdminDetails AD)
@@ -67,5 +48,31 @@ namespace ESmartDr.Controllers
                 throw;
             }
         }
+
+        //public ActionResult ForgetPassword()
+        //{
+        //    return View("ForgetPassword");
+        //}
+        //[HttpPost]
+        //public ActionResult ForgetPassword1(AdminDetails AD)
+        //{
+        //    List<AdminDetails> LST = new List<AdminDetails>();
+
+        //    LST = BP.GetAllAdminDetails();
+        //    bool isValidWhatsAppNumber = LST.Any(x => x.WhatsAppNumber == AD.WhatsAppNumber );
+        //    bool isValidEmailId = LST.Any(x => x.EmailId == AD.EmailId);
+        //    if (isValidWhatsAppNumber ==true || isValidWhatsAppNumber ==true)
+        //    {
+        //        // set mobile number and Send otp -code 
+        //        ViewBag.Visibility = true;
+        //    }
+        //    else
+        //    {
+        //        ModelState.AddModelError("", "Invalid username ");
+        //    }
+
+        //    ModelState.AddModelError("", "Invalid username and password");
+        //    return View("LoginDetails");
+        //}
     }
 }
