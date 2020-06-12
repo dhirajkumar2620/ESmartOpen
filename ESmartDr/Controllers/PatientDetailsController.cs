@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace ESmartDr.Controllers
 {
+   
     public class PatientDetailsController : Controller
     {
         // GET: PatientDetails Added by Shital 

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model App_Layer.AdminDetails
+@{
     Layout = null;
 }
 
@@ -34,9 +35,28 @@
 
 
     <script type="text/javascript">
-    function Login() {
-        window.location.href = '/Home/Apoinment'
-    };
+        function Login() {
+            @*var EmailMobId = $("#txtWhatsAppNumber").val();
+            var Password = $("#Passwod1").val();
+            alert(EmailMobId + " # " + Password);
+            $.ajax({
+                type: "POST",
+                url: "@Url.Content("~/Home/Login")",
+                data: '{EmailMobId: "' + EmailMobId + '",Password: "' + Password + '" }',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                window.location.href = '/Home/Layout'
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });*@
+
+        };
     </script>
 </head>
 
@@ -49,6 +69,8 @@
         </header>
     </section>
     <section class="landing">
+
+
         <div class="container-fluid full-w">
             <div class="row ">
                 <div class="col-md-8 col-xs-12 col-sm-12 content">
@@ -80,50 +102,53 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-xs-12 col-sm-12 content-log">
-                    <div class="login-data login-pg">
-                        <h1>Login</h1><br>
-                        <div class="form social-icons">
-                            <!-- <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <button type="button" class="form-control"><img src="img/Google_Logo.png" class="img-responsive">&nbsp;Google</button>
-                                </li>
-                                <li class="list-inline-item">
-                                    <button type="button" class="form-control"><img src="img/F_icon.png" class="img-responsive">&nbsp;Facebook</button>
-                                </li>
-                            </ul>
-                            <br> -->
-                            <div class="login-btn ">
-                                <label>Username<span class="star">*</span></label>
-                                <input type="text" placeholder="Email-ID / Mobile No." class="form-control">
-                                <br>
-                                <div class="form-group pass_show">
-                                    <label>Password<span class="star">*</span></label>
-                                    <input type="password" value="faisal.khan@123" class="form-control" placeholder="New Password">
-                                </div>
+                    @using (Html.BeginForm("Login", "LoginDetails", FormMethod.Post, new { @id = "frmLoginDetails" }))
+                    {
+                        <div class="login-data login-pg">
+                            <h1>Login</h1><br>
+                            <div class="form social-icons">
+                                <!-- <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <button type="button" class="form-control"><img src="img/Google_Logo.png" class="img-responsive">&nbsp;Google</button>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <button type="button" class="form-control"><img src="img/F_icon.png" class="img-responsive">&nbsp;Facebook</button>
+                                    </li>
+                                </ul>
+                                <br> -->
+                                <div class="login-btn ">
+                                    <label>Username<span class="star">*</span></label>
+                                    @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtWhatsAppNumber", @class = "form-control", required = "required", @placeholder = "Mobile number" })
+                                    <br>
+                                    <div class="form-group pass_show">
+                                        <label>Password<span class="star">*</span></label>
+                                        @Html.TextBoxFor(m => m.Passwod1, new { @id = "txtPasswod1", type = "password", @class = "form-control", required = "required", @placeholder = "Password" })
+                                    </div>
 
-                                <br>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="i-checks">
-                                            <input id="checkboxCustom" type="checkbox" value=""
-                                                   onchange="checkAll(this)" class="checkbox-template">&nbsp;&nbsp;Remember
-                                            Me
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="i-checks">
+                                                <input id="checkboxCustom" type="checkbox" value=""
+                                                       onchange="checkAll(this)" class="checkbox-template">&nbsp;&nbsp;Remember
+                                                Me
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="col-md-6">
-                                        <a href="#" class="pull-right for-pass" data-toggle="modal" data-target="#whatsappModal">Forgot Password</a>
-                                    </div>
+                                        <div class="col-md-6">
+                                            <a href="#" class="pull-right for-pass" data-toggle="modal" data-target="#whatsappModal">Forgot Password</a>
+                                        </div>
 
-                                </div>
-                                <br>
-                                <div class="text-center sn-in">
-                                    <input type="submit" value="Sign In" class="btn btn-primary"  >@*/Home/Apoinment  onclick="Login()"*@
-                                    <p>Don't have an account? <a href="#" class="click-to-reg">Create new one</a></p>
+                                    </div>
+                                    <br>
+                                    <div class="text-center sn-in">
+                                        <input type="submit" value="Sign In" class="btn btn-primary" >
+                                        <p>Don't have an account? <a href="#" class="click-to-reg">Create new one</a></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    }
                     <div class="login-data reg-page" style="display: none;">
                         <h1>Registration</h1><br>
                         <div class="form social-icons">
@@ -159,7 +184,7 @@
                                 <br>
 
                                 <div class="text-center reg-in">
-                                    <input type="submit" value="Register Now" class="btn btn-primary b22">
+                                    <input type="submit1" value="Register Now" class="btn btn-primary b22">
                                     <p>Already have an account? <a href="#" class="click-to-signin">Sign In</a></p>
                                 </div>
                             </div>
@@ -168,6 +193,7 @@
                 </div>
             </div>
         </div>
+
     </section>
     <section>
         <div class="container">
@@ -555,7 +581,7 @@
                         <textarea class="form-control"></textarea>
                         <br>
                         <div class="text-right sn-in">
-                            <input type="submit" value="SEND" class="btn btn_1 btn-primary">
+                            <input type="submit1" value="SEND" class="btn btn_1 btn-primary">
                         </div>
                     </div>
                 </div>
@@ -615,13 +641,13 @@
         $('.click-to-reg').click(function () {
             $('.login-pg').css("display", "none");
             $('.reg-page').css("display", "block");
-            $('.content-log').css("background","#25a1a1");
+            $('.content-log').css("background", "#25a1a1");
         });
 
         $('.click-to-signin').click(function () {
             $('.reg-page').css("display", "none");
             $('.login-pg').css("display", "block");
-            $('.content-log').css("background","#F5A433");
+            $('.content-log').css("background", "#F5A433");
         });
 
 

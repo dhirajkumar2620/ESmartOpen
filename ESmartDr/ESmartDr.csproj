@@ -201,6 +201,7 @@
     <Compile Include="Controllers\DignosticDetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LaboratoryDetailsController.cs" />
+    <Compile Include="Controllers\LoginDetailsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MedicineDetailsController.cs" />
     <Compile Include="Controllers\PatientDetailsController.cs" />
@@ -492,7 +493,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\MyOPD.cshtml" />
     <Content Include="Views\Home\Apoinment.cshtml" />
-    <Content Include="Views\Home\LogIn.cshtml" />
     <Content Include="Views\Home\Lab1.cshtml" />
     <Content Include="Views\Home\Lab2.cshtml" />
     <Content Include="Views\PatientDetails\PatientRegistration.cshtml" />
@@ -504,6 +504,7 @@
     <Content Include="Views\AdminDetails\AllAdmin.cshtml" />
     <Content Include="Views\StaffDetails\StaffRegistration.cshtml" />
     <Content Include="Views\StaffDetails\Allstaff.cshtml" />
+    <Content Include="Views\LoginDetails\LoginDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

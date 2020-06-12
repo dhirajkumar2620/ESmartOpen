@@ -42,6 +42,8 @@ namespace Dal_Layer
                 sqlparam[18] = new SqlParameter("@ModifiedBy",AD.UserId);
                 sqlparam[19] = new SqlParameter("@ModifiedDate", null);
                 sqlparam[20] = new SqlParameter("@EmailId", AD.EmailId);
+                //sqlparam[21] = new SqlParameter("@ParentId", AD.ParentId);
+                
                 return CommonFunction.Save("USP_AdminDetails", sqlparam, "");
             }
             catch (Exception)
@@ -71,6 +73,36 @@ namespace Dal_Layer
                     }
                 }
                 return lst;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+
+        public AdminDetails GetLoginUserDetails(AdminDetails ad )
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[3];
+                sqlparam[0] = new SqlParameter("@Flag", "1");
+                sqlparam[1] = new SqlParameter("@username", ad.WhatsAppNumber);
+                sqlparam[2] = new SqlParameter("@password", ad.Passwod1);
+
+                DataTable ds = CommonFunction.GetDataTable("USP_UserDetails", sqlparam, "");
+                AdminDetails Model = new AdminDetails();
+               
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        CommonFunction.ReflectSingleData(Model, dr);
+                    }
+                }
+                return Model;
             }
             catch (Exception Ex)
             {
