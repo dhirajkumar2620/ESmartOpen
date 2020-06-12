@@ -4033,13 +4033,13 @@ padding-left: 0;
 .service-bg .container{
   padding-bottom: 4rem;
 }
-@media only screen and (max-width: 1440px) {
+/*@media only screen and (max-width: 1440px) {
   .login-data {
      padding: 6em 9em;
-}
-.reg-page {
-  padding: 2em 15em;
-}
+}*/
+    /*.reg-page {
+      padding: 2em 15em;
+    }*/
 .content img {
     padding: 2em;
     float: right;
@@ -4289,6 +4289,10 @@ legend.custom-border {
      left: 10em; 
      z-index: 9; 
 }
+}
+.p-both{
+    padding-left: 0;
+    padding-right: 0;
 }
 
 

@@ -73,7 +73,7 @@
 
         <div class="container-fluid full-w">
             <div class="row ">
-                <div class="col-md-8 col-xs-12 col-sm-12 content">
+                <div class="col-md-8 col-xs-12 col-sm-12 p-both">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -82,13 +82,13 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="~/img/feature-image1.jpg" class="d-block w-100" alt="First slide"/>
+                                <img src="~/img/feature-image1.jpg" class="w-100"/>
                             </div>
                             <div class="carousel-item">
-                                <img src="~/img/feature-image1.jpg" class="d-block w-100" alt="First slide"/>
+                                <img src="~/img/feature-image1.jpg" class="w-100"/>
                             </div>
                             <div class="carousel-item">
-                                <img src="~/img/feature-image1.jpg" class="d-block w-100" alt="First slide"/>
+                                <img src="~/img/feature-image1.jpg" class="w-100"/>
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -101,7 +101,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-4 col-xs-12 col-sm-12 content-log">
+                <div class="col-md-4 col-xs-12 col-sm-12 content-log p-both">
                     @using (Html.BeginForm("Login", "LoginDetails", FormMethod.Post, new { @id = "frmLoginDetails" }))
                     {
                         <div class="login-data login-pg">
@@ -117,11 +117,11 @@
                                 </ul>
                                 <br> -->
                                 <div class="login-btn ">
-                                    <label>Username<span class="star">*</span></label>
+                                    <label>Username<span>*</span></label>
                                     @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtWhatsAppNumber", @class = "form-control", required = "required", @placeholder = "Mobile number" })
                                     <br>
                                     <div class="form-group pass_show">
-                                        <label>Password<span class="star">*</span></label>
+                                        <label>Password<span>*</span></label>
                                         @Html.TextBoxFor(m => m.Passwod1, new { @id = "txtPasswod1", type = "password", @class = "form-control", required = "required", @placeholder = "Password" })
                                     </div>
 
