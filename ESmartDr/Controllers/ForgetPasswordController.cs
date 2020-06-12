@@ -107,9 +107,17 @@ namespace ESmartDr.Controllers
         }
 
         [HttpPost]
-        public ActionResult ChangePassword(string Password1 , string password2)
+        public ActionResult ChangePassword(AdminDetails ad)
         {
-
+            if (ad.Passwod1 == ad.Passwod1)
+            {
+                int Flag = BP.UpdatePassword(ad);
+                if (false)
+                {
+                    return RedirectToAction("Index", "LoginDetails");
+                }
+                
+            }
             return RedirectToAction("Index", "LoginDetails");
         }
     }

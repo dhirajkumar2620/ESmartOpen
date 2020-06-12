@@ -139,5 +139,23 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
+
+        public int UpdatePassword(AdminDetails ad)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@userID", ad.UserId);
+                sqlparam[1] = new SqlParameter("@password", ad.Passwod1);
+
+                return CommonFunction.Save("USP_AdminDetails", sqlparam, "");
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
     }
 }

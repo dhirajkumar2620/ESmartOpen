@@ -30,6 +30,11 @@ namespace Bal_Layer
         {
             return DP.GetAdminById(id);
         }
+        public int UpdatePassword(AdminDetails ad)
+        {
+            return DP.UpdatePassword(ad);
+        }
+        
     }
 }
 
