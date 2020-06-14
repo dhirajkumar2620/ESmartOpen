@@ -16,5 +16,14 @@ namespace Bal_Layer
         {
             return DP.ManageMedicineDetails(MD);
         }
+
+        public MedicineDetails ViewAllMedicine()
+        {
+            return DP.ViewAllMedicine();
+        }
+        public int DeleteMedicine(int MedicineId)
+        {
+            return DP.DeleteMedicine(MedicineId);
+        }
     }
 }

@@ -27,8 +27,14 @@ namespace ESmartDr.Controllers
             if (ad.UserId.ToString() != null && ad.UserId != 0)
             {
                 Session["UserDetails"] = ad;
+                Session["name"] = ad.FirstName;
+                Session["degree"] = ad.Education;
+                Session["regNo"] = ad.RegNumber;
+                //Session["Photo"] = ad.HospClinicLogo;
+                Session["Id"] = ad.UserId;
                 FormsAuthentication.SetAuthCookie(AD.WhatsAppNumber, false);
-                return RedirectToAction("ViewAllPatient", "PatientDetails");
+                return RedirectToAction("Apoinment", "Home");
+               // return RedirectToAction("ViewAllPatient", "PatientDetails");
             }
 
             ModelState.AddModelError("", "Invalid username and password");

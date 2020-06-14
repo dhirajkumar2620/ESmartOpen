@@ -24,14 +24,45 @@ namespace ESmartDr.Controllers
         {
             try
             {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                MD.CreatedBy = admObj.UserId.ToString();
                 int Flag = BL.ManageMedicineDetails(MD);
-                return View("MedicineDetails");
+                
+                MD = BL.ViewAllMedicine();
+                ModelState.Clear();
+                return View("MedicineDetails", MD);
             }
             catch (Exception ex)
             {
 
                 throw;
             }
+        }
+
+        public ActionResult ViewAllMedicine()
+        {
+            try
+            {
+                MedicineDetails MD = new MedicineDetails();
+                MD = BL.ViewAllMedicine();
+                return View("MedicineDetails", MD);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        public ActionResult DeleteMedicine(int Id)
+        {
+            MedicineDetails MD = new MedicineDetails();
+            // MD = BL.ViewAllMedicine();
+            int Flag1 = BL.DeleteMedicine(Id);
+            MD = BL.ViewAllMedicine();
+           
+            return View("MedicineDetails", MD);
         }
     }
 }

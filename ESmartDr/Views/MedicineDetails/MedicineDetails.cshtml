@@ -5,6 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+
 <div>
     <!-- Page Header-->
     <header class="page-header">
@@ -20,510 +22,173 @@
       </ul>
     </div> -->
     <!-- Forms Section-->
-    <section class="forms">
-@using (Html.BeginForm("ManageMedicineDetails", "MedicineDetails", FormMethod.Post, new { @id = "frmMedicineDetails" }))
-{
-        <div class="container-fluid">
-            <div class="row">
-                <!-- Basic Form-->
-                <div class="col-lg-12">
-                    <div class="card">
-                        <!-- <div class="card-close">
-                          <div class="dropdown">
-                            <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                            <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                          </div>
-                        </div> -->
-                        <!-- <div class="card-header d-flex align-items-center">
-                          <h3 class="h4">Basic Form</h3>
-                        </div> -->
-                        <div class="card-body">
-                            <p>Need to fill mandatory fields.</p>
-                            <form>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="form-control-label">Precription Name<span class="star">*</span></label>
-                                            @Html.TextBoxFor(m => m.MedicineName, new { @id = "txtName", @class = "form-control", required = "required", @placeholder = "Precription Name" })
-                                            @Html.ValidationMessageFor(model => model.MedicineName, "", new { @class = "text-danger" })
+
+    @using (Html.BeginForm("ManageMedicineDetails", "MedicineDetails", FormMethod.Post, new { @id = "frmMedicineDetails" }))
+    {
+        @Html.HiddenFor(m => m.MedicineId);
+        <section class="forms">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Basic Form-->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <!-- <div class="card-close">
+                              <div class="dropdown">
+                                <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                              </div>
+                            </div> -->
+                            <!-- <div class="card-header d-flex align-items-center">
+                              <h3 class="h4">Basic Form</h3>
+                            </div> -->
+                            <div class="card-body">
+                                <p>Need to fill mandatory fields.</p>
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Precription Name<span class="star">*</span></label>
+                                                @Html.TextBoxFor(m => m.MedicineName, new { @id = "txtMedicineName", @class = "form-control", required = "required", @placeholder = "Precription Name" })
+                                                @Html.ValidationMessageFor(model => model.MedicineName, "", new { @class = "text-danger" })
 
 
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Type<span class="star">*</span></label>
+                                                @Html.TextBoxFor(m => m.MedicineType, new { @id = "txtMedicineType", @class = "form-control", required = "required", @placeholder = "Type" })
+                                                @Html.ValidationMessageFor(model => model.MedicineType, "", new { @class = "text-danger" })
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Generic Name<span class="star">*</span></label>
+                                                @Html.TextBoxFor(m => m.GenericName, new { @id = "txtGenericName", @class = "form-control", required = "required", @placeholder = "Generic Name" })
+                                                @Html.ValidationMessageFor(model => model.GenericName, "", new { @class = "text-danger" })
+
+
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="form-control-label">Type<span class="star">*</span></label>
-                                            @Html.TextBoxFor(m => m.MedicineType, new { @id = "txtName", @class = "form-control", required = "required", @placeholder = "Type" })
-                                            @Html.ValidationMessageFor(model => model.MedicineType, "", new { @class = "text-danger" })
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Company Name<span class="star">*</span></label>
+                                                @Html.TextBoxFor(m => m.CompanyName, new { @id = "txtCompanyName", @class = "form-control", required = "required", @placeholder = "Company Name" })
+                                                @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
 
 
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Range<span class="star">*</span></label>
+                                                @Html.TextBoxFor(m => m.Range, new { @id = "txtRange", @class = "form-control", required = "required", @placeholder = "Range" })
+                                                @Html.ValidationMessageFor(model => model.Range, "", new { @class = "text-danger" })
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Other</label>
+                                                @Html.TextBoxFor(m => m.Other, new { @id = "txtOther", @class = "form-control", @placeholder = "Other" })
+                                                @Html.ValidationMessageFor(model => model.Other, "", new { @class = "text-danger" })
+
+
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="form-control-label">Generic Name<span class="star">*</span></label>
-                                            @Html.TextBoxFor(m => m.GenericName, new { @id = "txtName", @class = "form-control", required = "required", @placeholder = "Generic Name" })
-                                            @Html.ValidationMessageFor(model => model.GenericName, "", new { @class = "text-danger" })
-
-
+                                    <div class="row">
+                                        <div class="col-md-12 text-right">
+                                            <a href="~/Home/Apoinment"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
+                                            <input type="submit" value="Save" id="btnSubmit" class="btn btn_2 b33 btn-primary">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="form-control-label">Company Name<span class="star">*</span></label>
-                                            @Html.TextBoxFor(m => m.CompanyName, new { @id = "txtName", @class = "form-control", required = "required", @placeholder = "Company Name" })
-                                            @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="form-control-label">Range<span class="star">*</span></label>
-                                            @Html.TextBoxFor(m => m.Range, new { @id = "txtName", @class = "form-control", required = "required", @placeholder = "Range" })
-                                            @Html.ValidationMessageFor(model => model.Range, "", new { @class = "text-danger" })
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="form-control-label">Other</label>
-                                            @Html.TextBoxFor(m => m.Other, new { @id = "txtName", @class = "form-control", @placeholder = "Other" })
-                                            @Html.ValidationMessageFor(model => model.Other, "", new { @class = "text-danger" })
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 text-right">
-                                        <a href="~/Home/Apoinment"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
-                                        <input type="submit" value="Save" class="btn btn_2 b33 btn-primary">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-}
-    </section>
-    <section class="tables">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="example3" class="table table-striped" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Precription Name</th>
-                                            <th>Type</th>
-                                            <th>Generic Name</th>
-                                            <th>Company Name</th>
-                                            <th>Range</th>
-                                            <th>Other</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crocine</td>
-                                            <td>Fever</td>
-                                            <td>No</td>
-                                            <td>12</td>
-                                            <td>Low</td>
-                                            <td>Other</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </li>
-
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <br>
-            <br>
-        </div>
-    </section>
+        </section>
+        <section class="tables">
+
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="example3" class="table table-striped" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th hidden>MedicineId</th>
+                                                <th>Precription Name</th>
+                                                <th>Type</th>
+                                                <th>Generic Name</th>
+                                                <th>Company Name</th>
+                                                <th>Range</th>
+                                                <th>Other</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.lst)
+                                            {
+                                                <tr>
+                                                    <td hidden>@item.MedicineId</td>
+                                                    <td>@item.MedicineName</td>
+                                                    <td>@item.MedicineType</td>
+                                                    <td>@item.GenericName</td>
+                                                    <td>@item.CompanyName</td>
+                                                    <td>@item.Range</td>
+                                                    <td>@item.Other</td>
+                                                    <td>
+                                                        <ul class="list-inline">
+                                                            <li class="list-inline-item" title="Edit">
+                                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                            </li>
+
+                                                            <li  class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                                <a href="@Url.Content("~/MedicineDetails/DeleteMedicine?Id="+item.MedicineId+"")">   <i class="fa fa-times" aria-hidden="true"></i></a>
+                                                              </li> 
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            }
+
+
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Precription Name</th>
+                                                <th>Type</th>
+                                                <th>Generic Name</th>
+                                                <th>Company Name</th>
+                                                <th>Range</th>
+                                                <th>Other</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+            </div>
+        </section>
+
+    }
     <!-- Page Footer-->
     <footer class="main-footer">
         <div class="container-fluid">
@@ -563,50 +228,56 @@
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-    $('.b33').click(function () {
-        swal({
-            title: "New Medicine added successfully.",
-            //text: "You clicked the button!",
-            icon: "success",
-            button: "OK",
-        });
-    });
-
-
-
-
-
-    $('.fa.fa-times').click(function () {
-        swal({
-            title: "Do you want to delete admin?",
-            //text: "Once deleted, you will not be able to recover this imaginary file!",
-            icon: "warning",
-            //dangerMode: true,
-            buttons: true,
-            confirmButtonText: 'YES',
-            cancelButtonText: "NO",
-
-        })
-.then((willDelete) => {
-    if (willDelete) {
-        swal("Your are deleted admin successfully.", {
-            icon: "success",
-        });
-    }
-    else {
-
-        swal("Your admin is safe", {
-            icon: "success",
-
-        });
-    }
-});
-    });
     $(document).ready(function () {
-        $('#example3').DataTable();
+        $('.button').click(function () {
+            if ($('#txtMedicineName').val() == "") { }
+            else if ($('#txtMedicineType').val() == "") { }
+            else if ($('#txtGenericName').val() == "") { }
+            else if ($('#txtCompanyName').val() == "") { }
+            else if ($('#txtRange').val() == "") { }
+            else {
+                swal({
+                    title: "New Medicine added successfully.",
+                    //text: "You clicked the button!",
+                    icon: "success",
+                    button: "OK",
+                }
+               )
+            };
+        });
     });
+
+
+        $('.fa.fa-times').click(function () {
+            swal({
+                title: "Do you want to delete admin?",
+                //text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                //dangerMode: true,
+                buttons: true,
+                confirmButtonText: 'YES',
+                cancelButtonText: "NO",
+
+            })
+    .then((willDelete) => {
+        if (willDelete) {
+            swal("Your are deleted admin successfully.", {
+                icon: "success",
+            });
+        }
+        else {
+
+            swal("Your admin is safe", {
+                icon: "success",
+
+            });
+        }
+    });
+        });
+        $(document).ready(function () {
+            $('#example3').DataTable();
+        });
+
+     
 
 </script>
-
-
-

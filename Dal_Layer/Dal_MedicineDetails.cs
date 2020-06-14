@@ -2,6 +2,7 @@
 using DataLayer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -38,6 +39,60 @@ namespace Dal_Layer
 
                 throw;
             }
+
+
         }
+        public MedicineDetails ViewAllMedicine()
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[1];
+                sqlparam[0] = new SqlParameter("@Flag", "1");
+
+                DataSet ds = CommonFunction.GetDataSet("USP_Get_MedicineDetails", sqlparam, "");
+                MedicineDetails MD = new MedicineDetails();
+                List<MedicineDetails> lst = new List<MedicineDetails>();
+                if (ds != null && ds.Tables[0].Rows.Count > 0)
+                {
+                    DataTable dt = ds.Tables[0];
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                         MedicineDetails Model = new MedicineDetails();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        lst.Add(Model);
+                    }
+                }
+                MD.lst = lst;
+                return MD;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+        public int DeleteMedicine(int MedicineId)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@Flag", "2");
+                sqlparam[1] = new SqlParameter("@MedicineId", MedicineId);
+
+                
+                return CommonFunction.Save("USP_Get_MedicineDetails", sqlparam, "");
+
+               
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+
     }
 }

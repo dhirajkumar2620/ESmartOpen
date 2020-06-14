@@ -241,4 +241,3 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /Database1
-/ESmartDr/Views/PatientDetails/AllPatient.cshtml

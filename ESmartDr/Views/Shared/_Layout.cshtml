@@ -30,6 +30,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 <body>
+    
     <div class="page">
         <!-- Main Navbar-->
         <header class="header">
@@ -139,14 +140,14 @@
                 <div class="sidebar-header d-flex align-items-center">
                     <div class="avatar"><img src="~/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
                     <div class="title">
-                        <h1 class="h4">Dhiraj S</h1>
-                        <p>MBBS, M.D.(Neurology)</p>
-                        <p>1234</p>
+                        <h1 class="h4">@Session["name"].ToString()</h1>
+                        <p>@Session["degree"].ToString()</p>
+                        <p>@Session["regNo"].ToString()</p>
                     </div>
                 </div>
                 <!-- Sidebar Navidation Menus-->
                 <ul class="list-unstyled">
-                    <li><a href="@Url.Content("~/Home/Apoinment")"> <i class="icon-home"></i>Home </a></li>
+                    @*<li><a href="@Url.Content("~/Home/Apoinment")"> <i class="icon-home"></i>Home </a></li>*@
                     
                     <li><a href="@Url.Content("~/Home/Apoinment")"> <i class="icon-padnote"></i>Todays Appointment</a></li>
                     <li><a href="@Url.Content("~/PatientDetails/ViewAllPatient")"> <i class="icon-padnote"></i>View All Patient </a></li>
@@ -161,7 +162,7 @@
                         </ul>
                     </li>
                     <li><a href="@Url.Content("~/Home/MyOPD")"> <i class="icon-padnote"></i>Patient Examination</a></li>
-                    <li><a href="@Url.Content("~/MedicineDetails/ManageMedicineDetails")"> <i class="icon-padnote"></i>Add Medicines </a></li>
+                    <li><a href="@Url.Content("~/MedicineDetails/ViewAllMedicine")"> <i class="icon-padnote"></i>Add Medicines </a></li>
                     <li><a href="@Url.Content("~/Home/CampaignMaster")"> <i class="icon-padnote"></i>Campaign Master</a></li>
                     
                     

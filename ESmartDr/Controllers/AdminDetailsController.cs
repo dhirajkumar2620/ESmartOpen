@@ -1,5 +1,6 @@
 ﻿using App_Layer;
 using Bal_Layer;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace ESmartDr.Controllers
         }
         public ActionResult AdminDetails()
         {
-            
+
             return View("AdminRegistration");
         }
 
@@ -49,7 +50,8 @@ namespace ESmartDr.Controllers
                 {
                     i = 1;
                 }
-                else {
+                else
+                {
 
                 }
                 return Json(i, JsonRequestBehavior.AllowGet);
@@ -91,6 +93,7 @@ namespace ESmartDr.Controllers
                 int Flag = BP.ManagePatientDetails(AD);
                 List<AdminDetails> LST = new List<AdminDetails>();
                 LST = BP.GetAllAdminDetails();
+                //DownloadExcel();
                 return View("AllAdmin", LST);
             }
             catch (Exception ex)
@@ -115,5 +118,43 @@ namespace ESmartDr.Controllers
                 throw;
             }
         }
+
+       
+        public void DownloadExcel()
+        {
+            List<AdminDetails> LST = new List<AdminDetails>();
+          
+
+            var collection = BP.GetAllAdminDetails();
+
+
+            ExcelPackage Ep = new ExcelPackage();
+            ExcelWorksheet Sheet = Ep.Workbook.Worksheets.Add("Report");
+            Sheet.Cells["A1"].Value = "Name";
+            Sheet.Cells["B1"].Value = "Department";
+            //Sheet.Cells["C1"].Value = "Address";
+            //Sheet.Cells["D1"].Value = "City";
+            //Sheet.Cells["E1"].Value = "Country";
+            int row = 2;
+            foreach (var item in collection)
+            {
+
+                Sheet.Cells[string.Format("A{0}", row)].Value = item.FirstName;
+                Sheet.Cells[string.Format("B{0}", row)].Value = item.WhatsAppNumber;
+                //Sheet.Cells[string.Format("C{0}", row)].Value = item.Address;
+                //Sheet.Cells[string.Format("D{0}", row)].Value = item.City;
+                //Sheet.Cells[string.Format("E{0}", row)].Value = item.Country;
+                row++;
+            }
+
+
+            Sheet.Cells["A:AZ"].AutoFitColumns();
+            Response.Clear();
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            Response.AddHeader("content-disposition", "attachment: filename=" + "Report.xlsx");
+            Response.BinaryWrite(Ep.GetAsByteArray());
+            Response.End();
+        }
     }
 }
+
