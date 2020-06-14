@@ -30,12 +30,12 @@ namespace ESmartDr.Controllers
                 Session["name"] = ad.FirstName;
                 Session["degree"] = ad.Education;
                 Session["regNo"] = ad.RegNumber;
+                Session["Hid"] = ad.HospitalId;
+                Session["Hname"] = ad.HostClincName;
 
-                @Session["Hname"] = ad.HostClincName;
-
-                @Session["Haddress"] = ad.HospClinicAddess;
-                @Session["Hnumber"] = ad.WhatsAppNumber;
-                @Session["Htime"] = "9:00am - 7:00pm";
+                Session["Haddress"] = ad.HospClinicAddess;
+                Session["Hnumber"] = ad.WhatsAppNumber;
+                Session["Htime"] = "9:00am - 7:00pm";
              
                 //Session["Photo"] = ad.HospClinicLogo;
                 Session["Id"] = ad.UserId;

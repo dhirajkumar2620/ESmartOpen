@@ -25,8 +25,9 @@ namespace ESmartDr.Controllers
         {
             try
             {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 List<PatientDetails> LST = new List<PatientDetails>();
-                LST = BP.GetPatientDetails();
+                LST = BP.GetPatientDetails(admObj.HospitalId);
                 return View("AllPatient", LST);
             }
             catch (Exception)
