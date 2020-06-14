@@ -39,6 +39,12 @@ namespace ESmartDr.Controllers
         {
             try
             {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                PD.CreatedBy = admObj.FirstName;
+                PD.HospitalId = admObj.HospitalId.ToString();
+                PD.DoctorReceptionId = admObj.UserId;
+                string str = admObj.HostClincName.Substring(0, 3);
+                PD.CasePapaerNo = str;
                 int Flag = BP.ManagePatientDetails(PD);
                 return RedirectToAction("ViewAllPatient", "PatientDetails");
             }
@@ -63,5 +69,35 @@ namespace ESmartDr.Controllers
                 throw;
             }
         }
+
+        public ActionResult SetPatientAppoinment(int  Id)
+        {
+            try
+            {
+                List<PatientDetails> LST = new List<PatientDetails>();
+                LST = BP.SetPatientAppoinment(Id);
+                return RedirectToAction("GetQueueList", "PatientDetails", new { Id= Id});
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public ActionResult GetQueueList( int hospitalId)
+        {
+            try
+            {
+                List<QueueDetails> LST = new List<QueueDetails>();
+                LST = BP.GetQueueList(hospitalId);
+                return View("PatientAppoinment", LST);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        
     }
 }

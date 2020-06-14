@@ -527,6 +527,7 @@
     <Content Include="Views\ForgetPassword\ForgetPassword.cshtml" />
     <Content Include="Views\ForgetPassword\VerifyOTP.cshtml" />
     <Content Include="Views\ForgetPassword\ChangePassword.cshtml" />
+    <Content Include="Views\PatientDetails\PatientAppoinment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
