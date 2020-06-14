@@ -39,7 +39,7 @@
                                                 <label class="form-control-label">Gender<span class="star">*</span></label>
                                                 @Html.DropDownListFor(m => m.Gender, new List<SelectListItem>
                                                      {
-                                                         new SelectListItem{ Text="Select Gender", Value = "0" },
+                                                       
                                                          new SelectListItem{ Text="Male", Value = "Male" },
                                                          new SelectListItem{ Text="Female", Value = "Female" },
                                                           new SelectListItem{ Text="Other", Value = "Other" },
@@ -72,7 +72,7 @@
                                                 <label class="form-control-label">Marital Status<span class="star">*</span></label>
                                                 @Html.DropDownListFor(m => m.MaritalStatus, new List<SelectListItem>
                                                      {
-                                                         new SelectListItem{ Text="Select Marital Status", Value = "0" },
+                                                        
                                                          new SelectListItem{ Text="Married", Value = "Married" },
                                                          new SelectListItem{ Text="Unmarried", Value = "Unmarried" },
                                                       }, new { @class = "form-control mb-3", @id = "ddlMarital" })

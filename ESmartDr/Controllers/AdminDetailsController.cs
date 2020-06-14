@@ -90,6 +90,9 @@ namespace ESmartDr.Controllers
         {
             try
             {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                AD.ParentId = admObj.UserId;
+                AD.ReportingTo = admObj.UserId;
                 int Flag = BP.ManagePatientDetails(AD);
                 List<AdminDetails> LST = new List<AdminDetails>();
                 LST = BP.GetAllAdminDetails();
