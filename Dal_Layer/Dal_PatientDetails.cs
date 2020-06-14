@@ -53,9 +53,9 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[1];
+                sqlparam = new SqlParameter[2];
                 sqlparam[0] = new SqlParameter("@Flag", "1");
-                sqlparam[0] = new SqlParameter("@HospitalId", HospitalId);
+                sqlparam[1] = new SqlParameter("@HospitalId", HospitalId);
 
                 DataTable ds = CommonFunction.GetDataTable("USP_GET_PATIENTDETAILS", sqlparam, "");
                 List<PatientDetails> lst = new List<PatientDetails>();
