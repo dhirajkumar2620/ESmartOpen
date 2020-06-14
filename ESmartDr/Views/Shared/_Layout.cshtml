@@ -144,7 +144,21 @@
                         <p>@Session["degree"].ToString()</p>
                         <p>@Session["regNo"].ToString()</p>
                     </div>
+                   
                 </div>
+                <div class="doc-details">
+                    <ul class="list-unstyled">
+                        <li>
+                            <h4>@Session["Hname"].ToString()</h4>
+                        </li>
+                        <li>
+                            <p>@Session["Haddress"].ToString()</p>
+                            <p>@Session["Hnumber"].ToString()</p>
+                            <p>@Session["Htime"].ToString()</p>
+                        </li>
+                    </ul>
+                </div>
+                <hr />
                 <!-- Sidebar Navidation Menus-->
                 <ul class="list-unstyled">
                     @*<li><a href="@Url.Content("~/Home/Apoinment")"> <i class="icon-home"></i>Home </a></li>*@
