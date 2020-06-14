@@ -477,9 +477,9 @@ nav.side-navbar span.heading {
   font-size: 0.8em;
 }
 
-nav.side-navbar ul {
+/*nav.side-navbar ul {
   padding: 15px 0;
-}
+}*/
 
 nav.side-navbar ul li {
   /* submenu item active */
@@ -4293,6 +4293,16 @@ legend.custom-border {
 .p-both{
     padding-left: 0;
     padding-right: 0;
+}
+.doc-details{
+   padding-left: 1em;
+}
+.doc-details ul li h4{
+    margin-bottom: 0;
+    color: #25a1a1;
+}
+.doc-details ul li h4, .doc-details ul li p{
+    margin-bottom:0!important;
 }
 
 
