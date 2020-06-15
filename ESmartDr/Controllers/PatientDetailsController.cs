@@ -43,6 +43,7 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 PD.CreatedBy = admObj.FirstName;
                 PD.HospitalId = admObj.HospitalId.ToString();
+                PD.HospitalName = admObj.HostClincName;
                 PD.DoctorReceptionId = admObj.UserId;
                 string str = admObj.HostClincName.Substring(0, 3);
                 PD.CasePapaerNo = str;
@@ -77,7 +78,7 @@ namespace ESmartDr.Controllers
             {
                 List<PatientDetails> LST = new List<PatientDetails>();
                 LST = BP.SetPatientAppoinment(Id);
-                return RedirectToAction("GetQueueList", "PatientDetails", new { Id= Id});
+                return RedirectToAction("GetQueueList", "PatientDetails") ;
             }
             catch (Exception)
             {
@@ -85,10 +86,13 @@ namespace ESmartDr.Controllers
                 throw;
             }
         }
-        public ActionResult GetQueueList( int hospitalId)
+        public ActionResult GetQueueList()
         {
             try
             {
+                int hospitalId;
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                hospitalId = admObj.HospitalId;
                 List<QueueDetails> LST = new List<QueueDetails>();
                 LST = BP.GetQueueList(hospitalId);
                 return View("PatientAppoinment", LST);

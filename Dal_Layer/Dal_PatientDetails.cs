@@ -17,7 +17,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[22];
+                sqlparam = new SqlParameter[23];
                 sqlparam[0] = new SqlParameter("@Id", PD.Id);
                 sqlparam[1] = new SqlParameter("@PatientName", PD.PatientName);
                 sqlparam[2] = new SqlParameter("@Gender", PD.Gender);
@@ -40,6 +40,7 @@ namespace Dal_Layer
                 sqlparam[19] = new SqlParameter("@CreatedBy", PD.CreatedBy);
                 sqlparam[20] = new SqlParameter("@CasePapaerNo", PD.CasePapaerNo);
                 sqlparam[21] = new SqlParameter("@IsActive", 1);
+                sqlparam[22] = new SqlParameter("@HospitlName", PD.HospitalName);
                 return CommonFunction.Save("USP_ManagePatientDetails", sqlparam, "");
             }
             catch (Exception)
@@ -143,7 +144,7 @@ namespace Dal_Layer
                 SqlParameter[] sqlparam;
                 sqlparam = new SqlParameter[2];
                 sqlparam[0] = new SqlParameter("@Flag", "1");
-                sqlparam[1] = new SqlParameter("@HospitalId", "1");
+                sqlparam[1] = new SqlParameter("@HospitalId", hospitalId);
 
                 DataTable ds = CommonFunction.GetDataTable("USP_GET_QUELIST", sqlparam, "");
                 List<QueueDetails> lst = new List<QueueDetails>();

@@ -40,7 +40,7 @@ namespace ESmartDr.Controllers
                 //Session["Photo"] = ad.HospClinicLogo;
                 Session["Id"] = ad.UserId;
                 FormsAuthentication.SetAuthCookie(AD.WhatsAppNumber, false);
-                return RedirectToAction("Apoinment", "Home");
+                return RedirectToAction("GetQueueList", "PatientDetails");
                // return RedirectToAction("ViewAllPatient", "PatientDetails");
             }
 

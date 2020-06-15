@@ -38,6 +38,7 @@ namespace App_Layer
         public string ImagePath { get; set; }
         public bool IsAppoinment { get; set; }
         public string AppoinmentDate { get; set; }
+        public string HospitalName { get; set; }
         public List <PatientDetails> lst { get; set; }
     }
 }
