@@ -92,10 +92,8 @@
                                     <thead>
                                         <tr>
                                             <th hidden>Id</th>
-                                            <th>ID No.</th>
-                                            <th>Patient Name</th>
-                                            <th>Gender</th>
-                                            <th>Age</th>
+                                            <th>CS No.</th>
+                                            <th>Patient Name/Age/Gender</th>
                                             <th>Mobile No.</th>
                                             <th>Symptoms</th>
                                             <th>Doctor</th>
@@ -108,9 +106,7 @@
                                         <tr>
                                             <td hidden>@item.Id</td>
                                             <td>@item.CasePapaerNo</td>
-                                            <td>@item.PatientName</td>
-                                            <td>@item.Gender</td>
-                                            <td>@item.Age</td>
+                                            <td>@item.PatientName<br />@item.Age / @item.Gender</td>
                                             <td>@item.WhatsAppNo</td>
                                             <td>Cough And Fever</td>
                                             <td>Dr. Sujit</td>
@@ -137,10 +133,9 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>ID No.</th>
-                                            <th>Patient Name</th>
-                                            <th>Gender</th>
-                                            <th>Age</th>
+                                            <th hidden>Id</th>
+                                            <th>CS No.</th>
+                                            <th>Patient Name/Age/Gender</th>
                                             <th>Mobile No.</th>
                                             <th>Symptoms</th>
                                             <th>Doctor</th>

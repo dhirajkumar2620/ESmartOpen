@@ -10,7 +10,10 @@ namespace App_Layer
     {
         public int ReceptionId { get; set; }
         public int ParentId { get; set; }
-        public string HospitalId { get; set; }
+        public int HospitalId { get; set; }
+        public string HostClincName { get; set; }
+        public string HospClinicAddess { get; set; }
+        public string HospClinicNumber { get; set; }
         public string Name { get; set; }
         public string Gender { get; set; }
         public string DateOfBirth { get; set; }
@@ -24,11 +27,11 @@ namespace App_Layer
         public string Remark { get; set; }
         public string Address { get; set; }
         public string RoleId { get; set; }
-        public string isActive { get; set; }
-        public string isDelete { get; set; }
+        public bool isActive { get; set; }
+        public bool isDelete { get; set; }
         public string CreatedBy { get; set; }
-        public string Createddate { get; set; }
+        public DateTime Createddate { get; set; }
         public string ModifiedBy { get; set; }
-        public string ModifiedDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
     }
 }

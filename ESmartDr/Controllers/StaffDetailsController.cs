@@ -38,6 +38,16 @@ namespace ESmartDr.Controllers
         {
             try
             {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                PD.CreatedBy = admObj.FirstName;
+                PD.HospitalId = admObj.HospitalId;
+                PD.HostClincName = admObj.HostClincName;
+                PD.HospClinicAddess = admObj.HospClinicAddess;
+                PD.HospClinicNumber = admObj.HospClinicNumber;
+                PD.ParentId = admObj.UserId;
+                PD.CreatedBy = admObj.FirstName;
+                //string str = admObj.HostClincName.Substring(0, 3);
+                //PD.CasePapaerNo = str;
                 int Flag = BP.ManageStaffDetails(PD);
                 return RedirectToAction("ViewAllStaff", "StaffDetails");
             }

@@ -22,6 +22,7 @@ namespace ESmartDr.Controllers
         public ActionResult Login(AdminDetails AD)
         {
             AdminDetails ad = new AdminDetails();
+          
             ad = BP.GetLoginUserDetails(AD);
         
             if (ad.UserId.ToString() != null && ad.UserId != 0)

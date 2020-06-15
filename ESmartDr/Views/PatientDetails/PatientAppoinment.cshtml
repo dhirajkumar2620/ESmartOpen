@@ -58,7 +58,7 @@
                                     <i class="fa fa-heartbeat" aria-hidden="true"></i>
                                 </div>
                                 <div class="col col-7">
-                                    <h6 class="mt-0 mb-1">Yesterday<br /> Appointment</h6>
+                                    <h6 class="mt-0 mb-1">Yesterday<br /> Patient</h6>
                                     <div class="count text-primary fs-20">24</div>
                                 </div>
                             </div>
@@ -69,12 +69,12 @@
                     <div class="card animated fadeInUp delay-04s bg-light">
                         <div class="card-body">
                             <div class="row align-items-center">
-                                <div class="col col-5 text-center">
+                                @*<div class="col col-5 text-center">
                                     <i class="fa fa-usd" aria-hidden="true"></i>
-                                </div>
-                                <div class="col col-7">
-                                    <h6 class="mt-0 mb-1">Yesterday<br /> Appointment</h6>
-                                    <div class="count text-primary fs-20">238</div>
+                                </div>*@
+                                <div class="col col-12">
+                                    <h6 class="mt-0 mb-1">Date / Time</h6>
+                                    <div class="count text-primary fs-20">2020-06-09/11:20</div>
                                 </div>
                             </div>
                         </div>
@@ -96,10 +96,8 @@
                                 <table id="example" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>CasePaper No</th>
-                                            <th>Patient Name</th>
-                                            <th>Gender</th>
-                                            <th>Age</th>
+                                            <th>CS No.</th>
+                                            <th>Patient Name/Age/Gender</th>
                                             <th>Mobile No.</th>
                                             <th>Time</th>
                                             <th>Doctor</th>
@@ -112,9 +110,7 @@
                                         {
                                             <tr>
                                                 <td>@item.CasePaperNo</td>
-                                                <td>@item.PatientName</td>
-                                                <td>@item.Gender</td>
-                                                <td>@item.Age</td>
+                                                <td>@item.PatientName<br />@item.Age / @item.Gender</td>
                                                 <td>@item.WhatsAppNo</td>
                                                 <td>@item.DateTime</td>
                                                 <td>@item.ReferedByDoctor</td>
@@ -147,12 +143,10 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>ID No.</th>
-                                            <th>Patient Name</th>
-                                            <th>Gender</th>
-                                            <th>Age</th>
+                                            <th>CS No.</th>
+                                            <th>Patient Name/Age/Gender</th>
                                             <th>Mobile No.</th>
-                                            <th>Symptoms</th>
+                                            <th>Time</th>
                                             <th>Doctor</th>
                                             <th>Status</th>
                                             <th>Action</th>
