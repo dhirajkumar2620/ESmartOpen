@@ -103,6 +103,26 @@ namespace ESmartDr.Controllers
                 throw;
             }
         }
-        
+
+        public ActionResult DeleteAppoinment(int Id)
+        {
+            try
+            {
+                int hospitalId;
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                hospitalId = admObj.HospitalId;
+
+                List<QueueDetails> LST = new List<QueueDetails>();
+                LST = BP.DeleteAppoinment(hospitalId, Id);
+                return View("PatientAppoinment", LST);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
     }
 }

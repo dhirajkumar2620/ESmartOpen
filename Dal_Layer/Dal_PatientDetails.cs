@@ -167,5 +167,34 @@ namespace Dal_Layer
             }
         }
 
+        public List<QueueDetails> DeleteAppoinment(int hospitalId,int Id)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@Id", Id);
+                sqlparam[1] = new SqlParameter("@HospitalId", hospitalId);
+                DataTable ds = CommonFunction.GetDataTable("USP_GET_QUELIST", sqlparam, "");
+                List<QueueDetails> lst = new List<QueueDetails>();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        QueueDetails Model = new QueueDetails();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        lst.Add(Model);
+                    }
+                }
+                return lst;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+
     }
 }

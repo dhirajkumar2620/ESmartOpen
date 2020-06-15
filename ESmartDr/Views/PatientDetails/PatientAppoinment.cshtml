@@ -108,42 +108,42 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach (var item in Model)
-                                    {
-                                        <tr>
-                                            <td>@item.CasePaperNo</td>
-                                            <td>@item.PatientName</td>
-                                            <td>@item.Gender</td>
-                                            <td>@item.Age</td>
-                                            <td>@item.WhatsAppNo</td>
-                                            <td>@item.DateTime</td>
-                                            <td>@item.ReferedByDoctor</td>
-                                            <td>@item.InQuee</td>
-                                            @*<td>
-                                                <div class="form-group">
-                                                    <select name="account" class="form-control mb-3">
-                                                        <option>In Queue</option>
-                                                        <option>With Doctor</option>
-                                                        <option>Visited</option>
-                                                    </select>
-                                                </div>
-                                            </td>*@
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
-                                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                                    </li>
-                                                    <li class="list-inline-item" title="History">
-                                                        <a href="~/Home/MyOPD"><i class="fa fa-history" aria-hidden="true"></i></a>
-                                                    </li>
-                                                    <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Delete">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </li>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.CasePaperNo</td>
+                                                <td>@item.PatientName</td>
+                                                <td>@item.Gender</td>
+                                                <td>@item.Age</td>
+                                                <td>@item.WhatsAppNo</td>
+                                                <td>@item.DateTime</td>
+                                                <td>@item.ReferedByDoctor</td>
+                                                <td>@item.InQuee</td>
+                                                @*<td>
+                                                        <div class="form-group">
+                                                            <select name="account" class="form-control mb-3">
+                                                                <option>In Queue</option>
+                                                                <option>With Doctor</option>
+                                                                <option>Visited</option>
+                                                            </select>
+                                                        </div>
+                                                    </td>*@
+                                                <td>
+                                                    <ul class="list-inline">
+                                                        <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
+                                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                                        </li>
+                                                        <li class="list-inline-item" title="History">
+                                                            <a href="~/Home/MyOPD"><i class="fa fa-history" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Delete">
+                                                            <a href="@Url.Content("~/PatientDetails/DeleteAppoinment?Id="+item.Id+"")"> <i class="fa fa-times" aria-hidden="true"></i></a>
+                                                        </li>
 
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                     }
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        }
                                     </tbody>
                                     <tfoot>
                                         <tr>
