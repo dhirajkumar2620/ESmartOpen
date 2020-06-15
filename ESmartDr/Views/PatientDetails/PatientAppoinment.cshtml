@@ -58,7 +58,7 @@
                                     <i class="fa fa-heartbeat" aria-hidden="true"></i>
                                 </div>
                                 <div class="col col-7">
-                                    <h6 class="mt-0 mb-1">Yesterday<br /> Patient</h6>
+                                    <h6 class="mt-0 mb-1">Yesterday<br /> Patients</h6>
                                     <div class="count text-primary fs-20">24</div>
                                 </div>
                             </div>
@@ -73,8 +73,8 @@
                                     <i class="fa fa-usd" aria-hidden="true"></i>
                                 </div>*@
                                 <div class="col col-12">
-                                    <h6 class="mt-0 mb-1">Date / Time</h6>
-                                    <div class="count text-primary fs-20">2020-06-09/11:20</div>
+                                    <h6 class="mt-0 mb-1">2020-06-09</h6>
+                                    <div class="count text-primary fs-20">Sunday (11:20)</div>
                                 </div>
                             </div>
                         </div>
@@ -96,11 +96,11 @@
                                 <table id="example" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>CS No.</th>
+                                            <th>CP No.</th>
                                             <th>Patient Name/Age/Gender</th>
                                             <th>Mobile No.</th>
-                                            <th>Time</th>
-                                            <th>Doctor</th>
+                                            
+                                            <th>Bill</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -112,10 +112,9 @@
                                                 <td>@item.CasePaperNo</td>
                                                 <td>@item.PatientName<br />@item.Age / @item.Gender</td>
                                                 <td>@item.WhatsAppNo</td>
-                                                <td>@item.DateTime</td>
-                                                <td>@item.ReferedByDoctor</td>
-                                                <td>@item.InQuee</td>
-                                                @*<td>
+                                                
+                                                <td></td>
+                                                <td>
                                                         <div class="form-group">
                                                             <select name="account" class="form-control mb-3">
                                                                 <option>In Queue</option>
@@ -123,7 +122,7 @@
                                                                 <option>Visited</option>
                                                             </select>
                                                         </div>
-                                                    </td>*@
+                                                    </td>
                                                 <td>
                                                     <ul class="list-inline">
                                                         <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
@@ -143,11 +142,11 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>CS No.</th>
+                                            <th>CP No.</th>
                                             <th>Patient Name/Age/Gender</th>
                                             <th>Mobile No.</th>
-                                            <th>Time</th>
-                                            <th>Doctor</th>
+                                            
+                                            <th>Bill</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>

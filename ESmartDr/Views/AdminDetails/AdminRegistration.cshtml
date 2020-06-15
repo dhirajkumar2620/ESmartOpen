@@ -73,8 +73,8 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="form-control-label">Date of Birth<span class="star">*</span></label>
-                                           @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "txtDOB", @type = "text", @class = "form-control", required = "required", @maxlength = "10", @onkeypress = "return isNumber(event)", @placeholder = "Date of Birth" })
+                                            <label class="form-control-label">Date of Birth</label>
+                                           @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "txtDOB", @type = "text", @class = "form-control",  @maxlength = "10", @onkeypress = "return isNumber(event)", @placeholder = "Date of Birth" })
                                         @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -105,7 +105,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="form-control-label">Email ID<span class="star">*</span></label>
-                                            @Html.TextBoxFor(m => m.EmailId, new { @id = "txtEmailId", @class = "form-control", @placeholder = "Email ID" })
+                                            @Html.TextBoxFor(m => m.EmailId, new { @id = "txtEmailId", @class = "form-control", required = "required", @placeholder = "Email ID" })
                                             @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -113,7 +113,7 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="form-control-label">Hospital/Clinic/Diagnostic/Lab Name<span class="star">*</span></label>
+                                            <label class="form-control-label">Firm Name<span class="star">*</span></label>
                                             @Html.TextBoxFor(m => m.HostClincName, new { @id = "txtHCName", @class = "form-control", required = "required", @placeholder = "Hospital/Clinic/Diagnostic/Lab Name" })
                                             @Html.ValidationMessageFor(model => model.HostClincName, "", new { @class = "text-danger" })
 
@@ -122,7 +122,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="form-control-label">Hospital/Clinic/Diagnostic/Lab No.<span class="star">*</span></label>
+                                            <label class="form-control-label">Firm No.<span class="star">*</span></label>
                                             @Html.TextBoxFor(m => m.HospClinicNumber, new { @id = "txtHCNumbar", @class = "form-control", required = "required", @placeholder = "Hospital/Clinic/Diagnostic/Lab No." })
                                             @Html.ValidationMessageFor(model => model.HospClinicNumber, "", new { @class = "text-danger" })
 
@@ -131,10 +131,34 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="form-control-label">Hospital/Clinic/Diagnostic/Lab Add.<span class="star">*</span></label>
+                                            <label class="form-control-label">Firm Add.<span class="star">*</span></label>
                                             @Html.TextBoxFor(m => m.HospClinicAddess, new { @id = "txtHCAdress", @class = "form-control", required = "required", @placeholder = "Hospital/Clinic/Diagnostic/Lab Add." })
                                             @Html.ValidationMessageFor(model => model.HospClinicAddess, "", new { @class = "text-danger" })
 
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Firm In Time</label>
+                                            <input type="text" placeholder="00:00" class="form-control">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Firm Out Time</label>
+                                            <input type="text" placeholder="00:00" class="form-control">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Holiday</label>
+                                            <input type="text" placeholder="Holiday" class="form-control">
 
                                         </div>
                                     </div>
@@ -143,16 +167,23 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="form-control-label">Activation For<span class="star">*</span></label>
-                                            @Html.TextBoxFor(m => m.ActivationPeriod, new { @id = "txtActivationFor", @class = "form-control", @type = "number", required = "required", @placeholder = "Activation For (in months)" })
-                                            @Html.ValidationMessageFor(model => model.ActivationPeriod, "", new { @class = "text-danger" })
-
+                                            @Html.DropDownListFor(m => m.ActivationFor, new List<SelectListItem>
+                                                     {
+                                                         //new SelectListItem{ Text="Select Role", Value = "0" },
+                                                         new SelectListItem{ Text="Smart Clinic Manager", Value = "scm" },
+                                                         new SelectListItem{ Text="Smart OPD Manager", Value = "som" },
+                                                          new SelectListItem{ Text="Smart Lab Manager", Value = "slm" },
+                                                           new SelectListItem{ Text="Smart Diagnostic Manager", Value = "sdm" },
+                                                           new SelectListItem{ Text="Smart Lab & Diagnostic Manager", Value = "sjdm" },
+                                                           new SelectListItem{ Text="Smart OPD & IPD Managerr", Value = "soim" },
+                                                      }, new { @class = "form-control mb-4", @id = "ddlRole" })
 
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="form-control-label">Activation Date<span class="star">*</span></label>
-                                           @Html.TextBoxFor(m => m.ActivationDate, new { @id = "txtActivationDate", @type = "Date", @class = "form-control", @placeholder = "Activation Date" })
+                                           @Html.TextBoxFor(m => m.ActivationDate, new { @id = "txtActivationDate", @type = "Date", @class = "form-control", required = "required", @placeholder = "Activation Date" })
                                         @Html.ValidationMessageFor(model => model.ActivationDate, "", new { @class = "text-danger" })
 
 
@@ -161,7 +192,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="form-control-label">Expiry Date<span class="star">*</span></label>
-                                            @Html.TextBoxFor(m => m.ExpiryDate, new { @id = "txtExpiryDate", @type = "Date", @class = "form-control", @placeholder = "Expiry Date" })
+                                            @Html.TextBoxFor(m => m.ExpiryDate, new { @id = "txtExpiryDate", @type = "Date", @class = "form-control", required = "required", @placeholder = "Expiry Date" })
                                             @Html.ValidationMessageFor(model => model.ExpiryDate, "", new { @class = "text-danger" })
 
                                         </div>
@@ -171,18 +202,12 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="form-control-label">
-                                                Role<span class="star">*</span>
+                                                Upload Photo
                                             </label>
-                                            @Html.DropDownListFor(m => m.RoleId, new List<SelectListItem>
-                                                     {
-                                                         //new SelectListItem{ Text="Select Role", Value = "0" },
-                                                         new SelectListItem{ Text="Admin OPD", Value = "AdminOPD" },
-                                                         new SelectListItem{ Text="Admin Dignosis", Value = "AdminDignosis" },
-                                                          new SelectListItem{ Text="Admin Laboratory", Value = "AdminLaboratory" },
-                                                           new SelectListItem{ Text="Admin Dental", Value = "Admin Dental" },
-                                                      }, new { @class = "form-control mb-4", @id = "ddlRole" })
+                                            <input type="text" placeholder="Email-Id / Mobile No." class="form-control">
                                         </div>
                                     </div>
+
                                      <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="form-control-label">

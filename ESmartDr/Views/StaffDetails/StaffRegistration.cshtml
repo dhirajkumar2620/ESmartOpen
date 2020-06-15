@@ -83,9 +83,13 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Department<span class="star">*</span></label>
-                                                @Html.TextBoxFor(m => m.Department, new { @id = "txtDepartment", @class = "form-control", required = "required", @placeholder = "Department" })
-                                                @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger" })
-
+                                                @Html.DropDownListFor(m => m.Department, new List<SelectListItem>
+                                                     {
+                                                         new SelectListItem{ Text="Administration", Value = "administration" },
+                                                         new SelectListItem{ Text="Marketing", Value = "marketing" },
+                                                          new SelectListItem{ Text="Account", Value = "account" },
+                                                           new SelectListItem{ Text="Pharmacy", Value = "pharmacy" },
+                                                      }, new { @class = "form-control mb-3", @id = "ddlDepartment" })
 
                                             </div>
                                         </div>
@@ -137,7 +141,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">
-                                                    Adress<span class="star">*</span>
+                                                    Address<span class="star">*</span>
                                                 </label>
                                                 @Html.TextBoxFor(m => m.Address, new { @id = "txtAdress", @class = "form-control", required = "required", @placeholder = "Adress" })
                                                 @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
@@ -149,7 +153,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">
-                                                    Active
+                                                    Active<span class="star">*</span>
                                                 </label>
                                                 @Html.DropDownListFor(m => m.RoleId, new List<SelectListItem>
                                                      {
