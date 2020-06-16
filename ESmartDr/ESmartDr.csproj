@@ -262,6 +262,7 @@
     <Content Include="img\Google_Logo.png" />
     <Content Include="img\logo.jpg" />
     <Content Include="img\logo_new.jpeg" />
+    <Content Include="img\Page-Animated.png" />
     <Content Include="img\Powered By company logo.png" />
     <Content Include="img\screencapture-templatemonsterpreview-demo-77692-html-2020-06-02-15_29_33.png" />
     <Content Include="img\screencapture-templatemonsterpreview-demo-82788-html-2020-06-02-14_59_42.png" />
@@ -528,6 +529,7 @@
     <Content Include="Views\ForgetPassword\VerifyOTP.cshtml" />
     <Content Include="Views\ForgetPassword\ChangePassword.cshtml" />
     <Content Include="Views\PatientDetails\PatientAppoinment.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

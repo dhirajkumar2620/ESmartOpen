@@ -74,7 +74,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="form-control-label">Date of Birth</label>
-                                           @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "txtDOB", @type = "text", @class = "form-control",  @maxlength = "10", @onkeypress = "return isNumber(event)", @placeholder = "eg. mm/dd/yyyy" })
+                                           @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "txtDOB", @type = "date", @class = "form-control",  @maxlength = "10", @onkeypress = "return isNumber(event)", @placeholder = "eg. mm/dd/yyyy" })
                                         @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -83,7 +83,9 @@
                                             <label class="form-control-label">
                                                 Age
                                             </label>
-                                            <input  placeholder="Age" class="form-control">
+                                            @Html.TextBoxFor(m => m.Age, new { @id = "txtAge", @class = "form-control", @placeholder = "eg. 10" })
+                                            @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+
                                         </div>
                                     </div>
                                 </div>
@@ -349,7 +351,13 @@
     });
 </script>
 <script>
+    $("#txtDOB").change(function () {
 
+        var birthDate = new Date(document.getElementById("txtDOB").value);
+        var now = new Date();
+        var age = now.getFullYear() - birthDate.getFullYear();
+        $("#txtAge").val(age);
+    });
     //$('.b22').click(function () {
     //    swal({
     //        title: "Your Admin Created Successfully.",

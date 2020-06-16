@@ -44,7 +44,8 @@ namespace App_Layer
         public string FirmOutTime { get; set; }
         public string Holiday { get; set; }
         public string AlphanumericPrefix { get; set; }
-        
+        public string Age { get; set; }
+
         public List<AdminDetails> lst { get; set; }
     }
 }

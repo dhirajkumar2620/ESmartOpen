@@ -69,5 +69,9 @@ namespace EsmartDr.Controllers
 
             return View();
         }
+        public ActionResult Error()
+        {
+            return View("Error");
+        }
     }
 }

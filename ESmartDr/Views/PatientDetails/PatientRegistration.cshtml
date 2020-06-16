@@ -85,7 +85,7 @@
                                             <div class="form-group">
                                                 <label class="form-control-label">Age</label>
                                                 @*<input type="number" placeholder="Age" class="form-control">*@
-                                                @Html.TextBoxFor(m => m.Age, new { @id = "txtAge", @class = "form-control", @placeholder = "Patient Name" })
+                                                @Html.TextBoxFor(m => m.Age, new { @id = "txtAge", @class = "form-control", @placeholder = "eg. 10" })
                                                 @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
 
 
@@ -231,11 +231,12 @@
         </div>
     </footer>
 </div>
+<script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-<script src="~/vendor/jquery/jquery.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
+
+
+<script type="text/javascript">
     //$('.b22').click(function () {
     //    swal({
     //        title: "New Patient Added Successfully.",
@@ -244,5 +245,40 @@
     //        button: "OK",
     //    });
     //});
+    $("#txtDOB").change(function () {
+        
+        var birthDate = new Date(document.getElementById("txtDOB").value);
+            var now = new Date();
+            var age = now.getFullYear() - birthDate.getFullYear();
+            $("#txtAge").val(age);
+    });
 
+
+
+    //$(document).ready(function () {
+       
+    //    //var birthDate = new Date(document.getElementById("txtDOB").value);
+    //    //var now = new Date();
+    //    //var age = now.getFullYear() - birthDate.getFullYear();
+    //    //$("#txtAge").val(age);
+       
+    //});
+    //function calculateAge() {
+    //    debugger;
+    //    $("#txtAge").val('100');
+
+    //    //var birthDate = new Date(document.getElementById("txtDOB").value);
+    //    //var now = new Date();
+    //    //var age = now.getFullYear() - birthDate.getFullYear();
+    //    //$("#txtAge").val('100');
+    //    // if (now.getMonth() >= birthDate.getMonth() && now.getDate() > birthDate.getDate())
+    //    //document.getElementById("#txtAge").innerHTML=age;
+    //    //document.getElementById("#txtAge").valueOf(age);
+
+    //}
+   
+
+  
+  
+    
 </script>
