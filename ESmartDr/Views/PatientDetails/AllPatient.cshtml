@@ -94,9 +94,8 @@
                                             <th hidden>Id</th>
                                             <th>CP No.</th>
                                             <th>Patient</th>
-                                            <th>Mobile No.</th>
-                                            <th>CP Expiry Date</th>
-                                            <th>Ref by Doctor</th>
+                                            <th>Contact</th>
+                                            <th>CP Expiry</th>
                                             <th>Due Amount</th>
                                             <th>Action</th>
                                         </tr>
@@ -110,7 +109,6 @@
                                             <td>@item.PatientName<br />@item.Age / @item.Gender</td>
                                             <td>@item.WhatsAppNo</td>
                                             <td>@item.CpExpiryDate</td>
-                                            <td>@item.ReferedByDoctor</td>
                                             <td></td>
                                             <td>
                                                 <ul class="list-inline">
@@ -121,9 +119,9 @@
                                                     <li class="list-inline-item" title="Edit" >
                                                         <a href="@Url.Content("~/PatientDetails/GetDetailsById?Id="+item.Id+"")">   <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                    @*<li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
                                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                                                    </li>
+                                                    </li>*@
                                                     <li class="list-inline-item msg" title="Message">
                                                         <i class="fa fa-envelope" aria-hidden="true"></i>
                                                     </li>
@@ -138,9 +136,8 @@
                                             <th hidden>Id</th>
                                             <th>CP No.</th>
                                             <th>Patient</th>
-                                            <th>Mobile No.</th>
-                                            <th>CP Expiry Date</th>
-                                            <th>Ref by Doctor</th>
+                                            <th>Contact</th>
+                                            <th>CP Expiry</th>
                                             <th>Due Amount</th>
                                             <th>Action</th>
                                         </tr>

@@ -109,7 +109,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Whats App No.<span class="star">*</span></label>
-                                                @Html.TextBoxFor(m => m.WhatsAppNo, new { @id = "txtWhatsAppNo", @type = "number", @class = "form-control", required = "required", @placeholder = "eg. +919876543210" })
+                                                @Html.TextBoxFor(m => m.WhatsAppNo, new { @id = "txtWhatsAppNo",  @class = "form-control", required = "required", @placeholder = "eg. +919876543210" })
                                                 @Html.ValidationMessageFor(model => model.WhatsAppNo, "", new { @class = "text-danger" })
 
                                             </div>
@@ -117,7 +117,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Other No.</label>
-                                                @Html.TextBoxFor(m => m.OtherNo, new { @id = "txtOtherNo", @type = "number", @class = "form-control", @placeholder = "eg. +919876543210" })
+                                                @Html.TextBoxFor(m => m.OtherNo, new { @id = "txtOtherNo", @class = "form-control", @placeholder = "eg. +919876543210" })
                                                 @Html.ValidationMessageFor(model => model.OtherNo, "", new { @class = "text-danger" })
 
                                             </div>
@@ -160,46 +160,44 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <label class="form-control-label">Mediclaim</label>
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-
-                                                        <label for="radioCustom2">Yes</label>
-                                                    </div>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
-                                                        <label for="radioCustom2">No</label>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="form-control-label">Mediclaim Company Name</label>
-                                                @Html.TextBoxFor(m => m.MediClmCompany, new { @id = "txtMediclaimCompanyName", @class = "form-control", @placeholder = "Mediclaim Company Name" })
-                                                @Html.ValidationMessageFor(model => model.MediClmCompany, "", new { @class = "text-danger" })
-
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Case Paper Fees</label>
                                                 @Html.TextBoxFor(m => m.CasePaperFees, new { @id = "txtCasePaperFees", @class = "form-control", @placeholder = "eg. 100" })
                                                 @Html.ValidationMessageFor(model => model.CasePaperFees, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
-
-                                    </div>
-                                    <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label class="form-control-label">CP Expiry Date<span class="star">*</span></label>
-                                                @Html.TextBoxFor(m => m.CpExpiryDate, new { @id = "txtCasePaperFees", @type = "Date", @class = "form-control", @placeholder = "eg. mm/dd/yyyy" })
-                                                @Html.ValidationMessageFor(model => model.CpExpiryDate, "", new { @class = "text-danger" })
+                                                <label class="form-control-label">CP Expiry Date</label>
+                                                <input placeholder="Cp Expiry Date" type="date" class="form-control">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-control-label">Mediclaim</label>
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template r-show">
+
+                                                        <label for="radioCustom2">Yes</label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="i-checks ">
+                                                        <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template r-hide">
+                                                        <label for="radioCustom2">No</label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row r-click-show">
+                                        <div class="col-md-4" style="display:none;">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Mediclaim Company Name</label>
+                                                @Html.TextBoxFor(m => m.MediClmCompany, new { @id = "txtMediclaimCompanyName", @class = "form-control", @placeholder = "Mediclaim Company Name" })
+                                                @Html.ValidationMessageFor(model => model.MediClmCompany, "", new { @class = "text-danger" })
 
                                             </div>
                                         </div>
@@ -278,7 +276,12 @@
     //}
    
 
-  
+    $('.r-show').click(function () {
+        $('.r-click-show .col-md-4').css('display', 'block');
+    });
+    $('.r-hide').click(function () {
+        $('.r-click-show .col-md-4').css('display', 'none');
+    });
   
     
 </script>

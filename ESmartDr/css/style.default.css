@@ -21,6 +21,23 @@ https://bootstrapious.com/p/admin-template
 body{
     font-family: 'Rajdhani-Regular'!important;
 }*/
+
+@font-face {font-family: "iconfont";
+          src: url('iconfont.eot'); /* IE9*/
+          src: url('iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+          url('iconfont.woff') format('woff'), /* chrome, firefox */
+          url('iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+          url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+        }
+
+        .iconfont {
+          font-family:"iconfont" !important;
+          font-size:16px;
+          font-style:normal;
+          -webkit-font-smoothing: antialiased;
+          -webkit-text-stroke-width: 0.2px;
+          -moz-osx-font-smoothing: grayscale;
+        } 
 body {
   overflow-x: hidden;
 }
@@ -446,7 +463,7 @@ nav.side-navbar a .badge {
 }
 
 nav.side-navbar .sidebar-header {
-  padding: 30px 15px;
+  padding: 30px 15px 5px;
 }
 
 nav.side-navbar .avatar {
@@ -4421,6 +4438,84 @@ legend.custom-border {
 	height: 1px;
 	background-color: #939393;
 }
+
+.reg-counter .time-card .count{
+    font-size:25px!important;
+}
+.forgot-password-page{
+    margin: 0 auto;
+
+}
+.forgot-password-page .content-log {
+    background: linear-gradient(to top, #ffffff -1%, #25a1a1 99%);
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.forgot-password-page .login-data {
+    padding: 3em 3em!important;
+}
+.fp-pg h1{
+    text-align: center;
+    padding-top: 1em;
+    font-size: 2.5em;
+    color: #31a6a6;
+}
+.fp-pg .sn-in p a{
+    color:#3cabab;
+    
+}
+.fp-pg{
+    color:#e4e4e4;
+}
+.viral-span input{
+    border:none;
+    border-bottom:1px solid #ccc;
+     border-radius:0!important;
+}
+.viral-span span{
+    padding-top:.5em;
+}
+.sidebar-header .title h4{
+    color: #25a1a1;
+}
+.sidemenu li:active a{
+    background: #f5a433!important;
+    border-left: 4px solid #ef910f!important;
+    color: #fff!important;
+}
+.c-datepicker-date-editor{
+    display:block!important;
+}
+.c-datepicker-data-input.only-date {
+    width: 100%!important;
+}
+
+.c-datepicker-date-table td.current:not(.disabled) .cell {
+    color: #fff;
+    background-color: #f5a433!important;
+}
+.c-datepicker-date-table td.today .cell {
+    color: #25a1a1!important;
+    font-weight: 700;
+}
+.c-datepicker-picker__shortcut{
+    color:#25a1a1!important;
+}
+.c-datepicker-date-table th {
+    padding: 5px;
+    color: #f5a433!important;
+    font-weight: 500!important;
+    border-bottom: 1px solid #ebeef5;
+}
+.c-datepicker-button--text{
+    color:#000!important;
+}
+.c-datepicker-date-editor{
+    height:38px!important;
+}
+
+
+
 
 
 

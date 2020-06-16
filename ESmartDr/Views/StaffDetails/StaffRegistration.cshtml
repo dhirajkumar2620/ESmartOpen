@@ -107,7 +107,7 @@
                                                 <label class="form-control-label">
                                                     Whats App No.<span class="star">*</span>
                                                 </label>
-                                                @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtWhatsAppNumber", @type = "number", @class = "form-control", required = "required", @placeholder = "eg. +919876543210" })
+                                                @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtWhatsAppNumber", @class = "form-control", required = "required", @placeholder = "eg. +919876543210" })
                                                 @Html.ValidationMessageFor(model => model.WhatsAppNumber, "", new { @class = "text-danger" })
 
 
@@ -120,7 +120,7 @@
                                                 <label class="form-control-label">
                                                     Other No.
                                                 </label>
-                                                @Html.TextBoxFor(m => m.OtherNumber, new { @id = "txtName", @type = "number", @class = "form-control", @placeholder = "eg. +919876543210" })
+                                                @Html.TextBoxFor(m => m.OtherNumber, new { @id = "txtName",  @class = "form-control", @placeholder = "eg. +919876543210" })
                                                 @Html.ValidationMessageFor(model => model.OtherNumber, "", new { @class = "text-danger" })
 
 
