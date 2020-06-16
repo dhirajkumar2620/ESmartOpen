@@ -109,7 +109,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Whats App No.<span class="star">*</span></label>
-                                                @Html.TextBoxFor(m => m.WhatsAppNo, new { @id = "txtWhatsAppNo",  @class = "form-control", required = "required", @placeholder = "eg. +919876543210" })
+                                                @Html.TextBoxFor(m => m.WhatsAppNo, new { @id = "txtWhatsAppNo", @class = "form-control", required = "required", @placeholder = "eg. +919876543210" })
                                                 @Html.ValidationMessageFor(model => model.WhatsAppNo, "", new { @class = "text-danger" })
 
                                             </div>
@@ -229,12 +229,11 @@
         </div>
     </footer>
 </div>
-<script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-
-
-<script type="text/javascript">
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
     //$('.b22').click(function () {
     //    swal({
     //        title: "New Patient Added Successfully.",
@@ -243,45 +242,10 @@
     //        button: "OK",
     //    });
     //});
-    $("#txtDOB").change(function () {
-        
-        var birthDate = new Date(document.getElementById("txtDOB").value);
-            var now = new Date();
-            var age = now.getFullYear() - birthDate.getFullYear();
-            $("#txtAge").val(age);
-    });
-
-
-
-    //$(document).ready(function () {
-       
-    //    //var birthDate = new Date(document.getElementById("txtDOB").value);
-    //    //var now = new Date();
-    //    //var age = now.getFullYear() - birthDate.getFullYear();
-    //    //$("#txtAge").val(age);
-       
-    //});
-    //function calculateAge() {
-    //    debugger;
-    //    $("#txtAge").val('100');
-
-    //    //var birthDate = new Date(document.getElementById("txtDOB").value);
-    //    //var now = new Date();
-    //    //var age = now.getFullYear() - birthDate.getFullYear();
-    //    //$("#txtAge").val('100');
-    //    // if (now.getMonth() >= birthDate.getMonth() && now.getDate() > birthDate.getDate())
-    //    //document.getElementById("#txtAge").innerHTML=age;
-    //    //document.getElementById("#txtAge").valueOf(age);
-
-    //}
-   
-
-    $('.r-show').click(function () {
+      $('.r-show').click(function () {
         $('.r-click-show .col-md-4').css('display', 'block');
     });
     $('.r-hide').click(function () {
         $('.r-click-show .col-md-4').css('display', 'none');
     });
-  
-    
 </script>

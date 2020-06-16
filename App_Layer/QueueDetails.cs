@@ -25,5 +25,6 @@ namespace App_Layer
         public string AppoinmentDate { get; set; }
         public string ReferedByDoctor { get; set; }
         public string Age { get; set; }
+        public string DoctorName { get; set; }
     }
 }
