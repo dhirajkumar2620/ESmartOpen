@@ -25,6 +25,7 @@ namespace ESmartDr.Controllers
         {
             try
             {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 int Flag = BL.ManageLaboratoryDetails(LD);
                 return View("LaboratoryDetails");
             }
