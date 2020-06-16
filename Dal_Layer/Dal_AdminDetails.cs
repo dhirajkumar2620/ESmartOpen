@@ -17,7 +17,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[23];
+                sqlparam = new SqlParameter[27];
                 sqlparam[0] = new SqlParameter("@UserId", AD.UserId);
                 sqlparam[1] = new SqlParameter("@Name", AD.FirstName);
                 sqlparam[2] = new SqlParameter("@Education", AD.Education);
@@ -33,7 +33,7 @@ namespace Dal_Layer
                 sqlparam[12] = new SqlParameter("@ActivationDate", AD.ActivationDate);
                 sqlparam[13] = new SqlParameter("@ActivationPeriod", AD.ActivationPeriod);
                 sqlparam[14] = new SqlParameter("@ExpiryDate", AD.ExpiryDate);
-                sqlparam[15] = new SqlParameter("@Role ", AD.RoleId);
+                sqlparam[15] = new SqlParameter("@Role ", null);
                 sqlparam[16] = new SqlParameter("@IsActive", AD.IsActive);
                 sqlparam[17] = new SqlParameter("@ParentId", AD.ParentId);
                 sqlparam[18] = new SqlParameter("@HospitalId", AD.HospitalId);
@@ -44,7 +44,10 @@ namespace Dal_Layer
                 sqlparam[20] = new SqlParameter("@EmailId", AD.EmailId);
                 sqlparam[21] = new SqlParameter("@ParentId", AD.ParentId); 
                 sqlparam[22] = new SqlParameter("@ReportingTo", AD.ParentId);
-
+                sqlparam[23] = new SqlParameter("@FirmInTime", AD.FirmInTime);
+                sqlparam[24] = new SqlParameter("@FirmOutTime", AD.FirmOutTime);
+                sqlparam[25] = new SqlParameter("@Holiday", AD.Holiday); 
+                sqlparam[26] = new SqlParameter("@AlphanumericPrefix", AD.Holiday);
                 return CommonFunction.Save("USP_AdminDetails", sqlparam, "");
             }
             catch (Exception)

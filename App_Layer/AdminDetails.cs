@@ -40,6 +40,11 @@ namespace App_Layer
         public DateTime ModifiedDate { get; set; }
         public int HospitalId { get; set; }
         public DateTime ExpiryDate { get; set; }
+        public string FirmInTime { get; set; }
+        public string FirmOutTime { get; set; }
+        public string Holiday { get; set; }
+        public string AlphanumericPrefix { get; set; }
+        
         public List<AdminDetails> lst { get; set; }
     }
 }

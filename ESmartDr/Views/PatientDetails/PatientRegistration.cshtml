@@ -74,7 +74,7 @@
                                             <div class="form-group">
 
                                                 <label class="form-control-label">Date of Birth</label>
-                                                @Html.TextBoxFor(m => m.DOB, new { @id = "txtDOB", @type = "Date", @class = "form-control", @placeholder = "Date of Birth" })
+                                                @Html.TextBoxFor(m => m.DOB, new { @id = "txtDOB", @type = "Date", @class = "form-control", @placeholder = "eg. mm/dd/yyyy" })
                                                 @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
                                                 @*<input type="Date" placeholder="Email Address" class="form-control">*@
 
@@ -109,7 +109,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Whats App No.<span class="star">*</span></label>
-                                                @Html.TextBoxFor(m => m.WhatsAppNo, new { @id = "txtWhatsAppNo", @type = "number", @class = "form-control", required = "required", @placeholder = "Whats AppNo." })
+                                                @Html.TextBoxFor(m => m.WhatsAppNo, new { @id = "txtWhatsAppNo", @type = "number", @class = "form-control", required = "required", @placeholder = "eg. +919876543210" })
                                                 @Html.ValidationMessageFor(model => model.WhatsAppNo, "", new { @class = "text-danger" })
 
                                             </div>
@@ -117,7 +117,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Other No.</label>
-                                                @Html.TextBoxFor(m => m.OtherNo, new { @id = "txtOtherNo", @type = "number", @class = "form-control", @placeholder = "Other Number" })
+                                                @Html.TextBoxFor(m => m.OtherNo, new { @id = "txtOtherNo", @type = "number", @class = "form-control", @placeholder = "eg. +919876543210" })
                                                 @Html.ValidationMessageFor(model => model.OtherNo, "", new { @class = "text-danger" })
 
                                             </div>
@@ -127,7 +127,7 @@
                                             <div class="form-group">
                                                 <label class="form-control-label">Email ID</label>
 
-                                                @Html.TextBoxFor(m => m.EmailId, new { @id = "txtEmailId", @class = "form-control", @placeholder = "Email ID" })
+                                                @Html.TextBoxFor(m => m.EmailId, new { @id = "txtEmailId", @class = "form-control", @placeholder = "eg. aaa@gmail.com" })
                                                 @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -188,7 +188,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Case Paper Fees</label>
-                                                @Html.TextBoxFor(m => m.CasePaperFees, new { @id = "txtCasePaperFees", @class = "form-control", @placeholder = "0.00" })
+                                                @Html.TextBoxFor(m => m.CasePaperFees, new { @id = "txtCasePaperFees", @class = "form-control", @placeholder = "eg. 100" })
                                                 @Html.ValidationMessageFor(model => model.CasePaperFees, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -197,8 +197,9 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label class="form-control-label">CP Expiry Date</label>
-                                                <input placeholder="Cp Expiry Date" type="date" class="form-control">
+                                                <label class="form-control-label">CP Expiry Date<span class="star">*</span></label>
+                                                @Html.TextBoxFor(m => m.CpExpiryDate, new { @id = "txtCasePaperFees", @type = "Date", @class = "form-control", @placeholder = "eg. mm/dd/yyyy" })
+                                                @Html.ValidationMessageFor(model => model.CpExpiryDate, "", new { @class = "text-danger" })
 
                                             </div>
                                         </div>

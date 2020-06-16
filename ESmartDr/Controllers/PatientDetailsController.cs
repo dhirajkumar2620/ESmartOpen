@@ -41,12 +41,12 @@ namespace ESmartDr.Controllers
             try
             {
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-                PD.CreatedBy = admObj.FirstName;
+                PD.CreatedBy = admObj.FirstName ;
                 PD.HospitalId = admObj.HospitalId.ToString();
                 PD.HospitalName = admObj.HostClincName;
                 PD.DoctorReceptionId = admObj.UserId;
-                string str = admObj.HostClincName.Substring(0, 3);
-                PD.CasePapaerNo = str;
+                //string str = admObj.HostClincName.Substring(0, 3);
+                PD.CasePapaerNo = admObj.AlphanumericPrefix;
                 int Flag = BP.ManagePatientDetails(PD);
                 return RedirectToAction("ViewAllPatient", "PatientDetails");
             }

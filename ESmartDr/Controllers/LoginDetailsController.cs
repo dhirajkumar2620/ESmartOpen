@@ -36,8 +36,22 @@ namespace ESmartDr.Controllers
 
                 Session["Haddress"] = ad.HospClinicAddess;
                 Session["Hnumber"] = ad.WhatsAppNumber;
-                Session["Htime"] = "9:00am - 7:00pm";
-             
+                Session["HinTime"] =ad.FirmInTime;
+
+                if (string.IsNullOrEmpty(Session["HinTime"] as string))
+                {
+                    Session["HinTime"] = "10:00";
+                }
+                Session["HoutTime"] = ad.FirmOutTime;
+                if (string.IsNullOrEmpty(Session["HoutTime"] as string))
+                {
+                    Session["HoutTime"] = "07:00";
+                }
+                Session["Holiday"] = ad.Holiday;
+                if (string.IsNullOrEmpty(Session["Holiday"] as string))
+                {
+                    Session["Holiday"] = "Non";
+                }
                 //Session["Photo"] = ad.HospClinicLogo;
                 Session["Id"] = ad.UserId;
                 FormsAuthentication.SetAuthCookie(AD.WhatsAppNumber, false);
