@@ -69,10 +69,13 @@ canvas {
   -ms-user-select: none;
   user-select: none;
 }
-
-.container-fluid {
-  padding: 0 30px;
+.login-btn label{
+    margin-bottom:0px!important;
 }
+
+/*.container-fluid {
+  padding: 0 30px;
+}*/
 
 @media (max-width: 575px) {
   .container-fluid {
@@ -429,7 +432,7 @@ nav.side-navbar {
 nav.side-navbar a {
   color: inherit;
   position: relative;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 nav.side-navbar a[data-toggle="collapse"]::before {
@@ -506,14 +509,16 @@ nav.side-navbar ul li a {
   padding: 10px 15px;
   text-decoration: none;
   display: block;
-  font-weight: 300;
+  font-weight: 500;
   border-left: 4px solid transparent;
+  color: #25a1a1;
 }
+
 
 nav.side-navbar ul li a:hover {
   background: #f5a433;
   border-left: 4px solid #ef910f;
-  color: #fff;
+  color: #fff!important;
 }
 
 nav.side-navbar ul li li a {
@@ -604,6 +609,16 @@ nav.side-navbar.shrinked ul li.active > a i {
 
 nav.side-navbar.shrinked .sidebar-header .title {
   display: none;
+}
+.reg-counter .bg-light .card-body{
+    padding: 1em 1em!important;
+
+}
+.reg-counter .bg-light .time-crd{
+    font-size: 1.5em;
+}
+.reg-counter .bg-light .count-1{
+        margin-top: .7em!important;
 }
 
 /* SIDEBAR MEDIAQUERIES ----------------------------------- */
@@ -1193,6 +1208,24 @@ section.dashboard-counts div[class*='col-']:last-of-type .item {
 .project .card {
   margin-bottom: 0;
 }
+.credential label{
+    font-weight:500;
+}
+.credential h5{
+    color:#fff;
+}
+.fp-align a{
+    color:#24a1a1!important;
+}
+#notifyjs-container-bottom-right{
+    width:100%;
+    line-height:3rem;
+    margin-top:2em;
+    max-width: 400px!important;
+    
+}
+
+
 
 /* PROJECTS SECTION ------------------------------------- */
 @media (max-width: 991px) {
@@ -1208,6 +1241,33 @@ section.dashboard-counts div[class*='col-']:last-of-type .item {
 @media (max-width: 480px) {
   .project .project-progress {
     display: none;
+  }
+  .fp-align{
+      top:-21px;
+      
+  }
+  .accordn .list-inline-item:not(:last-child) {
+    margin-right: 1rem!important;
+    margin-top: 0em!important;
+}
+  .our-suc {
+    padding-bottom: 4em!important;
+}
+  .cont-us .form-control{
+      border: 1px solid #f5a433!important;
+  }
+  .sn-in{
+    margin-bottom: 2em;
+  }
+  .fp-align a{
+    color:#fff!important;
+  }
+  .bg-img{
+      text-align:center;
+  }
+  .landing-tab .nav.nav-pills{
+      margin:0 auto;
+      display:block;
   }
 }
 
@@ -2851,8 +2911,12 @@ body {
   background-color: #fff;
 }
 
+.form-group {
+    margin-bottom: 0rem;
+}
+
 a {
-  color: #a2a2a2;
+  color: #4c4c4c;
   text-decoration: none;
 }
 
@@ -3682,10 +3746,14 @@ select{
 padding: 6px 7px;
 border-radius: 50%;
 font-size: 12px;
-background: #f57a7a;
+background: #ff7676 !important;
 color: #fff;
-border-color: #f57a7a;
+border-color: #ff7676 !important;
 cursor: pointer;
+
+}
+.btn_1, .btn_2{
+    width:8rem;
 }
 .brand-text img{
   width: 80%;
@@ -3757,7 +3825,7 @@ cursor: pointer;
   color: #F5A433!important;
 }
 .patient-det .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
+  color: #fff!important;
   background-color: #f5a433;
 }
 .patient-det .nav-pills li a:hover{
@@ -3829,6 +3897,9 @@ table, .table {
     border: none;
     padding: 0px;
     border: 1px solid #fff;
+}
+  .btn_1, .btn_2{
+    width:auto!important;
 }
   .lab_1-data .form-group{
       width:100%;
@@ -3905,12 +3976,12 @@ nav.navbar .menu-btn {
   border-radius: 25px;
 }
 .login-btn .btn{
-  width: 21vh;
-  padding: 13px;
-  border-radius: 25px;
-  background: #ffffff;
-  color: #828282;
-  border-color: #fff;
+    width: 16vh;
+    padding: 9px;
+    border-radius: 25px;
+    background: #ffffff;
+    color: #828282;
+    border-color: #fff;
 }
 .content h1{
   font-size: 3.5em;
@@ -3925,14 +3996,14 @@ nav.navbar .menu-btn {
 
 .full-w{
   color: #fff;
-padding-right: 0;
-padding-left: 0;
+/*padding-right: 0;
+padding-left: 0;*/
 }
 .login-data h1{
   font-size: 4vh;
 }
 .login-data{
-    padding: 6em 3em;
+    padding: 2em 3em;
 }
 .content-log{
   background: #f5a433;
@@ -4324,6 +4395,12 @@ legend.custom-border {
 .doc-details ul li p{
     color:#aaa;
 }
+.bg-img{
+    padding: 0 15px!important;
+}
+.p-both img{
+    width:100%;
+}
 
 
 
@@ -4491,7 +4568,7 @@ legend.custom-border {
 }
 
 .c-datepicker-date-table td.current:not(.disabled) .cell {
-    color: #fff;
+    color: #fff!important;
     background-color: #f5a433!important;
 }
 .c-datepicker-date-table td.today .cell {
@@ -4513,6 +4590,26 @@ legend.custom-border {
 .c-datepicker-date-editor{
     height:38px!important;
 }
+.c-datepicker-picker__sidebar{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 0px!important;
+    border-right: 1px solid #ffffff!important;
+    box-sizing: border-box;
+    padding-top: 6px;
+    background-color: #fff;
+    overflow: auto;
+}
+.c-datepicker-picker__sidebar+.c-datepicker-picker__body{
+    margin-left: 0px!important;
+}
+.landing .carousel-item img{
+    height:600px;
+}
+/*.c-datepicker-date-picker__time-header .c-datepicker-date-picker__editor-wrap:nth-child(2){
+    display:none;
+}*/
 
 
 

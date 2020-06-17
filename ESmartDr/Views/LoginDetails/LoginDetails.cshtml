@@ -82,16 +82,16 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="~/img/001.jpg"  class="w-100"  />
+                                <img src="~/img/001.jpg" class="img-fluid" />
                             </div>
                             <div class="carousel-item">
-                                <img src="~/img/002.jpg"  class="w-100"  />
+                                <img src="~/img/002.jpg" class="img-fluid" />
                             </div>
                             <div class="carousel-item">
-                                <img src="~/img/003.jpg"  class="w-100" />
+                                <img src="~/img/003.jpg" class="img-fluid" />
                             </div>
                             <div class="carousel-item">
-                                <img src="~/img/004.jpg"  class="w-100" />
+                                <img src="~/img/004.jpg" class="img-fluid" />
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -137,15 +137,15 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-6 text-right" >
-                                             @Html.ActionLink("Forget Pssword", "Index", "ForgetPassword")
+                                        <div class="col-md-6 fp-align text-right">
+                                            @Html.ActionLink("Forget Pssword", "Index", "ForgetPassword")
 
                                         </div>
 
                                     </div>
                                     <br>
                                     <div class="text-center sn-in">
-                                        <input type="submit" value="Sign In" class="btn btn-primary" >
+                                        <input type="submit" value="Sign In" class="btn btn-primary">
                                         <p>Don't have an account? <a href="#" class="click-to-reg">Create new one</a></p>
                                     </div>
                                 </div>
@@ -187,7 +187,7 @@
                                 <br>
 
                                 <div class="text-center reg-in">
-                                    <input type="submit1" value="Register Now" class="btn btn-primary b22">
+                                    <input type="button" value="Register Now" class="btn btn-primary b22">
                                     <p>Already have an account? <a href="#" class="click-to-signin">Sign In</a></p>
                                 </div>
                             </div>
@@ -544,11 +544,11 @@
                         when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
                     </p>
                     <form>
-                        <div class="form-group">
+                        <div class="form-group credential">
                             <label>Email-ID</label>
-                            <h4>esmartdoctor@gmail.com</h4>
-                            <h4>carrer@esmartdoctor.com</h4>
-                            <h4>support@esmartdoctor.com</h4>
+                            <h5>esmartdoctor@gmail.com</h5>
+                            <h5>carrer@esmartdoctor.com</h5>
+                            <h5>support@esmartdoctor.com</h5>
                         </div>
                     </form>
                     <form>
@@ -575,16 +575,19 @@
                         <input type="text" placeholder="Name" class="form-control">
                         <br>
                         <label>Last Name</label>
-                        <input type="Password" placeholder="Password" class="form-control">
+                        <input type="text" placeholder="Password" class="form-control">
+                        <br>
+                        <label>Contact No.</label>
+                        <input type="number" placeholder="Contact No." class="form-control">
                         <br>
                         <label>Email Address</label>
-                        <input type="Password" placeholder="Password" class="form-control">
+                        <input type="text" placeholder="Email Address" class="form-control">
                         <br>
                         <label>Message</label>
-                        <textarea class="form-control"></textarea>
+                        <textarea class="form-control" placeholder="Message"></textarea>
                         <br>
                         <div class="text-right sn-in">
-                            <input type="submit1" value="SEND" class="btn btn_1 btn-primary">
+                            <input type="button" style="width: 16vh!important;" value="SEND" class="btn btn_1 btn-primary">
                         </div>
                     </div>
                 </div>

@@ -283,6 +283,7 @@
     <Content Include="js\iconfont.js" />
     <Content Include="js\jquery.simpleDatepicker.js" />
     <Content Include="js\month.js" />
+    <Content Include="js\Notifier.min.js" />
     <Content Include="js\time-only-time.js" />
     <Content Include="js\time.js" />
     <Content Include="js\year.js" />

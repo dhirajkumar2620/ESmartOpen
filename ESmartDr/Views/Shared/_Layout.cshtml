@@ -147,14 +147,15 @@
                         </div>
                         <div class="col-md-8">
                             <div class="title">
-                                <h1 class="h4">@Session["name"].ToString()</h1>
+                                <h1 class="h4" style="margin-bottom: 0;">@Session["name"].ToString()</h1>
                                 <p>@Session["degree"].ToString()</p>
                                 <p>Reg No:@Session["regNo"].ToString()</p>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                       
+                        <div class="col-md-12" style="margin-top:0.5em">
                             <div class="title" style="margin-left:0px;">
-                                <h4>@Session["Hname"].ToString()</h4>
+                                <h4  style="margin-bottom: 0;">@Session["Hname"].ToString()</h4>
                                 <p>@Session["Haddress"].ToString()</p>
                                 <p>@Session["Hnumber"].ToString()</p>
                                 <p>@Session["HinTime"].ToString() :  @Session["HoutTime"].ToString() / Holiday( @Session["Holiday"].ToString() )</p>
@@ -249,8 +250,7 @@
     @*<script src="~/js/datepicker-only-time.js"></script>*@
     <script src="~/js/iconfont.js"></script>
     <script src="~/js/datepicker.en.js"></script>
-
-
+    <script src="~/js/Notifier.min.js"></script>
 
     <script>
        $('.example').datePicker({
@@ -260,27 +260,77 @@
 
        $(function () {
 
+           $(function () {
+               $('.J-datepicker-day').datePicker({
+                   language: 'en',
+                   format: 'DD-MM-YYYY',
+               });
 
+               $('.J-datepicker-time').datePicker({
+                   language: 'en',
+                   format: 'HH:mm:ss',
 
-           $('.J-datepicker-day').datePicker({
-               hasShortcut: true,
-               language: 'en',
-               shortcutOptions: [{
-                   name: 'Today',
-                   day: '0'
-               }, {
-                   name: 'Yesterday',
-                   day: '-1'
-               }, {
-                   name: 'One week ago',
-                   day: '-7'
-               }]
+               });
+
            });
+
+           //$('.J-datepicker-day').datePicker({
+           //    hasShortcut: true,
+           //    language: 'en',
+           //    shortcutOptions: [{
+           //        name: 'Today',
+           //        day: '0'
+           //    }, {
+           //        name: 'Yesterday',
+           //        day: '-1'
+           //    }, {
+           //        name: 'One week ago',
+           //        day: '-7'
+           //    }]
+           //});
 
 
 
        });
+       var notifier = new Notifier({
+           position: 'bottom-right',
+           direction: 'bottom'
+       });
 
+       // Success 
+       document.getElementById("tostr-save").onclick = function () {
+           notifier.notify("success", "Personal details saved successfully!");
+       };
+
+       document.getElementById("tostr-save1").onclick = function () {
+           notifier.notify("success", "Medical information saved successfully!");
+       };
+
+       document.getElementById("tostr-save2").onclick = function () {
+           notifier.notify("success", "Life style saved successfully!");
+       };
+
+       document.getElementById("tostr-save3").onclick = function () {
+           notifier.notify("success", "Observation saved successfully!");
+       };
+       document.getElementById("tostr-save4").onclick = function () {
+           notifier.notify("success", "Investigation saved successfully!");
+       };
+       document.getElementById("tostr-save5").onclick = function () {
+           notifier.notify("success", "Medication saved successfully!");
+       };
+       document.getElementById("tostr-save6").onclick = function () {
+           notifier.notify("success", "Advice saved successfully!");
+       };
+       document.getElementById("tostr-save7").onclick = function () {
+           notifier.notify("success", "Diet & exercise saved successfully!");
+       };
+       document.getElementById("tostr-save8").onclick = function () {
+           notifier.notify("success", "Next visit saved successfully!");
+       };
+       document.getElementById("tostr-save9").onclick = function () {
+           notifier.notify("success", "Vital information saved successfully!");
+       };
 
     </script>
    

@@ -55,5 +55,6 @@ namespace App_Layer
         public bool FnacBiopsy { get; set; }
         public bool IsActive { get; set; }
         public string ClinicalHistory { get; set; }
+        public List<DignosticDetails> CheckBoxIDignostictems { get; set; }
     }
 }
