@@ -107,7 +107,7 @@
                                                 <label class="form-control-label">
                                                     Whats App No.<span class="star">*</span>
                                                 </label>
-                                                @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtWhatsAppNumber", @class = "form-control", required = "required", @placeholder = "eg. 0123456789" })
+                                                @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtWhatsAppNumber", @class = "form-control", @maxlength = "10", required = "required", @placeholder = "eg. 0123456789" })
                                                 @Html.ValidationMessageFor(model => model.WhatsAppNumber, "", new { @class = "text-danger" })
 
 
@@ -120,7 +120,7 @@
                                                 <label class="form-control-label">
                                                     Other No.
                                                 </label>
-                                                @Html.TextBoxFor(m => m.OtherNumber, new { @id = "txtName",  @class = "form-control", @placeholder = "eg. 0123456789" })
+                                                @Html.TextBoxFor(m => m.OtherNumber, new { @id = "txtOtherNo",  @class = "form-control", @maxlength = "10", @placeholder = "eg. 0123456789" })
                                                 @Html.ValidationMessageFor(model => model.OtherNumber, "", new { @class = "text-danger" })
 
 
@@ -197,6 +197,11 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script type="text/javascript">
+
+    $("#txtWhatsAppNumber").val("+91");
+    $("#txtOtherNo").val("+91");
+
+
     function validateData() {
 
         //if (($("#txtName").val() == "") || ($("#txtDegree").val() == "") || ($("#txtDepartment").val() == "")

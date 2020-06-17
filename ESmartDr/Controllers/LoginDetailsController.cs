@@ -77,6 +77,26 @@ namespace ESmartDr.Controllers
             }
         }
 
+        public ActionResult ManageEnquiryDetails(EnquiryDetails ED)
+        {
+            try
+            {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                Bal_EnquiryDetails BL = new Bal_EnquiryDetails();
+                //string str = admObj.HostClincName.Substring(0, 3);
+                //PD.CasePapaerNo = str;
+                int Flag = BL.ManageEnquiryDetails(ED);
+                return RedirectToAction("Index", "LoginDetails");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+
         //public ActionResult ForgetPassword()
         //{
         //    return View("ForgetPassword");
@@ -102,5 +122,7 @@ namespace ESmartDr.Controllers
         //    ModelState.AddModelError("", "Invalid username and password");
         //    return View("LoginDetails");
         //}
+
+
     }
 }
