@@ -34,7 +34,7 @@ namespace ESmartDr.Controllers
                 Session["TotalActiveStaffCount"] = ds.Tables[9].Rows[0][0].ToString();
                 Session["TotalInActiveStaffCount"] = ds.Tables[10].Rows[0][0].ToString();
 
-                LST = BP.GetStaffDetails();
+                LST = BP.GetStaffDetails(admObj.HospitalId);
                 return View("AllStaff", LST);
             }
             catch (Exception)

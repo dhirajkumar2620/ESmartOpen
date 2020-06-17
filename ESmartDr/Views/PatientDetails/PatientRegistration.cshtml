@@ -162,7 +162,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Case Paper Fees</label>
-                                                @Html.TextBoxFor(m => m.CasePaperFees, new { @id = "txtCasePaperFees", @class = "form-control", @placeholder = "eg. 100" })
+                                                @Html.TextBoxFor(m => m.CasePaperFees, new { @id = "txtCasePaperFees",@text="0", @class = "form-control", @placeholder = "eg. 100" })
                                                 @Html.ValidationMessageFor(model => model.CasePaperFees, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -245,6 +245,8 @@
         var age = now.getFullYear() - birthDate.getFullYear();
         $("#txtAge").val(age);
     });
+
+    $("#txtCasePaperFees").val(0);
 
       $('.r-show').click(function () {
         $('.r-click-show .col-md-4').css('display', 'block');

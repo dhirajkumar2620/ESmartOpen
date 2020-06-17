@@ -123,13 +123,13 @@
                                                 <td>@item.WhatsAppNumber</td>
                                                 <td>@item.OtherNumber</td>
                                                 <td>@item.ExpiryDate</td>
-                                                <td>@item.IsActive</td>
+                                                <td>@(item.IsActive ? "Active" : "In-active")</td>
                                                 <td>@item.LastName</td>
                                                 <td>
                                                     <ul class="list-inline">
-                                                        <li class="list-inline-item" title="Appointment">
+                                                        @*<li class="list-inline-item" title="Appointment">
                                                             <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                        </li>
+                                                        </li>*@
 
                                                         <li class="list-inline-item" title="General Information">
                                                             <a href="@Url.Content("~/AdminDetails/GetAdminById?UserId="+item.UserId+"")">   <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal"></i></a>
@@ -137,9 +137,9 @@
                                                         <li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
                                                             <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                                         </li>
-                                                        <li class="list-inline-item msg" title="Message">
+                                                        @*<li class="list-inline-item msg" title="Message">
                                                             <i class="fa fa-envelope" aria-hidden="true"></i>
-                                                        </li>
+                                                        </li>*@
                                                     </ul>
                                                 </td>
                                             </tr>

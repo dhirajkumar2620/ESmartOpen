@@ -17,9 +17,9 @@ namespace Bal_Layer
             return DP.ManageStaffDetails(PD);
         }
 
-        public List<ReceptionStaffReg> GetStaffDetails()
+        public List<ReceptionStaffReg> GetStaffDetails(int HospitalId)
         {
-            return DP.GetStaffDetails();
+            return DP.GetStaffDetails(HospitalId);
         }
 
         public ReceptionStaffReg GetStaffDetailsByAdmId(int rId)

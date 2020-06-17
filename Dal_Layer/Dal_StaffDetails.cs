@@ -47,13 +47,15 @@ namespace Dal_Layer
                 throw;
             }
         }
-        public List<ReceptionStaffReg> GetStaffDetails()
+        public List<ReceptionStaffReg> GetStaffDetails(int HospitalId)
         {
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[1];
+                sqlparam = new SqlParameter[2];
                 sqlparam[0] = new SqlParameter("@Flag", "1");
+                sqlparam[1] = new SqlParameter("@HospitalId", HospitalId);
+                
 
                 DataTable ds = CommonFunction.GetDataTable("USP_Get_StaffDeatilsByAdmin", sqlparam, "");
                 List<ReceptionStaffReg> lst = new List<ReceptionStaffReg>();

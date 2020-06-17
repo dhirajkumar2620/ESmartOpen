@@ -74,7 +74,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="form-control-label">Date of Birth</label>
-                                           @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "txtDOB", @type = "date", @class = "form-control",  @maxlength = "10", @onkeypress = "return isNumber(event)", @placeholder = "eg. mm/dd/yyyy" })
+                                           @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "txtDOB", @type = "date", @class = "form-control",  @maxlength = "10", @onkeypress = "return isNumber(event)", @placeholder = "eg. dd/mm/yyyy" })
                                         @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -93,14 +93,14 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="form-control-label">Whats App No.<span class="star">*</span></label>
-                                            @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtWhatsAppNo", @class = "form-control", required = "required", @placeholder = "eg. +919876543210" })
+                                            @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtWhatsAppNo", @class = "form-control", required = "required", @placeholder = "eg. 0123456789" })
                                             @Html.ValidationMessageFor(model => model.WhatsAppNumber, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="form-control-label">Other No.</label>
-                                            @Html.TextBoxFor(m => m.OtherNumber, new { @id = "txtOtherNumber", @maxlength = "10", @class = "form-control", @onkeypress = "return isNumber(event)", @placeholder = "eg. +919876543210" })
+                                            @Html.TextBoxFor(m => m.OtherNumber, new { @id = "txtOtherNumber", @maxlength = "10", @class = "form-control", @onkeypress = "return isNumber(event)", @placeholder = "eg. 0123456789" })
                                             @Html.ValidationMessageFor(model => model.OtherNumber, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -125,7 +125,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="form-control-label">Firm No.<span class="star">*</span></label>
-                                            @Html.TextBoxFor(m => m.HospClinicNumber, new { @id = "txtHCNumbar", @class = "form-control", required = "required", @placeholder = "+919876543210 or 222222" })
+                                            @Html.TextBoxFor(m => m.HospClinicNumber, new { @id = "txtHCNumbar", @class = "form-control", required = "required", @placeholder = "0123456789 or 222222" })
                                             @Html.ValidationMessageFor(model => model.HospClinicNumber, "", new { @class = "text-danger" })
 
 
@@ -192,7 +192,7 @@
                                         <div class="form-group">
                                             <label class="form-control-label">Activation Date<span class="star">*</span></label>
                                             <div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-day mt10">
-                                                @Html.TextBoxFor(m => m.ActivationDate, new { @id = "txtActivationDate", @type = "text", @class = "form-control c-datepicker-data-input only-date", required = "required", @placeholder = "mm/dd/yyyy" })
+                                                @Html.TextBoxFor(m => m.ActivationDate, new { @id = "txtActivationDate", @type = "text", @class = "form-control c-datepicker-data-input only-date", required = "required", @placeholder = "dd/mm/yyyy" })
                                                 @Html.ValidationMessageFor(model => model.ActivationDate, "", new { @class = "text-danger" })
                                             </div>
 
@@ -201,7 +201,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="form-control-label">Expiry Date<span class="star">*</span></label>
-                                            @Html.TextBoxFor(m => m.ExpiryDate, new { @id = "txtExpiryDate", @type = "Date", @class = "form-control", required = "required", @placeholder = "mm/dd/yyyy" })
+                                            @Html.TextBoxFor(m => m.ExpiryDate, new { @id = "txtExpiryDate", @type = "Date", @class = "form-control", required = "required", @placeholder = "dd/mm/yyyy" })
                                             @Html.ValidationMessageFor(model => model.ExpiryDate, "", new { @class = "text-danger" })
 
                                         </div>
