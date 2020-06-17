@@ -29,12 +29,24 @@ namespace ESmartDr.Controllers
                 List<ReceptionStaffReg> LST = new List<ReceptionStaffReg>();
 
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-                DataSet ds = c.CountForCards(admObj.HospitalId);
-                Session["TotalStaffCount"] = ds.Tables[8].Rows[0][0].ToString();
-                Session["TotalActiveStaffCount"] = ds.Tables[9].Rows[0][0].ToString();
-                Session["TotalInActiveStaffCount"] = ds.Tables[10].Rows[0][0].ToString();
+                if (admObj.ParentId == 0)
+                {
+                    DataSet ds = c.CountForCards(admObj.HospitalId);
+                    Session["TotalStaffCount"] = ds.Tables[8].Rows[0][0].ToString();
+                    Session["TotalActiveStaffCount"] = ds.Tables[9].Rows[0][0].ToString();
+                    Session["TotalInActiveStaffCount"] = ds.Tables[10].Rows[0][0].ToString();
+                    int HId = 0;
+                    LST = BP.GetStaffDetails(HId);
+                }
+                else
+                {
+                    DataSet ds = c.CountForCards(admObj.HospitalId);
+                    Session["TotalStaffCount"] = ds.Tables[8].Rows[0][0].ToString();
+                    Session["TotalActiveStaffCount"] = ds.Tables[9].Rows[0][0].ToString();
+                    Session["TotalInActiveStaffCount"] = ds.Tables[10].Rows[0][0].ToString();
 
-                LST = BP.GetStaffDetails(admObj.HospitalId);
+                    LST = BP.GetStaffDetails(admObj.HospitalId);
+                }
                 return View("AllStaff", LST);
             }
             catch (Exception)
