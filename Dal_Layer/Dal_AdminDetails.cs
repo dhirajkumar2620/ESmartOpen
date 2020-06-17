@@ -84,6 +84,35 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
+        public List<AdminDetails> GetAllAdminDetails_SA(int hID)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@Flag", "1");
+                sqlparam[1] = new SqlParameter("@hId", hID);
+
+                DataTable ds = CommonFunction.GetDataTable("USP_Get_AdminDetailsBySA", sqlparam, "");
+                List<AdminDetails> lst = new List<AdminDetails>();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        AdminDetails Model = new AdminDetails();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        lst.Add(Model);
+                    }
+                }
+                return lst;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
 
         public AdminDetails GetLoginUserDetails(AdminDetails ad )
         {

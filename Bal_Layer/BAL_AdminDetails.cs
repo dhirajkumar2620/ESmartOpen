@@ -34,7 +34,11 @@ namespace Bal_Layer
         {
             return DP.UpdatePassword(ad);
         }
-        
+        public List<AdminDetails> GetAllAdminDetails_SA(int hID)
+        {
+            return DP.GetAllAdminDetails_SA(hID);
+        }
+
     }
 }
 

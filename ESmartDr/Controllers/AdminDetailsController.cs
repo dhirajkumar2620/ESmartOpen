@@ -31,12 +31,24 @@ namespace ESmartDr.Controllers
             {
                 List<AdminDetails> LST = new List<AdminDetails>();
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                if (admObj.ParentId ==0)
+                {
+                    DataSet ds = c.CountForCards(admObj.HospitalId);
+                    Session["TotalFrimCount"] = ds.Tables[5].Rows[0][0].ToString();
+                    Session["TotalActiveFrimCount"] = ds.Tables[6].Rows[0][0].ToString();
+                    Session["TotalInActiveFrimCount"] = ds.Tables[7].Rows[0][0].ToString();
+                    int HId = 0;
+                    LST = BP.GetAllAdminDetails_SA(HId);
+                }
+                else
+                {
+               
                 DataSet ds = c.CountForCards(admObj.HospitalId);
                 Session["TotalFrimCount"] = ds.Tables[5].Rows[0][0].ToString();
                 Session["TotalActiveFrimCount"] = ds.Tables[6].Rows[0][0].ToString();
                 Session["TotalInActiveFrimCount"] = ds.Tables[7].Rows[0][0].ToString();
-
-                LST = BP.GetAllAdminDetails();
+                LST = BP.GetAllAdminDetails_SA(admObj.HospitalId);
+                }
                 return View("AllAdmin", LST);
             }
             catch (Exception)
