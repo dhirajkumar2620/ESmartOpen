@@ -149,6 +149,7 @@ namespace Dal_Layer
                 sqlparam[1] = new SqlParameter("@HospitalId", hospitalId);
 
                 DataTable ds = CommonFunction.GetDataTable("USP_GET_QUELIST", sqlparam, "");
+               
                 List<QueueDetails> lst = new List<QueueDetails>();
                 if (ds != null && ds.Rows.Count > 0)
                 {
@@ -169,6 +170,17 @@ namespace Dal_Layer
             }
         }
 
+        public DataSet CountForCards(int hospitalId)
+        {
+            SqlParameter[] sqlparam;
+            sqlparam = new SqlParameter[2];
+            sqlparam[0] = new SqlParameter("@Flag", "1");
+            sqlparam[1] = new SqlParameter("@HospitalId", hospitalId);
+
+            DataSet ds = CommonFunction.GetDataSet("USP_Get_Count", sqlparam, "");
+            return ds;
+
+        }
         public List<QueueDetails> DeleteAppoinment(int hospitalId,int Id)
         {
             try

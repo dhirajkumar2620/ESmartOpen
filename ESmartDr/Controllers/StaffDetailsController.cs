@@ -2,6 +2,7 @@
 using Bal_Layer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,6 +13,7 @@ namespace ESmartDr.Controllers
     {
         // GET: StaffDetails
         Bal_StaffDetails BP = new Bal_StaffDetails();
+        Bal_PatientDetails c = new Bal_PatientDetails();
         public ActionResult Index()
         {
             return View();
@@ -25,6 +27,13 @@ namespace ESmartDr.Controllers
             try
             {
                 List<ReceptionStaffReg> LST = new List<ReceptionStaffReg>();
+
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                DataSet ds = c.CountForCards(admObj.HospitalId);
+                Session["TotalStaffCount"] = ds.Tables[8].Rows[0][0].ToString();
+                Session["TotalActiveStaffCount"] = ds.Tables[9].Rows[0][0].ToString();
+                Session["TotalInActiveStaffCount"] = ds.Tables[10].Rows[0][0].ToString();
+
                 LST = BP.GetStaffDetails();
                 return View("AllStaff", LST);
             }

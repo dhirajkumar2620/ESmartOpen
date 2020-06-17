@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="col col-7">
                                     <h6 class="mt-0 mb-1">Total <br />Account</h6>
-                                    <div class="count text-primary fs-20">100</div>
+                                    <div class="count text-primary fs-20">@Session["TotalFrimCount"].ToString()</div>
                                 </div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="col col-7">
                                     <h6 class="mt-0 mb-1">Active <br />Account</h6>
-                                    <div class="count text-primary fs-20">70</div>
+                                    <div class="count text-primary fs-20">@Session["TotalActiveFrimCount"].ToString()</div>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="col col-7">
                                     <h6 class="mt-0 mb-1">De-Atvive <br />Account</h6>
-                                    <div class="count text-primary fs-20">30</div>
+                                    <div class="count text-primary fs-20">@Session["TotalInActiveFrimCount"].ToString()</div>
                                 </div>
                             </div>
                         </div>

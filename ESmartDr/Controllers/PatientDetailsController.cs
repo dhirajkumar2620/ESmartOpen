@@ -2,6 +2,7 @@
 using Bal_Layer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -27,6 +28,13 @@ namespace ESmartDr.Controllers
             {
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 List<PatientDetails> LST = new List<PatientDetails>();
+
+                DataSet ds = BP.CountForCards(admObj.HospitalId);
+                Session["TotalPatientCount"] = ds.Tables[3].Rows[0][0].ToString();
+                Session["TodaysNewPatientCount"] = ds.Tables[4].Rows[0][0].ToString();
+                //Session["YesterdayPatients"] = ds.Tables[2].Rows[0][0].ToString();
+
+
                 LST = BP.GetPatientDetails(admObj.HospitalId);
                 return View("AllPatient", LST);
             }
@@ -93,6 +101,12 @@ namespace ESmartDr.Controllers
                 int hospitalId;
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 hospitalId = admObj.HospitalId;
+                //cards counts
+                DataSet ds = BP.CountForCards(hospitalId);
+                Session["TodayAppointment"] = ds.Tables[0].Rows[0][0].ToString();
+                Session["TodayNewPatient"] = ds.Tables[1].Rows[0][0].ToString();
+                Session["YesterdayPatients"] = ds.Tables[2].Rows[0][0].ToString();
+
                 List<QueueDetails> LST = new List<QueueDetails>();
                 LST = BP.GetQueueList(hospitalId);
                 return View("PatientAppoinment", LST);
@@ -104,6 +118,8 @@ namespace ESmartDr.Controllers
             }
         }
 
+
+       
         public ActionResult DeleteAppoinment(int Id)
         {
             try

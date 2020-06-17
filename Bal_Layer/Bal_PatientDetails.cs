@@ -2,6 +2,7 @@
 using Dal_Layer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,5 +41,10 @@ namespace Bal_Layer
         {
             return DP.DeleteAppoinment(hospitalId, Id);
         }
+
+        public DataSet CountForCards(int hospitalId)
+        {
+            return DP.CountForCards(hospitalId);
         }
+    }
 }
