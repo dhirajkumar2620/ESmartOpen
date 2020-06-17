@@ -74,7 +74,7 @@
                                             <div class="form-group">
 
                                                 <label class="form-control-label">Date of Birth</label>
-                                                @Html.TextBoxFor(m => m.DOB, new { @id = "txtDOB", @type = "Date", @class = "form-control", @placeholder = "eg. mm/dd/yyyy" })
+                                                @Html.TextBoxFor(m => m.DOB, new { @id = "txtDOB", @type = "Date", @class = "form-control", @placeholder = "eg.dd/mm/yyyy" })
                                                 @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
                                                 @*<input type="Date" placeholder="Email Address" class="form-control">*@
 
@@ -109,7 +109,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Whats App No.<span class="star">*</span></label>
-                                                @Html.TextBoxFor(m => m.WhatsAppNo, new { @id = "txtWhatsAppNo", @class = "form-control", required = "required", @placeholder = "eg. +919876543210" })
+                                                @Html.TextBoxFor(m => m.WhatsAppNo, new { @id = "txtWhatsAppNo", @class = "form-control", required = "required", @placeholder = "eg. 0123456789" })
                                                 @Html.ValidationMessageFor(model => model.WhatsAppNo, "", new { @class = "text-danger" })
 
                                             </div>
@@ -117,7 +117,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Other No.</label>
-                                                @Html.TextBoxFor(m => m.OtherNo, new { @id = "txtOtherNo", @class = "form-control", @placeholder = "eg. +919876543210" })
+                                                @Html.TextBoxFor(m => m.OtherNo, new { @id = "txtOtherNo", @class = "form-control", @placeholder = "eg. 0123456789" })
                                                 @Html.ValidationMessageFor(model => model.OtherNo, "", new { @class = "text-danger" })
 
                                             </div>
@@ -169,7 +169,11 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">CP Expiry Date</label>
-                                                <input placeholder="Cp Expiry Date" type="date" class="form-control">
+                                                @Html.TextBoxFor(m => m.CpExpiryDate, new { @id = "txtMediclaimCompanyName", @type = "Date", @class = "form-control", @placeholder = "eg. dd/mm/yyyy" })
+                                                @Html.ValidationMessageFor(model => model.CpExpiryDate, "", new { @class = "text-danger" })
+
+
+
 
                                             </div>
                                         </div>
@@ -234,14 +238,14 @@
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-    //$('.b22').click(function () {
-    //    swal({
-    //        title: "New Patient Added Successfully.",
-    //        //text: "You clicked the button!",
-    //        icon: "success",
-    //        button: "OK",
-    //    });
-    //});
+    $("#txtDOB").change(function () {
+
+        var birthDate = new Date(document.getElementById("txtDOB").value);
+        var now = new Date();
+        var age = now.getFullYear() - birthDate.getFullYear();
+        $("#txtAge").val(age);
+    });
+
       $('.r-show').click(function () {
         $('.r-click-show .col-md-4').css('display', 'block');
     });

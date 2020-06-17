@@ -20,11 +20,13 @@ namespace App_Layer
         public int HospitalId { get; set; }
 
         public string Gender { get; set; }
-        public string WhatsAppNo { get; set; }
         public bool IsAppoinment { get; set; }
-        public string AppoinmentDate { get; set; }
-        public string ReferedByDoctor { get; set; }
+     
         public string Age { get; set; }
-        public string DoctorName { get; set; }
+        public string WhatsAppNo { get; set; }
+        public string ReferedByDoctor { get; set; }
+
+        public string FirstName { get; set; }
+        public string AppoinmentDate { get; set; }
     }
 }
