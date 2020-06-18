@@ -116,7 +116,7 @@ namespace ESmartDr.Controllers
                 AD.ReportingTo = admObj.UserId;
                 int Flag = BP.ManagePatientDetails(AD);
                 List<AdminDetails> LST = new List<AdminDetails>();
-                LST = BP.GetAllAdminDetails();
+                LST = BP.GetAllAdminDetails_SA(admObj.HospitalId);
                 //DownloadExcel();
                 return View("AllAdmin", LST);
             }

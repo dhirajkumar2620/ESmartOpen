@@ -110,7 +110,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Whats App No.<span class="star">*</span></label>
-                                                @Html.TextBoxFor(m => m.WhatsAppNo, new { @id = "txtWhatsAppNo", @class = "form-control", @maxlength = "10", required = "required", @placeholder = "eg. 0123456789" })
+                                                @Html.TextBoxFor(m => m.WhatsAppNo, new { @id = "txtWhatsAppNo", @class = "form-control", @maxlength = "13", required = "required", @placeholder = "eg. 0123456789" })
                                                 @Html.ValidationMessageFor(model => model.WhatsAppNo, "", new { @class = "text-danger" })
 
                                             </div>
@@ -118,7 +118,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Other No.</label>
-                                                @Html.TextBoxFor(m => m.OtherNo, new { @id = "txtOtherNo", @class = "form-control", @maxlength = "10", @placeholder = "eg. 0123456789" })
+                                                @Html.TextBoxFor(m => m.OtherNo, new { @id = "txtOtherNo", @class = "form-control", @maxlength = "13", @placeholder = "eg. 0123456789" })
                                                 @Html.ValidationMessageFor(model => model.OtherNo, "", new { @class = "text-danger" })
 
                                             </div>
