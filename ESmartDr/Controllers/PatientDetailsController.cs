@@ -72,6 +72,7 @@ namespace ESmartDr.Controllers
                 PatientDetails pd = new PatientDetails();
                 pd = BP.GetDetailsById(Id);
                 pd.BloodGroup.Trim();
+                
                 return View("PatientRegistration", pd);
             }
             catch (Exception)

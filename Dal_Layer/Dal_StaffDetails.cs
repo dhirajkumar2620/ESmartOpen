@@ -40,11 +40,11 @@ namespace Dal_Layer
                 sqlparam[19] = new SqlParameter("@CreatedBy", PD.CreatedBy);
                 if(PD.isActive ==true)
                 {
-                    sqlparam[20] = new SqlParameter("@isActive", 1);
+                    sqlparam[20] = new SqlParameter("@isActive", "1");
                 }
                 else
                 {
-                    sqlparam[20] = new SqlParameter("@isActive",0);
+                    sqlparam[20] = new SqlParameter("@isActive","0");
                 }
                
                 return CommonFunction.Save("USP_MANGE_RECEPTIONSTAFFDETAILS", sqlparam, "");

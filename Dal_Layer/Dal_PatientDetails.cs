@@ -32,7 +32,14 @@ namespace Dal_Layer
                 sqlparam[11] = new SqlParameter("@ReferedByDoctor", PD.ReferedByDoctor);
                 sqlparam[12] = new SqlParameter("@DoctorAddress", PD.DoctorAddress);
                 sqlparam[13] = new SqlParameter("@MediClmCompany", PD.MediClmCompany);
-                sqlparam[14] = new SqlParameter("@AppliedForMediclam", "0");
+                if (PD.AppliedForMediclam == "true")
+                {
+                    sqlparam[14] = new SqlParameter("@AppliedForMediclam", "1");
+                }
+                else
+                {
+                    sqlparam[14] = new SqlParameter("@AppliedForMediclam", "0");
+                }
                 sqlparam[15] = new SqlParameter("@CasePaperFees", PD.CasePaperFees);
                 sqlparam[16] = new SqlParameter("@Role", PD.Role);
                 sqlparam[17] = new SqlParameter("@HospitalId", PD.HospitalId);

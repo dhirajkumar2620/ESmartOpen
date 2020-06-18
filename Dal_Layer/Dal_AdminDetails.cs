@@ -17,7 +17,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[29];
+                sqlparam = new SqlParameter[28];
                 sqlparam[0] = new SqlParameter("@UserId", AD.UserId);
                 sqlparam[1] = new SqlParameter("@Name", AD.FirstName);
                 sqlparam[2] = new SqlParameter("@Education", AD.Education);
@@ -34,7 +34,15 @@ namespace Dal_Layer
                 sqlparam[13] = new SqlParameter("@ActivationPeriod", AD.ActivationPeriod);
                 sqlparam[14] = new SqlParameter("@ExpiryDate", AD.ExpiryDate);
                 sqlparam[15] = new SqlParameter("@Role ", null);
-                sqlparam[16] = new SqlParameter("@IsActive", AD.IsActive);
+                if (AD.IsActive == true)
+                {
+                    sqlparam[16] = new SqlParameter("@IsActive", "1");
+                }
+                else
+                {
+                    sqlparam[16] = new SqlParameter("@IsActive", "0");
+                }
+               
                 sqlparam[17] = new SqlParameter("@ParentId", AD.ParentId);
                 sqlparam[18] = new SqlParameter("@HospitalId", AD.HospitalId);
                 sqlparam[19] = new SqlParameter("@CreatedBy", AD.UserId);
@@ -49,14 +57,7 @@ namespace Dal_Layer
                 sqlparam[25] = new SqlParameter("@Holiday", AD.Holiday); 
                 sqlparam[26] = new SqlParameter("@AlphanumericPrefix", AD.AlphanumericPrefix);
                 sqlparam[27] = new SqlParameter("@Age", AD.Age);
-                if (AD.IsActive == true)
-                {
-                    sqlparam[28] = new SqlParameter("@IsActive", 1);
-                }
-                else
-                {
-                    sqlparam[28] = new SqlParameter("@IsActive", 0);
-                }
+               
                 return CommonFunction.Save("USP_ManageAdminDetails", sqlparam, "");
             }
             catch (Exception)

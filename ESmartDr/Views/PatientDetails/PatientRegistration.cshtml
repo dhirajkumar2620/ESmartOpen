@@ -74,10 +74,11 @@
                                             <div class="form-group">
 
                                                 <label class="form-control-label">Date of Birth</label>
-                                                @Html.TextBoxFor(m => m.DOB, new { @id = "txtDOB", @type = "Date", @class = "form-control", @placeholder = "eg.dd/mm/yyyy" })
-                                                @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
-                                                @*<input type="Date" placeholder="Email Address" class="form-control">*@
-
+                                                <div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-day mt10">
+                                                    @Html.TextBoxFor(m => m.DOB, new { @id = "txtDOB", @type = "text", @class = "form-control c-datepicker-data-input only-date", @onkeypress = "return isNumber(event)", @placeholder = "eg. dd/mm/yyyy" })
+                                                    @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                                                </div>
+                                               
                                             </div>
                                         </div>
 
@@ -169,9 +170,11 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">CP Expiry Date</label>
-                                                @Html.TextBoxFor(m => m.CpExpiryDate, new { @id = "txtMediclaimCompanyName", @type = "Date", @class = "form-control", @placeholder = "eg. dd/mm/yyyy" })
-                                                @Html.ValidationMessageFor(model => model.CpExpiryDate, "", new { @class = "text-danger" })
-
+                                                <div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-day mt10">
+                                                    @Html.TextBoxFor(m => m.CpExpiryDate, new { @id = "txtMediclaimCompanyName", @type = "text", @class = "form-control c-datepicker-data-input only-date", @placeholder = "eg. dd/mm/yyyy" })
+                                                    @Html.ValidationMessageFor(model => model.CpExpiryDate, "", new { @class = "text-danger" })
+                                                </div>
+                                               
 
 
 
@@ -182,15 +185,17 @@
                                             <ul class="list-inline">
                                                 <li class="list-inline-item">
                                                     <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template r-show">
+                                                        @Html.RadioButtonFor(model => model.AppliedForMediclam, "true",new { @Id= "radioCustom2",@class="radio-template r-show",@type ="radio" }) @Html.Label("Yes")
+                                                        @*<input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template r-show">*@
 
-                                                        <label for="radioCustom2">Yes</label>
+                                                        @*<label for="radioCustom2">Yes</label>*@
                                                     </div>
                                                 </li>
                                                 <li class="list-inline-item">
                                                     <div class="i-checks ">
-                                                        <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template r-hide">
-                                                        <label for="radioCustom2">No</label>
+                                                        @Html.RadioButtonFor(model => model.AppliedForMediclam, "false", new { @Id = "radioCustom2", @class = "radio-template r-show", @type = "radio" }) @Html.Label("No")
+                                                        @*<input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template r-hide">*@
+                                                        @*<label for="radioCustom2">No</label>*@
                                                     </div>
                                                 </li>
                                             </ul>

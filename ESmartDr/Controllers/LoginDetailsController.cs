@@ -43,12 +43,12 @@ namespace ESmartDr.Controllers
 
                 if (string.IsNullOrEmpty(Session["HinTime"] as string))
                 {
-                    Session["HinTime"] = "10:00";
+                    Session["HinTime"] = " ";
                 }
                 Session["HoutTime"] = ad.FirmOutTime;
                 if (string.IsNullOrEmpty(Session["HoutTime"] as string))
                 {
-                    Session["HoutTime"] = "07:00";
+                    Session["HoutTime"] = " ";
                 }
                 Session["Holiday"] = ad.Holiday;
                 if (string.IsNullOrEmpty(Session["Holiday"] as string))
