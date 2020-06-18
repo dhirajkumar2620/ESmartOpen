@@ -13,7 +13,7 @@ namespace App_Layer
         public string PatientName { get; set; }
         public DateTime DateTime { get; set; }
         public string Note { get; set; }
-        public bool InQuee { get; set; }
+        public int InQuee { get; set; }
         public string ReferedBy { get; set; }
         public string CreatedBy { get; set; }
         public int DoctorReceptionId { get; set; }
