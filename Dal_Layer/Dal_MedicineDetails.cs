@@ -17,7 +17,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[10];
+                sqlparam = new SqlParameter[11];
                 sqlparam[0] = new SqlParameter("@MedicineId", MD.MedicineId);
                 sqlparam[1] = new SqlParameter("@MedicineName", MD.MedicineName);
                 sqlparam[2] = new SqlParameter("@MedicineType", MD.MedicineType);
@@ -30,7 +30,7 @@ namespace Dal_Layer
                 sqlparam[8] = new SqlParameter("@ModifiedBy", MD.ModifiedBy);
                 //sqlparam[9] = new SqlParameter("@ModifiedDate", null);
                 sqlparam[9] = new SqlParameter("@IsAcive", 1);
-                //sqlparam[10] = new SqlParameter("@IsDelete", 0);
+                sqlparam[10] = new SqlParameter("@HospitalId", MD.HospitalId);
 
                 return CommonFunction.Save("USP_MedicineDetails", sqlparam, "");
             }

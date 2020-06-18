@@ -237,45 +237,45 @@
             else if ($('#txtGenericName').val() == "") { }
             else if ($('#txtCompanyName').val() == "") { }
             else if ($('#txtRange').val() == "") { }
-            else {
-                swal({
-                    title: "Medicine added successfully.",
-                    //text: "You clicked the button!",
-                    icon: "success",
-                    button: "OK",
-                }
-               )
-            };
+            //else {
+            //    swal({
+            //        title: "Medicine added successfully.",
+            //        //text: "You clicked the button!",
+            //        icon: "success",
+            //        button: "OK",
+            //    }
+            //   )
+            //};
         });
     });
 
 
-        $('.fa.fa-times').click(function () {
-            swal({
-                title: "Do you want to delete admin?",
-                //text: "Once deleted, you will not be able to recover this imaginary file!",
-                icon: "warning",
-                //dangerMode: true,
-                buttons: true,
-                confirmButtonText: 'YES',
-                cancelButtonText: "NO",
+    //    $('.fa.fa-times').click(function () {
+    //        swal({
+    //            title: "Do you want to delete admin?",
+    //            //text: "Once deleted, you will not be able to recover this imaginary file!",
+    //            icon: "warning",
+    //            //dangerMode: true,
+    //            buttons: true,
+    //            confirmButtonText: 'YES',
+    //            cancelButtonText: "NO",
 
-            })
-    .then((willDelete) => {
-        if (willDelete) {
-            swal("Your are deleted admin successfully.", {
-                icon: "success",
-            });
-        }
-        else {
+    //        })
+    //.then((willDelete) => {
+    //    if (willDelete) {
+    //        swal("Your are deleted admin successfully.", {
+    //            icon: "success",
+    //        });
+    //    }
+    //    else {
 
-            swal("Your admin is safe", {
-                icon: "success",
+    //        swal("Your admin is safe", {
+    //            icon: "success",
 
-            });
-        }
-    });
-        });
+    //        });
+    //    }
+    //});
+    //    });
         $(document).ready(function () {
             $('#example3').DataTable();
         });
