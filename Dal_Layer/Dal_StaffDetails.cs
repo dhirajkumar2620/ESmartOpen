@@ -17,7 +17,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[20];
+                sqlparam = new SqlParameter[21];
                 sqlparam[0] = new SqlParameter("@ReceptionId", PD.ReceptionId);
                 sqlparam[1] = new SqlParameter("@ParentId", PD.ParentId);
                 sqlparam[2] = new SqlParameter("@HospitalId", PD.HospitalId);
@@ -38,7 +38,15 @@ namespace Dal_Layer
                 sqlparam[17] = new SqlParameter("@Address", PD.Address);
                 sqlparam[18] = new SqlParameter("@RoleId", PD.RoleId);
                 sqlparam[19] = new SqlParameter("@CreatedBy", PD.CreatedBy);
-                //sqlparam[17] = new SqlParameter("@@isActive", PD.isActive = (PD.HospitalId == null) ? "1" : PD.isActive);
+                if(PD.isActive ==true)
+                {
+                    sqlparam[20] = new SqlParameter("@isActive", 1);
+                }
+                else
+                {
+                    sqlparam[20] = new SqlParameter("@isActive",0);
+                }
+               
                 return CommonFunction.Save("USP_MANGE_RECEPTIONSTAFFDETAILS", sqlparam, "");
             }
             catch (Exception)

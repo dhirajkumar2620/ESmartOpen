@@ -203,8 +203,12 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Expiry Date<span class="star">*</span></label>
-                                                <div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-day mt10">
+                                                @*<div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-day mt10">
                                                     @Html.TextBoxFor(m => m.ExpiryDate, new { @id = "txtExpiryDate", @type = "text", @class = "form-control c-datepicker-data-input only-date", required = "required", @placeholder = "dd/mm/yyyy" })
+                                                    @Html.ValidationMessageFor(model => model.ExpiryDate, "", new { @class = "text-danger" })
+                                                </div>*@
+                                                <div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-day mt10">
+                                                    @Html.TextBoxFor(m => m.ExpiryDate, new { @id = "txtExpiryDate", @type = "text", @class = "form-control c-datepicker-data-input only-date", @placeholder = "eg. dd/mm/yyyy" })
                                                     @Html.ValidationMessageFor(model => model.ExpiryDate, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
@@ -268,9 +272,7 @@
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-    $(document).ready(function () {
-        $("#txtDOB").val("06/24/2020");
-    });
+   
     function isNumber(evt) {
 
         evt = (evt) ? evt : window.event;
