@@ -29,6 +29,7 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 List<PatientDetails> LST = new List<PatientDetails>();
 
+
                 DataSet ds = BP.CountForCards(admObj.HospitalId);
                 Session["TotalPatientCount"] = ds.Tables[3].Rows[0][0].ToString();
                 Session["TodaysNewPatientCount"] = ds.Tables[4].Rows[0][0].ToString();

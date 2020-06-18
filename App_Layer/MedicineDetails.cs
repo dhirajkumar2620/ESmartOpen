@@ -22,6 +22,7 @@ namespace App_Layer
         public DateTime ModifiedDate { get; set; }
         public bool IsAcive { get; set; }
         public bool IsDelete { get; set; }
+        public int HospitalId { get; set; }
         public List<MedicineDetails> lst { get; set; }
 
     }

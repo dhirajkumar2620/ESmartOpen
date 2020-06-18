@@ -4604,9 +4604,7 @@ legend.custom-border {
 .c-datepicker-picker__sidebar+.c-datepicker-picker__body{
     margin-left: 0px!important;
 }
-.landing .carousel-item img{
-    height:600px;
-}
+
 /*.c-datepicker-date-picker__time-header .c-datepicker-date-picker__editor-wrap:nth-child(2){
     display:none;
 }*/

@@ -24,7 +24,10 @@ namespace ESmartDr.Controllers
             AdminDetails ad = new AdminDetails();
           
             ad = BP.GetLoginUserDetails(AD);
-        
+            Session["date"] = DateTime.Now.ToString("dd/MM/yyyy");
+            DayOfWeek wk = DateTime.Today.DayOfWeek;
+            Session["wkday"] = wk.ToString();
+
             if (ad.UserId.ToString() != null && ad.UserId != 0)
             {
                 Session["UserDetails"] = ad;

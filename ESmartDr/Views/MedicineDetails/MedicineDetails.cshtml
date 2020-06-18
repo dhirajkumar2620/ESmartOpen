@@ -26,6 +26,7 @@
     @using (Html.BeginForm("ManageMedicineDetails", "MedicineDetails", FormMethod.Post, new { @id = "frmMedicineDetails" }))
     {
         @Html.HiddenFor(m => m.MedicineId);
+        @Html.HiddenFor(m => m.HospitalId);
         <section class="forms">
             <div class="container-fluid">
                 <div class="row">
@@ -44,6 +45,7 @@
                             <div class="card-body">
                                 <p>Need to fill mandatory fields.</p>
                                 <form>
+                                    
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -152,7 +154,7 @@
                                                     <td>
                                                         <ul class="list-inline">
                                                             <li class="list-inline-item" title="Edit">
-                                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                                <a href="@Url.Content("~/MedicineDetails/GetMedicineById?Id="+item.MedicineId+ "&hId=" + item.HospitalId + "")"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
                                                             </li>
 
                                                             <li  class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
@@ -237,7 +239,7 @@
             else if ($('#txtRange').val() == "") { }
             else {
                 swal({
-                    title: "New Medicine added successfully.",
+                    title: "Medicine added successfully.",
                     //text: "You clicked the button!",
                     icon: "success",
                     button: "OK",

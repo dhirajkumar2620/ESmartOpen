@@ -42,14 +42,15 @@ namespace Dal_Layer
 
 
         }
-        public MedicineDetails ViewAllMedicine()
+        public MedicineDetails ViewAllMedicine(int hId)
         {
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[1];
-                sqlparam[0] = new SqlParameter("@Flag", "1");
-
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@Flag", "1"); 
+                //sqlparam[1] = new SqlParameter("@MedicineId", 0);
+                sqlparam[1] = new SqlParameter("@HospitalId", hId);
                 DataSet ds = CommonFunction.GetDataSet("USP_Get_MedicineDetails", sqlparam, "");
                 MedicineDetails MD = new MedicineDetails();
                 List<MedicineDetails> lst = new List<MedicineDetails>();
