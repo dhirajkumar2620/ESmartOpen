@@ -129,6 +129,10 @@
                                     </div>
 
                                     <br>
+                                    @if (TempData["notice"] != null)
+                                    {
+                                        <p style="color:red">@TempData["notice"]</p>
+                                    }
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="i-checks">
@@ -147,6 +151,7 @@
                                     <div class="text-center sn-in">
                                         <input type="submit" value="Sign In" class="btn btn-primary">
                                         <p>Don't have an account? <a href="#" class="click-to-reg">Create new one</a></p>
+                                       
                                     </div>
                                 </div>
                             </div>

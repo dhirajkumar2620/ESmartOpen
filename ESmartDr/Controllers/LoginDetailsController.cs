@@ -73,8 +73,7 @@ namespace ESmartDr.Controllers
                 return RedirectToAction("GetQueueList", "PatientDetails");
                // return RedirectToAction("ViewAllPatient", "PatientDetails");
             }
-
-            ModelState.AddModelError("", "Invalid username and password");
+            TempData["notice"] = "Invalid username and password";
             return View("LoginDetails");
         }
         public ActionResult ViewAllAdmin()
