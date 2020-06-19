@@ -105,9 +105,9 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">
-                                                    Mobile No.<span class="star">*</span>
+                                                    Mobile No. (+91)<span class="star">*</span>
                                                 </label>
-                                                @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtWhatsAppNumber", @class = "form-control", @maxlength = "13", required = "required", @placeholder = "eg. 0123456789" })
+                                                @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtWhatsAppNumber", @class = "form-control", @maxlength = "10", required = "required", @placeholder = "eg. 0123456789" })
                                                 @Html.ValidationMessageFor(model => model.WhatsAppNumber, "", new { @class = "text-danger" })
 
 
@@ -118,9 +118,9 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">
-                                                    Other No.
+                                                    Other No. (+91)
                                                 </label>
-                                                @Html.TextBoxFor(m => m.OtherNumber, new { @id = "txtOtherNo",  @class = "form-control", @maxlength = "13", @placeholder = "eg. 0123456789" })
+                                                @Html.TextBoxFor(m => m.OtherNumber, new { @id = "txtOtherNo",  @class = "form-control", @maxlength = "10", @placeholder = "eg. 0123456789" })
                                                 @Html.ValidationMessageFor(model => model.OtherNumber, "", new { @class = "text-danger" })
 
 
@@ -198,8 +198,8 @@
 
 <script type="text/javascript">
 
-    $("#txtWhatsAppNumber").val("+91");
-    $("#txtOtherNo").val("+91");
+    //$("#txtWhatsAppNumber").val("+91");
+    //$("#txtOtherNo").val("+91");
 
 
     function validateData() {

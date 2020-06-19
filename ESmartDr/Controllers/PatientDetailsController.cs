@@ -29,12 +29,8 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 List<PatientDetails> LST = new List<PatientDetails>();
 
-
-                DataSet ds = BP.CountForCards(admObj.HospitalId);
-                Session["TotalPatientCount"] = ds.Tables[3].Rows[0][0].ToString();
-                Session["TodaysNewPatientCount"] = ds.Tables[4].Rows[0][0].ToString();
-                //Session["YesterdayPatients"] = ds.Tables[2].Rows[0][0].ToString();
-
+                PatientCount(admObj.HospitalId);
+               
 
                 LST = BP.GetPatientDetails(admObj.HospitalId);
                 return View("AllPatient", LST);
@@ -104,10 +100,8 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 hospitalId = admObj.HospitalId;
                 //cards counts
-                DataSet ds = BP.CountForCards(hospitalId);
-                Session["TodayAppointment"] = ds.Tables[0].Rows[0][0].ToString();
-                Session["TodayNewPatient"] = ds.Tables[1].Rows[0][0].ToString();
-                Session["YesterdayPatients"] = ds.Tables[2].Rows[0][0].ToString();
+               
+                PatientCount(hospitalId);
 
                 List<QueueDetails> LST = new List<QueueDetails>();
                 LST = BP.GetQueueList(hospitalId);
@@ -167,5 +161,54 @@ namespace ESmartDr.Controllers
             return String.Format("Age: {0} Year(s) {1} Month(s) {2} Day(s) {3} Hour(s) {4} Second(s)",
             Years, Months, Days, Hours, Seconds);
         }
+
+        public void PatientCount(int Hid)
+        {
+            DataSet ds = BP.CountForCards(Hid);
+            if (ds.Tables[0].Rows[0][0].ToString() == null)
+            {
+                Session["TodayAppointment"] = "0";
+            }
+            else
+            {
+                Session["TodayAppointment"] = ds.Tables[0].Rows[0][0].ToString();
+            }
+
+            if (ds.Tables[1].Rows[0][0].ToString() == null)
+            {
+                Session["TodayNewPatient"] = "0";
+            }
+            else
+            {
+                Session["TodayNewPatient"] = ds.Tables[1].Rows[0][0].ToString();
+            }
+
+            if (ds.Tables[2].Rows[0][0].ToString() == null)
+            {
+                Session["YesterdayPatients"] = "0";
+            }
+            else
+            {
+                Session["YesterdayPatients"] = ds.Tables[2].Rows[0][0].ToString();
+            }
+            if (ds.Tables[3].Rows[0][0].ToString() == null)
+            {
+                Session["TotalPatientCount"] = "0";
+            }
+            else
+            {
+                Session["TotalPatientCount"] = ds.Tables[3].Rows[0][0].ToString();
+            }
+            if (ds.Tables[4].Rows[0][0].ToString() == null)
+            {
+                Session["TodaysNewPatientCount"] = "0";
+            }
+            else
+            {
+                Session["TodaysNewPatientCount"] = ds.Tables[4].Rows[0][0].ToString();
+            }
+
+        }
     }
+
 }

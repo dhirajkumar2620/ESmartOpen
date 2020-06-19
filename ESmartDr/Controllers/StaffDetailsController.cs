@@ -31,20 +31,15 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 if (admObj.ParentId == 0)
                 {
-                    DataSet ds = c.CountForCards(admObj.HospitalId);
-                    Session["TotalStaffCount"] = ds.Tables[8].Rows[0][0].ToString();
-                    Session["TotalActiveStaffCount"] = ds.Tables[9].Rows[0][0].ToString();
-                    Session["TotalInActiveStaffCount"] = ds.Tables[10].Rows[0][0].ToString();
+                    StaffCount(admObj.HospitalId);
+                   
                     int HId = 0;
                     LST = BP.GetStaffDetails(HId);
                 }
                 else
                 {
-                    DataSet ds = c.CountForCards(admObj.HospitalId);
-                    Session["TotalStaffCount"] = ds.Tables[8].Rows[0][0].ToString();
-                    Session["TotalActiveStaffCount"] = ds.Tables[9].Rows[0][0].ToString();
-                    Session["TotalInActiveStaffCount"] = ds.Tables[10].Rows[0][0].ToString();
-
+                    StaffCount(admObj.HospitalId);
+                   
                     LST = BP.GetStaffDetails(admObj.HospitalId);
                 }
                 return View("AllStaff", LST);
@@ -92,6 +87,32 @@ namespace ESmartDr.Controllers
             {
 
                 throw;
+            }
+        }
+        public void StaffCount(int Hid)
+        {
+            DataSet ds = c.CountForCards(Hid);
+            if (ds.Tables[8].Rows[0][0].ToString() == null)
+            {
+                Session["TotalStaffCount"] = "0";
+            }
+            else
+            {
+                Session["TotalStaffCount"] = ds.Tables[8].Rows[0][0].ToString();
+            }
+
+            if (ds.Tables[9].Rows[0][0].ToString() == null)
+            {
+                Session["TotalActiveStaffCount"] = "0";
+            }
+            else
+            {
+                Session["TotalActiveStaffCount"] = ds.Tables[9].Rows[0][0].ToString();
+            }
+
+            if (ds.Tables[10].Rows[0][0].ToString() == null)
+            {
+                Session["TotalInActiveStaffCount"] = "0";
             }
         }
         

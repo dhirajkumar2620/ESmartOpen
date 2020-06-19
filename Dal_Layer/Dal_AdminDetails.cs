@@ -17,7 +17,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[28];
+                sqlparam = new SqlParameter[30];
                 sqlparam[0] = new SqlParameter("@UserId", AD.UserId);
                 sqlparam[1] = new SqlParameter("@Name", AD.FirstName);
                 sqlparam[2] = new SqlParameter("@Education", AD.Education);
@@ -44,23 +44,23 @@ namespace Dal_Layer
                 }
                
                 sqlparam[17] = new SqlParameter("@ParentId", AD.ParentId);
-                sqlparam[18] = new SqlParameter("@HospitalId", AD.HospitalId);
+                sqlparam[18] = new SqlParameter("@hId", AD.HospitalId);
                 sqlparam[19] = new SqlParameter("@CreatedBy", AD.UserId);
-                sqlparam[17] = new SqlParameter("@CreatedDate", null);
-                sqlparam[18] = new SqlParameter("@ModifiedBy",AD.UserId);
-                sqlparam[19] = new SqlParameter("@ModifiedDate", null);
-                sqlparam[20] = new SqlParameter("@EmailId", AD.EmailId);
-                sqlparam[21] = new SqlParameter("@ParentId", AD.ParentId); 
-                sqlparam[22] = new SqlParameter("@ReportingTo", AD.ParentId);
-                sqlparam[23] = new SqlParameter("@FirmInTime", AD.FirmInTime);
-                sqlparam[24] = new SqlParameter("@FirmOutTime", AD.FirmOutTime);
-                sqlparam[25] = new SqlParameter("@Holiday", AD.Holiday); 
-                sqlparam[26] = new SqlParameter("@AlphanumericPrefix", AD.AlphanumericPrefix);
-                sqlparam[27] = new SqlParameter("@Age", AD.Age);
+                sqlparam[20] = new SqlParameter("@CreatedDate", null);
+                sqlparam[21] = new SqlParameter("@ModifiedBy",AD.UserId);
+                sqlparam[22] = new SqlParameter("@ModifiedDate", null);
+                sqlparam[23] = new SqlParameter("@EmailId", AD.EmailId);
+                //sqlparam[21] = new SqlParameter("@ParentId", AD.ParentId); 
+                sqlparam[24] = new SqlParameter("@ReportingTo", AD.ParentId);
+                sqlparam[25] = new SqlParameter("@FirmInTime", AD.FirmInTime);
+                sqlparam[26] = new SqlParameter("@FirmOutTime", AD.FirmOutTime);
+                sqlparam[27] = new SqlParameter("@Holiday", AD.Holiday); 
+                sqlparam[28] = new SqlParameter("@AlphanumericPrefix", AD.AlphanumericPrefix);
+                sqlparam[29] = new SqlParameter("@Age", AD.Age);
                
                 return CommonFunction.Save("USP_ManageAdminDetails", sqlparam, "");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;

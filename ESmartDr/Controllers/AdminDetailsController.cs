@@ -33,21 +33,15 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 if (admObj.ParentId ==0)
                 {
-                    DataSet ds = c.CountForCards(admObj.HospitalId);
-                    Session["TotalFrimCount"] = ds.Tables[5].Rows[0][0].ToString();
-                    Session["TotalActiveFrimCount"] = ds.Tables[6].Rows[0][0].ToString();
-                    Session["TotalInActiveFrimCount"] = ds.Tables[7].Rows[0][0].ToString();
+                    CardDetails(admObj.HospitalId);
+
                     int HId = 0;
                     LST = BP.GetAllAdminDetails_SA(HId);
                 }
                 else
                 {
-               
-                DataSet ds = c.CountForCards(admObj.HospitalId);
-                Session["TotalFrimCount"] = ds.Tables[5].Rows[0][0].ToString();
-                Session["TotalActiveFrimCount"] = ds.Tables[6].Rows[0][0].ToString();
-                Session["TotalInActiveFrimCount"] = ds.Tables[7].Rows[0][0].ToString();
-                LST = BP.GetAllAdminDetails_SA(admObj.HospitalId);
+                    CardDetails(admObj.HospitalId);
+                    LST = BP.GetAllAdminDetails_SA(admObj.HospitalId);
                 }
                 return View("AllAdmin", LST);
             }
@@ -114,16 +108,21 @@ namespace ESmartDr.Controllers
                
                 AD.ParentId = admObj.UserId;
                 AD.ReportingTo = admObj.UserId;
+                AD.HospitalId = admObj.HospitalId;
                 int Flag = BP.ManagePatientDetails(AD);
+                if (Flag !=1)
+                {
+                    return View();
+                }
                 List<AdminDetails> LST = new List<AdminDetails>();
                 LST = BP.GetAllAdminDetails_SA(admObj.HospitalId);
-                //DownloadExcel();
+                CardDetails(admObj.HospitalId);
                 return View("AllAdmin", LST);
             }
             catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 
@@ -178,6 +177,38 @@ namespace ESmartDr.Controllers
             Response.AddHeader("content-disposition", "attachment: filename=" + "Report.xlsx");
             Response.BinaryWrite(Ep.GetAsByteArray());
             Response.End();
+        }
+
+        public void CardDetails(int Hid)
+        {
+            DataSet ds = c.CountForCards(Hid);
+            if (ds.Tables[5].Rows[0][0].ToString() == null)
+            {
+                Session["TotalFrimCount"] = "0";
+            }
+            else
+            {
+                Session["TotalFrimCount"] = ds.Tables[5].Rows[0][0].ToString();
+            }
+
+            if (ds.Tables[6].Rows[0][0].ToString() == null)
+            {
+                Session["TotalActiveFrimCount"] = "0";
+            }
+            else
+            {
+                Session["TotalActiveFrimCount"] = ds.Tables[6].Rows[0][0].ToString();
+            }
+
+            if (ds.Tables[7].Rows[0][0].ToString() == null)
+            {
+                Session["TotalInActiveFrimCount"] = "0";
+            }
+            else
+            {
+                Session["TotalInActiveFrimCount"] = ds.Tables[7].Rows[0][0].ToString();
+            }
+
         }
     }
 }
