@@ -17,7 +17,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[30];
+                sqlparam = new SqlParameter[32];
                 sqlparam[0] = new SqlParameter("@UserId", AD.UserId);
                 sqlparam[1] = new SqlParameter("@Name", AD.FirstName);
                 sqlparam[2] = new SqlParameter("@Education", AD.Education);
@@ -52,12 +52,13 @@ namespace Dal_Layer
                 sqlparam[23] = new SqlParameter("@EmailId", AD.EmailId);
                 //sqlparam[21] = new SqlParameter("@ParentId", AD.ParentId); 
                 sqlparam[24] = new SqlParameter("@ReportingTo", AD.ParentId);
-                sqlparam[25] = new SqlParameter("@FirmInTime", AD.FirmInTime);
-                sqlparam[26] = new SqlParameter("@FirmOutTime", AD.FirmOutTime);
+                sqlparam[25] = new SqlParameter("@FirmInTime1", AD.FirmInTime1);
+                sqlparam[26] = new SqlParameter("@FirmOutTime1", AD.FirmOutTime1);
                 sqlparam[27] = new SqlParameter("@Holiday", AD.Holiday); 
                 sqlparam[28] = new SqlParameter("@AlphanumericPrefix", AD.AlphanumericPrefix);
                 sqlparam[29] = new SqlParameter("@Age", AD.Age);
-               
+                sqlparam[30] = new SqlParameter("@FirmInTime2", AD.FirmInTime2);
+                sqlparam[31] = new SqlParameter("@FirmOutTime2", AD.FirmOutTime2);
                 return CommonFunction.Save("USP_ManageAdminDetails", sqlparam, "");
             }
             catch (Exception ex)

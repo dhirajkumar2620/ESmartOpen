@@ -23,14 +23,13 @@
     <link rel="stylesheet" href="~/css/custom.css">
     <!-- Favicon-->
     <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="~/img/favicon.ico">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" />
     <!-- Tweaks for older IEs-->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-    <link href="~/css/datepicker.css" rel="stylesheet" />
-    <link href="~/fonts/iconfont.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-clockpicker.min.css" rel="stylesheet" />
 </head>
 <body>
     
@@ -158,7 +157,7 @@
                                 <h4  style="margin-bottom: 0;">@Session["Hname"].ToString()</h4>
                                 <p>@Session["Haddress"].ToString()</p>
                                 <p>@Session["Hnumber"].ToString()</p>
-                                <p>@Session["HinTime"].ToString() /  @Session["HoutTime"].ToString() </p>
+                                <p>@Session["HinTime1"].ToString() -  @Session["HoutTime1"].ToString()  & @Session["HinTime2"].ToString() -  @Session["HoutTime2"].ToString() </p>
                                 <p>Holiday( @Session["Holiday"].ToString() )</p>
                             </div>
                         </div>
@@ -227,7 +226,6 @@
             </div>
         </div>
     </div>
-    <!-- JavaScript files-->
     <script src="~/vendor/jquery/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
     <script src="~/js/datepicker.all.min.js"></script>
@@ -242,98 +240,10 @@
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 
-    <script src="~/js/api.js"></script>
-    <script src="~/js/year.js"></script>
-    <script src="~/js/month.js"></script>
-    <script src="~/js/day.js"></script>
-    <script src="~/js/time.js"></script>
-    @*<script src="~/js/datepicker.js"></script>*@
-    @*<script src="~/js/datepicker-only-time.js"></script>*@
-    <script src="~/js/iconfont.js"></script>
-    <script src="~/js/datepicker.en.js"></script>
     <script src="~/js/Notifier.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
-    <script>
-       $('.example').datePicker({
-           format: 'MM-DD-YYYY',
-           autoClose:true
-       });
+    <script src="~/js/bootstrap-clockpicker.min.js"></script>
 
-       $(function () {
-
-           $(function () {
-               $('.J-datepicker-day').datePicker({
-                   language: 'en',
-                   format: 'DD-MM-YYYY',
-               });
-
-               $('.J-datepicker-time').datePicker({
-                   language: 'en',
-                   format: 'HH:mm:ss',
-
-               });
-
-           });
-
-           //$('.J-datepicker-day').datePicker({
-           //    hasShortcut: true,
-           //    language: 'en',
-           //    shortcutOptions: [{
-           //        name: 'Today',
-           //        day: '0'
-           //    }, {
-           //        name: 'Yesterday',
-           //        day: '-1'
-           //    }, {
-           //        name: 'One week ago',
-           //        day: '-7'
-           //    }]
-           //});
-
-
-
-       });
-       var notifier = new Notifier({
-           position: 'bottom-right',
-           direction: 'bottom'
-       });
-
-       // Success 
-       document.getElementById("tostr-save").onclick = function () {
-           notifier.notify("success", "Personal details saved successfully!");
-       };
-
-       document.getElementById("tostr-save1").onclick = function () {
-           notifier.notify("success", "Medical information saved successfully!");
-       };
-
-       document.getElementById("tostr-save2").onclick = function () {
-           notifier.notify("success", "Life style saved successfully!");
-       };
-
-       document.getElementById("tostr-save3").onclick = function () {
-           notifier.notify("success", "Observation saved successfully!");
-       };
-       document.getElementById("tostr-save4").onclick = function () {
-           notifier.notify("success", "Investigation saved successfully!");
-       };
-       document.getElementById("tostr-save5").onclick = function () {
-           notifier.notify("success", "Medication saved successfully!");
-       };
-       document.getElementById("tostr-save6").onclick = function () {
-           notifier.notify("success", "Advice saved successfully!");
-       };
-       document.getElementById("tostr-save7").onclick = function () {
-           notifier.notify("success", "Diet & exercise saved successfully!");
-       };
-       document.getElementById("tostr-save8").onclick = function () {
-           notifier.notify("success", "Next visit saved successfully!");
-       };
-       document.getElementById("tostr-save9").onclick = function () {
-           notifier.notify("success", "Vital information saved successfully!");
-       };
-
-    </script>
-   
 </body>
 </html>

@@ -25,7 +25,7 @@ $(document).ready(function () {
     // Tooltips init
     // ------------------------------------------------------ //    
 
-    $('[data-toggle="tooltip"]').tooltip()    
+    $('[data-toggle="tooltip"]').tooltip()
 
 
     // ------------------------------------------------------- //
@@ -69,7 +69,7 @@ $(document).ready(function () {
     // Universal Form Validation
     // ------------------------------------------------------ //
 
-    $('.form-validate').each(function() {  
+    $('.form-validate').each(function () {
         $(this).validate({
             errorElement: "div",
             errorClass: 'is-invalid',
@@ -81,14 +81,14 @@ $(document).ready(function () {
                 console.log(element);
                 if (element.prop("type") === "checkbox") {
                     error.insertAfter(element.siblings("label"));
-                } 
+                }
                 else {
                     error.insertAfter(element);
                 }
             }
         });
 
-    });    
+    });
 
     // ------------------------------------------------------- //
     // Material Inputs
@@ -97,7 +97,7 @@ $(document).ready(function () {
     var materialInputs = $('input.input-material');
 
     // activate labels for prefilled values
-    materialInputs.filter(function() { return $(this).val() !== ""; }).siblings('.label-material').addClass('active');
+    materialInputs.filter(function () { return $(this).val() !== ""; }).siblings('.label-material').addClass('active');
 
     // move label on focus
     materialInputs.on('focus', function () {
@@ -174,13 +174,55 @@ $(document).ready(function () {
     });
 
 
-    // $('.datepicker').datepicker({
-    //     format: 'mm-dd-yyyy',
-    //     autoclose:true,
-    //     endDate: "today",
-    // });
+
+    $('.datepicker').datepicker({
+        format: 'mm/dd/yyyy',
+        startDate: '-3d',
+        autoclose: true,
+    });
+
+    $('.clockpicker').clockpicker();
 
 
 
 
+    var notifier = new Notifier({
+        position: 'bottom-right',
+        direction: 'bottom'
+    });
+
+    // Success 
+    document.getElementById("tostr-save").onclick = function () {
+        notifier.notify("success", "Personal details saved successfully!");
+    };
+
+    document.getElementById("tostr-save1").onclick = function () {
+        notifier.notify("success", "Medical information saved successfully!");
+    };
+
+    document.getElementById("tostr-save2").onclick = function () {
+        notifier.notify("success", "Life style saved successfully!");
+    };
+
+    document.getElementById("tostr-save3").onclick = function () {
+        notifier.notify("success", "Observation saved successfully!");
+    };
+    document.getElementById("tostr-save4").onclick = function () {
+        notifier.notify("success", "Investigation saved successfully!");
+    };
+    document.getElementById("tostr-save5").onclick = function () {
+        notifier.notify("success", "Medication saved successfully!");
+    };
+    document.getElementById("tostr-save6").onclick = function () {
+        notifier.notify("success", "Advice saved successfully!");
+    };
+    document.getElementById("tostr-save7").onclick = function () {
+        notifier.notify("success", "Diet & exercise saved successfully!");
+    };
+    document.getElementById("tostr-save8").onclick = function () {
+        notifier.notify("success", "Next visit saved successfully!");
+    };
+    document.getElementById("tostr-save9").onclick = function () {
+        notifier.notify("success", "Vital information saved successfully!");
+    };
 });

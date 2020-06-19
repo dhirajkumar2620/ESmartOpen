@@ -65,6 +65,7 @@ namespace ESmartDr.Controllers
                 //string str = admObj.HostClincName.Substring(0, 3);
                 //PD.CasePapaerNo = str;
                 int Flag = BP.ManageStaffDetails(PD);
+                StaffCount(admObj.HospitalId);
                 return RedirectToAction("ViewAllStaff", "StaffDetails");
             }
             catch (Exception)
@@ -110,7 +111,7 @@ namespace ESmartDr.Controllers
                 Session["TotalActiveStaffCount"] = ds.Tables[9].Rows[0][0].ToString();
             }
 
-            if (ds.Tables[10].Rows[0][0].ToString() == null)
+            if (ds.Tables[10].Rows[0][0].ToString() =="0")
             {
                 Session["TotalInActiveStaffCount"] = "0";
             }

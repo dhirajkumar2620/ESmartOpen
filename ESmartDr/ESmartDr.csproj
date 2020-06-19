@@ -233,6 +233,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\bootstrap-clockpicker.min.css" />
     <Content Include="css\custom.css" />
     <Content Include="css\datepicker.css" />
     <Content Include="css\fontastic.css" />
@@ -271,6 +272,7 @@
     <Content Include="img\screencapture-templatemonsterpreview-demo-77692-html-2020-06-02-15_29_33.png" />
     <Content Include="img\screencapture-templatemonsterpreview-demo-82788-html-2020-06-02-14_59_42.png" />
     <Content Include="js\api.js" />
+    <Content Include="js\bootstrap-clockpicker.min.js" />
     <Content Include="js\charts-custom.js" />
     <Content Include="js\charts-home.js" />
     <Content Include="js\datepicker-only-time.js" />

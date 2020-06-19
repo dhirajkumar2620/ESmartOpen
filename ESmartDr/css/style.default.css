@@ -22,6 +22,7 @@ body{
     font-family: 'Rajdhani-Regular'!important;
 }*/
 
+
 @font-face {font-family: "iconfont";
           src: url('iconfont.eot'); /* IE9*/
           src: url('iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -4604,10 +4605,32 @@ legend.custom-border {
 .c-datepicker-picker__sidebar+.c-datepicker-picker__body{
     margin-left: 0px!important;
 }
-
+.landing .carousel-item img{
+    height:600px;
+}
 /*.c-datepicker-date-picker__time-header .c-datepicker-date-picker__editor-wrap:nth-child(2){
     display:none;
 }*/
+.page-date-icon{
+    position: absolute!important;
+    right: 11px!important;
+    background: transparent!important;
+    color: #a5a5a5!important;
+    border: none!important;
+    font-size: 17px/!important;
+    top: 11px!important;
+    z-index:99999;
+}
+.popover-title .clockpicker-span-hours.text-primary{
+    color: #f5a433 !important;
+}
+.popover-title .clockpicker-span-minutes{
+    color: #25a1a1!important;
+}
+.clockpicker-tick:hover{
+    background-color: #f5a433!important;
+    color: white!important;
+}
 
 
 

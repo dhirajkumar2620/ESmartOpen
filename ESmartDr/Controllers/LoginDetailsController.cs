@@ -39,16 +39,28 @@ namespace ESmartDr.Controllers
 
                 Session["Haddress"] = ad.HospClinicAddess;
                 Session["Hnumber"] = ad.WhatsAppNumber;
-                Session["HinTime"] =ad.FirmInTime;
-
-                if (string.IsNullOrEmpty(Session["HinTime"] as string))
+                Session["HinTime1"] =ad.FirmInTime1;
+                Session["HoutTime1"] = ad.FirmOutTime1;
+                Session["HinTime2"] = ad.FirmInTime2;
+                Session["HoutTime2"] = ad.FirmOutTime2;
+                if (string.IsNullOrEmpty(Session["HinTime1"] as string))
                 {
-                    Session["HinTime"] = " ";
+                    Session["HinTime1"] = " ";
                 }
-                Session["HoutTime"] = ad.FirmOutTime;
-                if (string.IsNullOrEmpty(Session["HoutTime"] as string))
+                
+                if (string.IsNullOrEmpty(Session["HoutTime1"] as string))
                 {
-                    Session["HoutTime"] = " ";
+                    Session["HoutTime1"] = " ";
+                }
+
+                if (string.IsNullOrEmpty(Session["HinTime2"] as string))
+                {
+                    Session["HinTime2"] = " ";
+                }
+                Session["HoutTime2"] = ad.FirmOutTime1;
+                if (string.IsNullOrEmpty(Session["HoutTime2"] as string))
+                {
+                    Session["HoutTime2"] = " ";
                 }
                 Session["Holiday"] = ad.Holiday;
                 if (string.IsNullOrEmpty(Session["Holiday"] as string))

@@ -72,14 +72,17 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-
                                                 <label class="form-control-label">Date of Birth</label>
-                                                <div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-day mt10">
-                                                    @Html.TextBoxFor(m => m.DOB, new { @id = "txtDOB", @type = "text", @class = "form-control c-datepicker-data-input only-date", @onkeypress = "return isNumber(event)", @placeholder = "eg. dd/mm/yyyy" })
+                                                <div class="input-group date" data-provide="datepicker">
+                                                    @Html.TextBoxFor(m => m.DOB, new { @id = "txtDOB", @type = "text", @class = "form-control datepicker", @onkeypress = "return isNumber(event)", @placeholder = "eg. dd/mm/yyyy" })
                                                     @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
+                                                    </div>
                                                 </div>
-                                               
                                             </div>
+
+
                                         </div>
 
                                         <div class="col-md-4">
@@ -163,21 +166,20 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Case Paper Fees</label>
-                                                @Html.TextBoxFor(m => m.CasePaperFees, new { @id = "txtCasePaperFees",@text="0", @class = "form-control", @maxlength = "5", @placeholder = "eg. 100" })
+                                                @Html.TextBoxFor(m => m.CasePaperFees, new { @id = "txtCasePaperFees", @text = "0", @class = "form-control", @maxlength = "5", @placeholder = "eg. 100" })
                                                 @Html.ValidationMessageFor(model => model.CasePaperFees, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">CP Expiry Date</label>
-                                                <div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-day mt10">
-                                                    @Html.TextBoxFor(m => m.CpExpiryDate, new { @id = "txtMediclaimCompanyName", @type = "text", @class = "form-control c-datepicker-data-input only-date", @placeholder = "eg. dd/mm/yyyy" })
+                                                <div class="input-group date" data-provide="datepicker">
+                                                    @Html.TextBoxFor(m => m.CpExpiryDate, new { @id = "txtMediclaimCompanyName", @type = "text", @class = "form-control datepicker", @onkeypress = "return isNumber(event)", @placeholder = "eg. dd/mm/yyyy" })
                                                     @Html.ValidationMessageFor(model => model.CpExpiryDate, "", new { @class = "text-danger" })
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
+                                                    </div>
                                                 </div>
-                                               
-
-
-
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -185,7 +187,7 @@
                                             <ul class="list-inline">
                                                 <li class="list-inline-item">
                                                     <div class="i-checks ">
-                                                        @Html.RadioButtonFor(model => model.AppliedForMediclam, "true",new { @Id= "radioCustom2",@class="radio-template r-show",@type ="radio" }) @Html.Label("Yes")
+                                                        @Html.RadioButtonFor(model => model.AppliedForMediclam, "true", new { @Id = "radioCustom2", @class = "radio-template r-show", @type = "radio" }) @Html.Label("Yes")
                                                         @*<input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template r-show">*@
 
                                                         @*<label for="radioCustom2">Yes</label>*@
@@ -193,7 +195,7 @@
                                                 </li>
                                                 <li class="list-inline-item">
                                                     <div class="i-checks ">
-                                                        @Html.RadioButtonFor(model => model.AppliedForMediclam, "false", new { @Id = "radioCustom2", @class = "radio-template r-show", @type = "radio" }) @Html.Label("No")
+                                                        @Html.RadioButtonFor(model => model.AppliedForMediclam, "false", new { @Id = "radioCustom2", @class = "radio-template r-hide", @type = "radio" }) @Html.Label("No")
                                                         @*<input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template r-hide">*@
                                                         @*<label for="radioCustom2">No</label>*@
                                                     </div>
@@ -213,7 +215,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 text-right">
-                                            <a href="~/Home/Apoinment"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
+                                            <a href="~/PatientDetails/GetQueueList"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
                                             <input type="submit" value="Save" class="btn btn_2 b22 btn-primary">
                                         </div>
                                     </div>
@@ -251,11 +253,11 @@
         $("#txtAge").val(age);
     });
 
-    $("#txtCasePaperFees").val(0);
+  
     //$("#txtWhatsAppNo").val("+91");
     //$("#txtOtherNo").val("+91");
 
-      $('.r-show').click(function () {
+    $('.r-show').click(function () {
         $('.r-click-show .col-md-4').css('display', 'block');
     });
     $('.r-hide').click(function () {

@@ -72,11 +72,12 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="form-control-label">Date of Birth</label>
-                                                <div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-day mt10">
-                                                    @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "txtDOB", @type = "text", @class = "form-control c-datepicker-data-input only-date",@placeholder = "eg. dd/mm/yyyy" })
-                                                    @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+                                            <label class="form-control-label">Date of Birth</label>
+                                            <div class="input-group date" data-provide="datepicker">
+                                                @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "txtDOB", @type = "text", @class = "form-control datepicker", @onkeypress = "return isNumber(event)", @placeholder = "eg. dd/mm/yyyy" })
+                                                @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -146,22 +147,51 @@
 
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="form-control-label">Firm Time:1</label>
-                                                @Html.TextBoxFor(m => m.FirmInTime, new { @id = "txtFirmInTime", @class = "form-control", @placeholder = "hh:mm - hh:mm" })
-                                                @Html.ValidationMessageFor(model => model.FirmInTime, "", new { @class = "text-danger" })
-
-
-
-
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-control-label">In</label>
+                                                    <div class="input-group clockpicker pull-center" data-autoclose="true">
+                                                        @Html.TextBoxFor(m => m.FirmInTime1, new { @id = "txtFirmInTime1", @class = "form-control", @placeholder = "hh:mm" })
+                                                        @Html.ValidationMessageFor(model => model.FirmInTime1, "", new { @class = "text-danger" })
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-clock-o page-date-icon" aria-hidden="true"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-control-label">Out</label>
+                                                    <div class="input-group clockpicker pull-center" data-autoclose="true">
+                                                        @Html.TextBoxFor(m => m.FirmOutTime1, new { @id = "txtFirmOutTime1", @class = "form-control", @placeholder = "hh:mm" })
+                                                        @Html.ValidationMessageFor(model => model.FirmOutTime1, "", new { @class = "text-danger" })
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-clock-o page-date-icon" aria-hidden="true"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="form-control-label">Firm Time:2</label>
-                                                @Html.TextBoxFor(m => m.FirmOutTime, new { @id = "txtFirmOutTime", @class = "form-control", @placeholder = "hh:mm - hh:mm" })
-                                                @Html.ValidationMessageFor(model => model.FirmOutTime, "", new { @class = "text-danger" })
-
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-control-label">In</label>
+                                                    <div class="input-group clockpicker pull-center" data-autoclose="true">
+                                                        @Html.TextBoxFor(m => m.FirmInTime2, new { @id = "txtFirmInTime2", @class = "form-control", @placeholder = "hh:mm" })
+                                                        @Html.ValidationMessageFor(model => model.FirmInTime2, "", new { @class = "text-danger" })
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-clock-o page-date-icon" aria-hidden="true"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-control-label">Out</label>
+                                                    <div class="input-group clockpicker pull-center" data-autoclose="true">
+                                                        @Html.TextBoxFor(m => m.FirmOutTime2, new { @id = "txtFirmOutTime2", @class = "form-control", @placeholder = "hh:mm" })
+                                                        @Html.ValidationMessageFor(model => model.FirmOutTime2, "", new { @class = "text-danger" })
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-clock-o page-date-icon" aria-hidden="true"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -193,23 +223,24 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Activation Date<span class="star">*</span></label>
-                                                <div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-day mt10">
-                                                    @Html.TextBoxFor(m => m.ActivationDate, new { @id = "txtActivationDate", @type = "text", @class = "form-control c-datepicker-data-input only-date", required = "required", @placeholder = "dd/mm/yyyy" })
+                                                <div class="input-group date" data-provide="datepicker">
+                                                    @Html.TextBoxFor(m => m.ActivationDate, new { @id = "txtActivationDate", @type = "text", @class = "form-control datepicker", required = "required", @placeholder = "dd/mm/yyyy" })
                                                     @Html.ValidationMessageFor(model => model.ActivationDate, "", new { @class = "text-danger" })
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
+                                                    </div>
                                                 </div>
-
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Expiry Date<span class="star">*</span></label>
-                                                @*<div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-day mt10">
-                                                    @Html.TextBoxFor(m => m.ExpiryDate, new { @id = "txtExpiryDate", @type = "text", @class = "form-control c-datepicker-data-input only-date", required = "required", @placeholder = "dd/mm/yyyy" })
+                                                <div class="input-group date" data-provide="datepicker">
+                                                    @Html.TextBoxFor(m => m.ExpiryDate, new { @id = "txtExpiryDate", @type = "text", @class = "form-control datepicker", required = "required", @placeholder = "dd/mm/yyyy" })
                                                     @Html.ValidationMessageFor(model => model.ExpiryDate, "", new { @class = "text-danger" })
-                                                </div>*@
-                                                <div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-day mt10">
-                                                    @Html.TextBoxFor(m => m.ExpiryDate, new { @id = "txtExpiryDate", @type = "text", @class = "form-control c-datepicker-data-input only-date", @placeholder = "eg. dd/mm/yyyy" })
-                                                    @Html.ValidationMessageFor(model => model.ExpiryDate, "", new { @class = "text-danger" })
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -252,7 +283,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 text-right">
-                                            <a href="~/Home/Apoinment"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
+                                            <a href="~/PatientDetails/GetQueueList"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
                                             <input type="submit" value="Save" class="btn btn_2 btn-primary b22">
                                         </div>
                                     </div>
@@ -272,7 +303,7 @@
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-   
+
     function isNumber(evt) {
 
         evt = (evt) ? evt : window.event;
