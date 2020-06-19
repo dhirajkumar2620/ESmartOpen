@@ -130,9 +130,10 @@ namespace ESmartDr.Controllers
         {
             try
             {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 AdminDetails pd = new AdminDetails();
                 pd = BP.GetAdminById(UserId);
-               
+                CardDetails(admObj.HospitalId);
                 return View("AdminRegistration", pd);
             }
             catch (Exception)

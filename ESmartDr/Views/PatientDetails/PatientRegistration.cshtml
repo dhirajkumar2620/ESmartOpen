@@ -187,7 +187,7 @@
                                             <ul class="list-inline">
                                                 <li class="list-inline-item">
                                                     <div class="i-checks ">
-                                                        @Html.RadioButtonFor(model => model.AppliedForMediclam, "true", new { @Id = "radioCustom2", @class = "radio-template r-show", @type = "radio" }) @Html.Label("Yes")
+                                                        @Html.RadioButtonFor(model => model.AppliedForMediclam, "true", new { @Id = "radioCustom1", @class = "radio-template r-show", @type = "radio" }) @Html.Label("Yes")
                                                         @*<input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template r-show">*@
 
                                                         @*<label for="radioCustom2">Yes</label>*@
@@ -245,12 +245,12 @@
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-    $("#txtDOB").change(function () {
+    $('.input-group date').change(function () {
 
         var birthDate = new Date(document.getElementById("txtDOB").value);
         var now = new Date();
         var age = now.getFullYear() - birthDate.getFullYear();
-        $("#txtAge").val(age);
+        $('#txtAge').val(age);
     });
 
   

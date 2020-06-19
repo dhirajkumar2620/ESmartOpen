@@ -65,10 +65,11 @@ namespace ESmartDr.Controllers
         {
             try
             {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 PatientDetails pd = new PatientDetails();
                 pd = BP.GetDetailsById(Id);
                 pd.BloodGroup.Trim();
-                
+                PatientCount(admObj.HospitalId);
                 return View("PatientRegistration", pd);
             }
             catch (Exception)
@@ -82,8 +83,10 @@ namespace ESmartDr.Controllers
         {
             try
             {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 List<PatientDetails> LST = new List<PatientDetails>();
                 LST = BP.SetPatientAppoinment(Id);
+                PatientCount(admObj.HospitalId);
                 return RedirectToAction("GetQueueList", "PatientDetails") ;
             }
             catch (Exception)
@@ -126,6 +129,7 @@ namespace ESmartDr.Controllers
 
                 List<QueueDetails> LST = new List<QueueDetails>();
                 LST = BP.DeleteAppoinment(hospitalId, Id);
+                PatientCount(admObj.HospitalId);
                 return View("PatientAppoinment", LST);
             }
             catch (Exception)

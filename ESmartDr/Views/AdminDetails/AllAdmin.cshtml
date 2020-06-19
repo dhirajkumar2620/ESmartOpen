@@ -101,13 +101,11 @@
                                             <th hidden>UserId</th>
                                             <th>Reg Id</th>
                                             <th>Doctor</th>
-                                            <th>Hospital</th>
+                                            <th>OPD</th>
                                             <th>Address</th>
                                             <th>Mobile No.</th>
-                                            <th>Other No.</th>
                                             <th>Account Expired Date</th>
                                             <th>Status</th>
-                                            <th>Remark</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -120,11 +118,9 @@
                                                 <td>@item.FirstName</td>
                                                 <td>@item.HostClincName</td>
                                                 <td>@item.HospClinicAddess</td>
-                                                <td>@item.WhatsAppNumber</td>
-                                                <td>@item.OtherNumber</td>
+                                                <td>@item.WhatsAppNumber<br />@item.OtherNumber</td>
                                                 <td>@item.ExpiryDate</td>
                                                 <td>@(item.IsActive ? "Active" : "In-active")</td>
-                                                <td>@item.LastName</td>
                                                 <td>
                                                     <ul class="list-inline">
                                                         @*<li class="list-inline-item" title="Appointment">
@@ -134,7 +130,7 @@
                                                         <li class="list-inline-item" title="General Information">
                                                             <a href="@Url.Content("~/AdminDetails/GetAdminById?UserId="+item.UserId+"")">   <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal"></i></a>
                                                         </li>
-                                                        <li class="list-inline-item msg" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                        <li class="list-inline-item msg" data-toggle="modal" data-target="#whatsappModal" title="Message">
                                                             <i class="fa fa-envelope" aria-hidden="true"></i>
                                                         </li>
                                                         @*<li class="list-inline-item msg" title="Message">
@@ -149,13 +145,11 @@
                                         <tr>
                                             <th hidden>UserId</th>
                                             <th>Doctor</th>
-                                            <th>Hospital</th>
+                                            <th>OPD</th>
                                             <th>Address</th>
                                             <th>Mobile No.</th>
-                                            <th>Other No.</th>
                                             <th>Account Expired Date</th>
                                             <th>Status</th>
-                                            <th>Remark</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

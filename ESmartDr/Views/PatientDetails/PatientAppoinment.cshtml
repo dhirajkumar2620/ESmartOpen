@@ -89,7 +89,11 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <div class="grid-btn pull-right">
-                                    <a href="~/PatientDetails/PatientDetails">   <input type="button" value="Add New Patient" style="margin-left: 1em;border-radius: 22px;" class="btn btn_2 btn-primary"></a>
+                                    <a href="~/PatientDetails/PatientDetails">
+                                        <input type="button" value="Add New Patient" style="margin-left: 1em;border-radius: 22px;" class="btn btn_2 btn-primary">
+
+                                    </a>
+                                    @*<input type="button" value="Export To Excel" style="margin-left: 1em;border-radius: 22px;" id="btnExport" class="btn btn_1 btn-primary">*@
                                 </div>
                                 <table id="example" class="table table-striped" style="width:100%">
                                     <thead>
@@ -109,7 +113,7 @@
                                             <tr>
                                                 <td>@item.CasePaperNo</td>
                                                 <td>@item.PatientName<br />@item.Age / @item.Gender</td>
-                                                <td>@item.WhatsAppNo</td>
+                                                <td>@item.WhatsAppNo<br />@item.OtherNo</td>
                                                 <td>@item.FirstName</td>
                                                 <td></td>
                                                 <td>
@@ -263,6 +267,11 @@
     });
     $(document).ready(function () {
         $('#example').DataTable();
+    });
+
+     
+    $("#btnExport").click(function () {
+        $("#example").table2excel();
     });
 
 </script>

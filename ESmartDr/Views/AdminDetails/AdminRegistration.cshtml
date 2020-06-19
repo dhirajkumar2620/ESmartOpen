@@ -197,7 +197,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Holiday</label>
-                                                @Html.TextBoxFor(m => m.Holiday, new { @id = "txtHoliday", @class = "form-control", @placeholder = "eg. Sunday" })
+                                                @Html.TextBoxFor(m => m.Holiday, new { @id = "txtHoliday", @class = "form-control", @placeholder = "eg. Sunday (closed)" })
                                                 @Html.ValidationMessageFor(model => model.Holiday, "", new { @class = "text-danger" })
 
                                             </div>

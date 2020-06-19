@@ -79,9 +79,10 @@ namespace ESmartDr.Controllers
         {
             try
             {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 ReceptionStaffReg pd = new ReceptionStaffReg();
                 pd = BP.GetStaffDetailsByAdmId(ReceptionId);
-
+                StaffCount(admObj.HospitalId);
                 return View("StaffRegistration", pd);
             }
             catch (Exception)
@@ -111,9 +112,13 @@ namespace ESmartDr.Controllers
                 Session["TotalActiveStaffCount"] = ds.Tables[9].Rows[0][0].ToString();
             }
 
-            if (ds.Tables[10].Rows[0][0].ToString() =="0")
+            if (ds.Tables[10].Rows[0][0].ToString() =="0" || ds.Tables[10].Rows[0][0].ToString() == null)
             {
                 Session["TotalInActiveStaffCount"] = "0";
+            }
+            else
+            {
+                Session["TotalInActiveStaffCount"] = ds.Tables[10].Rows[0][0].ToString();
             }
         }
         

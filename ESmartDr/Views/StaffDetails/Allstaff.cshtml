@@ -99,13 +99,13 @@
                                 <table id="example7" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
+                                            
                                             <th hidden>ReceptionId</th>
                                             <th>Name</th>
-                                            <th>Hospital</th>
+                                            <th>OPD</th>
+                                            <th>Designation</th>
                                             <th>Address</th>
                                             <th>Mobile No.</th>
-                                            <th>Other No.</th>
-                                            <th>Account Expired Date</th>
                                             <th>Status</th>
                                             <th>Remark</th>
                                             <th>Action</th>
@@ -117,11 +117,10 @@
                                             <tr>
                                                 <td hidden>@item.ReceptionId</td>
                                                 <td>@item.Name</td>
-                                                <td>@item.HospitalId</td>
+                                                <td>@item.HostClincName</td>
+                                                <th>@item.Designation</th>
                                                 <td>@item.Address</td>
-                                                <td>@item.WhatsAppNumber</td>
-                                                <td>@item.OtherNumber</td>
-                                                <td>@item.ModifiedDate</td>
+                                                <td>@item.WhatsAppNumber<br />@item.OtherNumber</td>
                                                 <td>@(item.isActive ? "Active" : "In-active")</td>
                                                 <td>@item.Remark</td>
                                                 <td>
@@ -130,7 +129,7 @@
                                                             <i class="fa fa-calendar" aria-hidden="true"></i>
                                                         </li>*@
 
-                                                        <li class="list-inline-item" title="General Information">
+                                                        <li class="list-inline-item" title="Edit">
                                                             <a href="@Url.Content("~/StaffDetails/GetStaffById?ReceptionId=" + item.ReceptionId+"")">   <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal"></i></a>
                                                             @*<a href="@Url.Content("~/StaffDetails/StaffDetails")">   <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal"></i></a>*@
                                                         </li>
@@ -150,11 +149,10 @@
                                         <tr>
                                             <th hidden>ReceptionId</th>
                                             <th>Name</th>
-                                            <th>Hospital</th>
+                                            <th>OPD</th>
+                                            <th>Designation</th>
                                             <th>Address</th>
                                             <th>Mobile No.</th>
-                                            <th>Other No.</th>
-                                            <th>Account Expired Date</th>
                                             <th>Status</th>
                                             <th>Remark</th>
                                             <th>Action</th>

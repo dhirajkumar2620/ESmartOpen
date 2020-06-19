@@ -28,5 +28,6 @@ namespace App_Layer
 
         public string FirstName { get; set; }
         public string AppoinmentDate { get; set; }
+        public string OtherNo { get; set; }
     }
 }
