@@ -3,8 +3,12 @@ using Bal_Layer;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -117,6 +121,9 @@ namespace ESmartDr.Controllers
                 }
                 List<AdminDetails> LST = new List<AdminDetails>();
                 LST = BP.GetAllAdminDetails_SA(admObj.HospitalId);
+                SMS sms = new SMS();
+                string message = "You are added to eSmartDoctor, Download eSmartDoctor app to manage your Firm - http://bit.ly/2RGTEHTR ";
+                sms.SendSMS(AD.WhatsAppNumber, message);
                 CardDetails(admObj.HospitalId);
                 return View("AllAdmin", LST);
             }
@@ -212,6 +219,8 @@ namespace ESmartDr.Controllers
             }
 
         }
+
+       
     }
 }
 

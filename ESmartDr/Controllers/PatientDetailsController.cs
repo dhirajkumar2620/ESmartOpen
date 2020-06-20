@@ -53,6 +53,14 @@ namespace ESmartDr.Controllers
                 //string str = admObj.HostClincName.Substring(0, 3);
                 PD.CasePapaerNo = admObj.AlphanumericPrefix.Trim();
                 int Flag = BP.ManagePatientDetails(PD);
+                if (Flag != 1)
+                {
+                    return View();
+                }
+                PatientCount(admObj.HospitalId);
+                SMS sms = new SMS();
+                string message = "You are added to Dr. "+admObj.FirstName+", your CP No. is AA01. Download eSmartDoctor Patient app to manage your health - http://bit.ly/2RGTEHTR";
+                sms.SendSMS(PD.WhatsAppNo, message);
                 return RedirectToAction("ViewAllPatient", "PatientDetails");
             }
             catch (Exception)

@@ -65,7 +65,14 @@ namespace ESmartDr.Controllers
                 //string str = admObj.HostClincName.Substring(0, 3);
                 //PD.CasePapaerNo = str;
                 int Flag = BP.ManageStaffDetails(PD);
+                if (Flag != 1)
+                {
+                    return View();
+                }
                 StaffCount(admObj.HospitalId);
+                SMS sms = new SMS();
+                string message = "You are added to " + PD.HostClincName + ", Download eSmartDoctor app to manage - http://bit.ly/2RGTEHTR ";
+                sms.SendSMS(PD.WhatsAppNumber, message);
                 return RedirectToAction("ViewAllStaff", "StaffDetails");
             }
             catch (Exception)
