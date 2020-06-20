@@ -112,18 +112,22 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label class="form-control-label">Mobile No. (+91)<span class="star">*</span></label>
-                                                @Html.TextBoxFor(m => m.WhatsAppNo, new { @id = "txtWhatsAppNo", @class = "form-control", @maxlength = "10", required = "required", @placeholder = "eg. 0123456789" })
-                                                @Html.ValidationMessageFor(model => model.WhatsAppNo, "", new { @class = "text-danger" })
-
+                                                <label class="form-control-label">Mobile No.<span class="star">*</span></label>
+                                                <div class="input-container">
+                                                    <span class="icon">+91</span>
+                                                    @Html.TextBoxFor(m => m.WhatsAppNo, new { @id = "txtWhatsAppNo", @class = "form-control", @maxlength = "10", required = "required", @placeholder = "eg. 0123456789" })
+                                                    @Html.ValidationMessageFor(model => model.WhatsAppNo, "", new { @class = "text-danger" })
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label class="form-control-label">Other No. (+91)</label>
-                                                @Html.TextBoxFor(m => m.OtherNo, new { @id = "txtOtherNo", @class = "form-control", @maxlength = "10", @placeholder = "eg. 0123456789" })
-                                                @Html.ValidationMessageFor(model => model.OtherNo, "", new { @class = "text-danger" })
-
+                                                <label class="form-control-label">Other No.</label>
+                                                <div class="input-container">
+                                                    <span class="icon">+91</span>
+                                                    @Html.TextBoxFor(m => m.OtherNo, new { @id = "txtOtherNo", @class = "form-control", @maxlength = "10", @placeholder = "eg. 0123456789" })
+                                                    @Html.ValidationMessageFor(model => model.OtherNo, "", new { @class = "text-danger" })
+                                                </div>
                                             </div>
                                         </div>
 
@@ -253,7 +257,7 @@
         $('#txtAge').val(age);
     });
 
-  
+
     //$("#txtWhatsAppNo").val("+91");
     //$("#txtOtherNo").val("+91");
 

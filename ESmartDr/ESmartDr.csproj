@@ -209,6 +209,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountDetailsController.cs" />
     <Compile Include="Controllers\AdminDetailsController.cs" />
     <Compile Include="Controllers\DignosticDetailsController.cs" />
     <Compile Include="Controllers\ForgetPasswordController.cs" />
@@ -554,6 +555,7 @@
     <Content Include="Views\ForgetPassword\ChangePassword.cshtml" />
     <Content Include="Views\PatientDetails\PatientAppoinment.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\AccountDetails\AccountDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
