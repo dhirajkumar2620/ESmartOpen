@@ -51,7 +51,7 @@ namespace ESmartDr.Controllers
                 PD.HospitalName = admObj.HostClincName;
                 PD.DoctorReceptionId = admObj.UserId;
                 //string str = admObj.HostClincName.Substring(0, 3);
-                PD.CasePapaerNo = admObj.AlphanumericPrefix;
+                PD.CasePapaerNo = admObj.AlphanumericPrefix.Trim();
                 int Flag = BP.ManagePatientDetails(PD);
                 return RedirectToAction("ViewAllPatient", "PatientDetails");
             }

@@ -109,6 +109,7 @@ namespace ESmartDr.Controllers
                 AD.ParentId = admObj.UserId;
                 AD.ReportingTo = admObj.UserId;
                 AD.HospitalId = admObj.HospitalId;
+                AD.AlphanumericPrefix = AD.AlphanumericPrefix.Trim();
                 int Flag = BP.ManagePatientDetails(AD);
                 if (Flag !=1)
                 {
