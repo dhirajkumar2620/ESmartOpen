@@ -71,7 +71,7 @@ namespace ESmartDr.Controllers
         public ActionResult VerifyOTP(AdminDetails AD)
         {
            
-            bool result = false;
+            
             string SessionOTP = Session["OTP"].ToString();
            
             if (AD.WhatsAppNumber == SessionOTP)
@@ -82,13 +82,13 @@ namespace ESmartDr.Controllers
             {
                 TempData["noticeOTP"] = "Invalid OTP.";
             }
-            return Json(result, JsonRequestBehavior.AllowGet);
+            return View("VerifyOTP");
         }
 
         [HttpPost]
         public ActionResult ChangePassword(AdminDetails ad)
         {
-            if (ad.Passwod1 == ad.Passwod1)
+            if (ad.Passwod1 == ad.OtherNumber)
             {
                 string mobileNo = Session["NoForChangePassword"].ToString();
                 ad.WhatsAppNumber = mobileNo;
@@ -101,9 +101,10 @@ namespace ESmartDr.Controllers
             }
             else
             {
-                TempData["noticeCPP"] = "Password & confirm Password should be same.";
+                TempData["noticeCP"] = "Password & confirm Password should be same.";
+               
             }
-            return RedirectToAction("Index", "LoginDetails");
+            return View("ChangePassword");
         }
     }
 }
