@@ -87,13 +87,17 @@ namespace ESmartDr.Controllers
             }
         }
 
-        public ActionResult SetPatientAppoinment(int  Id)
+        public ActionResult SetPatientAppoinment(string  CPno)
         {
             try
             {
+                DateTime AppoinmentDate = DateTime.Now;
+                //string dt = AppoinmentDate.ToString("dd/MM/yyyy");
+                string AppoinmentTime = AppoinmentDate.ToString("h:mm");
+                string Note = "Appoinment fixed";
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 List<PatientDetails> LST = new List<PatientDetails>();
-                LST = BP.SetPatientAppoinment(Id);
+                LST = BP.SetPatientAppoinment(CPno, AppoinmentDate,  AppoinmentTime,  Note);
                 PatientCount(admObj.HospitalId);
                 return RedirectToAction("GetQueueList", "PatientDetails") ;
             }

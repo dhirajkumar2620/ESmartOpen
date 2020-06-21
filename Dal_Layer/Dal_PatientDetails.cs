@@ -117,15 +117,18 @@ namespace Dal_Layer
             }
         }
 
-        public List<PatientDetails> SetPatientAppoinment(int Id)
+        public List<PatientDetails> SetPatientAppoinment(string Id,DateTime AppoinmentDate, string AppoinmentTime,string Note)
         {
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[1];
+                sqlparam = new SqlParameter[4];
                 sqlparam[0] = new SqlParameter("@CasePaperNo", Id);
+                sqlparam[1] = new SqlParameter("@AppoinmentDate", AppoinmentDate);
+                sqlparam[2] = new SqlParameter("@AppoinmentTime", AppoinmentTime);
+                sqlparam[3] = new SqlParameter("@Note", Note);
 
-                DataTable ds = CommonFunction.GetDataTable("USP_Set_PatientApoinment", sqlparam, "");
+                DataTable ds = CommonFunction.GetDataTable("USP_Set_Apoinment_App", sqlparam, "");
                 List<PatientDetails> lst = new List<PatientDetails>();
                 if (ds != null && ds.Rows.Count > 0)
                 {

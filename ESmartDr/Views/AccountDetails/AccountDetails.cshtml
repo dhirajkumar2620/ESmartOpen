@@ -1,5 +1,4 @@
-﻿
-
+﻿@model App_Layer.ExpensesDetails
 @{
     ViewBag.Title = "AccountDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,425 +12,385 @@
             <h2 class="no-margin-bottom">Account</h2>
         </div>
     </header>
-    <section class="forms">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- Basic Form-->
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body patient-det">
-                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="pills-expense-tab" data-toggle="pill" href="#pills-expense" role="tab" aria-controls="pills-expense" aria-selected="true">Expense</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="pills-income-tab" data-toggle="pill" href="#pills-income" role="tab" aria-controls="pills-income" aria-selected="false">Income</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="pills-invoice-tab" data-toggle="pill" href="#pills-invoice" role="tab" aria-controls="pills-invoice" aria-selected="false">Invoice</a>
-                                </li>
-                            </ul>
-                            <hr />
-                            <div class="tab-content" id="pills-tabContent">
-                                <div class="tab-pane fade show active" id="pills-expense" role="tabpanel" aria-labelledby="pills-home-tab">
-                                    <p>Need to fill mandatory fields.</p>
+    @using (Html.BeginForm("ManageMedicineDetails", "AccountDetails", FormMethod.Post, new { @id = "frmAccountDetails" }))
+    {
+        <section class="forms">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Basic Form-->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body patient-det">
+                                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="pills-expense-tab" data-toggle="pill" href="#pills-expense" role="tab" aria-controls="pills-expense" aria-selected="true">Expense</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-income-tab" data-toggle="pill" href="#pills-income" role="tab" aria-controls="pills-income" aria-selected="false">Income</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-invoice-tab" data-toggle="pill" href="#pills-invoice" role="tab" aria-controls="pills-invoice" aria-selected="false">Invoice</a>
+                                    </li>
+                                </ul>
+                                <hr />
+                                <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-expense" role="tabpanel" aria-labelledby="pills-home-tab">
+                                        <p>Need to fill mandatory fields.</p>
 
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="form-control-label">Date<span class="star">*</span></label>
-                                                <div class="input-group date" data-provide="datepicker">
-                                                    <input type="text" placeholder="dd/mm/yyyy" class="form-control">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="form-control-label">Date<span class="star">*</span></label>
+                                                    <div class="input-group date" data-provide="datepicker">
+                                                        @Html.TextBoxFor(m => m.ExDate, new { @id = "txtDate", @type = "text", @class = "form-control datepicker", @placeholder = "eg. dd/mm/yyyy" })
+                                                        @Html.ValidationMessageFor(model => model.ExDate, "", new { @class = "text-danger" })
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="form-control-label">Catagory<span class="star">*</span></label>
-                                                <input type="text" placeholder="Name" class="form-control">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="form-control-label">Catagory<span class="star">*</span></label>
+                                                    @Html.TextBoxFor(m => m.ExCatagory, new { @id = "txtCatagory", @class = "form-control", required = "required", @placeholder = "Catagory" })
+                                                    @Html.ValidationMessageFor(model => model.ExCatagory, "", new { @class = "text-danger" })
+
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="form-control-label">Amount<span class="star">*</span></label>
+                                                    @Html.TextBoxFor(m => m.ExAmount, new { @id = "txtAmount", @class = "form-control", required = "required", @placeholder = "eg. 100" })
+                                                    @Html.ValidationMessageFor(model => model.ExAmount, "", new { @class = "text-danger" })
+
+
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="form-control-label">Amount<span class="star">*</span></label>
-                                                <input type="text" placeholder="Name" class="form-control">
+                                        
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="form-control-label">Details<span class="star">*</span></label>
+                                                    @Html.TextBoxFor(m => m.ExDetails, new { @id = "txtDetails", @class = "form-control", required = "required", @placeholder = "Details" })
+                                                    @Html.ValidationMessageFor(model => model.ExDetails, "", new { @class = "text-danger" })
+
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="form-control-label">Created By<span class="star">*</span></label>
+                                                    @Html.TextBoxFor(m => m.CreatedBy, new { @id = "txtCreatedBy", @class = "form-control", required = "required", @placeholder = "Name" })
+                                                    @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
+
+
+                                                </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-12 text-right">
+                                                <input type="submit" value="Save" class="btn btn_2 b33 btn-primary">
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="table-responsive">
+                                                    <table id="example7" class="table table-striped" style="width:100%">
+                                                        <thead>
+
+                                                            <tr>
+
+                                                                <th>Date</th>
+                                                                <th>Catagory</th>
+                                                                <th>Details</th>
+                                                                <th>Amount</th>
+                                                                <th>Created By</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach (var item in Model.lst)
+                                                            {
+                                                            <tr>
+                                                                <td hidden>@item.ExId</td>
+                                                                <td>@item.ExDate</td>
+                                                                <td>@item.ExCatagory</td>
+                                                                <td>@item.ExDetails</td>
+                                                                <td>@item.ExAmount</td>
+                                                                <td>@item.CreatedBy</td>
+                                                                <td>
+                                                                    <ul class="list-inline">
+                                                                        <li class="list-inline-item" title="Edit">
+                                                                            <a href="@Url.Content(" ~/ExpensesDetails/GetExpensesById?Id="+item.ExId+ "&hId=" + item.HospitalId + "")"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                                        </li>
+
+                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                                            <a href="@Url.Content(" ~/ExpensesDetails/DeleteMedicine?Id="+item.ExId+"")">  <i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </td>
+                                                            </tr>
+                                                            }
+                                                        </tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <th>Date</th>
+                                                                <th>Catagory</th>
+                                                                <th>Details</th>
+                                                                <th>Amount</th>
+                                                                <th>Created By</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
-                                    <br />
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="form-control-label">Details</label>
-                                                <input type="text" placeholder="Name" class="form-control">
+                                    <div class="tab-pane fade" id="pills-income" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="table-responsive">
+                                                    <table id="example8" class="table table-striped" style="width:100%">
+                                                        <thead>
+                                                            <tr>
+
+                                                                <th>Date</th>
+                                                                <th>Total Patients</th>
+                                                                <th>Collection</th>
+                                                                <th>Balance</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>20/06/2020</td>
+                                                                <td>Total Patients</td>
+                                                                <td>Collection</td>
+                                                                <td>Balance</td>
+                                                                <td>
+                                                                    <ul class="list-inline">
+                                                                        <li class="list-inline-item" title="Edit">
+                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                                        </li>
+
+                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                                                        </li>
+                                                                    </ul>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>20/06/2020</td>
+                                                                <td>Total Patients</td>
+                                                                <td>Collection</td>
+                                                                <td>Balance</td>
+                                                                <td>
+                                                                    <ul class="list-inline">
+                                                                        <li class="list-inline-item" title="Edit">
+                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                                        </li>
+
+                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                                                        </li>
+                                                                    </ul>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>20/06/2020</td>
+                                                                <td>Total Patients</td>
+                                                                <td>Collection</td>
+                                                                <td>Balance</td>
+                                                                <td>
+                                                                    <ul class="list-inline">
+                                                                        <li class="list-inline-item" title="Edit">
+                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                                        </li>
+
+                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                                                        </li>
+                                                                    </ul>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>20/06/2020</td>
+                                                                <td>Total Patients</td>
+                                                                <td>Collection</td>
+                                                                <td>Balance</td>
+                                                                <td>
+                                                                    <ul class="list-inline">
+                                                                        <li class="list-inline-item" title="Edit">
+                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                                        </li>
+
+                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                                                        </li>
+                                                                    </ul>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>20/06/2020</td>
+                                                                <td>Total Patients</td>
+                                                                <td>Collection</td>
+                                                                <td>Balance</td>
+                                                                <td>
+                                                                    <ul class="list-inline">
+                                                                        <li class="list-inline-item" title="Edit">
+                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                                        </li>
+
+                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                                                        </li>
+                                                                    </ul>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="form-control-label">Created By</label>
-                                                <input type="text" placeholder="Name" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 text-right">
-                                            <input type="button" value="Save" class="btn btn_2 b33 btn-primary">
-                                        </div>
-                                    </div>
-                                    <br /><br />
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="table-responsive">
-                                                <table id="example7" class="table table-striped" style="width:100%">
-                                                    <thead>
-                                                        <tr>
-
-                                                            <th>Date</th>
-                                                            <th>Catagory</th>
-                                                            <th>Details</th>
-                                                            <th>Amount</th>
-                                                            <th>Created By</th>
-                                                            <th>Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>20/06/2020</td>
-                                                            <td>Catagory</td>
-                                                            <td>Details</td>
-                                                            <td>Amount</td>
-                                                            <td>Created By</td>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item" title="Edit">
-                                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                    </li>
-
-                                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>20/06/2020</td>
-                                                            <td>Catagory</td>
-                                                            <td>Details</td>
-                                                            <td>Amount</td>
-                                                            <td>Created By</td>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item" title="Edit">
-                                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                    </li>
-
-                                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>20/06/2020</td>
-                                                            <td>Catagory</td>
-                                                            <td>Details</td>
-                                                            <td>Amount</td>
-                                                            <td>Created By</td>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item" title="Edit">
-                                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                    </li>
-
-                                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>20/06/2020</td>
-                                                            <td>Catagory</td>
-                                                            <td>Details</td>
-                                                            <td>Amount</td>
-                                                            <td>Created By</td>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item" title="Edit">
-                                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                    </li>
-
-                                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>20/06/2020</td>
-                                                            <td>Catagory</td>
-                                                            <td>Details</td>
-                                                            <td>Amount</td>
-                                                            <td>Created By</td>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item" title="Edit">
-                                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                    </li>
-
-                                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="pills-income" role="tabpanel" aria-labelledby="pills-profile-tab">
-                                    <br />
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="table-responsive">
-                                                <table id="example8" class="table table-striped" style="width:100%">
-                                                    <thead>
-                                                        <tr>
-
-                                                            <th>Date</th>
-                                                            <th>Total Patients</th>
-                                                            <th>Collection</th>
-                                                            <th>Balance</th>
-                                                            <th>Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>20/06/2020</td>
-                                                            <td>Total Patients</td>
-                                                            <td>Collection</td>
-                                                            <td>Balance</td>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item" title="Edit">
-                                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                    </li>
-
-                                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>20/06/2020</td>
-                                                            <td>Total Patients</td>
-                                                            <td>Collection</td>
-                                                            <td>Balance</td>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item" title="Edit">
-                                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                    </li>
-
-                                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>20/06/2020</td>
-                                                            <td>Total Patients</td>
-                                                            <td>Collection</td>
-                                                            <td>Balance</td>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item" title="Edit">
-                                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                    </li>
-
-                                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>20/06/2020</td>
-                                                            <td>Total Patients</td>
-                                                            <td>Collection</td>
-                                                            <td>Balance</td>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item" title="Edit">
-                                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                    </li>
-
-                                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>20/06/2020</td>
-                                                            <td>Total Patients</td>
-                                                            <td>Collection</td>
-                                                            <td>Balance</td>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item" title="Edit">
-                                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                    </li>
-
-                                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-md-12 text-right">
+                                                <input type="button" value="Save" class="btn btn_2 b33 btn-primary">
                                             </div>
                                         </div>
                                     </div>
-                                    <br />
-                                    <div class="row">
-                                        <div class="col-md-12 text-right">
-                                            <input type="button" value="Save" class="btn btn_2 b33 btn-primary">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="pills-invoice" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                    <div class="tab-pane fade" id="pills-invoice" role="tabpanel" aria-labelledby="pills-contact-tab">
 
-                                    <br />
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="table-responsive">
-                                                <table id="example9" class="table table-striped" style="width:100%">
-                                                    <thead>
-                                                        <tr>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="table-responsive">
+                                                    <table id="example9" class="table table-striped" style="width:100%">
+                                                        <thead>
+                                                            <tr>
 
-                                                            <th>Invoice No.</th>
-                                                            <th>Date</th>
-                                                            <th>Patient Name</th>
-                                                            <th>Bill</th>
-                                                            <th>Paid</th>
-                                                            <th>Balance</th>
-                                                            <th>Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>002</td>
-                                                            <td>20/06/2020</td>
-                                                            <td>Dhiraj</td>
-                                                            <td>3000</td>
-                                                            <td>2000</td>
-                                                            <td>1000</td>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item" title="Edit">
-                                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                    </li>
+                                                                <th>Invoice No.</th>
+                                                                <th>Date</th>
+                                                                <th>Patient Name</th>
+                                                                <th>Bill</th>
+                                                                <th>Paid</th>
+                                                                <th>Balance</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>002</td>
+                                                                <td>20/06/2020</td>
+                                                                <td>Dhiraj</td>
+                                                                <td>3000</td>
+                                                                <td>2000</td>
+                                                                <td>1000</td>
+                                                                <td>
+                                                                    <ul class="list-inline">
+                                                                        <li class="list-inline-item" title="Edit">
+                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                                        </li>
 
-                                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>002</td>
-                                                            <td>20/06/2020</td>
-                                                            <td>Dhiraj</td>
-                                                            <td>3000</td>
-                                                            <td>2000</td>
-                                                            <td>1000</td>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item" title="Edit">
-                                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                    </li>
+                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                                                        </li>
+                                                                    </ul>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>002</td>
+                                                                <td>20/06/2020</td>
+                                                                <td>Dhiraj</td>
+                                                                <td>3000</td>
+                                                                <td>2000</td>
+                                                                <td>1000</td>
+                                                                <td>
+                                                                    <ul class="list-inline">
+                                                                        <li class="list-inline-item" title="Edit">
+                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                                        </li>
 
-                                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>002</td>
-                                                            <td>20/06/2020</td>
-                                                            <td>Dhiraj</td>
-                                                            <td>3000</td>
-                                                            <td>2000</td>
-                                                            <td>1000</td>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item" title="Edit">
-                                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                    </li>
+                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                                                        </li>
+                                                                    </ul>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>002</td>
+                                                                <td>20/06/2020</td>
+                                                                <td>Dhiraj</td>
+                                                                <td>3000</td>
+                                                                <td>2000</td>
+                                                                <td>1000</td>
+                                                                <td>
+                                                                    <ul class="list-inline">
+                                                                        <li class="list-inline-item" title="Edit">
+                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                                        </li>
 
-                                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>002</td>
-                                                            <td>20/06/2020</td>
-                                                            <td>Dhiraj</td>
-                                                            <td>3000</td>
-                                                            <td>2000</td>
-                                                            <td>1000</td>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item" title="Edit">
-                                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                    </li>
+                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                                                        </li>
+                                                                    </ul>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>002</td>
+                                                                <td>20/06/2020</td>
+                                                                <td>Dhiraj</td>
+                                                                <td>3000</td>
+                                                                <td>2000</td>
+                                                                <td>1000</td>
+                                                                <td>
+                                                                    <ul class="list-inline">
+                                                                        <li class="list-inline-item" title="Edit">
+                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                                        </li>
 
-                                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>002</td>
-                                                            <td>20/06/2020</td>
-                                                            <td>Dhiraj</td>
-                                                            <td>3000</td>
-                                                            <td>2000</td>
-                                                            <td>1000</td>
-                                                            <td>
-                                                                <ul class="list-inline">
-                                                                    <li class="list-inline-item" title="Edit">
-                                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                    </li>
+                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                                                        </li>
+                                                                    </ul>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>002</td>
+                                                                <td>20/06/2020</td>
+                                                                <td>Dhiraj</td>
+                                                                <td>3000</td>
+                                                                <td>2000</td>
+                                                                <td>1000</td>
+                                                                <td>
+                                                                    <ul class="list-inline">
+                                                                        <li class="list-inline-item" title="Edit">
+                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                                        </li>
 
-                                                                    <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                                                        </li>
+                                                                    </ul>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <br />
-                                    <div class="row">
-                                        <div class="col-md-12 text-right">
-                                            <input type="button" value="Save" class="btn btn_2 b33 btn-primary">
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-md-12 text-right">
+                                                <input type="button" value="Save" class="btn btn_2 b33 btn-primary">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -440,8 +399,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    }
     <!-- Page Footer-->
     <footer class="main-footer">
         <div class="container-fluid">
@@ -532,6 +491,32 @@
 });
     });
 
+
+    $(document).ready(function () {
+        $('.button').click(function () {
+            if ($('#txtDate').val() == "") { }
+            else if ($('#txtCatagory').val() == "") { }
+            else if ($('#txtAmount').val() == "") { }
+            else if ($('#txtDetails').val() == "") { }
+            else if ($('#txtCreatedBy').val() == "") { }
+            else {
+                swal({
+                    title: "Medicine added successfully.",
+                    //text: "You clicked the button!",
+                    icon: "success",
+                    button: "OK",
+                }
+               )
+            };
+        });
+    });
+
+
+    $(document).ready(function () {
+        $('.datefield').datepicker({
+            dateFormat: "mm/dd/yy",
+        });
+    });
 </script>
 
 

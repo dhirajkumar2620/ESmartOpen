@@ -29,9 +29,9 @@ namespace Bal_Layer
             return DP.GetPatientDetailsById(id);
         }
 
-        public List<PatientDetails> SetPatientAppoinment(int Id)
+        public List<PatientDetails> SetPatientAppoinment(string Id, DateTime AppoinmentDate, string AppoinmentTime, string Note)
         {
-            return DP.SetPatientAppoinment(Id);
+            return DP.SetPatientAppoinment( Id,  AppoinmentDate,  AppoinmentTime,  Note);
         }
         public List<QueueDetails> GetQueueList(int hospitalId)
         { 
