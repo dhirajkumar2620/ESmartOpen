@@ -29,20 +29,20 @@ namespace Bal_Layer
             return sResponse;
         }
 
-        public string SendOTP(string mobileNumber , string OTP)
+        public string SendOTP(string mobileNumber , string message)
         {
-             OTP = RandomOTP();
+            
             string sUserID = ConfigurationManager.AppSettings["sUserID"];
-            string sPwd = ConfigurationManager.AppSettings["sPwd"];
+            string sPwd = ConfigurationManager.AppSettings["sPwdOTP"];
             string sNumber = mobileNumber;
             string sSID = ConfigurationManager.AppSettings["sSID"];
-            string sMessage = "OTP for login thru eSmartDoctor is " + OTP + " .Do not share this with anyone";
+            string sMessage = message;
             string sURL = " http://2fa.atsithub.com/vendorsms/pushsms.aspx?user="
-                + sUserID + "&password="
-                + sPwd + "&senderid="
-                + sSID + "&channel=Trans&DCS=0&flashsms=0&number="
-                + sNumber + "&text="
-                + sMessage + "&route=00";
+                 + sUserID + "&password="
+                 + sPwd + "&msisdn="
+                 + sNumber + "&sid="
+                 + sSID + "&msg="
+                 + sMessage + "&fl=0&gwid=2";
             string sResponse = GetResponse(sURL);
             //Response.Write(sResponse);
             return sResponse;

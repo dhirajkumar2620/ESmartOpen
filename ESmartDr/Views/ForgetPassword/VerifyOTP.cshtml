@@ -61,11 +61,13 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <label style="color:#fff;">OTP<span class="star">*</span></label>
-                                                        @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtOTP", @class = "form-control", required = "required", @placeholder = "OTP" })
-
+                                                        @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtOTP",@class = "form-control", @maxlength = "6" ,required = "required", @placeholder = "eg. 123456" })
                                                         <br>
 
-
+                                                        @if (TempData["noticeOTP"] != null)
+                                                        {
+                                                            <p style="color:red">@TempData["notice"]</p>
+                                                        }
                                                         <br>
 
                                                         <br>
@@ -111,6 +113,8 @@
                 }
             })
         }
+
+                $("#txtOTP").val(""); 
             </script>
         </body>
 </html>

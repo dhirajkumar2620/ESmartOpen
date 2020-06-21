@@ -30,78 +30,57 @@ namespace ESmartDr.Controllers
             bool isValidEmailId = LST.Any(x => x.EmailId == AD.EmailId);
             if (isValidWhatsAppNumber == true || isValidEmailId == true)
             {
+                Session["NoForChangePassword"]= AD.WhatsAppNumber;
                 // set mobile number and Send otp -code 
-                string result = SendSMS();
-                if (result =="success")
-                {
-                    Session["OTP"] = "123456";
+                String otp =RandomOTP();
+                SMS sms = new SMS();
+                string message = "Dear Customer, " + otp + " is OTP for your request initiated through eSmartDoctor. DO NOT disclose it to anyone.";
+                sms.SendOTP(AD.WhatsAppNumber, message);
+               
+                    Session["OTP"] = otp;
                     //return RedirectToAction("VerifyOTP", "ForgetPassword");
                     return View("VerifyOTP");
-                }
+               
                 
                
             }
             else
             {
-                ModelState.AddModelError("", "Invalid username ");
+                TempData["notice"] = "Invalid mobile no.";
             }
 
             //ModelState.AddModelError("", "Invalid username and password");
             return View("ForgetPassword");
         }
+        public string RandomOTP()
+        {
 
+            Random generator = new Random();
+            String newOTP = generator.Next(0, 999999).ToString("D6");
+            return newOTP;
+        }
         public string SendSMS()
         {
-            String result ="success";
-            //string apiKey = "your apiKey";
-            //string numbers = "918123456789"; // in a comma seperated list
-            //string message = "This is your message";
-            //string sender = "TXTLCL";
-
-            //String url = "https://api.textlocal.in/send/?apikey=" + apiKey + "&numbers=" + numbers + "&message=" + message + "&sender=" + sender;
-            ////refer to parameters to complete correct url string
-
-            //StreamWriter myWriter = null;
-            //HttpWebRequest objRequest = (HttpWebRequest)WebRequest.Create(url);
-
-            //objRequest.Method = "POST";
-            //objRequest.ContentLength = Encoding.UTF8.GetByteCount(url);
-            //objRequest.ContentType = "application/x-www-form-urlencoded";
-            //try
-            //{
-            //    myWriter = new StreamWriter(objRequest.GetRequestStream());
-            //    myWriter.Write(url);
-            //}
-            //catch (Exception e)
-            //{
-            //    return e.Message;
-            //}
-            //finally
-            //{
-            //    myWriter.Close();
-            //}
-
-            //HttpWebResponse objResponse = (HttpWebResponse)objRequest.GetResponse();
-            //using (StreamReader sr = new StreamReader(objResponse.GetResponseStream()))
-            //{
-            //    result = sr.ReadToEnd();
-            //    // Close and clean up the StreamReader
-            //    sr.Close();
-            //}
-            return result;
+            //SMS sms = new SMS();
+            //string message = "You are added to " + PD.HostClincName + ", Download eSmartDoctor app to manage - http://bit.ly/2RGTEHTR ";
+            //sms.SendSMS(PD.WhatsAppNumber, message);
+            return "";
         }
 
         [HttpPost]
-        public ActionResult VerifyOTP(string OTP)
+        public ActionResult VerifyOTP(AdminDetails AD)
         {
            
             bool result = false;
             string SessionOTP = Session["OTP"].ToString();
            
-            OTP = "123456";
-            if (OTP == SessionOTP)
+            if (AD.WhatsAppNumber == SessionOTP)
             {
                 return View("ChangePassword");
+            }
+            else
+            {
+                TempData["noticeOTP"] = "Invalid OTP.";
             }
             return Json(result, JsonRequestBehavior.AllowGet);
         }
@@ -111,12 +90,18 @@ namespace ESmartDr.Controllers
         {
             if (ad.Passwod1 == ad.Passwod1)
             {
+                string mobileNo = Session["NoForChangePassword"].ToString();
+                ad.WhatsAppNumber = mobileNo;
                 int Flag = BP.UpdatePassword(ad);
-                if (false)
+                if (Flag ==1)
                 {
                     return RedirectToAction("Index", "LoginDetails");
                 }
                 
+            }
+            else
+            {
+                TempData["noticeCPP"] = "Password & confirm Password should be same.";
             }
             return RedirectToAction("Index", "LoginDetails");
         }
