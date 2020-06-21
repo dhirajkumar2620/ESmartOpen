@@ -18,7 +18,7 @@ namespace Dal_Layer
             {
    
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[11];
+                sqlparam = new SqlParameter[9];
                 sqlparam[0] = new SqlParameter("@ExId", ED.ExId);
                 sqlparam[1] = new SqlParameter("@ExDate", ED.ExDate);
                 sqlparam[2] = new SqlParameter("@ExCatagory", ED.ExCatagory);
@@ -26,8 +26,8 @@ namespace Dal_Layer
                 sqlparam[4] = new SqlParameter("@ExDetails", ED.ExDetails);
                 sqlparam[5] = new SqlParameter("@CreatedBy", ED.CreatedBy);
                 sqlparam[6] = new SqlParameter("@ModifiedBy", ED.ModifiedBy);
-                sqlparam[9] = new SqlParameter("@IsAcive", 1);
-                sqlparam[10] = new SqlParameter("@HospitalId", ED.HospitalId);
+                sqlparam[7] = new SqlParameter("@IsAcive", 1);
+                sqlparam[8] = new SqlParameter("@HospitalId", ED.HospitalId);
 
                 return CommonFunction.Save("USP_ManageExpancesDetails", sqlparam, "");
             }
@@ -71,14 +71,14 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
-        public int DeleteExpences(int MedicineId)
+        public int DeleteExpences(int ExId)
         {
             try
             {
                 SqlParameter[] sqlparam;
                 sqlparam = new SqlParameter[2];
                 sqlparam[0] = new SqlParameter("@Flag", "2");
-                sqlparam[1] = new SqlParameter("@MedicineId", MedicineId);
+                sqlparam[1] = new SqlParameter("@ExId", ExId);
 
 
                 return CommonFunction.Save("USP_Get_ExpancesDetails", sqlparam, "");

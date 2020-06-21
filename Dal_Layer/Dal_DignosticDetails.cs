@@ -11,7 +11,7 @@ namespace Dal_Layer
 {
    public class Dal_DignosticDetails
     {
-        Dal_DignosticDetails DP = new Dal_DignosticDetails();
+        
 
         public int ManageDignosticDetails(DignosticDetails MD)
         {

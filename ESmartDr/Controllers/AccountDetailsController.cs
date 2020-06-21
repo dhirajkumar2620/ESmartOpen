@@ -58,7 +58,7 @@ namespace ESmartDr.Controllers
         }
 
 
-        public ActionResult DeleteMedicine(int Id)
+        public ActionResult DeleteExpenses(int Id)
         {
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
             ExpensesDetails ED = new ExpensesDetails();
@@ -74,9 +74,10 @@ namespace ESmartDr.Controllers
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
             ExpensesDetails ED = new ExpensesDetails();
             ED = BL.ViewAllExpenses(hId);
-            if (hId != 0)
+            if (true)
             {
                 var v = ED.lst.FirstOrDefault(x => x.ExId == Id);
+                ED.ExId = v.ExId;
                 ED.ExDate = v.ExDate;
                 ED.ExDetails = v.ExDetails;
                 ED.ExAmount = v.ExAmount;

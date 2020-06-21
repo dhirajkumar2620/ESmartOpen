@@ -12,8 +12,10 @@
             <h2 class="no-margin-bottom">Account</h2>
         </div>
     </header>
-    @using (Html.BeginForm("ManageMedicineDetails", "AccountDetails", FormMethod.Post, new { @id = "frmAccountDetails" }))
+    @using (Html.BeginForm("ManageExpensesDetails", "AccountDetails", FormMethod.Post, new { @id = "frmAccountDetails" }))
     {
+        @Html.HiddenFor(m => m.ExId);
+        @Html.HiddenFor(m => m.HospitalId);
         <section class="forms">
             <div class="container-fluid">
                 <div class="row">
@@ -103,7 +105,7 @@
                                                         <thead>
 
                                                             <tr>
-
+                                                                <th hidden>ExId</th>
                                                                 <th>Date</th>
                                                                 <th>Catagory</th>
                                                                 <th>Details</th>
@@ -125,11 +127,11 @@
                                                                 <td>
                                                                     <ul class="list-inline">
                                                                         <li class="list-inline-item" title="Edit">
-                                                                            <a href="@Url.Content(" ~/ExpensesDetails/GetExpensesById?Id="+item.ExId+ "&hId=" + item.HospitalId + "")"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                                            <a href="@Url.Content("~/AccountDetails/GetExpensesById?Id="+item.ExId+ "&hId=" + item.HospitalId + "")"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
                                                                         </li>
 
                                                                         <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                            <a href="@Url.Content(" ~/ExpensesDetails/DeleteMedicine?Id="+item.ExId+"")">  <i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                            <a href="@Url.Content("~/AccountDetails/DeleteExpenses?Id="+item.ExId+"")">  <i class="fa fa-times" aria-hidden="true"></i></a>
                                                                         </li>
                                                                     </ul>
                                                                 </td>

@@ -21,9 +21,9 @@ namespace Bal_Layer
         {
             return DP.ViewAllExpenses(hId);
         }
-        public int DeleteExpences(int MedicineId)
+        public int DeleteExpences(int ExId)
         {
-            return DP.DeleteExpences(MedicineId);
+            return DP.DeleteExpences(ExId);
         }
     }
 }

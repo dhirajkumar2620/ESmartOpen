@@ -12,20 +12,20 @@ namespace ESmartDr.Controllers
     {
         // GET: DignosticDetails
         Bal_DignosticDetails BL = new Bal_DignosticDetails();
-        public ActionResult Index()
+       
+        public ActionResult DignosticDetails( )
         {
-            return View();
-        }
-        public ActionResult DignosticDetails()
-        {
+           
             return View("DignosticDetails");
         }
-        public ActionResult ManageMedicineDetails(DignosticDetails MD)
+        [HttpPost]
+        public ActionResult ManageDignosticDetails(DignosticDetails MD)
         {
             try
             {
+               
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-                int Flag = BL.ManageDignosticDetails(MD);
+               // int Flag = BL.ManageDignosticDetails(MD);
                 return View("DignosticDetails");
             }
             catch (Exception ex)
@@ -34,5 +34,7 @@ namespace ESmartDr.Controllers
                 throw;
             }
         }
+
+        
     }
 }
