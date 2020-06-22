@@ -26,7 +26,6 @@ namespace ESmartDr.Controllers
             {
 
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-                ED.CreatedBy = admObj.UserId.ToString();
                 ED.HospitalId = admObj.HospitalId;
                 int Flag = BL.ManageExpensesDetails(ED);
 

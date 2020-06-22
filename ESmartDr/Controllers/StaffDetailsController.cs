@@ -69,10 +69,29 @@ namespace ESmartDr.Controllers
                 {
                     return View();
                 }
+               
                 StaffCount(admObj.HospitalId);
-                SMS sms = new SMS();
-                string message = "You are added to " + PD.HostClincName + ", Download eSmartDoctor app to manage - http://bit.ly/2RGTEHTR ";
-                sms.SendSMS(PD.WhatsAppNumber, message);
+                if (PD.ReceptionId == 0)
+                {
+                    //List<ReceptionStaffReg> LST = new List<ReceptionStaffReg>();
+                    //LST = BP.GetStaffDetails(admObj.HospitalId);
+
+                    //var StaffRegNo = LST.Where(x
+                    //             => x.HospitalId == PD.HospitalId
+                    //             && x.WhatsAppNumber == PD.WhatsAppNumber
+                    //              && x.Name == PD.Name
+                    //             )
+                    //         .OrderByDescending(x => x.Id)
+                    //         .Take(1)
+                    //         .Select(x => x.CasePapaerNo)
+                    //         .ToList()
+                    //         .FirstOrDefault();
+
+
+                    SMS sms = new SMS();
+                    string message = "Dear "+PD.Name+", You are added to  " + admObj.HostClincName + ", Download eSmartDoctor app to manage - http://bit.ly/2RGTEHTR ";
+                    sms.SendSMS(PD.WhatsAppNumber, message);
+                }
                 return RedirectToAction("ViewAllStaff", "StaffDetails");
             }
             catch (Exception)

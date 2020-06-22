@@ -25,5 +25,9 @@ namespace Bal_Layer
         {
             return DP.DeleteExpences(ExId);
         }
+        //public InvoiceDetails GetInvoice(int hID)
+        //{
+        //    return DP.GetInvoice(hID);
+        //}
     }
 }

@@ -121,9 +121,24 @@ namespace ESmartDr.Controllers
                 }
                 List<AdminDetails> LST = new List<AdminDetails>();
                 LST = BP.GetAllAdminDetails_SA(admObj.HospitalId);
-                SMS sms = new SMS();
-                string message = "You are added to eSmartDoctor, Download eSmartDoctor app to manage your Firm - http://bit.ly/2RGTEHTR ";
-                sms.SendSMS(AD.WhatsAppNumber, message);
+                if (AD.UserId ==0)
+                {
+
+                    var RegNo = LST.Where(x
+                                 => x.HospitalId == AD.HospitalId
+                                 && x.WhatsAppNumber == AD.WhatsAppNumber
+                                 )
+                             .OrderByDescending(x => x.UserId)
+                             .Take(1)
+                             .Select(x => x.UserId)
+                             .ToList()
+                             .FirstOrDefault();
+
+                    SMS sms = new SMS();
+                    string message = "Dear "+AD.FirstName+", You are added to eSmartDoctor,Your Reg No is ESD "+ RegNo + " Download eSmartDoctor app to manage your Firm - http://bit.ly/2RGTEHTR ";
+                    sms.SendSMS(AD.WhatsAppNumber, message);
+                }
+                
                 CardDetails(admObj.HospitalId);
                 return View("AllAdmin", LST);
             }

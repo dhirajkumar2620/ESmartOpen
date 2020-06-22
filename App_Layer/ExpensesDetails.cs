@@ -21,5 +21,7 @@ namespace App_Layer
         public bool IsDelete { get; set; }
         public int HospitalId { get; set; }
         public List<ExpensesDetails> lst { get; set; }
+        public List<IncomeDetails> Inclst { get; set; }
+        public List<InvoiceDetails> Invlst { get; set; }
     }
 }

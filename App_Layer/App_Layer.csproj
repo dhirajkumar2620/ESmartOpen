@@ -47,6 +47,8 @@
     <Compile Include="DignosticDetails.cs" />
     <Compile Include="EnquiryDetails.cs" />
     <Compile Include="ExpensesDetails.cs" />
+    <Compile Include="IncomeDetails.cs" />
+    <Compile Include="InvoiceDetails.cs" />
     <Compile Include="LaboratoryDetails.cs" />
     <Compile Include="MedicineDetails.cs" />
     <Compile Include="PatientDetails.cs" />

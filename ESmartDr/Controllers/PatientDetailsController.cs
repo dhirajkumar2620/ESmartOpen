@@ -58,9 +58,29 @@ namespace ESmartDr.Controllers
                     return View();
                 }
                 PatientCount(admObj.HospitalId);
-                SMS sms = new SMS();
-                string message = "You are added to Dr. "+admObj.FirstName+", your CP No. is AA01. Download eSmartDoctor Patient app to manage your health - http://bit.ly/2RGTEHTR";
-                sms.SendSMS(PD.WhatsAppNo, message);
+                if (PD.Id ==0)
+                {
+                    List<PatientDetails> LST = new List<PatientDetails>();
+                    LST = BP.GetPatientDetails(admObj.HospitalId);
+
+                    var CPNo = LST.Where(x
+                                 => x.HospitalId == PD.HospitalId
+                                 && x.WhatsAppNo ==PD.WhatsAppNo
+                                 )
+                             .OrderByDescending(x => x.Id)
+                             .Take(1)
+                             .Select(x => x.CasePapaerNo)
+                             .ToList()
+                             .FirstOrDefault();
+
+
+
+
+                    SMS sms = new SMS();
+                    string message = "You are added to " + admObj.FirstName + ", your CP No. is "+ CPNo + ". Download eSmartDoctor Patient app to manage your health - http://bit.ly/2RGTEHTR";
+                    sms.SendSMS(PD.WhatsAppNo, message);
+                }
+                
                 return RedirectToAction("ViewAllPatient", "PatientDetails");
             }
             catch (Exception)

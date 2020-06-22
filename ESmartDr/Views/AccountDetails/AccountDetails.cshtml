@@ -14,6 +14,9 @@
     </header>
     @using (Html.BeginForm("ManageExpensesDetails", "AccountDetails", FormMethod.Post, new { @id = "frmAccountDetails" }))
     {
+        int @no = 0;
+        int @Ino = 0;
+        int @Vno = 0;
         @Html.HiddenFor(m => m.ExId);
         @Html.HiddenFor(m => m.HospitalId);
         <section class="forms">
@@ -55,9 +58,19 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Catagory<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.ExCatagory, new { @id = "txtCatagory", @class = "form-control", required = "required", @placeholder = "Catagory" })
-                                                    @Html.ValidationMessageFor(model => model.ExCatagory, "", new { @class = "text-danger" })
+                                                    @Html.DropDownListFor(m => m.ExCatagory, new List<SelectListItem>
+                                                     {
+                                                               new SelectListItem{ Text="Other", Value = "Other" },
+                                                               new SelectListItem{ Text="Consumables", Value = "Consumables" },
+                                                               new SelectListItem{ Text="Electricoty Bill", Value = "Electricoty Bill" },
+                                                               new SelectListItem{ Text="EMI", Value = "EMI" },
+                                                               new SelectListItem{ Text="Mobile Bill", Value = "Mobile Bill" },
+                                                               new SelectListItem{ Text="Phone Bill", Value = "Phone Bill" },
+                                                               new SelectListItem{ Text="Medicines Bill", Value = "Medicines Bill" },
+                                                               new SelectListItem{ Text="Rent", Value = "Rent" },
+                                                               new SelectListItem{ Text="Software Bill", Value = "Software Bill" },
 
+                                                      }, new { @class = "form-control mb-3", @id = "ddlGCatagory" })
 
                                                 </div>
                                             </div>
@@ -71,12 +84,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="form-control-label">Details<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.ExDetails, new { @id = "txtDetails", @class = "form-control", required = "required", @placeholder = "Details" })
+                                                    <label class="form-control-label">Details</label>
+                                                    @Html.TextBoxFor(m => m.ExDetails, new { @id = "txtDetails", @class = "form-control", @placeholder = "Details" })
                                                     @Html.ValidationMessageFor(model => model.ExDetails, "", new { @class = "text-danger" })
 
 
@@ -84,8 +97,8 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="form-control-label">Created By<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.CreatedBy, new { @id = "txtCreatedBy", @class = "form-control", required = "required", @placeholder = "Name" })
+                                                    <label class="form-control-label">Created By</label>
+                                                    @Html.TextBoxFor(m => m.CreatedBy, new { @id = "txtCreatedBy", @class = "form-control", @placeholder = "Name" })
                                                     @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
 
 
@@ -106,10 +119,11 @@
 
                                                             <tr>
                                                                 <th hidden>ExId</th>
+                                                                <th>Sr No.</th>
                                                                 <th>Date</th>
                                                                 <th>Catagory</th>
-                                                                <th>Details</th>
                                                                 <th>Amount</th>
+                                                                <th>Details</th>
                                                                 <th>Created By</th>
                                                                 <th>Action</th>
                                                             </tr>
@@ -117,33 +131,38 @@
                                                         <tbody>
                                                             @foreach (var item in Model.lst)
                                                             {
-                                                            <tr>
-                                                                <td hidden>@item.ExId</td>
-                                                                <td>@item.ExDate</td>
-                                                                <td>@item.ExCatagory</td>
-                                                                <td>@item.ExDetails</td>
-                                                                <td>@item.ExAmount</td>
-                                                                <td>@item.CreatedBy</td>
-                                                                <td>
-                                                                    <ul class="list-inline">
-                                                                        <li class="list-inline-item" title="Edit">
-                                                                            <a href="@Url.Content("~/AccountDetails/GetExpensesById?Id="+item.ExId+ "&hId=" + item.HospitalId + "")"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                                                        </li>
+                                                                int @No = @no + 1;
+                                                                @no = @no + 1;
 
-                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                            <a href="@Url.Content("~/AccountDetails/DeleteExpenses?Id="+item.ExId+"")">  <i class="fa fa-times" aria-hidden="true"></i></a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
+                                                                <tr>
+                                                                    <td hidden>@item.ExId</td>
+                                                                    <td>@No</td>
+                                                                    <td>@item.ExDate</td>
+                                                                    <td>@item.ExCatagory</td>
+                                                                    <td>@item.ExAmount</td>
+                                                                    <td>@item.ExDetails</td>
+                                                                    <td>@item.CreatedBy</td>
+                                                                    <td>
+                                                                        <ul class="list-inline">
+                                                                            <li class="list-inline-item" title="Edit">
+                                                                                <a href="@Url.Content("~/AccountDetails/GetExpensesById?Id="+item.ExId+ "&hId=" + item.HospitalId + "")"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                                            </li>
+
+                                                                            <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                                                <a href="@Url.Content("~/AccountDetails/DeleteExpenses?Id="+item.ExId+"")">  <i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </td>
+                                                                </tr>
                                                             }
                                                         </tbody>
                                                         <tfoot>
                                                             <tr>
+                                                                <th>Sr No.</th>
                                                                 <th>Date</th>
                                                                 <th>Catagory</th>
-                                                                <th>Details</th>
                                                                 <th>Amount</th>
+                                                                <th>Details</th>
                                                                 <th>Created By</th>
                                                                 <th>Action</th>
                                                             </tr>
@@ -162,21 +181,29 @@
                                                     <table id="example8" class="table table-striped" style="width:100%">
                                                         <thead>
                                                             <tr>
-
+                                                                <th>Sr no.</th>
                                                                 <th>Date</th>
                                                                 <th>Total Patients</th>
                                                                 <th>Collection</th>
                                                                 <th>Balance</th>
-                                                                <th>Action</th>
+                                                                @*<th>Action</th>*@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td>20/06/2020</td>
-                                                                <td>Total Patients</td>
-                                                                <td>Collection</td>
-                                                                <td>Balance</td>
-                                                                <td>
+
+                                                            @foreach (var item in Model.Inclst)
+                                                            {
+                                                                int @No = @Ino + 1;
+                                                                @Ino = @Ino + 1;
+                                                                <tr>
+                                                                    <td>@No</td>
+                                                                    <td>@item.Date</td>
+                                                                    <td>@item.PatientCount</td>
+                                                                    <td>@item.Collection</td>
+                                                                    <td>@item.Balance</td>
+                                                                </tr>
+                                                            }
+                                                            @*<td>
                                                                     <ul class="list-inline">
                                                                         <li class="list-inline-item" title="Edit">
                                                                             <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -186,77 +213,20 @@
                                                                             <i class="fa fa-times" aria-hidden="true"></i>
                                                                         </li>
                                                                     </ul>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>20/06/2020</td>
-                                                                <td>Total Patients</td>
-                                                                <td>Collection</td>
-                                                                <td>Balance</td>
-                                                                <td>
-                                                                    <ul class="list-inline">
-                                                                        <li class="list-inline-item" title="Edit">
-                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                        </li>
+                                                                </td>*@
 
-                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                            <i class="fa fa-times" aria-hidden="true"></i>
-                                                                        </li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>20/06/2020</td>
-                                                                <td>Total Patients</td>
-                                                                <td>Collection</td>
-                                                                <td>Balance</td>
-                                                                <td>
-                                                                    <ul class="list-inline">
-                                                                        <li class="list-inline-item" title="Edit">
-                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                        </li>
 
-                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                            <i class="fa fa-times" aria-hidden="true"></i>
-                                                                        </li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>20/06/2020</td>
-                                                                <td>Total Patients</td>
-                                                                <td>Collection</td>
-                                                                <td>Balance</td>
-                                                                <td>
-                                                                    <ul class="list-inline">
-                                                                        <li class="list-inline-item" title="Edit">
-                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                        </li>
-
-                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                            <i class="fa fa-times" aria-hidden="true"></i>
-                                                                        </li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>20/06/2020</td>
-                                                                <td>Total Patients</td>
-                                                                <td>Collection</td>
-                                                                <td>Balance</td>
-                                                                <td>
-                                                                    <ul class="list-inline">
-                                                                        <li class="list-inline-item" title="Edit">
-                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                        </li>
-
-                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                            <i class="fa fa-times" aria-hidden="true"></i>
-                                                                        </li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
                                                         </tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <th>Sr no.</th>
+                                                                <th>Date</th>
+                                                                <th>Total Patients</th>
+                                                                <th>Collection</th>
+                                                                <th>Balance</th>
+                                                                @*<th>Action</th>*@
+                                                            </tr>
+                                                        </tfoot>
                                                     </table>
                                                 </div>
                                             </div>
@@ -277,113 +247,44 @@
                                                     <table id="example9" class="table table-striped" style="width:100%">
                                                         <thead>
                                                             <tr>
-
                                                                 <th>Invoice No.</th>
                                                                 <th>Date</th>
                                                                 <th>Patient Name</th>
                                                                 <th>Bill</th>
                                                                 <th>Paid</th>
                                                                 <th>Balance</th>
-                                                                <th>Action</th>
+                                                                @*<th>Action</th>*@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td>002</td>
-                                                                <td>20/06/2020</td>
-                                                                <td>Dhiraj</td>
-                                                                <td>3000</td>
-                                                                <td>2000</td>
-                                                                <td>1000</td>
-                                                                <td>
-                                                                    <ul class="list-inline">
-                                                                        <li class="list-inline-item" title="Edit">
-                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                        </li>
 
-                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                            <i class="fa fa-times" aria-hidden="true"></i>
-                                                                        </li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>002</td>
-                                                                <td>20/06/2020</td>
-                                                                <td>Dhiraj</td>
-                                                                <td>3000</td>
-                                                                <td>2000</td>
-                                                                <td>1000</td>
-                                                                <td>
-                                                                    <ul class="list-inline">
-                                                                        <li class="list-inline-item" title="Edit">
-                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                        </li>
+                                                            @foreach (var item in Model.Invlst)
+                                                            {
+                                                                int @No = @Vno + 1;
+                                                                @Vno = @Vno + 1;
+                                                                <tr>
+                                                                    <td>@Vno</td>
+                                                                    <td>@item.Date</td>
+                                                                    <td>@item.PatientName</td>
+                                                                    <td>@item.Bill</td>
+                                                                    <td>@item.Paid</td>
+                                                                    <td>@item.Balance</td>
+                                                                </tr>
+                                                            }
 
-                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                            <i class="fa fa-times" aria-hidden="true"></i>
-                                                                        </li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>002</td>
-                                                                <td>20/06/2020</td>
-                                                                <td>Dhiraj</td>
-                                                                <td>3000</td>
-                                                                <td>2000</td>
-                                                                <td>1000</td>
-                                                                <td>
-                                                                    <ul class="list-inline">
-                                                                        <li class="list-inline-item" title="Edit">
-                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                        </li>
 
-                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                            <i class="fa fa-times" aria-hidden="true"></i>
-                                                                        </li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>002</td>
-                                                                <td>20/06/2020</td>
-                                                                <td>Dhiraj</td>
-                                                                <td>3000</td>
-                                                                <td>2000</td>
-                                                                <td>1000</td>
-                                                                <td>
-                                                                    <ul class="list-inline">
-                                                                        <li class="list-inline-item" title="Edit">
-                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                        </li>
-
-                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                            <i class="fa fa-times" aria-hidden="true"></i>
-                                                                        </li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>002</td>
-                                                                <td>20/06/2020</td>
-                                                                <td>Dhiraj</td>
-                                                                <td>3000</td>
-                                                                <td>2000</td>
-                                                                <td>1000</td>
-                                                                <td>
-                                                                    <ul class="list-inline">
-                                                                        <li class="list-inline-item" title="Edit">
-                                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                                        </li>
-
-                                                                        <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                            <i class="fa fa-times" aria-hidden="true"></i>
-                                                                        </li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
                                                         </tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <th>Invoice No.</th>
+                                                                <th>Date</th>
+                                                                <th>Patient Name</th>
+                                                                <th>Bill</th>
+                                                                <th>Paid</th>
+                                                                <th>Balance</th>
+                                                                @*<th>Action</th>*@
+                                                            </tr>
+                                                        </tfoot>
                                                     </table>
                                                 </div>
                                             </div>

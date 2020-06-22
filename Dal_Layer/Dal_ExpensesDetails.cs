@@ -50,6 +50,7 @@ namespace Dal_Layer
                 sqlparam[1] = new SqlParameter("@HospitalId", hId);
                 DataSet ds = CommonFunction.GetDataSet("USP_Get_ExpancesDetails", sqlparam, "");
                 ExpensesDetails ED = new ExpensesDetails();
+
                 List<ExpensesDetails> lst = new List<ExpensesDetails>();
                 if (ds != null && ds.Tables[0].Rows.Count > 0)
                 {
@@ -62,6 +63,34 @@ namespace Dal_Layer
                         lst.Add(Model);
                     }
                 }
+                //Income
+                List<IncomeDetails> Inclst = new List<IncomeDetails>();
+                if (ds != null && ds.Tables[1].Rows.Count > 0)
+                {
+                    DataTable dt = ds.Tables[1];
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        IncomeDetails Model = new IncomeDetails();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        Inclst.Add(Model);
+                    }
+                }
+                //Invoice
+                List<InvoiceDetails> Invclst = new List<InvoiceDetails>();
+                if (ds != null && ds.Tables[2].Rows.Count > 0)
+                {
+                    DataTable dt = ds.Tables[2];
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        InvoiceDetails Model = new InvoiceDetails();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        Invclst.Add(Model);
+                    }
+                }
+                ED.Invlst = Invclst;
+                ED.Inclst = Inclst;
                 ED.lst = lst;
                 return ED;
             }
@@ -91,5 +120,37 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
+        //public InvoiceDetails GetInvoice(int hID)
+        //{
+        //    try
+        //    {
+        //        SqlParameter[] sqlparam;
+        //        sqlparam = new SqlParameter[2];
+        //        sqlparam[0] = new SqlParameter("@Flag", "1");
+        //        sqlparam[1] = new SqlParameter("@HospitalId", hID);
+
+        //        DataSet ds = CommonFunction.GetDataSet("USP_Get_Invoive", sqlparam, "");
+        //        InvoiceDetails MD = new InvoiceDetails();
+        //        List<InvoiceDetails> lst = new List<InvoiceDetails>();
+        //        if (ds != null && ds.Tables[0].Rows.Count > 0)
+        //        {
+        //            DataTable dt = ds.Tables[0];
+
+        //            foreach (DataRow dr in dt.Rows)
+        //            {
+        //                InvoiceDetails Model = new InvoiceDetails();
+        //                CommonFunction.ReflectSingleData(Model, dr);
+        //                lst.Add(Model);
+        //            }
+        //        }
+        //        MD.lst = lst;
+        //        return MD;
+        //    }
+        //    catch (Exception Ex)
+        //    {
+
+        //        throw Ex;
+        //    }
+        //}
     }
 }
