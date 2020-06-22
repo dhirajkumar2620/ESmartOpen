@@ -203,7 +203,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Holiday</label>
-                                                @Html.TextBoxFor(m => m.Holiday, new { @id = "txtHoliday", @class = "form-control", @placeholder = "eg. Sunday (closed)" })
+                                                @Html.TextBoxFor(m => m.Holiday, new { @id = "txtHoliday", @class = "form-control", @placeholder = "eg. Sunday" })
                                                 @Html.ValidationMessageFor(model => model.Holiday, "", new { @class = "text-danger" })
 
                                             </div>
@@ -373,6 +373,29 @@
                 if (response == "1") {
 
                     swal("Email Id already exists")
+                }
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    });
+    $("#txtAlphanumericPrefix").change(function () {
+        var Alfa = $('#txtAlphanumericPrefix').val();
+
+        $.ajax({
+            type: "POST",
+            url: "/AdminDetails/CheckAlphanumericPrefix",
+            data: '{Input: "' + Alfa + '"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response == "1") {
+
+                    swal(" " + Alfa + " Alphanumeric Prefix Id already exists")
                 }
             },
             failure: function (response) {

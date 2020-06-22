@@ -235,7 +235,32 @@ namespace ESmartDr.Controllers
 
         }
 
-       
+
+        public ActionResult CheckAlphanumericPrefix(string Input)
+        {
+            try
+            {
+                List<AdminDetails> LST = new List<AdminDetails>();
+                LST = BP.GetAllAdminDetails();
+                bool Alfa = LST.Any(cus => cus.AlphanumericPrefix == Input);
+                int i = 0;
+                if (Alfa)
+                {
+                    i = 1;
+                }
+                else
+                {
+
+                }
+                return Json(i, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }
 

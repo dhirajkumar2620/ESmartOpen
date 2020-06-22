@@ -55,7 +55,7 @@ namespace Dal_Layer
                 sqlparam[25] = new SqlParameter("@FirmInTime1", AD.FirmInTime1);
                 sqlparam[26] = new SqlParameter("@FirmOutTime1", AD.FirmOutTime1);
                 sqlparam[27] = new SqlParameter("@Holiday", AD.Holiday); 
-                sqlparam[28] = new SqlParameter("@AlphanumericPrefix", AD.AlphanumericPrefix);
+                sqlparam[28] = new SqlParameter("@AlphanumericPrefix", AD.AlphanumericPrefix.TrimEnd());
                 sqlparam[29] = new SqlParameter("@Age", AD.Age);
                 sqlparam[30] = new SqlParameter("@FirmInTime2", AD.FirmInTime2);
                 sqlparam[31] = new SqlParameter("@FirmOutTime2", AD.FirmOutTime2);
