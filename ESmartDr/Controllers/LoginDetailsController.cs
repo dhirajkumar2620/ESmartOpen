@@ -57,7 +57,6 @@ namespace ESmartDr.Controllers
                 {
                     Session["HinTime2"] = " ";
                 }
-                Session["HoutTime2"] = ad.FirmOutTime1;
                 if (string.IsNullOrEmpty(Session["HoutTime2"] as string))
                 {
                     Session["HoutTime2"] = " ";
