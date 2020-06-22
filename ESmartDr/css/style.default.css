@@ -73,6 +73,23 @@ canvas {
 .login-btn label{
     margin-bottom:0px!important;
 }
+.login-btn input.form-control{
+    border: 1px solid #f5a433;
+}
+.login-btn1 label {
+    margin-bottom: 0px!important;
+}
+.login-btn1 input.form-control{
+    border: 1px solid #25a1a1;
+}
+.login-btn1 .btn {
+    width: 16vh;
+    padding: 9px;
+    border-radius: 25px;
+    background: #ffffff;
+    color: #828282;
+    border-color: #fff;
+}
 
 /*.container-fluid {
   padding: 0 30px;
@@ -467,7 +484,7 @@ nav.side-navbar a .badge {
 }
 
 nav.side-navbar .sidebar-header {
-  padding: 30px 15px 5px;
+    padding: 47px 15px 5px;
 }
 
 nav.side-navbar .avatar {
@@ -819,7 +836,7 @@ nav.navbar .nav-link.language span {
 }
 
 nav.navbar .nav-link.logout i {
-  margin-left: 10px;
+  margin-left: 0px;
 }
 
 nav.navbar .nav-menu {
@@ -1238,11 +1255,45 @@ section.dashboard-counts div[class*='col-']:last-of-type .item {
     width: 150px;
   }
 }
+@media (max-width:320px) {
+     #toggle-btn{
+    float: right!important;
+    margin-top: -2em!important;
+  }
+}
 
 @media (max-width: 480px) {
   .project .project-progress {
     display: none;
   }
+  .clockpicker{
+    margin-bottom: 1.5em;
+  }
+  input[type="file"] {
+    margin-bottom: 1.5em!important;
+}
+  .datepicker{
+      margin-bottom: 1.5em!important;
+  }
+  .mobile-height{
+    line-height: 4em!important;
+  }
+  nav.navbar .nav-link span.badge-corner {
+    position: absolute;
+    top: 17px!important;
+    right: 0;
+    font-weight: 400;
+    font-size: 0.7em;
+}
+ 
+  .grid-btn{
+      float:none!important;
+    text-align: center!important;
+    margin-bottom: 8px!important;
+  }
+  .landing .carousel-item img {
+    height: auto!important;
+}
   .fp-align{
       top:-21px;
       
@@ -3963,6 +4014,11 @@ nav.navbar .menu-btn {
     width: 130px;
   }
 }
+@media only screen and (min-width: 1280px) {
+  .landing .carousel-item img {
+    height: 550px!important;
+}
+}
 
 
 /* landing page css */
@@ -4104,7 +4160,7 @@ padding-left: 0;*/
   border-radius: 24px;
 }
 .landing-tab .nav.nav-pills .nav-item a:hover{
-  color: #f5a433;
+  color: #fff;
 }
 .landing-tab .nav-pills .nav-link.active{
   color: #fff;
@@ -4655,9 +4711,43 @@ legend.custom-border {
   min-width: 50px;
   text-align: center;
 }
+.input-container .form-control{
+    border-top-left-radius:0px!important;
+    border-bottom-left-radius:0px!important;
+}
   .viral-span div{
     margin-bottom:.5em!important;
 }
+  .grid-btn{
+      float:right;
+  }
+  .datepicker table tr td.active.active{
+    background-color: #f5a433!important;
+  }
+  .datepicker table tr td.active{
+    background-image: linear-gradient(to bottom,#f5a433,#f5a433)!important;
+  }
+
+    .datepicker.datepicker-dropdown.dropdown-menu.datepicker-orient-left.datepicker-orient-top{
+    top: 302px;
+    left: 828.328px;
+    z-index: 9999999999!important;
+    display: block;
+  }
+
+  .datepicker td {
+    text-align: center;
+    width: 37px!important;
+    height: 29px!important;
+    border-radius: 4px;
+    border: none;
+}
+  .fp-box{
+    display: block!important;
+    width: 24%;
+    margin: 0 auto;
+  }
+
 
 
 

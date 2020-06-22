@@ -129,7 +129,7 @@
                             </li>
                             <!-- Languages dropdown    -->
                             <!-- Logout    -->
-                            <li class="nav-item"><a href="~/LoginDetails/Index" class="nav-link logout"> <span class="d-none logout d-sm-inline">Logout</span></a></li>
+                            <li class="nav-item"><a href="~/LoginDetails/Index" class="nav-link logout"> <i class="fa fa-sign-out" title="Log Out" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                         </div>
                         <div class="col-md-8">
                             <div class="title">
-                                <h1 class="h4" style="margin-bottom: 0;">@Session["name"].ToString()</h1>
+                                <h1 class="h4" style="margin-bottom: 5px;">@Session["name"].ToString()</h1>
                                 <p>@Session["degree"].ToString()</p>
                                 <p>Reg No:@Session["regNo"].ToString()</p>
                             </div>
@@ -154,7 +154,7 @@
                        
                         <div class="col-md-12" style="margin-top:0.5em">
                             <div class="title" style="margin-left:0px;">
-                                <h4  style="margin-bottom: 0; font-size:1em">@Session["Hname"].ToString()</h4>
+                                <h4  style="margin-bottom: 5px; font-size:1em">@Session["Hname"].ToString()</h4>
                                 <p>@Session["Haddress"].ToString()</p>
                                 <p>@Session["Hnumber"].ToString()</p>
                                 <p>@Session["HinTime1"].ToString() -  @Session["HoutTime1"].ToString()  & @Session["HinTime2"].ToString() -  @Session["HoutTime2"].ToString() </p>
