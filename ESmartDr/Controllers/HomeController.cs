@@ -71,7 +71,7 @@ namespace EsmartDr.Controllers
         }
         public ActionResult Error()
         {
-            return View("Error");
+            return View("LoginDetails");
         }
         public ActionResult MyOPD1()
         {

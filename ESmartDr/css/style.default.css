@@ -4728,7 +4728,7 @@ legend.custom-border {
     background-image: linear-gradient(to bottom,#f5a433,#f5a433)!important;
   }
 
-    .datepicker.datepicker-dropdown.dropdown-menu.datepicker-orient-left.datepicker-orient-top{
+  .datepicker.datepicker-dropdown.dropdown-menu.datepicker-orient-left.datepicker-orient-top{
     top: 302px;
     left: 828.328px;
     z-index: 9999999999!important;
@@ -4747,8 +4747,21 @@ legend.custom-border {
     width: 24%;
     margin: 0 auto;
   }
+  .flipster {
+    width:100%;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: hidden!important;
+    position: relative;
+}
+  .flipster__nav{
+      display:none!important;
+  }
 
-
+  .flipster__item.flipster__item--past flipster__item--past-3{
+    z-index: 6;
+    margin-right: -403px!important;
+  }
 
 
 

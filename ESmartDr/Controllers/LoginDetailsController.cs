@@ -30,6 +30,14 @@ namespace ESmartDr.Controllers
 
             if (ad.UserId.ToString() != null && ad.UserId != 0)
             {
+                if (ad.HospClinicLogo =="")
+                {
+                    Session["LOGO"] = "/img/avatar-1.jpg";
+                }
+                else
+                {
+                    Session["LOGO"] = ad.HospClinicLogo;
+                }
                 Session["UserDetails"] = ad;
                 Session["name"] = ad.FirstName;
                 Session["degree"] = ad.Education;

@@ -22,7 +22,7 @@ namespace App_Layer
         public string EmailId { get; set; }
         public string HostClincName { get; set; }
         public string HospClinicNumber { get; set; }
-        public byte[] HospClinicLogo { get; set; }
+        public string HospClinicLogo { get; set; }
         public string HospClinicAddess { get; set; }
         public string Passwod1 { get; set; }
         public int ReportingTo { get; set; }

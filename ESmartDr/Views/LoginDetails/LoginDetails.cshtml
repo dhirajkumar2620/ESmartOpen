@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="~/css/custom.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="~/img/favicon.ico">
+    <link href="~/css/jquery.flipster.min.css" rel="stylesheet" />
     <!-- Tweaks for older IEs-->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -539,6 +540,43 @@
             </div>
         </div>
     </section>
+    <section>
+        <div class="container-fluid service-bg">
+            <div class="container">
+                <div class="abt-us-heading">
+                    <h1 class="text-center">Our <span class="break-text">App</span></h1>
+                </div>
+                <div class="row doc-images-landing text-center">
+                    <div id="carousel">
+                        <ul class="flip-items">
+                            <li>
+                                <img src="~/img/Capture6.PNG" />
+                            </li>
+                            <li>
+                                <img src="~/img/Capture04.PNG" />
+                            </li>
+                            <li>
+                                <img src="~/img/Capture02.PNG" />
+                            </li>
+                            <li>
+                                <img src="~/img/Capture1.PNG" />
+                            </li>
+                            <li>
+                                <img src="~/img/Capture03.PNG" />
+                            </li>
+                            <li>
+                                <img src="~/img/Capture05.PNG" />
+                            </li>
+                            <li>
+                                <img src="~/img/Capture7.PNG" />
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="touch-section">
         <div class="container">
             <div class="row landing-touch">
@@ -647,6 +685,7 @@
     <script src="~/vendor/jquery-validation/jquery.validate.min.js"></script>
     <!-- Main File-->
     <script src="~/js/front.js"></script>
+    <script src="~/js/jquery.flipster.min.js"></script>
 
     <script>
         $('.click-to-reg').click(function () {
@@ -778,6 +817,14 @@
 
             $(this).prev().attr('type', function (index, attr) { return attr == 'password' ? 'text' : 'password'; });
 
+        });
+
+
+        $("#carousel").flipster({
+            style: 'carousel',
+            spacing: -0.5,
+            nav: true,
+            buttons: true,
         });
     </script>
 </body>

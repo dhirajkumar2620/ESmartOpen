@@ -35,7 +35,7 @@ namespace ESmartDr.Controllers
             {
                 List<AdminDetails> LST = new List<AdminDetails>();
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-                if (admObj.ParentId ==0)
+                if (admObj.ParentId == 0)
                 {
                     CardDetails(admObj.HospitalId);
 
@@ -104,24 +104,35 @@ namespace ESmartDr.Controllers
                 throw;
             }
         }
-        public ActionResult ManageAdminDetails(AdminDetails AD)
+        public ActionResult ManageAdminDetails(AdminDetails AD, HttpPostedFileBase imgfile)
         {
             try
             {
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-               
+
                 AD.ParentId = admObj.UserId;
                 AD.ReportingTo = admObj.UserId;
                 AD.HospitalId = admObj.HospitalId;
-                AD.AlphanumericPrefix = AD.AlphanumericPrefix.Trim();
-                int Flag = BP.ManagePatientDetails(AD);
-                if (Flag !=1)
+                AD.AlphanumericPrefix = AD.AlphanumericPrefix.TrimEnd();
+
+                string path = UplodaImage(imgfile);
+                if (path == "-1")
                 {
-                    return View();
+                 
                 }
+                else
+                {
+                    AD.HospClinicLogo = path; 
+                    int Flag = BP.ManagePatientDetails(AD);
+                    if (Flag != 1)
+                    {
+                        return View();
+                    }
+                }
+               
                 List<AdminDetails> LST = new List<AdminDetails>();
                 LST = BP.GetAllAdminDetails_SA(admObj.HospitalId);
-                if (AD.UserId ==0)
+                if (AD.UserId == 0)
                 {
 
                     var RegNo = LST.Where(x
@@ -135,10 +146,10 @@ namespace ESmartDr.Controllers
                              .FirstOrDefault();
 
                     SMS sms = new SMS();
-                    string message = "Dear "+AD.FirstName+", You are added to eSmartDoctor,Your Reg No is ESD "+ RegNo + " Download eSmartDoctor app to manage your Firm - http://bit.ly/2RGTEHTR ";
+                    string message = "Dear " + AD.FirstName + ", You are added to eSmartDoctor,Your Reg No is ESD " + RegNo + " Download eSmartDoctor app to manage your Firm - http://bit.ly/2RGTEHTR ";
                     sms.SendSMS(AD.WhatsAppNumber, message);
                 }
-                
+
                 CardDetails(admObj.HospitalId);
                 return View("AllAdmin", LST);
             }
@@ -166,11 +177,11 @@ namespace ESmartDr.Controllers
             }
         }
 
-       
+
         public void DownloadExcel()
         {
             List<AdminDetails> LST = new List<AdminDetails>();
-          
+
 
             var collection = BP.GetAllAdminDetails();
 
@@ -261,6 +272,45 @@ namespace ESmartDr.Controllers
             }
         }
 
+
+        public string UplodaImage(HttpPostedFileBase file)
+        {
+            AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+            Random r = new Random();
+            string path = "-1";
+            int random = r.Next();
+            if (file != null && file.ContentLength > 0)
+            {
+                string extension = Path.GetExtension(file.FileName);
+                if (extension.ToUpper().Equals(".JPG") || extension.ToUpper().Equals(".JPEG") || extension.ToUpper().Equals(".PNG"))
+                {
+                    try
+                    {
+                        if (Path.GetFileName(file.FileName) == admObj.WhatsAppNumber + extension)
+                        {
+                            path = Path.Combine(Server.MapPath("~/img/"), Path.GetFileName(file.FileName));
+                            file.SaveAs(path);
+                            path = "/img/" + Path.GetFileName(file.FileName);
+                        }
+                        else
+                        {
+                            path = "-1";
+                        }
+                    
+                    }
+                    catch (Exception ex)
+                    {
+                        path = "-1";
+                    }
+
+                }
+                else
+                {
+                    path = "-1";
+                }
+            }
+            return path;
+        }
     }
 }
 

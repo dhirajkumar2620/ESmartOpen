@@ -240,6 +240,7 @@
     <Content Include="css\custom.css" />
     <Content Include="css\datepicker.css" />
     <Content Include="css\fontastic.css" />
+    <Content Include="css\jquery.flipster.min.css" />
     <Content Include="css\jquery.simpleDatepicker.css" />
     <Content Include="css\style.blue.css" />
     <Content Include="css\style.default.css" />
@@ -259,6 +260,13 @@
     <Content Include="img\avatar-1.jpg" />
     <Content Include="img\banner_img.png" />
     <Content Include="img\bg-img.jpg" />
+    <Content Include="img\Capture02.PNG" />
+    <Content Include="img\Capture03.PNG" />
+    <Content Include="img\Capture04.PNG" />
+    <Content Include="img\Capture05.PNG" />
+    <Content Include="img\Capture1.PNG" />
+    <Content Include="img\Capture6.PNG" />
+    <Content Include="img\Capture7.PNG" />
     <Content Include="img\dept-1.jpg" />
     <Content Include="img\doc-1.jpg" />
     <Content Include="img\doc-2.jpg" />
@@ -286,6 +294,7 @@
     <Content Include="js\day.js" />
     <Content Include="js\front.js" />
     <Content Include="js\iconfont.js" />
+    <Content Include="js\jquery.flipster.min.js" />
     <Content Include="js\jquery.simpleDatepicker.js" />
     <Content Include="js\month.js" />
     <Content Include="js\Notifier.min.js" />
