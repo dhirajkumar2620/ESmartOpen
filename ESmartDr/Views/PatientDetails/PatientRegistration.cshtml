@@ -74,7 +74,7 @@
                                             <div class="form-group">
                                                 <label class="form-control-label">Date of Birth</label>
                                                 <div class="input-group date" data-provide="datepicker">
-                                                    @Html.TextBoxFor(m => m.DOB, new { @id = "txtDOB", @type = "text", @class = "form-control datepicker", @onkeypress = "return isNumber(event)", @placeholder = "eg. dd/mm/yyyy" })
+                                                    @Html.TextBoxFor(m => m.DOB, new { @id = "txtDOB", @type = "text", @class = "form-control datepicker",@placeholder = "eg. dd/mm/yyyy" })
                                                     @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
@@ -170,7 +170,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Case Paper Fees</label>
-                                                @Html.TextBoxFor(m => m.CasePaperFees, new { @id = "txtCasePaperFees", @text = "0", @class = "form-control", @maxlength = "5", @placeholder = "eg. 100" })
+                                                @Html.TextBoxFor(m => m.CasePaperFees, new { @id = "txtCasePaperFees", @class = "form-control", @maxlength = "5", @placeholder = "eg. 100" })
                                                 @Html.ValidationMessageFor(model => model.CasePaperFees, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -178,7 +178,7 @@
                                             <div class="form-group">
                                                 <label class="form-control-label">CP Expiry Date</label>
                                                 <div class="input-group date" data-provide="datepicker">
-                                                    @Html.TextBoxFor(m => m.CpExpiryDate, new { @id = "txtMediclaimCompanyName", @type = "text", @class = "form-control datepicker", @onkeypress = "return isNumber(event)", @placeholder = "eg. dd/mm/yyyy" })
+                                                    @Html.TextBoxFor(m => m.CpExpiryDate, new { @id = "txtMediclaimCompanyName", @type = "text", @class = "form-control datepicker", @placeholder = "eg. dd/mm/yyyy" })
                                                     @Html.ValidationMessageFor(model => model.CpExpiryDate, "", new { @class = "text-danger" })
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-table page-date-icon" aria-hidden="true"></i>

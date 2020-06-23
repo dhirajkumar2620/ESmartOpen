@@ -57,9 +57,21 @@ namespace ESmartDr.Controllers
                 {
                     Session["HinTime2"] = " ";
                 }
+                else
+                {
+                    string str = Session["HinTime2"].ToString();
+                    str = " & "+ str + "";
+                    Session["HinTime2"] = str;
+                }
                 if (string.IsNullOrEmpty(Session["HoutTime2"] as string))
                 {
                     Session["HoutTime2"] = " ";
+                }
+                else
+                {
+                    string str2 = Session["HoutTime2"].ToString();
+                    str2 = " - " + str2 + "";
+                    Session["HoutTime2"] = str2;
                 }
                 Session["Holiday"] = ad.Holiday;
                 if (string.IsNullOrEmpty(Session["Holiday"] as string))

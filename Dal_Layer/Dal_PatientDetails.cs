@@ -22,11 +22,20 @@ namespace Dal_Layer
                 sqlparam[1] = new SqlParameter("@PatientName", PD.PatientName);
                 sqlparam[2] = new SqlParameter("@Gender", PD.Gender);
                 sqlparam[3] = new SqlParameter("@DOB", PD.DOB);
+                //if (PD.DOB.ToString() == "1/1/0001 12:00:00 AM")
+                //{
+                //    PD.DOB = "01/01/9999";
+                //    sqlparam[3] = new SqlParameter("@DOB", PD.DOB);
+                //}
+                //else
+                //{
+                   
+                //}
                 sqlparam[4] = new SqlParameter("@Age", PD.Age);
                 sqlparam[5] = new SqlParameter("@MaritalStatus", PD.MaritalStatus);
                 sqlparam[6] = new SqlParameter("@BloodGroup", PD.BloodGroup);
                 sqlparam[7] = new SqlParameter("@WhatsAppNo", PD.WhatsAppNo);
-                sqlparam[8] = new SqlParameter("@OtherNo", PD.WhatsAppNo);
+                sqlparam[8] = new SqlParameter("@OtherNo", PD.OtherNo);
                 sqlparam[9] = new SqlParameter("@EmailId", PD.EmailId);
                 sqlparam[10] = new SqlParameter("@Address", PD.Address);
                 sqlparam[11] = new SqlParameter("@ReferedByDoctor", PD.ReferedByDoctor);
@@ -48,7 +57,16 @@ namespace Dal_Layer
                 sqlparam[20] = new SqlParameter("@CasePapaerNo", PD.CasePapaerNo);
                 sqlparam[21] = new SqlParameter("@IsActive", 1);
                 sqlparam[22] = new SqlParameter("@HospitlName", PD.HospitalName);
-                sqlparam[23] = new SqlParameter("@CpExpiryDate", PD.CpExpiryDate); 
+               
+                if (PD.CpExpiryDate.ToString() == "1/1/0001 12:00:00 AM")
+                {
+                    PD.CpExpiryDate = Convert.ToDateTime("01/01/9999");
+                    sqlparam[23] = new SqlParameter("@CpExpiryDate", PD.CpExpiryDate);
+                }
+                else
+                {
+                    sqlparam[23] = new SqlParameter("@CpExpiryDate", PD.CpExpiryDate);
+                }
                 return CommonFunction.Save("USP_ManagePatientDetails", sqlparam, "");
             }
             catch (Exception)
