@@ -73,5 +73,9 @@ namespace EsmartDr.Controllers
         {
             return View("Error");
         }
+        public ActionResult MyOPD1()
+        {
+            return View("MyOPD1");
+        }
     }
 }

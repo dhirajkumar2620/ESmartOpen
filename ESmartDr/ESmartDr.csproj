@@ -218,7 +218,9 @@
     <Compile Include="Controllers\LoginDetailsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MedicineDetailsController.cs" />
+    <Compile Include="Controllers\MyOPDController.cs" />
     <Compile Include="Controllers\PatientDetailsController.cs" />
+    <Compile Include="Controllers\PrescriptionController.cs" />
     <Compile Include="Controllers\StaffDetailsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -556,6 +558,14 @@
     <Content Include="Views\PatientDetails\PatientAppoinment.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\AccountDetails\AccountDetails.cshtml" />
+    <Content Include="Views\MyOPD\LifeStyle.cshtml" />
+    <Content Include="Views\MyOPD\MedicalInformation.cshtml" />
+    <Content Include="Views\MyOPD\Observation.cshtml" />
+    <Content Include="Views\MyOPD\PatientDetails.cshtml" />
+    <Content Include="Views\MyOPD\PrecCommon.cshtml" />
+    <Content Include="Views\MyOPD\PrecMedication.cshtml" />
+    <Content Include="Views\MyOPD\Prescription.cshtml" />
+    <Content Include="Views\MyOPD\VitalInformation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

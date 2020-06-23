@@ -1,0 +1,146 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<div class="bs-example">
+    <div class="accordion" id="accordionExample1">
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        Prescription For :
+                    </li>
+                    <li class="list-inline-item">
+                        <input type="date" class="form-control" />
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <input type="button" value="Copy Previous" class="btn btn_1 btn-primary pull-right">
+            </div>
+        </div>
+        <div class="second-tab">
+            <div class="card">
+
+                <div class="card-header" id="headingFour">
+                    <h2 class="mb-0">
+                        <button type="button" class="btn btn-link" id="btnObservation"  data-toggle="collapse" data-target="#collapseFour" data-request-url="@Url.Action("PrecObservation", "MyOPD")"><i class="fa fa-plus"></i> <span class="accor-heading">Observation</span></button>
+                    </h2>
+                </div>
+                <div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#accordionExample1">
+                    <div id="tabObservation"></div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingFive">
+                    <h2 class="mb-0">
+                        <button type="button" class="btn btn-link collapsed" id="btnMedication" data-toggle="collapse" data-request-url="@Url.Action("MedicationPrec", "MyOPD")" data-target="#collapseFive"><i class="fa fa-plus"></i> <span class="accor-heading">Medication</span></button>
+                    </h2>
+                </div>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample1">
+                    <div id="tabMedication"></div>
+                </div>
+               
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingSix">
+                    <h2 class="mb-0">
+                        <button type="button" id="btnCommon" class="btn btn-link collapsed" data-toggle="collapse" data-request-url="@Url.Action("MedicationPrec", "MyOPD")" data-target="#collapseSix"><i class="fa fa-plus"></i> <span class="accor-heading">Common</span></button>
+                    </h2>
+                </div>
+                <div id="collapseSix" class="collapse" aria-labelledby="collapseSix" data-parent="#accordionExample1">
+                    <div id="tabCommon"></div>
+                </div>
+            </div>
+         
+        </div>
+    </div>
+</div>
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    //$(".nav-tabs li").removeClass("active"); btnInvestigation
+    $("#btnObservation").on('click', function () {
+        var url = $(this).data('request-url');
+       
+        $("#tabObservation").load(url);
+    });
+    $("#btnMedication").on('click', function () {
+        var url = $(this).data('request-url');
+    
+        $("#tabMedication").load(url);
+    });
+    $("#btnCommon").on('click', function () {
+        var url = $(this).data('request-url');
+
+        $("#tabCommon").load(url);
+    });
+</script>
+<script>
+
+    $('.opd-table .add-row').click(function () {
+        $('.opd-table .table').append('<tr><td contenteditable="true">001</td><td contenteditable="true">Fever</td><td contenteditable="true">2 Week</td><td><ul class="list-inline"><li class="list-inline-item" title="Edit"><i class="fa fa-times"  onclick="SomeDeleteRowFunction(this);" aria-hidden="true"></i></li></ul></td></tr>');
+    });
+
+
+    $('.opd-table1 .add-row-billing').click(function () {
+        $('.opd-table1 .table').append('<tr><td>1</td><td contenteditable="true">Fever</td><td contenteditable="true">1000</td><td contenteditable="true">Paid</td><td contenteditable="true">0</td><td><ul class="list-inline"><li class="list-inline-item" title="Edit"><i class="fa fa-times add-row-billing" onclick="SomeDeleteRowFunction(this);" aria-hidden="true"></i></li></ul></td></tr>');
+    });
+
+    function SomeDeleteRowFunction(btndel) {
+        if (typeof (btndel) == "object") {
+            $(btndel).closest("tr").remove();
+        } else {
+            return false;
+        }
+    }
+
+    function SomeDeleteRowFunction1(btndel) {
+        if (typeof (btndel) == "object") {
+            $(btndel).closest("tr").remove();
+        } else {
+            return false;
+        }
+    }
+
+
+   
+
+
+
+    $(document).ready(function () {
+        // Add minus icon for collapse element which is open by default
+        $(".collapse.show").each(function () {
+            $(this).prev(".card-header").find(".fa").addClass("fa-minus").removeClass("fa-plus");
+        });
+
+        // Toggle plus minus icon on show hide of collapse element
+        $(".collapse").on('show.bs.collapse', function () {
+            $(this).prev(".card-header").find(".fa").removeClass("fa-plus").addClass("fa-minus");
+        }).on('hide.bs.collapse', function () {
+            $(this).prev(".card-header").find(".fa").removeClass("fa-minus").addClass("fa-plus");
+        });
+
+
+    });
+
+
+
+    $('#r1').click(function () {
+        $('.refe-letr').css("display", "block");
+        $('.fitn-cert').css("display", "none");
+        $('.medicl-cert').css("display", "none");
+    });
+    $('#r2').click(function () {
+        $('.refe-letr').css("display", "none");
+        $('.fitn-cert').css("display", "block");
+        $('.medicl-cert').css("display", "none");
+    });
+    $('#r3').click(function () {
+        $('.refe-letr').css("display", "none");
+        $('.fitn-cert').css("display", "none");
+        $('.medicl-cert').css("display", "block");
+    });
+</script>

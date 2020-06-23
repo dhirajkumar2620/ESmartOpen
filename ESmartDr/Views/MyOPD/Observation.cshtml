@@ -1,0 +1,176 @@
+﻿@model App_Layer.Observation
+@{
+    Layout = null;
+}
+
+
+<div class="card-body">
+    @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmObservationDetails" }))
+    {
+        @Html.HiddenFor(m => m.Id, new { @id = "hdnId" });
+        <form>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Complaints
+                        </label>
+                        @Html.TextBoxFor(m => m.Complaints, new { @id = "txtComplaints", @class = "form-control", required = "required", @placeholder = "Complaints" })
+                        @Html.ValidationMessageFor(model => model.Complaints, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Since
+                        </label>
+                        @Html.TextBoxFor(m => m.Since, new { @id = "txtSince", @class = "form-control", required = "required", @placeholder = "Since" })
+                        @Html.ValidationMessageFor(model => model.Since, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Period
+                        </label>
+                        @Html.TextBoxFor(m => m.Period, new { @id = "txtPeriod", @class = "form-control", required = "required", @placeholder = "Period" })
+                        @Html.ValidationMessageFor(model => model.Period, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Physical Examination / Observation
+                        </label>
+                        @Html.TextBoxFor(m => m.PhysicalExamination, new { @id = "txtPhysicalExamination", @class = "form-control", required = "required", @placeholder = "Physical Examination / Observation" })
+                        @Html.ValidationMessageFor(model => model.PhysicalExamination, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Diagnosis
+                        </label>
+                        @Html.TextBoxFor(m => m.Diagnosis, new { @id = "txtDiagnosis", @class = "form-control", required = "required", @placeholder = "Diagnosis" })
+                        @Html.ValidationMessageFor(model => model.Diagnosis, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <button type="button" onclick="SubmitObservationDetails()" class="btn btn_1 btn-primary" id="btnSave">Save</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    }
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive opd-table">
+                        <table class="table" id="tblObservation">
+                            <thead>
+                                <tr>
+                                    <th hidden>Id</th>
+                                    <th>Complaints</th>
+                                    <th>Since</th>
+                                    <th>Period</th>
+                                    <th>Physical Exam./Observation</th>
+                                    <th>Diagnosis</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.lst)
+
+                                {
+
+
+                                <tr>
+                                    <td hidden>@item.Id</td>
+                                    <td>@item.Complaints</td>
+                                    <td>@item.Since</td>
+                                    <td>@item.Period</td>
+                                    <td>@item.PhysicalExamination</td>
+                                    <td>@item.Diagnosis</td>
+                                    <td>
+                                        
+                                  <i class="fa fa-plus add-row" aria-hidden="true"></i>
+                                            
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    
+     function SubmitObservationDetails() {
+         
+         var form = $('#frmObservationDetails')[0];
+         
+            var fromData = new FormData(form);
+            var urllink = '@Url.Content("~/Prescription/ManageObservation")'
+            $.ajax({
+                type: "post",
+                url: urllink,
+                data: fromData,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    //location.reload();
+                    
+                    //$("#btnObservation").click();
+                    //$("#collapseFour").addClass("active");
+                    $('#tblObservation tbody').empty();
+                    var trHTML = '';
+                    $.each(data, function (i, item) {
+                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.Complaints + '</td><td>' + item.Since + '</td><td>' + item.Period + '</td><td>' + item.PhysicalExamination + '</td><td>' + item.Diagnosis + '</td><td><i class="fa fa-plus add-row" onclick=EditPICDetails(this) aria-hidden="true"></i></td></tr>';
+                    });
+                    $('#tblObservation tbody').append(trHTML)
+                    $("#hdnId").val('0');
+                    $("#txtComplaints").val('');
+                    $("#txtSince").val('');
+                    $("#txtPeriod").val('');
+                    $("#txtPhysicalExamination").val('');
+                    $("#txtDiagnosis").val('');
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                }
+         })
+
+    }
+    $(".add-row").on("click", function () {
+        
+               var obj = $(this).parents("tr")
+                $("#hdnId").val(obj.find('td')[0].innerHTML);
+                $("#txtComplaints").val(obj.find('td')[1].innerHTML);
+                $("#txtSince").val(obj.find('td')[2].innerHTML);
+                $("#txtPeriod").val(obj.find('td')[3].innerHTML);
+                $("#txtPhysicalExamination").val(obj.find('td')[4].innerHTML);
+                $("#txtDiagnosis").val(obj.find('td')[5].innerHTML);
+
+    });
+    function EditPICDetails(this1) {
+        var obj = $(this1).parents("tr")
+        $("#hdnId").val(obj.find('td')[0].innerHTML);
+        $("#txtComplaints").val(obj.find('td')[1].innerHTML);
+        $("#txtSince").val(obj.find('td')[2].innerHTML);
+        $("#txtPeriod").val(obj.find('td')[3].innerHTML);
+        $("#txtPhysicalExamination").val(obj.find('td')[4].innerHTML);
+        $("#txtDiagnosis").val(obj.find('td')[5].innerHTML);
+    }
+   
+</script>
+

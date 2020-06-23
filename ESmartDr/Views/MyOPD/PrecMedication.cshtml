@@ -1,0 +1,204 @@
+﻿@model App_Layer.Medication
+@{
+    Layout = null;
+}
+<div class="card-body">
+    @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmPrecMedication" }))
+    {
+        @Html.HiddenFor(m => m.Id, new { @id = "hdnId" });
+        <form>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Medicine Name
+                        </label>
+                        @Html.TextBoxFor(m => m.MedicineName, new { @id = "txtMedicineName", @class = "form-control", required = "required", @placeholder = "Medicine Name" })
+                        @Html.ValidationMessageFor(model => model.MedicineName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            When
+                        </label>
+                        @Html.TextBoxFor(m => m.WhenMedicine, new { @id = "txtWhenMedicine", @class = "form-control", required = "required", @placeholder = "When Medicine" })
+                        @Html.ValidationMessageFor(model => model.WhenMedicine, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Repeat<span class="star">*</span>
+                        </label>
+                        @Html.DropDownListFor(m => m.RepeatMedicine, new List<SelectListItem>
+                                                   {
+
+                                                       new SelectListItem{ Text="A", Value = "A" },
+                                                       new SelectListItem{ Text="B", Value = "B" },
+                                                        new SelectListItem{ Text="C", Value = "C" },
+                                                    }, new { @class = "form-control mb-3", @id = "ddlRepeatMedicine" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            For
+                        </label>
+                        @Html.TextBoxFor(m => m.ForMedicine, new { @id = "txtForMedicine", @class = "form-control", required = "required", @placeholder = "For Medicine" })
+                        @Html.ValidationMessageFor(model => model.ForMedicine, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Days<span class="star">*</span>
+                        </label>
+                        @Html.DropDownListFor(m => m.MedicineDays, new List<SelectListItem>
+                               {
+
+                                   new SelectListItem{ Text="A", Value = "A" },
+                                   new SelectListItem{ Text="B", Value = "B" },
+                                    new SelectListItem{ Text="C", Value = "C" },
+                                }, new { @class = "form-control mb-3", @id = "ddlMedicineDays" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Special Instruction<span class="star">*</span>
+                        </label>
+                        @Html.TextBoxFor(m => m.SpecialInstruction, new { @id = "txtSpecialInstruction", @class = "form-control", required = "required", @placeholder = "Special Instruction" })
+                        @Html.ValidationMessageFor(model => model.SpecialInstruction, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Alternate Medicine
+                        </label>
+                        @Html.TextBoxFor(m => m.AlternateMedicine, new { @id = "txtAlternateMedicine", @class = "form-control", required = "required", @placeholder = "Alternate Medicine" })
+                        @Html.ValidationMessageFor(model => model.AlternateMedicine, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group" style="margin-top: 10%;">
+                        <button type="button" class="btn btn_1 btn-primary" onclick="SubmitObservationDetails()" id="tostr-save5">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    }
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive opd-table">
+                        <table class="table" id="tblprecMedication">
+                            <thead>
+                                <tr>
+                                    <th hidden>Id</th>
+                                    <th>Medicine Name</th>
+                                    <th>When</th>
+                                    <th>Repeat</th>
+                                    <th>For</th>
+                                    <th>Days</th>
+                                    <th>Special Instruction</th>
+                                    <th>Alternate Medicine</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.lst != null)
+                                {
+                                    foreach (var item in Model.lst)
+                                    {
+                                        <tr>
+                                            <td hidden>@item.Id</td>
+                                            <td>@item.MedicineName</td>
+                                            <td>@item.WhenMedicine</td>
+                                            <td>@item.RepeatMedicine</td>
+                                            <td>@item.ForMedicine</td>
+                                            <td>@item.MedicineDays</td>
+                                            <td>@item.SpecialInstruction</td>
+                                            <td>@item.AlternateMedicine</td>
+                                            <td>
+                                                <i class="fa fa-plus add-row" aria-hidden="true"></i>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+         function SubmitObservationDetails() {
+
+             var form = $('#frmPrecMedication')[0];
+
+            var fromData = new FormData(form);
+            var urllink = '@Url.Content("~/Prescription/ManageMedication")'
+
+            $.ajax({
+                type: "post",
+                url: urllink,
+                data: fromData,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    $('#tblprecMedication tbody').empty();
+                    var trHTML = '';
+                    $.each(data, function (i, item) {
+                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.MedicineName + '</td><td>' + item.WhenMedicine + '</td><td>' + item.RepeatMedicine + '</td><td>' + item.ForMedicine + '</td><td>' + item.MedicineDays + '</td><td>' + item.SpecialInstruction + '</td><td>' + item.AlternateMedicine + '</td><td><i class="fa fa-plus add-row" onclick=EditDetails(this) aria-hidden="true"></i></td></tr>';
+                    });
+                    $('#tblprecMedication tbody').append(trHTML)
+                    $("#hdnId").val('0');
+                    $("#txtMedicineName").val('');
+                    $("#txtWhenMedicine").val('');
+                    $("#txtRepeatMedicine").val('');
+                    $("#txtForMedicine").val('');
+                    $("#txtMedicineDays").val('');
+                    $("#txtSpecialInstruction").val('');
+                    $("#txtAlternateMedicine").val('');
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                }
+         })
+
+    }
+    $(".add-row").on("click", function () {
+
+         var obj = $(this).parents("tr")
+        $("#hdnId").val(obj.find('td')[0].innerHTML);
+        $("#txtMedicineName").val(obj.find('td')[1].innerHTML);
+        $("#txtWhenMedicine").val(obj.find('td')[2].innerHTML);
+        $("#txtRepeatMedicine").val(obj.find('td')[3].innerHTML);
+        $("#txtForMedicine").val(obj.find('td')[4].innerHTML);
+        $("#txtMedicineDays").val(obj.find('td')[5].innerHTML);
+        $("#txtSpecialInstruction").val(obj.find('td')[6].innerHTML);
+        $("#txtAlternateMedicine").val(obj.find('td')[7].innerHTML);
+
+    });
+    function EditDetails(this1) {
+        var obj = $(this1).parents("tr")
+        $("#hdnId").val(obj.find('td')[0].innerHTML);
+        $("#txtMedicineName").val(obj.find('td')[1].innerHTML);
+        $("#txtWhenMedicine").val(obj.find('td')[2].innerHTML);
+        $("#txtRepeatMedicine").val(obj.find('td')[3].innerHTML);
+        $("#txtForMedicine").val(obj.find('td')[4].innerHTML);
+        $("#txtMedicineDays").val(obj.find('td')[5].innerHTML);
+        $("#txtSpecialInstruction").val(obj.find('td')[6].innerHTML);
+        $("#txtAlternateMedicine").val(obj.find('td')[7].innerHTML);
+    }
+    </script>
+</div>
