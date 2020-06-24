@@ -13,7 +13,7 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="form-control-label">
-                            Complaints
+                            Complaints<span class="star">*</span>
                         </label>
                         @Html.TextBoxFor(m => m.Complaints, new { @id = "txtComplaints", @class = "form-control", required = "required", @placeholder = "Complaints" })
                         @Html.ValidationMessageFor(model => model.Complaints, "", new { @class = "text-danger" })
@@ -22,19 +22,24 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="form-control-label">
-                            Since
+                            Since<span class="star">*</span>
                         </label>
-                        @Html.TextBoxFor(m => m.Since, new { @id = "txtSince", @class = "form-control", required = "required", @placeholder = "Since" })
+                        @Html.TextBoxFor(m => m.Since, new { @id = "txtSince",@type="number", @class = "form-control", required = "required", @placeholder = "Since" })
                         @Html.ValidationMessageFor(model => model.Since, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="form-control-label">
-                            Period
+                            Period<span class="star">*</span>
                         </label>
-                        @Html.TextBoxFor(m => m.Period, new { @id = "txtPeriod", @class = "form-control", required = "required", @placeholder = "Period" })
-                        @Html.ValidationMessageFor(model => model.Period, "", new { @class = "text-danger" })
+                        @Html.DropDownListFor(m => m.Period, new List<SelectListItem>
+                                                     {
+                                                         new SelectListItem{ Text="Days", Value = "Days" },
+                                                         new SelectListItem{ Text="Weeks", Value = "Weeks" },
+                                                          new SelectListItem{ Text="Months", Value = "Months" },
+                                                          new SelectListItem{ Text="Years", Value = "Years" },
+                                                      }, new { @class = "form-control mb-3", @id = "dlPeriod" })
                     </div>
                 </div>
             </div>

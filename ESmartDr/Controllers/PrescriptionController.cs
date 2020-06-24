@@ -54,5 +54,24 @@ namespace ESmartDr.Controllers
                 return Json("", JsonRequestBehavior.AllowGet);
             }
         }
+
+        [HttpPost]
+        public ActionResult ManagePrecCommonDetails(Common co)
+        {
+            ModelState.Clear();
+            int Flag = BM.ManagePrecCommonDetails(co);
+            if (Flag > 0)
+            {
+                Common ob = new Common();
+                List<Common> lstObservation = new List<Common>();
+                ob = BM.GetCommonDetails();
+                lstObservation = ob.lst;
+                return Json(lstObservation, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@
                 <div class="col-md-7">
                     <div class="form-group">
                         <label class="form-control-label">
-                            Medicine Name
+                            Medicine Name<span class="star">*</span>
                         </label>
                         @Html.TextBoxFor(m => m.MedicineName, new { @id = "txtMedicineName", @class = "form-control", required = "required", @placeholder = "Medicine Name" })
                         @Html.ValidationMessageFor(model => model.MedicineName, "", new { @class = "text-danger" })
@@ -20,10 +20,20 @@
                 <div class="col-md-5">
                     <div class="form-group">
                         <label class="form-control-label">
-                            When
+                            When<span class="star">*</span>
                         </label>
-                        @Html.TextBoxFor(m => m.WhenMedicine, new { @id = "txtWhenMedicine", @class = "form-control", required = "required", @placeholder = "When Medicine" })
-                        @Html.ValidationMessageFor(model => model.WhenMedicine, "", new { @class = "text-danger" })
+                        @Html.DropDownListFor(m => m.WhenMedicine, new List<SelectListItem>
+                            {
+
+                            new SelectListItem{ Text="Morning", Value = "Morning" },
+                            new SelectListItem{ Text="Afternoon", Value = "Afternoon" },
+                            new SelectListItem{ Text="2 Times a days", Value = "2" },
+                            new SelectListItem{ Text="3 Times a days", Value = "3" },
+                            new SelectListItem{ Text="4 Times a days", Value = "4" },
+                            new SelectListItem{ Text="5 Times a days", Value = "5" },
+                            new SelectListItem{ Text="6 Times a days", Value = "SOS" },
+                            new SelectListItem{ Text="SOS", Value = "Night" },
+                            }, new { @class = "form-control mb-3", @id = "ddlWhenMedicine" })
                     </div>
                 </div>
             </div>
@@ -34,20 +44,20 @@
                             Repeat<span class="star">*</span>
                         </label>
                         @Html.DropDownListFor(m => m.RepeatMedicine, new List<SelectListItem>
-                                                   {
-
-                                                       new SelectListItem{ Text="A", Value = "A" },
-                                                       new SelectListItem{ Text="B", Value = "B" },
-                                                        new SelectListItem{ Text="C", Value = "C" },
-                                                    }, new { @class = "form-control mb-3", @id = "ddlRepeatMedicine" })
+                                                     {
+                                                         new SelectListItem{ Text="Daily", Value = "Daily" },
+                                                         new SelectListItem{ Text="Weekly", Value = "Weekly" },
+                                                          new SelectListItem{ Text="Monthy", Value = "Monthy" },
+                                                          new SelectListItem{ Text="Yearly", Value = "Yearly" },
+                                                      }, new { @class = "form-control mb-3", @id = "ddlRepeatMedicine" })
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="form-control-label">
-                            For
+                            For<span class="star">*</span>
                         </label>
-                        @Html.TextBoxFor(m => m.ForMedicine, new { @id = "txtForMedicine", @class = "form-control", required = "required", @placeholder = "For Medicine" })
+                        @Html.TextBoxFor(m => m.ForMedicine, new { @id = "txtForMedicine",@type="number", @class = "form-control", required = "required", @placeholder = "For Medicine" })
                         @Html.ValidationMessageFor(model => model.ForMedicine, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -59,10 +69,11 @@
                         @Html.DropDownListFor(m => m.MedicineDays, new List<SelectListItem>
                                {
 
-                                   new SelectListItem{ Text="A", Value = "A" },
-                                   new SelectListItem{ Text="B", Value = "B" },
-                                    new SelectListItem{ Text="C", Value = "C" },
-                                }, new { @class = "form-control mb-3", @id = "ddlMedicineDays" })
+                                   new SelectListItem{ Text="Day", Value = "Day" },
+                                   new SelectListItem{ Text="Week", Value = "Week" },
+                                    new SelectListItem{ Text="Month", Value = "Month" },
+                                    new SelectListItem{ Text="Year", Value = "Year" },
+                                }, new { @class = "form-control mb-3", @id = "MedicineDays" })
                     </div>
                 </div>
             </div>
@@ -72,8 +83,14 @@
                         <label class="form-control-label">
                             Special Instruction<span class="star">*</span>
                         </label>
-                        @Html.TextBoxFor(m => m.SpecialInstruction, new { @id = "txtSpecialInstruction", @class = "form-control", required = "required", @placeholder = "Special Instruction" })
-                        @Html.ValidationMessageFor(model => model.SpecialInstruction, "", new { @class = "text-danger" })
+                        @Html.DropDownListFor(m => m.SpecialInstruction, new List<SelectListItem>
+                               {
+
+                                   new SelectListItem{ Text="After Food", Value = "After" },
+                                   new SelectListItem{ Text="Before Food", Value = "Before" },
+                                    new SelectListItem{ Text="With Food", Value = "With" },
+                                    new SelectListItem{ Text="Year", Value = "Year" },
+                                }, new { @class = "form-control mb-3", @id = "ddlSpecialInstruction" })
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -141,9 +158,9 @@
         </div>
     </div>
     <script>
-         function SubmitObservationDetails() {
+        function SubmitObservationDetails() {
 
-             var form = $('#frmPrecMedication')[0];
+            var form = $('#frmPrecMedication')[0];
 
             var fromData = new FormData(form);
             var urllink = '@Url.Content("~/Prescription/ManageMedication")'
@@ -173,32 +190,32 @@
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log(errorThrown);
                 }
-         })
+            })
 
-    }
-    $(".add-row").on("click", function () {
+        }
+        $(".add-row").on("click", function () {
 
-         var obj = $(this).parents("tr")
-        $("#hdnId").val(obj.find('td')[0].innerHTML);
-        $("#txtMedicineName").val(obj.find('td')[1].innerHTML);
-        $("#txtWhenMedicine").val(obj.find('td')[2].innerHTML);
-        $("#txtRepeatMedicine").val(obj.find('td')[3].innerHTML);
-        $("#txtForMedicine").val(obj.find('td')[4].innerHTML);
-        $("#txtMedicineDays").val(obj.find('td')[5].innerHTML);
-        $("#txtSpecialInstruction").val(obj.find('td')[6].innerHTML);
-        $("#txtAlternateMedicine").val(obj.find('td')[7].innerHTML);
+            var obj = $(this).parents("tr")
+            $("#hdnId").val(obj.find('td')[0].innerHTML);
+            $("#txtMedicineName").val(obj.find('td')[1].innerHTML);
+            $("#txtWhenMedicine").val(obj.find('td')[2].innerHTML);
+            $("#txtRepeatMedicine").val(obj.find('td')[3].innerHTML);
+            $("#txtForMedicine").val(obj.find('td')[4].innerHTML);
+            $("#txtMedicineDays").val(obj.find('td')[5].innerHTML);
+            $("#txtSpecialInstruction").val(obj.find('td')[6].innerHTML);
+            $("#txtAlternateMedicine").val(obj.find('td')[7].innerHTML);
 
-    });
-    function EditDetails(this1) {
-        var obj = $(this1).parents("tr")
-        $("#hdnId").val(obj.find('td')[0].innerHTML);
-        $("#txtMedicineName").val(obj.find('td')[1].innerHTML);
-        $("#txtWhenMedicine").val(obj.find('td')[2].innerHTML);
-        $("#txtRepeatMedicine").val(obj.find('td')[3].innerHTML);
-        $("#txtForMedicine").val(obj.find('td')[4].innerHTML);
-        $("#txtMedicineDays").val(obj.find('td')[5].innerHTML);
-        $("#txtSpecialInstruction").val(obj.find('td')[6].innerHTML);
-        $("#txtAlternateMedicine").val(obj.find('td')[7].innerHTML);
-    }
+        });
+        function EditDetails(this1) {
+            var obj = $(this1).parents("tr")
+            $("#hdnId").val(obj.find('td')[0].innerHTML);
+            $("#txtMedicineName").val(obj.find('td')[1].innerHTML);
+            $("#txtWhenMedicine").val(obj.find('td')[2].innerHTML);
+            $("#txtRepeatMedicine").val(obj.find('td')[3].innerHTML);
+            $("#txtForMedicine").val(obj.find('td')[4].innerHTML);
+            $("#txtMedicineDays").val(obj.find('td')[5].innerHTML);
+            $("#txtSpecialInstruction").val(obj.find('td')[6].innerHTML);
+            $("#txtAlternateMedicine").val(obj.find('td')[7].innerHTML);
+        }
     </script>
 </div>

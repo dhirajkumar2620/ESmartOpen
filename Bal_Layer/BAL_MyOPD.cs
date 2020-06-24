@@ -27,5 +27,17 @@ namespace Bal_Layer
         {
             return DM.GetMedicationDetails();
         }
+
+        public int ManagePrecCommonDetails(Common Ob)
+        {
+            return DM.ManagePrecCommonDetails(Ob);
+        }
+
+        public Common GetCommonDetails()
+        {
+            return DM.GetCommonDetails();
+        }
+
+
     }
 }

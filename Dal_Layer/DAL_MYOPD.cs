@@ -69,7 +69,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[12];
+                sqlparam = new SqlParameter[11];
                 sqlparam[0] = new SqlParameter("@Id", Ob.Id);
                 sqlparam[1] = new SqlParameter("@InvSelectTests", Ob.InvSelectTests);
                 sqlparam[2] = new SqlParameter("@InvNotes", Ob.InvNotes);
@@ -78,10 +78,9 @@ namespace Dal_Layer
                 sqlparam[5] = new SqlParameter("@NextVisitAfter", Ob.NextVisitAfter);
                 sqlparam[6] = new SqlParameter("@FrequencyDate", Ob.FrequencyDate);
                 sqlparam[7] = new SqlParameter("@CasePaperNo", Ob.CasePaperNo);
-                sqlparam[8] = new SqlParameter("@CasePaperNo", Ob.CasePaperNo);
-                sqlparam[9] = new SqlParameter("@HospitalId", Ob.HospitalId);
-                sqlparam[10] = new SqlParameter("@PatientId", Ob.PatientId);
-                sqlparam[11] = new SqlParameter("@CreatedBy", Ob.CreatedBy);
+                sqlparam[8] = new SqlParameter("@HospitalId", Ob.HospitalId);
+                sqlparam[9] = new SqlParameter("@PatientId", Ob.PatientId);
+                sqlparam[10] = new SqlParameter("@CreatedBy", Ob.CreatedBy);
                 return CommonFunction.Save("USP_Prec_Common", sqlparam, "");
             }
             catch (Exception)
@@ -139,6 +138,38 @@ namespace Dal_Layer
                     foreach (DataRow dr in dt.Rows)
                     {
                         Medication Model = new Medication();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        lst.Add(Model);
+                    }
+                }
+                Ob.lst = lst;
+                return Ob;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+
+        public Common GetCommonDetails()
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@Flag", "3");
+                sqlparam[1] = new SqlParameter("@UserID", "");
+
+                DataTable ds = CommonFunction.GetDataTable("USP_OPD_GET_PRESCRIPTION", sqlparam, "");
+                Common Ob = new Common();
+                List<Common> lst = new List<Common>();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Common Model = new Common();
                         CommonFunction.ReflectSingleData(Model, dr);
                         lst.Add(Model);
                     }

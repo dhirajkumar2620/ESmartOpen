@@ -1,26 +1,161 @@
-﻿
+﻿@model App_Layer.Common
 @{
     Layout = null;
 }
 
 
 <div class="card-body">
-    <form>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label class="form-control-label">
-                        Add Advice
-                    </label>
-                    <textarea class="form-control" placeholder="Add Advice"></textarea>
+    @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmPrecCommon" }))
+    {
+        @Html.HiddenFor(m => m.Id, new { @id = "hdnId" });
+        <form>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Add Advice
+                        </label>
+                        @Html.TextBoxFor(m => m.AddAdvice, new { @id = "txtAdvice", @class = "form-control", @placeholder = "Complaints" })
+                        @Html.ValidationMessageFor(model => model.AddAdvice, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Add Diet
+                        </label>
+                        @Html.TextBoxFor(m => m.AddDiet, new { @id = "txtDiet", @class = "form-control", @placeholder = "Complaints" })
+                        @Html.ValidationMessageFor(model => model.AddDiet, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Next Visit After
+                            </label>
+                            @Html.TextBoxFor(m => m.NextVisitAfter, new { @id = "txtVisit", @type = "number", @class = "form-control", @placeholder = "Complaints" })
+                            @Html.ValidationMessageFor(model => model.NextVisitAfter, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Frequency
+                            </label>
+                            @Html.DropDownListFor(m => m.FrequencyDate, new List<SelectListItem>
+                               {
+
+                                   new SelectListItem{ Text="Day", Value = "Day" },
+                                   new SelectListItem{ Text="Week", Value = "Week" },
+                                    new SelectListItem{ Text="Month", Value = "Month" },
+                                    new SelectListItem{ Text="Year", Value = "Year" },
+                                }, new { @class = "form-control mb-3", @id = "ddlFrequency" })
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    }
     <br />
     <div class="row">
         <div class="col-md-12 text-center">
-            <button type="button" class="btn btn_1 btn-primary" id="tostr-save6">Save</button>
+            <button type="submit" onclick="SubmitCommonDetails()" class="btn btn_1 btn-primary" id="tostr-save6">Save</button>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive opd-table">
+                        <table class="table" id="tblCommonn">
+                            <thead>
+                                <tr>
+                                    <th hidden>Id</th>
+                                    <th>Advice</th>
+                                    <th>Diet</th>
+                                    <th>Visit</th>
+                                    <th>Frequency</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @*@foreach (var item in Model.lst)
+
+                                {
+
+
+                                    <tr>
+                                        <td hidden>@item.Id</td>
+                                        <td>@item.AddAdvice</td>
+                                        <td>@item.AddDiet</td>
+                                        <td>@item.NextVisitAfter</td>
+                                        <td>@item.NextVisitAfter</td>
+                                        <td>
+
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+
+                                        </td>
+                                    </tr>
+                                }*@
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+<script>
+    function SubmitCommonDetails() {
+
+        var form = $('#frmPrecCommon')[0];
+
+        var fromData = new FormData(form);
+        var urllink = '@Url.Content("~/Prescription/ManagePrecCommonDetails")'
+        $.ajax({
+            type: "post",
+            url: urllink,
+            data: fromData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                //location.reload();
+
+                //$("#btnObservation").click();
+                //$("#collapseFour").addClass("active");
+                $('#tblCommonn tbody').empty();
+                var trHTML = '';
+                $.each(data, function (i, item) {
+                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.AddAdvice + '</td><td>' + item.AddDiet + '</td><td>' + item.NextVisitAfter + '</td><td>' + item.NextVisitAfter + '</td><td><i class="fa fa-plus add-row" onclick=EditPICDetails(this) aria-hidden="true"></i></td></tr>';
+                });
+                $('#tblCommonn tbody').append(trHTML)
+                $("#hdnId").val('0');
+                $("#txtAdvice").val('');
+                $("#txtDiet").val('');
+                $("#txtVisit").val('');
+                $("#ddlFrequency").val('');
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        })
+
+    }
+    $(".add-row").on("click", function () {
+
+        var obj = $(this).parents("tr")
+        $("#hdnId").val(obj.find('td')[0].innerHTML);
+        $("#txtAdvice").val(obj.find('td')[1].innerHTML);
+        $("#txtDiet").val(obj.find('td')[2].innerHTML);
+        $("#txtVisit").val(obj.find('td')[3].innerHTML);
+        $("#ddlFrequency").val(obj.find('td')[4].innerHTML);
+
+    });
+    function EditPICDetails(this1) {
+        var obj = $(this1).parents("tr")
+        $("#hdnId").val(obj.find('td')[0].innerHTML);
+        $("#txtAdvice").val(obj.find('td')[1].innerHTML);
+        $("#txtDiet").val(obj.find('td')[2].innerHTML);
+        $("#txtPeriod").val(obj.find('td')[3].innerHTML);
+        $("#txtVisit").val(obj.find('td')[4].innerHTML);
+        $("#ddlFrequency").val(obj.find('td')[5].innerHTML);
+    }
+</script>

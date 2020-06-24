@@ -20,5 +20,7 @@ namespace App_Layer
         public string PatientId          {get;set;}
         public string CreatedBy          { get; set; }
 
-    }
+        public List<Common> lst { get; set; }
+
+}
 }
