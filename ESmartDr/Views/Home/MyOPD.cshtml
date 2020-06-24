@@ -27,23 +27,23 @@
                             <div class="row align-items-center">
                                 <div class="col-md-2 text-center">
                                     <h6 class="mt-0 mb-1">Patient Name</h6>
-                                    <div class="count text-primary fs-20">003</div>
+                                    <div class="count text-primary fs-20"> @Session["PatientName"].ToString()</div>
                                 </div>
                                 <div class="col-md-2 text-center">
                                     <h6 class="mt-0 mb-1">Gender</h6>
-                                    <div class="count text-primary fs-20">Male</div>
+                                    <div class="count text-primary fs-20">@Session["PatientGender"].ToString()</div>
                                 </div>
                                 <div class="col-md-2 text-center">
                                     <h6 class="mt-0 mb-1">Age</h6>
-                                    <div class="count text-primary fs-20">32</div>
+                                    <div class="count text-primary fs-20">@Session["PatientAge"].ToString()</div>
                                 </div>
                                 <div class="col-md-2 text-center">
                                     <h6 class="mt-0 mb-1">Visit No.</h6>
-                                    <div class="count text-primary fs-20">002</div>
+                                    <div class="count text-primary fs-20">@Session["PatientVisit"].ToString()</div>
                                 </div>
                                 <div class="col-md-3 text-center">
                                     <h6 class="mt-0 mb-1">Prv. Balance</h6>
-                                    <div class="count text-primary fs-20">300</div>
+                                    <div class="count text-primary fs-20">@Session["PatientPrvBalance"].ToString()</div>
                                 </div>
                             </div>
                         </div>

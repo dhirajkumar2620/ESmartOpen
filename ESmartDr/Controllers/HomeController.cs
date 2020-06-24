@@ -36,6 +36,19 @@ namespace EsmartDr.Controllers
             PatientDetails patientDetails = new PatientDetails();
             patientDetails = PD.GetPatientDetailsByCPno(CPno);
             Session["patientDetails"] = patientDetails;
+            Session["PatientName"] = patientDetails.PatientName;
+            Session["PatientGender"] = patientDetails.Gender;
+            if (patientDetails.Age == null || patientDetails.Age != "")
+            {
+                Session["PatientAge"] = "-";
+            }
+            else
+            {
+                Session["PatientAge"] = patientDetails.Age;
+            }
+
+            Session["PatientVisit"] = "-";
+            Session["PatientPrvBalance"] = "-";
             return View("MyOPD");
         }
         public ActionResult AddMedicine()
