@@ -10,6 +10,7 @@ namespace ESmartDr.Controllers
 {
     public class PrescriptionController : Controller
     {
+       
         // GET: Prescription
         BAL_MyOPD BM = new BAL_MyOPD();
         public ActionResult Index()
@@ -20,7 +21,15 @@ namespace ESmartDr.Controllers
         [HttpPost]
         public ActionResult ManageObservation(Observation Ob)
         {
+            AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
             ModelState.Clear();
+            Ob.HospitalId = patientDETAILS.HospitalId.ToString();
+            Ob.CreatedBy = admObj.UserId.ToString();
+            Ob.PatientId = patientDETAILS.Id.ToString();
+            Ob.CasePaperNo = patientDETAILS.CasePapaerNo;
+
+            //Ob.CasePaperNo =
             int Flag = BM.ManageObservationDetails(Ob);
             if (Flag > 0)
             {
@@ -39,6 +48,12 @@ namespace ESmartDr.Controllers
         [HttpPost]
         public ActionResult ManageMedication(Medication Ob)
         {
+            AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            Ob.HospitalId = patientDETAILS.HospitalId.ToString();
+            Ob.CreatedBy = admObj.UserId.ToString();
+            Ob.PatientId = patientDETAILS.Id.ToString();
+            Ob.CasePaperNo = patientDETAILS.CasePapaerNo;
             ModelState.Clear();
             int Flag = BM.ManageMedicationDetails(Ob);
             if (Flag > 0)
@@ -58,7 +73,13 @@ namespace ESmartDr.Controllers
         [HttpPost]
         public ActionResult ManagePrecCommonDetails(Common co)
         {
+            AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
             ModelState.Clear();
+            co.HospitalId = patientDETAILS.HospitalId.ToString();
+            co.CreatedBy = admObj.UserId.ToString();
+            Ob.PatientId = patientDETAILS.Id.ToString();
+            Ob.CasePaperNo = patientDETAILS.CasePapaerNo;
             int Flag = BM.ManagePrecCommonDetails(co);
             if (Flag > 0)
             {

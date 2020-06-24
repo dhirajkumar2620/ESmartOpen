@@ -1,4 +1,6 @@
-﻿using System;
+﻿using App_Layer;
+using Bal_Layer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,7 @@ namespace EsmartDr.Controllers
 {
     public class HomeController : Controller
     {
+        Bal_PatientDetails PD = new Bal_PatientDetails();
         public ActionResult Index()
         {
             return View("LogIn");
@@ -27,8 +30,12 @@ namespace EsmartDr.Controllers
             return View("PatientRegistration");
         }
 
-        public ActionResult MyOPD()
+        public ActionResult MyOPD(string CPno)
         {
+
+            PatientDetails patientDetails = new PatientDetails();
+            patientDetails = PD.GetPatientDetailsByCPno(CPno);
+            Session["patientDetails"] = patientDetails;
             return View("MyOPD");
         }
         public ActionResult AddMedicine()

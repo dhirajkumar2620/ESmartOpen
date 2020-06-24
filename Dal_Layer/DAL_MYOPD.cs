@@ -24,10 +24,10 @@ namespace Dal_Layer
                 sqlparam[3] = new SqlParameter("@Period", Ob.Period);
                 sqlparam[4] = new SqlParameter("@Diagnosis", Ob.Diagnosis);
                 sqlparam[5] = new SqlParameter("@Complaint", Ob.Complaints);
-                sqlparam[6] = new SqlParameter("@CasePaperNo", "123");
-                sqlparam[7] = new SqlParameter("@HospitalId", "1");
-                sqlparam[8] = new SqlParameter("@PatientId", "1");
-                sqlparam[9] = new SqlParameter("@CreatedBy", "1");
+                sqlparam[6] = new SqlParameter("@CasePaperNo", Ob.CasePaperNo);
+                sqlparam[7] = new SqlParameter("@HospitalId",Ob.HospitalId);
+                sqlparam[8] = new SqlParameter("@PatientId", Ob.PatientId);
+                sqlparam[9] = new SqlParameter("@CreatedBy", Ob.CreatedBy);
 
                 return CommonFunction.Save("USP_Prec_Observation", sqlparam, "");
             }
@@ -52,10 +52,10 @@ namespace Dal_Layer
                 sqlparam[5] = new SqlParameter("@MedicineDays", Ob.MedicineDays);
                 sqlparam[6] = new SqlParameter("@SpecialInstruction", Ob.SpecialInstruction);
                 sqlparam[7] = new SqlParameter("@AlternateMedicine", Ob.AlternateMedicine);
-                sqlparam[8] = new SqlParameter("@CasePaperNo", "1");
-                sqlparam[9] = new SqlParameter("@HospitalId", "1");
-                sqlparam[10] = new SqlParameter("@PatientId", "1");
-                sqlparam[11] = new SqlParameter("@CreatedBy", "1");
+                sqlparam[8] = new SqlParameter("@CasePaperNo", Ob.CasePaperNo);
+                sqlparam[9] = new SqlParameter("@HospitalId", Ob.HospitalId);
+                sqlparam[10] = new SqlParameter("@PatientId", Ob.PatientId);
+                sqlparam[11] = new SqlParameter("@CreatedBy", Ob.CreatedBy);
                 return CommonFunction.Save("USP_Prec_Medication", sqlparam, "");
             }
             catch (Exception)

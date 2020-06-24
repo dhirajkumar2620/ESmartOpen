@@ -237,6 +237,33 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
+        public PatientDetails GetPatientDetailsByCPno(string CPno)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[1];
+                sqlparam[0] = new SqlParameter("@CPno", CPno);
 
+                DataTable ds = CommonFunction.GetDataTable("USP_Get_PatientDetailsByCPno", sqlparam, "");
+                PatientDetails lst = new PatientDetails();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        //PatientDetails Model = new PatientDetails();
+                        CommonFunction.ReflectSingleData(lst, dr);
+
+                    }
+                }
+                return lst;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
     }
 }

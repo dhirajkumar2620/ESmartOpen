@@ -46,5 +46,9 @@ namespace Bal_Layer
         {
             return DP.CountForCards(hospitalId);
         }
+        public PatientDetails GetPatientDetailsByCPno(string CPno)
+        {
+            return DP.GetPatientDetailsByCPno(CPno);
+        }
     }
 }
