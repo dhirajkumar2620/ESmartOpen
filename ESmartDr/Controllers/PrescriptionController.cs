@@ -78,8 +78,8 @@ namespace ESmartDr.Controllers
             ModelState.Clear();
             co.HospitalId = patientDETAILS.HospitalId.ToString();
             co.CreatedBy = admObj.UserId.ToString();
-            Ob.PatientId = patientDETAILS.Id.ToString();
-            Ob.CasePaperNo = patientDETAILS.CasePapaerNo;
+            co.PatientId = patientDETAILS.Id.ToString();
+            co.CasePaperNo = patientDETAILS.CasePapaerNo;
             int Flag = BM.ManagePrecCommonDetails(co);
             if (Flag > 0)
             {
