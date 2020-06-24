@@ -118,17 +118,15 @@ namespace ESmartDr.Controllers
                 string path = UplodaImage(imgfile);
                 if (path == "-1")
                 {
-                 
+                    path = "";
                 }
-                else
-                {
                     AD.HospClinicLogo = path; 
                     int Flag = BP.ManagePatientDetails(AD);
                     if (Flag != 1)
                     {
                         return View();
                     }
-                }
+                
                
                 List<AdminDetails> LST = new List<AdminDetails>();
                 LST = BP.GetAllAdminDetails_SA(admObj.HospitalId);

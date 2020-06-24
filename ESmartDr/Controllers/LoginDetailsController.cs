@@ -32,7 +32,7 @@ namespace ESmartDr.Controllers
             {
                 if (ad.HospClinicLogo =="")
                 {
-                    Session["LOGO"] = "/img/avatar-1.jpg";
+                    Session["LOGO"] = "~/img/avatar-1.jpg";
                 }
                 else
                 {
