@@ -40,7 +40,10 @@ namespace App_Layer
         public string AppoinmentDate { get; set; }
         public string HospitalName { get; set; }
         public DateTime CpExpiryDate { get; set; }
+        public string DueAmount { get; set; }
+        public string VisitCount { get; set; }
         
+
         public List <PatientDetails> lst { get; set; }
     }
 }

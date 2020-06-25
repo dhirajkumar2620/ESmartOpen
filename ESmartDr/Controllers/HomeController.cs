@@ -38,7 +38,7 @@ namespace EsmartDr.Controllers
             Session["patientDetails"] = patientDetails;
             Session["PatientName"] = patientDetails.PatientName;
             Session["PatientGender"] = patientDetails.Gender;
-            if (patientDetails.Age == null || patientDetails.Age != "")
+            if (patientDetails.Age == null || patientDetails.Age == "")
             {
                 Session["PatientAge"] = "-";
             }
@@ -47,8 +47,15 @@ namespace EsmartDr.Controllers
                 Session["PatientAge"] = patientDetails.Age;
             }
 
-            Session["PatientVisit"] = "-";
-            Session["PatientPrvBalance"] = "-";
+            Session["PatientVisit"] = patientDetails.VisitCount;
+            if (patientDetails.DueAmount == null || patientDetails.DueAmount != "")
+            {
+                Session["PatientPrvBalance"] ="0";
+            }
+            else
+            {
+                Session["PatientPrvBalance"] = patientDetails.DueAmount;
+            }
             return View("MyOPD");
         }
         public ActionResult AddMedicine()
