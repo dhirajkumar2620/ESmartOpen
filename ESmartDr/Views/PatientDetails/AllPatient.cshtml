@@ -114,7 +114,7 @@
                                                 <ul class="list-inline">
                                                     <li class="list-inline-item" title="Appointment">
                                                         @*<a href="@Url.Content("~/PatientDetails/SetPatientAppoinment?CPno="+item.CasePapaerNo+"")">  <i class="fa fa-calendar" aria-hidden="true"></i></a>*@
-                                                        <a href="#" data-toggle="modal" data-target="#saveAppointment"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+                                                        <a href="#" data-toggle="modal" data-target="#saveAppointment" ><i class="fa fa-calendar" aria-hidden="true"></i></a>
                                                     </li>
 
                                                     <li class="list-inline-item" title="Edit" >
@@ -210,7 +210,7 @@
                         <div class="form-group">
                             <label class="form-control-label">Date<span class="star">*</span></label>
                             <div class="input-group date" data-provide="datepicker">
-                                <input type="text" class="form-control datepicker" placeholder="dd/mm/yyyy" />
+                                <input type="text" id="txtDate" class="form-control datepicker" placeholder="dd/mm/yyyy" />
                                 <div class="input-group-addon">
                                     <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
                                 </div>
@@ -220,7 +220,7 @@
                     <div class="col-md-12 space-betw">
                         <label class="form-control-label">Time</label>
                         <div class="input-group clockpicker pull-center" data-autoclose="true">
-                            <input type="text" class="form-control" placeholder="00:00" />
+                            <input type="text" id="txtTime"class="form-control" placeholder="00:00" />
                             <span class="input-group-addon">
                                 <i class="fa fa-clock-o page-date-icon" aria-hidden="true"></i>
                             </span>
@@ -228,14 +228,14 @@
                     </div>
                     <div class="col-md-12 space-betw">
                         <label class="form-control-label">Note</label>
-                        <input type="text" class="form-control" placeholder="Note" />
+                        <input type="text" id="txtNote" class="form-control" placeholder="Note" />
                     </div>
                 </div>
             </div>
             <div class="modal-footer" style="border-top:none;">
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="button" class="btn btn_1 btn-primary" data-dismiss="modal">Save Appointment</button>
+                        <button type="button"  onclick="SetApoinment()" class="btn btn_1 btn-primary" data-dismiss="modal">Save Appointment</button>
                     </div>
                 </div>
             </div>
@@ -308,6 +308,42 @@
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
+    function SetApoinment() {
+        var CPno = $(this).attr("data-image");
+        var appDate = document.getElementById("txtDate").value;
+        var appTime = document.getElementById("txtTime").value;
+        var appNote = document.getElementById("txtNote").value;
+
+        var form = $('#frmObservationDetails')[0];
+
+        var fromData = new FormData(form);
+        var urllink = '@Url.Content("~/PatientDetails/SetPatientAppoinment")'
+        $.ajax({
+            type: "post",
+            url: urllink,
+            dataType: 'application/json',
+            data: {
+               
+                'CPno': CPno, 'AppoinmentDate': appDate, 'AppoinmentTime': appTime, 'Note': appNote
+                
+            },
+            success:function(response){
+                alert("Appoinment booked succesfuly");
+            }
+        }
+      
+       ) };
+
+
+
+
+
+
+
+
+
+
+
     $('.whtap').click(function () {
         swal("Write something here:", {
             content: "input",

@@ -106,15 +106,15 @@ namespace ESmartDr.Controllers
                 throw;
             }
         }
-
-        public ActionResult SetPatientAppoinment(string  CPno)
+        [HttpPost]
+        public ActionResult SetPatientAppoinment(string  CPno,DateTime AppoinmentDate, string AppoinmentTime,string Note )
         {
             try
             {
-                DateTime AppoinmentDate = DateTime.Now;
-                //string dt = AppoinmentDate.ToString("dd/MM/yyyy");
-                string AppoinmentTime = AppoinmentDate.ToString("h:mm");
-                string Note = "Appoinment fixed";
+                //DateTime AppoinmentDate = DateTime.Now;
+                ////string dt = AppoinmentDate.ToString("dd/MM/yyyy");
+                //string AppoinmentTime = AppoinmentDate.ToString("h:mm");
+                //string Note = "Appoinment fixed";
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 List<PatientDetails> LST = new List<PatientDetails>();
                 LST = BP.SetPatientAppoinment(CPno, AppoinmentDate,  AppoinmentTime,  Note);
