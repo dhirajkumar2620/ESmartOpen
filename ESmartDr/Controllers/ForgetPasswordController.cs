@@ -33,7 +33,7 @@ namespace ESmartDr.Controllers
                 Session["NoForChangePassword"]= AD.WhatsAppNumber;
                 // set mobile number and Send otp -code 
                 String otp =RandomOTP();
-                int flag = BP.SetOTPForUser(mobileNumber, OTP);
+                int flag = BP.SetOTPForUser(AD.WhatsAppNumber, otp);
                 SMS sms = new SMS();
                 string message = "Dear Customer, " + otp + " is OTP for your request initiated through eSmartDoctor. DO NOT disclose it to anyone.";
                 sms.SendOTP(AD.WhatsAppNumber, message);

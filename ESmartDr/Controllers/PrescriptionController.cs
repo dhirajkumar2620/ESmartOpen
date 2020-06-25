@@ -78,7 +78,7 @@ namespace ESmartDr.Controllers
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
             PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
             ModelState.Clear();
-            Ob.QueueId = patientDETAILS.QueueId;
+            co.QueueId = patientDETAILS.QueueId;
             co.HospitalId = patientDETAILS.HospitalId.ToString();
             co.CreatedBy = admObj.UserId.ToString();
             co.PatientId = patientDETAILS.Id.ToString();
