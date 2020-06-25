@@ -51,6 +51,8 @@
     <Compile Include="IncomeDetails.cs" />
     <Compile Include="InvoiceDetails.cs" />
     <Compile Include="LaboratoryDetails.cs" />
+    <Compile Include="LifeStyleDetails.cs" />
+    <Compile Include="MedicalInformationDetails.cs" />
     <Compile Include="Medication.cs" />
     <Compile Include="MedicineDetails.cs" />
     <Compile Include="Observation.cs" />
@@ -58,6 +60,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueueDetails.cs" />
     <Compile Include="ReceptionStaffReg.cs" />
+    <Compile Include="VitalInformation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

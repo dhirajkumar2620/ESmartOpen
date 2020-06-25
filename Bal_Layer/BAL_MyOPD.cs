@@ -38,6 +38,30 @@ namespace Bal_Layer
             return DM.GetCommonDetails();
         }
 
+        public int ManageVitalInformation(VitalInformation VI)
+        {
+            return DM.ManageVitalInformation(VI);
+        }
+        public VitalInformation GetVitalInformation()
+        {
+            return DM.GetVitalInformation();
+        }
+        public int ManageLifeStyleDetails(LifeStyleDetails LD)
+        {
+            return DM.ManageLifeStyleDetails(LD);
+        }
+        public LifeStyleDetails GetLifeStyleDetails()
+        {
+            return DM.GetLifeStyleDetails();
+        }
+        public int ManageMedicalInfoDetails(MedicalInformationDetails MI)
+        {
+            return DM.ManageMedicalInfoDetails(MI);
+        }
+        public MedicalInformationDetails GetMedicalInfoDetails()
+        {
+            return DM.GetMedicalInfoDetails();
+        }
 
     }
 }
