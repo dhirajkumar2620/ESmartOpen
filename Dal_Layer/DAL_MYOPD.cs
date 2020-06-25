@@ -17,7 +17,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[10];
+                sqlparam = new SqlParameter[11];
                 sqlparam[0] = new SqlParameter("@Id", Ob.Id);
                 sqlparam[1] = new SqlParameter("@PhysicalExamination", Ob.PhysicalExamination);
                 sqlparam[2] = new SqlParameter("@Since", Ob.Since);
@@ -28,7 +28,7 @@ namespace Dal_Layer
                 sqlparam[7] = new SqlParameter("@HospitalId",Ob.HospitalId);
                 sqlparam[8] = new SqlParameter("@PatientId", Ob.PatientId);
                 sqlparam[9] = new SqlParameter("@CreatedBy", Ob.CreatedBy);
-
+                sqlparam[10] = new SqlParameter("@QueueId", Ob.QueueId);
                 return CommonFunction.Save("USP_Prec_Observation", sqlparam, "");
             }
             catch (Exception)
@@ -43,7 +43,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[12];
+                sqlparam = new SqlParameter[13];
                 sqlparam[0] = new SqlParameter("@Id", Ob.Id);
                 sqlparam[1] = new SqlParameter("@MedicineName", Ob.MedicineName);
                 sqlparam[2] = new SqlParameter("@WhenMedicine", Ob.WhenMedicine);
@@ -56,6 +56,7 @@ namespace Dal_Layer
                 sqlparam[9] = new SqlParameter("@HospitalId", Ob.HospitalId);
                 sqlparam[10] = new SqlParameter("@PatientId", Ob.PatientId);
                 sqlparam[11] = new SqlParameter("@CreatedBy", Ob.CreatedBy);
+                sqlparam[12] = new SqlParameter("@QueueId", Ob.QueueId);
                 return CommonFunction.Save("USP_Prec_Medication", sqlparam, "");
             }
             catch (Exception)
@@ -69,7 +70,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[11];
+                sqlparam = new SqlParameter[12];
                 sqlparam[0] = new SqlParameter("@Id", Ob.Id);
                 sqlparam[1] = new SqlParameter("@InvSelectTests", Ob.InvSelectTests);
                 sqlparam[2] = new SqlParameter("@InvNotes", Ob.InvNotes);
@@ -81,6 +82,7 @@ namespace Dal_Layer
                 sqlparam[8] = new SqlParameter("@HospitalId", Ob.HospitalId);
                 sqlparam[9] = new SqlParameter("@PatientId", Ob.PatientId);
                 sqlparam[10] = new SqlParameter("@CreatedBy", Ob.CreatedBy);
+                sqlparam[11] = new SqlParameter("@QueueId", Ob.QueueId);
                 return CommonFunction.Save("USP_Prec_Common", sqlparam, "");
             }
             catch (Exception)

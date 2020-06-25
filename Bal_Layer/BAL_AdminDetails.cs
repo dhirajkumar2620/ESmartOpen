@@ -39,6 +39,10 @@ namespace Bal_Layer
             return DP.GetAllAdminDetails_SA(hID);
         }
 
+        public int SetOTPForUser(string mobileNumber, string OTP)
+        {
+            return DP.SetOTPForUser(mobileNumber, OTP);
+        }
     }
 }
 

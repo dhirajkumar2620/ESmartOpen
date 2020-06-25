@@ -30,11 +30,13 @@ namespace EsmartDr.Controllers
             return View("PatientRegistration");
         }
 
-        public ActionResult MyOPD(string CPno)
+        public ActionResult MyOPD(string CPno,int QueueID)
         {
 
             PatientDetails patientDetails = new PatientDetails();
             patientDetails = PD.GetPatientDetailsByCPno(CPno);
+            patientDetails.QueueId = QueueID;
+            Session["QueueID"] = QueueID;
             Session["patientDetails"] = patientDetails;
             Session["PatientName"] = patientDetails.PatientName;
             Session["PatientGender"] = patientDetails.Gender;

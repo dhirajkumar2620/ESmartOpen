@@ -42,8 +42,8 @@ namespace App_Layer
         public DateTime CpExpiryDate { get; set; }
         public string DueAmount { get; set; }
         public string VisitCount { get; set; }
-        
 
+        public int QueueId { get; set; }
         public List <PatientDetails> lst { get; set; }
     }
 }

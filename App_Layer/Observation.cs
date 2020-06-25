@@ -18,6 +18,7 @@ namespace App_Layer
         public string HospitalId           {get;set;}
         public string PatientId            {get;set;}
         public string CreatedBy            {get; set;}
+        public int QueueId { get; set; }
         public  List<Observation> lst      { get; set; }
     }
 }

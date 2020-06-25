@@ -203,5 +203,24 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
+
+        public int SetOTPForUser(string mobileNumber, string OTP)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@mobileNumber", mobileNumber);
+                sqlparam[1] = new SqlParameter("@OTP", OTP);
+
+                int flag = CommonFunction.Save("USP_Set_OTP_App", sqlparam, "");
+
+                return flag;
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+        }
     }
 }

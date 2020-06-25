@@ -24,6 +24,7 @@ namespace ESmartDr.Controllers
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
             PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
             ModelState.Clear();
+            Ob.QueueId = patientDETAILS.QueueId;
             Ob.HospitalId = patientDETAILS.HospitalId.ToString();
             Ob.CreatedBy = admObj.UserId.ToString();
             Ob.PatientId = patientDETAILS.Id.ToString();
@@ -50,6 +51,7 @@ namespace ESmartDr.Controllers
         {
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
             PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            Ob.QueueId = patientDETAILS.QueueId;
             Ob.HospitalId = patientDETAILS.HospitalId.ToString();
             Ob.CreatedBy = admObj.UserId.ToString();
             Ob.PatientId = patientDETAILS.Id.ToString();
@@ -76,6 +78,7 @@ namespace ESmartDr.Controllers
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
             PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
             ModelState.Clear();
+            Ob.QueueId = patientDETAILS.QueueId;
             co.HospitalId = patientDETAILS.HospitalId.ToString();
             co.CreatedBy = admObj.UserId.ToString();
             co.PatientId = patientDETAILS.Id.ToString();
