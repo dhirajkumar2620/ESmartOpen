@@ -114,7 +114,7 @@
                                                 <ul class="list-inline">
                                                     <li class="list-inline-item" title="Appointment">
                                                         @*<a href="@Url.Content("~/PatientDetails/SetPatientAppoinment?CPno="+item.CasePapaerNo+"")">  <i class="fa fa-calendar" aria-hidden="true"></i></a>*@
-                                                        <a href="#" data-toggle="modal" data-target="#saveAppointment" ><i class="fa fa-calendar" aria-hidden="true"></i></a>
+                                                        <a href="#" data-toggle="modal" data-target="#saveAppointment" onclick="showModel(this)" ><i class="fa fa-calendar" aria-hidden="true"></i></a>
                                                     </li>
 
                                                     <li class="list-inline-item" title="Edit" >
@@ -229,6 +229,7 @@
                     <div class="col-md-12 space-betw">
                         <label class="form-control-label">Note</label>
                         <input type="text" id="txtNote" class="form-control" placeholder="Note" />
+                        <input style="display:none" type="text" id="txtCPno" class="form-control" placeholder="Note" />
                     </div>
                 </div>
             </div>
@@ -308,8 +309,13 @@
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
+    function showModel(x) {
+        var obj = $(x).parents("tr")
+        $("#txtCPno").val(obj.find('td')[1].innerHTML);
+    }
     function SetApoinment() {
         var CPno = $(this).attr("data-image");
+        var appCPno = document.getElementById("txtCPno").value;
         var appDate = document.getElementById("txtDate").value;
         var appTime = document.getElementById("txtTime").value;
         var appNote = document.getElementById("txtNote").value;
@@ -324,7 +330,7 @@
             dataType: 'application/json',
             data: {
                
-                'CPno': CPno, 'AppoinmentDate': appDate, 'AppoinmentTime': appTime, 'Note': appNote
+                'CPno': appCPno, 'AppoinmentDate': appDate, 'AppoinmentTime': appTime, 'Note': appNote
                 
             },
             success:function(response){
