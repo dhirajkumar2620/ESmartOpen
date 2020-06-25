@@ -225,6 +225,7 @@
     <Compile Include="Controllers\AccountDetailsController.cs" />
     <Compile Include="Controllers\AdminDetailsController.cs" />
     <Compile Include="Controllers\DignosticDetailsController.cs" />
+    <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\ForgetPasswordController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LaboratoryDetailsController.cs" />
@@ -336,6 +337,7 @@
     <Content Include="fonts\iconfont.eot" />
     <Content Include="fonts\iconfont.ttf" />
     <Content Include="fonts\iconfont.woff" />
+    <Content Include="fonts\Play-Regular.ttf" />
     <None Include="Properties\PublishProfiles\New Code.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -589,6 +591,10 @@
     <Content Include="Views\MyOPD\PrecMedication.cshtml" />
     <Content Include="Views\MyOPD\Prescription.cshtml" />
     <Content Include="Views\MyOPD\VitalInformation.cshtml" />
+    <Content Include="Views\MyOPD\Examination.cshtml" />
+    <Content Include="Views\MyOPD\History.cshtml" />
+    <Content Include="Views\MyOPD\Billing.cshtml" />
+    <Content Include="Views\Document\Document.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

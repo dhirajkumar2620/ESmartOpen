@@ -113,7 +113,8 @@
                                             <td>
                                                 <ul class="list-inline">
                                                     <li class="list-inline-item" title="Appointment">
-                                                        <a href="@Url.Content("~/PatientDetails/SetPatientAppoinment?CPno="+item.CasePapaerNo+"")">  <i class="fa fa-calendar" aria-hidden="true"></i></a>
+                                                        @*<a href="@Url.Content("~/PatientDetails/SetPatientAppoinment?CPno="+item.CasePapaerNo+"")">  <i class="fa fa-calendar" aria-hidden="true"></i></a>*@
+                                                        <a href="#" data-toggle="modal" data-target="#saveAppointment"><i class="fa fa-calendar" aria-hidden="true"></i></a>
                                                     </li>
 
                                                     <li class="list-inline-item" title="Edit" >
@@ -194,31 +195,53 @@
         </div>
     </div>
 </div>
-@*<div class="modal fade" id="whatsappModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+<div class="modal fade" id="saveAppointment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"  aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content text-center">
+        <div class="modal-content save-appoint">
             <div class="modal-header" style="border-bottom:none;">
+                <h3>Get Appointment</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-12">
-                        <p>Enter your text here...</p>
-                        <textarea placeholder="Enter your text here ...">            </textarea>
+                    <div class="col-md-12 space-betw">
+                        <div class="form-group">
+                            <label class="form-control-label">Date<span class="star">*</span></label>
+                            <div class="input-group date" data-provide="datepicker">
+                                <input type="text" class="form-control datepicker" placeholder="dd/mm/yyyy" />
+                                <div class="input-group-addon">
+                                    <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 space-betw">
+                        <label class="form-control-label">Time</label>
+                        <div class="input-group clockpicker pull-center" data-autoclose="true">
+                            <input type="text" class="form-control" placeholder="00:00" />
+                            <span class="input-group-addon">
+                                <i class="fa fa-clock-o page-date-icon" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-12 space-betw">
+                        <label class="form-control-label">Note</label>
+                        <input type="text" class="form-control" placeholder="Note" />
                     </div>
                 </div>
-
             </div>
             <div class="modal-footer" style="border-top:none;">
-
-                <button type="button" class="btn btn_2 btn-primary">Send</button>
-                <button type="button" class="btn btn_1 btn-primary" data-dismiss="modal">Cancel</button>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn_1 btn-primary" data-dismiss="modal">Save Appointment</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>*@
+</div>
 <div class="modal fade" id="mypatient" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content text-center">
@@ -282,7 +305,6 @@
         </div>
     </div>
 </div>
-
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
@@ -307,32 +329,32 @@
 
 
 
-    $('.fa.fa-calendar').click(function () {
-        swal({
-            title: "Do you want to get an Appointment?",
-            //text: "Once deleted, you will not be able to recover this imaginary file!",
-            icon: "warning",
-            //dangerMode: true,
-            buttons: true,
-            confirmButtonText: 'YES',
-            cancelButtonText: "NO",
+//    $('.fa.fa-calendar').click(function () {
+//        swal({
+//            title: "Do you want to get an Appointment?",
+//            //text: "Once deleted, you will not be able to recover this imaginary file!",
+//            icon: "warning",
+//            //dangerMode: true,
+//            buttons: true,
+//            confirmButtonText: 'YES',
+//            cancelButtonText: "NO",
 
-        })
-.then((willDelete) => {
-    if (willDelete) {
-        swal("Your Appointment Is Now Confirmed.", {
-            icon: "success",
-        });
-    }
-    else {
+//        })
+//.then((willDelete) => {
+//    if (willDelete) {
+//        swal("Your Appointment Is Now Confirmed.", {
+//            icon: "success",
+//        });
+//    }
+//    else {
 
-        swal("You Are Successfully Canceled An Appointment", {
-            icon: "success",
+//        swal("You Are Successfully Canceled An Appointment", {
+//            icon: "success",
 
-        });
-    }
-});
-    });
+//        });
+//    }
+//});
+   // });
     $(document).ready(function () {
         $('#example1').DataTable();
     });

@@ -2,59 +2,59 @@
 @{
     Layout = null;
 }
-        <div class="bs-example">
-            <div class="accordion" id="accordionExample">
-                <div class="first-tab">
-                 
-                    <div class="card">
-                        <div class="card-header" id="headingTwo">
-                            <h2 class="mb-0">
-                                <button type="button" class="btn btn-link" id="btnMedicalDetails" data-toggle="collapse" data-request-url="@Url.Action("PatientMedicalDetails", "MyOPD")" data-target="#collapseTwo"><i class="fa fa-plus"></i> <span class="accor-heading">Medical Information</span></button>
-                            </h2>
-                        </div>
-                        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                            <div id="tabMedical"></div>
-                        </div>
-                        </div>
-                    <div class="card">
-                        <div class="card-header" id="headingThree">
-                            <h2 class="mb-0">
-                                <button type="button" id="btnLifeStyle" class="btn btn-link collapsed" data-toggle="collapse"  data-request-url="@Url.Action("PatientLifeStyleDetails", "MyOPD")"  data-target="#collapseThree"><i class="fa fa-plus"></i> <span class="accor-heading">Life Style</span></button>
-                            </h2>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                            <div id="tabLifeStyle"></div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingFour">
-                            <h2 class="mb-0">
-                                <button type="button" id="btnVitalInformation" class="btn btn-link collapsed" data-toggle="collapse" data-request-url="@Url.Action("PatientVitalInformation", "MyOPD")" data-target="#collapseFour"><i class="fa fa-plus"></i> <span class="accor-heading">Vital Information</span></button>
-                            </h2>
-                        </div>
-                        <div id="collapseFour" class="collapse viral-data" aria-labelledby="headingFour" data-parent="#accordionExample">
-                            <div id="tabVitalInformation"></div>
-                        </div>
-                    </div>
+<div class="bs-example">
+    <div class="accordion" id="accordionExample">
+        <div class="first-tab">
+
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                        <button type="button" class="btn btn-link" id="btnMedicalDetails" data-toggle="collapse" data-request-url="@Url.Action("PatientMedicalDetails", "MyOPD")" data-target="#collapseTwo"><i class="fa fa-plus"></i> <span class="accor-heading">Medical Information</span></button>
+                    </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div id="tabMedical"></div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                        <button type="button" id="btnLifeStyle" class="btn btn-link collapsed" data-toggle="collapse" data-request-url="@Url.Action("PatientLifeStyleDetails", "MyOPD")" data-target="#collapseThree"><i class="fa fa-plus"></i> <span class="accor-heading">Life Style</span></button>
+                    </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div id="tabLifeStyle"></div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingFour">
+                    <h2 class="mb-0">
+                        <button type="button" id="btnVitalInformation" class="btn btn-link collapsed" data-toggle="collapse" data-request-url="@Url.Action("PatientVitalInformation", "MyOPD")" data-target="#collapseFour"><i class="fa fa-plus"></i> <span class="accor-heading">Vital Information</span></button>
+                    </h2>
+                </div>
+                <div id="collapseFour" class="collapse viral-data" aria-labelledby="headingFour" data-parent="#accordionExample">
+                    <div id="tabVitalInformation"></div>
                 </div>
             </div>
         </div>
-    
-        <script>
-            //$(".nav-tabs li").removeClass("active"); btnInvestigation
-            $("#btnMedicalDetails").on('click', function () {
-                var url = $(this).data('request-url');
-                $("#tabMedical").load(url);
-            });
-            $("#btnLifeStyle").on('click', function () {
-                var url = $(this).data('request-url');
-                $("#tabLifeStyle").load(url);
-            });
-            $("#btnVitalInformation").on('click', function () {
-                var url = $(this).data('request-url');
-                $("#tabVitalInformation").load(url);
-            });
-        </script>
-    
+    </div>
+</div>
+<script src="~/js/front.js"></script>
+<script>
+    //$(".nav-tabs li").removeClass("active"); btnInvestigation
+    $("#btnMedicalDetails").on('click', function () {
+        var url = $(this).data('request-url');
+        $("#tabMedical").load(url);
+    });
+    $("#btnLifeStyle").on('click', function () {
+        var url = $(this).data('request-url');
+        $("#tabLifeStyle").load(url);
+    });
+    $("#btnVitalInformation").on('click', function () {
+        var url = $(this).data('request-url');
+        $("#tabVitalInformation").load(url);
+    });
+</script>
+
 
 

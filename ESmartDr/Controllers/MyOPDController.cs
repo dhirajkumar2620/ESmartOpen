@@ -37,6 +37,20 @@ namespace ESmartDr.Controllers
         {
             return View("PatientDetails");
         }
+        public ActionResult OpdExamination()
+        {
+            return View("Examination");
+        }
+        public ActionResult OpdHistory()
+        {
+            return View("History");
+        }
+        public ActionResult OpdBilling()
+        {
+            return View("Billing");
+        }
+        
+
         public ActionResult PrecObservation()
         {
             Observation ob = new Observation();

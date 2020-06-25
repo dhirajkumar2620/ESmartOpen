@@ -1,0 +1,209 @@
+﻿@model App_Layer.MedicineDetails
+@{
+    Layout = null;
+}
+
+<div>
+    <!-- Page Header-->
+    <header class="page-header">
+        <div class="container-fluid">
+            <h2 class="no-margin-bottom">Add Medicine</h2>
+        </div>
+    </header>
+
+    <!-- Breadcrumb-->
+    <!-- <div class="breadcrumb-holder container-fluid">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Forms</li>
+      </ul>
+    </div> -->
+    <!-- Forms Section-->
+
+@using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmExamination" }))
+{
+    @*@Html.HiddenFor(m => m.Id, new { @id = "hdnId" });*@
+        <section class="forms">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Basic Form-->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <!-- <div class="card-close">
+                              <div class="dropdown">
+                                <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                              </div>
+                            </div> -->
+                            <!-- <div class="card-header d-flex align-items-center">
+                              <h3 class="h4">Basic Form</h3>
+                            </div> -->
+                            <div class="card-body">
+                                <p>Need to fill mandatory fields.</p>
+                                <form>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Precription Name<span class="star">*</span></label>
+                                                @Html.TextBoxFor(m => m.MedicineName, new { @id = "txtMedicineName", @class = "form-control", required = "required", @placeholder = "Precription Name" })
+                                                @Html.ValidationMessageFor(model => model.MedicineName, "", new { @class = "text-danger" })
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Type<span class="star">*</span></label>
+                                                @Html.TextBoxFor(m => m.MedicineType, new { @id = "txtMedicineType", @class = "form-control", required = "required", @placeholder = "Type" })
+                                                @Html.ValidationMessageFor(model => model.MedicineType, "", new { @class = "text-danger" })
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Generic Name<span class="star">*</span></label>
+                                                @Html.TextBoxFor(m => m.GenericName, new { @id = "txtGenericName", @class = "form-control", required = "required", @placeholder = "Generic Name" })
+                                                @Html.ValidationMessageFor(model => model.GenericName, "", new { @class = "text-danger" })
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Company Name<span class="star">*</span></label>
+                                                @Html.TextBoxFor(m => m.CompanyName, new { @id = "txtCompanyName", @class = "form-control", required = "required", @placeholder = "Company Name" })
+                                                @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Range<span class="star">*</span></label>
+                                                @Html.TextBoxFor(m => m.Range, new { @id = "txtRange", @class = "form-control", required = "required", @placeholder = "Range" })
+                                                @Html.ValidationMessageFor(model => model.Range, "", new { @class = "text-danger" })
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Other</label>
+                                                @Html.TextBoxFor(m => m.Other, new { @id = "txtOther", @class = "form-control", @placeholder = "Other" })
+                                                @Html.ValidationMessageFor(model => model.Other, "", new { @class = "text-danger" })
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-right">
+                                            <a href="~/Home/Apoinment"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
+                                            <input type="submit" value="Save" id="btnSubmit" class="btn btn_2 b33 btn-primary">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <section class="tables">
+
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="example3" class="table table-striped" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th hidden>MedicineId</th>
+                                                <th>Precription Name</th>
+                                                <th>Type</th>
+                                                <th>Generic Name</th>
+                                                <th>Company Name</th>
+                                                <th>Range</th>
+                                                <th>Other</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.lst)
+                                            {
+                                                <tr>
+                                                    <td hidden>@item.MedicineId</td>
+                                                    <td>@item.MedicineName</td>
+                                                    <td>@item.MedicineType</td>
+                                                    <td>@item.GenericName</td>
+                                                    <td>@item.CompanyName</td>
+                                                    <td>@item.Range</td>
+                                                    <td>@item.Other</td>
+                                                    <td>
+                                                        <ul class="list-inline">
+                                                            <li class="list-inline-item" title="Edit">
+                                                                <a href="@Url.Content("~/MedicineDetails/GetMedicineById?Id="+item.MedicineId+ "&hId=" + item.HospitalId + "")"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                            </li>
+
+                                                            <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
+                                                                <a href="@Url.Content("~/MedicineDetails/DeleteMedicine?Id="+item.MedicineId+"")">   <i class="fa fa-times" aria-hidden="true"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            }
+
+
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Precription Name</th>
+                                                <th>Type</th>
+                                                <th>Generic Name</th>
+                                                <th>Company Name</th>
+                                                <th>Range</th>
+                                                <th>Other</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+            </div>
+        </section>
+
+    }
+    <!-- Page Footer-->
+    <footer class="main-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- <div class="col-sm-6">
+                  <p>Your company &copy; 2017-2020</p>
+                </div> -->
+                <div class="col-sm-12 footer-img text-right">
+                    <p><span class="small">Powered by</span> <img src="img/Powered By company logo.png" class="img-responsive"></p>
+                    <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+

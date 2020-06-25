@@ -142,7 +142,7 @@
                 <div class="sidebar-header  align-items-center">
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="avatar"><img src="@Session["LOGO"]" alt="..." class="img-fluid rounded-circle"></div>
+                            <div class="avatar"><img src="@Session["LOGO"]" alt="..." class="img-fluid"></div>
                         </div>
                         <div class="col-md-8">
                             <div class="title">
@@ -154,7 +154,7 @@
                        
                         <div class="col-md-12" style="margin-top:0.5em">
                             <div class="title" style="margin-left:0px;">
-                                <h4  style="margin-bottom: 5px; font-size:1em">@Session["Hname"].ToString()</h4>
+                                <h4  style="margin-bottom: 5px; font-size:1em; margin-top: 1em;" >@Session["Hname"].ToString()</h4>
                                 <p>@Session["Haddress"].ToString()</p>
                                 <p>@Session["Hnumber"].ToString()</p>
                                 <p>@Session["HinTime1"].ToString() -  @Session["HoutTime1"].ToString()  @Session["HinTime2"].ToString()   @Session["HoutTime2"].ToString() </p>
@@ -180,7 +180,7 @@
                             <li><a href='@Url.Content("~/PatientDetails/PatientDetails")'> Add Patient</a></li>
                         </ul>
                     </li>
-                    <li><a href="@Url.Content("~/Home/MyOPD")"> <i class="fa fa-check-square-o" aria-hidden="true"></i>Patient Examination</a></li>
+                    @*<li><a href="@Url.Content("~/Home/MyOPD")"> <i class="fa fa-check-square-o" aria-hidden="true"></i>Patient Examination</a></li>*@
                     <li><a href="@Url.Content("~/MedicineDetails/ViewAllMedicine")"> <i class="fa fa-plus-circle" aria-hidden="true"></i>Add Medicines </a></li>
                     <li><a href="@Url.Content("~/Home/CampaignMaster")"> <i class="fa fa-users" aria-hidden="true"></i>Campaign Master</a></li>
                     
@@ -203,7 +203,7 @@
                             <li><a href="@Url.Content("~/Home/Lab2")">laboratory </a></li>
                         </ul>
                     </li>
-                    
+                    <li><a href="@Url.Content("~/Document/GetDocument")"> <i class="fa fa-user-md" aria-hidden="true"></i>Document</a></li>
                     <li><a href="@Url.Content("~/AccountDetails/ViewAllExpenses")"> <i class="fa fa-user-md" aria-hidden="true"></i>Account</a></li>
                 </ul>
 
