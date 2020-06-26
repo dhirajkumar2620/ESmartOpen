@@ -8,8 +8,7 @@ namespace ESmartDr.Controllers
 {
     public class DocumentController : Controller
     {
-        // GET: Document
-        public ActionResult Index()
+         public ActionResult Index()
         {
             return View();
         }
