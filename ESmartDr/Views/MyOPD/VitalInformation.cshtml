@@ -1,15 +1,18 @@
-﻿
+﻿@model App_Layer.VitalInformation
 @{
     Layout = null;
 }
-
+@using (Html.BeginForm("ManageVitalInformation", "TabDetails", FormMethod.Post, new { @id = "frmVitalInfomation" }))
+{
+    @Html.HiddenFor(m => m.Id);
+    @Html.HiddenFor(m => m.CasePaperNo);
 <div class="card-body table">
     <div class="row viral-span">
         <div class="col-md-3">
             <label class="form-control-label">Blood Pressure</label>
             <div class="row">
                 <div class="col-md-3 col-4">
-                    <input type="text" placeholder="0" class="form-control" />
+                    @Html.TextBoxFor(m => m.BloodPressure, new { @id = "txtBloodPressure", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-6 col-4">
                     <span>mmHg</span>
@@ -20,7 +23,7 @@
             <label class="form-control-label">Temperature</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.Temperature, new { @id = "txtTemperature", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>&#8457;</span>
@@ -31,7 +34,7 @@
             <label class="form-control-label">Blood Glucose Post Prandial</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.BloodGlucosePostPrandial, new { @id = "txtBloodGlucosePostPrandial", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>mg/dL</span>
@@ -42,7 +45,7 @@
             <label class="form-control-label">Weight</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.Weight, new { @id = "txtWeight", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>kg</span>
@@ -56,7 +59,7 @@
             <label class="form-control-label">Height</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.Height, new { @id = "txtHeight", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>cms</span>
@@ -67,7 +70,7 @@
             <label class="form-control-label">Pulse</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.Pulse, new { @id = "txtPulse", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>/min</span>
@@ -78,7 +81,7 @@
             <label class="form-control-label">Blood Glucose Fasting</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.BloodGlucoseFasting, new { @id = "txtBloodGlucoseFasting", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>mg/dL</span>
@@ -89,7 +92,7 @@
             <label class="form-control-label">Blood Glucose Random</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.BloodlucoseRandom, new { @id = "txtBloodlucoseRandom", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>mg/dL</span>
@@ -102,7 +105,7 @@
             <label class="form-control-label">Blood Urea</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.BloodUrea, new { @id = "txtBloodUrea", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>mg/dL</span>
@@ -113,7 +116,7 @@
             <label class="form-control-label">Creatinine</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.Creatinine, new { @id = "txtCreatinine", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>mg/dL</span>
@@ -124,7 +127,7 @@
             <label class="form-control-label">Uric Acid M</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.UricAcidM, new { @id = "txtUricAcidM", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>mg/dL</span>
@@ -135,7 +138,7 @@
             <label class="form-control-label">HB</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.HB, new { @id = "txtHB", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>%</span>
@@ -148,7 +151,7 @@
             <label class="form-control-label">PCV</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.PCV, new { @id = "txtPCV", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>%</span>
@@ -159,7 +162,7 @@
             <label class="form-control-label">WBC Count</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.WBCCount, new { @id = "txtWBCCount", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>cells/cumm</span>
@@ -170,7 +173,7 @@
             <label class="form-control-label">Platelet Count</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.PlateletCount, new { @id = "txtPlateletCount", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>cells/cumm</span>
@@ -181,7 +184,7 @@
             <label class="form-control-label">ESR</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.ESR, new { @id = "txtESR", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>mm/hr</span>
@@ -194,7 +197,7 @@
             <label class="form-control-label">RBC Count</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.RBCCount, new { @id = "txtRBCCount", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>Mil/cumm</span>
@@ -205,7 +208,7 @@
             <label class="form-control-label">MCH</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.MCH, new { @id = "txtMCH", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>pg</span>
@@ -216,7 +219,7 @@
             <label class="form-control-label">MCHC</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.MCHC, new { @id = "txtMCHC", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>gms/dL</span>
@@ -227,7 +230,7 @@
             <label class="form-control-label">Lymphocyte</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.Lymphocyte, new { @id = "txtLymphocyte", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>%</span>
@@ -240,7 +243,7 @@
             <label class="form-control-label">Eosinophil</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.Eosinophil, new { @id = "txtEosinophil", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>%</span>
@@ -251,7 +254,7 @@
             <label class="form-control-label">Serum Bilirubin</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.SerumBilirubin, new { @id = "txtSerumBilirubin", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>%</span>
@@ -262,7 +265,7 @@
             <label class="form-control-label">SGPT ALT</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.SGPTALT, new { @id = "txtSGPTALT", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>IU/L</span>
@@ -273,7 +276,7 @@
             <label class="form-control-label">GGPT</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.GGPT, new { @id = "txtGGPT", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>IU/L</span>
@@ -286,7 +289,7 @@
             <label class="form-control-label">Total Protein</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.TotalProtein, new { @id = "txtTotalProtein", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>G/dL</span>
@@ -297,7 +300,7 @@
             <label class="form-control-label">Serum Albumin</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.SerumAlbumin, new { @id = "txtSerumAlbumin", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>G/dL</span>
@@ -308,7 +311,7 @@
             <label class="form-control-label">Globulin</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.Globulin, new { @id = "txtGlobulin", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>G/dL</span>
@@ -319,7 +322,7 @@
             <label class="form-control-label">Alkaline Phosphatase</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.AlkalinePhosphatase, new { @id = "txtAlkalinePhosphatase", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>U/L</span>
@@ -332,7 +335,7 @@
             <label class="form-control-label">SGOT</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.SGOT, new { @id = "txtSGOT", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>U/L</span>
@@ -343,7 +346,7 @@
             <label class="form-control-label">Total Cholesterol</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.TotalCholesterol, new { @id = "txtTotalCholesterol", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>mg/dL</span>
@@ -354,7 +357,7 @@
             <label class="form-control-label">HDL Cholesterol</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.HDLCholestero, new { @id = "txtHDLCholestero", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>mg/dL</span>
@@ -365,7 +368,7 @@
             <label class="form-control-label">LDL Cholesterol</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.LDLCholesterol, new { @id = "txtLDLCholesterol", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>mg/dL</span>
@@ -378,7 +381,7 @@
             <label class="form-control-label">Triglycerides</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.Triglycerides, new { @id = "txtTriglycerides", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>mg/dL</span>
@@ -389,7 +392,7 @@
             <label class="form-control-label">Non HDL</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.NonHDL, new { @id = "txtNonHDL", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>mg/dL</span>
@@ -400,7 +403,7 @@
             <label class="form-control-label">HbA1c</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.HbA1c, new { @id = "txtHbA1c", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>%</span>
@@ -411,7 +414,7 @@
             <label class="form-control-label">TSH</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.TSH, new { @id = "txtTSH", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>ulU/mL</span>
@@ -424,7 +427,7 @@
             <label class="form-control-label">SPO2</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.SPO2, new { @id = "txtSPO2", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>%</span>
@@ -435,7 +438,7 @@
             <label class="form-control-label">RR</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.RR, new { @id = "txtRR", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>/min</span>
@@ -446,7 +449,7 @@
             <label class="form-control-label">Head Circumference</label>
             <div class="row">
                 <div class="col-md-3 col-7">
-                    <input type="text" placeholder="0.00" class="form-control" />
+                    @Html.TextBoxFor(m => m.HeadCircumference, new { @id = "txtHeadCircumference", @class = "form-control", @placeholder = "0.00" })
                 </div>
                 <div class="col-md-3 col-5">
                     <span>cm</span>
@@ -457,7 +460,8 @@
     <br />
     <div class="row">
         <div class="col-md-12 text-right">
-            <button type="button" class="btn btn_1 btn-primary" id="tostr-save9">Save</button>
+            <button type="submit" class="btn btn_1 btn-primary" id="tostr-save9">Save</button>
         </div>
     </div>
 </div>
+}

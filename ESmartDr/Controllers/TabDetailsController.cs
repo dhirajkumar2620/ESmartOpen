@@ -31,15 +31,11 @@ namespace ESmartDr.Controllers
             int Flag = BM.ManageVitalInformation(VI);
             if (Flag > 0)
             {
-                VitalInformation ob = new VitalInformation();
-                List<VitalInformation> lstVI = new List<VitalInformation>();
-                ob = BM.GetVitalInformation();
-                lstVI = ob.lst;
-                return Json(lstVI, JsonRequestBehavior.AllowGet);
+                return RedirectToAction("OpdPrescription", "MyOPD");
             }
             else
             {
-                return Json("", JsonRequestBehavior.AllowGet);
+                return RedirectToAction("OpdPrescription", "MyOPD");
             }
         }
 

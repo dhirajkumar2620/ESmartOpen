@@ -192,7 +192,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[47];
+                sqlparam = new SqlParameter[45];
                 sqlparam[0] = new SqlParameter("@Id", VI.Id);
                 sqlparam[1] = new SqlParameter("@BloodPressure ", VI.BloodPressure);
                 sqlparam[2] = new SqlParameter("@Temperature ", VI.Temperature);
@@ -236,10 +236,10 @@ namespace Dal_Layer
                 sqlparam[40] = new SqlParameter("@HospitalId ", VI.HospitalId);
                 sqlparam[41] = new SqlParameter("@PatientId ", VI.PatientId);
                 sqlparam[42] = new SqlParameter("@CreatedBy ", VI.CreatedBy);
-                sqlparam[43] = new SqlParameter("@CreatedDate ", VI.CreatedDate);
-                sqlparam[44] = new SqlParameter("@ModifideDate ", VI.ModifideDate);
-                sqlparam[45] = new SqlParameter("@ModifideBy ", VI.ModifideBy);
-                sqlparam[46] = new SqlParameter("@IsActive ", VI.IsActive);
+                //sqlparam[43] = new SqlParameter("@CreatedDate ", VI.CreatedDate);
+               // sqlparam[44] = new SqlParameter("@ModifideDate ", VI.ModifideDate);
+                sqlparam[43] = new SqlParameter("@ModifideBy ", VI.ModifideBy);
+                sqlparam[44] = new SqlParameter("@IsActive ", VI.IsActive);
 
                 return CommonFunction.Save("USP_PD_VitalInformation", sqlparam, "");
             }

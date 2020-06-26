@@ -13,6 +13,24 @@
                 <div class="col-md-8">
                     <div class="form-group">
                         <label class="form-control-label">
+                            Test
+                        </label>
+                        @Html.TextBoxFor(m => m.InvSelectTests, new { @id = "TxtinvTest", @class = "form-control", @placeholder = "Test" })
+                        @Html.ValidationMessageFor(model => model.InvSelectTests, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Note
+                        </label>
+                        @Html.TextBoxFor(m => m.InvNotes, new { @id = "txtinvNote", @class = "form-control", @placeholder = "Note" })
+                        @Html.ValidationMessageFor(model => model.InvNotes, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label class="form-control-label">
                             Add Advice
                         </label>
                         @Html.TextBoxFor(m => m.AddAdvice, new { @id = "txtAdvice", @class = "form-control", @placeholder = "Complaints" })

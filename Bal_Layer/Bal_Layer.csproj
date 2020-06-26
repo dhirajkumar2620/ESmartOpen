@@ -51,6 +51,7 @@
     <Compile Include="Bal_MedicineDetails.cs" />
     <Compile Include="BAL_MyOPD.cs" />
     <Compile Include="Bal_PatientDetails.cs" />
+    <Compile Include="Bal_Precription.cs" />
     <Compile Include="Bal_StaffDetails.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

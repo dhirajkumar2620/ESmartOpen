@@ -2,6 +2,7 @@
 using Bal_Layer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -95,6 +96,22 @@ namespace ESmartDr.Controllers
             else
             {
                 return Json("", JsonRequestBehavior.AllowGet);
+            }
+        }
+        public ActionResult ViewPricripion(int QueueId, string CPno)
+        {
+            try
+            {
+                Bal_Precription p = new Bal_Precription();
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                DataSet ds = p.ViewPricripion(QueueId, CPno);
+
+                return View("Examination");//, pd);
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

@@ -14,6 +14,7 @@ namespace App_Layer
         public string BloodGlucosePostPrandial { get; set; }
         public string Weight { get; set; }
         public string Height { get; set; }
+        public string Pulse { get; set; }
         public string BloodGlucoseFasting { get; set; }
         public string BloodlucoseRandom { get; set; }
         public string BloodUrea { get; set; }
