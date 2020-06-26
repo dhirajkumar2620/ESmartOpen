@@ -7,7 +7,7 @@
 <div class="card-body">
     @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmPrecCommon" }))
     {
-        @Html.HiddenFor(m => m.Id, new { @id = "hdnId" });
+      @Html.HiddenFor(m => m.Id, new { @id = "hdnId" });
         <form>
             <div class="row">
                 <div class="col-md-8">
@@ -15,7 +15,7 @@
                         <label class="form-control-label">
                             Test
                         </label>
-                        @Html.TextBoxFor(m => m.InvSelectTests, new { @id = "TxtinvTest", @class = "form-control", @placeholder = "Test" })
+                        @Html.TextBoxFor(m => m.InvSelectTests, new { @id = "txtinvTest", @class = "form-control", @placeholder = "Test" })
                         @Html.ValidationMessageFor(model => model.InvSelectTests, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -142,10 +142,13 @@
                 $('#tblCommonn tbody').empty();
                 var trHTML = '';
                 $.each(data, function (i, item) {
-                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.AddAdvice + '</td><td>' + item.AddDiet + '</td><td>' + item.NextVisitAfter + '</td><td>' + item.NextVisitAfter + '</td><td><i class="fa fa-plus add-row" onclick=EditPICDetails(this) aria-hidden="true"></i></td></tr>';
+                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.InvSelectTests + '</td><td>' + item.InvNotes + '</td><td>' + item.AddAdvice + '</td><td>' + item.AddDiet + '</td><td>' + item.NextVisitAfter + '</td><td>' + item.NextVisitAfter + '</td><td><i class="fa fa-plus add-row" onclick=EditPICDetails(this) aria-hidden="true"></i></td></tr>';
                 });
                 $('#tblCommonn tbody').append(trHTML)
                 $("#hdnId").val('0');
+                $("#txtinvTest").val('');
+                $("#txtinvNote").val('');
+                $("#txtDiet").val('');
                 $("#txtAdvice").val('');
                 $("#txtDiet").val('');
                 $("#txtVisit").val('');
@@ -161,19 +164,24 @@
 
         var obj = $(this).parents("tr")
         $("#hdnId").val(obj.find('td')[0].innerHTML);
-        $("#txtAdvice").val(obj.find('td')[1].innerHTML);
-        $("#txtDiet").val(obj.find('td')[2].innerHTML);
-        $("#txtVisit").val(obj.find('td')[3].innerHTML);
-        $("#ddlFrequency").val(obj.find('td')[4].innerHTML);
+        $("#txtinvTest").val(obj.find('td')[1].innerHTML);
+        $("#txtinvNote").val(obj.find('td')[2].innerHTML);
+        $("#txtDiet").val(obj.find('td')[3].innerHTML);
+        $("#txtAdvice").val(obj.find('td')[4].innerHTML);
+        $("#txtDiet").val(obj.find('td')[5].innerHTML);
+        $("#txtVisit").val(obj.find('td')[6].innerHTML);
+        $("#ddlFrequency").val(obj.find('td')[7].innerHTML);
 
     });
     function EditPICDetails(this1) {
         var obj = $(this1).parents("tr")
         $("#hdnId").val(obj.find('td')[0].innerHTML);
-        $("#txtAdvice").val(obj.find('td')[1].innerHTML);
-        $("#txtDiet").val(obj.find('td')[2].innerHTML);
-        $("#txtPeriod").val(obj.find('td')[3].innerHTML);
-        $("#txtVisit").val(obj.find('td')[4].innerHTML);
-        $("#ddlFrequency").val(obj.find('td')[5].innerHTML);
+        $("#txtinvTest").val(obj.find('td')[1].innerHTML);
+        $("#txtinvNote").val(obj.find('td')[2].innerHTML);
+        $("#txtAdvice").val(obj.find('td')[3].innerHTML);
+        $("#txtDiet").val(obj.find('td')[4].innerHTML);
+        $("#txtPeriod").val(obj.find('td')[5].innerHTML);
+        $("#txtVisit").val(obj.find('td')[6].innerHTML);
+        $("#ddlFrequency").val(obj.find('td')[7].innerHTML);
     }
 </script>
