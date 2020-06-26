@@ -31,7 +31,11 @@ namespace ESmartDr.Controllers
             int Flag = BM.ManageVitalInformation(VI);
             if (Flag > 0)
             {
-                return RedirectToAction("OpdPrescription", "MyOPD");
+                
+
+                VI = BM.GetVitalInformation(patientDETAILS.CasePapaerNo);
+                return View("VitalInformation", VI);
+                //return RedirectToAction("OpdPrescription", "MyOPD");
             }
             else
             {

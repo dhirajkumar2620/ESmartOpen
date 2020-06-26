@@ -42,9 +42,9 @@ namespace Bal_Layer
         {
             return DM.ManageVitalInformation(VI);
         }
-        public VitalInformation GetVitalInformation()
+        public VitalInformation GetVitalInformation(string CPno)
         {
-            return DM.GetVitalInformation();
+            return DM.GetVitalInformation(CPno);
         }
         public int ManageLifeStyleDetails(LifeStyleDetails LD)
         {

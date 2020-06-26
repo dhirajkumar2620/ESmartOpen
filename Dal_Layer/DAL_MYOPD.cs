@@ -250,21 +250,21 @@ namespace Dal_Layer
             }
 
         }
-        public VitalInformation GetVitalInformation()
+        public VitalInformation GetVitalInformation(String CPno)
         {
             try
             {
                 SqlParameter[] sqlparam;
                 sqlparam = new SqlParameter[2];
-                sqlparam[0] = new SqlParameter("@Flag", "6");
-                sqlparam[1] = new SqlParameter("@UserID", "");
+                sqlparam[0] = new SqlParameter("@QueueId", 0);
+                sqlparam[1] = new SqlParameter("@CPno", CPno);
 
-                DataTable ds = CommonFunction.GetDataTable("", sqlparam, "");
+                DataSet ds = CommonFunction.GetDataSet("USP_Get_Precription", sqlparam, "");
                 VitalInformation Ob = new VitalInformation();
                 List<VitalInformation> lst = new List<VitalInformation>();
-                if (ds != null && ds.Rows.Count > 0)
+                if (ds != null && ds.Tables[0].Rows.Count > 0)
                 {
-                    DataTable dt = ds;
+                    DataTable dt = ds.Tables[0];
                     foreach (DataRow dr in dt.Rows)
                     {
                         VitalInformation Model = new VitalInformation();
