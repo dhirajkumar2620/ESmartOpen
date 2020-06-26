@@ -76,14 +76,12 @@ namespace ESmartDr.Controllers
                     v.SPO2 = viralInfo.SPO2;
                     v.RR = viralInfo.RR;
                     v.HeadCircumference = viralInfo.HeadCircumference;
-                    return View("VitalInformation",v);
+                   // return View("VitalInformation",v);
                     //return RedirectToAction("OpdPrescription", "MyOPD");
                 }
-                else {
-                    return View("VitalInformation");
-                }
-               
-               
+                return View("VitalInformation", viralInfo);
+
+
             }
             return View("VitalInformation");
         }

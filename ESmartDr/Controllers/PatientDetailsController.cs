@@ -118,6 +118,11 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 List<PatientDetails> LST = new List<PatientDetails>();
                 LST = BP.SetPatientAppoinment(CPno, AppoinmentDate,  AppoinmentTime,  Note);
+                if (LST != null)
+                {
+                    SMS sms = new SMS();
+                    sms.SendSMS(admObj.WhatsAppNumber,"Dear "+admObj.FirstName+", your appoinment booked sucecessfuly "+ AppoinmentDate + " at "+ AppoinmentTime + "against Case Paper no "+ CPno + ", Download app for better helth ...");
+                }
                 PatientCount(admObj.HospitalId);
                 return RedirectToAction("GetQueueList", "PatientDetails") ;
             }
