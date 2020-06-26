@@ -270,6 +270,7 @@ namespace Dal_Layer
                     {
                         LifeStyleDetails Model = new LifeStyleDetails();
                         CommonFunction.ReflectSingleData(Model, dr);
+                        Ob = Model;
                         lst.Add(Model);
                     }
                 }
@@ -283,7 +284,7 @@ namespace Dal_Layer
             }
         }
      
-        public VitalInformation GetVitalInformation(String CPno)
+        public List<VitalInformation> GetVitalInformation(String CPno)
         {
             try
             {
@@ -302,12 +303,12 @@ namespace Dal_Layer
                     {
                         VitalInformation Model = new VitalInformation();
                         CommonFunction.ReflectSingleData(Model, dr);
-                        Ob = Model;
+                        //Ob = Model;
                         lst.Add(Model);
                     }
                 }
-                Ob.lst = lst;
-                return Ob;
+                //Ob.lst = lst;
+                return lst;
             }
             catch (Exception Ex)
             {
@@ -335,6 +336,7 @@ namespace Dal_Layer
                     {
                         Observation Model = new Observation();
                         CommonFunction.ReflectSingleData(Model, dr);
+                        Ob = Model;
                         lst.Add(Model);
                     }
                 }
@@ -367,6 +369,7 @@ namespace Dal_Layer
                     {
                         Medication Model = new Medication();
                         CommonFunction.ReflectSingleData(Model, dr);
+                        Ob = Model;
                         lst.Add(Model);
                     }
                 }
@@ -401,6 +404,7 @@ namespace Dal_Layer
                     {
                         Common Model = new Common();
                         CommonFunction.ReflectSingleData(Model, dr);
+                        Ob = Model;
                         lst.Add(Model);
                     }
                 }
@@ -413,14 +417,6 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
-
-
-      
-        
-
-     
-      
-       
       
     }
 }

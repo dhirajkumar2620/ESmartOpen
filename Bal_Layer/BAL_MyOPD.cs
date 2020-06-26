@@ -42,7 +42,7 @@ namespace Bal_Layer
         {
             return DM.ManageVitalInformation(VI);
         }
-        public VitalInformation GetVitalInformation(string CPno)
+        public List<VitalInformation> GetVitalInformation(string CPno)
         {
             return DM.GetVitalInformation(CPno);
         }

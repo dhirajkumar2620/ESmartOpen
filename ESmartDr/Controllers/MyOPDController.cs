@@ -55,21 +55,36 @@ namespace ESmartDr.Controllers
         {
             PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
             Observation ob = new Observation();
+            //Load lime always null not requird get data
             ob = BM.GetObservationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
-            return View("Observation", ob);
+            if (ob != null)
+            {
+                return View("Observation", ob);
+            }
+            return View("Observation");
         }
         public ActionResult MedicationPrec()
         {
             PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
             Medication MD = new Medication();
+            //Load lime always null not requird get data
             MD = BM.GetMedicationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
-            return View("PrecMedication", MD);
+            if (MD !=null)
+            {
+                return View("PrecMedication", MD);
+            }
+            return View("PrecMedication");
         }
         public ActionResult PatientMedicalDetails()
         {
             PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
             Medication MD = new Medication();
+            //Load lime always null not requird get data
             MD = BM.GetMedicationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+            if (MD!=null)
+            {
+                return View("MedicalInformation",MD);
+            }
             return View("MedicalInformation");
         }
         public ActionResult PatientLifeStyleDetails()
@@ -79,54 +94,55 @@ namespace ESmartDr.Controllers
         public ActionResult PatientVitalInformation()
         {
             BAL_MyOPD VI = new BAL_MyOPD();
-            VitalInformation v = new VitalInformation();
+            List<VitalInformation> vi= new List<VitalInformation>();
+           VitalInformation v = new VitalInformation();
             PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
-            v = VI.GetVitalInformation(patientDETAILS.CasePapaerNo);
+            vi = VI.GetVitalInformation(patientDETAILS.CasePapaerNo);
 
 
-            var viralInfo = v.lst.FirstOrDefault(x => x.CasePaperNo == patientDETAILS.CasePapaerNo);
-            if (viralInfo !=null)
+            var viralInfo = vi.FirstOrDefault(x => x.CasePaperNo == patientDETAILS.CasePapaerNo);
+            if (viralInfo != null)
             {
-            v.BloodPressure = viralInfo.BloodPressure;
-            v.Temperature = viralInfo.Temperature;
-            v.BloodGlucosePostPrandial = viralInfo.BloodGlucosePostPrandial;
-            v.Weight = viralInfo.Weight;
-            v.Height = viralInfo.Height;
-            v.BloodGlucoseFasting = viralInfo.BloodGlucoseFasting;
-            v.BloodlucoseRandom = viralInfo.BloodlucoseRandom;
-            v.BloodUrea = viralInfo.BloodUrea;
-            v.Creatinine = viralInfo.Creatinine;
-            v.UricAcidM = viralInfo.UricAcidM;
-            v.HB = viralInfo.HB;
-            v.PCV = viralInfo.PCV;
-            v.WBCCount = viralInfo.WBCCount;
-            v.PlateletCount = viralInfo.PlateletCount;
-            v.ESR = viralInfo.ESR;
-            v.RBCCount = viralInfo.RBCCount;
-            v.MCH = viralInfo.MCH;
-            v.MCHC = viralInfo.MCHC;
-            v.Lymphocyte = viralInfo.Lymphocyte;
-            v.Eosinophil = viralInfo.Eosinophil;
-            v.SerumBilirubin = viralInfo.SerumBilirubin;
-            v.SGPTALT = viralInfo.SGPTALT;
-            v.GGPT = viralInfo.GGPT;
-            v.TotalProtein = viralInfo.TotalProtein;
-            v.SerumAlbumin = viralInfo.SerumAlbumin;
-            v.Globulin = viralInfo.Globulin;
-            v.AlkalinePhosphatase = viralInfo.AlkalinePhosphatase;
-            v.SGOT = viralInfo.SGOT;
-            v.TotalCholesterol = viralInfo.TotalCholesterol;
-            v.HDLCholestero = viralInfo.HDLCholestero;
-            v.LDLCholesterol = viralInfo.LDLCholesterol;
-            v.Triglycerides = viralInfo.Triglycerides;
-            v.NonHDL = viralInfo.NonHDL;
-            v.HbA1c = viralInfo.HbA1c;
-            v.TSH = viralInfo.TSH;
-            v.SPO2 = viralInfo.SPO2;
-            v.RR = viralInfo.RR;
-            v.HeadCircumference = viralInfo.HeadCircumference;
+                v.BloodPressure = viralInfo.BloodPressure;
+                v.Temperature = viralInfo.Temperature;
+                v.BloodGlucosePostPrandial = viralInfo.BloodGlucosePostPrandial;
+                v.Weight = viralInfo.Weight;
+                v.Height = viralInfo.Height;
+                v.BloodGlucoseFasting = viralInfo.BloodGlucoseFasting;
+                v.BloodlucoseRandom = viralInfo.BloodlucoseRandom;
+                v.BloodUrea = viralInfo.BloodUrea;
+                v.Creatinine = viralInfo.Creatinine;
+                v.UricAcidM = viralInfo.UricAcidM;
+                v.HB = viralInfo.HB;
+                v.PCV = viralInfo.PCV;
+                v.WBCCount = viralInfo.WBCCount;
+                v.PlateletCount = viralInfo.PlateletCount;
+                v.ESR = viralInfo.ESR;
+                v.RBCCount = viralInfo.RBCCount;
+                v.MCH = viralInfo.MCH;
+                v.MCHC = viralInfo.MCHC;
+                v.Lymphocyte = viralInfo.Lymphocyte;
+                v.Eosinophil = viralInfo.Eosinophil;
+                v.SerumBilirubin = viralInfo.SerumBilirubin;
+                v.SGPTALT = viralInfo.SGPTALT;
+                v.GGPT = viralInfo.GGPT;
+                v.TotalProtein = viralInfo.TotalProtein;
+                v.SerumAlbumin = viralInfo.SerumAlbumin;
+                v.Globulin = viralInfo.Globulin;
+                v.AlkalinePhosphatase = viralInfo.AlkalinePhosphatase;
+                v.SGOT = viralInfo.SGOT;
+                v.TotalCholesterol = viralInfo.TotalCholesterol;
+                v.HDLCholestero = viralInfo.HDLCholestero;
+                v.LDLCholesterol = viralInfo.LDLCholesterol;
+                v.Triglycerides = viralInfo.Triglycerides;
+                v.NonHDL = viralInfo.NonHDL;
+                v.HbA1c = viralInfo.HbA1c;
+                v.TSH = viralInfo.TSH;
+                v.SPO2 = viralInfo.SPO2;
+                v.RR = viralInfo.RR;
+                v.HeadCircumference = viralInfo.HeadCircumference;
             }
-            return View("VitalInformation", v);
+            return View("VitalInformation", viralInfo);
         }
 
         public ActionResult CommonPrec()
