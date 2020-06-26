@@ -24,7 +24,7 @@
                         <label class="form-control-label">
                             Since<span class="star">*</span>
                         </label>
-                        @Html.TextBoxFor(m => m.Since, new { @id = "txtSince",@type="number", @class = "form-control", required = "required", @placeholder = "Since" })
+                        @Html.TextBoxFor(m => m.Since, new { @id = "txtSince", @type = "number", @class = "form-control", required = "required", @placeholder = "Since" })
                         @Html.ValidationMessageFor(model => model.Since, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                         @Html.ValidationMessageFor(model => model.PhysicalExamination, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <div class="col-md-4 obs-sv-btn" >
+                <div class="col-md-4 obs-sv-btn">
                     <div class="form-group pull-right">
                         <label class="form-control-label">
                             Diagnosis
@@ -89,30 +89,33 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in Model.lst)
-
+                                @if (Model.lst != null)
                                 {
+                                    foreach (var item in Model.lst)
+
+                                    {
 
 
-                                <tr>
-                                    <td hidden>@item.Id</td>
-                                    <td>@item.Complaints</td>
-                                    <td>@item.Since</td>
-                                    <td>@item.Period</td>
-                                    <td>@item.PhysicalExamination</td>
-                                    <td>@item.Diagnosis</td>
-                                    <td>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item" title="Edit" style="margin-right:5px!important;">
-                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            </li>
+                                        <tr>
+                                            <td hidden>@item.Id</td>
+                                            <td>@item.Complaints</td>
+                                            <td>@item.Since</td>
+                                            <td>@item.Period</td>
+                                            <td>@item.PhysicalExamination</td>
+                                            <td>@item.Diagnosis</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Edit" style="margin-right:5px!important;">
+                                                        <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                    </li>
 
-                                            <li class="list-inline-item" title="Delete">
-                                                <a href="#"><i class="fa fa-times add-row" aria-hidden="true"></i></a>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
+                                                    <li class="list-inline-item" title="Delete">
+                                                        <a href="#"><i class="fa fa-times add-row" aria-hidden="true"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    }
                                 }
                             </tbody>
                         </table>
@@ -125,52 +128,52 @@
 </div>
 
 <script>
-    
-     function SubmitObservationDetails() {
-         
-         var form = $('#frmObservationDetails')[0];
-         
-            var fromData = new FormData(form);
-            var urllink = '@Url.Content("~/Prescription/ManageObservation")'
-            $.ajax({
-                type: "post",
-                url: urllink,
-                data: fromData,
-                processData: false,
-                contentType: false,
-                success: function (data) {
-                    //location.reload();
-                    
-                    //$("#btnObservation").click();
-                    //$("#collapseFour").addClass("active");
-                    $('#tblObservation tbody').empty();
-                    var trHTML = '';
-                    $.each(data, function (i, item) {
-                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.Complaints + '</td><td>' + item.Since + '</td><td>' + item.Period + '</td><td>' + item.PhysicalExamination + '</td><td>' + item.Diagnosis + '</td><td><i class="fa fa-plus add-row" onclick=EditPICDetails(this) aria-hidden="true"></i></td></tr>';
-                    });
-                    $('#tblObservation tbody').append(trHTML)
-                    $("#hdnId").val('0');
-                    $("#txtComplaints").val('');
-                    $("#txtSince").val('');
-                    $("#txtPeriod").val('');
-                    $("#txtPhysicalExamination").val('');
-                    $("#txtDiagnosis").val('');
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    console.log(errorThrown);
-                }
-         })
+
+    function SubmitObservationDetails() {
+
+        var form = $('#frmObservationDetails')[0];
+
+        var fromData = new FormData(form);
+        var urllink = '@Url.Content("~/Prescription/ManageObservation")'
+        $.ajax({
+            type: "post",
+            url: urllink,
+            data: fromData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                //location.reload();
+
+                //$("#btnObservation").click();
+                //$("#collapseFour").addClass("active");
+                $('#tblObservation tbody').empty();
+                var trHTML = '';
+                $.each(data, function (i, item) {
+                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.Complaints + '</td><td>' + item.Since + '</td><td>' + item.Period + '</td><td>' + item.PhysicalExamination + '</td><td>' + item.Diagnosis + '</td><td><i class="fa fa-plus add-row" onclick=EditPICDetails(this) aria-hidden="true"></i></td></tr>';
+                });
+                $('#tblObservation tbody').append(trHTML)
+                $("#hdnId").val('0');
+                $("#txtComplaints").val('');
+                $("#txtSince").val('');
+                $("#txtPeriod").val('');
+                $("#txtPhysicalExamination").val('');
+                $("#txtDiagnosis").val('');
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        })
 
     }
     $(".add-row").on("click", function () {
-        
-               var obj = $(this).parents("tr")
-                $("#hdnId").val(obj.find('td')[0].innerHTML);
-                $("#txtComplaints").val(obj.find('td')[1].innerHTML);
-                $("#txtSince").val(obj.find('td')[2].innerHTML);
-                $("#txtPeriod").val(obj.find('td')[3].innerHTML);
-                $("#txtPhysicalExamination").val(obj.find('td')[4].innerHTML);
-                $("#txtDiagnosis").val(obj.find('td')[5].innerHTML);
+
+        var obj = $(this).parents("tr")
+        $("#hdnId").val(obj.find('td')[0].innerHTML);
+        $("#txtComplaints").val(obj.find('td')[1].innerHTML);
+        $("#txtSince").val(obj.find('td')[2].innerHTML);
+        $("#txtPeriod").val(obj.find('td')[3].innerHTML);
+        $("#txtPhysicalExamination").val(obj.find('td')[4].innerHTML);
+        $("#txtDiagnosis").val(obj.find('td')[5].innerHTML);
 
     });
     function EditPICDetails(this1) {
@@ -182,6 +185,6 @@
         $("#txtPhysicalExamination").val(obj.find('td')[4].innerHTML);
         $("#txtDiagnosis").val(obj.find('td')[5].innerHTML);
     }
-   
+
 </script>
 

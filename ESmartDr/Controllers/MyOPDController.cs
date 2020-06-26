@@ -55,25 +55,19 @@ namespace ESmartDr.Controllers
         {
             PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
             Observation ob = new Observation();
-            //Load lime always null not requird get data
-            ob = BM.GetObservationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
-            if (ob != null)
-            {
-                return View("Observation", ob);
-            }
-            return View("Observation");
+            ob = BM.GetObservationDetails(patientDETAILS.QueueId, "123456");
+            return View("Observation", ob);
+           
+            
         }
         public ActionResult MedicationPrec()
         {
             PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
             Medication MD = new Medication();
             //Load lime always null not requird get data
-            MD = BM.GetMedicationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
-            if (MD !=null)
-            {
-                return View("PrecMedication", MD);
-            }
-            return View("PrecMedication");
+            MD = BM.GetMedicationDetails(patientDETAILS.QueueId, "123456");
+           
+            return View("PrecMedication",MD);
         }
         public ActionResult PatientMedicalDetails()
         {
@@ -81,10 +75,7 @@ namespace ESmartDr.Controllers
             Medication MD = new Medication();
             //Load lime always null not requird get data
             MD = BM.GetMedicationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
-            if (MD!=null)
-            {
-                return View("MedicalInformation",MD);
-            }
+           
             return View("MedicalInformation");
         }
         public ActionResult PatientLifeStyleDetails()
