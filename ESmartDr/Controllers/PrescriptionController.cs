@@ -37,7 +37,7 @@ namespace ESmartDr.Controllers
             {
                 Observation ob = new Observation();
                 List<Observation> lstObservation = new List<Observation>();
-                ob = BM.GetObservationDetails();
+                ob = BM.GetObservationDetails(patientDETAILS.QueueId,patientDETAILS.CasePapaerNo);
                 lstObservation = ob.lst;
                 return Json(lstObservation, JsonRequestBehavior.AllowGet);
             }
@@ -63,7 +63,7 @@ namespace ESmartDr.Controllers
             {
                 Medication ob = new Medication();
                 List<Medication> lstObservation = new List<Medication>();
-                ob = BM.GetMedicationDetails();
+                ob = BM.GetMedicationDetails(patientDETAILS.QueueId,patientDETAILS.CasePapaerNo);
                 lstObservation = ob.lst;
                 return Json(lstObservation, JsonRequestBehavior.AllowGet);
             }
@@ -89,7 +89,7 @@ namespace ESmartDr.Controllers
             {
                 Common ob = new Common();
                 List<Common> lstObservation = new List<Common>();
-                ob = BM.GetCommonDetails();
+                ob = BM.GetCommonDetails(patientDETAILS.QueueId,patientDETAILS.CasePapaerNo);
                 lstObservation = ob.lst;
                 return Json(lstObservation, JsonRequestBehavior.AllowGet);
             }

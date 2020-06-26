@@ -91,102 +91,72 @@ namespace Dal_Layer
                 throw;
             }
         }
-        public Observation GetObservationDetails()
+        public int ManageLifeStyleDetails(LifeStyleDetails LD)
         {
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[2];
-                sqlparam[0] = new SqlParameter("@Flag", "1");
-                sqlparam[1] = new SqlParameter("@UserID", "");
+                sqlparam = new SqlParameter[14];
+                sqlparam[0] = new SqlParameter("@Id", LD.Id);
+                sqlparam[1] = new SqlParameter("@Diat", LD.Diat);
+                sqlparam[2] = new SqlParameter("@Smoting", LD.Smoting);
+                sqlparam[3] = new SqlParameter("@Alcohol", LD.Alcohol);
+                sqlparam[4] = new SqlParameter("@Bowel", LD.Bowel);
+                sqlparam[5] = new SqlParameter("@Bladder", LD.Bladder);
+                sqlparam[6] = new SqlParameter("@Sleep", LD.Sleep);
+                sqlparam[7] = new SqlParameter("@CasePaperNo", LD.CasePaperNo);
+                sqlparam[8] = new SqlParameter("@HospitalId", LD.HospitalId);
+                sqlparam[9] = new SqlParameter("@PatientId", LD.PatientId);
+                sqlparam[10] = new SqlParameter("@CreatedBy", LD.CreatedBy);
+                sqlparam[11] = new SqlParameter("@CreatedDate", LD.CreatedDate);
+                sqlparam[12] = new SqlParameter("@ModifideDate", LD.ModifideDate);
+                sqlparam[13] = new SqlParameter("@ModifideBy", LD.ModifideBy);
+                sqlparam[14] = new SqlParameter("@IsActive", LD.IsActive);
 
-                DataTable ds = CommonFunction.GetDataTable("USP_OPD_GET_PRESCRIPTION", sqlparam, "");
-                Observation Ob = new Observation();
-                List<Observation> lst = new List<Observation>();
-                if (ds != null && ds.Rows.Count > 0)
-                {
-                    DataTable dt = ds;
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        Observation Model = new Observation();
-                        CommonFunction.ReflectSingleData(Model, dr);
-                        lst.Add(Model);
-                    }
-                }
-                Ob.lst = lst;
-                return Ob;
+                return CommonFunction.Save("[USP_PD_LifeStyleDetails]", sqlparam, "");
             }
-            catch (Exception Ex)
+            catch (Exception)
             {
 
-                throw Ex;
+                throw;
             }
         }
-        public Medication GetMedicationDetails()
+        public int ManageMedicalInfoDetails(MedicalInformationDetails MI)
         {
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[2];
-                sqlparam[0] = new SqlParameter("@Flag", "2");
-                sqlparam[1] = new SqlParameter("@UserID", "");
+                sqlparam = new SqlParameter[21];
+                sqlparam[0] = new SqlParameter("@Id", MI.Id);
+                sqlparam[1] = new SqlParameter("@Diabetes", MI.Diabetes);
+                sqlparam[2] = new SqlParameter("@Asthma", MI.Asthma);
+                sqlparam[3] = new SqlParameter("@ThyroidProblem", MI.ThyroidProblem);
+                sqlparam[4] = new SqlParameter("@Jaundice", MI.Jaundice);
+                sqlparam[5] = new SqlParameter("@Migraine", MI.Migraine);
+                sqlparam[6] = new SqlParameter("@AIDS", MI.AIDS);
+                sqlparam[7] = new SqlParameter("@HeartProblem", MI.HeartProblem);
+                sqlparam[8] = new SqlParameter("@BloodPressure", MI.BloodPressure);
+                sqlparam[9] = new SqlParameter("@TB", MI.TB);
+                sqlparam[10] = new SqlParameter("@Cancer", MI.Cancer);
+                sqlparam[11] = new SqlParameter("@Other", MI.Other);
+                sqlparam[12] = new SqlParameter("@Allegies", MI.Allegies);
+                sqlparam[13] = new SqlParameter("@CasePaperNo", MI.CasePaperNo);
+                sqlparam[14] = new SqlParameter("@HospitalId", MI.HospitalId);
+                sqlparam[15] = new SqlParameter("@PatientId", MI.PatientId);
+                sqlparam[16] = new SqlParameter("@CreatedBy", MI.CreatedBy);
+                sqlparam[17] = new SqlParameter("@CreatedDate", MI.CreatedDate);
+                sqlparam[18] = new SqlParameter("@ModifideDate", MI.ModifideDate);
+                sqlparam[19] = new SqlParameter("@ModifideBy", MI.ModifideBy);
+                sqlparam[20] = new SqlParameter("@IsActive", MI.IsActive);
 
-                DataTable ds = CommonFunction.GetDataTable("USP_OPD_GET_PRESCRIPTION", sqlparam, "");
-                Medication Ob = new Medication();
-                List<Medication> lst = new List<Medication>();
-                if (ds != null && ds.Rows.Count > 0)
-                {
-                    DataTable dt = ds;
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        Medication Model = new Medication();
-                        CommonFunction.ReflectSingleData(Model, dr);
-                        lst.Add(Model);
-                    }
-                }
-                Ob.lst = lst;
-                return Ob;
+                return CommonFunction.Save("[USP_PD_MedicalInformationDetails]", sqlparam, "");
             }
-            catch (Exception Ex)
+            catch (Exception)
             {
 
-                throw Ex;
+                throw;
             }
         }
-
-        public Common GetCommonDetails()
-        {
-            try
-            {
-                SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[2];
-                sqlparam[0] = new SqlParameter("@Flag", "3");
-                sqlparam[1] = new SqlParameter("@UserID", "");
-
-                DataTable ds = CommonFunction.GetDataTable("USP_OPD_GET_PRESCRIPTION", sqlparam, "");
-                Common Ob = new Common();
-                List<Common> lst = new List<Common>();
-                if (ds != null && ds.Rows.Count > 0)
-                {
-                    DataTable dt = ds;
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        Common Model = new Common();
-                        CommonFunction.ReflectSingleData(Model, dr);
-                        lst.Add(Model);
-                    }
-                }
-                Ob.lst = lst;
-                return Ob;
-            }
-            catch (Exception Ex)
-            {
-
-                throw Ex;
-            }
-        }
-
-
         public int ManageVitalInformation(VitalInformation VI)
         {
             try
@@ -237,7 +207,7 @@ namespace Dal_Layer
                 sqlparam[41] = new SqlParameter("@PatientId ", VI.PatientId);
                 sqlparam[42] = new SqlParameter("@CreatedBy ", VI.CreatedBy);
                 //sqlparam[43] = new SqlParameter("@CreatedDate ", VI.CreatedDate);
-               // sqlparam[44] = new SqlParameter("@ModifideDate ", VI.ModifideDate);
+                // sqlparam[44] = new SqlParameter("@ModifideDate ", VI.ModifideDate);
                 sqlparam[43] = new SqlParameter("@ModifideBy ", VI.ModifideBy);
                 sqlparam[44] = new SqlParameter("@IsActive ", VI.IsActive);
 
@@ -250,145 +220,16 @@ namespace Dal_Layer
             }
 
         }
-        public VitalInformation GetVitalInformation(String CPno)
+        public MedicalInformationDetails GetMedicalInfoDetails( string CPno)
         {
             try
             {
                 SqlParameter[] sqlparam;
                 sqlparam = new SqlParameter[2];
-                sqlparam[0] = new SqlParameter("@QueueId", 0);
+                sqlparam[0] = new SqlParameter("@flag", "1");
                 sqlparam[1] = new SqlParameter("@CPno", CPno);
 
-                DataSet ds = CommonFunction.GetDataSet("USP_Get_Precription", sqlparam, "");
-                VitalInformation Ob = new VitalInformation();
-                List<VitalInformation> lst = new List<VitalInformation>();
-                if (ds != null && ds.Tables[0].Rows.Count > 0)
-                {
-                    DataTable dt = ds.Tables[0];
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        VitalInformation Model = new VitalInformation();
-                        CommonFunction.ReflectSingleData(Model, dr);
-                        lst.Add(Model);
-                    }
-                }
-                Ob.lst = lst;
-                return Ob;
-            }
-            catch (Exception Ex)
-            {
-
-                throw Ex;
-            }
-        }
-
-        public int ManageLifeStyleDetails(LifeStyleDetails LD)
-        {
-            try
-            {
-                SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[14];
-                sqlparam[0] = new SqlParameter("@Id", LD.Id);
-                sqlparam[1] = new SqlParameter("@Diat", LD.Diat);
-                sqlparam[2] = new SqlParameter("@Smoting", LD.Smoting);
-                sqlparam[3] = new SqlParameter("@Alcohol", LD.Alcohol);
-                sqlparam[4] = new SqlParameter("@Bowel", LD.Bowel);
-                sqlparam[5] = new SqlParameter("@Bladder", LD.Bladder);
-                sqlparam[6] = new SqlParameter("@Sleep", LD.Sleep);
-                sqlparam[7] = new SqlParameter("@CasePaperNo", LD.CasePaperNo);
-                sqlparam[8] = new SqlParameter("@HospitalId", LD.HospitalId);
-                sqlparam[9] = new SqlParameter("@PatientId", LD.PatientId);
-                sqlparam[10] = new SqlParameter("@CreatedBy", LD.CreatedBy);
-                sqlparam[11] = new SqlParameter("@CreatedDate", LD.CreatedDate);
-                sqlparam[12] = new SqlParameter("@ModifideDate", LD.ModifideDate);
-                sqlparam[13] = new SqlParameter("@ModifideBy", LD.ModifideBy);
-                sqlparam[14] = new SqlParameter("@IsActive", LD.IsActive);
-
-                return CommonFunction.Save("[USP_PD_LifeStyleDetails]", sqlparam, "");
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-        public LifeStyleDetails GetLifeStyleDetails()
-        {
-            try
-            {
-                SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[2];
-                sqlparam[0] = new SqlParameter("@Flag", "5");
-                sqlparam[1] = new SqlParameter("@UserID", "");
-
-                DataTable ds = CommonFunction.GetDataTable("", sqlparam, "");
-                LifeStyleDetails Ob = new LifeStyleDetails();
-                List<LifeStyleDetails> lst = new List<LifeStyleDetails>();
-                if (ds != null && ds.Rows.Count > 0)
-                {
-                    DataTable dt = ds;
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        LifeStyleDetails Model = new LifeStyleDetails();
-                        CommonFunction.ReflectSingleData(Model, dr);
-                        lst.Add(Model);
-                    }
-                }
-                Ob.lst = lst;
-                return Ob;
-            }
-            catch (Exception Ex)
-            {
-
-                throw Ex;
-            }
-        }
-        public int ManageMedicalInfoDetails(MedicalInformationDetails MI)
-        {
-            try
-            {
-                SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[21];
-                sqlparam[0] = new SqlParameter("@Id", MI.Id);
-                sqlparam[1] = new SqlParameter("@Diabetes", MI.Diabetes);
-                sqlparam[2] = new SqlParameter("@Asthma", MI.Asthma);
-                sqlparam[3] = new SqlParameter("@ThyroidProblem", MI.ThyroidProblem);
-                sqlparam[4] = new SqlParameter("@Jaundice", MI.Jaundice);
-                sqlparam[5] = new SqlParameter("@Migraine", MI.Migraine);
-                sqlparam[6] = new SqlParameter("@AIDS", MI.AIDS);
-                sqlparam[7] = new SqlParameter("@HeartProblem", MI.HeartProblem);
-                sqlparam[8] = new SqlParameter("@BloodPressure", MI.BloodPressure);
-                sqlparam[9] = new SqlParameter("@TB", MI.TB);
-                sqlparam[10] = new SqlParameter("@Cancer", MI.Cancer);
-                sqlparam[11] = new SqlParameter("@Other", MI.Other);
-                sqlparam[12] = new SqlParameter("@Allegies", MI.Allegies);
-                sqlparam[13] = new SqlParameter("@CasePaperNo", MI.CasePaperNo);
-                sqlparam[14] = new SqlParameter("@HospitalId", MI.HospitalId);
-                sqlparam[15] = new SqlParameter("@PatientId", MI.PatientId);
-                sqlparam[16] = new SqlParameter("@CreatedBy", MI.CreatedBy);
-                sqlparam[17] = new SqlParameter("@CreatedDate", MI.CreatedDate);
-                sqlparam[18] = new SqlParameter("@ModifideDate", MI.ModifideDate);
-                sqlparam[19] = new SqlParameter("@ModifideBy", MI.ModifideBy);
-                sqlparam[20] = new SqlParameter("@IsActive", MI.IsActive);
-
-                return CommonFunction.Save("[USP_PD_MedicalInformationDetails]", sqlparam, "");
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-        public MedicalInformationDetails GetMedicalInfoDetails()
-        {
-            try
-            {
-                SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[2];
-                sqlparam[0] = new SqlParameter("@Flag", "4");
-                sqlparam[1] = new SqlParameter("@UserID", "");
-
-                DataTable ds = CommonFunction.GetDataTable("", sqlparam, "");
+                DataTable ds = CommonFunction.GetDataTable("USP_Get_Precription", sqlparam, "");
                 MedicalInformationDetails Ob = new MedicalInformationDetails();
                 List<MedicalInformationDetails> lst = new List<MedicalInformationDetails>();
                 if (ds != null && ds.Rows.Count > 0)
@@ -410,5 +251,176 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
+        public LifeStyleDetails GetLifeStyleDetails(string CPno)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@flag", 2);
+                sqlparam[1] = new SqlParameter("@CPno", CPno);
+
+                DataTable ds = CommonFunction.GetDataTable("USP_Get_Precription", sqlparam, "");
+                LifeStyleDetails Ob = new LifeStyleDetails();
+                List<LifeStyleDetails> lst = new List<LifeStyleDetails>();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        LifeStyleDetails Model = new LifeStyleDetails();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        lst.Add(Model);
+                    }
+                }
+                Ob.lst = lst;
+                return Ob;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+     
+        public VitalInformation GetVitalInformation(String CPno)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@flag", 3);
+                sqlparam[1] = new SqlParameter("@CPno", CPno);
+
+                DataSet ds = CommonFunction.GetDataSet("USP_Get_Precription", sqlparam, "");
+                VitalInformation Ob = new VitalInformation();
+                List<VitalInformation> lst = new List<VitalInformation>();
+                if (ds != null && ds.Tables[0].Rows.Count > 0)
+                {
+                    DataTable dt = ds.Tables[0];
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        VitalInformation Model = new VitalInformation();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        Ob = Model;
+                        lst.Add(Model);
+                    }
+                }
+                Ob.lst = lst;
+                return Ob;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+        public Observation GetObservationDetails(int QueueId,string CPno)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[3];
+                sqlparam[0] = new SqlParameter("@flag", 4);
+                sqlparam[1] = new SqlParameter("@QueueId", QueueId);
+                sqlparam[2] = new SqlParameter("@CPno", CPno);
+
+                DataTable ds = CommonFunction.GetDataTable("USP_Get_Precription", sqlparam, "");
+                Observation Ob = new Observation();
+                List<Observation> lst = new List<Observation>();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Observation Model = new Observation();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        lst.Add(Model);
+                    }
+                }
+                Ob.lst = lst;
+                return Ob;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+        public Medication GetMedicationDetails(int QueueId, string CPno)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[3];
+                sqlparam[0] = new SqlParameter("@flag", 5);
+                sqlparam[1] = new SqlParameter("@QueueId", QueueId);
+                sqlparam[2] = new SqlParameter("@CPno", CPno);
+
+                DataTable ds = CommonFunction.GetDataTable("USP_Get_Precription", sqlparam, "");
+                Medication Ob = new Medication();
+                List<Medication> lst = new List<Medication>();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Medication Model = new Medication();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        lst.Add(Model);
+                    }
+                }
+                Ob.lst = lst;
+                return Ob;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+
+        public Common GetCommonDetails(int QueueId, string CPno)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam = new SqlParameter[3];
+                sqlparam[0] = new SqlParameter("@flag", 6);
+                sqlparam[1] = new SqlParameter("@QueueId", QueueId);
+                sqlparam[2] = new SqlParameter("@CPno", CPno);
+
+                DataTable ds = CommonFunction.GetDataTable("USP_Get_Precription", sqlparam, "");
+                Common Ob = new Common();
+                List<Common> lst = new List<Common>();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Common Model = new Common();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        lst.Add(Model);
+                    }
+                }
+                Ob.lst = lst;
+                return Ob;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+
+
+      
+        
+
+     
+      
+       
+      
     }
 }

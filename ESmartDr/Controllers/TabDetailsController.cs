@@ -34,6 +34,7 @@ namespace ESmartDr.Controllers
                 
 
                 VI = BM.GetVitalInformation(patientDETAILS.CasePapaerNo);
+
                 return View("VitalInformation", VI);
                 //return RedirectToAction("OpdPrescription", "MyOPD");
             }
@@ -59,7 +60,7 @@ namespace ESmartDr.Controllers
             {
                 LifeStyleDetails ob = new LifeStyleDetails();
                 List<LifeStyleDetails> lstVI = new List<LifeStyleDetails>();
-                ob = BM.GetLifeStyleDetails();
+                ob = BM.GetLifeStyleDetails(patientDETAILS.CasePapaerNo);
                 lstVI = ob.lst;
                 return Json(lstVI, JsonRequestBehavior.AllowGet);
             }
@@ -84,7 +85,7 @@ namespace ESmartDr.Controllers
             {
                 MedicalInformationDetails ob = new MedicalInformationDetails();
                 List<MedicalInformationDetails> lstVI = new List<MedicalInformationDetails>();
-                ob = BM.GetMedicalInfoDetails();
+                ob = BM.GetMedicalInfoDetails(patientDETAILS.CasePapaerNo);
                 lstVI = ob.lst;
                 return Json(lstVI, JsonRequestBehavior.AllowGet);
             }

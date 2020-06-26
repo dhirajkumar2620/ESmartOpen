@@ -53,18 +53,23 @@ namespace ESmartDr.Controllers
 
         public ActionResult PrecObservation()
         {
+            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
             Observation ob = new Observation();
-            ob = BM.GetObservationDetails();
+            ob = BM.GetObservationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
             return View("Observation", ob);
         }
         public ActionResult MedicationPrec()
         {
+            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
             Medication MD = new Medication();
-            MD = BM.GetMedicationDetails();
+            MD = BM.GetMedicationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
             return View("PrecMedication", MD);
         }
         public ActionResult PatientMedicalDetails()
         {
+            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            Medication MD = new Medication();
+            MD = BM.GetMedicationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
             return View("MedicalInformation");
         }
         public ActionResult PatientLifeStyleDetails()
@@ -80,6 +85,8 @@ namespace ESmartDr.Controllers
 
 
             var viralInfo = v.lst.FirstOrDefault(x => x.CasePaperNo == patientDETAILS.CasePapaerNo);
+            if (viralInfo !=null)
+            {
             v.BloodPressure = viralInfo.BloodPressure;
             v.Temperature = viralInfo.Temperature;
             v.BloodGlucosePostPrandial = viralInfo.BloodGlucosePostPrandial;
@@ -118,6 +125,7 @@ namespace ESmartDr.Controllers
             v.SPO2 = viralInfo.SPO2;
             v.RR = viralInfo.RR;
             v.HeadCircumference = viralInfo.HeadCircumference;
+            }
             return View("VitalInformation", v);
         }
 

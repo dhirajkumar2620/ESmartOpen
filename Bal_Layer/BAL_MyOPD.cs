@@ -19,13 +19,13 @@ namespace Bal_Layer
         {
             return DM.ManageMedicationDetails(Ob);
         }
-        public Observation GetObservationDetails()
+        public Observation GetObservationDetails(int QueueId, string CPno)
         {
-            return DM.GetObservationDetails();
+            return DM.GetObservationDetails(QueueId, CPno);
         }
-        public Medication GetMedicationDetails()
+        public Medication GetMedicationDetails(int QueueId, string CPno)
         {
-            return DM.GetMedicationDetails();
+            return DM.GetMedicationDetails( QueueId,  CPno);
         }
 
         public int ManagePrecCommonDetails(Common Ob)
@@ -33,9 +33,9 @@ namespace Bal_Layer
             return DM.ManagePrecCommonDetails(Ob);
         }
 
-        public Common GetCommonDetails()
+        public Common GetCommonDetails(int QueueId, string CPno)
         {
-            return DM.GetCommonDetails();
+            return DM.GetCommonDetails( QueueId,  CPno);
         }
 
         public int ManageVitalInformation(VitalInformation VI)
@@ -50,17 +50,17 @@ namespace Bal_Layer
         {
             return DM.ManageLifeStyleDetails(LD);
         }
-        public LifeStyleDetails GetLifeStyleDetails()
+        public LifeStyleDetails GetLifeStyleDetails(string CPno)
         {
-            return DM.GetLifeStyleDetails();
+            return DM.GetLifeStyleDetails(CPno);
         }
         public int ManageMedicalInfoDetails(MedicalInformationDetails MI)
         {
             return DM.ManageMedicalInfoDetails(MI);
         }
-        public MedicalInformationDetails GetMedicalInfoDetails()
+        public MedicalInformationDetails GetMedicalInfoDetails( string CPno)
         {
-            return DM.GetMedicalInfoDetails();
+            return DM.GetMedicalInfoDetails(   CPno);
         }
 
     }

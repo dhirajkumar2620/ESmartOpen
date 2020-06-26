@@ -8,6 +8,11 @@ namespace App_Layer
 {
     public class VitalInformation
     {
+        public VitalInformation()
+        {
+            lst = new List<VitalInformation>();
+           
+        }
         public int Id { get; set; }
         public string BloodPressure { get; set; }
         public string Temperature { get; set; }
