@@ -98,21 +98,22 @@ namespace ESmartDr.Controllers
                 return Json("", JsonRequestBehavior.AllowGet);
             }
         }
-        public ActionResult ViewPricripion(int QueueId, string CPno)
-        {
-            try
-            {
-                Bal_Precription p = new Bal_Precription();
-                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-                DataSet ds = p.ViewPricripion(QueueId, CPno);
+        //public ActionResult ViewPricripion(int QueueId, string CPno)
+        //{
+        //    try
+        //    {
+        //        Bal_Precription p = new Bal_Precription();
+        //        AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+        //        Precription pd = new Precription();
+        //        pd = p.ViewPricripion(QueueId, CPno);
 
-                return View("Examination");//, pd);
-            }
-            catch (Exception)
-            {
+        //        return View("Examination",pd);//, pd);
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
-        }
+        //        throw;
+        //    }
+        //}
     }
 }

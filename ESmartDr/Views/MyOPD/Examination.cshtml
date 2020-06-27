@@ -1,4 +1,4 @@
-﻿
+﻿@model App_Layer.Precription
 @{
     Layout = null;
 }
@@ -29,10 +29,82 @@
         <div class="second-tab">
             <div class="card">
 
-                <h1>Precription</h1>
-               
+                <table id="example3" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Precription Name</th>
+                            <th>PhysicalExamination</th>
+                            <th>Since</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.olist)
+                        {
+                            <tr>
+                                <td>@item.Complaints</td>
+                                <td>@item.PhysicalExamination</td>
+                                <td>@item.Since</td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+                <table id="example5" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Medicine Name</th>
+                            <th>MedicineDays</th>
+                            <th>WhenMedicine</th>
+                            <th>SpecialInstruction</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model.mlist)
+                        {
+                            <tr>
+                                <td>@item.MedicineName</td>
+                                <td>@item.MedicineDays</td>
+                                <td>@item.WhenMedicine</td>
+                                <td>@item.SpecialInstruction</td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+                <table id="example6" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>InvSelectTests</th>
+                            <th>InvNotes</th>
+                            <th>AddAdvice</th>
+                            <th>AddDiet</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model.clist)
+                        {
+                            <tr>
+                                <td>@item.InvSelectTests</td>
+                                <td>@item.InvNotes</td>
+                                <td>@item.AddAdvice</td>
+                                <td>@item.AddDiet</td>
+
+
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+
             </div>
-          
+
         </div>
     </div>
 </div>

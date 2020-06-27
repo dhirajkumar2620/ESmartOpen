@@ -42,9 +42,10 @@ namespace ESmartDr.Controllers
         {
             Bal_Precription bp= new Bal_Precription ();
             PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
-            Observation ob = new Observation();
-            DataSet ds = bp.ViewPricripion( patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
-            return View("Examination", ds);
+            Precription pd = new Precription();
+            pd = bp.ViewPricripion( patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+           
+            return View("Examination", pd);
         }
         public ActionResult OpdHistory()
         {

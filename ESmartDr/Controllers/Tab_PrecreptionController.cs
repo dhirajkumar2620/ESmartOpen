@@ -19,10 +19,11 @@ namespace ESmartDr.Controllers
             Bal_Precription bp = new Bal_Precription();
             PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
             Medication MD = new Medication();
-            //Load lime always null not requird get data
-            DataSet ds = bp.ViewPricripion(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+            //Load lime always null not requird get data'
+            Precription pd = new Precription();
+            pd = bp.ViewPricripion(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
 
-            return View("Examination",ds);
+            return View("Examination",pd);
         }
     }
 }

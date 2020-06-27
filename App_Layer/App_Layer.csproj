@@ -57,6 +57,7 @@
     <Compile Include="MedicineDetails.cs" />
     <Compile Include="Observation.cs" />
     <Compile Include="PatientDetails.cs" />
+    <Compile Include="Precription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueueDetails.cs" />
     <Compile Include="ReceptionStaffReg.cs" />
