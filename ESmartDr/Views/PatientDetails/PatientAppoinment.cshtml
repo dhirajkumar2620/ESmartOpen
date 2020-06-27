@@ -87,7 +87,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <div class="table-responsive">
+                            <div >
                                 <div class="grid-btn">
                                     <a href="~/PatientDetails/PatientDetails">
                                         <input type="button" value="Add New Patient" style="margin-left: 1em;border-radius: 22px;" class="btn btn_2 btn-primary">
@@ -98,6 +98,7 @@
                                 <table id="example" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
+                                            <th></th>
                                             <th>CP No.</th>
                                             <th>Patient</th>
                                             <th>Contact</th>
@@ -109,10 +110,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                       
                                         @foreach (var item in Model)
                                         {
                                             <tr>
-
+                                                <td></td>
                                                 <td>@item.CasePaperNo</td>
                                                 <td>@item.PatientName<br />@item.Age / @item.Gender</td>
                                                 <td>@item.WhatsAppNo<br />@item.OtherNo</td>
@@ -167,6 +169,7 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
+                                            <th></th>
                                             <th>CP No.</th>
                                             <th>Patient</th>
                                             <th>Contact no</th>
@@ -273,7 +276,7 @@
             <div class="modal-footer" style="border-top:none;">
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="button" onclick="SetStatus(this)" class="btn btn_1 btn-primary" data-dismiss="modal">Save Appointment</button>
+                        <button type="button" onclick="SetStatus(this)" class="btn btn_1 btn-primary" data-dismiss="modal">Save</button>
                     </div>
                 </div>
             </div>
