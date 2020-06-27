@@ -2,6 +2,7 @@
 using Bal_Layer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -86,6 +87,63 @@ namespace ESmartDr.Controllers
             }
 
             return View("AccountDetails", ED);
+        }
+
+        public ActionResult ExportToExcel1()
+        {
+            try
+            {
+
+
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        public ActionResult ExportToExcel()
+        {
+            try
+            {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+               
+                DataTable dt = BL.Get_ExportToExcel(6, admObj.HospitalId);
+                string attachment = "attachment; filename=TimeSheet.xls";
+                Response.ClearContent();
+                Response.AddHeader("content-disposition", attachment);
+                Response.ContentType = "application/vnd.ms-excel";
+                string tab = "";
+                foreach (DataColumn dc in dt.Columns)
+                {
+                    Response.Write(tab + dc.ColumnName);
+                    tab = "\t";
+                }
+                Response.Write("\n");
+                int i;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    tab = "";
+                    for (i = 0; i < dt.Columns.Count; i++)
+                    {
+                        Response.Write(tab + dr[i].ToString());
+                        tab = "\t";
+                    }
+                    Response.Write("\n");
+                }
+                Response.End();
+                return View("Layout1");
+                //return Json("", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
     }
 }

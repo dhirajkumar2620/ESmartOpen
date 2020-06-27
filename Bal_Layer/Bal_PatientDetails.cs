@@ -59,5 +59,10 @@ namespace Bal_Layer
         {
             return DP.SetDueAmount(CPno, DueAmount);
         }
+
+        public DataTable Get_ExportToExcel(int HospitalId)
+        {
+            return DP.Get_ExportToExcel(HospitalId);
+        }
     }
 }

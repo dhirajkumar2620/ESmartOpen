@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace ESmartDr.Controllers
 {
-   
+
     public class PatientDetailsController : Controller
     {
         // GET: PatientDetails Added by Shital 
@@ -30,7 +30,7 @@ namespace ESmartDr.Controllers
                 List<PatientDetails> LST = new List<PatientDetails>();
 
                 PatientCount(admObj.HospitalId);
-               
+
 
                 LST = BP.GetPatientDetails(admObj.HospitalId);
                 return View("AllPatient", LST);
@@ -46,7 +46,7 @@ namespace ESmartDr.Controllers
             try
             {
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-                PD.CreatedBy = admObj.FirstName ;
+                PD.CreatedBy = admObj.FirstName;
                 PD.HospitalId = admObj.HospitalId.ToString();
                 PD.HospitalName = admObj.HostClincName;
                 PD.DoctorReceptionId = admObj.UserId;
@@ -58,14 +58,14 @@ namespace ESmartDr.Controllers
                     return View();
                 }
                 PatientCount(admObj.HospitalId);
-                if (PD.Id ==0)
+                if (PD.Id == 0)
                 {
                     List<PatientDetails> LST = new List<PatientDetails>();
                     LST = BP.GetPatientDetails(admObj.HospitalId);
 
                     var CPNo = LST.Where(x
                                  => x.HospitalId == PD.HospitalId
-                                 && x.WhatsAppNo ==PD.WhatsAppNo
+                                 && x.WhatsAppNo == PD.WhatsAppNo
                                  )
                              .OrderByDescending(x => x.Id)
                              .Take(1)
@@ -77,10 +77,10 @@ namespace ESmartDr.Controllers
 
 
                     SMS sms = new SMS();
-                    string message = "You are added to " + admObj.FirstName + ", your CP No. is "+ CPNo + ". Download eSmartDoctor Patient app to manage your health - http://bit.ly/2RGTEHTR";
+                    string message = "You are added to " + admObj.FirstName + ", your CP No. is " + CPNo + ". Download eSmartDoctor Patient app to manage your health - http://bit.ly/2RGTEHTR";
                     sms.SendSMS(PD.WhatsAppNo, message);
                 }
-                
+
                 return RedirectToAction("ViewAllPatient", "PatientDetails");
             }
             catch (Exception)
@@ -89,7 +89,7 @@ namespace ESmartDr.Controllers
                 throw;
             }
         }
-        public ActionResult GetDetailsById(int  Id)
+        public ActionResult GetDetailsById(int Id)
         {
             try
             {
@@ -107,7 +107,7 @@ namespace ESmartDr.Controllers
             }
         }
         [HttpPost]
-        public ActionResult SetPatientAppoinment(string  CPno,DateTime AppoinmentDate, string AppoinmentTime,string Note )
+        public ActionResult SetPatientAppoinment(string CPno, DateTime AppoinmentDate, string AppoinmentTime, string Note)
         {
             try
             {
@@ -117,14 +117,14 @@ namespace ESmartDr.Controllers
                 //string Note = "Appoinment fixed";
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 List<PatientDetails> LST = new List<PatientDetails>();
-                LST = BP.SetPatientAppoinment(CPno, AppoinmentDate,  AppoinmentTime,  Note);
+                LST = BP.SetPatientAppoinment(CPno, AppoinmentDate, AppoinmentTime, Note);
                 //if (LST != null)
                 //{
                 //    SMS sms = new SMS();
                 //    sms.SendSMS(admObj.WhatsAppNumber,"Dear "+admObj.FirstName+", your appoinment booked sucecessfuly "+ AppoinmentDate + " at "+ AppoinmentTime + "against Case Paper no "+ CPno + ", Download app for better helth ...");
                 //}
                 PatientCount(admObj.HospitalId);
-                return RedirectToAction("GetQueueList", "PatientDetails") ;
+                return RedirectToAction("GetQueueList", "PatientDetails");
             }
             catch (Exception)
             {
@@ -140,7 +140,7 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 hospitalId = admObj.HospitalId;
                 //cards counts
-               
+
                 PatientCount(hospitalId);
 
                 List<QueueDetails> LST = new List<QueueDetails>();
@@ -155,7 +155,7 @@ namespace ESmartDr.Controllers
         }
 
 
-       
+
         public ActionResult DeleteAppoinment(int Id)
         {
             try
@@ -236,9 +236,9 @@ namespace ESmartDr.Controllers
                 if (flag != 0)
                 {
                     return RedirectToAction("GetQueueList", "PatientDetails");
-                   
+
                 }
-                
+
                 PatientCount(admObj.HospitalId);
                 return RedirectToAction("GetQueueList", "PatientDetails");
             }
@@ -297,7 +297,60 @@ namespace ESmartDr.Controllers
 
         }
 
-       
-    }
+        public ActionResult ExportToExcel1()
+        {
+            try
+            {
 
+
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        public ActionResult ExportToExcel()
+        {
+            try
+            {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                DataTable dt = BP.Get_ExportToExcel(admObj.HospitalId);
+                string attachment = "attachment; filename=TimeSheet.xls";
+                Response.ClearContent();
+                Response.AddHeader("content-disposition", attachment);
+                Response.ContentType = "application/vnd.ms-excel";
+                string tab = "";
+                foreach (DataColumn dc in dt.Columns)
+                {
+                    Response.Write(tab + dc.ColumnName);
+                    tab = "\t";
+                }
+                Response.Write("\n");
+                int i;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    tab = "";
+                    for (i = 0; i < dt.Columns.Count; i++)
+                    {
+                        Response.Write(tab + dr[i].ToString());
+                        tab = "\t";
+                    }
+                    Response.Write("\n");
+                }
+                Response.End();
+                return View("Layout1");
+                //return Json("", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+    }
 }

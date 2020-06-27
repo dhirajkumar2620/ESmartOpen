@@ -2,6 +2,7 @@
 using Dal_Layer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,5 +30,10 @@ namespace Bal_Layer
         //{
         //    return DP.GetInvoice(hID);
         //}
+
+        public DataTable Get_ExportToExcel(int flag, int HospitalId)
+        {
+            return DP.Get_ExportToExcel(flag, HospitalId);
+        }
     }
 }

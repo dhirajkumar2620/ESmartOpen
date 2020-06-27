@@ -309,6 +309,71 @@ namespace ESmartDr.Controllers
             }
             return path;
         }
+
+        public ActionResult ExportToExcel1()
+        {
+            try
+            {
+
+
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        public ActionResult ExportToExcel()
+        {
+            try
+            {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                int flag = 0;
+                if (admObj.HospitalId ==0)
+                {
+                    flag = 3;
+                }
+                else
+                {
+                    flag = 2;
+                }
+                DataTable dt = BP.Get_ExportToExcel(flag, admObj.HospitalId);
+                string attachment = "attachment; filename=TimeSheet.xls";
+                Response.ClearContent();
+                Response.AddHeader("content-disposition", attachment);
+                Response.ContentType = "application/vnd.ms-excel";
+                string tab = "";
+                foreach (DataColumn dc in dt.Columns)
+                {
+                    Response.Write(tab + dc.ColumnName);
+                    tab = "\t";
+                }
+                Response.Write("\n");
+                int i;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    tab = "";
+                    for (i = 0; i < dt.Columns.Count; i++)
+                    {
+                        Response.Write(tab + dr[i].ToString());
+                        tab = "\t";
+                    }
+                    Response.Write("\n");
+                }
+                Response.End();
+                return View("Layout1");
+                //return Json("", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
     }
 }
 

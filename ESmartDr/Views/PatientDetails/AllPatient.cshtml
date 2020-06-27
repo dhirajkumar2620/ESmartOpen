@@ -153,7 +153,7 @@
                             <div class="row">
                                 <div class="col-md-12 text-right">
                                     <a href="~/PatientDetails/GetQueueList"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
-                                    @*<a href="#"><input type="button" value="Export to Excel" class="btn btn_2 btn-primary"></a>*@
+                                    <a href="#"><input type="button" onclick="ExportToExcel()" value="Export to Excel" class="btn btn_2 btn-primary"></a>
                                 </div>
                             </div>
                         </div>
@@ -481,5 +481,27 @@
     $(document).ready(function () {
         $('#example1').DataTable();
     });
+
+
+    function ExportToExcel() {
+        $.ajax({
+            type: "GET",
+            url: "/PatientDetails/ExportToExcel1",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                window.location.href = '/PatientDetails/ExportToExcel'
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+
+    }
+
+    
 </script>
 

@@ -152,5 +152,25 @@ namespace Dal_Layer
         //        throw Ex;
         //    }
         //}
+
+        public DataTable Get_ExportToExcel(int flag, int HospitalId)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@Flag", flag);
+                sqlparam[1] = new SqlParameter("@HospitalId", HospitalId);
+
+                DataTable dt = CommonFunction.GetDataTable("[USP_Get_ExportToExcel]", sqlparam, "");
+
+                return dt;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
     }
 }
