@@ -2,16 +2,101 @@
 @{
     Layout = null;
 }
+<div class="bs-example">
+    <div class="accordion" id="accordionExample1">
+        @*<div class="row">
+                <div class="col-md-6">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            Prescription For :
+                        </li>
+                        <li class="list-inline-item">
+                            <div class="form-group">
+                                <div class="input-group date" data-provide="datepicker">
+                                    <input type="text" class="form-control datepicker" placeholder="dd/mm/yyyy" />
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <input type="button" value="Copy Previous" class="btn btn_1 btn-primary pull-right">
+                </div>
+            </div>*@
+        <div class="second-tab">
+            <div class="card">
 
-<!DOCTYPE html>
+                <h1>Billing</h1>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Billing</title>
-</head>
-<body>
-    <div> 
+            </div>
+
+        </div>
     </div>
-</body>
-</html>
+</div>
+@*<script src="~/vendor/jquery/jquery.min.js"></script>*@
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/js/front.js"></script>
+<script>
+    //$(".nav-tabs li").removeClass("active"); btnInvestigation
+    $("#btnObservation").on('click', function () {
+        var url = $(this).data('request-url');
+
+        $("#tabObservation").load(url);
+    });
+    $("#btnMedication").on('click', function () {
+        var url = $(this).data('request-url');
+
+        $("#tabMedication").load(url);
+    });
+    $("#btnCommon").on('click', function () {
+        var url = $(this).data('request-url');
+
+        $("#tabCommon").load(url);
+    });
+</script>
+<script>
+
+    //$('.opd-table .add-row').click(function () {
+    //    $('.opd-table .table').append('<tr><td contenteditable="true">001</td><td contenteditable="true">Fever</td><td contenteditable="true">2 Week</td><td><ul class="list-inline"><li class="list-inline-item" title="Edit"><i class="fa fa-times"  onclick="SomeDeleteRowFunction(this);" aria-hidden="true"></i></li></ul></td></tr>');
+    //});
+
+
+    $('.opd-table1 .add-row-billing').click(function () {
+        $('.opd-table1 .table').append('<tr><td>1</td><td contenteditable="true">Fever</td><td contenteditable="true">1000</td><td contenteditable="true">Paid</td><td contenteditable="true">0</td><td><ul class="list-inline"><li class="list-inline-item" title="Edit"><i class="fa fa-times add-row-billing" onclick="SomeDeleteRowFunction(this);" aria-hidden="true"></i></li></ul></td></tr>');
+    });
+
+    function SomeDeleteRowFunction(btndel) {
+        if (typeof (btndel) == "object") {
+            $(btndel).closest("tr").remove();
+        } else {
+            return false;
+        }
+    }
+
+    function SomeDeleteRowFunction1(btndel) {
+        if (typeof (btndel) == "object") {
+            $(btndel).closest("tr").remove();
+        } else {
+            return false;
+        }
+    }
+
+    $('#r1').click(function () {
+        $('.refe-letr').css("display", "block");
+        $('.fitn-cert').css("display", "none");
+        $('.medicl-cert').css("display", "none");
+    });
+    $('#r2').click(function () {
+        $('.refe-letr').css("display", "none");
+        $('.fitn-cert').css("display", "block");
+        $('.medicl-cert').css("display", "none");
+    });
+    $('#r3').click(function () {
+        $('.refe-letr').css("display", "none");
+        $('.fitn-cert').css("display", "none");
+        $('.medicl-cert').css("display", "block");
+    });
+</script>
