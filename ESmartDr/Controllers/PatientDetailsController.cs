@@ -203,6 +203,52 @@ namespace ESmartDr.Controllers
             Years, Months, Days, Hours, Seconds);
         }
 
+        [HttpPost]
+        public ActionResult SetStatus(string CPno, float Bill, float paidBill, string Status)
+        {
+            try
+            {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                List<PatientDetails> LST = new List<PatientDetails>();
+                int flag = BP.SetStatus(CPno, Bill, paidBill, Status);
+                if (flag != 0)
+                {
+                    return RedirectToAction("GetQueueList", "PatientDetails");
+                }
+                PatientCount(admObj.HospitalId);
+                return RedirectToAction("GetQueueList", "PatientDetails");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpPost]
+        public ActionResult SetDueAmount(string CPno, float PaidDue)
+        {
+            try
+            {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                List<PatientDetails> LST = new List<PatientDetails>();
+                int flag = BP.SetDueAmount(CPno, PaidDue);
+                if (flag != 0)
+                {
+                    return RedirectToAction("GetQueueList", "PatientDetails");
+                   
+                }
+                
+                PatientCount(admObj.HospitalId);
+                return RedirectToAction("GetQueueList", "PatientDetails");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public void PatientCount(int Hid)
         {
             DataSet ds = BP.CountForCards(Hid);

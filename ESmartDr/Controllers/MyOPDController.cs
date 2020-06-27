@@ -55,7 +55,7 @@ namespace ESmartDr.Controllers
         {
             PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
             Observation ob = new Observation();
-            ob = BM.GetObservationDetails(patientDETAILS.QueueId, "123456");
+            ob = BM.GetObservationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
             return View("Observation", ob);
            
             
@@ -65,7 +65,7 @@ namespace ESmartDr.Controllers
             PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
             Medication MD = new Medication();
             //Load lime always null not requird get data
-            MD = BM.GetMedicationDetails(patientDETAILS.QueueId, "123456");
+            MD = BM.GetMedicationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
            
             return View("PrecMedication",MD);
         }

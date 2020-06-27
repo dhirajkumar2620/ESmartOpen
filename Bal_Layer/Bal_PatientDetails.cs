@@ -50,5 +50,14 @@ namespace Bal_Layer
         {
             return DP.GetPatientDetailsByCPno(CPno);
         }
+        public int SetStatus(string CPno, float Bill, float paidBill, string Status)
+        {
+            return DP.SetStatus( CPno,  Bill,  paidBill,  Status);
+        }
+
+        public int SetDueAmount(string CPno, float DueAmount)
+        {
+            return DP.SetDueAmount(CPno, DueAmount);
+        }
     }
 }

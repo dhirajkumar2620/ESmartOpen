@@ -265,5 +265,48 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
+
+        public int SetStatus(string CPno, float Bill, float paidBill, string Status)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[4];
+                sqlparam[0] = new SqlParameter("@CPno", CPno);
+                sqlparam[1] = new SqlParameter("@Bill", Bill);
+                sqlparam[2] = new SqlParameter("@paidBill", paidBill);
+                sqlparam[3] = new SqlParameter("@Status", Status);
+
+                int flag = CommonFunction.Save("USP_Set_AppStatus", sqlparam, "");
+               
+                return flag;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+        public int SetDueAmount(string CPno, float DueAmount)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@CPno", CPno);
+                sqlparam[1] = new SqlParameter("@DueAmount", DueAmount);
+               
+
+                int flag = CommonFunction.Save("USP_Set_DueAmount", sqlparam, "");
+
+                return flag;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+
     }
 }
