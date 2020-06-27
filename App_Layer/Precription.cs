@@ -12,6 +12,7 @@ namespace App_Layer
         public List<Observation> olist { get; set; }
         public List<Medication> mlist { get; set; }
         public List<Common> clist { get; set; }
+        public List<Common> NextList { get; set; }
 
     }
 }

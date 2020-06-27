@@ -50,6 +50,7 @@ namespace Dal_Layer
                     }
                 }
                 List<Common> clst = new List<Common>();
+               
                 if (ds != null && ds.Tables[5].Rows.Count > 0)
                 {
                     DataTable dt = ds.Tables[5];
@@ -59,6 +60,19 @@ namespace Dal_Layer
                         CommonFunction.ReflectSingleData(Model, dr);
 
                         clst.Add(Model);
+                    }
+                }
+                List<Common> NextList = new List<Common>();
+                if (ds != null && ds.Tables[6].Rows.Count > 0)
+                {
+                   
+                    DataTable dt = ds.Tables[6];
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Common Model1 = new Common();
+                        CommonFunction.ReflectSingleData(Model1, dr);
+
+                        NextList.Add(Model1);
                     }
                 }
                 //List<VitalInformation> vlst = new List<VitalInformation>();
@@ -76,6 +90,7 @@ namespace Dal_Layer
                 p.olist = olst;
                 p.mlist = mlst;
                 p.clist = clst;
+                p.NextList = NextList;
 
 
                 return p;

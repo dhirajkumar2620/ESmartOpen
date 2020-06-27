@@ -2,6 +2,67 @@
 @{
     Layout = null;
 }
+<style>
+    .table thead {
+        background: #ffffff;
+        color: #666;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #ffffff !important;
+    }
+
+    .table tbody {
+        background: #ffffff;
+    }
+
+    .table tr:hover {
+        box-shadow: 2px 4px 10px #fff;
+    }
+    /*.table thead th {
+        vertical-align: bottom;
+        border-bottom: 1px solid #dedede!important;
+    }
+        .table td {
+        border-top: 1px solid #dedede!important;
+        vertical-align: middle!important;
+    }*/
+    .table th {
+        padding-top: 15px;
+    }
+
+    .table {
+        margin-bottom: 0rem;
+    }
+
+    .mg-table .table {
+        border-bottom: 1px solid #d4d4d4;
+    }
+
+    .tbl-view-1 tr th:first-child {
+        width: 20%;
+    }
+
+    .tbl-view-2 tr th:first-child {
+        width: 20%;
+    }
+
+    .tbl-view-3 tr th:first-child {
+        width: 20%;
+    }
+
+    .tbl-view-4 tr th:first-child {
+        width: 20%;
+    }
+
+    .tbl-view-5 tr th:first-child {
+        width: 20%;
+    }
+
+    .tbl-view-5 tr th:first-child {
+        width: 20%;
+    }
+</style>
 <div class="bs-example">
     <div class="accordion" id="accordionExample1">
         @*<div class="row">
@@ -28,134 +89,211 @@
             </div>*@
         <div class="second-tab">
             <div class="card">
-
-                <table id="example3" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Complaints</th>
-                            <th>Since-When</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.olist)
-                        {
+                <div class="card-body">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <div class="i-checks">
+                                <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template tbl-1"> &nbsp;&nbsp; Complaints
+                            </div>
+                        </li>
+                        <li class="list-inline-item">
+                            <div class="i-checks">
+                                <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template tbl-2"> &nbsp;&nbsp;Test
+                            </div>
+                        </li>
+                        <li class="list-inline-item">
+                            <div class="i-checks">
+                                <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template tbl-3"> &nbsp;&nbsp;Diagnosis 
+                            </div>
+                        </li>
+                        <li class="list-inline-item">
+                            <div class="i-checks">
+                                <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template tbl-4"> &nbsp;&nbsp;Medication
+                            </div>
+                        </li>
+                        <li class="list-inline-item">
+                            <div class="i-checks">
+                                <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template tbl-5"> &nbsp;&nbsp;Observation
+                            </div>
+                        </li>
+                        <li class="list-inline-item">
+                            <div class="i-checks">
+                                <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template tbl-6"> &nbsp;&nbsp;Next Visit
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body mg-table">
+                    <table class="table table-striped" style="width: 100%;">
+                        <tbody>
                             <tr>
-                                <td>@item.Complaints</td>
-                                <td>@item.Since - @item.Period</td>
+                                <th>Patient Details : <span>@Session["PatientName"].ToString(), @Session["PatientGender"].ToString(), @Session["PatientAge"].ToString() yrs</span></th>
+                                <th>Patient ID : <span>@Session["CPno"].ToString()</span></th>
+                                <th>Appointment Date : <span>@Session["AppDate"].ToString()</span></th>
                             </tr>
-                        }
-                    </tbody>
-
-                </table>
-                <table id="example8" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Test</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        @foreach (var item in Model.clist)
-                        {
+                        </tbody>
+                    </table>
+                    <br />
+                    <table class="table table-striped" style="width:100%;">
+                        <tbody>
                             <tr>
-                                <td>@item.InvSelectTests</td>
+                                <th>Weight(Kg) : <span>80</span></th>
+                                <th>Temperature(&#8457;): <span>26 Jun, 2020</span></th>
+                                <th></th>
                             </tr>
-                        }
+                        </tbody>
+                    </table>
 
-                    </tbody>
-
-                </table>
-                <table id="example9" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Diagnosis</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.olist)
-                        {
+                    <br />
+                    <table id="example3" class="table table-striped tbl-view-1" style="width:100%;display:none;">
+                        <thead>
                             <tr>
-                                <td>@item.Diagnosis</td>
+                                <th>Complaints</th>
+                                <th>Since-When</th>
                             </tr>
-                        }
-                    </tbody>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.olist)
+                            {
+                                <tr>
+                                    <td>@item.Complaints</td>
+                                    <td>@item.Since - @item.Period</td>
+                                </tr>
+                            }
+                        </tbody>
 
-                </table>
-                <table id="example5" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Medicine</th>
-                            <th>Dose</th>
-                            <th>Instruction</th>
-                            <th>SpecialInstruction</th>
-                            <th>Freq</th>
-                            <th>Alternate</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        @foreach (var item in Model.mlist)
-                        {
+                    </table>
+                    <table id="example8" class="table table-striped tbl-view-2" style="width:100%;display:none;">
+                        <thead>
                             <tr>
-                                <td>@item.MedicineName</td>
-                                <td>@item.WhenMedicine</td>
-                                <td>@item.SpecialInstruction</td>
-                                <td>@item.ForMedicine - @item.MedicineDays</td>
-                                <td>@item.AlternateMedicine</td>
+                                <th>Test</th>
                             </tr>
-                        }
+                        </thead>
+                        <tbody>
 
-                    </tbody>
-
-                </table>
-                <table id="example6" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Advice</th>
-                            <th>Diet & Exercise</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        @foreach (var item in Model.clist)
-                        {
+                            @foreach (var item in Model.clist)
+                            {
+                                <tr>
+                                    <td>@item.InvSelectTests</td>
+                                </tr>
+                            }
+                    </table>
+                    <table id="example9" class="table table-striped tbl-view-3" style="width:100%;display:none;">
+                        <thead>
                             <tr>
-                                <td>@item.AddAdvice</td>
-                                <td>@item.AddDiet</td>
+                                <th>Diagnosis</th>
                             </tr>
-                        }
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.olist)
+                            {
+                                <tr>
+                                    <td>@item.Diagnosis</td>
+                                </tr>
+                            }
+                        </tbody>
 
-                    </tbody>
-
-                </table>
-                <table id="example7" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Next Visite</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        @foreach (var item in Model.clist)
-                        {
+                    </table>
+                    <table id="example5" class="table table-striped tbl-view-4" style="width:100%;display:none;">
+                        <thead>
                             <tr>
-                                <td>@item.NextVisitAfter - @item.FrequencyDate</td>
+                                <th>Medicine</th>
+                                <th>Dose</th>
+                                <th>Instruction</th>
+                                <th>Freq</th>
+                                <th>Alternate</th>
+
                             </tr>
-                        }
+                        </thead>
+                        <tbody>
 
-                    </tbody>
+                            @foreach (var item in Model.mlist)
+                            {
+                                <tr>
+                                    <td>@item.MedicineName</td>
+                                    <td>@item.WhenMedicine</td>
+                                    <td>@item.SpecialInstruction</td>
+                                    <td>@item.ForMedicine - @item.MedicineDays</td>
+                                    <td>@item.AlternateMedicine</td>
+                                </tr>
+                            }
 
-                </table>
+                        </tbody>
 
+                    </table>
+                    <table id="example6" class="table table-striped tbl-view-5" style="width: 100%; display: none;">
+                        <thead>
+                            <tr>
+                                <th>Advice</th>
+                                <th>Diet & Exercise</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model.clist)
+                            {
+                                <tr>
+                                    <td>@item.AddAdvice</td>
+                                    <td>@item.AddDiet</td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                    <table id="example7" class="table table-striped tbl-view-6" style="width:100%;display:none;">
+
+                        <thead>
+                            <tr>
+                                <th>Next Visite</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model.NextList)
+                            {
+                                <tr>
+                                    <td>@item.NextVisitAfter - @item.FrequencyDate</td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+                </div>
 
             </div>
-
         </div>
+        <input type='button' id='btn' value='Print' onclick='printDiv("#accordionExample1");'>
     </div>
+    <br />
+   
 </div>
 @*<script src="~/vendor/jquery/jquery.min.js"></script>*@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/js/front.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    //function printDiv(x)
+    //{
+
+    //    var divToPrint = document.getElementById('#accordionExample1');
+
+    //    var newWin=window.open('','Print-Window');
+
+    //    newWin.document.open();
+
+    //    newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
+
+    //    newWin.document.close();
+
+    //    setTimeout(function(){newWin.close();},10);
+
+    //}
+</script>
 <script src="~/js/front.js"></script>
 <script>
     //$(".nav-tabs li").removeClass("active"); btnInvestigation
@@ -216,5 +354,25 @@
         $('.refe-letr').css("display", "none");
         $('.fitn-cert').css("display", "none");
         $('.medicl-cert').css("display", "block");
+    });
+
+
+    $('.tbl-1').click(function () {
+        $('.tbl-view-1').slideToggle();
+    });
+    $('.tbl-2').click(function () {
+        $('.tbl-view-2').slideToggle();
+    });
+    $('.tbl-3').click(function () {
+        $('.tbl-view-3').slideToggle();
+    });
+    $('.tbl-4').click(function () {
+        $('.tbl-view-4').slideToggle();
+    });
+    $('.tbl-5').click(function () {
+        $('.tbl-view-5').slideToggle();
+    });
+    $('.tbl-6').click(function () {
+        $('.tbl-view-6').slideToggle();
     });
 </script>

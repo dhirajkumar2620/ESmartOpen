@@ -40,6 +40,10 @@ namespace EsmartDr.Controllers
             Session["patientDetails"] = patientDetails;
             Session["PatientName"] = patientDetails.PatientName;
             Session["PatientGender"] = patientDetails.Gender;
+            Session["CPno"] = CPno;
+            DateTime AppoinmentDate = DateTime.Now;
+            string dt = AppoinmentDate.ToString("dd/MMM/yyyy");
+            Session["AppDate"] = dt;
             if (patientDetails.Age == null || patientDetails.Age == "")
             {
                 Session["PatientAge"] = "-";
@@ -50,13 +54,21 @@ namespace EsmartDr.Controllers
             }
 
             Session["PatientVisit"] = patientDetails.VisitCount;
-            if (patientDetails.DueAmount == null || patientDetails.DueAmount != "")
+            if (patientDetails.DueAmount == null || patientDetails.DueAmount == "")
             {
                 Session["PatientPrvBalance"] ="0";
             }
             else
             {
                 Session["PatientPrvBalance"] = patientDetails.DueAmount;
+            }
+            if (patientDetails.BloodGroup == null || patientDetails.BloodGroup == "0" || patientDetails.BloodGroup == "Select Blood Group")
+            {
+                Session["BloodGroup"] = "-";
+            }
+            else
+            {
+                Session["BloodGroup"] = patientDetails.BloodGroup;
             }
             return View("MyOPD");
         }
