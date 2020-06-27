@@ -2,6 +2,7 @@
 using Bal_Layer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -39,7 +40,11 @@ namespace ESmartDr.Controllers
         }
         public ActionResult OpdExamination()
         {
-            return View("Examination");
+            Bal_Precription bp= new Bal_Precription ();
+            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            Observation ob = new Observation();
+            DataSet ds = bp.ViewPricripion( patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+            return View("Examination", ds);
         }
         public ActionResult OpdHistory()
         {

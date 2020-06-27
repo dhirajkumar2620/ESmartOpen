@@ -16,9 +16,10 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[2];
-                sqlparam[0] = new SqlParameter("@QueueId", QueueId);
-                sqlparam[1] = new SqlParameter("@CPno", CPno);
+                sqlparam = new SqlParameter[3];
+                sqlparam[0] = new SqlParameter("@flag", "7");
+                sqlparam[1] = new SqlParameter("@QueueId", QueueId);
+                sqlparam[2] = new SqlParameter("@CPno", CPno);
                 DataSet ds = CommonFunction.GetDataSet("USP_Get_Precription", sqlparam, "");
               
                 return ds;

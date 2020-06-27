@@ -237,6 +237,7 @@
     <Compile Include="Controllers\PrescriptionController.cs" />
     <Compile Include="Controllers\StaffDetailsController.cs" />
     <Compile Include="Controllers\TabDetailsController.cs" />
+    <Compile Include="Controllers\Tab_PrecreptionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -602,6 +603,7 @@
     <Folder Include="vendor\font-awesome\scss\" />
     <Folder Include="Views\NewFolder1\" />
     <Folder Include="Views\TabDetails\" />
+    <Folder Include="Views\Tab_Precreption\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
