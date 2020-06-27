@@ -32,9 +32,8 @@
                 <table id="example3" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Precription Name</th>
-                            <th>PhysicalExamination</th>
-                            <th>Since</th>
+                            <th>Complaints</th>
+                            <th>Since-When</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,8 +41,41 @@
                         {
                             <tr>
                                 <td>@item.Complaints</td>
-                                <td>@item.PhysicalExamination</td>
-                                <td>@item.Since</td>
+                                <td>@item.Since - @item.Period</td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+                <table id="example8" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Test</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model.clist)
+                        {
+                            <tr>
+                                <td>@item.InvSelectTests</td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+                <table id="example9" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Diagnosis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.olist)
+                        {
+                            <tr>
+                                <td>@item.Diagnosis</td>
                             </tr>
                         }
                     </tbody>
@@ -52,10 +84,12 @@
                 <table id="example5" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Medicine Name</th>
-                            <th>MedicineDays</th>
-                            <th>WhenMedicine</th>
+                            <th>Medicine</th>
+                            <th>Dose</th>
+                            <th>Instruction</th>
                             <th>SpecialInstruction</th>
+                            <th>Freq</th>
+                            <th>Alternate</th>
 
                         </tr>
                     </thead>
@@ -65,9 +99,10 @@
                         {
                             <tr>
                                 <td>@item.MedicineName</td>
-                                <td>@item.MedicineDays</td>
                                 <td>@item.WhenMedicine</td>
                                 <td>@item.SpecialInstruction</td>
+                                <td>@item.ForMedicine - @item.MedicineDays</td>
+                                <td>@item.AlternateMedicine</td>
                             </tr>
                         }
 
@@ -77,11 +112,8 @@
                 <table id="example6" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
-                            <th>InvSelectTests</th>
-                            <th>InvNotes</th>
-                            <th>AddAdvice</th>
-                            <th>AddDiet</th>
-
+                            <th>Advice</th>
+                            <th>Diet & Exercise</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -89,12 +121,26 @@
                         @foreach (var item in Model.clist)
                         {
                             <tr>
-                                <td>@item.InvSelectTests</td>
-                                <td>@item.InvNotes</td>
                                 <td>@item.AddAdvice</td>
                                 <td>@item.AddDiet</td>
+                            </tr>
+                        }
 
+                    </tbody>
 
+                </table>
+                <table id="example7" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Next Visite</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model.clist)
+                        {
+                            <tr>
+                                <td>@item.NextVisitAfter - @item.FrequencyDate</td>
                             </tr>
                         }
 

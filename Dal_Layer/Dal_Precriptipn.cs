@@ -38,9 +38,9 @@ namespace Dal_Layer
                     }
                 }
                 List<Medication> mlst = new List<Medication>();
-                if (ds != null && ds.Tables[3].Rows.Count > 0)
+                if (ds != null && ds.Tables[4].Rows.Count > 0)
                 {
-                    DataTable dt = ds.Tables[3];
+                    DataTable dt = ds.Tables[4];
                     foreach (DataRow dr in dt.Rows)
                     {
                         Medication Model = new Medication();
@@ -50,9 +50,9 @@ namespace Dal_Layer
                     }
                 }
                 List<Common> clst = new List<Common>();
-                if (ds != null && ds.Tables[3].Rows.Count > 0)
+                if (ds != null && ds.Tables[5].Rows.Count > 0)
                 {
-                    DataTable dt = ds.Tables[3];
+                    DataTable dt = ds.Tables[5];
                     foreach (DataRow dr in dt.Rows)
                     {
                         Common Model = new Common();
