@@ -18,6 +18,7 @@ namespace ESmartDr.Controllers
         }
         public ActionResult MedicineDetails()
         {
+
             return View("MedicineDetails");
         }
         public ActionResult ManageMedicineDetails(MedicineDetails MD)
@@ -40,6 +41,17 @@ namespace ESmartDr.Controllers
                 throw;
             }
         }
+
+        [HttpPost]
+        public JsonResult GetMedicineName(string str)
+        {
+            AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+            MedicineDetails MD = new MedicineDetails();
+            MD = BL.ViewAllMedicine(admObj.HospitalId);
+            var mName = (from x in MD.lst where x.MedicineName.StartsWith(str) select new { label = x.MedicineName }).ToList();
+            return Json(mName);
+        }
+
 
         public ActionResult ViewAllMedicine()
         {

@@ -356,32 +356,50 @@
         $("#txtCPno").val(obj.find('td')[1].innerHTML);
        
     }
+
+    function ConfirmAppoinment() {
+        var x = confirm("Are you sure you want to Confirm Appoinment?");
+        if (x)
+            return true;
+        else
+            return false;
+    }
+
+
     function SetApoinment() {
-        var CPno = $(this).attr("data-image");
-        var appCPno = document.getElementById("txtCPno").value;
-        var appDate = document.getElementById("txtDate").value;
-        var appTime = document.getElementById("txtTime").value;
-        var appNote = document.getElementById("txtNote").value;
+        var x = confirm("Are you sure you want to Confirm Appoinment?");
+        if (x) {
 
-        var form = $('#frmObservationDetails')[0];
+            alert('2')
+            var CPno = $(this).attr("data-image");
+            var appCPno = document.getElementById("txtCPno").value;
+            var appDate = document.getElementById("txtDate").value;
+            var appTime = document.getElementById("txtTime").value;
+            var appNote = document.getElementById("txtNote").value;
 
-        var fromData = new FormData(form);
-        var urllink = '@Url.Content("~/PatientDetails/SetPatientAppoinment")'
-        $.ajax({
-            type: "post",
-            url: urllink,
-            dataType: 'application/json',
-            data: {
-               
-                'CPno': appCPno, 'AppoinmentDate': appDate, 'AppoinmentTime': appTime, 'Note': appNote
-                
-            },
-            success:function(response){
-                alert("Appoinment booked succesfuly");
+            var form = $('#frmObservationDetails')[0];
+
+            var fromData = new FormData(form);
+            var urllink = '@Url.Content("~/PatientDetails/SetPatientAppoinment")'
+            $.ajax({
+                type: "post",
+                url: urllink,
+                dataType: 'application/json',
+                data: {
+
+                    'CPno': appCPno, 'AppoinmentDate': appDate, 'AppoinmentTime': appTime, 'Note': appNote
+
+                },
+                success: function (response) {
+                    alert('h');
+                    window.location.href = "../PatientDetails/GetQueueList";
+                }
             }
+
+           )
         }
-      
-       )
+        else
+            {}
     };
 
 
