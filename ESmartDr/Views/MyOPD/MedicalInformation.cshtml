@@ -1,90 +1,162 @@
-﻿
+﻿@model App_Layer.LifeStyleDetails
 @{
     Layout = null;
 }
-
-
+@using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmLifeStyleDetails" }))
+{
+    @Html.HiddenFor(m => m.Id);
+    @Html.HiddenFor(m => m.CasePaperNo);
     <div class="card-body">
-        <div>
-            <p>Have you Ever suffered from any of these?</p>
-            <ul class="list-inline">
-                <li class="list-inline-item">
-                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;Diabetes
-                </li>
-                <li class="list-inline-item">
-                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;Asthma
-                </li>
-                <li class="list-inline-item">
-                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;Thyroid Problem
-                </li>
-                <li class="list-inline-item">
-                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;Jaundice
-                </li>
-                <li class="list-inline-item">
-                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;Migraine
-                </li>
-                <li class="list-inline-item">
-                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;AIDS
-                </li>
-                <li class="list-inline-item">
-                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;Heart Problem
-                </li>
-                <li class="list-inline-item">
-                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;Blood Pressure High/Low
-                </li>
-                <li class="list-inline-item">
-                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;TB
-                </li>
-                <li class="list-inline-item">
-                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template"> &nbsp;Cancer
-                </li>
-            </ul>
-        </div>
         <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label class="form-control-label">
-                        Others
-                    </label>
-                    <input type="text" placeholder="Please add" class="form-control">
-                </div>
+            <div class="col-md-3">
+                <label class="form-control-label">Diat</label>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <div class="i-checks ">
+                            @*<input id="radioDiat" type="radio" checked="" value="option5" name="a" class="radio-template">*@
+                            @Html.RadioButtonFor(model => model.Diat, "V", new { @class = "radio-template" })
+
+                            <label for="radioCustom2">Veg</label>
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <div class="i-checks ">
+                            @Html.RadioButtonFor(model => model.Diat, "N", new { @class = "radio-template" })
+                            <label for="radioVeg">Non Veg</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <label class="form-control-label">Smoking</label>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <div class="i-checks ">
+
+                            @Html.RadioButtonFor(model => model.Smoting, "Y", new { @class = "radio-template" })
+
+                            <label for="radioSmokingYes">Yes</label>
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <div class="i-checks ">
+                            @Html.RadioButtonFor(model => model.Smoting, "N", new { @class = "radio-template" })
+                            <label for="radioSmokingNo">No</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <label class="form-control-label">Alcohol</label>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <div class="i-checks ">
+                            @Html.RadioButtonFor(model => model.Alcohol, "Y", new { @class = "radio-template" })
+
+                            <label for="radioCustom2">Yes</label>
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <div class="i-checks ">
+                            @Html.RadioButtonFor(model => model.Alcohol, "N", new { @class = "radio-template" })
+                            <label for="radioCustom2">No</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <label class="form-control-label">Bowel</label>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <div class="i-checks ">
+                            @Html.RadioButtonFor(model => model.Bowel, "Y", new { @class = "radio-template" })
+
+                            <label for="radioCustom2">Yes</label>
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <div class="i-checks ">
+                            @Html.RadioButtonFor(model => model.Bowel, "N", new { @class = "radio-template" })
+                            <label for="radioCustom2">No</label>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-        <br/>
-        <p>Allergies</p>
         <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="form-control-label">
-                        Food
-                    </label>
-                    <select name="account" class="form-control mb-3">
-                        <option>Please Select</option>
-                        <option>Mango</option>
-                        <option>Banana</option>
-                        <option>Apple</option>
-                    </select>
-                </div>
+            <div class="col-md-3">
+                <label class="form-control-label">Bladder</label>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <div class="i-checks ">
+                            @Html.RadioButtonFor(model => model.Bladder, "Y", new { @class = "radio-template" });
+
+                            <label for="radioCustom2">Yes</label>
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <div class="i-checks ">
+                            @Html.RadioButtonFor(model => model.Bladder, "N", new { @class = "radio-template" });
+                            <label for="radioCustom2">No</label>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="form-control-label">
-                        Drugs
-                    </label>
-                    <select name="account" class="form-control mb-3">
-                        <option>Please Select</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select>
-                </div>
+            <div class="col-md-4">
+                <label class="form-control-label">Sleep</label>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <div class="i-checks ">
+                            @Html.RadioButtonFor(model => model.Sleep, "R", new { @class = "radio-template" });
+
+                            <label for="radioCustom2">Regular</label>
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <div class="i-checks ">
+                            @Html.RadioButtonFor(model => model.Sleep, "I", new { @class = "radio-template" });
+                            <label for="radioCustom2">Irregular</label>
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <div class="i-checks ">
+                            @Html.RadioButtonFor(model => model.Sleep, "D", new { @class = "radio-template" });
+                            <label for="radioCustom2">Disturbed</label>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col-md-12 text-right">
-                <button type="button" class="btn btn_1 btn-primary" id="tostr-save1">Save</button>
+                <button type="button" onclick="SubmitLifeStyleDetails()" class="btn btn_1 btn-primary" id="tostr-save2">Save</button>
             </div>
         </div>
     </div>
+}
+<script src="~/js/front.js"></script>
+<script>
+    function SubmitLifeStyleDetails() {
 
+        var form = $('#frmLifeStyleDetails')[0];
+
+            var fromData = new FormData(form);
+            var urllink = '@Url.Content("~/TabDetails/ManageLifeStyleDetails")'
+
+            $.ajax({
+                type: "post",
+                url: urllink,
+                data: fromData,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    alert("Details Updated Sucessfully.");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                }
+            })
+
+        }
+</script>

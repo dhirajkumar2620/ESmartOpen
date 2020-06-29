@@ -32,7 +32,7 @@
     <link href="~/css/bootstrap-clockpicker.min.css" rel="stylesheet" />
 </head>
 <body>
-    
+
     <div class="page">
         <!-- Main Navbar-->
         <header class="header">
@@ -151,10 +151,10 @@
                                 <p>Reg No:@Session["regNo"].ToString()</p>
                             </div>
                         </div>
-                       
+
                         <div class="col-md-12" style="margin-top:0.5em">
                             <div class="title" style="margin-left:0px;">
-                                <h4  style="margin-bottom: 5px; font-size:1em; margin-top: 1em;" >@Session["Hname"].ToString()</h4>
+                                <h4 style="margin-bottom: 5px; font-size:1em; margin-top: 1em;">@Session["Hname"].ToString()</h4>
                                 <p>@Session["Haddress"].ToString()</p>
                                 <p>@Session["Hnumber"].ToString()</p>
                                 <p>@Session["HinTime1"].ToString() -  @Session["HoutTime1"].ToString()  @Session["HinTime2"].ToString()   @Session["HoutTime2"].ToString() </p>
@@ -165,48 +165,69 @@
                 </div>
                 <hr />
                 <!-- Sidebar Navidation Menus-->
-                <ul class="list-unstyled">
-                    @*<li><a href="@Url.Content("~/Home/Apoinment")"> <i class="icon-home"></i>Home </a></li>*@
-                    
-                    <li><a href="@Url.Content("~/PatientDetails/GetQueueList")"> <i class="fa fa-users" aria-hidden="true"></i>Todays Appointment</a></li>
-                    <li><a href="@Url.Content("~/PatientDetails/ViewAllPatient")"> <i class="fa fa-search-plus" aria-hidden="true"></i>View All Patient </a></li>
-                     <li>
-                        <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse">
-                            <i class="fa fa-user-plus" aria-hidden="true"></i>Create User
-                        </a>
-                        <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                            <li><a href='@Url.Content("~/AdminDetails/AdminDetails")'> Create Admin</a></li>
-                            <li><a  href='@Url.Content("~/StaffDetails/StaffDetails")'>Add Staff Member</a></li>
-                            <li><a href='@Url.Content("~/PatientDetails/PatientDetails")'> Add Patient</a></li>
-                        </ul>
-                    </li>
-                    @*<li><a href="@Url.Content("~/Home/MyOPD")"> <i class="fa fa-check-square-o" aria-hidden="true"></i>Patient Examination</a></li>*@
-                    <li><a href="@Url.Content("~/MedicineDetails/ViewAllMedicine")"> <i class="fa fa-plus-circle" aria-hidden="true"></i>Add Medicines </a></li>
-                    <li><a href="@Url.Content("~/Home/CampaignMaster")"> <i class="fa fa-users" aria-hidden="true"></i>Campaign Master</a></li>
-                    
-                    
-                    <li>
-                        <a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse">
-                            <i class="fa fa-address-book-o" aria-hidden="true"></i>User Management
-                        </a>
-                        <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
-                            <li><a href="@Url.Content("~/AdminDetails/ViewAllAdmin")">Admin Management</a></li>
-                            <li><a href="@Url.Content("~/StaffDetails/ViewAllStaff")">Staff Management</a></li>
-                         </ul>
-                    </li>
-                    <li>
-                        <a href="#exampledropdownDropdown2" aria-expanded="false" data-toggle="collapse">
-                            <i class="fa fa-file-text-o" aria-hidden="true"></i>Test
-                        </a>
-                        <ul id="exampledropdownDropdown2" class="collapse list-unstyled ">
-                            <li><a href="@Url.Content("~/DignosticDetails/DignosticDetails")">Diagnosis</a></li>
-                            <li><a href="@Url.Content("~/Home/Lab2")">laboratory </a></li>
-                        </ul>
-                    </li>
-                    <li><a href="@Url.Content("~/Document/GetDocument")"> <i class="fa fa-user-md" aria-hidden="true"></i>Document</a></li>
-                    <li><a href="@Url.Content("~/AccountDetails/ViewAllExpenses")"> <i class="fa fa-user-md" aria-hidden="true"></i>Account</a></li>
-                </ul>
+                @if (Session["RoleId"].ToString() == "AHE")
+                {
+                    <ul class="list-unstyled">
 
+
+                        <li><a href="@Url.Content("~/PatientDetails/GetQueueList")"> <i class="fa fa-users" aria-hidden="true"></i>Todays Appointment</a></li>
+                        <li><a href="@Url.Content("~/PatientDetails/ViewAllPatient")"> <i class="fa fa-search-plus" aria-hidden="true"></i>View All Patient </a></li>
+                        <li>
+                            <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse">
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>Create User
+                            </a>
+                            <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+
+                                <li><a href='@Url.Content("~/PatientDetails/PatientDetails")'> Add Patient</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                }
+                else
+                {
+                    <ul class="list-unstyled">
+                        @*<li><a href="@Url.Content("~/Home/Apoinment")"> <i class="icon-home"></i>Home </a></li>*@
+
+                        <li><a href="@Url.Content("~/PatientDetails/GetQueueList")"> <i class="fa fa-users" aria-hidden="true"></i>Todays Appointment</a></li>
+                        <li><a href="@Url.Content("~/PatientDetails/ViewAllPatient")"> <i class="fa fa-search-plus" aria-hidden="true"></i>View All Patient </a></li>
+                        <li>
+                            <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse">
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>Create User
+                            </a>
+                            <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                                <li><a href='@Url.Content("~/AdminDetails/AdminDetails")'> Create Admin</a></li>
+                                <li><a href='@Url.Content("~/StaffDetails/StaffDetails")'>Add Staff Member</a></li>
+                                <li><a href='@Url.Content("~/PatientDetails/PatientDetails")'> Add Patient</a></li>
+                            </ul>
+                        </li>
+                        @*<li><a href="@Url.Content("~/Home/MyOPD")"> <i class="fa fa-check-square-o" aria-hidden="true"></i>Patient Examination</a></li>*@
+                        <li><a href="@Url.Content("~/MedicineDetails/ViewAllMedicine")"> <i class="fa fa-plus-circle" aria-hidden="true"></i>Add Medicines </a></li>
+                        <li><a href="@Url.Content("~/Home/CampaignMaster")"> <i class="fa fa-users" aria-hidden="true"></i>Campaign Master</a></li>
+
+
+                        <li>
+                            <a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse">
+                                <i class="fa fa-address-book-o" aria-hidden="true"></i>User Management
+                            </a>
+                            <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
+                                <li><a href="@Url.Content("~/AdminDetails/ViewAllAdmin")">Admin Management</a></li>
+                                <li><a href="@Url.Content("~/StaffDetails/ViewAllStaff")">Staff Management</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#exampledropdownDropdown2" aria-expanded="false" data-toggle="collapse">
+                                <i class="fa fa-file-text-o" aria-hidden="true"></i>Test
+                            </a>
+                            <ul id="exampledropdownDropdown2" class="collapse list-unstyled ">
+                                <li><a href="@Url.Content("~/DignosticDetails/DignosticDetails")">Diagnosis</a></li>
+                                <li><a href="@Url.Content("~/Home/Lab2")">laboratory </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="@Url.Content("~/Document/GetDocument")"> <i class="fa fa-user-md" aria-hidden="true"></i>Document</a></li>
+                        <li><a href="@Url.Content("~/AccountDetails/ViewAllExpenses")"> <i class="fa fa-user-md" aria-hidden="true"></i>Account</a></li>
+                    </ul>
+                }
             </nav>
             <div class="content-inner">
                 @RenderBody()
@@ -215,8 +236,8 @@
                     <div class="container-fluid">
                         <div class="row">
                             <!-- <div class="col-sm-6">
-                      <p>Your company &copy; 2017-2020</p>
-                    </div> -->
+                              <p>Your company &copy; 2017-2020</p>
+                            </div> -->
                             <div class="col-sm-12 footer-img text-right">
                                 <p><span class="small">Powered by</span> <img src="~/img/Powered By company logo.png" class="img-responsive"></p>
                                 <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->

@@ -104,15 +104,9 @@
                                             <td>@item.PhysicalExamination</td>
                                             <td>@item.Diagnosis</td>
                                             <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Edit" style="margin-right:5px!important;">
-                                                        <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                                    </li>
+                                                <i class="fa fa-plus add-row" aria-hidden="true"></i>&nbsp;&nbsp;
+                                                <i class="fa fa-times add-row1" onclick="DeleteRecord('@item.Id')" aria-hidden="true"></i>
 
-                                                    <li class="list-inline-item" title="Delete">
-                                                        <a href="#"><i class="fa fa-times add-row" aria-hidden="true"></i></a>
-                                                    </li>
-                                                </ul>
                                             </td>
                                         </tr>
                                     }
@@ -142,14 +136,10 @@
             processData: false,
             contentType: false,
             success: function (data) {
-                //location.reload();
-
-                //$("#btnObservation").click();
-                //$("#collapseFour").addClass("active");
                 $('#tblObservation tbody').empty();
                 var trHTML = '';
                 $.each(data, function (i, item) {
-                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.Complaints + '</td><td>' + item.Since + '</td><td>' + item.Period + '</td><td>' + item.PhysicalExamination + '</td><td>' + item.Diagnosis + '</td><td><i class="fa fa-plus add-row" onclick=EditPICDetails(this) aria-hidden="true"></i></td></tr>';
+                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.Complaints + '</td><td>' + item.Since + '</td><td>' + item.Period + '</td><td>' + item.PhysicalExamination + '</td><td>' + item.Diagnosis + '</td><td><i class="fa fa-plus add-row" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times add-row1" onclick=DeleteRecord("' + item.Id+'") aria-hidden="true"></i></td></tr>';
                 });
                 $('#tblObservation tbody').append(trHTML)
                 $("#hdnId").val('0');
@@ -184,6 +174,9 @@
         $("#txtPeriod").val(obj.find('td')[3].innerHTML);
         $("#txtPhysicalExamination").val(obj.find('td')[4].innerHTML);
         $("#txtDiagnosis").val(obj.find('td')[5].innerHTML);
+    }
+    function DeleteRecord(id) {
+        alert("hii" + id);
     }
 
 </script>

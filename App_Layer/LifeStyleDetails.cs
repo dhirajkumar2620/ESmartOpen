@@ -9,11 +9,11 @@ namespace App_Layer
     public class LifeStyleDetails
     {
         public int Id { get; set; }
-        public bool Diat { get; set; }
-        public bool Smoting { get; set; }
-        public bool Alcohol { get; set; }
-        public bool Bowel { get; set; }
-        public bool Bladder { get; set; }
+        public string Diat { get; set; }
+        public string Smoting { get; set; }
+        public string Alcohol { get; set; }
+        public string Bowel { get; set; }
+        public string Bladder { get; set; }
         public string Sleep { get; set; }
         public string CasePaperNo { get; set; }
         public string HospitalId { get; set; }

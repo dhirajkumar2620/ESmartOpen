@@ -96,7 +96,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[14];
+                sqlparam = new SqlParameter[11];
                 sqlparam[0] = new SqlParameter("@Id", LD.Id);
                 sqlparam[1] = new SqlParameter("@Diat", LD.Diat);
                 sqlparam[2] = new SqlParameter("@Smoting", LD.Smoting);
@@ -108,11 +108,6 @@ namespace Dal_Layer
                 sqlparam[8] = new SqlParameter("@HospitalId", LD.HospitalId);
                 sqlparam[9] = new SqlParameter("@PatientId", LD.PatientId);
                 sqlparam[10] = new SqlParameter("@CreatedBy", LD.CreatedBy);
-                sqlparam[11] = new SqlParameter("@CreatedDate", LD.CreatedDate);
-                sqlparam[12] = new SqlParameter("@ModifideDate", LD.ModifideDate);
-                sqlparam[13] = new SqlParameter("@ModifideBy", LD.ModifideBy);
-                sqlparam[14] = new SqlParameter("@IsActive", LD.IsActive);
-
                 return CommonFunction.Save("[USP_PD_LifeStyleDetails]", sqlparam, "");
             }
             catch (Exception)
@@ -126,7 +121,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[21];
+                sqlparam = new SqlParameter[17];
                 sqlparam[0] = new SqlParameter("@Id", MI.Id);
                 sqlparam[1] = new SqlParameter("@Diabetes", MI.Diabetes);
                 sqlparam[2] = new SqlParameter("@Asthma", MI.Asthma);
@@ -144,11 +139,6 @@ namespace Dal_Layer
                 sqlparam[14] = new SqlParameter("@HospitalId", MI.HospitalId);
                 sqlparam[15] = new SqlParameter("@PatientId", MI.PatientId);
                 sqlparam[16] = new SqlParameter("@CreatedBy", MI.CreatedBy);
-                sqlparam[17] = new SqlParameter("@CreatedDate", MI.CreatedDate);
-                sqlparam[18] = new SqlParameter("@ModifideDate", MI.ModifideDate);
-                sqlparam[19] = new SqlParameter("@ModifideBy", MI.ModifideBy);
-                sqlparam[20] = new SqlParameter("@IsActive", MI.IsActive);
-
                 return CommonFunction.Save("[USP_PD_MedicalInformationDetails]", sqlparam, "");
             }
             catch (Exception)
@@ -220,7 +210,7 @@ namespace Dal_Layer
             }
 
         }
-        public MedicalInformationDetails GetMedicalInfoDetails( string CPno)
+        public MedicalInformationDetails GetMedicalInfoDetails(string CPno)
         {
             try
             {
@@ -238,7 +228,7 @@ namespace Dal_Layer
                     foreach (DataRow dr in dt.Rows)
                     {
                         MedicalInformationDetails Model = new MedicalInformationDetails();
-                        CommonFunction.ReflectSingleData(Model, dr);
+                        CommonFunction.ReflectSingleData(Ob, dr);
                         lst.Add(Model);
                     }
                 }
@@ -269,8 +259,8 @@ namespace Dal_Layer
                     foreach (DataRow dr in dt.Rows)
                     {
                         LifeStyleDetails Model = new LifeStyleDetails();
-                        CommonFunction.ReflectSingleData(Model, dr);
-                        Ob = Model;
+                        CommonFunction.ReflectSingleData(Ob, dr);
+
                         lst.Add(Model);
                     }
                 }
@@ -283,7 +273,7 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
-     
+
         public List<VitalInformation> GetVitalInformation(String CPno)
         {
             try
@@ -316,7 +306,7 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
-        public Observation GetObservationDetails(int QueueId,string CPno)
+        public Observation GetObservationDetails(int QueueId, string CPno)
         {
             try
             {
@@ -336,7 +326,7 @@ namespace Dal_Layer
                     {
                         Observation Model = new Observation();
                         CommonFunction.ReflectSingleData(Model, dr);
-                        Ob = Model;
+                        //Ob = Model;
                         lst.Add(Model);
                     }
                 }
@@ -369,7 +359,7 @@ namespace Dal_Layer
                     {
                         Medication Model = new Medication();
                         CommonFunction.ReflectSingleData(Model, dr);
-                        Ob = Model;
+                        // Ob = Model;
                         lst.Add(Model);
                     }
                 }
@@ -404,7 +394,7 @@ namespace Dal_Layer
                     {
                         Common Model = new Common();
                         CommonFunction.ReflectSingleData(Model, dr);
-                        Ob = Model;
+
                         lst.Add(Model);
                     }
                 }
@@ -417,6 +407,6 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
-      
+
     }
 }

@@ -2,12 +2,10 @@
 @{
     Layout = null;
 }
-
-
 <div class="card-body">
     @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmPrecCommon" }))
     {
-      @Html.HiddenFor(m => m.Id, new { @id = "hdnId" });
+        @Html.HiddenFor(m => m.Id, new { @id = "hdnId" });
         <form>
             <div class="row">
                 <div class="col-md-8">
@@ -86,32 +84,33 @@
                             <thead>
                                 <tr>
                                     <th hidden>Id</th>
+                                    <th>Test</th>
+                                    <th>Note</th>
                                     <th>Advice</th>
                                     <th>Diet</th>
-                                    <th>Visit</th>
+                                    <th>Next Visit</th>
                                     <th>Frequency</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @*@foreach (var item in Model.lst)
-
+                                @foreach (var item in Model.lst)
                                 {
-
-
                                     <tr>
                                         <td hidden>@item.Id</td>
+                                        <td>@item.InvSelectTests</td>
+                                        <td>@item.InvNotes</td>
                                         <td>@item.AddAdvice</td>
                                         <td>@item.AddDiet</td>
                                         <td>@item.NextVisitAfter</td>
-                                        <td>@item.NextVisitAfter</td>
+                                        <td>@item.FrequencyDate</td>
+
                                         <td>
-
-                                            <i class="fa fa-times" aria-hidden="true"></i>
-
+                                            <i class="fa fa-plus add-row" aria-hidden="true"></i>&nbsp;&nbsp;
+                                            <i class="fa fa-times add-row1" onclick="DeleteRecord('@item.Id')" aria-hidden="true"></i>
                                         </td>
                                     </tr>
-                                }*@
+                                }
                             </tbody>
                         </table>
                     </div>
@@ -142,13 +141,12 @@
                 $('#tblCommonn tbody').empty();
                 var trHTML = '';
                 $.each(data, function (i, item) {
-                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.InvSelectTests + '</td><td>' + item.InvNotes + '</td><td>' + item.AddAdvice + '</td><td>' + item.AddDiet + '</td><td>' + item.NextVisitAfter + '</td><td>' + item.NextVisitAfter + '</td><td><i class="fa fa-plus add-row" onclick=EditPICDetails(this) aria-hidden="true"></i></td></tr>';
+                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.InvSelectTests + '</td><td>' + item.InvNotes + '</td><td>' + item.AddAdvice + '</td><td>' + item.AddDiet + '</td><td>' + item.NextVisitAfter + '</td><td>' + item.FrequencyDate + '</td><td><i class="fa fa-plus add-row" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times add-row1" onclick=DeleteRecord("' + item.Id +'") aria-hidden="true"></i></td></tr>';
                 });
                 $('#tblCommonn tbody').append(trHTML)
                 $("#hdnId").val('0');
                 $("#txtinvTest").val('');
                 $("#txtinvNote").val('');
-                $("#txtDiet").val('');
                 $("#txtAdvice").val('');
                 $("#txtDiet").val('');
                 $("#txtVisit").val('');
@@ -161,16 +159,15 @@
 
     }
     $(".add-row").on("click", function () {
-
+        debugger
         var obj = $(this).parents("tr")
         $("#hdnId").val(obj.find('td')[0].innerHTML);
         $("#txtinvTest").val(obj.find('td')[1].innerHTML);
         $("#txtinvNote").val(obj.find('td')[2].innerHTML);
-        $("#txtDiet").val(obj.find('td')[3].innerHTML);
-        $("#txtAdvice").val(obj.find('td')[4].innerHTML);
-        $("#txtDiet").val(obj.find('td')[5].innerHTML);
-        $("#txtVisit").val(obj.find('td')[6].innerHTML);
-        $("#ddlFrequency").val(obj.find('td')[7].innerHTML);
+        $("#txtAdvice").val(obj.find('td')[3].innerHTML);
+        $("#txtDiet").val(obj.find('td')[4].innerHTML);
+        $("#txtVisit").val(obj.find('td')[5].innerHTML);
+        $("#ddlFrequency").val(obj.find('td')[6].innerHTML);
 
     });
     function EditPICDetails(this1) {
@@ -180,8 +177,10 @@
         $("#txtinvNote").val(obj.find('td')[2].innerHTML);
         $("#txtAdvice").val(obj.find('td')[3].innerHTML);
         $("#txtDiet").val(obj.find('td')[4].innerHTML);
-        $("#txtPeriod").val(obj.find('td')[5].innerHTML);
-        $("#txtVisit").val(obj.find('td')[6].innerHTML);
-        $("#ddlFrequency").val(obj.find('td')[7].innerHTML);
+        $("#txtVisit").val(obj.find('td')[5].innerHTML);
+        $("#ddlFrequency").val(obj.find('td')[6].innerHTML);
+    }
+    function DeleteRecord(id) {
+        alert("hii" + id);
     }
 </script>

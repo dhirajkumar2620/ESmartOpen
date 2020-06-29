@@ -27,7 +27,7 @@ namespace ESmartDr.Controllers
             Session["date"] = DateTime.Now.ToString("dd/MM/yyyy");
             DayOfWeek wk = DateTime.Today.DayOfWeek;
             Session["wkday"] = wk.ToString();
-
+            Session["RoleId"] = ad.RoleId;
             if (ad.UserId.ToString() != null && ad.UserId != 0)
             {
                 if (ad.HospClinicLogo =="")

@@ -36,7 +36,18 @@ namespace ESmartDr.Controllers
         }
         public ActionResult OpdPatientDetails()
         {
-            return View("PatientDetails");
+            if (Session["RoleId"].ToString() == "AHE")
+            {
+                PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+                Observation ob = new Observation();
+                ob = BM.GetObservationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+                return View("PatientDetails", ob);
+            }
+            else
+            {
+                return View("PatientDetails");
+            }
+
         }
         public ActionResult OpdExamination()
         {
@@ -63,8 +74,8 @@ namespace ESmartDr.Controllers
             Observation ob = new Observation();
             ob = BM.GetObservationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
             return View("Observation", ob);
-           
-            
+
+
         }
         public ActionResult MedicationPrec()
         {
@@ -72,21 +83,37 @@ namespace ESmartDr.Controllers
             Medication MD = new Medication();
             //Load lime always null not requird get data
             MD = BM.GetMedicationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
-           
-            return View("PrecMedication",MD);
+
+            return View("PrecMedication", MD);
         }
         public ActionResult PatientMedicalDetails()
         {
             PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
-            Medication MD = new Medication();
+            MedicalInformationDetails MD = new MedicalInformationDetails();
             //Load lime always null not requird get data
-            MD = BM.GetMedicationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
-           
-            return View("MedicalInformation");
+            MD = BM.GetMedicalInfoDetails(patientDETAILS.CasePapaerNo);
+
+            return View("MedicalInformation", MD);
         }
         public ActionResult PatientLifeStyleDetails()
         {
-            return View("LifeStyle");
+            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            LifeStyleDetails Ls = new LifeStyleDetails();
+            //Load lime always null not requird get data
+            Ls = BM.GetLifeStyleDetails(patientDETAILS.CasePapaerNo);
+            if (Ls.Diat != null)
+                Ls.Diat = Ls.Diat.Trim();
+            if (Ls.Alcohol != null)
+                Ls.Alcohol = Ls.Alcohol.Trim();
+            if (Ls.Bladder != null)
+                Ls.Bladder = Ls.Bladder.Trim();
+            if (Ls.Bowel != null)
+                Ls.Bowel = Ls.Bowel.Trim();
+            if (Ls.Sleep != null)
+                Ls.Sleep = Ls.Sleep.Trim();
+            if (Ls.Smoting != null)
+                Ls.Smoting = Ls.Smoting.Trim();
+            return View("LifeStyle", Ls);
         }
         public ActionResult PatientVitalInformation()
         {
@@ -144,7 +171,11 @@ namespace ESmartDr.Controllers
 
         public ActionResult CommonPrec()
         {
-            return View("PrecCommon");
+            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            Common Cm = new Common();
+            //Load lime always null not requird get data
+            Cm = BM.GetCommonDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+            return View("PrecCommon", Cm);
         }
     }
 }

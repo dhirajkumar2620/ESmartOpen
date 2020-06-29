@@ -8,7 +8,7 @@ namespace App_Layer
 {
     public class Common
     {
-        public string Id                 {get;set;}
+        public int Id                 {get;set;}
         public string InvSelectTests     {get;set;}
         public string InvNotes           {get;set;}
         public string AddAdvice          {get;set;}

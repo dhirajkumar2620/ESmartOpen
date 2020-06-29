@@ -2,7 +2,7 @@
 @{
     Layout = null;
 }
-@using (Html.BeginForm("ManageLifeStyleDetails", "TabDetails", FormMethod.Post, new { @id = "frmLifeStyleDetails" }))
+@using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmLifeStyleDetails" }))
 {
     @Html.HiddenFor(m => m.Id);
     @Html.HiddenFor(m => m.CasePaperNo);
@@ -13,14 +13,15 @@
                 <ul class="list-inline">
                     <li class="list-inline-item">
                         <div class="i-checks ">
-                            <input id="radioDiat" type="radio" checked="" value="option5" name="a" class="radio-template">
+                            @*<input id="radioDiat" type="radio" checked="" value="option5" name="a" class="radio-template">*@
+                            @Html.RadioButtonFor(model => model.Diat, "V", new { @class = "radio-template" })
 
                             <label for="radioCustom2">Veg</label>
                         </div>
                     </li>
                     <li class="list-inline-item">
                         <div class="i-checks ">
-                            <input id="radioCustom2" type="radio" checked="" value="option5" name="a" class="radio-template">
+                            @Html.RadioButtonFor(model => model.Diat, "N", new { @class = "radio-template" })
                             <label for="radioVeg">Non Veg</label>
                         </div>
                     </li>
@@ -31,14 +32,15 @@
                 <ul class="list-inline">
                     <li class="list-inline-item">
                         <div class="i-checks ">
-                            <input id="radioSmoking" type="radio" checked="" value="option6" name="a" class="radio-template">
+
+                            @Html.RadioButtonFor(model => model.Smoting, "Y", new { @class = "radio-template" })
 
                             <label for="radioSmokingYes">Yes</label>
                         </div>
                     </li>
                     <li class="list-inline-item">
                         <div class="i-checks ">
-                            <input id="radioCustom2" type="radio" checked="" value="option6" name="a" class="radio-template">
+                            @Html.RadioButtonFor(model => model.Smoting, "N", new { @class = "radio-template" })
                             <label for="radioSmokingNo">No</label>
                         </div>
                     </li>
@@ -49,14 +51,14 @@
                 <ul class="list-inline">
                     <li class="list-inline-item">
                         <div class="i-checks ">
-                            <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                            @Html.RadioButtonFor(model => model.Alcohol, "Y", new { @class = "radio-template" })
 
                             <label for="radioCustom2">Yes</label>
                         </div>
                     </li>
                     <li class="list-inline-item">
                         <div class="i-checks ">
-                            <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                            @Html.RadioButtonFor(model => model.Alcohol, "N", new { @class = "radio-template" })
                             <label for="radioCustom2">No</label>
                         </div>
                     </li>
@@ -67,14 +69,14 @@
                 <ul class="list-inline">
                     <li class="list-inline-item">
                         <div class="i-checks ">
-                            <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                            @Html.RadioButtonFor(model => model.Bowel, "Y", new { @class = "radio-template" })
 
                             <label for="radioCustom2">Yes</label>
                         </div>
                     </li>
                     <li class="list-inline-item">
                         <div class="i-checks ">
-                            <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                            @Html.RadioButtonFor(model => model.Bowel, "N", new { @class = "radio-template" })
                             <label for="radioCustom2">No</label>
                         </div>
                     </li>
@@ -87,14 +89,14 @@
                 <ul class="list-inline">
                     <li class="list-inline-item">
                         <div class="i-checks ">
-                            <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                            @Html.RadioButtonFor(model => model.Bladder, "Y", new { @class = "radio-template" });
 
                             <label for="radioCustom2">Yes</label>
                         </div>
                     </li>
                     <li class="list-inline-item">
                         <div class="i-checks ">
-                            <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                            @Html.RadioButtonFor(model => model.Bladder, "N", new { @class = "radio-template" });
                             <label for="radioCustom2">No</label>
                         </div>
                     </li>
@@ -105,20 +107,20 @@
                 <ul class="list-inline">
                     <li class="list-inline-item">
                         <div class="i-checks ">
-                            <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                            @Html.RadioButtonFor(model => model.Sleep, "R", new { @class = "radio-template" });
 
                             <label for="radioCustom2">Regular</label>
                         </div>
                     </li>
                     <li class="list-inline-item">
                         <div class="i-checks ">
-                            <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                            @Html.RadioButtonFor(model => model.Sleep, "I", new { @class = "radio-template" });
                             <label for="radioCustom2">Irregular</label>
                         </div>
                     </li>
                     <li class="list-inline-item">
                         <div class="i-checks ">
-                            <input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template">
+                            @Html.RadioButtonFor(model => model.Sleep, "D", new { @class = "radio-template" });
                             <label for="radioCustom2">Disturbed</label>
                         </div>
                     </li>
@@ -128,9 +130,33 @@
         <br />
         <div class="row">
             <div class="col-md-12 text-right">
-                <button type="button" class="btn btn_1 btn-primary" id="tostr-save2">Save</button>
+                <button type="button" onclick="SubmitLifeStyleDetails()" class="btn btn_1 btn-primary" id="tostr-save2">Save</button>
             </div>
         </div>
     </div>
 }
 <script src="~/js/front.js"></script>
+<script>
+    function SubmitLifeStyleDetails() {
+
+        var form = $('#frmLifeStyleDetails')[0];
+
+            var fromData = new FormData(form);
+            var urllink = '@Url.Content("~/TabDetails/ManageLifeStyleDetails")'
+
+            $.ajax({
+                type: "post",
+                url: urllink,
+                data: fromData,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    alert("Details Updated Sucessfully.");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                }
+            })
+
+        }
+</script>
