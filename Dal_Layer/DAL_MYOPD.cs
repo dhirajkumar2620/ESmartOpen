@@ -408,5 +408,24 @@ namespace Dal_Layer
             }
         }
 
+        public int Set_SatatusFlag(int QueueId, string CPno)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@QueueId", QueueId);
+                sqlparam[1] = new SqlParameter("@CPno", CPno);
+
+                int flag = CommonFunction.Save("USP_Set_SatatusFlag", sqlparam, "");
+
+                return flag;
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+
+        }
     }
 }

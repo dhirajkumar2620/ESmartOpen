@@ -115,5 +115,26 @@ namespace ESmartDr.Controllers
         //        throw;
         //    }
         //}
+
+        [HttpPost]
+        public ActionResult StatusChange()
+        {
+            try
+            {
+                PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+                int flag = BM.Set_SatatusFlag(patientDETAILS.QueueId,patientDETAILS.CasePapaerNo);
+                if (flag != 0)
+                {
+                    return RedirectToAction("OpdExamination", "MyOPD");
+                }
+               
+                return RedirectToAction("OpdPrescription", "MyOPD");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

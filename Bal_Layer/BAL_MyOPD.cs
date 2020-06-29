@@ -25,7 +25,7 @@ namespace Bal_Layer
         }
         public Medication GetMedicationDetails(int QueueId, string CPno)
         {
-            return DM.GetMedicationDetails( QueueId,  CPno);
+            return DM.GetMedicationDetails(QueueId, CPno);
         }
 
         public int ManagePrecCommonDetails(Common Ob)
@@ -35,7 +35,7 @@ namespace Bal_Layer
 
         public Common GetCommonDetails(int QueueId, string CPno)
         {
-            return DM.GetCommonDetails( QueueId,  CPno);
+            return DM.GetCommonDetails(QueueId, CPno);
         }
 
         public int ManageVitalInformation(VitalInformation VI)
@@ -58,9 +58,14 @@ namespace Bal_Layer
         {
             return DM.ManageMedicalInfoDetails(MI);
         }
-        public MedicalInformationDetails GetMedicalInfoDetails( string CPno)
+        public MedicalInformationDetails GetMedicalInfoDetails(string CPno)
         {
-            return DM.GetMedicalInfoDetails(   CPno);
+            return DM.GetMedicalInfoDetails(CPno);
+        }
+
+        public int Set_SatatusFlag(int QueueId, string CPno)
+        {
+            return DM.Set_SatatusFlag(QueueId, CPno);
         }
 
     }

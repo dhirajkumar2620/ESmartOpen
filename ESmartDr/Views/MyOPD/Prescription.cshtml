@@ -39,7 +39,7 @@
                         <div id="tabCommon"></div>
                     </div>
                 </div>
-
+                <button type="button" onclick="SetStatus(this)" class="btn btn_1 btn-primary" data-dismiss="modal">Finalize</button>
             </div>
       
     </div>
@@ -107,4 +107,33 @@
         $('.fitn-cert').css("display", "none");
         $('.medicl-cert').css("display", "block");
     });
+
+
+    function SetStatus(x) {
+
+        debugger;
+        var CPno = $(this).attr("data-image");
+       
+
+        var form = $('#frmObservationDetails')[0];
+
+        var fromData = new FormData(form);
+        var urllink = '@Url.Content("~/Prescription/StatusChange")'
+        debugger;
+        $.ajax({
+            type: "post",
+            url: urllink,
+            dataType: 'application/json',
+            data: {
+
+               
+            },
+            success: function (response) {
+                alert("succesfuly saved...");
+            }
+        }
+
+       )
+    };
+
 </script>
