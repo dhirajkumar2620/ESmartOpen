@@ -67,6 +67,11 @@ namespace Bal_Layer
         {
             return DM.Set_SatatusFlag(QueueId, CPno);
         }
+        public List<HistoryDetails> GetHistory(string mobileNumber, string CPno)
+        {
+            return DM.GetHistory(mobileNumber,CPno);
+        }
+        
 
     }
 }

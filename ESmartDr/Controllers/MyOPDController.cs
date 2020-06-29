@@ -51,7 +51,10 @@ namespace ESmartDr.Controllers
         }
         public ActionResult OpdHistory()
         {
-            return View("History");
+            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            List<HistoryDetails> Ld = new List<HistoryDetails>();
+            Ld = BM.GetHistory(patientDETAILS.WhatsAppNo, patientDETAILS.CasePapaerNo);
+            return View("History",Ld);
         }
         public ActionResult OpdBilling()
         {

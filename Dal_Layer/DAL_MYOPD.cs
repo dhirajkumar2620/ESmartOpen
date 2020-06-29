@@ -427,5 +427,93 @@ namespace Dal_Layer
             }
 
         }
+
+        public List<HistoryDetails> GetHistory(string mobileNumber, string CPno)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@mobileNumber", mobileNumber);
+                sqlparam[1] = new SqlParameter("@CPno", CPno);
+                DataSet ds = CommonFunction.GetDataSet("USP_Get_HistoryByMobile_App", sqlparam, "");
+
+                List<HistoryDetails> HD = new List<HistoryDetails>();
+                List<ObservationDetails> OD = new List<ObservationDetails>();
+                List<TestDetails> TD = new List<TestDetails>();
+                List<MedicinesDetails> MD = new List<MedicinesDetails>();
+                //History 
+                if (ds != null && ds.Tables[0].Rows.Count > 0)
+                {
+                    DataTable dt1 = ds.Tables[0];
+                    foreach (DataRow dr in dt1.Rows)
+                    {
+                        HistoryDetails histrydetails = new HistoryDetails();
+                        // HistoryDetails lstHD = new HistoryDetails();
+                        CommonFunction.ReflectSingleData(histrydetails, dr);
+
+
+
+                        //Observation
+                        if (ds != null && ds.Tables[1].Rows.Count > 0)
+                        {
+                            DataTable dt2 = ds.Tables[1];
+                            foreach (DataRow dr1 in dt2.Rows)
+                            {
+                                if (Convert.ToInt32(dr1["QueueId"]) == histrydetails.QueueId)
+                                {
+                                    ObservationDetails lstOD = new ObservationDetails();
+                                    CommonFunction.ReflectSingleData(lstOD, dr1);
+                                    histrydetails.lstOD.Add(lstOD);
+                                }
+
+                            }
+                        }
+                        //Test
+                        if (ds != null && ds.Tables[2].Rows.Count > 0)
+                        {
+                            DataTable dt3 = ds.Tables[2];
+                            foreach (DataRow dr2 in dt3.Rows)
+                            {
+                                if (Convert.ToInt32(dr2["QueueId"]) == histrydetails.QueueId)
+                                {
+                                    TestDetails lstOD = new TestDetails();
+                                    CommonFunction.ReflectSingleData(lstOD, dr2);
+                                    histrydetails.lstTD.Add(lstOD);
+                                }
+
+                            }
+                        }
+                        //Medicine
+                        if (ds != null && ds.Tables[3].Rows.Count > 0)
+                        {
+                            DataTable dt4 = ds.Tables[3];
+                            foreach (DataRow dr3 in dt4.Rows)
+                            {
+                                if (Convert.ToInt32(dr3["QueueId"]) == histrydetails.QueueId)
+                                {
+                                    MedicinesDetails lstMD = new MedicinesDetails();
+                                    CommonFunction.ReflectSingleData(lstMD, dr3);
+                                    histrydetails.lstMD.Add(lstMD);
+                                }
+
+                            }
+                        }
+                        HD.Add(histrydetails);
+                    }
+                }
+                // HD.lstOD = OD;
+                //histrydetails.lstHD = HD;
+                //histrydetails.lstOD = OD;
+                //histrydetails.lstTD = TD;
+                //histrydetails.lstMD = MD;
+                return HD;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
     }
 }
