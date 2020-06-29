@@ -36,17 +36,8 @@ namespace ESmartDr.Controllers
         }
         public ActionResult OpdPatientDetails()
         {
-            if (Session["RoleId"].ToString() == "AHE")
-            {
-                PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
-                Observation ob = new Observation();
-                ob = BM.GetObservationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
-                return View("PatientDetails", ob);
-            }
-            else
-            {
+           
                 return View("PatientDetails");
-            }
 
         }
         public ActionResult OpdExamination()
