@@ -2,7 +2,56 @@
 @{
     Layout = null;
 }
-
+<style>
+    .table thead {
+    background: #ffffff;
+    color: #666;
+}
+    .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #ffffff!important;
+}
+    .table tbody {
+    background: #ffffff;
+}
+    .table tr:hover {
+    box-shadow: 2px 4px 10px #fff;
+}
+    /*.table thead th {
+    vertical-align: bottom;
+    border-bottom: 1px solid #dedede!important;
+}
+    .table td {
+    border-top: 1px solid #dedede!important;
+    vertical-align: middle!important;
+}*/
+    .table th {
+    padding-top: 15px;
+}
+    .table {
+    margin-bottom: 0rem;
+}
+    .mg-table .table{
+        border-bottom:1px solid #d4d4d4;
+    }
+    .tbl-view-1 tr th:first-child{
+        width:20%;
+    }
+    .tbl-view-2 tr th:first-child{
+        width:20%;
+    }
+    .tbl-view-3 tr th:first-child{
+        width:20%;
+    }
+    .tbl-view-4 tr th:first-child{
+        width:20%;
+    }
+    .tbl-view-5 tr th:first-child{
+        width:20%;
+    }
+    .tbl-view-5 tr th:first-child{
+        width:20%;
+    }
+</style>
 
 <div class="card-body">
     @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmObservationDetails" }))
@@ -71,11 +120,11 @@
 
         </form>
     }
-    <div class="row">
+    <div class="row mg-table">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="table-responsive opd-table style-2">
+                    <div class="table-responsive opd-table ">
                         <table class="table" id="tblObservation">
                             <thead>
                                 <tr>

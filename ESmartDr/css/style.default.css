@@ -4785,10 +4785,10 @@ legend.custom-border {
     z-index: 6;
     margin-right: -403px!important;
   }
-  .table-responsive{
+  /*.table-responsive{
     overflow-y: scroll;
     height: 304px;
-  }
+  }*/
 
 
   .style-2::-webkit-scrollbar-track
