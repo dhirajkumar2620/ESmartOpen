@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminDetails.cs" />
+    <Compile Include="BillingDetails.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="DignosticDetails.cs" />
