@@ -515,5 +515,34 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
+
+        public int ManageBilling(BillingDetails BD)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[10];
+                sqlparam[0] = new SqlParameter("@Id", BD.Id);
+                sqlparam[1] = new SqlParameter("@ServiceName", BD.ServiceName);
+                sqlparam[2] = new SqlParameter("@Bill", BD.Bill);
+                sqlparam[3] = new SqlParameter("@Paid", BD.Paid);
+                sqlparam[4] = new SqlParameter("@Balance", BD.Balance);
+                sqlparam[5] = new SqlParameter("@CasePaperNo", BD.CasePaperNo);
+                sqlparam[6] = new SqlParameter("@HospitalId", BD.HospitalId);
+                sqlparam[7] = new SqlParameter("@PatientId", BD.PatientId);
+                sqlparam[8] = new SqlParameter("@CreatedBy", BD.CreatedBy);
+                sqlparam[9] = new SqlParameter("@QueueId", BD.QueueId);
+
+
+                int flag = CommonFunction.Save("USP_ManageBilling", sqlparam, "");
+
+                return flag;
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+
+        }
     }
 }

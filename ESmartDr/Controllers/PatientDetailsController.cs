@@ -204,13 +204,13 @@ namespace ESmartDr.Controllers
         }
 
         [HttpPost]
-        public ActionResult SetStatus(string CPno, float Bill, float paidBill, string Status)
+        public ActionResult SetStatus(int Qid,string CPno, float Bill, float paidBill, string Status)
         {
             try
             {
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 List<PatientDetails> LST = new List<PatientDetails>();
-                int flag = BP.SetStatus(CPno, Bill, paidBill, Status);
+                int flag = BP.SetStatus(Qid, CPno, Bill, paidBill, Status);
                 if (flag != 0)
                 {
                     return RedirectToAction("GetQueueList", "PatientDetails");
@@ -218,7 +218,7 @@ namespace ESmartDr.Controllers
                 PatientCount(admObj.HospitalId);
                 return RedirectToAction("GetQueueList", "PatientDetails");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;

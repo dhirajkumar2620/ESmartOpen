@@ -104,8 +104,9 @@
                                             <th>Contact</th>
                                             <th>Doctor</th>
                                             <th>Bill</th>
-                                            <th>Unpaid Bill</th>
+                                            <th hidden>Unpaid Bill</th>
                                             <th>Status</th>
+                                            <th hidden>Qid</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -120,7 +121,7 @@
                                                 <td>@item.WhatsAppNo<br />@item.OtherNo</td>
                                                 <td>@item.FirstName</td>
                                                 <td>@item.Bill</td>
-                                                <td>@item.Paid</td>
+                                                <td hidden>@item.Paid</td>
 
                                                 @if (item.InQuee == 1)
                                                 {
@@ -149,7 +150,7 @@
                                                             <option>Visited</option>
                                                         </select>
                                                     </div>*@
-
+                                                <td hidden>@item.Id</td>
                                                 <td>
                                                     <ul class="list-inline">
                                                         <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
@@ -175,13 +176,14 @@
                                             <th>Contact no</th>
                                             <th>Doctor</th>
                                             <th>Bill</th>
-                                            <th>Unpaid Bill</th>
+                                            <th hidden>Unpaid Bill</th>
                                             <th>Status</th>
+                                            <th hidden>Qid</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
                                 </table>
-                            </divclass="table-responsive>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -229,7 +231,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content save-appoint">
             <div class="modal-header" style="border-bottom:none;">
-                <h3>Get Appointment</h3>
+                <h3>Manage Bill</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -270,6 +272,7 @@
                         <label class="form-control-label">Paid Amount</label>
                         <input type="text" id="txtDue" class="form-control" placeholder="00.00" />
                         <input style="display:none" type="text" id="txtCPno" class="form-control" placeholder="Note" />
+                        <input style="display:none" type="text" id="txtQid" class="form-control" placeholder="Note" />
                     </div>
                 </div>
             </div>
@@ -333,6 +336,7 @@
 <script>
     function showModel(x) {
         var obj = $(x).parents("tr")
+        $("#txtQid").val(obj.find('td')[8].innerHTML);
         $("#txtCPno").val(obj.find('td')[1].innerHTML);
         $("#txtStatus").val(obj.find('td')[7].innerHTML);
         $("#txtBill").val(obj.find('td')[5].innerHTML);
@@ -347,6 +351,7 @@
         var appStatus = document.getElementById("txtStatus").value;
         var appBill = document.getElementById("txtBill").value;
         var appPaidBill = document.getElementById("txtDue").value;
+        var appQId = document.getElementById("txtQid").value;
 
         var form = $('#frmObservationDetails')[0];
 
@@ -359,7 +364,7 @@
             dataType: 'application/json',
             data: {
                
-                'CPno': appCPno, 'Bill': appBill, 'paidBill': appPaidBill, 'Status': appStatus
+                'Qid': appQId, 'CPno': appCPno, 'Bill': appBill, 'paidBill': appPaidBill, 'Status': appStatus
             },
             success: function (response) {
                 alert("succesfuly saved...");

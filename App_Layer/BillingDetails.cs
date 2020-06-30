@@ -10,9 +10,9 @@ namespace App_Layer
     {
         public int Id { get; set; }
         public string ServiceName { get; set; }
-        public string Bill { get; set; }
-        public string Paid { get; set; }
-        public string Balance { get; set; }
+        public float Bill { get; set; }
+        public float Paid { get; set; }
+        public float Balance { get; set; }
         public string CasePaperNo { get; set; }
         public string HospitalId { get; set; }
         public int PatientId { get; set; }

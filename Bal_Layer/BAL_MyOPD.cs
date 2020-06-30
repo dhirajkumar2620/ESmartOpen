@@ -71,7 +71,10 @@ namespace Bal_Layer
         {
             return DM.GetHistory(mobileNumber,CPno);
         }
-        
+        public int ManageBilling(BillingDetails BD)
+        {
+            return DM.ManageBilling(BD);
+        }
 
     }
 }

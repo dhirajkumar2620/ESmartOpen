@@ -266,16 +266,17 @@ namespace Dal_Layer
             }
         }
 
-        public int SetStatus(string CPno, float Bill, float paidBill, string Status)
+        public int SetStatus(int Queueid,string CPno, float Bill, float paidBill, string Status)
         {
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[4];
-                sqlparam[0] = new SqlParameter("@CPno", CPno);
-                sqlparam[1] = new SqlParameter("@Bill", Bill);
-                sqlparam[2] = new SqlParameter("@paidBill", paidBill);
-                sqlparam[3] = new SqlParameter("@Status", Status);
+                sqlparam = new SqlParameter[5];
+                sqlparam[0] = new SqlParameter("@QueueId", Queueid);
+                sqlparam[1] = new SqlParameter("@CPno", CPno);
+                sqlparam[2] = new SqlParameter("@Bill", Bill);
+                sqlparam[3] = new SqlParameter("@paidBill", paidBill);
+                sqlparam[4] = new SqlParameter("@Status", Status);
 
                 int flag = CommonFunction.Save("USP_Set_AppStatus", sqlparam, "");
                
