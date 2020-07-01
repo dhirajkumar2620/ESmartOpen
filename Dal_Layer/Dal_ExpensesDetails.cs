@@ -89,9 +89,9 @@ namespace Dal_Layer
                         Invclst.Add(Model);
                     }
                 }
-                ED.Invlst = Invclst;
-                ED.Inclst = Inclst;
-                ED.lst = lst;
+                ED.Invlst = Invclst.OrderByDescending(x =>x.Date).ToList();
+                ED.Inclst = Inclst.OrderByDescending(x => x.Date).ToList();
+                ED.lst = lst.OrderByDescending(x => x.ExId).ToList();
                 return ED;
             }
             catch (Exception Ex)

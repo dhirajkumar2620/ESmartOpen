@@ -98,7 +98,7 @@
                                 <table id="example" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th></th>
+                                            <th>Q.Id</th>
                                             <th>CP No.</th>
                                             <th>Patient</th>
                                             <th>Contact</th>
@@ -153,10 +153,10 @@
                                                 <td hidden>@item.Id</td>
                                                 <td>
                                                     <ul class="list-inline">
-                                                        <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Submit">
+                                                        <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Edit">
                                                             <a href="#" data-toggle="modal" data-target="#saveAppointment" onclick="showModel(this)"><i class="fa fa-check" aria-hidden="true"></i></a>
                                                         </li>
-                                                        <li class="list-inline-item" title="Details">
+                                                        <li class="list-inline-item" title="Examination">
                                                             <a href="@Url.Content("~/Home/MyOPD?CPno="+item.CasePaperNo+"&QueueID="+item.Id+"")"><i class="fa fa-history" aria-hidden="true"></i></a>
                                                         </li>
                                                         <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Delete">
@@ -170,7 +170,7 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th></th>
+                                            <th>Q.Id</th>
                                             <th>CP No.</th>
                                             <th>Patient</th>
                                             <th>Contact no</th>

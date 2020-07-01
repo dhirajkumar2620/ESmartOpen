@@ -142,9 +142,10 @@ namespace ESmartDr.Controllers
                 //cards counts
 
                 PatientCount(hospitalId);
-
+                ModelState.Clear();
                 List<QueueDetails> LST = new List<QueueDetails>();
                 LST = BP.GetQueueList(hospitalId);
+                
                 return View("PatientAppoinment", LST);
             }
             catch (Exception)
