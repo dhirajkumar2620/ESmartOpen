@@ -103,7 +103,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 obs-sv-btn">
-                    <div class="form-group pull-right">
+                    <div class="form-group">
                         <label class="form-control-label">
                             Diagnosis
                         </label>
@@ -111,23 +111,24 @@
                         @Html.ValidationMessageFor(model => model.Diagnosis, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <button type="button" onclick="SubmitObservationDetails()" class="btn btn_1 btn-primary" id="btnSave">Save</button>
+                <div class="col-md-4" >
+                    <div class="form-group"  style="float: right;margin-top: 2em;">
+                        <button type="button" onclick="SubmitObservationDetails()" class="btn btn_1 btn-primary grid-show" id="btnSave">Save</button>
                     </div>
                 </div>
             </div>
 
         </form>
     }
-    <div class="row mg-table">
+    <br/>
+    <div class="row mg-table" style="display:none;">
         <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
+            <div class="">
+                <div class="">
                     <div class="table-responsive opd-table ">
                         <table class="table" id="tblObservation">
                             <thead>
-                                <tr>
+                                <tr  style="background: #f8f9fa;">
                                     <th hidden>Id</th>
                                     <th>Complaints</th>
                                     <th>Since</th>
@@ -153,8 +154,8 @@
                                             <td>@item.PhysicalExamination</td>
                                             <td>@item.Diagnosis</td>
                                             <td>
-                                                <i class="fa fa-plus add-row" aria-hidden="true"></i>&nbsp;&nbsp;
-                                                <i class="fa fa-times add-row1" onclick="DeleteRecord('@item.Id')" aria-hidden="true"></i>
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;
+                                                <i class="fa fa-times" onclick="DeleteRecord('@item.Id')" aria-hidden="true"></i>
 
                                             </td>
                                         </tr>
@@ -188,7 +189,7 @@
                 $('#tblObservation tbody').empty();
                 var trHTML = '';
                 $.each(data, function (i, item) {
-                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.Complaints + '</td><td>' + item.Since + '</td><td>' + item.Period + '</td><td>' + item.PhysicalExamination + '</td><td>' + item.Diagnosis + '</td><td><i class="fa fa-plus add-row" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times add-row1" onclick=DeleteRecord("' + item.Id+'") aria-hidden="true"></i></td></tr>';
+                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.Complaints + '</td><td>' + item.Since + '</td><td>' + item.Period + '</td><td>' + item.PhysicalExamination + '</td><td>' + item.Diagnosis + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id+'") aria-hidden="true"></i></td></tr>';
                 });
                 $('#tblObservation tbody').append(trHTML)
                 $("#hdnId").val('0');
@@ -226,7 +227,10 @@
     }
     function DeleteRecord(id) {
         alert("hii" + id);
-    }
+    };
 
+    $('.grid-show').click(function () {
+        $('.mg-table').css("display", "block");
+    });
 </script>
 

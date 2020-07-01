@@ -69,7 +69,7 @@
         @Html.HiddenFor(m => m.Id, new { @id = "hdnId" });
         <form>
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label class="form-control-label">
                             Medicine Name<span class="star">*</span>
@@ -78,7 +78,7 @@
                         @Html.ValidationMessageFor(model => model.MedicineName, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label class="form-control-label">
                             When<span class="star">*</span>
@@ -96,6 +96,14 @@
                             new SelectListItem{ Text="6 Times a days", Value = "6" },
                             new SelectListItem{ Text="SOS", Value = "SOS" },
                             }, new { @class = "form-control mb-3", @id = "ddlWhenMedicine" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Dose
+                        </label>
+                        <input type="text" class="form-control" />
                     </div>
                 </div>
             </div>
@@ -166,21 +174,22 @@
                 </div>
                 <div class="col-md-4 obs-sv-btn">
                     <div class="form-group pull-right">
-                        <button type="button" class="btn btn_1 btn-primary" onclick="SubmitObservationDetails()" id="tostr-save5">Save</button>
+                        <button type="button" class="btn btn_1 btn-primary grid-show" onclick="SubmitObservationDetails()" id="tostr-save5">Save</button>
                     </div>
                 </div>
             </div>
         </form>
 
     }
-    <div class="row mg-table">
+    <br/>
+    <div class="row mg-table" style="display:none;">
         <div class="col-md-12">
             <div class="">
-                <div class="card-body">
+                <div class="">
                     <div class="table-responsive opd-table">
                         <table class="table" id="tblprecMedication">
                             <thead>
-                                <tr>
+                                <tr  style="background: #f8f9fa;">
                                     <th hidden>Id</th>
                                     <th>Medicine Name</th>
                                     <th>When</th>
@@ -208,8 +217,8 @@
                                             <td>@item.AlternateMedicine</td>
 
                                             <td>
-                                                <i class="fa fa-plus add-row" aria-hidden="true"></i>&nbsp;&nbsp;
-                                                <i class="fa fa-times add-row1" onclick="DeleteRecord('@item.Id')" aria-hidden="true"></i>
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;
+                                                <i class="fa fa-times" onclick="DeleteRecord('@item.Id')" aria-hidden="true"></i>
 
                                             </td>
 
@@ -241,7 +250,7 @@
                     $('#tblprecMedication tbody').empty();
                     var trHTML = '';
                     $.each(data, function (i, item) {
-                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.MedicineName + '</td><td>' + item.WhenMedicine + '</td><td>' + item.RepeatMedicine + '</td><td>' + item.ForMedicine + '</td><td>' + item.MedicineDays + '</td><td>' + item.SpecialInstruction + '</td><td>' + item.AlternateMedicine + '</td></td><td><i class="fa fa-plus add-row" onclick=EditDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times add-row1" onclick=DeleteRecord("' + item.Id +'") aria-hidden="true"></i></td></tr>';
+                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.MedicineName + '</td><td>' + item.WhenMedicine + '</td><td>' + item.RepeatMedicine + '</td><td>' + item.ForMedicine + '</td><td>' + item.MedicineDays + '</td><td>' + item.SpecialInstruction + '</td><td>' + item.AlternateMedicine + '</td></td><td><i class="fa fa-pencil" onclick=EditDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
                     });
                     $('#tblprecMedication tbody').append(trHTML)
                     $("#hdnId").val('0');
@@ -284,6 +293,9 @@
         }
         function DeleteRecord(id) {
             alert("hii" + id);
-        }
+        };
+        $('.grid-show').click(function () {
+            $('.mg-table').css("display", "block");
+        });
     </script>
 </div>

@@ -44,7 +44,7 @@
             </ul>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="form-group">
                     <label class="form-control-label">
                         Others
@@ -53,17 +53,16 @@
                     @Html.ValidationMessageFor(model => model.Other, "", new { @class = "text-danger" })
                 </div>
             </div>
-        </div>
-        <br />
-        <p>Allergies</p>
-        <div class="row">
+
             <div class="col-md-6">
+                <label class="form-control-label">
+                    Allergies
+                </label>
                 <div class="form-group">
                     @Html.TextBoxFor(m => m.Allegies, new { @id = "txtAllegies", @class = "form-control", required = "required", @placeholder = "Allergies" })
                     @Html.ValidationMessageFor(model => model.Other, "", new { @class = "text-danger" })
                 </div>
             </div>
-
         </div>
         <br />
         <div class="row">
