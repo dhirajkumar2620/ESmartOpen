@@ -370,7 +370,7 @@
         var x = confirm("Are you sure you want to Confirm Appoinment?");
         if (x) {
 
-            alert('2')
+           
             var CPno = $(this).attr("data-image");
             var appCPno = document.getElementById("txtCPno").value;
             var appDate = document.getElementById("txtDate").value;
@@ -380,7 +380,7 @@
             var form = $('#frmObservationDetails')[0];
 
             var fromData = new FormData(form);
-            var urllink = '@Url.Content("~/PatientDetails/SetPatientAppoinment")'
+            var urllink = '@Url.Content("/PatientDetails/SetPatientAppoinment")'
             $.ajax({
                 type: "post",
                 url: urllink,
@@ -391,7 +391,7 @@
 
                 },
                 success: function (response) {
-                    alert('h');
+                  
                     window.location.href = "../PatientDetails/GetQueueList";
                 }
             }
