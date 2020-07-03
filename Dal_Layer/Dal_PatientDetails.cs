@@ -328,5 +328,62 @@ namespace Dal_Layer
             }
         }
 
+        public AdminDetails GetDoctorUserDetails(int UserId)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@Flag", "2");
+                sqlparam[1] = new SqlParameter("@username", UserId);
+
+                DataTable ds = CommonFunction.GetDataTable("USP_UserDetails", sqlparam, "");
+                AdminDetails Model = new AdminDetails();
+
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        CommonFunction.ReflectSingleData(Model, dr);
+                    }
+                }
+                return Model;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+        public AdminDetails GetDoctorListByHID(int Hid)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@Flag", "1");
+                sqlparam[1] = new SqlParameter("@username", Hid);
+
+                DataTable ds = CommonFunction.GetDataTable("USP_Get_DoctorList", sqlparam, "");
+                AdminDetails Model = new AdminDetails();
+
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        CommonFunction.ReflectSingleData(Model, dr);
+                    }
+                }
+                return Model;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+
     }
 }

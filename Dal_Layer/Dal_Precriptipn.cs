@@ -87,6 +87,20 @@ namespace Dal_Layer
                 //        vlst.Add(Model);
                 //    }
                 //}
+                List<VitalInformation> VList = new List<VitalInformation>();
+                if (ds != null && ds.Tables[2].Rows.Count > 0)
+                {
+
+                    DataTable dt = ds.Tables[2];
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        VitalInformation Model1 = new VitalInformation();
+                        CommonFunction.ReflectSingleData(Model1, dr);
+
+                        VList.Add(Model1);
+                    }
+                }
+                p.vlist = VList;
                 p.olist = olst;
                 p.mlist = mlst;
                 p.clist = clst;

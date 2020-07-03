@@ -61,6 +61,9 @@ namespace App_Layer
         public DateTime ModifideDate { get; set; }
         public int ModifideBy { get; set; }
         public bool IsActive { get; set; }
+        public string Name { get; set; }
+        public string Value { get; set; }
+
         public List<VitalInformation> lst { get; set; }
     }
 }

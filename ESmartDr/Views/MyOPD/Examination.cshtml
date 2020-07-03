@@ -108,7 +108,7 @@
                         </li>
                         <li class="list-inline-item">
                             <div class="i-checks">
-                                <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template tbl-3"> &nbsp;&nbsp;Diagnosis 
+                                <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template tbl-3"> &nbsp;&nbsp;Diagnosis
                             </div>
                         </li>
                         <li class="list-inline-item">
@@ -142,13 +142,38 @@
                     </table>
                     <br />
                     <table id="example2" class="table table-striped tbl-view-7" style="width:100%;display:none;">
-                        <tbody>
+                        <thead>
                             <tr>
-                                <th>Weight(Kg) : <span>80</span></th>
-                                <th>Temperature(&#8457;): <span>26 Jun, 2020</span></th>
-                                <th></th>
+                                <th>BloodPressure</th>
+                                <th>Temperature</th>
+                                <th>BloodGlucosePostPrandial</th>
+                                <th>Weight</th>
+                                <th>BloodGlucoseFasting</th>
+                                <th>BloodlucoseRandom</th>
+                                <th>Pulse</th>
                             </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.vlist)
+                            {
+                                <tr>
+                                    <td>@item.BloodPressure</td>
+                                    <td>@item.Temperature</td>
+                                    <td>@item.BloodGlucosePostPrandial</td>
+                                    <td>@item.Weight</td>
+                                    <td>@item.BloodGlucoseFasting</td>
+                                    <td>@item.BloodlucoseRandom</td>
+                                    <td>@item.Pulse</td>
+                                </tr>
+                            }
                         </tbody>
+                        @*<tbody>
+                                <tr>
+                                    <th>Weight(Kg) : <span>80</span></th>
+                                    <th>Temperature(&#8457;): <span>26 Jun, 2020</span></th>
+                                    <th></th>
+                                </tr>
+                            </tbody>*@
                     </table>
 
                     <br />
@@ -275,7 +300,7 @@
         <input type='button' id='btn' value='Print' class="btn btn_1 btn-primary pull-right" onclick='printDiv("#accordionExample1");'>
     </div>
     <br />
-   
+
 </div>
 @*<script src="~/vendor/jquery/jquery.min.js"></script>*@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

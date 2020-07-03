@@ -20,6 +20,11 @@ namespace ESmartDr.Controllers
         }
         public ActionResult PatientDetails()
         {
+            AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+            AdminDetails ad = new AdminDetails();
+            ad = BP.GetDoctorListByHID(admObj.HospitalId);
+
+
             return View("PatientRegistration");
         }
         public ActionResult ViewAllPatient()

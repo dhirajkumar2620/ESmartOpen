@@ -64,5 +64,14 @@ namespace Bal_Layer
         {
             return DP.Get_ExportToExcel(HospitalId);
         }
+
+        public AdminDetails GetDoctorUserDetails(int UserId)
+        {
+            return DP.GetDoctorUserDetails(UserId);
+        }
+        public AdminDetails GetDoctorListByHID(int Hid)
+        {
+            return DP.GetDoctorListByHID(Hid);
+        }
     }
 }
