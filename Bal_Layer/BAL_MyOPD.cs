@@ -76,5 +76,20 @@ namespace Bal_Layer
             return DM.ManageBilling(BD);
         }
 
+        public List<Observation> DeleteObservation( int Id)
+        {
+            return DM.DeleteObservation( Id);
+        }
+
+        public List<Medication> DeleteMedication( int Id)
+        {
+            return DM.DeleteMedication( Id);
+        }
+
+        public List<Common> DeleteCommon( int Id)
+        {
+            return DM.DeleteCommon( Id);
+        }
+
     }
 }

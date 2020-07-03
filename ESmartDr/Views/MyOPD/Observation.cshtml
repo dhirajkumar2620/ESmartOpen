@@ -113,7 +113,7 @@
                 </div>
                 <div class="col-md-4" >
                     <div class="form-group"  style="float: right;margin-top: 2em;">
-                        <button type="button" onclick="SubmitObservationDetails()" class="btn btn_1 btn-primary grid-show" id="btnSave">Save</button>
+                        <button type="button" onclick="SubmitObservationDetails()" class="btn btn_1 btn-primary" id="btnSave">Save</button>
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@
         </form>
     }
     <br/>
-    <div class="row mg-table" style="display:none;">
+    <div class="row mg-table">
         <div class="col-lg-12">
             <div class="">
                 <div class="">
@@ -226,8 +226,27 @@
         $("#txtDiagnosis").val(obj.find('td')[5].innerHTML);
     }
     function DeleteRecord(id) {
-        alert("hii" + id);
-    };
+  
+            var form = $('#frmPrecMedication')[0];
+
+            var fromData = new FormData(form);
+            var urllink = '@Url.Content("~/Prescription/DeleteObservation")'
+            $.ajax({
+                type: "post",
+                url: urllink,
+                dataType: 'application/json',
+                data: {
+
+                    'Id': id
+                },
+                success: function (response) {
+                    alert("succesfuly saved...");
+                }
+            }
+
+           )
+
+        };
 
     $('.grid-show').click(function () {
         $('.mg-table').css("display", "block");

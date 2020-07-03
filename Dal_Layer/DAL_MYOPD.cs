@@ -544,5 +544,101 @@ namespace Dal_Layer
             }
 
         }
+
+        public List<Observation> DeleteObservation(int Id)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@flag", 1);
+                sqlparam[1] = new SqlParameter("@Id", Id);
+                DataTable ds = CommonFunction.GetDataTable("USP_delete_Precription", sqlparam, "");
+                List<Observation> olst = new List<Observation>();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Observation Model = new Observation();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        olst.Add(Model);
+                    }
+                }
+
+
+                return olst;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+        public List<Medication> DeleteMedication(int Id)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@flag", 2);
+                sqlparam[1] = new SqlParameter("@Id", Id);
+                DataTable ds = CommonFunction.GetDataTable("USP_delete_Precription", sqlparam, "");
+                List<Medication> mlst = new List<Medication>();
+
+
+
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Medication Model = new Medication();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        mlst.Add(Model);
+                    }
+                }
+
+
+                return mlst;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+        public List<Common> DeleteCommon( int Id)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@flag", 3);
+                sqlparam[1] = new SqlParameter("@Id", Id);
+                DataTable ds = CommonFunction.GetDataTable("USP_delete_Precription", sqlparam, "");
+                List<Common> clst = new List<Common>();
+
+
+
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Common Model = new Common();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        clst.Add(Model);
+                    }
+                }
+
+                return clst;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
     }
 }

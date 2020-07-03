@@ -136,5 +136,57 @@ namespace ESmartDr.Controllers
                 throw;
             }
         }
+        [HttpPost]
+        public ActionResult  DeleteObservation(int Id)
+        {
+            try
+            {
+                BAL_MyOPD BL = new BAL_MyOPD();
+                List<Observation> LST = new List<Observation>();
+                LST = BL.DeleteObservation(Id);
+               
+                return View("PatientAppoinment", LST);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        [HttpPost]
+        public ActionResult DeleteMedication(int Id)
+        {
+            try
+            {
+                BAL_MyOPD BL = new BAL_MyOPD();
+                List<Medication> LST = new List<Medication>();
+                LST = BL.DeleteMedication(Id);
+
+                return View("PatientAppoinment", LST);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        [HttpPost]
+        public ActionResult DeleteCommon(int Id)
+        {
+            try
+            {
+                BAL_MyOPD BL = new BAL_MyOPD();
+                List<Common> LST = new List<Common>();
+                LST = BL.DeleteCommon(Id);
+
+                return View("PatientAppoinment", LST);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

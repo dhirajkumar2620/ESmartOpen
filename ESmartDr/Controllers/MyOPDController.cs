@@ -46,7 +46,6 @@ namespace ESmartDr.Controllers
             PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
             Precription pd = new Precription();
             pd = bp.ViewPricripion( patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
-           
             return View("Examination", pd);
         }
         public ActionResult OpdHistory()

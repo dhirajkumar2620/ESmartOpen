@@ -94,7 +94,7 @@
             <div class="row" style="margin-top: .5em;">
                 <div class="col-md-12 text-center">
                     <input type="button" value="Print" onclick='PrintDiv("tblPrint")' class="btn btn_1 btn-primary">
-                    <input type="button" value="Share" class="btn btn_2 btn-primary">
+                    <input type="button" value="Finalize" onclick="SetStatus(this)" class="btn btn_2 btn-primary">
                 </div>
             </div>
         </div>
@@ -164,4 +164,31 @@
         $('.fitn-cert').css("display", "none");
         $('.medicl-cert').css("display", "block");
     });
+
+    function SetStatus(x) {
+
+        debugger;
+        var CPno = $(this).attr("data-image");
+
+
+        var form = $('#frmObservationDetails')[0];
+
+        var fromData = new FormData(form);
+        var urllink = '@Url.Content("~/Prescription/StatusChange")'
+        debugger;
+        $.ajax({
+            type: "post",
+            url: urllink,
+            dataType: 'application/json',
+            data: {
+
+
+            },
+            success: function (response) {
+                alert("succesfuly saved...");
+            }
+        }
+
+       )
+    };
 </script>

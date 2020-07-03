@@ -93,6 +93,11 @@
                     <ul class="list-inline">
                         <li class="list-inline-item">
                             <div class="i-checks">
+                                <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template tbl-7"> &nbsp;&nbsp; Vital Information
+                            </div>
+                        </li>
+                        <li class="list-inline-item">
+                            <div class="i-checks">
                                 <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template tbl-1"> &nbsp;&nbsp; Complaints
                             </div>
                         </li>
@@ -136,7 +141,7 @@
                         </tbody>
                     </table>
                     <br />
-                    <table class="table table-striped" style="width:100%;">
+                    <table id="example2" class="table table-striped tbl-view-7" style="width:100%;display:none;">
                         <tbody>
                             <tr>
                                 <th>Weight(Kg) : <span>80</span></th>
@@ -256,7 +261,7 @@
                             @foreach (var item in Model.NextList)
                             {
                                 <tr>
-                                    <td>@item.NextVisitAfter - @item.FrequencyDate</td>
+                                    <td>@item.CreatedDate</td>
                                 </tr>
                             }
 
@@ -374,5 +379,8 @@
     });
     $('.tbl-6').click(function () {
         $('.tbl-view-6').slideToggle();
+    });
+    $('.tbl-7').click(function () {
+        $('.tbl-view-7').slideToggle();
     });
 </script>
