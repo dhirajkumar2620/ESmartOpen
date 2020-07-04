@@ -2,6 +2,7 @@
 using DataLayer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,7 @@ namespace Dal_Layer
                 sqlparam[4] = new SqlParameter("@Gender", MD.Gender);
                 sqlparam[5] = new SqlParameter("@Age", MD.Age);
                 sqlparam[6] = new SqlParameter("@Addres", MD.Addres);
-                sqlparam[7] = new SqlParameter("@DateTime Date", MD.Date);
+                sqlparam[7] = new SqlParameter("@Date", DateTime.Now);
                 sqlparam[8] = new SqlParameter("@ReferedByDoctor", MD.ReferedByDoctor);
                 sqlparam[9] = new SqlParameter("@ContactNo", MD.ContactNo);
                 sqlparam[10] = new SqlParameter("@AbdomenPelvis", MD.AbdomenPelvis);
@@ -56,7 +57,7 @@ namespace Dal_Layer
                 sqlparam[34] = new SqlParameter("@SpineCsDlLs", MD.SpineCsDlLs);
                 sqlparam[35] = new SqlParameter("@Xray_KUB", MD.Xray_KUB);
                 sqlparam[36] = new SqlParameter("@AbdomenErectSupine", MD.AbdomenErectSupine);
-                sqlparam[37] = new SqlParameter("@JoBone", MD.JointBone);
+                sqlparam[37] = new SqlParameter("@JointBone", MD.JointBone);
                 sqlparam[38] = new SqlParameter("@PNS", MD.PNS);
                 sqlparam[39] = new SqlParameter("@Other", MD.Other);
                 sqlparam[40] = new SqlParameter("@IvuRguMcuHsg", MD.IvuRguMcuHsg);
@@ -64,7 +65,7 @@ namespace Dal_Layer
                 sqlparam[42] = new SqlParameter("@PleuralFluidTapping", MD.PleuralFluidTapping);
                 sqlparam[43] = new SqlParameter("@AsciticFluidTapping", MD.AsciticFluidTapping);
                 sqlparam[44] = new SqlParameter("@FnacBiopsy", MD.FnacBiopsy);
-                sqlparam[45] = new SqlParameter("@IsActive", MD.IsActive);
+                sqlparam[45] = new SqlParameter("@IsActive", "1");
                 sqlparam[46] = new SqlParameter("@ClinicalHistory", MD.ClinicalHistory);
 
 
@@ -74,6 +75,36 @@ namespace Dal_Layer
             {
 
                 throw;
+            }
+        }
+
+        public DignosticDetails GetDignosticDetails(int id)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@Flag", "1");
+                sqlparam[1] = new SqlParameter("@UserId", id);
+                DataTable ds = CommonFunction.GetDataTable("USP_GET_TEST", sqlparam, "");
+                DignosticDetails Ob = new DignosticDetails();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        
+                        CommonFunction.ReflectSingleData(Ob, dr);
+                        
+                    }
+                }
+               
+                return Ob;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
             }
         }
     }

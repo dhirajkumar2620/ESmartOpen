@@ -21,7 +21,7 @@ namespace ESmartDr.Controllers
         {
             return View("LaboratoryDetails");
         }
-        public ActionResult ManageMedicineDetails(LaboratoryDetails LD)
+        public ActionResult ManageLaboratoryDetails(LaboratoryDetails LD)
         {
             try
             {

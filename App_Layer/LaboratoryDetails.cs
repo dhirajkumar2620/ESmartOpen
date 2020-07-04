@@ -67,8 +67,11 @@ namespace App_Layer
         public bool AlkPhosphatase { get; set; }
         public bool SrUSrChlesterolricAcid { get; set; }
         public bool SrTriglyceride { get; set; }
-        public bool HDL { get; set; }
+        public bool HDL { get; set; }//
         public bool NaK { get; set; }
+        public bool SrCholesterol { get; set; }//SrCholesterol
+        public bool BrucellaTest { get; set; }//Brucella
+        public bool StoolRRS { get; set; }//Stool Routine / Reducing Substance
         public bool SrCalcium { get; set; }
         public bool CSFExamination { get; set; }
         public bool AsciticPleuralFluidCytology { get; set; }

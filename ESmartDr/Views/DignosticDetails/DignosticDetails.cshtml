@@ -21,37 +21,30 @@
     <!-- Forms Section-->
     @using (Html.BeginForm("ManageDignosticDetails", "DignosticDetails", FormMethod.Post, new { @id = "frmDignosticDetails" }))
     {
+        @Html.HiddenFor(m => m.Id, new { @id = "hdnId" });
         <div class="">
             <div class="container-fluid">
                 <div class="row">
                     <!-- Basic Form-->
                     <div class="col-lg-12">
                         <div class="card">
-                            <!-- <div class="card-close">
-                              <div class="dropdown">
-                                <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                                <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                              </div>
-                            </div> -->
-                            <!-- <div class="card-header d-flex align-items-center">
-                              <h3 class="h4">Basic Form</h3>
-                            </div> -->
+
                             <div class="card-body">
-                                
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label class="form-control-label">Select<span class="star">*</span></label>
-                                                <select name="account" class="form-control mb-3">
-                                                    <option>Select </option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                </select>
-                                            </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Select<span class="star">*</span></label>
+                                            <select name="account" class="form-control mb-3">
+                                                <option>Select </option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                            </select>
                                         </div>
                                     </div>
-                              
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -76,32 +69,37 @@
                                     <div class="card " style="margin-bottom:0;">
                                         <div class="card-body">
                                             <p>Need to fill mandatory fields.</p>
-                                            <form class="form-inline lab_1-data" action="/action_page.php">
+                                            <div class="form-inline lab_1-data">
+
+
                                                 <div class="form-group">
                                                     <label for="patient" class="form-control-label">Name of Patient</label>
                                                     <label class="form-control-label">Name<span class="star">*</span></label>
                                                     @Html.TextBoxFor(m => m.PatientName, new { @id = "txtPatientName", @class = "form-control", required = "required", @placeholder = "Name" })
-                                                    @Html.ValidationMessageFor(model => model.PatientName, "", new { @class = "text-danger" })
+
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="Age" class="form-control-label">Age</label>
-                                                    <input type="number" class="form-control" id="pwd">
+                                                    @Html.TextBoxFor(m => m.Age, new { @id = "txtAge", @class = "form-control", required = "required", @placeholder = "Age" })
+
+
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="Age" class="form-control-label">Gender</label>
-                                                    <select name="account" class="form-control mb-3 text-letter">
-                                                        <option>Select Gender</option>
-                                                        <option>Male</option>
-                                                        <option>Female</option>
-                                                        <option>Other</option>
-                                                    </select>
+                                                    @Html.DropDownListFor(m => m.Gender, new List<SelectListItem>
+                                                  {
+                                                      new SelectListItem{ Text="Male", Value = "Male" },
+                                                      new SelectListItem{ Text="Female", Value = "Female" },
+                                                      new SelectListItem{ Text="Other", Value = "Other" },
+                                                   }, new { @class = "form-control mb-3", @id = "ddlGender" })
                                                 </div>
-                                            </form>
+                                            </div>
                                             <br />
-                                            <form class="form-inline lab_1-data" action="/action_page.php">
+                                            <div class="form-inline lab_1-data">
                                                 <div class="form-group">
                                                     <label for="Address" class="form-control-label">Address</label>
-                                                    <input type="text" placeholder="Address" class="form-control text-letter">
+                                                    @Html.TextBoxFor(m => m.Addres, new { @id = "txtAddres", @class = "form-control", required = "required", @placeholder = "Addres" })
+
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="Date" class="form-control-label">Date</label>
@@ -109,336 +107,242 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="Age" class="form-control-label">Ref. by Dr.</label>
-                                                    <input type="text" placeholder="Ref. by Dr." class="form-control text-letter">
+                                                    @Html.TextBoxFor(m => m.ReferedByDoctor, new { @id = "txtRefDr", @class = "form-control", required = "required", @placeholder = "Ref. by Dr." })
+
                                                 </div>
-                                            </form>
+                                            </div>
                                             <br />
-                                            <form class="form-inline lab_1-data" action="/action_page.php">
+                                            <div class="form-inline lab_1-data">
+
+
                                                 <div class="form-group">
                                                     <label for="Address" class="form-control-label">Mobile No.</label>
-                                                    <input type="text" placeholder="Mobile No." class="form-control text-letter">
-                                                </div>
-                                            </form>
-                                            <form>
-                                                <hr>
-                                                <div class="row letter-li">
-                                                    <div class="col-md-6">
-                                                        <table style="width: 100%;">
-                                                            <tr>
-                                                                <td>
-                                                                    <h4>SONOGRAPHY</h4>
-                                                                    <br>
-                                                                    <ul class="list-unstyled">
-                                                                        <li>
-                                                                            @Html.CheckBoxFor(model => model.AbdomenPelvis, new { htmlAttributes = new { @class = "form-control" } })
-                                                                            &nbsp;Abdomen Pelvis
-                                                                        </li>
-                                                                        <li>
-                                                                            @Html.CheckBoxFor(model => model.Pelvis, new { htmlAttributes = new { @class = "form-control" } })
-                                                                            &nbsp;Pelvis
-                                                                        </li>
-                                                                        <li>
-                                                                            @Html.CheckBoxFor(model => model.KUB, new { htmlAttributes = new { @class = "form-control" } })
-                                                                            &nbsp;KUB
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Chest
-                                                                        </li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <h4>OBSTRETRIC USG</h4>
-                                                                    <br>
-                                                                    <ul class="list-unstyled">
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Routine obs USG
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;NT Scan
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Anomaly Scan (18-22 Wk)
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Obstretric USG with Doppler
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;3D / 4D Obstretric USG
-                                                                        </li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <h4>COLOUR DOPPLER STUDY</h4>
-                                                                    <br>
-                                                                    <ul class="list-unstyled">
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Venous System
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Upper Limb Rt / Lt
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Lower Limb Rt / Lt
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Arterial System
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Upper Limb Rt / Lt
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Lower Limb Rt / Lt
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Carotid Doppler
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Renal Doppler
-                                                                        </li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <table>
-                                                            <tr>
-                                                                <td>
-                                                                    <h4>SMALL PART USG</h4>
-                                                                    <br>
-                                                                    <ul class="list-unstyled">
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Thyroid
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Neck
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Scrotum
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Orbit
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Muskeulokeletal
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Breast / Sonomammography Rt / Lt
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Local Parts
-                                                                        </li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <h4>DIGITAL X-RAY</h4>
-                                                                    <br>
-                                                                    <ul class="list-unstyled">
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Chest PA / AP
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Spine CS / DL / LS
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;KUB
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Abdomen Erect / Supine
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Joint / Bone
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;PNS
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Other
-                                                                        </li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <h4>DIGITAL X-RAY & PROCEDURES</h4>
-                                                                    <br>
-                                                                    <ul class="list-unstyled">
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;IVU / RGU / MCU / HSG
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Sinogram / Fistulogram
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Pleural Fluid Tapping
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;Ascitic Fluid Tapping
-                                                                        </li>
-                                                                        <li>
-                                                                            <input id="checkboxCustom"
-                                                                                   type="checkbox" value=""
-                                                                                   onchange="checkAll(this)"
-                                                                                   class="checkbox-template">
-                                                                            &nbsp;FNAC / BIOPSY
-                                                                        </li>
-                                                                    </ul>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                                <div class="row letter-li">
-                                                    <div class="col-md-12">
-                                                        <table style="width: 100%;">
-                                                            <tr>
-                                                                <td>
-                                                                    <h4>Clinical History</h4>
-                                                                    <div class="form-group">
-                                                                        <textarea style="width: 100%;"></textarea>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                </div>
+                                                    @Html.TextBoxFor(m => m.ContactNo, new { @id = "txtMobileNumber", @class = "form-control", required = "required", @placeholder = "Mobile Number" })
 
-                                            </form>
+                                                </div>
+                                            </div>
+
+                                            <hr>
+                                            <div class="row letter-li">
+                                                <div class="col-md-6">
+                                                    <table style="width: 100%;">
+                                                        <tr>
+                                                            <td>
+                                                                <h4>SONOGRAPHY</h4>
+                                                                <br>
+                                                                <ul class="list-unstyled">
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.AbdomenPelvis, new { @class = "checkbox-template" });
+                                                                        &nbsp;Abdomen Pelvis
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.Pelvis, new { @class = "checkbox-template" });
+                                                                        &nbsp;Pelvis
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.KUB, new { @class = "checkbox-template" });
+                                                                        &nbsp;KUB
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.Chest, new { @class = "checkbox-template" });
+                                                                        &nbsp;Chest
+                                                                    </li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h4>OBSTRETRIC USG</h4>
+                                                                <br>
+                                                                <ul class="list-unstyled">
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.RoutineObsUSG, new { @class = "checkbox-template" });
+                                                                        &nbsp;Routine obs USG
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.NTScan, new { @class = "checkbox-template" });
+                                                                        &nbsp;NT Scan
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.AnomalyUsgWithDoppler, new { @class = "checkbox-template" });
+                                                                        &nbsp;Anomaly Scan (18-22 Wk)
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.ObstretricUSG, new { @class = "checkbox-template" });
+                                                                        &nbsp;Obstretric USG with Doppler
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.ObstretricUSG, new { @class = "checkbox-template" });
+                                                                        &nbsp;3D / 4D Obstretric USG
+                                                                    </li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h4>COLOUR DOPPLER STUDY</h4>
+                                                                <br>
+                                                                <ul class="list-unstyled">
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.VenousSystem, new { @class = "checkbox-template" });
+                                                                        &nbsp;Venous System
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.UpperKimbVS, new { @class = "checkbox-template" });
+                                                                        &nbsp;Upper Limb Rt / Lt
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.LowerLimbAS, new { @class = "checkbox-template" });
+                                                                        &nbsp;Lower Limb Rt / Lt
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.ArterialSystem, new { @class = "checkbox-template" });
+                                                                        &nbsp;Arterial System
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.UpperLimbAS, new { @class = "checkbox-template" });
+                                                                        &nbsp;Upper Limb Rt / Lt
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.LowerLimbVS, new { @class = "checkbox-template" });
+                                                                        &nbsp;Lower Limb Rt / Lt
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.CaeotidDoppler, new { @class = "checkbox-template" });
+                                                                        &nbsp;Carotid Doppler
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.RenalDoppler, new { @class = "checkbox-template" });
+                                                                        &nbsp;Renal Doppler
+                                                                    </li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <h4>SMALL PART USG</h4>
+                                                                <br>
+                                                                <ul class="list-unstyled">
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.Thyroid, new { @class = "checkbox-template" });
+                                                                        &nbsp;Thyroid
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.Neck, new { @class = "checkbox-template" });
+                                                                        &nbsp;Neck
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.Scrotum, new { @class = "checkbox-template" });
+                                                                        &nbsp;Scrotum
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.Orbit, new { @class = "checkbox-template" });
+                                                                        &nbsp;Orbit
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.Muskeulokeletal, new { @class = "checkbox-template" });
+                                                                        &nbsp;Muskeulokeletal
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.BreastSono, new { @class = "checkbox-template" });
+                                                                        &nbsp;Breast / Sonomammography Rt / Lt
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.LocalParts, new { @class = "checkbox-template" });
+                                                                        &nbsp;Local Parts
+                                                                    </li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h4>DIGITAL X-RAY</h4>
+                                                                <br>
+                                                                <ul class="list-unstyled">
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.ChestPaAp, new { @class = "checkbox-template" });
+                                                                        &nbsp;Chest PA / AP
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.SpineCsDlLs, new { @class = "checkbox-template" });
+                                                                        &nbsp;Spine CS / DL / LS
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.KUB, new { @class = "checkbox-template" });
+                                                                        &nbsp;KUB
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.AbdomenErectSupine, new { @class = "checkbox-template" });
+                                                                        &nbsp;Abdomen Erect / Supine
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.JointBone, new { @class = "checkbox-template" });
+                                                                        &nbsp;Joint / Bone
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.PNS, new { @class = "checkbox-template" });
+                                                                        &nbsp;PNS
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.Other, new { @class = "checkbox-template" });
+                                                                        &nbsp;Other
+                                                                    </li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h4>DIGITAL X-RAY & PROCEDURES</h4>
+                                                                <br>
+                                                                <ul class="list-unstyled">
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.IvuRguMcuHsg, new { @class = "checkbox-template" });
+                                                                        &nbsp;IVU / RGU / MCU / HSG
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.SinogramFistulogram, new { @class = "checkbox-template" });
+                                                                        &nbsp;Sinogram / Fistulogram
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.PleuralFluidTapping, new { @class = "checkbox-template" });
+                                                                        &nbsp;Pleural Fluid Tapping
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.AsciticFluidTapping, new { @class = "checkbox-template" });
+                                                                        &nbsp;Ascitic Fluid Tapping
+                                                                    </li>
+                                                                    <li>
+                                                                        @Html.CheckBoxFor(model => model.FnacBiopsy, new { @class = "checkbox-template" });
+                                                                        &nbsp;FNAC / BIOPSY
+                                                                    </li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row letter-li">
+                                                <div class="col-md-12">
+                                                    <table style="width: 100%;">
+                                                        <tr>
+                                                            <td>
+                                                                <h4>Clinical History</h4>
+                                                                <div class="form-group">
+                                                                    @Html.TextBoxFor(m => m.ClinicalHistory, new { @id = "txtClinicalHistory", @class = "form-control", required = "required", @placeholder = "ClinicalHistory" })
+                                                                    @Html.ValidationMessageFor(model => model.ClinicalHistory, "", new { @class = "text-danger" })
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -449,7 +353,7 @@
             </table>
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <input type="submit" value="Save" class="btn btn_2 btn-primary b22">
+                    <input type="button" onclick="SubmitDignosticDetails()" value="Save" class="btn btn_2 btn-primary b22">
                     <input type="button" value="Print" onclick='PrintDiv("tblPrint")' class="btn btn_1 btn-primary">
                 </div>
             </div>
@@ -471,18 +375,31 @@
     </footer>
 </div>
 
-<script src="~/vendor/jquery/jquery.min.js"></script>
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-    //$('.b22').click(function () {
-    //    swal({
-    //        title: "Good job!",
-    //        text: "You clicked the button!",
-    //        icon: "success",
-    //        button: "OK",
-    //    });
-    //});
+    function SubmitDignosticDetails() {
 
+        var form = $('#frmDignosticDetails')[0];
+
+            var fromData = new FormData(form);
+            var urllink = '@Url.Content("~/DignosticDetails/ManageDignosticDetails")'
+
+            $.ajax({
+                type: "post",
+                url: urllink,
+                data: fromData,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    alert("Details Updated Sucessfully.");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                }
+            })
+
+        }
 </script>
 <script type="text/javascript" language="javascript">
     function PrintDiv(divID) {
@@ -492,8 +409,8 @@
         var oldPage = document.body.innerHTML;
         //Reset the page's HTML with div's HTML only
         document.body.innerHTML =
-         "<html><head><title></title></head><body>" +
-         divElements + "</body>";
+            "<html><head><title></title></head><body>" +
+            divElements + "</body>";
 
         //Print Page
         window.print();

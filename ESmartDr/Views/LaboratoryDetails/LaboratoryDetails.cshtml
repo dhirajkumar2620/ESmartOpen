@@ -1,113 +1,112 @@
-﻿
+﻿@model App_Layer.LaboratoryDetails
 @{
     ViewBag.Title = "LaboratoryDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-
-<div class="">
-    <header class="page-header">
+@using (Html.BeginForm("ManageLaboratoryDetails", "LaboratoryDetails", FormMethod.Post, new { @id = "frmLaboratoryDetails" }))
+{
+    @Html.HiddenFor(m => m.Id, new { @id = "hdnId" });
+    <div class="">
+        <header class="page-header">
+            <div class="container-fluid">
+                <h2 class="no-margin-bottom">Laboratory</h2>
+            </div>
+        </header>
         <div class="container-fluid">
-            <h2 class="no-margin-bottom">Laboratory</h2>
-        </div>
-    </header>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Basic Form-->
-            <div class="col-lg-12">
-                <div class="card">
-                    <!-- <div class="card-close">
-                      <div class="dropdown">
-                        <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                        <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                      </div>
-                    </div> -->
-                    <!-- <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Basic Form</h3>
-                    </div> -->
-                    <div class="card-body">
-                        <form>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Select<span class="star">*</span></label>
-                                        <select name="account" class="form-control mb-3">
-                                            <option>Select </option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                        </select>
+            <div class="row">
+                <!-- Basic Form-->
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Select<span class="star">*</span></label>
+                                            <select name="account" class="form-control mb-3">
+                                                <option>Select </option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <table style="border: none; margin: 0 auto ; padding: 0;" id="tblPrint">
-        <tr>
-            <td style="padding: 0; background-color: #FFFFFF;">
+        <table class="checkbox checked" style="border: none; margin: 0 auto ; padding: 0;" id="tblPrint">
+            <tr>
+                <td style="padding: 0; background-color: #FFFFFF;">
 
-                <div style="min-width:200px; font-family:'Arial' , sans-serif; font-size:16px; background-color:#FFFFFF; line-height:1.4; color:#4A4A4A; border:1px solid #DFDFDF; overflow:hidden;">
+                    <div style="min-width:200px; font-family:'Arial' , sans-serif; font-size:16px; background-color:#FFFFFF; line-height:1.4; color:#4A4A4A; border:1px solid #DFDFDF; overflow:hidden;">
 
-                    <div style="background-color: #f5a433; height: 60px;">
-                    </div>
+                        <div style="background-color: #f5a433; height: 60px;">
+                        </div>
 
-                    <header style="text-align: center;">
-                        <img src="img/banner.png"
-                             style="display: block; background-size: cover; width: 100%;">
-                    </header>
-                    <div class="row">
-                        <!-- Basic Form-->
-                        <div class="col-lg-12">
-                            <div class="card" style="margin-bottom:0;">
-                                <div class="card-body">
-                                    <p>Need to fill mandatory fields.</p>
-                                    <form class="form-inline lab_1-data" action="/action_page.php">
-                                        <div class="form-group">
-                                            <label for="patient" class="form-control-label">Name of Patient</label>
-                                            <input type="text" placeholder="Name of Patient" class="form-control text-letter">
+                        <header style="text-align: center;">
+                            <img src="img/banner.png"
+                                 style="display: block; background-size: cover; width: 100%;">
+                        </header>
+                        <div class="row">
+                            <!-- Basic Form-->
+                            <div class="col-lg-12">
+                                <div class="card" style="margin-bottom:0;">
+                                    <div class="card-body">
+                                        <p>Need to fill mandatory fields.</p>
+                                        <div class="form-inline lab_1-data" action="/action_page.php">
+
+                                            <div class="form-group">
+                                                <label for="patient" class="form-control-label">Name of Patient</label>
+                                                <label class="form-control-label">Name<span class="star">*</span></label>
+                                                @Html.TextBoxFor(m => m.PatientName, new { @id = "txtPatientName", @class = "form-control", required = "required", @placeholder = "Name" })
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Age" class="form-control-label">Age</label>
+                                                @Html.TextBoxFor(m => m.Age, new { @id = "txtAge", @class = "form-control", required = "required", @placeholder = "Age" })
+
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Age" class="form-control-label">Gender</label>
+                                                @Html.DropDownListFor(m => m.Gender, new List<SelectListItem>
+                                              {
+                                                  new SelectListItem{ Text="Male", Value = "Male" },
+                                                  new SelectListItem{ Text="Female", Value = "Female" },
+                                                  new SelectListItem{ Text="Other", Value = "Other" },
+                                               }, new { @class = "form-control mb-3", @id = "ddlGender" })
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="Age" class="form-control-label">Age</label>
-                                            <input type="number" class="form-control" id="pwd">
+                                        <br />
+                                        <div class="form-inline lab_1-data">
+                                            <div class="form-group">
+                                                <label for="Address" class="form-control-label">Address</label>
+                                                @Html.TextBoxFor(m => m.Addres, new { @id = "txtAddres", @class = "form-control", required = "required", @placeholder = "Addres" })
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Date" class="form-control-label">Date</label>
+                                                <input type="Date" class="form-control text-letter">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Age" class="form-control-label">Ref. by Dr.</label>
+                                                @Html.TextBoxFor(m => m.ReferedByDoctor, new { @id = "txtRefDr", @class = "form-control", required = "required", @placeholder = "Ref. by Dr." })
+
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="Age" class="form-control-label">Gender</label>
-                                            <select name="account" class="form-control mb-3 text-letter">
-                                                <option>Select Gender</option>
-                                                <option>Male</option>
-                                                <option>Female</option>
-                                                <option>Other</option>
-                                            </select>
+                                        <br />
+                                        <div class="form-inline lab_1-data" action="/action_page.php">
+                                            <div class="form-group">
+                                                <label for="Address" class="form-control-label">Mobile No.</label>
+                                                @Html.TextBoxFor(m => m.ContactNo, new { @id = "txtMobileNumber", @class = "form-control", required = "required", @placeholder = "Mobile Number" })
+
+                                            </div>
                                         </div>
-                                    </form>
-                                    <br />
-                                    <form class="form-inline lab_1-data" action="/action_page.php">
-                                        <div class="form-group">
-                                            <label for="Address" class="form-control-label">Address</label>
-                                            <input type="text" placeholder="Address" class="form-control text-letter">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="Date" class="form-control-label">Date</label>
-                                            <input type="Date" class="form-control text-letter">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="Age" class="form-control-label">Ref. by Dr.</label>
-                                            <input type="text" placeholder="Ref. by Dr." class="form-control text-letter">
-                                        </div>
-                                    </form>
-                                    <br />
-                                    <form class="form-inline lab_1-data" action="/action_page.php">
-                                        <div class="form-group">
-                                            <label for="Address" class="form-control-label">Mobile No.</label>
-                                            <input type="text" placeholder="Mobile No." class="form-control text-letter">
-                                        </div>
-                                    </form>
-                                    <form>
+
                                         <hr>
                                         <div class="row letter-li">
                                             <div class="col-md-6">
@@ -118,102 +117,60 @@
                                                             <br>
                                                             <ul class="list-unstyled">
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.HB, new { @class = "checkbox-template" });
                                                                     &nbsp;HB
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.CBCPlateletCount, new { @class = "checkbox-template" });
                                                                     &nbsp;CBC Platelet Count
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.CBCwithESR, new { @class = "checkbox-template" });
                                                                     &nbsp;CBC with ESR
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.HB, new { @class = "checkbox-template" });
                                                                     &nbsp;Malarial Parasite
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.AbsoluteEoslnophilicCunt, new { @class = "checkbox-template" });
                                                                     &nbsp;Absolute Eosinophilic Count
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.ReticCountLDH, new { @class = "checkbox-template" });
                                                                     &nbsp;Retic Count / LDH
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.BloodGroupRHtype, new { @class = "checkbox-template" });
                                                                     &nbsp;Blood Group / RH Type
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.BleedingTimeClttingTime, new { @class = "checkbox-template" });
                                                                     &nbsp;Bleeding Time / Clotting Time
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.ProthrombinTime, new { @class = "checkbox-template" });
                                                                     &nbsp;Prothrombin Time (PT INR)
 
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.UrineRoutineMicro, new { @class = "checkbox-template" });
                                                                     &nbsp;Urine Routine / Micro
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.BilealtsBilePigments, new { @class = "checkbox-template" });
                                                                     &nbsp;Bile Salt & Bile Pigments
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.PregnancyTest, new { @class = "checkbox-template" });
                                                                     &nbsp;Pregnancy Test
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.StoolRoutineRS, new { @class = "checkbox-template" });
                                                                     &nbsp;Stool Routine / Reducing Substance
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.StoolRRS, new { @class = "checkbox-template" });
                                                                     &nbsp;Stool For Occ. Blood
                                                                 </li>
                                                             </ul>
@@ -225,102 +182,60 @@
                                                             <br>
                                                             <ul class="list-unstyled">
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.WidalTest, new { @class = "checkbox-template" });
                                                                     &nbsp;Widal Test
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.BrucellaTest, new { @class = "checkbox-template" });
                                                                     &nbsp;Brucella Test
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.VDRL, new { @class = "checkbox-template" });
                                                                     &nbsp;V. D. R. L.
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.RATest, new { @class = "checkbox-template" });
                                                                     &nbsp;R. A. Test
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.ASO, new { @class = "checkbox-template" });
                                                                     &nbsp;A. S. O.
                                                                 </li>
                                                                 <ul class="list-unstyled">
                                                                     <li>
-                                                                        <input id="checkboxCustom"
-                                                                               type="checkbox" value=""
-                                                                               onchange="checkAll(this)"
-                                                                               class="checkbox-template">
+                                                                        @Html.CheckBoxFor(model => model.CRP, new { @class = "checkbox-template" });
                                                                         &nbsp;C. R. P.
                                                                     </li>
                                                                     <li>
-                                                                        <input id="checkboxCustom"
-                                                                               type="checkbox" value=""
-                                                                               onchange="checkAll(this)"
-                                                                               class="checkbox-template">
+                                                                        @Html.CheckBoxFor(model => model.HIVTest, new { @class = "checkbox-template" });
                                                                         &nbsp;H. I. V. Test (Spot)
                                                                     </li>
                                                                     <li>
-                                                                        <input id="checkboxCustom"
-                                                                               type="checkbox" value=""
-                                                                               onchange="checkAll(this)"
-                                                                               class="checkbox-template">
+                                                                        @Html.CheckBoxFor(model => model.AustraliaAntigen, new { @class = "checkbox-template" });
                                                                         &nbsp;Australia Antigen (HBsAg)
                                                                     </li>
                                                                     <li>
-                                                                        <input id="checkboxCustom"
-                                                                               type="checkbox" value=""
-                                                                               onchange="checkAll(this)"
-                                                                               class="checkbox-template">
+                                                                        @Html.CheckBoxFor(model => model.HCVTest, new { @class = "checkbox-template" });
                                                                         &nbsp;HCV Test
                                                                     </li>
                                                                     <li>
-                                                                        <input id="checkboxCustom"
-                                                                               type="checkbox" value=""
-                                                                               onchange="checkAll(this)"
-                                                                               class="checkbox-template">
+                                                                        @Html.CheckBoxFor(model => model.TBTest, new { @class = "checkbox-template" });
                                                                         &nbsp;T. B. Gold
                                                                     </li>
                                                                     <li>
-                                                                        <input id="checkboxCustom"
-                                                                               type="checkbox" value=""
-                                                                               onchange="checkAll(this)"
-                                                                               class="checkbox-template">
+                                                                        @Html.CheckBoxFor(model => model.TirchIgGIgm, new { @class = "checkbox-template" });
                                                                         &nbsp;TORCH IgG / IgM
                                                                     </li>
                                                                     <li>
-                                                                        <input id="checkboxCustom"
-                                                                               type="checkbox" value=""
-                                                                               onchange="checkAll(this)"
-                                                                               class="checkbox-template">
+                                                                        @Html.CheckBoxFor(model => model.DengueFeverTest, new { @class = "checkbox-template" });
                                                                         &nbsp;Dengue Fever Test
                                                                     </li>
                                                                     <li>
-                                                                        <input id="checkboxCustom"
-                                                                               type="checkbox" value=""
-                                                                               onchange="checkAll(this)"
-                                                                               class="checkbox-template">
+                                                                        @Html.CheckBoxFor(model => model.ChikunGunyaTest, new { @class = "checkbox-template" });
                                                                         &nbsp;Chikungunya Test
                                                                     </li>
                                                                     <li>
-                                                                        <input id="checkboxCustom"
-                                                                               type="checkbox" value=""
-                                                                               onchange="checkAll(this)"
-                                                                               class="checkbox-template">
+                                                                        @Html.CheckBoxFor(model => model.WeilFelixTest, new { @class = "checkbox-template" });
                                                                         &nbsp;Weil Felix Test
                                                                     </li>
                                                                 </ul>
@@ -332,73 +247,43 @@
                                                             <br>
                                                             <ul class="list-unstyled">
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.BloodSugar, new { @class = "checkbox-template" });
                                                                     &nbsp;Blood Sugar (F / PP / R)
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.HBAC, new { @class = "checkbox-template" });
                                                                     &nbsp;HBA1C
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.BloodUrea, new { @class = "checkbox-template" });
                                                                     &nbsp;Blood Urea
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.SrCreatinine, new { @class = "checkbox-template" });
                                                                     &nbsp;Sr. Creatinine
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.TropTCpkMb, new { @class = "checkbox-template" });
                                                                     &nbsp;Trop. T / CPK-MB
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.AllCardiacMarkers, new { @class = "checkbox-template" });
                                                                     &nbsp;All Cardiac Markers
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.SrAmylaseLipaseAmmonia, new { @class = "checkbox-template" });
                                                                     &nbsp;Sr. Amylase / Lipase / Ammonia
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.SrPhosphorous, new { @class = "checkbox-template" });
                                                                     &nbsp;Sr. Phosphorous
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.SrUricAcid, new { @class = "checkbox-template" });
                                                                     &nbsp;Sr. Uric Acid
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.SrMangnesium, new { @class = "checkbox-template" });
                                                                     &nbsp;Sr. Mangnesium
                                                                 </li>
                                                             </ul>
@@ -414,17 +299,11 @@
                                                             <br>
                                                             <ul class="list-unstyled">
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.TTTSH, new { @class = "checkbox-template" });
                                                                     &nbsp;T3, T4, TSH
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.LHFSHProTestosterone, new { @class = "checkbox-template" });
                                                                     &nbsp;LH, FSH, Prolacin, Testosterone
                                                                 </li>
                                                             </ul>
@@ -436,17 +315,11 @@
                                                             <br />
                                                             <ul class="list-unstyled">
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.UrineCultureSensitivity, new { @class = "checkbox-template" });
                                                                     &nbsp;Urine Culture & Sensitivity
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.SputumRoutinAfbCS, new { @class = "checkbox-template" });
                                                                     &nbsp;Sputum Routine / AFB / C / S
                                                                 </li>
                                                             </ul>
@@ -458,38 +331,23 @@
                                                             <br />
                                                             <ul class="list-unstyled">
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.SrBilirubin, new { @class = "checkbox-template" });
                                                                     &nbsp;Sr. Bilirubin
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.SGOT, new { @class = "checkbox-template" });
                                                                     &nbsp;S. G. O. T.
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.SGPT, new { @class = "checkbox-template" });
                                                                     &nbsp;S. G. P. T.
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.AlkPhosphatase, new { @class = "checkbox-template" });
                                                                     &nbsp;Alk. Phosphatase
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.SProteins, new { @class = "checkbox-template" });
                                                                     &nbsp;S. Proteins
                                                                 </li>
                                                             </ul>
@@ -501,24 +359,15 @@
                                                             <br />
                                                             <ul class="list-unstyled">
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.SrCholesterol, new { @class = "checkbox-template" });
                                                                     &nbsp;Sr. Cholesterol
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.HDL, new { @class = "checkbox-template" });
                                                                     &nbsp;HDL
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.SrTriglyceride, new { @class = "checkbox-template" });
                                                                     &nbsp;Sr. Triglyceride
                                                                 </li>
                                                             </ul>
@@ -530,17 +379,11 @@
                                                             <br />
                                                             <ul class="list-unstyled">
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.NaK, new { @class = "checkbox-template" });
                                                                     &nbsp;Na+, K+
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.SrCalcium, new { @class = "checkbox-template" });
                                                                     &nbsp;Sr. Calcium
                                                                 </li>
                                                             </ul>
@@ -552,17 +395,11 @@
                                                             <br />
                                                             <ul class="list-unstyled">
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.CSFExamination, new { @class = "checkbox-template" });
                                                                     &nbsp;C.S.F. Examination
                                                                 </li>
                                                                 <li>
-                                                                    <input id="checkboxCustom"
-                                                                           type="checkbox" value=""
-                                                                           onchange="checkAll(this)"
-                                                                           class="checkbox-template">
+                                                                    @Html.CheckBoxFor(model => model.AsciticPleuralFluidCytology, new { @class = "checkbox-template" });
                                                                     &nbsp;Ascitic / Pleural Fluid Cytology
                                                                 </li>
                                                             </ul>
@@ -579,7 +416,8 @@
                                                         <td>
                                                             <h4>Clinical History</h4>
                                                             <div class="form-group">
-                                                                <textarea style="width: 100%;"></textarea>
+                                                                @Html.TextBoxFor(m => m.ClinicalHistory, new { @id = "txtClinicalHistory", @class = "form-control", required = "required", @placeholder = "ClinicalHistory" })
+                                                                @Html.ValidationMessageFor(model => model.ClinicalHistory, "", new { @class = "text-danger" })
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -587,37 +425,27 @@
                                             </div>
                                         </div>
 
-                                    </form>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </td>
-        </tr>
-    </table>
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <input type="button" value="Save" class="btn btn_2 btn-primary b22">
-            <input type="button" value="Print" onclick='PrintDiv("tblPrint")' class="btn btn_1 btn-primary">
-            <input type="button" value="Share on Whatsapp" class="btn whatsapp-btn btn_2 btn-primary">
+                </td>
+            </tr>
+        </table>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <input type="submit" value="Save" class="btn btn_2 btn-primary b22">
+                <input type="button" value="Print" onclick='PrintDiv("tblPrint")' class="btn btn_1 btn-primary">
+                <input type="button" value="Share on Whatsapp" class="btn whatsapp-btn btn_2 btn-primary">
+            </div>
         </div>
     </div>
-</div>
+}
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-    $('.b22').click(function () {
-        swal({
-            title: "Good job!",
-            text: "You clicked the button!",
-            icon: "success",
-            button: "OK",
-        });
-    });
 
-
-</script>
 
 <script type="text/javascript" language="javascript">
     function PrintDiv(divID) {
@@ -627,8 +455,8 @@
         var oldPage = document.body.innerHTML;
         //Reset the page's HTML with div's HTML only
         document.body.innerHTML =
-         "<html><head><title></title></head><body>" +
-         divElements + "</body>";
+            "<html><head><title></title></head><body>" +
+            divElements + "</body>";
 
         //Print Page
         window.print();

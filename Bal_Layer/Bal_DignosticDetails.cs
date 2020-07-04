@@ -16,5 +16,9 @@ namespace Bal_Layer
         {
             return DP.ManageDignosticDetails(DD);
         }
+        public DignosticDetails GetDignosticDetails(int id)
+        {
+            return DP.GetDignosticDetails(id);
+        }
     }
 }
