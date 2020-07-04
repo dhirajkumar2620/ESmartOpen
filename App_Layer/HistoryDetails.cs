@@ -10,6 +10,7 @@ namespace App_Layer
     {
         public HistoryDetails()
         {
+            lstHD = new List<HistoryDetails>();
             lstOD = new List<ObservationDetails>();
             lstMD = new List<MedicinesDetails>();
             lstTD = new List<TestDetails>();

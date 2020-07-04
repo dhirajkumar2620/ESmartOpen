@@ -91,5 +91,9 @@ namespace Bal_Layer
             return DM.DeleteCommon( Id);
         }
 
+        public WebHistory GetWEBHistory( string CPno)
+        {
+            return DM.GetWEBHistory( CPno);
+        }
     }
 }

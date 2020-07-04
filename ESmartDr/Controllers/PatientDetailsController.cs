@@ -241,7 +241,7 @@ namespace ESmartDr.Controllers
                 int flag = BP.SetDueAmount(CPno, PaidDue);
                 if (flag != 0)
                 {
-                    return RedirectToAction("GetQueueList", "PatientDetails");
+                    return Json("1", JsonRequestBehavior.AllowGet);
 
                 }
 

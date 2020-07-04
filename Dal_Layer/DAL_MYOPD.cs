@@ -451,7 +451,20 @@ namespace Dal_Layer
                         HistoryDetails histrydetails = new HistoryDetails();
                         // HistoryDetails lstHD = new HistoryDetails();
                         CommonFunction.ReflectSingleData(histrydetails, dr);
+                        if (ds != null && ds.Tables[0].Rows.Count > 0)
+                        {
+                            DataTable dt0 = ds.Tables[0];
+                            foreach (DataRow dr0 in dt0.Rows)
+                            {
+                                if (Convert.ToInt32(dr0["QueueId"]) == histrydetails.QueueId)
+                                {
+                                    HistoryDetails lstHD = new HistoryDetails();
+                                    CommonFunction.ReflectSingleData(lstHD, dr0);
+                                    histrydetails.lstHD.Add(lstHD);
+                                }
 
+                            }
+                        }
 
 
                         //Observation
@@ -640,5 +653,39 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
+        public WebHistory GetWEBHistory(string CPno)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@Flag", "1");
+                sqlparam[1] = new SqlParameter("@CpNo", CPno);
+                DataTable ds = CommonFunction.GetDataTable("USP_GET_HistoryForWeb", sqlparam, "");
+                List<WebHistory> lst = new List<WebHistory>();
+                WebHistory wh = new WebHistory();
+
+
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        WebHistory Model = new WebHistory();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        lst.Add(Model);
+                    }
+                }
+
+                 wh.hlst = lst;
+                return wh;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+
     }
 }
