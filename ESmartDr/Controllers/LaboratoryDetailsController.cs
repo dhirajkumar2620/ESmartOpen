@@ -19,7 +19,8 @@ namespace ESmartDr.Controllers
         }
         public ActionResult LaboratoryDetails()
         {
-            return View("LaboratoryDetails");
+            LaboratoryDetails L = new LaboratoryDetails();
+            return View("LaboratoryDetails",L);
         }
         public ActionResult ManageLaboratoryDetails(LaboratoryDetails LD)
         {

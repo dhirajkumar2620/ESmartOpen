@@ -16,8 +16,8 @@ namespace ESmartDr.Controllers
         public ActionResult DignosticDetails()
         {
             DignosticDetails d = new DignosticDetails();
-            d = BL.GetDignosticDetails(1);
-            return View("DignosticDetails", d);
+           // d = BL.GetDignosticDetails(1);
+            return View("DignosticDetails",d);
         }
         [HttpPost]
         public ActionResult ManageDignosticDetails(DignosticDetails MD)
