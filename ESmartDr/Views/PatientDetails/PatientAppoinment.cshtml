@@ -87,7 +87,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <div class="table-responsive" >
+                            <div class="table-responsive">
                                 <div class="grid-btn">
                                     <a href="~/PatientDetails/PatientDetails">
                                         <input type="button" value="Add New Patient" style="margin-left: 1em;border-radius: 22px;" class="btn btn_2 btn-primary">
@@ -111,7 +111,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                       
+
                                         @foreach (var item in Model)
                                         {
                                             <tr>
@@ -125,21 +125,17 @@
 
                                                 @if (item.InQuee == 1)
                                                 {
-                                                    <td>
-                                                        In Queue
-                                                    </td>
+                                                    <td>In Queue</td>
                                                 }
                                                 @if (item.InQuee == 2)
                                                 {
-                                                    <td>
-                                                        With Doctor
-                                                    </td>
+                                                    <td>With Doctor</td>
+
                                                 }
                                                 @if (item.InQuee == 3)
                                                 {
-                                                    <td>
-                                                        Visited
-                                                    </td>
+                                                    <td>Visited</td>
+
                                                 }
 
                                                 @*
@@ -334,7 +330,8 @@
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-    function showModel(x) {
+   function showModel(x) {
+        debugger
         var obj = $(x).parents("tr")
         $("#txtQid").val(obj.find('td')[8].innerHTML);
         $("#txtCPno").val(obj.find('td')[1].innerHTML);
@@ -343,8 +340,35 @@
         $("#txtDue").val(obj.find('td')[6].innerHTML);
 
     }
+
     function SetStatus(x) {
-        
+        var appCPno = document.getElementById("txtCPno").value;
+        var appStatus = document.getElementById("txtStatus").value;
+        var appBill = document.getElementById("txtBill").value;
+        var appPaidBill = document.getElementById("txtDue").value;
+        var appQId = document.getElementById("txtQid").value;
+        $.ajax({
+            type: "POST",
+            url: "/PatientDetails/GetData",
+            data: '{Qid: "' + appQId + '",CPno:"' + appCPno + '",Bill:"' + appBill + '",paidBill:"' + appPaidBill + '", Status:"' + appStatus + '"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+
+                if (confirm('Data updated successfuly..')) {
+                    window.location.href = '/PatientDetails/GetQueueList'
+                }
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+    function SetStatus1(x) {
+
         debugger;
         var CPno = $(this).attr("data-image");
         var appCPno = document.getElementById("txtCPno").value;
@@ -363,7 +387,7 @@
             url: urllink,
             dataType: 'application/json',
             data: {
-               
+
                 'Qid': appQId, 'CPno': appCPno, 'Bill': appBill, 'paidBill': appPaidBill, 'Status': appStatus
             },
             success: function (response) {
@@ -373,8 +397,6 @@
 
        )
     };
-
-
 
 
 

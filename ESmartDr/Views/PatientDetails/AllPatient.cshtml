@@ -285,6 +285,7 @@
         </div>
     </div>
 </div>
+    </div>
 <div class="modal fade" id="mypatient" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content text-center">
@@ -354,7 +355,7 @@
     function showModel(x) {
         var obj = $(x).parents("tr")
         $("#txtCPno").val(obj.find('td')[1].innerHTML);
-       
+
     }
 
     function ConfirmAppoinment() {
@@ -370,46 +371,60 @@
         var x = confirm("Are you sure you want to Confirm Appoinment?");
         if (x) {
 
-           
-            var CPno = $(this).attr("data-image");
+
+            //var CPno = $(this).attr("data-image");
             var appCPno = document.getElementById("txtCPno").value;
             var appDate = document.getElementById("txtDate").value;
             var appTime = document.getElementById("txtTime").value;
             var appNote = document.getElementById("txtNote").value;
-
-            var form = $('#frmObservationDetails')[0];
-
-            var fromData = new FormData(form);
             var urllink = '@Url.Content("/PatientDetails/SetPatientAppoinment")'
+           // $.ajax({
+           //     type: "post",
+           //     url: urllink,
+           //     dataType: 'application/json',
+           //     data: {
+
+           //         'CPno': appCPno, 'AppoinmentDate': appDate, 'AppoinmentTime': appTime, 'Note': appNote
+
+           //     },
+           //     success: function (response) {
+
+           //         window.location.href = "../PatientDetails/GetQueueList";
+           //     }
+           // }
+
+           //)
             $.ajax({
-                type: "post",
+                type: "POST",
                 url: urllink,
-                dataType: 'application/json',
-                data: {
-
-                    'CPno': appCPno, 'AppoinmentDate': appDate, 'AppoinmentTime': appTime, 'Note': appNote
-
-                },
+                data: '{CPno: "' + appCPno + '",AppoinmentDate:"' + appDate + '",AppoinmentTime:"' + appTime + '",Note:"' + appNote + '"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
                 success: function (response) {
-                  
-                    window.location.href = "../PatientDetails/GetQueueList";
-                }
-            }
 
-           )
+                    if (confirm('Data updated successfuly..')) {
+                        window.location.href = '/PatientDetails/GetQueueList'
+                    }
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
         }
         else
             {}
     };
 
 
-
     function ClearDue(x) {
         var obj = $(x).parents("tr")
         $("#txtCPno").val(obj.find('td')[1].innerHTML);
         $("#txtTotalDue").val(obj.find('td')[5].innerHTML);
-       
-        
+
+
     }
     function SetDueAmount() {
         var CPno = $(this).attr("data-image");
@@ -496,7 +511,15 @@
 //    }
 //});
    // });
-    $(document).ready(function () {
+     $(document).ready(function () {
+
+        @if (Session["Msg"].ToString()=="1")
+        {
+            var msg = "hii";
+            Response.Write("<script>swal("+ msg + ")</script>");
+
+        }
+
         $('#example1').DataTable();
     });
 
@@ -520,6 +543,6 @@
 
     }
 
-    
+
 </script>
 

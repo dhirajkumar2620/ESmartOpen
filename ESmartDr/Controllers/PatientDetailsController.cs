@@ -85,7 +85,7 @@ namespace ESmartDr.Controllers
                     string message = "You are added to " + admObj.FirstName + ", your CP No. is " + CPNo + ". Download eSmartDoctor Patient app to manage your health - http://bit.ly/2RGTEHTR";
                     sms.SendSMS(PD.WhatsAppNo, message);
                 }
-
+                Session["Msg"] = "1";
                 return RedirectToAction("ViewAllPatient", "PatientDetails");
             }
             catch (Exception)
@@ -129,7 +129,8 @@ namespace ESmartDr.Controllers
                 //    sms.SendSMS(admObj.WhatsAppNumber,"Dear "+admObj.FirstName+", your appoinment booked sucecessfuly "+ AppoinmentDate + " at "+ AppoinmentTime + "against Case Paper no "+ CPno + ", Download app for better helth ...");
                 //}
                 PatientCount(admObj.HospitalId);
-                return RedirectToAction("GetQueueList", "PatientDetails");
+                return Json("1", JsonRequestBehavior.AllowGet);
+                //return RedirectToAction("GetQueueList", "PatientDetails");
             }
             catch (Exception)
             {
@@ -357,6 +358,19 @@ namespace ESmartDr.Controllers
                 throw;
             }
 
+        }
+        public ActionResult GetData(int Qid, string CPno, float Bill, float paidBill, string Status)
+        {
+            AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+            List<PatientDetails> LST = new List<PatientDetails>();
+            int flag = BP.SetStatus(Qid, CPno, Bill, paidBill, Status);
+            if (flag != 0)
+            {
+                //return RedirectToAction("GetQueueList", "PatientDetails");
+            }
+            PatientCount(admObj.HospitalId);
+            //return RedirectToAction("GetQueueList", "PatientDetails");
+            return Json("1", JsonRequestBehavior.AllowGet);
         }
     }
 }
