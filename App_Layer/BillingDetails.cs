@@ -8,6 +8,10 @@ namespace App_Layer
 {
     public class BillingDetails
     {
+        public BillingDetails()
+        {
+            lst = new List<BillingDetails>();
+        }
         public int Id { get; set; }
         public string ServiceName { get; set; }
         public float Bill { get; set; }
@@ -22,6 +26,6 @@ namespace App_Layer
         public int ModifideBy { get; set; }
         public bool IsActive { get; set; }
         public int QueueId { get; set; }
-        List<BillingDetails> lst { get; set; }
+        public List<BillingDetails> lst { get; set; }
     } 
 }

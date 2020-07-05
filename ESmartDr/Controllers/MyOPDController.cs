@@ -61,7 +61,8 @@ namespace ESmartDr.Controllers
         }
         public ActionResult OpdBilling()
         {
-            return View("Billing");
+            BillingDetails bd = new BillingDetails();
+            return View("Billing" ,bd);
         }
 
 

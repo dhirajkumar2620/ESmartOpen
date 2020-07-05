@@ -17,22 +17,29 @@ namespace ESmartDr.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult ManageBilling(BillingDetails BD)
+        public JsonResult ManageBilling(List<BillingDetails> item)
         {
             try
             {
-
+                BillingDetails b = new BillingDetails();
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
-                BD.CasePaperNo = patientDETAILS.CasePapaerNo;
-                BD.HospitalId = admObj.HospitalId.ToString();
-                BD.PatientId = admObj.UserId;
-                BD.CreatedBy = admObj.UserId;
-                BD.QueueId = patientDETAILS.QueueId;
-                int Flag = BL.ManageBilling(BD);
+                if (item == null)
+                {
+                    item = new List<BillingDetails>();
+                }
+
+                //Loop and insert records.
+                foreach (BillingDetails customer in item)
+                {
+                    b.lst.Add(customer);
+                }
+               
+               
+                int Flag = BL.ManageBilling(b);
+                return Json(Flag);
 
               
-                return View("MedicineDetails");
             }
             catch (Exception ex)
             {
