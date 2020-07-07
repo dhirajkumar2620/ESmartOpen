@@ -356,7 +356,7 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
-        public AdminDetails GetDoctorListByHID(int Hid)
+        public List<AdminDetails> GetDoctorListByHID(int Hid)
         {
             try
             {
@@ -366,7 +366,7 @@ namespace Dal_Layer
                 sqlparam[1] = new SqlParameter("@username", Hid);
 
                 DataTable ds = CommonFunction.GetDataTable("USP_Get_DoctorList", sqlparam, "");
-                AdminDetails Model = new AdminDetails();
+                List<AdminDetails> Model = new List<AdminDetails>();
 
                 if (ds != null && ds.Rows.Count > 0)
                 {

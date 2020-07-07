@@ -69,7 +69,7 @@ namespace Bal_Layer
         {
             return DP.GetDoctorUserDetails(UserId);
         }
-        public AdminDetails GetDoctorListByHID(int Hid)
+        public List<AdminDetails> GetDoctorListByHID(int Hid)
         {
             return DP.GetDoctorListByHID(Hid);
         }

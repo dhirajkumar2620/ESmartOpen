@@ -187,6 +187,25 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
+                                            <div class="form-group">
+
+                                                <label class="form-control-label">Doctor<span class="star">*</span></label>
+                                                @Html.DropDownListFor(m => m.DoctorReceptionId, new List<SelectListItem>
+                                                     {
+                                                         new SelectListItem{ Text="1", Value = "1" },
+                                                         new SelectListItem{ Text="2", Value = "2" },
+                                                      }, new { @class = "form-control mb-3", @id = "ddlDrRecId" })
+
+
+
+
+                                                    
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row r-click-show">
+                                        <div class="col-md-4">
                                             <label class="form-control-label">Mediclaim</label>
                                             <ul class="list-inline">
                                                 <li class="list-inline-item">
@@ -199,15 +218,13 @@
                                                 </li>
                                                 <li class="list-inline-item">
                                                     <div class="i-checks ">
-                                                        @Html.RadioButtonFor(model => model.AppliedForMediclam, "false",  new { @Id = "radioCustom2", @class = "radio-template r-hide", @type = "radio" , @checked= ""}) @Html.Label("No")
+                                                        @Html.RadioButtonFor(model => model.AppliedForMediclam, "false", new { @Id = "radioCustom2", @class = "radio-template r-hide", @type = "radio", @checked = "" }) @Html.Label("No")
                                                         @*<input id="radioCustom2" type="radio" checked="" value="option2" name="a" class="radio-template r-hide">*@
                                                         @*<label for="radioCustom2">No</label>*@
                                                     </div>
                                                 </li>
                                             </ul>
                                         </div>
-                                    </div>
-                                    <div class="row r-click-show">
                                         <div class="col-md-4" style="display:none;">
                                             <div class="form-group">
                                                 <label class="form-control-label">Mediclaim Company Name</label>

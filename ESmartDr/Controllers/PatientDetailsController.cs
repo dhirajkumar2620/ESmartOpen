@@ -22,10 +22,20 @@ namespace ESmartDr.Controllers
         {
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
             AdminDetails ad = new AdminDetails();
-            ad = BP.GetDoctorListByHID(admObj.HospitalId);
+            //ad = BP.GetDoctorListByHID(admObj.HospitalId);
 
 
             return View("PatientRegistration");
+        }
+
+        public IEnumerable<AdminDetails> GetMobileList()
+        {
+            AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+            AdminDetails ad = new AdminDetails();
+            List<AdminDetails> d = new List<AdminDetails>();
+            d = BP.GetDoctorListByHID(admObj.HospitalId);
+            var result = d;
+            return result;
         }
         public ActionResult ViewAllPatient()
         {
@@ -54,7 +64,7 @@ namespace ESmartDr.Controllers
                 PD.CreatedBy = admObj.FirstName;
                 PD.HospitalId = admObj.HospitalId.ToString();
                 PD.HospitalName = admObj.HostClincName;
-                PD.DoctorReceptionId = admObj.UserId;
+                PD.DoctorReceptionId = admObj.ParentId;
                 //string str = admObj.HostClincName.Substring(0, 3);
                 PD.CasePapaerNo = admObj.AlphanumericPrefix.Trim();
                 int Flag = BP.ManagePatientDetails(PD);
