@@ -134,8 +134,10 @@ namespace ESmartDr.Controllers
                 {
 
                     var RegNo = LST.Where(x
-                                 => x.HospitalId == AD.HospitalId
-                                 && x.WhatsAppNumber == AD.WhatsAppNumber
+                                 => 
+                                 //   x.HospitalId == AD.HospitalId
+                                 //&&
+                                 x.WhatsAppNumber == AD.WhatsAppNumber
                                  )
                              .OrderByDescending(x => x.UserId)
                              .Take(1)
