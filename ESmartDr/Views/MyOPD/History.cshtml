@@ -59,9 +59,8 @@
                                                         <table>
                                                             <thead>
                                                                 <tr>
-                                                                    <th>Medicine Name</th>
-                                                                    <th>When</th>
-                                                                    <th>Special Instruction</th>
+                                                                    <th>Medication</th>
+                                                                    
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -70,9 +69,11 @@
                                                                 @foreach (var item1 in item.lstMD)
                                                                 {
                                                                 <tr>
-                                                                    <td>@item1.MedicineName</td>
-                                                                    <td>@item1.MedicineCount- @item1.WhenMedicine</td>
-                                                                    <td>@item1.SpecialInstruction</td>
+                                                                    <td>@item1.MedicineName -
+                                                                    @item1.WhenMedicine - @item1.RepeatMedicine / @item1.MedicineCount @item1.MedicineDays /
+                                                                    @item1.SpecialInstruction /
+                                                                    @item1.AlternateMedicine</td>
+                                                                   
                                                                 </tr>
                                                                 }
 
@@ -111,7 +112,8 @@
                                                                 @foreach (var item3 in item.lstOD)
                                                                 {
                                                                 <tr>
-                                                                    <td>@item3.Observation</td>
+                                                                    <td>@item3.Observation - @item3.Since @item3.Period</td>
+                                                                    
                                                                 </tr>
                                                                 }
                                                             </tbody>

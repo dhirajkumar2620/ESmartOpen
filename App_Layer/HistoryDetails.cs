@@ -29,6 +29,9 @@ namespace App_Layer
     {
         public int QueueId { get; set; }
         public string Observation { get; set; }
+        public string Since { get; set; }
+        public string Period { get; set; }
+
     }
     public class TestDetails
     {
@@ -42,6 +45,11 @@ namespace App_Layer
         public string MedicineCount { get; set; }
         public string WhenMedicine { get; set; }
         public string SpecialInstruction { get; set; }
+        public string AlternateMedicine { get; set; }
+        public string MedicineDays { get; set; }
+        public string RepeatMedicine { get; set; }
+       
+
     }
 
 
