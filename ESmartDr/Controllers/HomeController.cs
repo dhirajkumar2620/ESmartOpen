@@ -15,6 +15,10 @@ namespace EsmartDr.Controllers
         {
             return View("LogIn");
         }
+        public ActionResult Dashbord()
+        {
+            return View("Dashbord");
+        }
 
         public ActionResult Registration()
         {
