@@ -615,22 +615,22 @@
                 <div class="col-md-6">
                     <div class="login-btn cont-us">
                         <label>First Name</label>
-                        <input type="text" placeholder="Name" class="form-control">
+                        <input type="text" id="txtFistName" placeholder="First Name" class="form-control">
                         <br>
                         <label>Last Name</label>
-                        <input type="text" placeholder="Password" class="form-control">
+                        <input type="text" id="txtLastName" placeholder="Last Name" class="form-control">
                         <br>
                         <label>Contact No.</label>
-                        <input type="number" placeholder="Contact No." class="form-control">
+                        <input type="number" id="txtContcatNo" placeholder="Contact No." class="form-control">
                         <br>
                         <label>Email Address</label>
-                        <input type="text" placeholder="Email Address" class="form-control">
+                        <input type="text" id="txtEmailId" placeholder="Email Address" class="form-control">
                         <br>
                         <label>Message</label>
-                        <textarea class="form-control" placeholder="Message"></textarea>
+                        <textarea class="form-control" id="txtMessage" placeholder="Message"></textarea>
                         <br>
                         <div class="text-right sn-in">
-                            <input type="button" style="width: 16vh!important;" value="SEND" class="btn btn_1 btn-primary">
+                            <input type="button" onclick="SetEnquery(this)" style="width: 16vh!important;" value="SEND" class="btn btn_1 btn-primary">
                         </div>
                     </div>
                 </div>
@@ -826,6 +826,36 @@
             nav: true,
             buttons: true,
         });
+
+
+        function SetEnquery(x) {
+            var CPno = $(this).attr("data-image");
+            var FirstName = document.getElementById("txtFistName").value;
+            var LastName = document.getElementById("txtLastName").value;
+            var ContactNo = document.getElementById("txtContcatNo").value;
+            var EmailId = document.getElementById("txtEmailId").value;
+            var Message = document.getElementById("txtMessage").value;
+
+            var form = $('#frmObservationDetails')[0];
+
+            var fromData = new FormData(form);
+            var urllink = '@Url.Content("~/LoginDetails/ManageEnquiryDetails")'
+            $.ajax({
+                type: "post",
+                url: urllink,
+                dataType: 'application/json',
+                data: {
+
+                    'FirstName': FirstName, 'LastName': LastName, 'ContactNo': ContactNo, 'EmailId': EmailId, 'Message': Message
+
+                },
+                success: function (response) {
+                    alert("Enquery send succesfuly");
+                }
+            }
+
+           )
+        };
     </script>
 </body>
 

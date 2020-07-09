@@ -111,7 +111,7 @@ namespace ESmartDr.Controllers
             }
         }
 
-        public ActionResult ManageEnquiryDetails(EnquiryDetails ED)
+        public ActionResult ManageEnquiryDetails(string FirstName, string LastName, string ContactNo, string EmailId, string Message)
         {
             try
             {
@@ -119,8 +119,14 @@ namespace ESmartDr.Controllers
                 Bal_EnquiryDetails BL = new Bal_EnquiryDetails();
                 //string str = admObj.HostClincName.Substring(0, 3);
                 //PD.CasePapaerNo = str;
+                EnquiryDetails ED = new EnquiryDetails();
+                ED.Name = FirstName +" " + LastName;
+                ED.LastName = LastName;
+                ED.ContactNumbar = ContactNo;
+                ED.Email = EmailId;
+                ED.Note = Message;
                 int Flag = BL.ManageEnquiryDetails(ED);
-                return RedirectToAction("Index", "LoginDetails");
+                return  RedirectToAction("Index", "LoginDetails");
             }
             catch (Exception)
             {
