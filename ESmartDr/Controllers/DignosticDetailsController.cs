@@ -27,10 +27,10 @@ namespace ESmartDr.Controllers
 
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
-                ModelState.Clear();
-                MD.HospitalId = Convert.ToInt32(patientDETAILS.HospitalId);
+                
+                MD.HospitalId = Convert.ToInt32(admObj.HospitalId);
                 //MD.cr = admObj.UserId;
-                MD.ParientId = patientDETAILS.Id;
+               // MD.ParientId = admObj.ParentId;
                 int Flag = BL.ManageDignosticDetails(MD);
                 return View("DignosticDetails");
             }

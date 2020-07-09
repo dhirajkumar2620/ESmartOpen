@@ -213,12 +213,16 @@
                     <div class="col-md-12 space-betw">
                         <div class="form-group">
                             <label class="form-control-label">Date<span class="star">*</span></label>
-                            <div class="input-group date" data-provide="datepicker">
+                                <label for="Date" class="form-control-label">Date</label> 
+                                <input type="Date"  id="txtDate" class="form-control text-letter" placeholder="dd/mm/yyyy" >
+                            
+                           
+                            @*<div class="input-group date" data-provide="datepicker">
                                 <input type="text" id="txtDate" class="form-control datepicker" placeholder="dd/mm/yyyy" />
                                 <div class="input-group-addon">
                                     <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
                                 </div>
-                            </div>
+                            </div>*@
                         </div>
                     </div>
                     <div class="col-md-12 space-betw">
@@ -269,7 +273,7 @@
                         <div class="form-group">
                             <label class="form-control-label">Paid Amount<span class="star">*</span></label>
                             <input type="text" id="txtPaidAmount" class="form-control" placeholder="Note" />
-                            <input style="display:none" type="text" id="txtCPno" class="form-control" placeholder="Note" />
+                            <input style="display:none" type="text" id="txtCPno" class="form-control" placeholder="00.00" />
                         </div>
                     </div>
                    

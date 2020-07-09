@@ -27,6 +27,7 @@ namespace ESmartDr.Controllers
             try
             {
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                LD.HospitalId = Convert.ToInt32(admObj.HospitalId);
                 int Flag = BL.ManageLaboratoryDetails(LD);
                 return View("LaboratoryDetails");
             }

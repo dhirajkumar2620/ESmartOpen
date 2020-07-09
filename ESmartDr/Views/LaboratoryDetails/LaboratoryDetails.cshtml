@@ -416,7 +416,7 @@
                                                         <td>
                                                             <h4>Clinical History</h4>
                                                             <div class="form-group">
-                                                                @Html.TextBoxFor(m => m.ClinicalHistory, new { @id = "txtClinicalHistory", @class = "form-control", required = "required", @placeholder = "ClinicalHistory" })
+                                                                @Html.TextBoxFor(m => m.ClinicalHistory, new { @id = "txtClinicalHistory", @class = "form-control", @placeholder = "ClinicalHistory" })
                                                                 @Html.ValidationMessageFor(model => model.ClinicalHistory, "", new { @class = "text-danger" })
                                                             </div>
                                                         </td>
@@ -438,7 +438,7 @@
             <div class="col-md-12 text-center">
                 <input type="submit" value="Save" class="btn btn_2 btn-primary b22">
                 <input type="button" value="Print" onclick='PrintDiv("tblPrint")' class="btn btn_1 btn-primary">
-                <input type="button" value="Share on Whatsapp" class="btn whatsapp-btn btn_2 btn-primary">
+               
             </div>
         </div>
     </div>

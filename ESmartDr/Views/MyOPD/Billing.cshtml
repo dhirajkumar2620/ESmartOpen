@@ -69,19 +69,19 @@
                         <div class="card-body patient-det">
                             <div class="row align-items-center">
 
-                                <div class="col-md-2 text-center">
+                                <div class="col-md-2">
                                     <h6 class="mt-0 mb-1">Bill</h6>
                                     <div class="count text-primary fs-20">2000</div>
                                 </div>
-                                <div class="col-md-2 text-center">
+                                <div class="col-md-2">
                                     <h6 class="mt-0 mb-1">Paid</h6>
                                     <div class="count text-primary fs-20">1000</div>
                                 </div>
-                                <div class="col-md-2 text-center">
+                                <div class="col-md-2">
                                     <h6 class="mt-0 mb-1">Balance</h6>
                                     <div class="count text-primary fs-20">1000</div>
                                 </div>
-                                <div class="col-md-2 text-center">
+                                <div class="col-md-2">
                                     <h6 class="mt-0 mb-1">Total</h6>
                                     <div class="count text-primary fs-20">4000</div>
                                 </div>
@@ -93,8 +93,8 @@
             <div class="row" style="margin-top: .5em;">
                 <div class="col-md-12 text-center">
                     <input type="button" value="Print" onclick='PrintDiv("tblPrint")' class="btn btn_1 btn-primary">
-                    <input type="button" value="Save" onclick='Save(this)' class="btn btn_1 btn-primary">
-                    <input type="button" value="Finalize" onclick="SetStatus(this)" class="btn btn_2 btn-primary">
+                    <input type="button" value="Save" onclick='Save(this)' class="btn btn_2 btn-primary">
+                    <input type="button" value="Finalize" onclick="SetStatus(this)" class="btn btn_1 btn-primary">
                 </div>
             </div>
         </div>
@@ -105,6 +105,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="~/js/front.js"></script>
 <script>
+
     //$(".nav-tabs li").removeClass("active"); btnInvestigation
     $("#btnObservation").on('click', function () {
         var url = $(this).data('request-url');
