@@ -43,7 +43,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[13];
+                sqlparam = new SqlParameter[14];
                 sqlparam[0] = new SqlParameter("@Id", Ob.Id);
                 sqlparam[1] = new SqlParameter("@MedicineName", Ob.MedicineName);
                 sqlparam[2] = new SqlParameter("@WhenMedicine", Ob.WhenMedicine);
@@ -57,6 +57,7 @@ namespace Dal_Layer
                 sqlparam[10] = new SqlParameter("@PatientId", Ob.PatientId);
                 sqlparam[11] = new SqlParameter("@CreatedBy", Ob.CreatedBy);
                 sqlparam[12] = new SqlParameter("@QueueId", Ob.QueueId);
+                sqlparam[13] = new SqlParameter("@Dose", Ob.Dose);
                 return CommonFunction.Save("USP_Prec_Medication", sqlparam, "");
             }
             catch (Exception)
@@ -152,7 +153,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[15];
+                sqlparam = new SqlParameter[16];
                 sqlparam[0] = new SqlParameter("@Id", VI.Id);
                 sqlparam[1] = new SqlParameter("@BloodPressure ", VI.BloodPressure);
                 sqlparam[2] = new SqlParameter("@Temperature ", VI.Temperature);
@@ -161,7 +162,7 @@ namespace Dal_Layer
                 sqlparam[5] = new SqlParameter("@Height ", VI.Height);
                 sqlparam[6] = new SqlParameter("@BloodGlucoseFasting ", VI.BloodGlucoseFasting);
                 sqlparam[7] = new SqlParameter("@BloodlucoseRandom ", VI.BloodlucoseRandom);
-                //sqlparam[8] = new SqlParameter("@BloodUrea ", VI.BloodUrea);
+             
                 sqlparam[8] = new SqlParameter("@Pulse ", VI.Pulse);
                 //sqlparam[10] = new SqlParameter("@UricAcidM ", VI.UricAcidM);
                 //sqlparam[11] = new SqlParameter("@HB ", VI.HB);
@@ -200,7 +201,7 @@ namespace Dal_Layer
                 // sqlparam[44] = new SqlParameter("@ModifideDate ", VI.ModifideDate);
                 sqlparam[13] = new SqlParameter("@ModifideBy ", VI.ModifideBy);
                 sqlparam[14] = new SqlParameter("@IsActive ", VI.IsActive);
-
+                sqlparam[15] = new SqlParameter("@BloodUrea ", VI.BloodUrea);
                 return CommonFunction.Save("USP_PD_VitalInformation", sqlparam, "");
             }
             catch (Exception)

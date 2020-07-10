@@ -8,19 +8,20 @@ namespace App_Layer
 {
     public class Medication
     {
-        public int Id                  {get;set;}
-        public string MedicineName        {get;set;}
-        public string WhenMedicine        {get;set;}
-        public string RepeatMedicine      {get;set;}
-        public string ForMedicine         {get;set;}
-        public string MedicineDays        {get;set;}
-        public string SpecialInstruction  {get;set;}
-        public string AlternateMedicine   {get;set;}
-        public string CasePaperNo         {get;set;}
-        public string HospitalId          {get;set;}
-        public string PatientId           { get; set; }
-        public string CreatedBy           { get; set; }
+        public int Id { get; set; }
+        public string MedicineName { get; set; }
+        public string WhenMedicine { get; set; }
+        public string RepeatMedicine { get; set; }
+        public string ForMedicine { get; set; }
+        public string MedicineDays { get; set; }
+        public string SpecialInstruction { get; set; }
+        public string AlternateMedicine { get; set; }
+        public string CasePaperNo { get; set; }
+        public string HospitalId { get; set; }
+        public string PatientId { get; set; }
+        public string CreatedBy { get; set; }
         public int QueueId { get; set; }
-        public List<Medication> lst       { get; set; }
+        public string Dose { get; set; }
+        public List<Medication> lst { get; set; }
     }
 }

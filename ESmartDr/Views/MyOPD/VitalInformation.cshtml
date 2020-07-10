@@ -12,7 +12,11 @@
                 <label class="form-control-label">Blood Pressure</label>
                 <div class="row">
                     <div class="col-md-3 col-4">
-                        @Html.TextBoxFor(m => m.BloodPressure, new { @id = "txtBloodPressure", @class = "form-control", @placeholder = "0.00" })
+                        @Html.TextBoxFor(m => m.BloodPressure, new { @id = "txtBloodPressure1", @class = "form-control", @placeholder = "0.00" })
+                    </div>
+                  
+                    <div class="col-md-3 col-4">
+                        @Html.TextBoxFor(m => m.BloodUrea, new { @id = "txtBloodPressure2", @class = "form-control", @placeholder = "0.00" })
                     </div>
                     <div class="col-md-6 col-4">
                         <span>mmHg</span>
@@ -26,7 +30,7 @@
                         @Html.TextBoxFor(m => m.Temperature, new { @id = "txtTemperature", @class = "form-control", @placeholder = "0.00" })
                     </div>
                     <div class="col-md-3 col-5">
-                        <span>&#8457;</span>
+                        <span>&#8457;/℃</span>
                     </div>
                 </div>
             </div>

@@ -3,23 +3,23 @@
     Layout = null;
 }
 <style>
-        .table thead {
-            background: #ffffff;
-            color: #666;
-        }
+    .table thead {
+        background: #ffffff;
+        color: #666;
+    }
 
-        .table-striped tbody tr:nth-of-type(odd) {
-            background-color: #ffffff !important;
-        }
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #ffffff !important;
+    }
 
-        .table tbody {
-            background: #ffffff;
-        }
+    .table tbody {
+        background: #ffffff;
+    }
 
-        .table tr:hover {
-            box-shadow: 2px 4px 10px #fff;
-        }
-        /*.table thead th {
+    .table tr:hover {
+        box-shadow: 2px 4px 10px #fff;
+    }
+    /*.table thead th {
         vertical-align: bottom;
         border-bottom: 1px solid #dedede!important;
     }
@@ -27,41 +27,41 @@
         border-top: 1px solid #dedede!important;
         vertical-align: middle!important;
     }*/
-        .table th {
-            padding-top: 15px;
-        }
+    .table th {
+        padding-top: 15px;
+    }
 
-        .table {
-            margin-bottom: 0rem;
-        }
+    .table {
+        margin-bottom: 0rem;
+    }
 
-        .mg-table .table {
-            border-bottom: 1px solid #d4d4d4;
-        }
+    .mg-table .table {
+        border-bottom: 1px solid #d4d4d4;
+    }
 
-        .tbl-view-1 tr th:first-child {
-            width: 20%;
-        }
+    .tbl-view-1 tr th:first-child {
+        width: 20%;
+    }
 
-        .tbl-view-2 tr th:first-child {
-            width: 20%;
-        }
+    .tbl-view-2 tr th:first-child {
+        width: 20%;
+    }
 
-        .tbl-view-3 tr th:first-child {
-            width: 20%;
-        }
+    .tbl-view-3 tr th:first-child {
+        width: 20%;
+    }
 
-        .tbl-view-4 tr th:first-child {
-            width: 20%;
-        }
+    .tbl-view-4 tr th:first-child {
+        width: 20%;
+    }
 
-        .tbl-view-5 tr th:first-child {
-            width: 20%;
-        }
+    .tbl-view-5 tr th:first-child {
+        width: 20%;
+    }
 
-        .tbl-view-5 tr th:first-child {
-            width: 20%;
-        }
+    .tbl-view-5 tr th:first-child {
+        width: 20%;
+    }
 </style>
 <div class="card-body">
     @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmPrecMedication" }))
@@ -103,7 +103,13 @@
                         <label class="form-control-label">
                             Dose
                         </label>
-                        <input type="text" class="form-control" />
+                        @Html.DropDownListFor(m => m.Dose, new List<SelectListItem>
+                                                     {
+                                                         new SelectListItem{ Text="1/2", Value = "1/2" },
+                                                         new SelectListItem{ Text="1", Value = "1" },
+                                                          new SelectListItem{ Text="1+1/2", Value = "1+1/2" },
+                                                          new SelectListItem{ Text="2", Value = "2" },
+                                                      }, new { @class = "form-control mb-3", @id = "ddlDose" })
                     </div>
                 </div>
             </div>
@@ -181,7 +187,7 @@
         </form>
 
     }
-    <br/>
+    <br />
     <div class="row mg-table">
         <div class="col-md-12">
             <div class="">
@@ -189,10 +195,11 @@
                     <div class="table-responsive opd-table">
                         <table class="table" id="tblprecMedication">
                             <thead>
-                                <tr  style="background: #f8f9fa;">
+                                <tr style="background: #f8f9fa;">
                                     <th hidden>Id</th>
-                                    <th>Medicine Name</th>
+                                    <th>Medicine</th>
                                     <th>When</th>
+                                    <th>Dose</th>
                                     <th>Repeat</th>
                                     <th>For</th>
                                     <th>Days</th>
@@ -210,6 +217,7 @@
                                             <td hidden>@item.Id</td>
                                             <td>@item.MedicineName</td>
                                             <td>@item.WhenMedicine</td>
+                                            <td>@item.Dose</td>
                                             <td>@item.RepeatMedicine</td>
                                             <td>@item.ForMedicine</td>
                                             <td>@item.MedicineDays</td>
@@ -250,12 +258,13 @@
                     $('#tblprecMedication tbody').empty();
                     var trHTML = '';
                     $.each(data, function (i, item) {
-                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.MedicineName + '</td><td>' + item.WhenMedicine + '</td><td>' + item.RepeatMedicine + '</td><td>' + item.ForMedicine + '</td><td>' + item.MedicineDays + '</td><td>' + item.SpecialInstruction + '</td><td>' + item.AlternateMedicine + '</td></td><td><i class="fa fa-pencil" onclick=EditDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.MedicineName + '</td><td>' + item.WhenMedicine + '</td><td>' + item.Dose + '</td><td>' + item.RepeatMedicine + '</td><td>' + item.ForMedicine + '</td><td>' + item.MedicineDays + '</td><td>' + item.SpecialInstruction + '</td><td>' + item.AlternateMedicine + '</td></td><td><i class="fa fa-pencil" onclick=EditDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
                     });
                     $('#tblprecMedication tbody').append(trHTML)
                     $("#hdnId").val('0');
                     $("#txtMedicineName").val('');
                     $("#txtWhenMedicine").val('');
+                    $("#txtDose").val('');
                     $("#txtRepeatMedicine").val('');
                     $("#txtForMedicine").val('');
                     $("#txtMedicineDays").val('');
@@ -273,11 +282,12 @@
             $("#hdnId").val(obj.find('td')[0].innerHTML);
             $("#txtMedicineName").val(obj.find('td')[1].innerHTML);
             $("#txtWhenMedicine").val(obj.find('td')[2].innerHTML);
-            $("#txtRepeatMedicine").val(obj.find('td')[3].innerHTML);
-            $("#txtForMedicine").val(obj.find('td')[4].innerHTML);
-            $("#txtMedicineDays").val(obj.find('td')[5].innerHTML);
-            $("#txtSpecialInstruction").val(obj.find('td')[6].innerHTML);
-            $("#txtAlternateMedicine").val(obj.find('td')[7].innerHTML);
+            $("#txtDose").val(obj.find('td')[3].innerHTML);
+            $("#txtRepeatMedicine").val(obj.find('td')[4].innerHTML);
+            $("#txtForMedicine").val(obj.find('td')[5].innerHTML);
+            $("#txtMedicineDays").val(obj.find('td')[6].innerHTML);
+            $("#txtSpecialInstruction").val(obj.find('td')[7].innerHTML);
+            $("#txtAlternateMedicine").val(obj.find('td')[8].innerHTML);
 
         });
         function EditDetails(this1) {
@@ -285,16 +295,17 @@
             $("#hdnId").val(obj.find('td')[0].innerHTML);
             $("#txtMedicineName").val(obj.find('td')[1].innerHTML);
             $("#txtWhenMedicine").val(obj.find('td')[2].innerHTML);
-            $("#txtRepeatMedicine").val(obj.find('td')[3].innerHTML);
-            $("#txtForMedicine").val(obj.find('td')[4].innerHTML);
-            $("#txtMedicineDays").val(obj.find('td')[5].innerHTML);
-            $("#txtSpecialInstruction").val(obj.find('td')[6].innerHTML);
-            $("#txtAlternateMedicine").val(obj.find('td')[7].innerHTML);
+            $("#txtDose").val(obj.find('td')[3].innerHTML);
+            $("#txtRepeatMedicine").val(obj.find('td')[4].innerHTML);
+            $("#txtForMedicine").val(obj.find('td')[5].innerHTML);
+            $("#txtMedicineDays").val(obj.find('td')[6].innerHTML);
+            $("#txtSpecialInstruction").val(obj.find('td')[7].innerHTML);
+            $("#txtAlternateMedicine").val(obj.find('td')[8].innerHTML);
         }
         function DeleteRecord(id) {
-           
+
             var form = $('#frmPrecMedication')[0];
-           
+
             var fromData = new FormData(form);
             var urllink = '@Url.Content("~/Prescription/DeleteMedication")'
             $.ajax({
