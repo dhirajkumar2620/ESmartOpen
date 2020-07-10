@@ -4,14 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
-<div >
+<div>
     <!-- Page Header-->
     <header class="page-header">
         <div class="container-fluid">
             <h2 class="no-margin-bottom">My Patient</h2>
         </div>
     </header>
-    
+
     <section>
         <div class="container-fluid">
             <div class="row reg-counter">
@@ -46,35 +46,35 @@
                     </div>
                 </div>
                 @*<div class="col col-12 col-md-6 col-xl-3">
-                    <div class="card animated fadeInUp delay-03s bg-light">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col col-5 text-center">
-                                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                                </div>
-                                <div class="col col-7">
-                                    <h6 class="mt-0 mb-1">Operations<br /> Count</h6>
-                                    <div class="count text-primary fs-20">24</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col col-12 col-md-6 col-xl-3">
-                    <div class="card animated fadeInUp delay-04s bg-light">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col col-5 text-center">
-                                    <i class="fa fa-usd" aria-hidden="true"></i>
-                                </div>
-                                <div class="col col-7">
-                                    <h6 class="mt-0 mb-1">Hospital<br /> Earning</h6>
-                                    <div class="count text-primary fs-20">$5238</div>
+                        <div class="card animated fadeInUp delay-03s bg-light">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col col-5 text-center">
+                                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="col col-7">
+                                        <h6 class="mt-0 mb-1">Operations<br /> Count</h6>
+                                        <div class="count text-primary fs-20">24</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>*@
+                    <div class="col col-12 col-md-6 col-xl-3">
+                        <div class="card animated fadeInUp delay-04s bg-light">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col col-5 text-center">
+                                        <i class="fa fa-usd" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="col col-7">
+                                        <h6 class="mt-0 mb-1">Hospital<br /> Earning</h6>
+                                        <div class="count text-primary fs-20">$5238</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
             </div>
         </div>
     </section>
@@ -103,38 +103,38 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
-                                        <tr>
-                                            <td hidden>@item.Id</td>
-                                            <td>@item.CasePapaerNo</td>
-                                            <td>@item.PatientName<br />@item.Age / @item.Gender</td>
-                                            <td>@item.WhatsAppNo<br />@item.OtherNo</td>
-                                            <td>@item.CpExpiryDate</td>
-                                            <td>@item.DueAmount</td>
-                                            <td>
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item" title="Appointment">
-                                                        @*<a href="@Url.Content("~/PatientDetails/SetPatientAppoinment?CPno="+item.CasePapaerNo+"")">  <i class="fa fa-calendar" aria-hidden="true"></i></a>*@
-                                                        <a href="#" data-toggle="modal" data-target="#saveAppointment" onclick="showModel(this)" ><i class="fa fa-calendar" aria-hidden="true"></i></a>
-                                                    </li>
+                                            <tr>
+                                                <td hidden>@item.Id</td>
+                                                <td>@item.CasePapaerNo</td>
+                                                <td>@item.PatientName<br />@item.Age / @item.Gender</td>
+                                                <td>@item.WhatsAppNo<br />@item.OtherNo</td>
+                                                <td>@item.CpExpiryDate</td>
+                                                <td>@item.DueAmount</td>
+                                                <td>
+                                                    <ul class="list-inline">
+                                                        <li class="list-inline-item" title="Appointment">
+                                                            @*<a href="@Url.Content("~/PatientDetails/SetPatientAppoinment?CPno="+item.CasePapaerNo+"")">  <i class="fa fa-calendar" aria-hidden="true"></i></a>*@
+                                                            <a href="#" data-toggle="modal" data-target="#saveAppointment" onclick="showModel(this)"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+                                                        </li>
 
-                                                    <li class="list-inline-item" title="Edit" >
-                                                        <a href="@Url.Content("~/PatientDetails/GetDetailsById?Id="+item.Id+"")">   <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal"></i></a>
-                                                    </li>
-                                                    @*<li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
-                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                                                    </li>*@
-                                                    <li class="list-inline-item msg" title="Message">
-                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                                                    </li>
-                                                    <li class="list-inline-item" title="Clear Due">
-                                                        @*<a href="@Url.Content("~/PatientDetails/SetPatientAppoinment?CPno="+item.CasePapaerNo+"")">  <i class="fa fa-calendar" aria-hidden="true"></i></a>*@
-                                                        <a href="#" data-toggle="modal" data-target="#saveClearDue" onclick="ClearDue(this)"><i class="fa fa-credit-card" aria-hidden="true"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
+                                                        <li class="list-inline-item" title="Edit">
+                                                            <a href="@Url.Content("~/PatientDetails/GetDetailsById?Id="+item.Id+"")">   <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal"></i></a>
+                                                        </li>
+                                                        @*<li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
+                                                                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                            </li>*@
+                                                        <li class="list-inline-item" title="Message">
+                                                            <a href="#" data-toggle="modal" data-target="#SendSMS" onclick="SetMobileNumber(this)"><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        <li class="list-inline-item" title="Clear Due">
+                                                            @*<a href="@Url.Content("~/PatientDetails/SetPatientAppoinment?CPno="+item.CasePapaerNo+"")">  <i class="fa fa-calendar" aria-hidden="true"></i></a>*@
+                                                            <a href="#" data-toggle="modal" data-target="#saveClearDue" onclick="ClearDue(this)"><i class="fa fa-credit-card" aria-hidden="true"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
                                         }
-                                        
+
                                     </tbody>
                                     <tfoot>
                                         <tr>
@@ -199,7 +199,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="saveAppointment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"  aria-hidden="true">
+<div class="modal fade" id="saveAppointment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content save-appoint">
             <div class="modal-header" style="border-bottom:none;">
@@ -213,22 +213,22 @@
                     <div class="col-md-12 space-betw">
                         <div class="form-group">
                             <label class="form-control-label">Date<span class="star">*</span></label>
-                             
-                                <input type="Date"  id="txtDate" class="form-control text-letter" placeholder="dd/mm/yyyy" >
-                            
-                           
+
+                            <input type="Date" id="txtDate" class="form-control text-letter" placeholder="dd/mm/yyyy">
+
+
                             @*<div class="input-group date" data-provide="datepicker">
-                                <input type="text" id="txtDate" class="form-control datepicker" placeholder="dd/mm/yyyy" />
-                                <div class="input-group-addon">
-                                    <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
-                                </div>
-                            </div>*@
+                                    <input type="text" id="txtDate" class="form-control datepicker" placeholder="dd/mm/yyyy" />
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
+                                    </div>
+                                </div>*@
                         </div>
                     </div>
                     <div class="col-md-12 space-betw">
                         <label class="form-control-label">Time</label>
                         <div class="input-group clockpicker pull-center" data-autoclose="true">
-                            <input type="text" id="txtTime"class="form-control" placeholder="00:00" />
+                            <input type="text" id="txtTime" class="form-control" placeholder="00:00" />
                             <span class="input-group-addon">
                                 <i class="fa fa-clock-o page-date-icon" aria-hidden="true"></i>
                             </span>
@@ -244,7 +244,7 @@
             <div class="modal-footer" style="border-top:none;">
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="button"  onclick="SetApoinment()" class="btn btn_1 btn-primary" data-dismiss="modal">Save Appointment</button>
+                        <button type="button" onclick="SetApoinment()" class="btn btn_1 btn-primary" data-dismiss="modal">Save Appointment</button>
                     </div>
                 </div>
             </div>
@@ -266,7 +266,7 @@
                     <div class="col-md-12 space-betw">
                         <div class="form-group">
                             <label class="form-control-label">Due<span class="star">*</span></label>
-                            <input type="text" id="txtTotalDue" class="form-control" placeholder="Note" readonly/>
+                            <input type="text" id="txtTotalDue" class="form-control" placeholder="Note" readonly />
                         </div>
                     </div>
                     <div class="col-md-12 space-betw">
@@ -276,83 +276,61 @@
                             <input style="display:none" type="text" id="txtCPno" class="form-control" placeholder="00.00" />
                         </div>
                     </div>
-                   
-              
-            </div>
-            <div class="modal-footer" style="border-top:none;">
-                <div class="row">
-                    <div class="col-md-12">
-                        <button type="button" onclick="SetDueAmount()" class="btn btn_1 btn-primary" data-dismiss="modal">Save</button>
+
+
+                </div>
+                <div class="modal-footer" style="border-top:none;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" onclick="SetDueAmount()" class="btn btn_1 btn-primary" data-dismiss="modal">Save</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-    </div>
-<div class="modal fade" id="mypatient" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+<div class="modal fade" id="SendSMS" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content text-center">
+        <div class="modal-content save-appoint">
             <div class="modal-header" style="border-bottom:none;">
+                <h3>Send Message</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                <h1>Patients habit</h1>
-                <table class="table habit-grid">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="i-checks">
-                                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template">
-                                </div>
-                            </td>
-                            <td class="text-left">Smoking</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="i-checks">
-                                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template">
-                                </div>
-                            </td>
-                            <td class="text-left">Drinking</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="i-checks">
-                                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template">
-                                </div>
-                            </td>
-                            <td class="text-left">Blood Pressure</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="i-checks">
-                                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template">
-                                </div>
-                            </td>
-                            <td class="text-left">Sugar</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="i-checks">
-                                    <input id="checkboxCustom" type="checkbox" value="" onchange="checkAll(this)" class="checkbox-template">
-                                </div>
-                            </td>
-                            <td class="text-left">Blindness</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer" style="border-top:none;">
+                <div class="row">
+                    <div class="col-md-12 space-betw">
+                        <div class="form-group">
+                            <label class="form-control-label">Mobile No.<span class="star">*</span></label>
+                            <input type="text" id="txtMobileNumber" class="form-control"  readonly />
+                        </div>
+                    </div>
+                    <div class="col-md-12 space-betw">
+                        <div class="form-group">
+                            <label class="form-control-label">Text<span class="star">*</span></label>
+                            <input type="text" id="txtText" class="form-control" placeholder="Note" />
+                        </div>
+                    </div>
 
-                <button type="button" class="btn btn_2 btn-primary">Save</button>
-                <button type="button" class="btn btn_1 btn-primary" data-dismiss="modal">Cancel</button>
+
+                </div>
+                <div class="modal-footer" style="border-top:none;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" onclick="SendSMS(this)" class="btn btn_1 btn-primary" data-dismiss="modal">Save</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<input style="display:none" type="text" id="txtMobNo" />
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
@@ -382,22 +360,22 @@
             var appTime = document.getElementById("txtTime").value;
             var appNote = document.getElementById("txtNote").value;
             var urllink = '@Url.Content("/PatientDetails/SetPatientAppoinment")'
-           // $.ajax({
-           //     type: "post",
-           //     url: urllink,
-           //     dataType: 'application/json',
-           //     data: {
+            // $.ajax({
+            //     type: "post",
+            //     url: urllink,
+            //     dataType: 'application/json',
+            //     data: {
 
-           //         'CPno': appCPno, 'AppoinmentDate': appDate, 'AppoinmentTime': appTime, 'Note': appNote
+            //         'CPno': appCPno, 'AppoinmentDate': appDate, 'AppoinmentTime': appTime, 'Note': appNote
 
-           //     },
-           //     success: function (response) {
+            //     },
+            //     success: function (response) {
 
-           //         window.location.href = "../PatientDetails/GetQueueList";
-           //     }
-           // }
+            //         window.location.href = "../PatientDetails/GetQueueList";
+            //     }
+            // }
 
-           //)
+            //)
             $.ajax({
                 type: "POST",
                 url: urllink,
@@ -418,8 +396,7 @@
                 }
             });
         }
-        else
-            {}
+        else { }
     };
 
 
@@ -430,6 +407,8 @@
 
 
     }
+
+
     function SetDueAmount() {
         var CPno = $(this).attr("data-image");
         var appCPno = document.getElementById("txtCPno").value;
@@ -459,9 +438,41 @@
 
 
 
+    function SetMobileNumber(x) {
+        var obj = $(x).parents("tr")
+        var mob = obj.find('td')[3].innerHTML;
+      
+        $("#txtMobileNumber").val(mob.substr(0, 10));
 
 
+    }
 
+    function SendSMS(x) {
+        debugger;
+
+        var MobNo = document.getElementById("txtMobileNumber").value;
+        var message = document.getElementById("txtText").value;
+
+        var form = $('#frmObservationDetails')[0];
+
+        var fromData = new FormData(form);
+        var urllink = '@Url.Content("~/PatientDetails/SendMessage")'
+        $.ajax({
+            type: "post",
+            url: urllink,
+            dataType: 'application/json',
+            data: {
+
+                'MobNo': MobNo, 'message': message
+
+            },
+            success: function (response) {
+                alert("Appoinment booked succesfuly");
+            }
+        }
+
+       )
+    };
 
 
 
@@ -473,7 +484,8 @@
             content: "input",
         })
 .then((value) => {
-    swal(`You typed: ${value}`);
+    swal('You typed: ${value}');
+
 });
     });
 
@@ -489,33 +501,33 @@
 
 
 
-//    $('.fa.fa-calendar').click(function () {
-//        swal({
-//            title: "Do you want to get an Appointment?",
-//            //text: "Once deleted, you will not be able to recover this imaginary file!",
-//            icon: "warning",
-//            //dangerMode: true,
-//            buttons: true,
-//            confirmButtonText: 'YES',
-//            cancelButtonText: "NO",
+    //    $('.fa.fa-calendar').click(function () {
+    //        swal({
+    //            title: "Do you want to get an Appointment?",
+    //            //text: "Once deleted, you will not be able to recover this imaginary file!",
+    //            icon: "warning",
+    //            //dangerMode: true,
+    //            buttons: true,
+    //            confirmButtonText: 'YES',
+    //            cancelButtonText: "NO",
 
-//        })
-//.then((willDelete) => {
-//    if (willDelete) {
-//        swal("Your Appointment Is Now Confirmed.", {
-//            icon: "success",
-//        });
-//    }
-//    else {
+    //        })
+    //.then((willDelete) => {
+    //    if (willDelete) {
+    //        swal("Your Appointment Is Now Confirmed.", {
+    //            icon: "success",
+    //        });
+    //    }
+    //    else {
 
-//        swal("You Are Successfully Canceled An Appointment", {
-//            icon: "success",
+    //        swal("You Are Successfully Canceled An Appointment", {
+    //            icon: "success",
 
-//        });
-//    }
-//});
-   // });
-     $(document).ready(function () {
+    //        });
+    //    }
+    //});
+    // });
+    $(document).ready(function () {
 
         @if (Session["Msg"].ToString()=="1")
         {
@@ -549,4 +561,3 @@
 
 
 </script>
-

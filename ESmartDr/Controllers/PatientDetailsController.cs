@@ -382,5 +382,13 @@ namespace ESmartDr.Controllers
             //return RedirectToAction("GetQueueList", "PatientDetails");
             return Json("1", JsonRequestBehavior.AllowGet);
         }
+        [HttpPost]
+        public ActionResult SendMessage(string MobNo, string message)
+        {
+            SMS sms = new SMS();
+            sms.SendSMS(MobNo, message);
+            return RedirectToAction("ViewAllPatient", "PatientDetails");
+        }
     }
+   
 }
