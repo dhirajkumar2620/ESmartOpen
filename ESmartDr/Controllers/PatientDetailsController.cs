@@ -185,7 +185,7 @@ namespace ESmartDr.Controllers
 
 
 
-        public ActionResult DeleteAppoinment(int Id)
+        public ActionResult DeleteAppoinment(int Id, string Note)
         {
             try
             {
@@ -194,7 +194,9 @@ namespace ESmartDr.Controllers
                 hospitalId = admObj.HospitalId;
 
                 List<QueueDetails> LST = new List<QueueDetails>();
-                LST = BP.DeleteAppoinment(hospitalId, Id);
+               
+                    LST = BP.DeleteAppoinment(hospitalId, Id, Note, admObj.RoleId);
+                
                 PatientCount(admObj.HospitalId);
                 return View("PatientAppoinment", LST);
             }
