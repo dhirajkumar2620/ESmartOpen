@@ -94,11 +94,8 @@ namespace ESmartDr.Controllers
                              .ToList()
                              .FirstOrDefault();
 
-
-
-
                     SMS sms = new SMS();
-                    string message = "You are added to " + admObj.FirstName + ", your CP No. is " + CPNo + ". Download eSmartDoctor Patient app to manage your health - http://bit.ly/2RGTEHTR";
+                    string message = "You are added to " + admObj.FirstName + ", your CP No. is " + CPNo + ". Download eSmartDoctor Patient app to manage your health records - http://bit.ly/2RGTEHTR";
                     sms.SendSMS(PD.WhatsAppNo, message);
                 }
                 Session["Msg"] = "1";

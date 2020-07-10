@@ -49,7 +49,7 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label class="form-control-label">Precription Name<span class="star">*</span></label>
+                                                <label class="form-control-label">Medicine name<span class="star">*</span></label>
                                                 @Html.TextBoxFor(m => m.MedicineName, new { @id = "txtMedicineName", @onchange = "ChangeText(this)", @class = "form-control", required = "required", @placeholder = "Precription Name" })
                                                 @Html.ValidationMessageFor(model => model.MedicineName, "", new { @class = "text-danger" })
 
@@ -59,16 +59,32 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Type<span class="star">*</span></label>
-                                                @Html.TextBoxFor(m => m.MedicineType, new { @id = "txtMedicineType", @class = "form-control", required = "required", @placeholder = "Type" })
-                                                @Html.ValidationMessageFor(model => model.MedicineType, "", new { @class = "text-danger" })
+                                                @Html.DropDownListFor(m => m.MedicineType, new List<SelectListItem>
+                                                     {
+                                                         new SelectListItem{ Text="Select Medicine Type", Value = "0" },
+                                                         new SelectListItem{ Text="TABLET", Value = "TABLET" },
+                                                          new SelectListItem{ Text="CAPSULE", Value = "CAPSULE" },
+                                                           new SelectListItem{ Text="SYRUP", Value = "SYRUP" },
+                                                           new SelectListItem{ Text="LIQUID", Value = "LIQUID" },
+                                                           new SelectListItem{ Text="INJECTION", Value = "INJECTION" },
+                                                           new SelectListItem{ Text="CREAM", Value = "CREAM" },
+                                                           new SelectListItem{ Text="LOTION", Value = "LOTION" },
+                                                           new SelectListItem{ Text="OINTMENT", Value = "OINTMENT" },
+                                                           new SelectListItem{ Text="GEL", Value = "GEL" },
+                                                           new SelectListItem{ Text="DROPS", Value = "DROPS" },
+                                                           new SelectListItem{ Text="SPRAY", Value = "SPRAY" },
+                                                            new SelectListItem{ Text="POWDER", Value = "POWDER" },
+                                                      }, new { @class = "form-control mb-3", @id = "ddlMedicineType" })
+
+
 
 
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label class="form-control-label">Generic Name<span class="star">*</span></label>
-                                                @Html.TextBoxFor(m => m.GenericName, new { @id = "txtGenericName", @class = "form-control", required = "required", @placeholder = "Generic Name" })
+                                                <label class="form-control-label">Generic Name</label>
+                                                @Html.TextBoxFor(m => m.GenericName, new { @id = "txtGenericName", @class = "form-control", @placeholder = "Generic Name" })
                                                 @Html.ValidationMessageFor(model => model.GenericName, "", new { @class = "text-danger" })
 
 
@@ -78,8 +94,8 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label class="form-control-label">Company Name<span class="star">*</span></label>
-                                                @Html.TextBoxFor(m => m.CompanyName, new { @id = "txtCompanyName", @class = "form-control", required = "required", @placeholder = "Company Name" })
+                                                <label class="form-control-label">Company Name</label>
+                                                @Html.TextBoxFor(m => m.CompanyName, new { @id = "txtCompanyName", @class = "form-control", @placeholder = "Company Name" })
                                                 @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
 
 
@@ -87,8 +103,8 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label class="form-control-label">Range<span class="star">*</span></label>
-                                                @Html.TextBoxFor(m => m.Range, new { @id = "txtRange", @class = "form-control", required = "required", @placeholder = "Range" })
+                                                <label class="form-control-label">Range</label>
+                                                @Html.TextBoxFor(m => m.Range, new { @id = "txtRange", @class = "form-control", @placeholder = "Range" })
                                                 @Html.ValidationMessageFor(model => model.Range, "", new { @class = "text-danger" })
 
 
@@ -96,7 +112,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label class="form-control-label">Other</label>
+                                                <label class="form-control-label">Remark</label>
                                                 @Html.TextBoxFor(m => m.Other, new { @id = "txtOther", @class = "form-control", @placeholder = "Other" })
                                                 @Html.ValidationMessageFor(model => model.Other, "", new { @class = "text-danger" })
 

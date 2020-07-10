@@ -281,6 +281,19 @@
 
                                         </div>
                                         <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="form-control-label">
+                                                        Speciality<span class="star">*</span>
+                                                    </label>
+                                                    @Html.TextBoxFor(m => m.Speciality, new { @id = "txtSpeciality", @class = "form-control",  @placeholder = "eg. Dentist" })
+                                                    @Html.ValidationMessageFor(model => model.Speciality, "", new { @class = "text-danger" })
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
                                             <div class="col-md-12 text-right">
                                                 <a href="~/PatientDetails/GetQueueList"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
                                                 <input type="submit" value="Save" class="btn btn_2 btn-primary b22">
@@ -557,6 +570,19 @@
                                                 </div>
                                             </div>
 
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="form-control-label">
+                                                        Speciality<span class="star">*</span>
+                                                    </label>
+                                                    @Html.TextBoxFor(m => m.Speciality, new { @id = "txtSpeciality", @class = "form-control",  @placeholder = "eg. Dentist" })
+                                                    @Html.ValidationMessageFor(model => model.Speciality, "", new { @class = "text-danger" })
+
+
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12 text-right">

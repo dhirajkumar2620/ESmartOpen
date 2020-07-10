@@ -47,6 +47,7 @@ namespace App_Layer
         public int Age { get; set; }
         public string FirmInTime2 { get; set; }
         public string FirmOutTime2 { get; set; }
+        public string Speciality { get; set; }
         public List<AdminDetails> lst { get; set; }
     }
 }

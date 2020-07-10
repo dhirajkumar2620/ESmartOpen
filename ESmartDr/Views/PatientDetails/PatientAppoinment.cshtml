@@ -98,20 +98,20 @@
                                 <table id="example" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>Q.Id</th>
+                                            <th>Q.No</th>
                                             <th>CP No.</th>
                                             <th>Patient</th>
-                                            <th>Contact</th>
+                                            <th>Mobile No</th>
                                             <th>Doctor</th>
-                                            <th>Bill</th>
-                                            <th>Paid Bill</th>
+                                            <th>Bill '₹'</th>
+                                            <th>Paid Bill '₹'</th>
                                             <th>Status</th>
                                             <th hidden>Qid</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                       
                                         @foreach (var item in Model)
                                         {
                                             <tr>
@@ -166,13 +166,13 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>Q.Id</th>
+                                            <th>Q.No</th>
                                             <th>CP No.</th>
                                             <th>Patient</th>
-                                            <th>Contact no</th>
+                                            <th>Mobile No</th>
                                             <th>Doctor</th>
-                                            <th>Bill</th>
-                                            <th>Paid Bill</th>
+                                            <th>Bill '₹'</th>
+                                            <th>Paid Bill '₹'</th>
                                             <th>Status</th>
                                             <th hidden>Qid</th>
                                             <th>Action</th>
@@ -260,12 +260,12 @@
                         </div>
                     </div>
                     <div class="col-md-12 space-betw">
-                        <label class="form-control-label">Bill</label>
+                        <label class="form-control-label">Bill '₹'</label>
                         <input type="text" id="txtBill" class="form-control" placeholder="00:00" readonly />
 
                     </div>
                     <div class="col-md-12 space-betw">
-                        <label class="form-control-label">Paid Amount</label>
+                        <label class="form-control-label">Paid Amount '₹'</label>
                         <input type="text" id="txtDue" class="form-control" placeholder="00.00" />
                         <input style="display:none" type="text" id="txtCPno" class="form-control" placeholder="Note" />
                         <input style="display:none" type="text" id="txtQid" class="form-control" placeholder="Note" />
