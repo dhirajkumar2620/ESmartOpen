@@ -21,13 +21,13 @@ namespace ESmartDr.Controllers
         public ActionResult PatientDetails()
         {
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-            AdminDetails ad = new AdminDetails();
+           List< AdminDetails> ad = new List<AdminDetails>();
             //ad = BP.GetDoctorListByHID(admObj.HospitalId);
-
+            ViewBag.Organisations = new SelectList(BP.GetDoctorListByHID(admObj.HospitalId).ToList(),  "UserId" ,"FirstName");
 
             return View("PatientRegistration");
         }
-
+        
         public IEnumerable<AdminDetails> GetMobileList()
         {
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
@@ -45,9 +45,15 @@ namespace ESmartDr.Controllers
                 List<PatientDetails> LST = new List<PatientDetails>();
 
                 PatientCount(admObj.HospitalId);
-
-
-                LST = BP.GetPatientDetails(admObj.HospitalId);
+                if (admObj.RoleId =="ADM")
+                {
+                    LST = BP.GetPatientDetails(admObj.RoleId, admObj.HospitalId,admObj.UserId);
+                }
+                if (admObj.RoleId=="AHE")
+                {
+                    LST = BP.GetPatientDetails(admObj.RoleId, admObj.HospitalId,admObj.UserId);
+                }
+               
                 return View("AllPatient", LST);
             }
             catch (Exception)
@@ -76,7 +82,7 @@ namespace ESmartDr.Controllers
                 if (PD.Id == 0)
                 {
                     List<PatientDetails> LST = new List<PatientDetails>();
-                    LST = BP.GetPatientDetails(admObj.HospitalId);
+                    LST = BP.GetPatientDetails(admObj.RoleId, admObj.HospitalId, admObj.UserId);
 
                     var CPNo = LST.Where(x
                                  => x.HospitalId == PD.HospitalId
@@ -153,6 +159,7 @@ namespace ESmartDr.Controllers
             try
             {
                 int hospitalId;
+                int UserId =99999 ;
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 hospitalId = admObj.HospitalId;
                 //cards counts
@@ -160,7 +167,15 @@ namespace ESmartDr.Controllers
                 PatientCount(hospitalId);
                 ModelState.Clear();
                 List<QueueDetails> LST = new List<QueueDetails>();
-                LST = BP.GetQueueList(hospitalId);
+                if (admObj.RoleId =="AHE")
+                {
+                    LST = BP.GetQueueList(hospitalId, UserId);
+                }
+                if (admObj.RoleId =="ADM")
+                {
+                    LST = BP.GetQueueList(hospitalId,admObj.UserId);
+                }
+                
                 
                 return View("PatientAppoinment", LST);
             }

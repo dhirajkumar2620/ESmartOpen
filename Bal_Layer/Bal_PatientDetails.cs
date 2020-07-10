@@ -19,9 +19,9 @@ namespace Bal_Layer
             return DP.ManagePatientDetails(PD);
         }
 
-        public List<PatientDetails> GetPatientDetails(int HospitalId)
+        public List<PatientDetails> GetPatientDetails(string Role,int HospitalId, int UserId)
         {
-            return DP.GetPatientDetails(HospitalId);
+            return DP.GetPatientDetails(Role, HospitalId,  UserId);
         }
 
         public PatientDetails GetDetailsById(int id)
@@ -33,9 +33,9 @@ namespace Bal_Layer
         {
             return DP.SetPatientAppoinment( Id,  AppoinmentDate,  AppoinmentTime,  Note);
         }
-        public List<QueueDetails> GetQueueList(int hospitalId)
+        public List<QueueDetails> GetQueueList(int hospitalId , int UserId)
         { 
-            return DP.GetQueueList(hospitalId);
+            return DP.GetQueueList(hospitalId, UserId);
         }
         public List<QueueDetails> DeleteAppoinment(int hospitalId, int Id)
         {

@@ -75,14 +75,16 @@ namespace Dal_Layer
                 throw;
             }
         }
-        public List<PatientDetails> GetPatientDetails(int HospitalId)
+        public List<PatientDetails> GetPatientDetails(string Role,int HospitalId ,int UserId)
         {
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[2];
+                sqlparam = new SqlParameter[4];
                 sqlparam[0] = new SqlParameter("@Flag", "1");
                 sqlparam[1] = new SqlParameter("@HospitalId", HospitalId);
+                sqlparam[2] = new SqlParameter("@UserId", UserId); 
+                 sqlparam[3] = new SqlParameter("@Role", Role);
 
                 DataTable ds = CommonFunction.GetDataTable("USP_GET_PATIENTDETAILS", sqlparam, "");
                 List<PatientDetails> lst = new List<PatientDetails>();
@@ -167,14 +169,15 @@ namespace Dal_Layer
             }
         }
 
-        public List<QueueDetails> GetQueueList(int hospitalId)
+        public List<QueueDetails> GetQueueList(int hospitalId, int UserId)
         {
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[2];
+                sqlparam = new SqlParameter[3];
                 sqlparam[0] = new SqlParameter("@Flag", "1");
                 sqlparam[1] = new SqlParameter("@HospitalId", hospitalId);
+                sqlparam[2] = new SqlParameter("@UserId", UserId);
 
                 DataTable ds = CommonFunction.GetDataTable("USP_GET_QUELIST", sqlparam, "");
                
@@ -363,20 +366,21 @@ namespace Dal_Layer
                 SqlParameter[] sqlparam;
                 sqlparam = new SqlParameter[2];
                 sqlparam[0] = new SqlParameter("@Flag", "1");
-                sqlparam[1] = new SqlParameter("@username", Hid);
+                sqlparam[1] = new SqlParameter("@HId", Hid);
 
                 DataTable ds = CommonFunction.GetDataTable("USP_Get_DoctorList", sqlparam, "");
-                List<AdminDetails> Model = new List<AdminDetails>();
-
+                List<AdminDetails> lst = new List<AdminDetails>();
                 if (ds != null && ds.Rows.Count > 0)
                 {
                     DataTable dt = ds;
                     foreach (DataRow dr in dt.Rows)
                     {
+                        AdminDetails Model = new AdminDetails();
                         CommonFunction.ReflectSingleData(Model, dr);
+                        lst.Add(Model);
                     }
                 }
-                return Model;
+                return lst;
             }
             catch (Exception Ex)
             {
