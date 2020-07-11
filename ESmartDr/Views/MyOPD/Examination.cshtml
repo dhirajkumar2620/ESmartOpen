@@ -129,9 +129,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" id="divPrint">
                 <div class="card-body mg-table">
-                    <table class="table table-striped" style="width: 100%;">
+                    <table class="table table-striped" style="width: 100%;" id="tbl1">
                         <tbody>
                             <tr>
                                 <th>Patient Details : <span>@Session["PatientName"].ToString(), @Session["PatientGender"].ToString(), @Session["PatientAge"].ToString() yrs</span></th>
@@ -297,7 +297,7 @@
 
             </div>
         </div>
-        <input type='button' id='btn' value='Print' class="btn btn_1 btn-primary pull-right" onclick='printDiv("#accordionExample1");'>
+        <input type='button' id='btn' value='Print' class="btn btn_1 btn-primary pull-right" onclick='PrintDiv("divPrint");'>
     </div>
     <br />
 
@@ -408,4 +408,24 @@
     $('.tbl-7').click(function () {
         $('.tbl-view-7').slideToggle();
     });
+</script>
+<script>
+    function PrintDiv(divID) {
+        //Get the HTML of div
+        var divElements = document.getElementById(divID).innerHTML;
+        //Get the HTML of whole page
+        var oldPage = document.body.innerHTML;
+        //Reset the page's HTML with div's HTML only
+        document.body.innerHTML =
+            "<html><head><title></title></head><body>" +
+            divElements + "</body>";
+
+        //Print Page
+        window.print();
+
+        //Restore orignal HTML
+        document.body.innerHTML = oldPage;
+
+
+    }
 </script>
