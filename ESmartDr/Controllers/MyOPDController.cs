@@ -43,7 +43,7 @@ namespace ESmartDr.Controllers
         public ActionResult OpdExamination()
         {
             Bal_Precription bp= new Bal_Precription ();
-            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             Precription pd = new Precription();
             pd = bp.ViewPricripion( patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
             return View("Examination", pd);
@@ -51,7 +51,7 @@ namespace ESmartDr.Controllers
         public ActionResult OpdHistory()
         {
             HistoryDetails hd = new HistoryDetails();
-            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             List<HistoryDetails> Ld = new List<HistoryDetails>();
             Ld = BM.GetHistory(patientDETAILS.WhatsAppNo, patientDETAILS.CasePapaerNo);
             hd.lstHD = Ld;
@@ -68,7 +68,7 @@ namespace ESmartDr.Controllers
 
         public ActionResult PrecObservation()
         {
-            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             Observation ob = new Observation();
             ob = BM.GetObservationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
             return View("Observation", ob);
@@ -77,7 +77,7 @@ namespace ESmartDr.Controllers
         }
         public ActionResult MedicationPrec()
         {
-            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             Medication MD = new Medication();
             //Load lime always null not requird get data
             MD = BM.GetMedicationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
@@ -86,7 +86,7 @@ namespace ESmartDr.Controllers
         }
         public ActionResult PatientMedicalDetails()
         {
-            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             MedicalInformationDetails MD = new MedicalInformationDetails();
             //Load lime always null not requird get data
             MD = BM.GetMedicalInfoDetails(patientDETAILS.CasePapaerNo);
@@ -95,7 +95,7 @@ namespace ESmartDr.Controllers
         }
         public ActionResult PatientLifeStyleDetails()
         {
-            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             LifeStyleDetails Ls = new LifeStyleDetails();
             //Load lime always null not requird get data
             Ls = BM.GetLifeStyleDetails(patientDETAILS.CasePapaerNo);
@@ -118,7 +118,7 @@ namespace ESmartDr.Controllers
             BAL_MyOPD VI = new BAL_MyOPD();
             List<VitalInformation> vi= new List<VitalInformation>();
            VitalInformation v = new VitalInformation();
-            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             vi = VI.GetVitalInformation(patientDETAILS.CasePapaerNo);
 
 
@@ -169,7 +169,7 @@ namespace ESmartDr.Controllers
 
         public ActionResult CommonPrec()
         {
-            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             Common Cm = new Common();
             //Load lime always null not requird get data
             Cm = BM.GetCommonDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);

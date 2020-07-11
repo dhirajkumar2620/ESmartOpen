@@ -20,7 +20,7 @@ namespace ESmartDr.Controllers
         public ActionResult ManageVitalInformation(VitalInformation VI)
         {
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             ModelState.Clear();
             VI.HospitalId = patientDETAILS.HospitalId.ToString();
             VI.CreatedBy = admObj.UserId;
@@ -90,7 +90,7 @@ namespace ESmartDr.Controllers
         public ActionResult ManageLifeStyleDetails(LifeStyleDetails LD)
         {
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             ModelState.Clear();
             LD.HospitalId = patientDETAILS.HospitalId.ToString();
             LD.CreatedBy = admObj.UserId;
@@ -104,7 +104,7 @@ namespace ESmartDr.Controllers
         public ActionResult ManageMedicalInfoDetails(MedicalInformationDetails MI)
         {
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             ModelState.Clear();
             MI.HospitalId = Convert.ToInt16(patientDETAILS.HospitalId);
             MI.CreatedBy = admObj.UserId;

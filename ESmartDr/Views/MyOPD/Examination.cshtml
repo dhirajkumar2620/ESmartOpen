@@ -134,6 +134,21 @@
                     <table class="table table-striped" style="width: 100%;" id="tbl1">
                         <tbody>
                             <tr>
+
+                                <th>
+                                    @Session["P_DrName"].ToString() <br />
+                                    @Session["P_DrEdu"].ToString()  @Session["P_RegNo"].ToString() ( @Session["P_Specality"].ToString() ) </br>
+                                    @Session["P_HosName"].ToString()<br />
+                                    @Session["P_HosAdd"].ToString()<br />
+                                    @Session["P_HosEmail"].ToString()<br />
+                                    @Session["P_HosNo"].ToString() @Session["P_WhtAppNo"].ToString()<br />
+                                    @Session["P_HoliDay"].ToString() Closed
+
+                                </th>
+
+                            </tr>
+
+                            <tr>
                                 <th>Patient Details : <span>@Session["PatientName"].ToString(), @Session["PatientGender"].ToString(), @Session["PatientAge"].ToString() yrs</span></th>
                                 <th>Patient ID : <span>@Session["CPno"].ToString()</span></th>
                                 <th>Appointment Date : <span>@Session["AppDate"].ToString()</span></th>

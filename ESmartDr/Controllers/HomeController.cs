@@ -37,8 +37,21 @@ namespace EsmartDr.Controllers
         public ActionResult MyOPD(string CPno,int QueueID)
         {
 
-            PatientDetails patientDetails = new PatientDetails();
+            PatientAllDetails patientDetails = new PatientAllDetails();
             patientDetails = PD.GetPatientDetailsByCPno(CPno);
+            //----------------Precriptopn tempalate--------
+            Session["P_DrName"] = patientDetails.FirstName ??  " ";
+            Session["P_HosName"] = patientDetails.HostClincName ?? " ";
+            Session["P_HosAdd"] = patientDetails.HospClinicAddess ?? " ";
+            Session["P_HosNo"] = patientDetails.HospClinicNumber ?? " ";
+            Session["P_Specality"] = patientDetails.Speciality ?? " ";
+            Session["P_DrEdu"] = patientDetails.Education ?? " ";
+            Session["P_RegNo"] = patientDetails.RegNumber;
+            Session["P_WhtAppNo"] = patientDetails.WhatsAppNumber ?? " ";
+            Session["P_HosEmail"] = patientDetails.DrEmailId ?? " ";
+            Session["P_HoliDay"] = patientDetails.Holiday??  " ";
+
+            //--------------END---------------
             patientDetails.QueueId = QueueID;
             Session["QueueID"] = QueueID;
             Session["patientDetails"] = patientDetails;

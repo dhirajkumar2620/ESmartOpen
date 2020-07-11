@@ -273,7 +273,7 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
-        public PatientDetails GetPatientDetailsByCPno(string CPno)
+        public PatientAllDetails GetPatientDetailsByCPno(string CPno)
         {
             try
             {
@@ -282,7 +282,7 @@ namespace Dal_Layer
                 sqlparam[0] = new SqlParameter("@CPno", CPno);
 
                 DataTable ds = CommonFunction.GetDataTable("USP_Get_PatientDetailsByCPno", sqlparam, "");
-                PatientDetails lst = new PatientDetails();
+                PatientAllDetails lst = new PatientAllDetails();
                 if (ds != null && ds.Rows.Count > 0)
                 {
                     DataTable dt = ds;

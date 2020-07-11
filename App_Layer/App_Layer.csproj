@@ -58,6 +58,7 @@
     <Compile Include="Medication.cs" />
     <Compile Include="MedicineDetails.cs" />
     <Compile Include="Observation.cs" />
+    <Compile Include="PatientAllDetails.cs" />
     <Compile Include="PatientDetails.cs" />
     <Compile Include="Precription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -17,7 +17,7 @@ namespace ESmartDr.Controllers
         public ActionResult ViewPreription()
         {
             Bal_Precription bp = new Bal_Precription();
-            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             Medication MD = new Medication();
             //Load lime always null not requird get data'
             Precription pd = new Precription();

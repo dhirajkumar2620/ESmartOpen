@@ -23,7 +23,7 @@ namespace ESmartDr.Controllers
         public ActionResult ManageObservation(Observation Ob)
         {
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             ModelState.Clear();
             Ob.QueueId = patientDETAILS.QueueId;
             Ob.HospitalId = patientDETAILS.HospitalId.ToString();
@@ -51,7 +51,7 @@ namespace ESmartDr.Controllers
         public ActionResult ManageMedication(Medication Ob)
         {
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             Ob.QueueId = patientDETAILS.QueueId;
             Ob.HospitalId = patientDETAILS.HospitalId.ToString();
             Ob.CreatedBy = admObj.UserId.ToString();
@@ -77,7 +77,7 @@ namespace ESmartDr.Controllers
         public ActionResult ManagePrecCommonDetails(Common co)
         {
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             ModelState.Clear();
             co.QueueId = patientDETAILS.QueueId;
             co.HospitalId = patientDETAILS.HospitalId.ToString();
@@ -121,7 +121,7 @@ namespace ESmartDr.Controllers
         {
             try
             {
-                PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+                PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
                 int flag = BM.Set_SatatusFlag(patientDETAILS.QueueId,patientDETAILS.CasePapaerNo);
                 if (flag != 0)
                 {
