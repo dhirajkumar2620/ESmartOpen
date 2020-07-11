@@ -21,22 +21,23 @@ namespace ESmartDr.Controllers
         public ActionResult PatientDetails()
         {
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-           List< AdminDetails> ad = new List<AdminDetails>();
-            //ad = BP.GetDoctorListByHID(admObj.HospitalId);
-            ViewBag.Organisations = new SelectList(BP.GetDoctorListByHID(admObj.HospitalId).ToList(),  "UserId" ,"FirstName");
-
+           
+            IList<AdminDetails> drList = new List<AdminDetails>(); 
+            drList = BP.GetDoctorListByHID(admObj.HospitalId).ToList();
+            
+           ViewBag.Organisations = drList;
             return View("PatientRegistration");
         }
         
-        public IEnumerable<AdminDetails> GetMobileList()
-        {
-            AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-            AdminDetails ad = new AdminDetails();
-            List<AdminDetails> d = new List<AdminDetails>();
-            d = BP.GetDoctorListByHID(admObj.HospitalId);
-            var result = d;
-            return result;
-        }
+        //public IEnumerable<AdminDetails> GetMobileList()
+        //{
+        //    AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+        //    AdminDetails ad = new AdminDetails();
+        //    List<AdminDetails> d = new List<AdminDetails>();
+        //    d = BP.GetDoctorListByHID(admObj.HospitalId);
+        //    var result = d;
+        //    return result;
+        //}
         public ActionResult ViewAllPatient()
         {
             try
@@ -67,12 +68,15 @@ namespace ESmartDr.Controllers
             try
             {
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-                PD.CreatedBy = admObj.FirstName;
-                PD.HospitalId = admObj.HospitalId.ToString();
-                PD.HospitalName = admObj.HostClincName;
-                PD.DoctorReceptionId = admObj.ParentId;
+                AdminDetails drObj = new AdminDetails();
+                drObj = BP.GetDoctorDetailsById(PD.DoctorReceptionId);
+                //Session["DoctorDetails"] = drObj;
+                PD.CreatedBy = drObj.FirstName;
+                PD.HospitalId = drObj.HospitalId.ToString();
+                PD.HospitalName = drObj.HostClincName;
+                PD.DoctorReceptionId = drObj.UserId;
                 //string str = admObj.HostClincName.Substring(0, 3);
-                PD.CasePapaerNo = admObj.AlphanumericPrefix.Trim();
+                PD.CasePapaerNo = drObj.AlphanumericPrefix.Trim();
                 int Flag = BP.ManagePatientDetails(PD);
                 if (Flag != 1)
                 {

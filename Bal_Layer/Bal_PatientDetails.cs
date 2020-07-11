@@ -23,6 +23,11 @@ namespace Bal_Layer
         {
             return DP.GetPatientDetails(Role, HospitalId,  UserId);
         }
+        public AdminDetails GetDoctorDetailsById( int UserId)
+        {
+            return DP.GetDoctorDetailsById( UserId);
+        }
+        
 
         public PatientDetails GetDetailsById(int id)
         {
@@ -69,7 +74,7 @@ namespace Bal_Layer
         {
             return DP.GetDoctorUserDetails(UserId);
         }
-        public List<AdminDetails> GetDoctorListByHID(int Hid)
+        public IList<AdminDetails> GetDoctorListByHID(int Hid)
         {
             return DP.GetDoctorListByHID(Hid);
         }

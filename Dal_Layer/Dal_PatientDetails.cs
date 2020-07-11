@@ -29,7 +29,7 @@ namespace Dal_Layer
                 //}
                 //else
                 //{
-                   
+
                 //}
                 sqlparam[4] = new SqlParameter("@Age", PD.Age);
                 sqlparam[5] = new SqlParameter("@MaritalStatus", PD.MaritalStatus);
@@ -57,7 +57,7 @@ namespace Dal_Layer
                 sqlparam[20] = new SqlParameter("@CasePapaerNo", PD.CasePapaerNo);
                 sqlparam[21] = new SqlParameter("@IsActive", 1);
                 sqlparam[22] = new SqlParameter("@HospitlName", PD.HospitalName);
-               
+
                 if (PD.CpExpiryDate.ToString() == "1/1/0001 12:00:00 AM")
                 {
                     PD.CpExpiryDate = Convert.ToDateTime("01/01/9999");
@@ -75,7 +75,7 @@ namespace Dal_Layer
                 throw;
             }
         }
-        public List<PatientDetails> GetPatientDetails(string Role,int HospitalId ,int UserId)
+        public List<PatientDetails> GetPatientDetails(string Role, int HospitalId, int UserId)
         {
             try
             {
@@ -83,8 +83,8 @@ namespace Dal_Layer
                 sqlparam = new SqlParameter[4];
                 sqlparam[0] = new SqlParameter("@Flag", "1");
                 sqlparam[1] = new SqlParameter("@HospitalId", HospitalId);
-                sqlparam[2] = new SqlParameter("@UserId", UserId); 
-                 sqlparam[3] = new SqlParameter("@Role", Role);
+                sqlparam[2] = new SqlParameter("@UserId", UserId);
+                sqlparam[3] = new SqlParameter("@Role", Role);
 
                 DataTable ds = CommonFunction.GetDataTable("USP_GET_PATIENTDETAILS", sqlparam, "");
                 List<PatientDetails> lst = new List<PatientDetails>();
@@ -107,6 +107,36 @@ namespace Dal_Layer
             }
         }
 
+        public AdminDetails GetDoctorDetailsById(int UserId)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@Flag", "2");
+                sqlparam[1] = new SqlParameter("@HId", UserId);
+
+
+                DataTable ds = CommonFunction.GetDataTable("USP_Get_DoctorList", sqlparam, "");
+                AdminDetails lst = new AdminDetails();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        //PatientDetails Model = new PatientDetails();
+                        CommonFunction.ReflectSingleData(lst, dr);
+
+                    }
+                }
+                return lst;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
         public PatientDetails GetPatientDetailsById(int id)
         {
             try
@@ -125,7 +155,7 @@ namespace Dal_Layer
                     {
                         //PatientDetails Model = new PatientDetails();
                         CommonFunction.ReflectSingleData(lst, dr);
-                        
+
                     }
                 }
                 return lst;
@@ -137,7 +167,7 @@ namespace Dal_Layer
             }
         }
 
-        public List<PatientDetails> SetPatientAppoinment(string Id,DateTime AppoinmentDate, string AppoinmentTime,string Note)
+        public List<PatientDetails> SetPatientAppoinment(string Id, DateTime AppoinmentDate, string AppoinmentTime, string Note)
         {
             try
             {
@@ -180,7 +210,7 @@ namespace Dal_Layer
                 sqlparam[2] = new SqlParameter("@UserId", UserId);
 
                 DataTable ds = CommonFunction.GetDataTable("USP_GET_QUELIST", sqlparam, "");
-               
+
                 List<QueueDetails> lst = new List<QueueDetails>();
                 if (ds != null && ds.Rows.Count > 0)
                 {
@@ -212,7 +242,7 @@ namespace Dal_Layer
             return ds;
 
         }
-        public List<QueueDetails> DeleteAppoinment(int hospitalId,int Id ,string Note ,string LoginUserRole)
+        public List<QueueDetails> DeleteAppoinment(int hospitalId, int Id, string Note, string LoginUserRole)
         {
             try
             {
@@ -272,7 +302,7 @@ namespace Dal_Layer
             }
         }
 
-        public int SetStatus(int Queueid,string CPno, float Bill, float paidBill, string Status)
+        public int SetStatus(int Queueid, string CPno, float Bill, float paidBill, string Status)
         {
             try
             {
@@ -285,7 +315,7 @@ namespace Dal_Layer
                 sqlparam[4] = new SqlParameter("@Status", Status);
 
                 int flag = CommonFunction.Save("USP_Set_AppStatus", sqlparam, "");
-               
+
                 return flag;
             }
             catch (Exception Ex)
@@ -302,7 +332,7 @@ namespace Dal_Layer
                 sqlparam = new SqlParameter[2];
                 sqlparam[0] = new SqlParameter("@CPno", CPno);
                 sqlparam[1] = new SqlParameter("@DueAmount", DueAmount);
-               
+
 
                 int flag = CommonFunction.Save("USP_Set_DueAmount", sqlparam, "");
 
@@ -324,7 +354,7 @@ namespace Dal_Layer
                 sqlparam[1] = new SqlParameter("@HospitalId", HospitalId);
 
                 DataTable dt = CommonFunction.GetDataTable("[USP_Get_ExportToExcel]", sqlparam, "");
-               
+
                 return dt;
             }
             catch (Exception Ex)
@@ -362,7 +392,7 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
-        public List<AdminDetails> GetDoctorListByHID(int Hid)
+        public IList<AdminDetails> GetDoctorListByHID(int Hid)
         {
             try
             {
@@ -372,7 +402,7 @@ namespace Dal_Layer
                 sqlparam[1] = new SqlParameter("@HId", Hid);
 
                 DataTable ds = CommonFunction.GetDataTable("USP_Get_DoctorList", sqlparam, "");
-                List<AdminDetails> lst = new List<AdminDetails>();
+                IList<AdminDetails> lst = new List<AdminDetails>();
                 if (ds != null && ds.Rows.Count > 0)
                 {
                     DataTable dt = ds;

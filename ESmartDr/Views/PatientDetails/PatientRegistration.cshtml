@@ -1,6 +1,5 @@
 ﻿@model App_Layer.PatientDetails
-
-
+{
     ViewBag.Title = "PatientRegistration";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -190,10 +189,8 @@
                                             <div class="form-group">
 
                                                 <label class="form-control-label">Doctor<span class="star">*</span></label>
-
-                                                @Html.DropDownList("FirstName", ViewBag.Organisations as SelectList, new { @class = "form-control mb-3", @id = "ddlDrRecId" })
-                                                    
-
+                                                
+                                                @Html.DropDownListFor(x => x.DoctorReceptionId, new SelectList(ViewBag.Organisations, "UserId", "FirstName"), new { @class = "form-control mb-3", @id = "ddlMarital" })
                                             </div>
                                         </div>
                                     </div>
