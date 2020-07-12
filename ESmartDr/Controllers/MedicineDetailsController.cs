@@ -106,33 +106,21 @@ namespace ESmartDr.Controllers
 
 
         [HttpPost]
-        public ActionResult Import(HttpPostedFileBase excelFile)
+        public ActionResult Import(HttpPostedFileBase importFile)
         {
+            if (importFile == null) return Json(new { Status = 0, Message = "No File Selected" });
+            if (importFile.ContentLength == 0) return Json(new { Status = 0, Message = "Empty File Selected" });
 
-            if (excelFile ==null || excelFile.ContentLength == 0)
+
+            try
             {
-                ViewBag.Error = "Please select file";
-                return View("MedicineDetails");
+                var recordsImported = BL.ImportAll(importFile.InputStream);
+                return Json(new { Status = 1, Message = string.Format("File Imported {0} records successfully ", recordsImported) });
             }
-            else
+            catch (Exception ex)
             {
-                if (excelFile.FileName.EndsWith("xls") || excelFile.FileName.EndsWith("xlsx"))
-                {
-                    string path = Server.MapPath("~/Content/" + excelFile.FileName);
-                    if (System.IO.File.Exists(path))
-                    {
-                        System.IO.File.Delete(path);
-                        excelFile.SaveAs(path);
-                    }
-                    return View("success");
-                }
-                else
-                {
-
-                }
-                return View("MedicineDetails");
+                return Json(new { Status = 0, Message = ex.Message });
             }
-
         }
     }
 }

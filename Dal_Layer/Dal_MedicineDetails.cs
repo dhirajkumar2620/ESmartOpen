@@ -48,7 +48,7 @@ namespace Dal_Layer
             {
                 SqlParameter[] sqlparam;
                 sqlparam = new SqlParameter[2];
-                sqlparam[0] = new SqlParameter("@Flag", "1"); 
+                sqlparam[0] = new SqlParameter("@Flag", "1");
                 //sqlparam[1] = new SqlParameter("@MedicineId", 0);
                 sqlparam[1] = new SqlParameter("@HospitalId", hId);
                 DataSet ds = CommonFunction.GetDataSet("USP_Get_MedicineDetails", sqlparam, "");
@@ -60,7 +60,7 @@ namespace Dal_Layer
 
                     foreach (DataRow dr in dt.Rows)
                     {
-                         MedicineDetails Model = new MedicineDetails();
+                        MedicineDetails Model = new MedicineDetails();
                         CommonFunction.ReflectSingleData(Model, dr);
                         lst.Add(Model);
                     }
@@ -83,10 +83,10 @@ namespace Dal_Layer
                 sqlparam[0] = new SqlParameter("@Flag", "2");
                 sqlparam[1] = new SqlParameter("@MedicineId", MedicineId);
 
-                
+
                 return CommonFunction.Save("USP_Get_MedicineDetails", sqlparam, "");
 
-               
+
             }
             catch (Exception Ex)
             {
@@ -95,5 +95,15 @@ namespace Dal_Layer
             }
         }
 
+        public int BulkImportMedicines(DataTable dtImportMedicines)
+        {
+            // This needs to created stored procedure to take input as tblMedicineTableType 'Type' and save to Table.
+            SqlParameter[] sqlparam = {new SqlParameter("tblMedicineTableType", SqlDbType.Structured)
+            {
+                TypeName = "dbo.tblMedicine",
+                Value = dtImportMedicines
+            } };
+            return CommonFunction.Save("USP_BulkImportMedicine", sqlparam, "");
+        }
     }
 }
