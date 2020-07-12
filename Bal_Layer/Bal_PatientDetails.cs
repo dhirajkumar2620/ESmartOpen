@@ -47,9 +47,9 @@ namespace Bal_Layer
             return DP.DeleteAppoinment(hospitalId, Id , Note, LoginUserRole);
         }
 
-        public DataSet CountForCards(int hospitalId)
+        public DataSet CountForCards(int hospitalId, int UserId)
         {
-            return DP.CountForCards(hospitalId);
+            return DP.CountForCards(hospitalId,  UserId);
         }
         public PatientAllDetails GetPatientDetailsByCPno(string CPno)
         {

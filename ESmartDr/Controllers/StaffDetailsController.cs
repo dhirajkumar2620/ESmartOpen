@@ -31,14 +31,14 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 if (admObj.ParentId == 0)
                 {
-                    StaffCount(admObj.HospitalId);
+                    StaffCount(admObj.HospitalId, admObj.UserId);
                    
                     int HId = 0;
                     LST = BP.GetStaffDetails(HId);
                 }
                 else
                 {
-                    StaffCount(admObj.HospitalId);
+                    StaffCount(admObj.HospitalId, admObj.UserId);
                    
                     LST = BP.GetStaffDetails(admObj.HospitalId);
                 }
@@ -70,7 +70,7 @@ namespace ESmartDr.Controllers
                     return View();
                 }
                
-                StaffCount(admObj.HospitalId);
+                StaffCount(admObj.HospitalId, admObj.UserId);
                 if (PD.ReceptionId == 0)
                 {
                     //List<ReceptionStaffReg> LST = new List<ReceptionStaffReg>();
@@ -108,7 +108,7 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 ReceptionStaffReg pd = new ReceptionStaffReg();
                 pd = BP.GetStaffDetailsByAdmId(ReceptionId);
-                StaffCount(admObj.HospitalId);
+                StaffCount(admObj.HospitalId, admObj.UserId);
                 return View("StaffRegistration", pd);
             }
             catch (Exception)
@@ -117,9 +117,9 @@ namespace ESmartDr.Controllers
                 throw;
             }
         }
-        public void StaffCount(int Hid)
+        public void StaffCount(int Hid ,int UserId)
         {
-            DataSet ds = c.CountForCards(Hid);
+            DataSet ds = c.CountForCards(Hid, UserId);
             if (ds.Tables[8].Rows[0][0].ToString() == null)
             {
                 Session["TotalStaffCount"] = "0";

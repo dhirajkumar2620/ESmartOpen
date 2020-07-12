@@ -231,12 +231,13 @@ namespace Dal_Layer
             }
         }
 
-        public DataSet CountForCards(int hospitalId)
+        public DataSet CountForCards(int hospitalId,int UserId)
         {
             SqlParameter[] sqlparam;
-            sqlparam = new SqlParameter[2];
+            sqlparam = new SqlParameter[3];
             sqlparam[0] = new SqlParameter("@Flag", "1");
             sqlparam[1] = new SqlParameter("@HospitalId", hospitalId);
+            sqlparam[2] = new SqlParameter("@UserId", UserId);  
 
             DataSet ds = CommonFunction.GetDataSet("USP_Get_Count", sqlparam, "");
             return ds;

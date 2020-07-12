@@ -2,6 +2,9 @@
 using Bal_Layer;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -101,5 +104,35 @@ namespace ESmartDr.Controllers
             return View("MedicineDetails", MD);
         }
 
+
+        [HttpPost]
+        public ActionResult Import(HttpPostedFileBase excelFile)
+        {
+
+            if (excelFile ==null || excelFile.ContentLength == 0)
+            {
+                ViewBag.Error = "Please select file";
+                return View("MedicineDetails");
+            }
+            else
+            {
+                if (excelFile.FileName.EndsWith("xls") || excelFile.FileName.EndsWith("xlsx"))
+                {
+                    string path = Server.MapPath("~/Content/" + excelFile.FileName);
+                    if (System.IO.File.Exists(path))
+                    {
+                        System.IO.File.Delete(path);
+                        excelFile.SaveAs(path);
+                    }
+                    return View("success");
+                }
+                else
+                {
+
+                }
+                return View("MedicineDetails");
+            }
+
+        }
     }
 }

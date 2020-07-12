@@ -45,7 +45,7 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 List<PatientDetails> LST = new List<PatientDetails>();
 
-                PatientCount(admObj.HospitalId);
+                PatientCount(admObj.HospitalId, admObj.UserId);
                 if (admObj.RoleId =="ADM")
                 {
                     LST = BP.GetPatientDetails(admObj.RoleId, admObj.HospitalId,admObj.UserId);
@@ -82,7 +82,7 @@ namespace ESmartDr.Controllers
                 {
                     return View();
                 }
-                PatientCount(admObj.HospitalId);
+                PatientCount(admObj.HospitalId, admObj.UserId);
                 if (PD.Id == 0)
                 {
                     List<PatientDetails> LST = new List<PatientDetails>();
@@ -119,7 +119,7 @@ namespace ESmartDr.Controllers
                 PatientDetails pd = new PatientDetails();
                 pd = BP.GetDetailsById(Id);
                 pd.BloodGroup.Trim();
-                PatientCount(admObj.HospitalId);
+                PatientCount(admObj.HospitalId, admObj.UserId);
                 return View("PatientRegistration", pd);
             }
             catch (Exception)
@@ -145,7 +145,7 @@ namespace ESmartDr.Controllers
                 //    SMS sms = new SMS();
                 //    sms.SendSMS(admObj.WhatsAppNumber,"Dear "+admObj.FirstName+", your appoinment booked sucecessfuly "+ AppoinmentDate + " at "+ AppoinmentTime + "against Case Paper no "+ CPno + ", Download app for better helth ...");
                 //}
-                PatientCount(admObj.HospitalId);
+                PatientCount(admObj.HospitalId, admObj.UserId);
                 return Json("1", JsonRequestBehavior.AllowGet);
                 //return RedirectToAction("GetQueueList", "PatientDetails");
             }
@@ -165,7 +165,7 @@ namespace ESmartDr.Controllers
                 hospitalId = admObj.HospitalId;
                 //cards counts
 
-                PatientCount(hospitalId);
+                PatientCount(hospitalId, admObj.UserId);
                 ModelState.Clear();
                 List<QueueDetails> LST = new List<QueueDetails>();
                 if (admObj.RoleId =="AHE")
@@ -201,7 +201,7 @@ namespace ESmartDr.Controllers
                
                     LST = BP.DeleteAppoinment(hospitalId, Id, Note, admObj.RoleId);
                 
-                PatientCount(admObj.HospitalId);
+                PatientCount(admObj.HospitalId, admObj.UserId);
                 return View("PatientAppoinment", LST);
             }
             catch (Exception)
@@ -250,7 +250,7 @@ namespace ESmartDr.Controllers
                 {
                     return RedirectToAction("GetQueueList", "PatientDetails");
                 }
-                PatientCount(admObj.HospitalId);
+                PatientCount(admObj.HospitalId, admObj.UserId);
                 return RedirectToAction("GetQueueList", "PatientDetails");
             }
             catch (Exception ex)
@@ -274,7 +274,7 @@ namespace ESmartDr.Controllers
 
                 }
 
-                PatientCount(admObj.HospitalId);
+                PatientCount(admObj.HospitalId, admObj.UserId);
                 return RedirectToAction("GetQueueList", "PatientDetails");
             }
             catch (Exception)
@@ -284,9 +284,9 @@ namespace ESmartDr.Controllers
             }
         }
 
-        public void PatientCount(int Hid)
+        public void PatientCount(int Hid , int UserId)
         {
-            DataSet ds = BP.CountForCards(Hid);
+            DataSet ds = BP.CountForCards(Hid, UserId);
             if (ds.Tables[0].Rows[0][0].ToString() == null)
             {
                 Session["TodayAppointment"] = "0";
@@ -396,7 +396,7 @@ namespace ESmartDr.Controllers
             {
                 //return RedirectToAction("GetQueueList", "PatientDetails");
             }
-            PatientCount(admObj.HospitalId);
+            PatientCount(admObj.HospitalId, admObj.UserId);
             //return RedirectToAction("GetQueueList", "PatientDetails");
             return Json("1", JsonRequestBehavior.AllowGet);
         }

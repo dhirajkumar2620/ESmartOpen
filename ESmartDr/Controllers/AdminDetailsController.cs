@@ -37,14 +37,14 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 if (admObj.ParentId == 0)
                 {
-                    CardDetails(admObj.HospitalId);
+                    CardDetails(admObj.HospitalId,admObj.UserId);
 
                     int HId = 0;
                     LST = BP.GetAllAdminDetails_SA(HId);
                 }
                 else
                 {
-                    CardDetails(admObj.HospitalId);
+                    CardDetails(admObj.HospitalId, admObj.UserId);
                     LST = BP.GetAllAdminDetails_SA(admObj.HospitalId);
                 }
                 return View("AllAdmin", LST);
@@ -150,7 +150,7 @@ namespace ESmartDr.Controllers
                     sms.SendSMS(AD.WhatsAppNumber, message);
                 }
 
-                CardDetails(admObj.HospitalId);
+                CardDetails(admObj.HospitalId, admObj.UserId);
                 return View("AllAdmin", LST);
             }
             catch (Exception ex)
@@ -167,7 +167,7 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 AdminDetails pd = new AdminDetails();
                 pd = BP.GetAdminById(UserId);
-                CardDetails(admObj.HospitalId);
+                CardDetails(admObj.HospitalId, admObj.UserId);
                 return View("AdminRegistration", pd);
             }
             catch (Exception)
@@ -214,9 +214,9 @@ namespace ESmartDr.Controllers
             Response.End();
         }
 
-        public void CardDetails(int Hid)
+        public void CardDetails(int Hid,int UserId)
         {
-            DataSet ds = c.CountForCards(Hid);
+            DataSet ds = c.CountForCards(Hid, UserId);
             if (ds.Tables[5].Rows[0][0].ToString() == null)
             {
                 Session["TotalFrimCount"] = "0";

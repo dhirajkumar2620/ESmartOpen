@@ -277,7 +277,7 @@
             })
 
         }
-        $(".add-row").on("click", function () {
+        $(".fa-pencil").on("click", function () {
             var obj = $(this).parents("tr")
             $("#hdnId").val(obj.find('td')[0].innerHTML);
             $("#txtMedicineName").val(obj.find('td')[1].innerHTML);
@@ -303,28 +303,28 @@
             $("#txtAlternateMedicine").val(obj.find('td')[8].innerHTML);
         }
         function DeleteRecord(id) {
+            if (confirm('Do you want to delete record ?')) {
+                var form = $('#frmPrecMedication')[0];
 
-            var form = $('#frmPrecMedication')[0];
+                var fromData = new FormData(form);
+                var urllink = '@Url.Content("~/Prescription/DeleteMedication")'
+                $.ajax({
+                    type: "post",
+                    url: urllink,
+                    dataType: 'application/json',
+                    data: {
 
-            var fromData = new FormData(form);
-            var urllink = '@Url.Content("~/Prescription/DeleteMedication")'
-            $.ajax({
-                type: "post",
-                url: urllink,
-                dataType: 'application/json',
-                data: {
-
-                    'Id': id
-                },
-                success: function (response) {
-                    alert("succesfuly saved...");
+                        'Id': id
+                    },
+                    success: function (response) {
+                        alert("succesfuly saved...");
+                    }
                 }
+
+               )
             }
-
-           )
-
-
         };
+
         $('.grid-show').click(function () {
             $('.mg-table').css("display", "block");
         });

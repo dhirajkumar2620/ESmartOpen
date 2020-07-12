@@ -4,52 +4,63 @@
 }
 <style>
     .table thead {
-    background: #ffffff;
-    color: #666;
-}
+        background: #ffffff;
+        color: #666;
+    }
+
     .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #ffffff!important;
-}
+        background-color: #ffffff !important;
+    }
+
     .table tbody {
-    background: #ffffff;
-}
+        background: #ffffff;
+    }
+
     .table tr:hover {
-    box-shadow: 2px 4px 10px #fff;
-}
+        box-shadow: 2px 4px 10px #fff;
+    }
     /*.table thead th {
-    vertical-align: bottom;
-    border-bottom: 1px solid #dedede!important;
-}
-    .table td {
-    border-top: 1px solid #dedede!important;
-    vertical-align: middle!important;
-}*/
+        vertical-align: bottom;
+        border-bottom: 1px solid #dedede!important;
+    }
+        .table td {
+        border-top: 1px solid #dedede!important;
+        vertical-align: middle!important;
+    }*/
     .table th {
-    padding-top: 15px;
-}
+        padding-top: 15px;
+    }
+
     .table {
-    margin-bottom: 0rem;
-}
-    .mg-table .table{
-        border-bottom:1px solid #d4d4d4;
+        margin-bottom: 0rem;
     }
-    .tbl-view-1 tr th:first-child{
-        width:20%;
+
+    .mg-table .table {
+        border-bottom: 1px solid #d4d4d4;
     }
-    .tbl-view-2 tr th:first-child{
-        width:20%;
+
+    .tbl-view-1 tr th:first-child {
+        width: 20%;
     }
-    .tbl-view-3 tr th:first-child{
-        width:20%;
+
+    .tbl-view-2 tr th:first-child {
+        width: 20%;
     }
-    .tbl-view-4 tr th:first-child{
-        width:20%;
+
+    .tbl-view-3 tr th:first-child {
+        width: 20%;
     }
-    .tbl-view-5 tr th:first-child{
-        width:20%;
+
+    .tbl-view-4 tr th:first-child {
+        width: 20%;
     }
-    .tbl-view-5 tr th:first-child{
-        width:20%;
+
+    .tbl-view-5 tr th:first-child {
+        width: 20%;
+    }
+
+    .tbl-view-5 tr th:first-child {
+        width: 20%;
     }
 </style>
 
@@ -111,8 +122,8 @@
                         @Html.ValidationMessageFor(model => model.Diagnosis, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <div class="col-md-4" >
-                    <div class="form-group"  style="float: right;margin-top: 2em;">
+                <div class="col-md-4">
+                    <div class="form-group" style="float: right;margin-top: 2em;">
                         <button type="button" onclick="SubmitObservationDetails()" class="btn btn_1 btn-primary" id="btnSave">Save</button>
                     </div>
                 </div>
@@ -120,7 +131,7 @@
 
         </form>
     }
-    <br/>
+    <br />
     <div class="row mg-table">
         <div class="col-lg-12">
             <div class="">
@@ -128,7 +139,7 @@
                     <div class="table-responsive opd-table ">
                         <table class="table" id="tblObservation">
                             <thead>
-                                <tr  style="background: #f8f9fa;">
+                                <tr style="background: #f8f9fa;">
                                     <th hidden>Id</th>
                                     <th>Complaints</th>
                                     <th>Since</th>
@@ -189,7 +200,7 @@
                 $('#tblObservation tbody').empty();
                 var trHTML = '';
                 $.each(data, function (i, item) {
-                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.Complaints + '</td><td>' + item.Since + '</td><td>' + item.Period + '</td><td>' + item.PhysicalExamination + '</td><td>' + item.Diagnosis + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id+'") aria-hidden="true"></i></td></tr>';
+                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.Complaints + '</td><td>' + item.Since + '</td><td>' + item.Period + '</td><td>' + item.PhysicalExamination + '</td><td>' + item.Diagnosis + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
                 });
                 $('#tblObservation tbody').append(trHTML)
                 $("#hdnId").val('0');
@@ -205,7 +216,7 @@
         })
 
     }
-    $(".add-row").on("click", function () {
+    $(".fa-pencil").on("click", function () {
 
         var obj = $(this).parents("tr")
         $("#hdnId").val(obj.find('td')[0].innerHTML);
@@ -226,7 +237,7 @@
         $("#txtDiagnosis").val(obj.find('td')[5].innerHTML);
     }
     function DeleteRecord(id) {
-  
+        if (confirm('Do you want to delete record ?')) {
             var form = $('#frmPrecMedication')[0];
 
             var fromData = new FormData(form);
@@ -240,17 +251,18 @@
                     'Id': id
                 },
                 success: function (response) {
+                    //var obj = $(this).parents("tr");
+                    //obj.remove();
                     alert("Delete succesfuly ...");
                     location.reload();
                 }
             }
 
            )
-
-        };
+        }
+    };
 
     $('.grid-show').click(function () {
         $('.mg-table').css("display", "block");
     });
 </script>
-
