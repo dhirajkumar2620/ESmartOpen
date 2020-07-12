@@ -181,8 +181,19 @@
     </div>
 
 </div>
-
+<script src="~/js/front.js"></script>
+<script src="~/js/Notifier.min.js"></script>
 <script>
+
+    var notifier = new Notifier({
+        position: 'bottom-right',
+        direction: 'bottom'
+    });
+
+    // Success 
+    document.getElementById("tostr-save").onclick = function () {
+        notifier.notify("success", "Personal details saved successfully!");
+    };
 
     function SubmitObservationDetails() {
 
@@ -265,4 +276,6 @@
     $('.grid-show').click(function () {
         $('.mg-table').css("display", "block");
     });
+
+
 </script>

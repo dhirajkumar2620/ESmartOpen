@@ -22,7 +22,31 @@
       </ul>
     </div> -->
     <!-- Forms Section-->
+    <section class="forms2">
 
+        <div class="col-lg-7">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="file" id="Datafile" name="excelFile" placeholder="" class="form-control">
+
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="form-group">
+                                <input type="submit" v alue="Import" class="btn btn_1 btn-primary" style="background-color:darkgray" />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
     @using (Html.BeginForm("ManageMedicineDetails", "MedicineDetails", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.HiddenFor(m => m.MedicineId);
@@ -30,26 +54,6 @@
 
         <section class="forms">
 
-            <div class="col-lg-7">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="file" id="Datafile" name="excelFile" placeholder="" class="form-control">
-                                  
-                                </div>
-                            </div>
-                            <div class="col-md-1">
-                                <div class="form-group">
-                                    <input type="submit" v alue="Import" class="btn btn_1 btn-primary" style="background-color:darkgray" />
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="container-fluid">
                 <div class="row">
                     <!-- Basic Form-->

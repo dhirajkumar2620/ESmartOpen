@@ -9,6 +9,8 @@ namespace App_Layer
     public class QueueDetails
     {
         public int Id { get; set; }
+        public int rowNum { get; set; }
+        
         public string CasePaperNo { get; set; }
         public string PatientName { get; set; }
         public DateTime DateTime { get; set; }

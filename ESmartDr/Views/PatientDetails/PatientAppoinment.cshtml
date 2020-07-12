@@ -115,7 +115,7 @@
                                         @foreach (var item in Model)
                                         {
                                             <tr>
-                                                <td></td>
+                                                <td>@item.rowNum</td>
                                                 <td>@item.CasePaperNo</td>
                                                 <td>@item.PatientName<br />@item.Age / @item.Gender</td>
                                                 <td>@item.WhatsAppNo<br />@item.OtherNo</td>
@@ -123,16 +123,17 @@
                                                 <td>@item.Bill</td>
                                                 <td>@item.Paid</td>
 
-                                                @if (item.InQuee == 1)
-                                                {
-                                                    <td>In Queue</td>
-                                                }
-                                                @if (item.InQuee == 2)
+                                                @if(item.InQuee == 1)
                                                 {
                                                     <td>With Doctor</td>
 
                                                 }
-                                                @if (item.InQuee == 3)
+                                                @if(item.InQuee == 2)
+                                                {
+                                                    <td>In Queue</td>
+                                                }
+                                               
+                                                @if(item.InQuee == 3)
                                                 {
                                                     <td>Visited</td>
 
@@ -243,8 +244,8 @@
                                 @Html.DropDownList("Status", new List<SelectListItem>
                                         {
 
-                                        new SelectListItem{ Text="In Queue", Value = "1" },
-                                        new SelectListItem{ Text="With Doctor", Value = "2" },
+                                        new SelectListItem{ Text="In Queue", Value = "2" },
+                                        new SelectListItem{ Text="With Doctor", Value = "1" },
                                         new SelectListItem{ Text="Visited", Value = "3" },
                                         }, new { @class = "form-control mb-3", id = "txtStatus" })
 
