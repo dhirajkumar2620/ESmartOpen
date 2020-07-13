@@ -26,6 +26,11 @@ namespace App_Layer
         public int ModifideBy { get; set; }
         public bool IsActive { get; set; }
         public int QueueId { get; set; }
+        public float TotalBill { get; set; }
+        public float TotalPaid { get; set; }
+        public float TotalBalance { get; set; }
+        public float Total { get; set; }
+
         public List<BillingDetails> lst { get; set; }
     } 
 }

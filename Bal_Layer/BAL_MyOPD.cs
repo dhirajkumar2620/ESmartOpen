@@ -2,6 +2,7 @@
 using Dal_Layer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,7 +72,7 @@ namespace Bal_Layer
         {
             return DM.GetHistory(mobileNumber,CPno);
         }
-        public int ManageBilling(BillingDetails BD)
+        public int ManageBilling(DataTable BD)
         {
             return DM.ManageBilling(BD);
         }
@@ -94,6 +95,10 @@ namespace Bal_Layer
         public WebHistory GetWEBHistory( string CPno)
         {
             return DM.GetWEBHistory( CPno);
+        }
+        public int SetStatus(int Queueid, string Status)
+        {
+            return DM.SetStatus(Queueid, Status);
         }
     }
 }

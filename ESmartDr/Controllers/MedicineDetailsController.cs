@@ -108,13 +108,14 @@ namespace ESmartDr.Controllers
         [HttpPost]
         public ActionResult Import(HttpPostedFileBase importFile)
         {
+            AdminDetails admObj = (AdminDetails)Session["UserDetails"];
             if (importFile == null) return Json(new { Status = 0, Message = "No File Selected" });
             if (importFile.ContentLength == 0) return Json(new { Status = 0, Message = "Empty File Selected" });
 
 
             try
             {
-                var recordsImported = BL.ImportAll(importFile.InputStream);
+                var recordsImported = BL.ImportAll(importFile.InputStream ,admObj.HospitalId);
                 return Json(new { Status = 1, Message = string.Format("File Imported {0} records successfully ", recordsImported) });
             }
             catch (Exception ex)

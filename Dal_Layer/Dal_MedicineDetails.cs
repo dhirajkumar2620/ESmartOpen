@@ -2,6 +2,7 @@
 using DataLayer;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -97,13 +98,50 @@ namespace Dal_Layer
 
         public int BulkImportMedicines(DataTable dtImportMedicines)
         {
-            // This needs to created stored procedure to take input as tblMedicineTableType 'Type' and save to Table.
-            SqlParameter[] sqlparam = {new SqlParameter("tblMedicineTableType", SqlDbType.Structured)
+            try
             {
-                TypeName = "dbo.tblMedicine",
-                Value = dtImportMedicines
-            } };
-            return CommonFunction.Save("USP_BulkImportMedicine", sqlparam, "");
+                dtImportMedicines.Columns.Remove("CreatedDate");
+                dtImportMedicines.Columns.Remove("ModifiedBy");
+                dtImportMedicines.Columns.Remove("ModifiedDate");
+                dtImportMedicines.Columns.Remove("MedicineId");
+                SqlParameter param = new SqlParameter();
+                param.ParameterName = "CustMediDtl";
+                param.SqlDbType = SqlDbType.Structured;
+                param.Value = dtImportMedicines;
+                param.Direction = ParameterDirection.Input;
+                string dbConnStr = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;
+                SqlConnection conn = null;
+                using (conn = new SqlConnection(dbConnStr))
+                {
+                    SqlCommand sqlCmd = new SqlCommand("dbo.SaveMedicineDetails");
+                    conn.Open();
+                    sqlCmd.Connection = conn;
+                    sqlCmd.CommandType = CommandType.StoredProcedure;
+                    sqlCmd.Parameters.Add(param);
+                    sqlCmd.ExecuteNonQuery();
+                }
+                //SqlParameter[] sqlparam;
+                //sqlparam = new SqlParameter[10];
+                //sqlparam[0] = new SqlParameter("@Id", BD.Id);
+                //sqlparam[1] = new SqlParameter("@ServiceName", BD.ServiceName);
+                //sqlparam[2] = new SqlParameter("@Bill", BD.Bill);
+                //sqlparam[3] = new SqlParameter("@Paid", BD.Paid);
+                //sqlparam[4] = new SqlParameter("@Balance", BD.Balance);
+                //sqlparam[5] = new SqlParameter("@CasePaperNo", BD.CasePaperNo);
+                //sqlparam[6] = new SqlParameter("@HospitalId", BD.HospitalId);
+                //sqlparam[7] = new SqlParameter("@PatientId", BD.PatientId);
+                //sqlparam[8] = new SqlParameter("@CreatedBy", BD.CreatedBy);
+                //sqlparam[9] = new SqlParameter("@QueueId", BD.QueueId);
+
+
+                //int flag = CommonFunction.Save("USP_ManageBilling", sqlparam, "");
+
+                return 1;
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
         }
     }
 }

@@ -4,35 +4,12 @@
 }
 <div class="bs-example">
     <div class="accordion" id="accordionExample1">
-        @*<div class="row">
-                <div class="col-md-6">
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                            Prescription For :
-                        </li>
-                        <li class="list-inline-item">
-                            <div class="form-group">
-                                <div class="input-group date" data-provide="datepicker">
-                                    <input type="text" class="form-control datepicker" placeholder="dd/mm/yyyy" />
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <input type="button" value="Copy Previous" class="btn btn_1 btn-primary pull-right">
-                </div>
-            </div>*@
+
         <div class="second-tab">
             <div class="card">
-
-
                 <div class="card-body">
                     <div class="table-responsive opd-table1">
-                        <table class="table">
+                        <table class="table" id="tblCustomers">
                             <thead>
                                 <tr>
                                     <th>Service Name</th>
@@ -43,47 +20,69 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td contenteditable="true">Fever</td>
-                                    <td contenteditable="true">1000</td>
-                                    <td contenteditable="true">Paid</td>
-                                    <td contenteditable="true">0</td>
-                                    <td>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item" title="Edit">
-                                                <i class="fa fa-plus add-row-billing" aria-hidden="true"></i>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
+                                @if (Model.lst.Count != 0)
+                                {
+                                    foreach (var item in Model.lst)
+
+                                    {
+                                        <tr>
+                                            <td contenteditable="true">@item.ServiceName</td>
+                                            <td contenteditable="true">@item.Bill</td>
+                                            <td contenteditable="true">@item.Paid</td>
+                                            <td contenteditable="true">@item.Balance</td>
+                                            <td>
+                                                <ul class="list-inline">
+                                                    <li class="list-inline-item" title="Edit">
+                                                        <i class="fa fa-plus add-row-billing" aria-hidden="true"></i>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td contenteditable="true">Fever</td>
+                                        <td contenteditable="true">1000</td>
+                                        <td contenteditable="true">Paid</td>
+                                        <td contenteditable="true">0</td>
+                                        <td>
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item" title="Edit">
+                                                    <i class="fa fa-plus add-row-billing" aria-hidden="true"></i>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-
-
             <div class="row reg-counter">
                 <div class="col-md-12">
                     <div class="card animated fadeInUp delay-01s bg-light">
                         <div class="card-body patient-det">
+
                             <div class="row align-items-center">
 
                                 <div class="col-md-2">
                                     <h6 class="mt-0 mb-1">Bill</h6>
-                                    <div class="count text-primary fs-20">2000</div>
+                                    <div class="count text-primary fs-20">@Model.TotalBill</div>
                                 </div>
                                 <div class="col-md-2">
                                     <h6 class="mt-0 mb-1">Paid</h6>
-                                    <div class="count text-primary fs-20">1000</div>
+                                    <div class="count text-primary fs-20">@Model.TotalPaid</div>
                                 </div>
                                 <div class="col-md-2">
                                     <h6 class="mt-0 mb-1">Balance</h6>
-                                    <div class="count text-primary fs-20">1000</div>
+                                    <div class="count text-primary fs-20">@Model.TotalBalance</div>
                                 </div>
                                 <div class="col-md-2">
                                     <h6 class="mt-0 mb-1">Total</h6>
-                                    <div class="count text-primary fs-20">4000</div>
+                                    <div class="count text-primary fs-20">@Model.Total</div>
                                 </div>
                             </div>
                         </div>
@@ -101,35 +100,9 @@
 
     </div>
 </div>
-@*<script src="~/vendor/jquery/jquery.min.js"></script>*@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="~/js/front.js"></script>
 <script>
-
-    //$(".nav-tabs li").removeClass("active"); btnInvestigation
-    $("#btnObservation").on('click', function () {
-        var url = $(this).data('request-url');
-
-        $("#tabObservation").load(url);
-    });
-    $("#btnMedication").on('click', function () {
-        var url = $(this).data('request-url');
-
-        $("#tabMedication").load(url);
-    });
-    $("#btnCommon").on('click', function () {
-        var url = $(this).data('request-url');
-
-        $("#tabCommon").load(url);
-    });
-</script>
-<script>
-
-    //$('.opd-table .add-row').click(function () {
-    //    $('.opd-table .table').append('<tr><td contenteditable="true">001</td><td contenteditable="true">Fever</td><td contenteditable="true">2 Week</td><td><ul class="list-inline"><li class="list-inline-item" title="Edit"><i class="fa fa-times"  onclick="SomeDeleteRowFunction(this);" aria-hidden="true"></i></li></ul></td></tr>');
-    //});
-
-
     $('.opd-table1 .add-row-billing').click(function () {
         $('.opd-table1 .table').append('<tr><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td><ul class="list-inline"><li class="list-inline-item" title="Edit"><i class="fa fa-times add-row-billing" onclick="SomeDeleteRowFunction(this);" aria-hidden="true"></i></li></ul></td></tr>');
     });
@@ -166,44 +139,16 @@
         $('.medicl-cert').css("display", "block");
     });
 
-    function SetStatus(x) {
-
-        debugger;
-        var CPno = $(this).attr("data-image");
-
-
-        var form = $('#frmObservationDetails')[0];
-
-        var fromData = new FormData(form);
-        var urllink = '@Url.Content("~/Prescription/StatusChange")'
-        debugger;
-        $.ajax({
-            type: "post",
-            url: urllink,
-            dataType: 'application/json',
-            data: {
-
-
-            },
-            success: function (response) {
-                alert("succesfuly saved...");
-            }
-        }
-
-       )
-    };
     function Save(x) {
-
-        //Loop through the Table rows and build a JSON array.
         var item = new Array();
+        var customers = new Array();
         $("#tblCustomers TBODY TR").each(function () {
             var row = $(this);
             var customer = {};
-
-            item.ServiceName = row.find("TD").eq(0).html();
-            item.Bill = row.find("TD").eq(1).html();
-            item.Paid = row.find("TD").eq(2).html();
-            item.Balance = row.find("TD").eq(3).html();
+            customer.ServiceName = row.find("TD").eq(0).html();
+            customer.Bill = row.find("TD").eq(1).html();
+            customer.Paid = row.find("TD").eq(2).html();
+            customer.Balance = row.find("TD").eq(3).html();
             item.push(customer);
         });
 
@@ -211,13 +156,36 @@
         $.ajax({
             type: "POST",
             url: "/BillingDetails/ManageBilling",
-            data: JSON.stringify(customers),
+            data: JSON.stringify(item),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (r) {
-                alert(r + " record(s) inserted.");
+                window.location.href ="/MyOPD/OpdBilling"
+                //$('#pills-billing-tab').click();
             }
         });
 
     };
+    function SetStatus(x) {
+       var status = 3
+        $.ajax({
+            type: "POST",
+            url: "/BillingDetails/SetStatus",
+            data: '{Status: "' + status + '"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+
+                if (confirm('Data updated successfuly..')) {
+                    window.location.href = '/PatientDetails/GetQueueList'
+                }
+            }
+            //failure: function (response) {
+            //    alert(response.responseText);
+            //},
+            //error: function (response) {
+            //    alert(response.responseText);
+            //}
+        });
+    }
 </script>

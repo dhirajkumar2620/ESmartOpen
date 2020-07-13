@@ -30,7 +30,7 @@ namespace Bal_Layer
             return DP.DeleteMedicine(MedicineId);
         }
 
-        public List<MedicineDetails> GetDataFromCSVFile(Stream stream)
+        public List<MedicineDetails> GetDataFromCSVFile(Stream stream , int Hid)
         {
             var lstMedicineDetails = new List<MedicineDetails>();
             try
@@ -58,7 +58,8 @@ namespace Bal_Layer
                                 MedicineType = objDataRow["MedicineType"].ToString(),
                                 GenericName = objDataRow["GenericName"].ToString(),
                                 Range = objDataRow["Range"].ToString(),
-                                Other = objDataRow["Other"].ToString()
+                                Other = objDataRow["Other"].ToString(),
+                                HospitalId = Hid
                             });
                         }
                     }
@@ -77,9 +78,9 @@ namespace Bal_Layer
             throw new NotImplementedException();
         }
 
-        public int ImportAll(Stream inputStream)
+        public int ImportAll(Stream inputStream, int Hid)
         {
-            List<MedicineDetails> fileData = GetDataFromCSVFile(inputStream);
+            List<MedicineDetails> fileData = GetDataFromCSVFile(inputStream ,Hid);
             //convert fileData into DataTable
             var dtImportMedicines = fileData.ToDataTable();
             return DP.BulkImportMedicines(dtImportMedicines);
@@ -110,6 +111,7 @@ namespace Bal_Layer
                 }
                 dataTable.Rows.Add(values);
             }
+            dataTable.Columns.Remove("lst");
             return dataTable;
         }
     }
