@@ -98,7 +98,7 @@
                                 <table id="example" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>Q.No</th>
+                                            <th id="ID">Q.No</th>
                                             <th>CP No.</th>
                                             <th>Patient</th>
                                             <th>Mobile No</th>
@@ -115,6 +115,7 @@
                                         @foreach (var item in Model)
                                         {
                                             <tr>
+                                               
                                                 <td>@item.rowNum</td>
                                                 <td>@item.CasePaperNo</td>
                                                 <td>@item.PatientName<br />@item.Age / @item.Gender</td>
@@ -321,7 +322,12 @@
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-    
+  
+    //datata table functionality
+    //$(document).ready(function () {
+    //    $('#example').DataTable();
+    //});
+
     function ShowDeleteAppoinment(x) {
         
         var obj = $(x).parents("tr")
@@ -446,14 +452,12 @@
 
 //});
 //    });
-    $(document).ready(function () {
-        $('#example').DataTable();
-    });
+   
 
 
-    $("#btnExport").click(function () {
-        $("#example").table2excel();
-    });
+    //$("#btnExport").click(function () {
+    //    $("#example").table2excel();
+    //});
 
 </script>
 
