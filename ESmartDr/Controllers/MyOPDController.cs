@@ -69,10 +69,17 @@ namespace ESmartDr.Controllers
         public ActionResult PrecObservation()
         {
             PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
+            string Status = "1";
             Observation ob = new Observation();
-            ob = BM.GetObservationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
-            return View("Observation", ob);
+            BAL_MyOPD BL = new BAL_MyOPD();
+            int flag = BL.SetStatus(patientDETAILS.QueueId, Status);
+            if (flag != 0)
+            {
+                ob = BM.GetObservationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+                return View("Observation", ob);
+            }
 
+            return View("Observation", ob);
 
         }
         public ActionResult MedicationPrec()
