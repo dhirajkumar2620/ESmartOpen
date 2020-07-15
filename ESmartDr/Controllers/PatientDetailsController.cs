@@ -160,7 +160,7 @@ namespace ESmartDr.Controllers
             try
             {
                 int hospitalId;
-                int UserId =99999 ;
+                
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 hospitalId = admObj.HospitalId;
                 //cards counts
@@ -170,6 +170,7 @@ namespace ESmartDr.Controllers
                 List<QueueDetails> LST = new List<QueueDetails>();
                 if (admObj.RoleId =="AHE")
                 {
+                    int UserId = 99999;
                     LST = BP.GetQueueList(hospitalId, UserId);
                 }
                 if (admObj.RoleId =="ADM")
