@@ -111,11 +111,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                       
+
                                         @foreach (var item in Model)
                                         {
                                             <tr>
-                                               
+
                                                 <td>@item.rowNum</td>
                                                 <td>@item.CasePaperNo</td>
                                                 <td>@item.PatientName<br />@item.Age / @item.Gender</td>
@@ -124,17 +124,17 @@
                                                 <td>@item.Bill</td>
                                                 <td>@item.Paid</td>
 
-                                                @if(item.InQuee == 1)
+                                                @if (item.InQuee == 1)
                                                 {
                                                     <td>With Doctor</td>
 
                                                 }
-                                                @if(item.InQuee == 2)
+                                                @if (item.InQuee == 2)
                                                 {
                                                     <td>In Queue</td>
                                                 }
-                                               
-                                                @if(item.InQuee == 3)
+
+                                                @if (item.InQuee == 3)
                                                 {
                                                     <td>Visited</td>
 
@@ -244,9 +244,8 @@
                                 @*<input type="text" id="txtStatus" class="form-control" placeholder="00:00" />*@
                                 @Html.DropDownList("Status", new List<SelectListItem>
                                         {
-
-                                        new SelectListItem{ Text="In Queue", Value = "2" },
                                         new SelectListItem{ Text="With Doctor", Value = "1" },
+                                        new SelectListItem{ Text="In Queue", Value = "2" },
                                         new SelectListItem{ Text="Visited", Value = "3" },
                                         }, new { @class = "form-control mb-3", id = "txtStatus" })
 
@@ -297,7 +296,7 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    
+
                     <div class="col-md-12 space-betw">
                         <div class="form-group">
                             <label class="form-control-label">Remark<span class="star">*</span></label>
@@ -322,14 +321,14 @@
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-  
+
     //datata table functionality
     //$(document).ready(function () {
     //    $('#example').DataTable();
     //});
 
     function ShowDeleteAppoinment(x) {
-        
+
         var obj = $(x).parents("tr")
         $("#txtQueueId").val(obj.find('td')[8].innerHTML);
     }
@@ -357,8 +356,8 @@
 
        )
     };
-   function showModel(x) {
-        
+    function showModel(x) {
+
         var obj = $(x).parents("tr")
         $("#txtQid").val(obj.find('td')[8].innerHTML);
         $("#txtCPno").val(obj.find('td')[1].innerHTML);
@@ -432,27 +431,27 @@
 
 
 
-//    $('.fa.fa-times').click(function () {
-//        swal({
-//            title: "Do you want to cancel an appointment?",
-//            //text: "Once deleted, you will not be able to recover this imaginary file!",
-//            icon: "warning",
-//            //dangerMode: true,
-//            buttons: true,
-//            confirmButtonText: 'YES',
-//            cancelButtonText: "NO",
+    //    $('.fa.fa-times').click(function () {
+    //        swal({
+    //            title: "Do you want to cancel an appointment?",
+    //            //text: "Once deleted, you will not be able to recover this imaginary file!",
+    //            icon: "warning",
+    //            //dangerMode: true,
+    //            buttons: true,
+    //            confirmButtonText: 'YES',
+    //            cancelButtonText: "NO",
 
-//        })
-//.then((willDelete) => {
-//    if (willDelete) {
-//        swal("Your appointment is canceled.", {
-//            icon: "success",
-//        });
-//    }
+    //        })
+    //.then((willDelete) => {
+    //    if (willDelete) {
+    //        swal("Your appointment is canceled.", {
+    //            icon: "success",
+    //        });
+    //    }
 
-//});
-//    });
-   
+    //});
+    //    });
+
 
 
     //$("#btnExport").click(function () {
@@ -460,4 +459,3 @@
     //});
 
 </script>
-

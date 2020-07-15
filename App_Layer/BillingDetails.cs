@@ -14,6 +14,8 @@ namespace App_Layer
         }
         public int Id { get; set; }
         public string ServiceName { get; set; }
+        public float Qty { get; set; }
+        public float UnitPrize { get; set; }
         public float Bill { get; set; }
         public float Paid { get; set; }
         public float Balance { get; set; }

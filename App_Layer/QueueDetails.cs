@@ -33,6 +33,10 @@ namespace App_Layer
         public string OtherNo { get; set; }
         public string Bill { get; set; }
         public string Paid { get; set; }
+        public string TotalAmount { get; set; }
+        public string DiscountAmount { get; set; }
+
+
 
 
     }

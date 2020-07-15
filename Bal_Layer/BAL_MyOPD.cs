@@ -100,5 +100,20 @@ namespace Bal_Layer
         {
             return DM.SetStatus(Queueid, Status);
         }
+
+
+        // new billing BAL
+        public int ManageBilling(BillingDetails Ob)
+        {
+            return DM.ManageBilling(Ob);
+        }
+        public int SetBillAmount(int QueueId, string CasePaperNo, float TotalAmount, float DiscountAmount, float NetBillAmount, float PaidAmountaid)
+        {
+            return DM.SetBillAmount(QueueId, CasePaperNo, TotalAmount, DiscountAmount, NetBillAmount, PaidAmountaid);
+        }
+        public List<BillingDetails> DeleteBilling(int Id, int QueueId)
+        {
+            return DM.DeleteBilling(Id,  QueueId);
+        }
     }
 }

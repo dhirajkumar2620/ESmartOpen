@@ -724,5 +724,89 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
+
+
+        //billing DAl
+        public int ManageBilling(BillingDetails Ob)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[11];
+                sqlparam[0] = new SqlParameter("@Id", Ob.Id);
+                sqlparam[1] = new SqlParameter("@ServiceName", Ob.ServiceName);
+                sqlparam[2] = new SqlParameter("@Qty", Ob.Qty);
+                sqlparam[3] = new SqlParameter("@UnitPrize", Ob.UnitPrize);
+                sqlparam[4] = new SqlParameter("@Bill", Ob.Bill);
+                sqlparam[5] = new SqlParameter("@Paid", Ob.Paid);
+                //sqlparam[4] = new SqlParameter("@Balance", ob.Balance);
+                sqlparam[6] = new SqlParameter("@CasePaperNo", Ob.CasePaperNo);
+                sqlparam[7] = new SqlParameter("@HospitalId", Ob.HospitalId);
+                sqlparam[8] = new SqlParameter("@PatientId", Ob.PatientId);
+                sqlparam[9] = new SqlParameter("@CreatedBy", Ob.CreatedBy);
+                sqlparam[10] = new SqlParameter("@QueueId", Ob.QueueId);
+                return CommonFunction.Save("USP_ManageBillingForPatient", sqlparam, "");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        public int SetBillAmount(int QueueId, string CasePaperNo, float TotalAmount, float DiscountAmount, float NetBillAmount, float PaidAmountaid)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[6];
+                sqlparam[0] = new SqlParameter("@QueueId", QueueId);
+                sqlparam[1] = new SqlParameter("@CasePaperNo", CasePaperNo);
+                sqlparam[2] = new SqlParameter("@TotalAmount", TotalAmount);
+                sqlparam[3] = new SqlParameter("@DiscountAmount", DiscountAmount);
+                sqlparam[4] = new SqlParameter("@NetBillAmount", NetBillAmount);
+                sqlparam[5] = new SqlParameter("@PaidAmountaid", PaidAmountaid);
+               
+     
+                return CommonFunction.Save("USP_Set_Bill", sqlparam, "");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        public List<BillingDetails> DeleteBilling(int Id,int QueueId)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@flag", 4);
+                sqlparam[1] = new SqlParameter("@Id", Id);
+                sqlparam[2] = new SqlParameter("@QueueId", QueueId);
+                DataTable ds = CommonFunction.GetDataTable("[USP_delete_Precription]", sqlparam, "");
+                List<BillingDetails> olst = new List<BillingDetails>();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        BillingDetails Model = new BillingDetails();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        olst.Add(Model);
+                    }
+                }
+
+
+                return olst;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
     }
 }
