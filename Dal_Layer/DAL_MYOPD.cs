@@ -727,6 +727,39 @@ namespace Dal_Layer
 
 
         //billing DAl
+        public BillingDetails GetBillDetails(int QueueId, string CPno)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[3];
+                sqlparam[0] = new SqlParameter("@flag", 8);
+                sqlparam[1] = new SqlParameter("@QueueId", QueueId);
+                sqlparam[2] = new SqlParameter("@CPno", CPno);
+
+                DataTable ds = CommonFunction.GetDataTable("USP_Get_Precription", sqlparam, "");
+                BillingDetails Ob = new BillingDetails();
+                List<BillingDetails> lst = new List<BillingDetails>();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        BillingDetails Model = new BillingDetails();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        //Ob = Model;
+                        lst.Add(Model);
+                    }
+                }
+                Ob.lst = lst;
+                return Ob;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
         public int ManageBilling(BillingDetails Ob)
         {
             try
@@ -786,7 +819,7 @@ namespace Dal_Layer
                 sqlparam[0] = new SqlParameter("@flag", 4);
                 sqlparam[1] = new SqlParameter("@Id", Id);
                 sqlparam[2] = new SqlParameter("@QueueId", QueueId);
-                DataTable ds = CommonFunction.GetDataTable("[USP_delete_Precription]", sqlparam, "");
+                DataTable ds = CommonFunction.GetDataTable("USP_delete_Precription", sqlparam, "");
                 List<BillingDetails> olst = new List<BillingDetails>();
                 if (ds != null && ds.Rows.Count > 0)
                 {

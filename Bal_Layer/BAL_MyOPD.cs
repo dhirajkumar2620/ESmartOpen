@@ -103,6 +103,10 @@ namespace Bal_Layer
 
 
         // new billing BAL
+        public BillingDetails GetBillDetails(int QueueId, string CPno)
+        {
+            return DM.GetBillDetails(QueueId, CPno);
+        }
         public int ManageBilling(BillingDetails Ob)
         {
             return DM.ManageBilling(Ob);
