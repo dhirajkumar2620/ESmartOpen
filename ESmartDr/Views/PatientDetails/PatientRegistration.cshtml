@@ -72,12 +72,12 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-control-label">Date of Birth</label>
-                                                <div class="input-group date" >
-                                                    @Html.TextBoxFor(m => m.DOB, new { @id = "txtDOB", @type = "date", @class = "form-control",@placeholder = "eg. dd/mm/yyyy" })
+                                                <div class="input-group date" data-provide="datepicker">
+                                                    @Html.TextBoxFor(m => m.DOB, new { @id = "txtDOB", @type = "text", @class = "form-control datepicker", @placeholder = "eg. dd/mm/yyyy" })
                                                     @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
-                                                    @*<div class="input-group-addon">
+                                                    <div class="input-group-addon">
                                                         <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
-                                                    </div>*@
+                                                    </div>
                                                 </div>
                                             </div>
 
