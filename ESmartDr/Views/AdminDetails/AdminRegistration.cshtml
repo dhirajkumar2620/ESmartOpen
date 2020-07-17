@@ -636,10 +636,10 @@
             $(this).css('color', '#000');
 
         }
-    });
-    $("#txtWhatsAppNo").change(function () {
-        var MobileNumber = $('#txtWhatsAppNo').val();
-
+    });     
+    $("#txtWhatsAppNumber").change(function () {
+        var MobileNumber = $('#txtWhatsAppNumber').val();
+        debugger
         $.ajax({
             type: "POST",
             url: "/AdminDetails/CheckMobile",

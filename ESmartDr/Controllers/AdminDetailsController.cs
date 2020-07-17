@@ -113,7 +113,7 @@ namespace ESmartDr.Controllers
                 AD.ParentId = admObj.UserId;
                 AD.ReportingTo = admObj.UserId;
                 AD.HospitalId = admObj.HospitalId;
-                AD.AlphanumericPrefix = AD.AlphanumericPrefix.TrimEnd();
+                AD.AlphanumericPrefix = AD.AlphanumericPrefix.TrimEnd().ToUpper();
 
                 string path = UplodaImage(imgfile);
                 if (path == "-1")
@@ -253,7 +253,7 @@ namespace ESmartDr.Controllers
             {
                 List<AdminDetails> LST = new List<AdminDetails>();
                 LST = BP.GetAllAdminDetails();
-                bool Alfa = LST.Any(cus => cus.AlphanumericPrefix == Input);
+                bool Alfa = LST.Any(cus => cus.AlphanumericPrefix.Trim() == Input);
                 int i = 0;
                 if (Alfa)
                 {
