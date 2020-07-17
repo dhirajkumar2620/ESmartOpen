@@ -88,13 +88,12 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <div class="grid-btn">
+                                <div class="grid-btn pull-right">
                                     <a> <input type="Date" id="txtDate" class="form-control text-letter" onchange="NextAppView(this)" placeholder="dd/mm/yyyy"></a>
-                                    <a href="~/PatientDetails/PatientDetails">
-                                        <input type="button" value="Add New Patient" style="margin-left: 1em;border-radius: 22px;" class="btn btn_2 btn-primary">
-                                    </a>
+                                    <a href="~/PatientDetails/PatientDetails"> <input type="button" value="Add New Patient" style="margin-left: 1em;border-radius: 22px;" class="btn btn_2 btn-primary"> </a>
                                     @*<input type="button" value="Export To Excel" style="margin-left: 1em;border-radius: 22px;" id="btnExport" class="btn btn_1 btn-primary">*@
                                 </div>
+                                <br /><br />
                                 <table id="example" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
@@ -301,7 +300,7 @@
 
                     <div class="col-md-12 space-betw">
                         <div class="form-group">
-                            <label  style="display:none"  class="form-control-label">Remark<span class="star">*</span></label>
+                            <label style="display:none" class="form-control-label">Remark<span class="star">*</span></label>
                             <input type="text" value="Cancled" style="display:none" id="txtNote" class="form-control" placeholder="Note" />
                             <input type="text" style="display:none" id="txtQueueId" class="form-control" placeholder="" />
                             <input type="text" style="display:none" id="txtCP" class="form-control" placeholder="" />
@@ -330,7 +329,7 @@
     //$(document).ready(function () {
     //    $('#example').DataTable();
     //});
-    
+
     function NextAppView(x) {
         var date1 = document.getElementById("txtDate").value;
         var fromData = new FormData(form);
