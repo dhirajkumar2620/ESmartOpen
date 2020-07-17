@@ -301,9 +301,11 @@
 
                     <div class="col-md-12 space-betw">
                         <div class="form-group">
-                            <label class="form-control-label">Remark<span class="star">*</span></label>
-                            <input type="text" id="txtNote" class="form-control" placeholder="Note" />
-                            <input type="text" style="display:none" id="txtQueueId" class="form-control" placeholder="Note" />
+                            <label  style="display:none"  class="form-control-label">Remark<span class="star">*</span></label>
+                            <input type="text" value="Cancled" style="display:none" id="txtNote" class="form-control" placeholder="Note" />
+                            <input type="text" style="display:none" id="txtQueueId" class="form-control" placeholder="" />
+                            <input type="text" style="display:none" id="txtCP" class="form-control" placeholder="" />
+                            <input type="text" style="display:none" id="txtNo" class="form-control" placeholder="" />
                         </div>
                     </div>
 
@@ -312,7 +314,7 @@
                 <div class="modal-footer" style="border-top:none;">
                     <div class="row">
                         <div class="col-md-12">
-                            <button type="button" onclick="DeleteAppoinment(this)" class="btn btn_1 btn-primary" data-dismiss="modal">Save</button>
+                            <button type="button" onclick="DeleteAppoinment(this)" class="btn btn_1 btn-primary" data-dismiss="modal">Yes</button>
                         </div>
                     </div>
                 </div>
@@ -359,11 +361,18 @@
 
         var obj = $(x).parents("tr")
         $("#txtQueueId").val(obj.find('td')[8].innerHTML);
+        $("#txtCP").val(obj.find('td')[1].innerHTML);
+        var mob = obj.find('td')[3].innerHTML;
+        $("#txtNo").val(mob.substr(0, 10));
     }
 
     function DeleteAppoinment(x) {
+        debugger;
         var QueueId = document.getElementById("txtQueueId").value;
         var Note = document.getElementById("txtNote").value;
+        var CPno = document.getElementById("txtCP").value;
+        var MbNo = document.getElementById("txtNo").value;
+
         var form = $('#frmObservationDetails')[0];
 
         var fromData = new FormData(form);
@@ -375,7 +384,7 @@
             dataType: 'application/json',
             data: {
 
-                'Id': QueueId, 'Note': Note
+                'Id': QueueId, 'Note': Note, 'CPno': CPno, 'MbNo': MbNo
             },
             success: function (response) {
                 alert("succesfuly saved...");

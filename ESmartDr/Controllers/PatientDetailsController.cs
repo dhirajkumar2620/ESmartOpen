@@ -14,6 +14,7 @@ namespace ESmartDr.Controllers
     {
         // GET: PatientDetails Added by Shital 
         Bal_PatientDetails BP = new Bal_PatientDetails();
+        SMS sms = new SMS();
         public ActionResult Index()
         {
             return View();
@@ -98,7 +99,7 @@ namespace ESmartDr.Controllers
                              .ToList()
                              .FirstOrDefault();
 
-                    SMS sms = new SMS();
+                   
                     string message = "You are added to " + admObj.FirstName + ", your CP No. is " + CPNo + ". Download eSmartDoctor Patient app to manage your health records - http://bit.ly/2RGTEHTR";
                     sms.SendSMS(PD.WhatsAppNo, message);
                 }
@@ -234,7 +235,7 @@ namespace ESmartDr.Controllers
             }
         }
 
-        public ActionResult DeleteAppoinment(int Id, string Note)
+        public ActionResult DeleteAppoinment(int Id, string Note ,string CPno, string MbNo)
         {
             try
             {
@@ -245,6 +246,11 @@ namespace ESmartDr.Controllers
                 List<QueueDetails> LST = new List<QueueDetails>();
                
                     LST = BP.DeleteAppoinment(hospitalId, Id, Note, admObj.RoleId);
+                if (true)
+                {
+                    string message = "Your appoinment were cancled for CP " + CPno + ". Download eSmartDoctor Patient app to manage your health records - http://bit.ly/2RGTEHTR";
+                    sms.SendSMS(MbNo, message);
+                }
                 
                 PatientCount(admObj.HospitalId, admObj.UserId);
                 return View("PatientAppoinment", LST);

@@ -269,9 +269,11 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="img\001.jpg" />
+    <Content Include="img\ChangePassword.png" />
     <Content Include="img\002.jpg" />
     <Content Include="img\003.jpg" />
     <Content Include="img\004.jpg" />
+    <Content Include="img\LogoTechbulb.png" />
     <Content Include="img\ability_img.png" />
     <Content Include="img\about-image.png" />
     <Content Include="img\avatar-1.jpg" />
@@ -291,12 +293,14 @@
     <Content Include="img\doc_snake.png" />
     <Content Include="img\favicon.png" />
     <Content Include="img\feature-image1.jpg" />
+    <Content Include="img\forgetpassward.png" />
     <Content Include="img\F_icon.png" />
     <Content Include="img\Google_Logo.png" />
     <Content Include="img\logo.jpg" />
     <Content Include="img\logo_new.jpeg" />
     <Content Include="img\Page-Animated.png" />
     <Content Include="img\Powered By company logo.png" />
+    <Content Include="img\ResetPassward.png" />
     <Content Include="img\screencapture-templatemonsterpreview-demo-77692-html-2020-06-02-15_29_33.png" />
     <Content Include="img\screencapture-templatemonsterpreview-demo-82788-html-2020-06-02-14_59_42.png" />
     <Content Include="js\api.js" />
@@ -340,6 +344,7 @@
     <Content Include="fonts\iconfont.ttf" />
     <Content Include="fonts\iconfont.woff" />
     <Content Include="fonts\Play-Regular.ttf" />
+    <Content Include="Doc\Medicine.xlsx" />
     <None Include="Properties\PublishProfiles\New Code.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -650,7 +655,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>4911</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:4911/</IISUrl>
+          <IISUrl>http://localhost:4912/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
