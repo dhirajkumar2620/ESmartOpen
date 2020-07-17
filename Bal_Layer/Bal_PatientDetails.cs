@@ -78,5 +78,9 @@ namespace Bal_Layer
         {
             return DP.GetDoctorListByHID(Hid);
         }
+        public BillPrint PrintBill(int QueueId, string CPno)
+        {
+            return DP.PrintBill( QueueId,  CPno);
+        }
     }
 }

@@ -424,5 +424,46 @@ namespace Dal_Layer
             }
         }
 
+        public BillPrint PrintBill(int QueueId, string CPno)
+        {
+            try
+            {
+         
+                  SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[3];
+                sqlparam[0] = new SqlParameter("@flag", "1");
+                sqlparam[1] = new SqlParameter("@QueueId", QueueId);
+                sqlparam[2] = new SqlParameter("@CPno", CPno);
+                DataSet ds = CommonFunction.GetDataSet("USP_Get_PrintBillingDetails", sqlparam, "");
+                BillPrint BP = new BillPrint();
+                List<Bill> lst = new List<Bill>();
+                if (ds != null && ds.Tables[0].Rows.Count > 0)
+                {
+
+                    DataTable dt = ds.Tables[0];
+                    foreach (DataRow dr in dt.Rows)
+                    {
+
+                        CommonFunction.ReflectSingleData(BP, dr);
+                       
+                    }
+                    DataTable dt1 = ds.Tables[1];
+                    foreach (DataRow dr in dt1.Rows)
+                    {
+                        Bill Model = new Bill();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        lst.Add(Model);
+                    }
+                }
+                BP.lstBill = lst;
+                return BP;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+
     }
 }
