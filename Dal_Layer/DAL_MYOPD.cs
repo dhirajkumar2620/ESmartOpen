@@ -727,39 +727,39 @@ namespace Dal_Layer
 
 
         //billing DAl
-        public BillingDetails GetBillDetails(int QueueId, string CPno)
-        {
-            try
-            {
-                SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[3];
-                sqlparam[0] = new SqlParameter("@flag", 8);
-                sqlparam[1] = new SqlParameter("@QueueId", QueueId);
-                sqlparam[2] = new SqlParameter("@CPno", CPno);
+        //public BillingDetails GetBillDetails(int QueueId, string CPno)
+        //{
+        //    try
+        //    {
+        //        SqlParameter[] sqlparam;
+        //        sqlparam = new SqlParameter[3];
+        //        sqlparam[0] = new SqlParameter("@flag", 8);
+        //        sqlparam[1] = new SqlParameter("@QueueId", QueueId);
+        //        sqlparam[2] = new SqlParameter("@CPno", CPno);
 
-                DataTable ds = CommonFunction.GetDataTable("USP_Get_Precription", sqlparam, "");
-                BillingDetails Ob = new BillingDetails();
-                List<BillingDetails> lst = new List<BillingDetails>();
-                if (ds != null && ds.Rows.Count > 0)
-                {
-                    DataTable dt = ds;
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        BillingDetails Model = new BillingDetails();
-                        CommonFunction.ReflectSingleData(Model, dr);
-                        //Ob = Model;
-                        lst.Add(Model);
-                    }
-                }
-                Ob.lst = lst;
-                return Ob;
-            }
-            catch (Exception Ex)
-            {
+        //        DataTable ds = CommonFunction.GetDataTable("USP_Get_Precription", sqlparam, "");
+        //        BillingDetails Ob = new BillingDetails();
+        //        List<BillingDetails> lst = new List<BillingDetails>();
+        //        if (ds != null && ds.Rows.Count > 0)
+        //        {
+        //            DataTable dt = ds;
+        //            foreach (DataRow dr in dt.Rows)
+        //            {
+        //                BillingDetails Model = new BillingDetails();
+        //                CommonFunction.ReflectSingleData(Model, dr);
+        //                //Ob = Model;
+        //                lst.Add(Model);
+        //            }
+        //        }
+        //        Ob.lst = lst;
+        //        return Ob;
+        //    }
+        //    catch (Exception Ex)
+        //    {
 
-                throw Ex;
-            }
-        }
+        //        throw Ex;
+        //    }
+        //}
         public int ManageBilling(BillingDetails Ob)
         {
             try
@@ -799,8 +799,8 @@ namespace Dal_Layer
                 sqlparam[3] = new SqlParameter("@DiscountAmount", DiscountAmount);
                 sqlparam[4] = new SqlParameter("@NetBillAmount", NetBillAmount);
                 sqlparam[5] = new SqlParameter("@PaidAmountaid", PaidAmountaid);
-               
-     
+
+
                 return CommonFunction.Save("USP_Set_Bill", sqlparam, "");
             }
             catch (Exception)
@@ -810,7 +810,7 @@ namespace Dal_Layer
             }
 
         }
-        public List<BillingDetails> DeleteBilling(int Id,int QueueId)
+        public List<BillingDetails> DeleteBilling(int Id, int QueueId)
         {
             try
             {
@@ -834,6 +834,37 @@ namespace Dal_Layer
 
 
                 return olst;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+        public BillingDetails GetBillingDetails(int queueId, string casePapaerNo)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@flag", "1");
+                sqlparam[1] = new SqlParameter("@QueId", queueId);
+
+                DataTable ds = CommonFunction.GetDataTable("USP_GET_BillingDetails", sqlparam, "");
+                BillingDetails Ob = new BillingDetails();
+                List<BillingDetails> lst = new List<BillingDetails>();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        BillingDetails Model = new BillingDetails();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        lst.Add(Model);
+                    }
+                }
+                Ob.lst = lst;
+                return Ob;
             }
             catch (Exception Ex)
             {

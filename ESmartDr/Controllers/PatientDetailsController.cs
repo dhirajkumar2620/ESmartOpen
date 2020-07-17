@@ -253,7 +253,7 @@ namespace ESmartDr.Controllers
                 }
                 
                 PatientCount(admObj.HospitalId, admObj.UserId);
-                return View("PatientAppoinment", LST);
+                return Json("1", JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {

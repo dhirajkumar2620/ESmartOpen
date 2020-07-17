@@ -11,21 +11,35 @@ namespace ESmartDr.Controllers
 {
     public class BillingDetailsController : Controller
     {
-        BAL_MyOPD BL = new BAL_MyOPD();
+        BAL_Billing BL = new BAL_Billing();
         // GET: BillingDetails
         public ActionResult Index()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult ManageBilling(List<BillingDetails> item)
+        public ActionResult ManageBilling(BillingDetails BD)
+        {
+            AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            BD.CasePaperNo = patientDETAILS.CasePapaerNo;
+            BD.HospitalId = patientDETAILS.HospitalId;
+            BD.PatientId = patientDETAILS.Id;
+            BD.CreatedBy = patientDETAILS.Id;
+            BD.QueueId = patientDETAILS.QueueId;
+            int i = BL.ManageBilling(BD);
+            return Json("1", JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult ManageBilling1(List<BillingDetails> item)
         {
             try
             {
                 ModelState.Clear();
                 BillingDetails b = new BillingDetails();
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-                PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
+                PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
                 DataTable custDT = new DataTable();
                 DataColumn col = null;
                 col = new DataColumn("Id");
@@ -58,10 +72,10 @@ namespace ESmartDr.Controllers
                     Details.QueueId = patientDETAILS.QueueId;
                     custDT.Rows.Add(0, Details.ServiceName, Details.Bill, Details.Paid, Details.Balance, Details.CasePaperNo, Details.HospitalId, Details.PatientId, Details.CreatedBy, Details.QueueId);
                 }
-                int Flag = BL.ManageBilling(custDT);
+                int Flag = 1;//BL.ManageBilling(custDT);
                 ModelState.Clear();
-                //return RedirectToAction("OpdBilling", "MyOPD");
-                return Json("1", JsonRequestBehavior.AllowGet);
+                return RedirectToAction("OpdBilling", "MyOPD");
+                //return Json("1",JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
@@ -69,76 +83,5 @@ namespace ESmartDr.Controllers
                 throw;
             }
         }
-
-        public ActionResult SetStatus( string Status)
-        {
-            try
-            {
-                PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
-                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-                List<PatientDetails> LST = new List<PatientDetails>();
-                int flag = BL.SetStatus(patientDETAILS.QueueId, Status);
-                if (flag != 0)
-                {
-                    return RedirectToAction("GetQueueList", "PatientDetails");
-                }
-                PatientCount(admObj.HospitalId, admObj.UserId);
-                return RedirectToAction("GetQueueList", "PatientDetails");
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-        }
-        public void PatientCount(int Hid, int UserId)
-        {
-            Bal_PatientDetails BP = new Bal_PatientDetails();
-            DataSet ds = BP.CountForCards(Hid, UserId);
-            if (ds.Tables[0].Rows[0][0].ToString() == null)
-            {
-                Session["TodayAppointment"] = "0";
-            }
-            else
-            {
-                Session["TodayAppointment"] = ds.Tables[0].Rows[0][0].ToString();
-            }
-
-            if (ds.Tables[1].Rows[0][0].ToString() == null)
-            {
-                Session["TodayNewPatient"] = "0";
-            }
-            else
-            {
-                Session["TodayNewPatient"] = ds.Tables[1].Rows[0][0].ToString();
-            }
-
-            if (ds.Tables[2].Rows[0][0].ToString() == null)
-            {
-                Session["YesterdayPatients"] = "0";
-            }
-            else
-            {
-                Session["YesterdayPatients"] = ds.Tables[2].Rows[0][0].ToString();
-            }
-            if (ds.Tables[3].Rows[0][0].ToString() == null)
-            {
-                Session["TotalPatientCount"] = "0";
-            }
-            else
-            {
-                Session["TotalPatientCount"] = ds.Tables[3].Rows[0][0].ToString();
-            }
-            if (ds.Tables[4].Rows[0][0].ToString() == null)
-            {
-                Session["TodaysNewPatientCount"] = "0";
-            }
-            else
-            {
-                Session["TodaysNewPatientCount"] = ds.Tables[4].Rows[0][0].ToString();
-            }
-
-        }
-
     }
 }

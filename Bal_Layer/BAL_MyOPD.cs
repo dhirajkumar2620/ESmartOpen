@@ -103,10 +103,10 @@ namespace Bal_Layer
 
 
         // new billing BAL
-        public BillingDetails GetBillDetails(int QueueId, string CPno)
-        {
-            return DM.GetBillDetails(QueueId, CPno);
-        }
+        //public BillingDetails GetBillDetails(int QueueId, string CPno)
+        //{
+        //    return DM.GetBillDetails(QueueId, CPno);
+        //}
         public int ManageBilling(BillingDetails Ob)
         {
             return DM.ManageBilling(Ob);
@@ -118,6 +118,10 @@ namespace Bal_Layer
         public List<BillingDetails> DeleteBilling(int Id, int QueueId)
         {
             return DM.DeleteBilling(Id,  QueueId);
+        }
+        public BillingDetails GetBillingDetails(int queueId, string casePapaerNo)
+        {
+            return DM.GetBillingDetails(queueId, casePapaerNo);
         }
     }
 }

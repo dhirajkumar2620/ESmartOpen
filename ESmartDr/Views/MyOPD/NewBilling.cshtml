@@ -1,0 +1,208 @@
+﻿@model App_Layer.BillingDetails
+@{
+    Layout = null;
+}
+<style>
+        .table thead {
+            background: #ffffff;
+            color: #666;
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #ffffff !important;
+        }
+
+        .table tbody {
+            background: #ffffff;
+        }
+
+        .table tr:hover {
+            box-shadow: 2px 4px 10px #fff;
+        }
+        /*.table thead th {
+        vertical-align: bottom;
+        border-bottom: 1px solid #dedede!important;
+    }
+        .table td {
+        border-top: 1px solid #dedede!important;
+        vertical-align: middle!important;
+    }*/
+        .table th {
+            padding-top: 15px;
+        }
+
+        .table {
+            margin-bottom: 0rem;
+        }
+
+        .mg-table .table {
+            border-bottom: 1px solid #d4d4d4;
+        }
+
+        .tbl-view-1 tr th:first-child {
+            width: 20%;
+        }
+
+        .tbl-view-2 tr th:first-child {
+            width: 20%;
+        }
+
+        .tbl-view-3 tr th:first-child {
+            width: 20%;
+        }
+
+        .tbl-view-4 tr th:first-child {
+            width: 20%;
+        }
+
+        .tbl-view-5 tr th:first-child {
+            width: 20%;
+        }
+
+        .tbl-view-5 tr th:first-child {
+            width: 20%;
+        }
+</style>
+<div class="card-body">
+    @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmBillingDetails" }))
+    {
+        @Html.HiddenFor(m => m.Id, new { @id = "hdnId" });
+        <form>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Description<span class="star">*</span>
+                        </label>
+                        @Html.TextBoxFor(m => m.ServiceName, new { @id = "txtDescrption", @class = "form-control", required = "required", @placeholder = "Description" })
+                        @Html.ValidationMessageFor(model => model.ServiceName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Quantity<span class="star">*</span>
+                        </label>
+                        @Html.TextBoxFor(m => m.Qty, new { @id = "txtqty", @type = "number", @class = "form-control", required = "required", @placeholder = "Quantity" })
+                        @Html.ValidationMessageFor(model => model.Qty, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Unit Price<span class="star">*</span>
+                        </label>
+                        @Html.TextBoxFor(m => m.UnitPrize, new { @id = "txtUnitPrice", @type = "number", @class = "form-control", required = "required", @placeholder = "Unit Price" })
+                        @Html.ValidationMessageFor(model => model.UnitPrize, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Amount
+                        </label>
+                        @Html.TextBoxFor(m => m.Bill, new { @id = "txtBill", @class = "form-control", required = "required", @placeholder = "Amount" })
+                        @Html.ValidationMessageFor(model => model.Bill, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+              
+                <div class="col-md-4">
+                    <div class="form-group" style="float: right;margin-top: 2em;">
+                        <button type="button" onclick="SubmitBillingDetails()" class="btn btn_1 btn-primary" id="btnSave">Save</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    }
+    <br />
+    <div class="row mg-table">
+        <div class="col-lg-12">
+            <div class="">
+                <div class="">
+                    <div class="table-responsive opd-table ">
+                        <table class="table" id="tblBilling">
+                            <thead>
+                                <tr style="background: #f8f9fa;">
+                                    <th hidden>Id</th>
+                                    <th>Sr.No.</th>
+                                    <th>Description</th>
+                                    <th>Quantity</th>
+                                    <th>Unit Price</th>
+                                    <th>Amount</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ int rowNo = 0; }
+                                @if (Model.lst != null)
+                                {
+
+                                    foreach (var item in Model.lst)
+
+                                    {
+                                <tr>
+                                    <td hidden>@item.Id</td>
+                                    <td>
+                                        @(rowNo += 1)
+                                    </td>
+                                    <td>@item.ServiceName</td>
+                                    <td>@item.Qty</td>
+                                    <td>@item.UnitPrize</td>
+                                    <td>@item.Bill</td>
+
+                                    <td>
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;
+                                        <i class="fa fa-times" onclick="DeleteRecord('@item.Id')" aria-hidden="true"></i>
+
+                                    </td>
+                                </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    function SubmitBillingDetails() {
+
+        var form = $('#frmBillingDetails')[0];
+
+        var fromData = new FormData(form);
+        var urllink = '@Url.Content("~/BillingDetails/ManageBilling")'
+        $.ajax({
+            type: "post",
+            url: urllink,
+            data: fromData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                $('#tblBilling tbody').empty();
+                var trHTML = '';
+                var j = 0;
+                $.each(data, function (i, item) {
+                    j = j + 1;
+                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + j + '</td><td>' + item.ServiceName + '</td><td>' + item.Qty + '</td><td>' + item.UnitPrize + '</td><td>' + item.Bill + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id+'") aria-hidden="true"></i></td></tr>';
+                });
+                $('#tblBilling tbody').append(trHTML)
+                $("#hdnId").val('0');
+                $("#txtDescrption").val('');
+                $("#txtSince").val('');
+                $("#txtPeriod").val('');
+                $("#txtPhysicalExamination").val('');
+                $("#txtDiagnosis").val('');
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        })
+
+    }
+</script>

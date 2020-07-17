@@ -603,6 +603,7 @@
     <Content Include="Views\MyOPD\Billing.cshtml" />
     <Content Include="Views\Document\Document.cshtml" />
     <Content Include="Views\Home\Dashbord.cshtml" />
+    <Content Include="Views\MyOPD\NewBilling.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

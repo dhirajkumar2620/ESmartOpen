@@ -159,8 +159,8 @@
                                                         <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Delete">
                                                             <a href="#" data-toggle="modal" data-target="#DeleteAppoinment" onclick="ShowDeleteAppoinment(this)"><i class="fa fa-times" aria-hidden="true"></i></a>
                                                         </li>
-                                                        <li class="list-inline-item"  title="Print Bill">
-                                                            <a href="@Url.Content("~/PatientDetails/PrintBill?CPno="+item.CasePaperNo+"&QueueID="+item.Id+"")"  ><i class="fa fa-print" aria-hidden="true"></i></a>
+                                                        <li class="list-inline-item" title="Print Bill">
+                                                            <a href="@Url.Content("~/PatientDetails/PrintBill?CPno="+item.CasePaperNo+"&QueueID="+item.Id+"")"><i class="fa fa-print" aria-hidden="true"></i></a>
                                                         </li>
                                                     </ul>
                                                 </td>
@@ -386,7 +386,9 @@
                 'Id': QueueId, 'Note': Note, 'CPno': CPno, 'MbNo': MbNo
             },
             success: function (response) {
-                alert("succesfuly saved...");
+                if (confirm('Record delete successfuly..1')) {
+                    window.location.href = '/PatientDetails/GetQueueList'
+                }
             }
         }
 
@@ -416,9 +418,9 @@
             dataType: "json",
             success: function (response) {
 
-                if (confirm('Data updated successfuly..')) {
-                    window.location.href = '/PatientDetails/GetQueueList'
-                }
+                // if (confirm('Data updated successfuly..')) {
+                window.location.href = '/PatientDetails/GetQueueList'
+                //}
             },
             failure: function (response) {
                 alert(response.responseText);
@@ -452,7 +454,7 @@
                 'Qid': appQId, 'CPno': appCPno, 'Bill': appBill, 'paidBill': appPaidBill, 'Status': appStatus
             },
             success: function (response) {
-                alert("succesfuly saved...");
+                alert("successfully saved...");
             }
         }
 

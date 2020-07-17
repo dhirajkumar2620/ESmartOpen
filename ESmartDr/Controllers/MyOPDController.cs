@@ -13,6 +13,7 @@ namespace ESmartDr.Controllers
     {
         // GET: MyOPD
         BAL_MyOPD BM = new BAL_MyOPD();
+       
         public ActionResult Index()
         {
             return View();
@@ -61,8 +62,25 @@ namespace ESmartDr.Controllers
         }
         public ActionResult OpdBilling()
         {
+            
+            ModelState.Clear();
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             BillingDetails bd = new BillingDetails();
-            return View("Billing" ,bd);
+            bd = BM.GetBillingDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+            double TotalBill = 0;
+            double TotalPaid = 0;
+            double TotalBalance = 0;
+            foreach (var item in bd.lst)
+            {
+                TotalBalance = TotalBalance + item.Balance;
+                TotalPaid = TotalPaid + item.Paid;
+                TotalBill = TotalBill + item.Bill;
+            }
+            bd.TotalBalance = TotalBalance;
+            bd.TotalBill = TotalBill;
+            bd.TotalPaid = TotalPaid;
+            bd.Total = TotalBalance + TotalPaid + TotalBill;
+            return View("NewBilling", bd);
         }
 
 
