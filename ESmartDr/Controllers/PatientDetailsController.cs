@@ -160,7 +160,7 @@ namespace ESmartDr.Controllers
             try
             {
                 int hospitalId;
-                
+               // DateTime date = Convert.ToDateTime( Request["txtDate"].ToString());
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 hospitalId = admObj.HospitalId;
                 //cards counts
@@ -171,15 +171,28 @@ namespace ESmartDr.Controllers
                 if (admObj.RoleId =="AHE")
                 {
                     int UserId = 99999;
-                    LST = BP.GetQueueList(hospitalId, UserId);
+                    LST = BP.GetQueueList(hospitalId, UserId ,"XXX");
                 }
                 if (admObj.RoleId =="ADM")
                 {
-                    LST = BP.GetQueueList(hospitalId,admObj.UserId);
+                    LST = BP.GetQueueList(hospitalId,admObj.UserId ,"XXX");
                 }
                 
                 
                 return View("PatientAppoinment", LST);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        public ActionResult QueueList(QueueDetails Ob)
+        {
+            try
+            {
+                return Json("1", JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -187,8 +200,39 @@ namespace ESmartDr.Controllers
                 throw;
             }
         }
+        [HttpPost]
+        public ActionResult GetQueueListByDate(string Date)
+        {
+            try
+            {
+                int hospitalId;
+                // DateTime date = Convert.ToDateTime( Request["txtDate"].ToString());
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                hospitalId = admObj.HospitalId;
+                //cards counts
 
+                PatientCount(hospitalId, admObj.UserId);
+                ModelState.Clear();
+                List<QueueDetails> LST = new List<QueueDetails>();
+                if (admObj.RoleId == "AHE")
+                {
+                    int UserId = 99999;
+                    LST = BP.GetQueueList(hospitalId, UserId, Date);
+                }
+                if (admObj.RoleId == "ADM")
+                {
+                    LST = BP.GetQueueList(hospitalId, admObj.UserId, Date);
+                }
 
+                return Json(new { Status = 1, Message = string.Format(" {0} records found. ", LST) });
+                //return View("PatientAppoinment", LST);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
 
         public ActionResult DeleteAppoinment(int Id, string Note)
         {

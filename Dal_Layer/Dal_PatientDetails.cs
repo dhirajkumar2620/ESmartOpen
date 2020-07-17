@@ -199,15 +199,16 @@ namespace Dal_Layer
             }
         }
 
-        public List<QueueDetails> GetQueueList(int hospitalId, int UserId)
+        public List<QueueDetails> GetQueueList(int hospitalId, int UserId ,string Date)
         {
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[3];
+                sqlparam = new SqlParameter[4];
                 sqlparam[0] = new SqlParameter("@Flag", "1");
                 sqlparam[1] = new SqlParameter("@HospitalId", hospitalId);
                 sqlparam[2] = new SqlParameter("@UserId", UserId);
+                sqlparam[3] = new SqlParameter("@Date", Date);
 
                 DataTable ds = CommonFunction.GetDataTable("USP_GET_QUELIST", sqlparam, "");
 

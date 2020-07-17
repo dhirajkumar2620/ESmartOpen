@@ -89,9 +89,9 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <div class="grid-btn">
+                                    <a> <input type="Date" id="txtDate" class="form-control text-letter" onchange="NextAppView(this)" placeholder="dd/mm/yyyy"></a>
                                     <a href="~/PatientDetails/PatientDetails">
                                         <input type="button" value="Add New Patient" style="margin-left: 1em;border-radius: 22px;" class="btn btn_2 btn-primary">
-
                                     </a>
                                     @*<input type="button" value="Export To Excel" style="margin-left: 1em;border-radius: 22px;" id="btnExport" class="btn btn_1 btn-primary">*@
                                 </div>
@@ -328,7 +328,33 @@
     //$(document).ready(function () {
     //    $('#example').DataTable();
     //});
+    
+    function NextAppView(x) {
+        var date1 = document.getElementById("txtDate").value;
+        var fromData = new FormData(form);
+        var form = $('#frmObservationDetails')[0];
+        var urllink = '@Url.Content("~/PatientDetails/GetQueueListByDate")'
+        $.ajax({
+            type: "post",
+            url: urllink,
+            dataType: 'application/json',
+            data: {
 
+                'Date': date1
+            },
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                if (data.Status === 1) {
+                    alert(data.Message);
+                } else {
+                    alert("Record not found.");
+                }
+            }
+        }
+
+       )
+    };
     function ShowDeleteAppoinment(x) {
 
         var obj = $(x).parents("tr")
@@ -359,9 +385,7 @@
        )
     };
     function showModel(x) {
-        debugger;
         var obj = $(x).parents("tr")
-        alert("hi0")
         $("#txtQid").val(obj.find('td')[8].innerHTML);
         $("#txtCPno").val(obj.find('td')[1].innerHTML);
         $("#txtStatus").val(obj.find('td')[7].innerHTML);
