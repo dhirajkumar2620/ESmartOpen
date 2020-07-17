@@ -3881,7 +3881,16 @@ select {
     border-color: #25a1a1;
     cursor: pointer;
 }
-
+.fa.fa-print {
+    border: 1px solid #ccc;
+    padding: 6px 7px;
+    border-radius: 50%;
+    font-size: 12px;
+    background: #796AEE;
+    color: #fff;
+    border-color: #796AEE;
+    cursor: pointer;
+}
 .fa.fa-plus {
     border: 1px solid #ccc;
     padding: 6px 7px;

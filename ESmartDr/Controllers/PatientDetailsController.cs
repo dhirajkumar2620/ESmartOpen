@@ -392,6 +392,18 @@ namespace ESmartDr.Controllers
         {
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
             List<PatientDetails> LST = new List<PatientDetails>();
+            if (Status == "With Doctor")
+            {
+                Status = "1";
+            }
+            else if (Status == "In Queue")
+            {
+                Status = "2";
+            }
+            else
+            {
+                Status = "3";
+            }
             int flag = BP.SetStatus(Qid, CPno, Bill, paidBill, Status);
             if (flag != 0)
             {

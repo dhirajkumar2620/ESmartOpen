@@ -103,8 +103,8 @@
                                             <th>Patient</th>
                                             <th>Mobile No</th>
                                             <th>Doctor</th>
-                                            <th>Bill '₹'</th>
-                                            <th>Paid Bill '₹'</th>
+                                            <th>Bill (₹)</th>
+                                            <th>Paid Bill (₹)</th>
                                             <th>Status</th>
                                             <th hidden>Qid</th>
                                             <th>Action</th>
@@ -160,7 +160,9 @@
                                                         <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Delete">
                                                             <a href="#" data-toggle="modal" data-target="#DeleteAppoinment" onclick="ShowDeleteAppoinment(this)"><i class="fa fa-times" aria-hidden="true"></i></a>
                                                         </li>
-
+                                                        <li class="list-inline-item" data-toggle="" data-target="#" title="Print Bill">
+                                                            <a href="#" data-toggle="modal" data-target="#" onclick=""><i class="fa fa-print" aria-hidden="true"></i></a>
+                                                        </li>
                                                     </ul>
                                                 </td>
                                             </tr>
@@ -173,8 +175,8 @@
                                             <th>Patient</th>
                                             <th>Mobile No</th>
                                             <th>Doctor</th>
-                                            <th>Bill '₹'</th>
-                                            <th>Paid Bill '₹'</th>
+                                            <th>Bill (₹)</th>
+                                            <th>Paid Bill (₹)</th>
                                             <th>Status</th>
                                             <th hidden>Qid</th>
                                             <th>Action</th>
@@ -244,9 +246,9 @@
                                 @*<input type="text" id="txtStatus" class="form-control" placeholder="00:00" />*@
                                 @Html.DropDownList("Status", new List<SelectListItem>
                                         {
-                                        new SelectListItem{ Text="With Doctor", Value = "1" },
-                                        new SelectListItem{ Text="In Queue", Value = "2" },
-                                        new SelectListItem{ Text="Visited", Value = "3" },
+                                        new SelectListItem{ Text="With Doctor", Value = "With Doctor" },
+                                        new SelectListItem{ Text="In Queue", Value = "In Queue" },
+                                        new SelectListItem{ Text="Visited", Value = "Visited" },
                                         }, new { @class = "form-control mb-3", id = "txtStatus" })
 
 
@@ -261,12 +263,12 @@
                         </div>
                     </div>
                     <div class="col-md-12 space-betw">
-                        <label class="form-control-label">Bill '₹'</label>
+                        <label class="form-control-label">Bill (₹)</label>
                         <input type="text" id="txtBill" class="form-control" placeholder="00:00" readonly />
 
                     </div>
                     <div class="col-md-12 space-betw">
-                        <label class="form-control-label">Paid Amount '₹'</label>
+                        <label class="form-control-label">Paid Amount (₹)</label>
                         <input type="text" id="txtDue" class="form-control" placeholder="00.00" />
                         <input style="display:none" type="text" id="txtCPno" class="form-control" placeholder="Note" />
                         <input style="display:none" type="text" id="txtQid" class="form-control" placeholder="Note" />
@@ -357,8 +359,9 @@
        )
     };
     function showModel(x) {
-
+        debugger;
         var obj = $(x).parents("tr")
+        alert("hi0")
         $("#txtQid").val(obj.find('td')[8].innerHTML);
         $("#txtCPno").val(obj.find('td')[1].innerHTML);
         $("#txtStatus").val(obj.find('td')[7].innerHTML);
