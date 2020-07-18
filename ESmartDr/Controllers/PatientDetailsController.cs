@@ -473,20 +473,7 @@ namespace ESmartDr.Controllers
             return RedirectToAction("ViewAllPatient", "PatientDetails");
         }
             
-        public ActionResult PrintBill(string CPno, int QueueID )
-        {
-            try
-            {
-                BillPrint bill = new BillPrint();
-                bill=BP.PrintBill(QueueID, CPno);
-                return null;
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-        }
+       
     }
    
 }

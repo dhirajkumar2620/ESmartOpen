@@ -145,5 +145,19 @@ namespace ESmartDr.Controllers
             }
 
         }
+        public ActionResult PrintBill(string CPno, int QueueID)
+        {
+            try
+            {
+                BillPrint bill = new BillPrint();
+                bill = BL.PrintBill(QueueID, CPno);
+                return null;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

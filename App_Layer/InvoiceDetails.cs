@@ -8,6 +8,8 @@ namespace App_Layer
 {
     public class InvoiceDetails
     {
+        public int Id { get; set; }
+        public string CasePaperNo { get; set; }
         public DateTime Date { get; set; }
         public string PatientName { get; set; }
         public string Bill { get; set; }
