@@ -113,7 +113,7 @@
 
                                         @foreach (var item in Model)
                                         {
-                                            <tr>
+                                            <tr id=@item.Id>
 
                                                 <td>@item.rowNum</td>
                                                 <td>@item.CasePaperNo</td>
@@ -321,6 +321,9 @@
         </div>
     </div>
 </div>
+<div id="rawOutput">
+
+</div>
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
@@ -357,16 +360,14 @@
        )
     };
     function ShowDeleteAppoinment(x) {
-
         var obj = $(x).parents("tr")
         $("#txtQueueId").val(obj.find('td')[8].innerHTML);
         $("#txtCP").val(obj.find('td')[1].innerHTML);
         var mob = obj.find('td')[3].innerHTML;
         $("#txtNo").val(mob.substr(0, 10));
-    }
+    };
 
     function DeleteAppoinment(x) {
-        debugger;
         var QueueId = document.getElementById("txtQueueId").value;
         var Note = document.getElementById("txtNote").value;
         var CPno = document.getElementById("txtCP").value;
@@ -376,7 +377,6 @@
 
         var fromData = new FormData(form);
         var urllink = '@Url.Content("~/PatientDetails/DeleteAppoinment")'
-        debugger;
         $.ajax({
             type: "post",
             url: urllink,
@@ -384,16 +384,11 @@
             data: {
 
                 'Id': QueueId, 'Note': Note, 'CPno': CPno, 'MbNo': MbNo
-            },
-            success: function (response) {
-                if (confirm('Record delete successfuly..1')) {
-                    window.location.href = '/PatientDetails/GetQueueList'
-                }
             }
+        });
+            $("#"+QueueId).remove();
+                alert("Deleted Successfully");
         }
-
-       )
-    };
     function showModel(x) {
         var obj = $(x).parents("tr")
         $("#txtQid").val(obj.find('td')[8].innerHTML);
