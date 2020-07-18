@@ -119,14 +119,16 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 PatientDetails pd = new PatientDetails();
                 pd = BP.GetDetailsById(Id);
-                pd.BloodGroup.Trim();
+                IList<AdminDetails> drList = new List<AdminDetails>();
+                drList = BP.GetDoctorListByHID(admObj.HospitalId).ToList();
+                ViewBag.Organisations = drList;
                 PatientCount(admObj.HospitalId, admObj.UserId);
                 return View("PatientRegistration", pd);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
         [HttpPost]

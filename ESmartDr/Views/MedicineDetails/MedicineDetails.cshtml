@@ -27,7 +27,8 @@
     {
         @Html.HiddenFor(m => m.MedicineId);
         @Html.HiddenFor(m => m.HospitalId);
-
+        int @id = 0;
+        int @no = 0;
         <section class="forms">
 
             <div class="col-lg-7">
@@ -99,6 +100,7 @@
                                                            new SelectListItem{ Text="DROPS", Value = "DROPS" },
                                                            new SelectListItem{ Text="SPRAY", Value = "SPRAY" },
                                                             new SelectListItem{ Text="POWDER", Value = "POWDER" },
+                                                             new SelectListItem{ Text="OTHER", Value = "OTHER" },
                                                       }, new { @class = "form-control mb-3", @id = "ddlMedicineType" })
 
 
@@ -135,15 +137,15 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="form-control-label">Remark</label>
-                                                @Html.TextBoxFor(m => m.Other, new { @id = "txtOther", @class = "form-control", @placeholder = "Other" })
-                                                @Html.ValidationMessageFor(model => model.Other, "", new { @class = "text-danger" })
+                                        @*<div class="col-md-4" >
+                                                <div class="form-group">
+                                                    <label class="form-control-label">Remark</label>
+                                                    @Html.TextBoxFor(m => m.Other, new { @id = "txtOther", @class = "form-control", @placeholder = "Remark" })
+                                                    @Html.ValidationMessageFor(model => model.Other, "", new { @class = "text-danger" })
 
 
-                                            </div>
-                                        </div>
+                                                </div>
+                                            </div>*@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 text-right">
@@ -170,27 +172,32 @@
                                     <table id="example3" class="table table-striped" style="width:100%">
                                         <thead>
                                             <tr>
-                                                <th hidden>MedicineId</th>
-                                                <th>Precription Name</th>
+                                                <td>Sr.No.</td>
+                                                <th>Medicine Name</th>
                                                 <th>Type</th>
                                                 <th>Generic Name</th>
                                                 <th>Company Name</th>
                                                 <th>Range</th>
-                                                <th>Other</th>
+                                                @*<th>Other</th>*@
+                                                <th hidden>MedicineId</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+
                                             @foreach (var item in Model.lst)
                                             {
+                                                id = id + 1;    
                                                 <tr>
-                                                    <td hidden>@item.MedicineId</td>
+
+                                                    <td>@id</td>
                                                     <td>@item.MedicineName</td>
                                                     <td>@item.MedicineType</td>
                                                     <td>@item.GenericName</td>
                                                     <td>@item.CompanyName</td>
                                                     <td>@item.Range</td>
-                                                    <td>@item.Other</td>
+                                                    @*<td>@item.Other</td>*@
+                                                    <td hidden>@item.MedicineId</td>
                                                     <td>
                                                         <ul class="list-inline">
                                                             <li class="list-inline-item" title="Edit">
@@ -202,19 +209,23 @@
                                                             </li>
                                                         </ul>
                                                     </td>
+
                                                 </tr>
+
                                             }
 
 
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>Precription Name</th>
+                                                <td>Sr.No.</td>
+                                                <th>Medicine Name</th>
                                                 <th>Type</th>
                                                 <th>Generic Name</th>
                                                 <th>Company Name</th>
                                                 <th>Range</th>
-                                                <th>Other</th>
+                                                @*<th>Other</th>*@
+                                                <th hidden>MedicineId</th>
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>
@@ -292,26 +303,26 @@
         });
     });
     $(document).on("click", "#btnUpload", function () {
-            var files = $("#importFile").get(0).files;
+        var files = $("#importFile").get(0).files;
 
-            var formData = new FormData();
-            formData.append('importFile', files[0]);
+        var formData = new FormData();
+        formData.append('importFile', files[0]);
 
-            $.ajax({
-                url: '/MedicineDetails/Import',
-                data: formData,
-                type: 'POST',
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    if (data.Status === 1) {
-                        alert(data.Message);
-                    } else {
-                        alert("Failed to Import");
-                    }
+        $.ajax({
+            url: '/MedicineDetails/Import',
+            data: formData,
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                if (data.Status === 1) {
+                    alert(data.Message);
+                } else {
+                    alert("Failed to Import");
                 }
-            });
+            }
         });
+    });
 
     //    $('.fa.fa-times').click(function () {
     //        swal({

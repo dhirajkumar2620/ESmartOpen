@@ -109,7 +109,17 @@
                                                 <td>@item.PatientName<br />@item.Age / @item.Gender</td>
                                                 <td>@item.WhatsAppNo<br />@item.OtherNo</td>
                                                 <td>@item.CpExpiryDate</td>
-                                                <td>@item.DueAmount</td>
+                                               
+                                                @if (item.DueAmount.IsEmpty())
+                                                {
+                                                <td>
+                                                      0
+                                                </td>
+                                                }
+                                                else
+                                                {
+                                                    <td>@item.DueAmount</td>
+                                                }
                                                 <td>
                                                     <ul class="list-inline">
                                                         <li class="list-inline-item" title="Appointment">
@@ -228,7 +238,7 @@
                     </div>
                     <div class="col-md-12 space-betw">
                         <label class="form-control-label">Note</label>
-                        <input type="text" id="txtNote" class="form-control" placeholder="Note" />
+                        <input type="text" id="txtNote" class="form-control" value="0" placeholder="0" />
                         <input style="display:none" type="text" id="txtCPno" class="form-control" placeholder="Note" />
                     </div>
                 </div>
@@ -429,7 +439,7 @@
 
             },
             success: function (response) {
-                alert("Appoinment booked successfully");
+                alert("Appointment Booked successfully");
             }
         }
 
@@ -468,7 +478,7 @@
 
             },
             success: function (response) {
-                alert("Appoinment booked succesfuly");
+                alert("Message Send Successfully");
             }
         }
 

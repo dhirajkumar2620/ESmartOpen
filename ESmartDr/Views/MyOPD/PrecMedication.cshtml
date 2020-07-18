@@ -72,7 +72,7 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="form-control-label">
-                            Medicine Name<span class="star">*</span>
+                            Medicine<span class="star">*</span>
                         </label>
                         @Html.TextBoxFor(m => m.MedicineName, new { @id = "txtMedicineName", @class = "form-control", required = "required", @placeholder = "Medicine Name" })
                         @Html.ValidationMessageFor(model => model.MedicineName, "", new { @class = "text-danger" })
@@ -109,6 +109,10 @@
                                                          new SelectListItem{ Text="1", Value = "1" },
                                                           new SelectListItem{ Text="1+1/2", Value = "1+1/2" },
                                                           new SelectListItem{ Text="2", Value = "2" },
+                                                            new SelectListItem{ Text="2+1/2", Value = "2+1/2" },
+                                                            new SelectListItem{ Text="3", Value = "3" },
+                                                            new SelectListItem{ Text="5", Value = "5" },
+                                                            new SelectListItem{ Text="10", Value = "10" },
                                                       }, new { @class = "form-control mb-3", @id = "ddlDose" })
                     </div>
                 </div>
@@ -145,10 +149,10 @@
                         @Html.DropDownListFor(m => m.MedicineDays, new List<SelectListItem>
                                {
 
-                                   new SelectListItem{ Text="Day", Value = "Day" },
-                                   new SelectListItem{ Text="Week", Value = "Week" },
-                                    new SelectListItem{ Text="Month", Value = "Month" },
-                                    new SelectListItem{ Text="Year", Value = "Year" },
+                                   new SelectListItem{ Text="Days", Value = "Days" },
+                                   new SelectListItem{ Text="Weeks", Value = "Weeks" },
+                                    new SelectListItem{ Text="Months", Value = "Months" },
+                                    new SelectListItem{ Text="Years", Value = "Years" },
                                 }, new { @class = "form-control mb-3", @id = "MedicineDays" })
                     </div>
                 </div>

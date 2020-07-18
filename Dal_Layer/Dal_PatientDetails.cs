@@ -142,10 +142,12 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[2];
+                sqlparam = new SqlParameter[4];
                 sqlparam[0] = new SqlParameter("@Flag", "2");
                 sqlparam[1] = new SqlParameter("@HospitalId", id);
-
+                sqlparam[2] = new SqlParameter("@UserId", "");
+                sqlparam[3] = new SqlParameter("@Role", "");
+                 
                 DataTable ds = CommonFunction.GetDataTable("USP_GET_PATIENTDETAILS", sqlparam, "");
                 PatientDetails lst = new PatientDetails();
                 if (ds != null && ds.Rows.Count > 0)
