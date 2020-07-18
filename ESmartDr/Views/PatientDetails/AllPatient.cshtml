@@ -215,14 +215,6 @@
                             <label class="form-control-label">Date<span class="star">*</span></label>
 
                             <input type="Date" id="txtDate" class="form-control text-letter" placeholder="dd/mm/yyyy">
-
-
-                            @*<div class="input-group date" data-provide="datepicker">
-                                    <input type="text" id="txtDate" class="form-control datepicker" placeholder="dd/mm/yyyy" />
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
-                                    </div>
-                                </div>*@
                         </div>
                     </div>
                     <div class="col-md-12 space-betw">
@@ -340,6 +332,15 @@
 
     }
 
+   
+    $(document).ready(function () {
+        var today = new Date();
+        var currentdate = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+        document.getElementById("txtDate").value = currentdate;
+        var currentTime = today.getHours() + ':' + today.getMinutes();
+        document.getElementById("txtTime").value = currentTime;
+    });
+   
     function ConfirmAppoinment() {
         var x = confirm("Are you sure you want to Confirm Appoinment?");
         if (x)
