@@ -48,7 +48,8 @@
                                                 <div class="form-group">
                                                     <label class="form-control-label">Date<span class="star">*</span></label>
                                                     <div class="input-group date" data-provide="datepicker">
-                                                        @Html.TextBoxFor(m => m.ExDate, new { @id = "txtDate", @type = "text", @class = "form-control datepicker", @placeholder = "eg. dd/mm/yyyy" })
+                                                        @Html.TextBoxFor(m => m.ExId, new { @id = "txtExId", @type = "text", @class = "form-control datepicker", style = "display:none", @placeholder = "eg. dd/mm/yyyy" })
+                                                        @Html.TextBoxFor(m => m.ExDate, new { @id = "txtDOB", @type = "text", @class = "form-control datepicker", @placeholder = "eg. dd/mm/yyyy" })
                                                         @Html.ValidationMessageFor(model => model.ExDate, "", new { @class = "text-danger" })
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
@@ -333,9 +334,10 @@
     </div>*@
 
 
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="//cdn.datatables.net/plug-ins/1.10.21/dataRender/datetime.js"></script>
 <script>
     $('.b33').click(function () {
         swal({
