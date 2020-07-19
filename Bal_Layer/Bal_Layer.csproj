@@ -58,6 +58,7 @@
     <Compile Include="Bal_EnquiryDetails.cs" />
     <Compile Include="Bal_ExpensesDetails.cs" />
     <Compile Include="Bal_LaboratoryDetails.cs" />
+    <Compile Include="BAL_Log.cs" />
     <Compile Include="Bal_MedicineDetails.cs" />
     <Compile Include="BAL_MyOPD.cs" />
     <Compile Include="Bal_PatientDetails.cs" />

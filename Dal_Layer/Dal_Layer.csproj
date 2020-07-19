@@ -50,6 +50,7 @@
     <Compile Include="Dal_EnquiryDetails.cs" />
     <Compile Include="Dal_ExpensesDetails.cs" />
     <Compile Include="Dal_LaboratoryDetails.cs" />
+    <Compile Include="DAL_Log.cs" />
     <Compile Include="Dal_MedicineDetails.cs" />
     <Compile Include="DAL_MYOPD.cs" />
     <Compile Include="Dal_PatientDetails.cs" />

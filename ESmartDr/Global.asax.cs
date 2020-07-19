@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bal_Layer;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace ESmartDr
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        BAL_Log BL = new BAL_Log();
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -18,14 +20,15 @@ namespace ESmartDr
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
-        //protected void Application_Error(object sender, EventArgs e)
-        //{
-        //    Exception exception = Server.GetLastError();
-        //    var action = new StackTrace(exception).GetFrames().FirstOrDefault(f => typeof(IController).IsAssignableFrom(f.GetMethod().DeclaringType)).GetMethod();
-        //    var ControllerName = (action.DeclaringType.FullName.Substring(action.DeclaringType.FullName.LastIndexOf("."))).Replace('.', ' ');
-        //    var ActionMethod = action.ToString().Substring(action.ToString().LastIndexOf(" "));
-        //    Server.ClearError();
-        //    Response.Redirect("/Home/Error");
-        //}
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception exception = Server.GetLastError();
+            var action = new StackTrace(exception).GetFrames().FirstOrDefault(f => typeof(IController).IsAssignableFrom(f.GetMethod().DeclaringType)).GetMethod();
+            var ControllerName = (action.DeclaringType.FullName.Substring(action.DeclaringType.FullName.LastIndexOf("."))).Replace('.', ' ');
+            var ActionMethod = action.ToString().Substring(action.ToString().LastIndexOf(" "));
+            BL.SetLOG(action.ToString(), ControllerName, ActionMethod, "");
+            Server.ClearError();
+            Response.Redirect("/LoginDetails/Index");
+        }
     }
 }
