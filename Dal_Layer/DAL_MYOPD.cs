@@ -798,7 +798,7 @@ namespace Dal_Layer
                 sqlparam[2] = new SqlParameter("@TotalAmount", TotalAmount);
                 sqlparam[3] = new SqlParameter("@DiscountAmount", DiscountAmount);
                 sqlparam[4] = new SqlParameter("@NetBillAmount", NetBillAmount);
-                sqlparam[5] = new SqlParameter("@PaidAmountaid", PaidAmountaid);
+                sqlparam[5] = new SqlParameter("@PaidAmount", PaidAmountaid);
 
 
                 return CommonFunction.Save("USP_Set_Bill", sqlparam, "");
@@ -846,11 +846,11 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[2];
-                sqlparam[0] = new SqlParameter("@flag", "1");
-                sqlparam[1] = new SqlParameter("@QueId", queueId);
-
-                DataTable ds = CommonFunction.GetDataTable("USP_GET_BillingDetails", sqlparam, "");
+                sqlparam = new SqlParameter[3];
+                sqlparam[0] = new SqlParameter("@flag", 8);
+                sqlparam[1] = new SqlParameter("@QueueId", queueId);
+                sqlparam[2] = new SqlParameter("@CPno", casePapaerNo);
+                DataTable ds = CommonFunction.GetDataTable("USP_Get_Precription", sqlparam, "");
                 BillingDetails Ob = new BillingDetails();
                 List<BillingDetails> lst = new List<BillingDetails>();
                 if (ds != null && ds.Rows.Count > 0)

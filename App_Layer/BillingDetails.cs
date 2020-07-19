@@ -23,16 +23,15 @@ namespace App_Layer
         public string HospitalId { get; set; }
         public int PatientId { get; set; }
         public int CreatedBy { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public int ModifideDate { get; set; }
         public int ModifideBy { get; set; }
         public bool IsActive { get; set; }
         public int QueueId { get; set; }
+        public double Discount { get; set; }
+        public double NetAmount { get; set; }
         public double TotalBill { get; set; }
         public double TotalPaid { get; set; }
         public double TotalBalance { get; set; }
         public double Total { get; set; }
-
         public List<BillingDetails> lst { get; set; }
-    } 
+    }
 }

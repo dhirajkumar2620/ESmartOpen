@@ -38,7 +38,7 @@
                                     </li>
                                 </ul>
                                 <hr />
-                               
+
                                 <div class="tab-content" id="pills-tabContent">
                                     <div class="tab-pane fade show active" id="pills-expense" role="tabpanel" aria-labelledby="pills-home-tab">
                                         <p>Need to fill mandatory fields.</p>
@@ -48,8 +48,7 @@
                                                 <div class="form-group">
                                                     <label class="form-control-label">Date<span class="star">*</span></label>
                                                     <div class="input-group date" data-provide="datepicker">
-                                                        @Html.TextBoxFor(m => m.ExId, new { @id = "txtExId", @type = "text", @class = "form-control datepicker", style = "display:none", @placeholder = "eg. dd/mm/yyyy" })
-                                                        @Html.TextBoxFor(m => m.ExDate, new { @id = "txtDOB", @type = "text", @class = "form-control datepicker", @placeholder = "eg. dd/mm/yyyy" })
+                                                        @Html.TextBoxFor(m => m.ExDate, new { @id = "txtDate", @type = "text", @class = "form-control datepicker", @placeholder = "eg. dd/mm/yyyy" })
                                                         @Html.ValidationMessageFor(model => model.ExDate, "", new { @class = "text-danger" })
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
@@ -124,7 +123,7 @@
 
                                                             <tr>
                                                                 <th hidden>ExId</th>
-                                                                <th>Sr. No.</th>
+                                                                <th>Sr No.</th>
                                                                 <th>Date</th>
                                                                 <th>Catagory</th>
                                                                 <th>Amount</th>
@@ -163,7 +162,7 @@
                                                         </tbody>
                                                         <tfoot>
                                                             <tr>
-                                                                <th>Sr. No.</th>
+                                                                <th>Sr No.</th>
                                                                 <th>Date</th>
                                                                 <th>Catagory</th>
                                                                 <th>Amount</th>
@@ -186,7 +185,7 @@
                                                     <table id="example8" class="table table-striped" style="width:100%">
                                                         <thead>
                                                             <tr>
-                                                                <th>Sr. No.</th>
+                                                                <th>Sr no.</th>
                                                                 <th>Date</th>
                                                                 <th>Total Patients</th>
                                                                 <th>Revenue</th>
@@ -224,7 +223,7 @@
                                                         </tbody>
                                                         <tfoot>
                                                             <tr>
-                                                                <th>Sr. No.</th>
+                                                                <th>Sr no.</th>
                                                                 <th>Date</th>
                                                                 <th>Total Patients</th>
                                                                 <th>Revenue</th>
@@ -248,11 +247,12 @@
                                                             <tr>
                                                                 <th>Invoice No.</th>
                                                                 <th>Date</th>
-                                                                <th>CP. No</th>
+                                                                <th>CP. No.</th>
                                                                 <th>Patient Name</th>
                                                                 <th>Bill</th>
                                                                 <th>Paid</th>
                                                                 <th>Balance</th>
+                                                                <th hidden></th>
                                                                 <th>Action</th>
                                                             </tr>
                                                         </thead>
@@ -273,9 +273,8 @@
                                                                     <td hidden>@item.Id</td>
                                                                     <td>
                                                                         <ul class="list-inline">
-                                                                            
                                                                             <li class="list-inline-item" title="Print Bill">
-                                                                                <a href="@Url.Content("~/AccountDetails/PrintBill?CPno="+item.CasePaperNo+"&QueueID="+item.Id+"")"><i class="fa fa-print" aria-hidden="true"></i></a>
+                                                                                <a href="@Url.Content("~/PatientDetails/PrintBill?CPno="+item.CasePaperNo+"&QueueID="+item.Id+"")"><i class="fa fa-print" aria-hidden="true"></i></a>
                                                                             </li>
                                                                         </ul>
                                                                     </td>
@@ -288,11 +287,12 @@
                                                             <tr>
                                                                 <th>Invoice No.</th>
                                                                 <th>Date</th>
-                                                                <th>CP. No</th>
+                                                                <th>CP. No.</th>
                                                                 <th>Patient Name</th>
                                                                 <th>Bill</th>
                                                                 <th>Paid</th>
                                                                 <th>Balance</th>
+                                                                <th hidden></th>
                                                                 <th>Action</th>
                                                             </tr>
                                                         </tfoot>
@@ -346,10 +346,9 @@
     </div>*@
 
 
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="//cdn.datatables.net/plug-ins/1.10.21/dataRender/datetime.js"></script>
 <script>
     $('.b33').click(function () {
         swal({

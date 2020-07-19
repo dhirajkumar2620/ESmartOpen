@@ -3,23 +3,23 @@
     Layout = null;
 }
 <style>
-        .table thead {
-            background: #ffffff;
-            color: #666;
-        }
+    .table thead {
+        background: #ffffff;
+        color: #666;
+    }
 
-        .table-striped tbody tr:nth-of-type(odd) {
-            background-color: #ffffff !important;
-        }
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #ffffff !important;
+    }
 
-        .table tbody {
-            background: #ffffff;
-        }
+    .table tbody {
+        background: #ffffff;
+    }
 
-        .table tr:hover {
-            box-shadow: 2px 4px 10px #fff;
-        }
-        /*.table thead th {
+    .table tr:hover {
+        box-shadow: 2px 4px 10px #fff;
+    }
+    /*.table thead th {
         vertical-align: bottom;
         border-bottom: 1px solid #dedede!important;
     }
@@ -27,41 +27,41 @@
         border-top: 1px solid #dedede!important;
         vertical-align: middle!important;
     }*/
-        .table th {
-            padding-top: 15px;
-        }
+    .table th {
+        padding-top: 15px;
+    }
 
-        .table {
-            margin-bottom: 0rem;
-        }
+    .table {
+        margin-bottom: 0rem;
+    }
 
-        .mg-table .table {
-            border-bottom: 1px solid #d4d4d4;
-        }
+    .mg-table .table {
+        border-bottom: 1px solid #d4d4d4;
+    }
 
-        .tbl-view-1 tr th:first-child {
-            width: 20%;
-        }
+    .tbl-view-1 tr th:first-child {
+        width: 20%;
+    }
 
-        .tbl-view-2 tr th:first-child {
-            width: 20%;
-        }
+    .tbl-view-2 tr th:first-child {
+        width: 20%;
+    }
 
-        .tbl-view-3 tr th:first-child {
-            width: 20%;
-        }
+    .tbl-view-3 tr th:first-child {
+        width: 20%;
+    }
 
-        .tbl-view-4 tr th:first-child {
-            width: 20%;
-        }
+    .tbl-view-4 tr th:first-child {
+        width: 20%;
+    }
 
-        .tbl-view-5 tr th:first-child {
-            width: 20%;
-        }
+    .tbl-view-5 tr th:first-child {
+        width: 20%;
+    }
 
-        .tbl-view-5 tr th:first-child {
-            width: 20%;
-        }
+    .tbl-view-5 tr th:first-child {
+        width: 20%;
+    }
 </style>
 <div class="card-body">
     @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmBillingDetails" }))
@@ -103,11 +103,11 @@
                         <label class="form-control-label">
                             Amount
                         </label>
-                        @Html.TextBoxFor(m => m.Bill, new { @id = "txtBill", @class = "form-control", required = "required", @placeholder = "Amount" })
+                        @Html.TextBoxFor(m => m.Bill, new { @id = "txtBill", @class = "form-control", @readonly = "true", required = "required", @placeholder = "Amount" })
                         @Html.ValidationMessageFor(model => model.Bill, "", new { @class = "text-danger" })
                     </div>
                 </div>
-              
+
                 <div class="col-md-4">
                     <div class="form-group" style="float: right;margin-top: 2em;">
                         <button type="button" onclick="SubmitBillingDetails()" class="btn btn_1 btn-primary" id="btnSave">Save</button>
@@ -116,61 +116,131 @@
             </div>
 
         </form>
-    }
-    <br />
-    <div class="row mg-table">
-        <div class="col-lg-12">
-            <div class="">
+
+        <br />
+        <div class="row mg-table">
+            <div class="col-lg-12">
                 <div class="">
-                    <div class="table-responsive opd-table ">
-                        <table class="table" id="tblBilling">
-                            <thead>
-                                <tr style="background: #f8f9fa;">
-                                    <th hidden>Id</th>
-                                    <th>Sr.No.</th>
-                                    <th>Description</th>
-                                    <th>Quantity</th>
-                                    <th>Unit Price</th>
-                                    <th>Amount</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @{ int rowNo = 0; }
-                                @if (Model.lst != null)
-                                {
-
-                                    foreach (var item in Model.lst)
-
+                    <div class="">
+                        <div class="table-responsive opd-table ">
+                            <table class="table" id="tblBilling">
+                                <thead>
+                                    <tr style="background: #f8f9fa;">
+                                        <th hidden>Id</th>
+                                        <th>Sr.No.</th>
+                                        <th>Description</th>
+                                        <th>Quantity</th>
+                                        <th>Unit Price</th>
+                                        <th>Amount</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{ int rowNo = 0; }
+                                    @if (Model.lst != null)
                                     {
-                                <tr>
-                                    <td hidden>@item.Id</td>
-                                    <td>
-                                        @(rowNo += 1)
-                                    </td>
-                                    <td>@item.ServiceName</td>
-                                    <td>@item.Qty</td>
-                                    <td>@item.UnitPrize</td>
-                                    <td>@item.Bill</td>
 
-                                    <td>
-                                        <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;
-                                        <i class="fa fa-times" onclick="DeleteRecord('@item.Id')" aria-hidden="true"></i>
+                                        foreach (var item in Model.lst)
 
-                                    </td>
-                                </tr>
+                                        {
+                                            <tr>
+                                                <td hidden>@item.Id</td>
+                                                <td>
+                                                    @(rowNo += 1)
+                                                </td>
+                                                <td>@item.ServiceName</td>
+                                                <td>@item.Qty</td>
+                                                <td>@item.UnitPrize</td>
+                                                <td>@item.Bill</td>
+
+                                                <td>
+                                                    <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;
+                                                    <i class="fa fa-times" onclick="DeleteRecord('@item.Id')" aria-hidden="true"></i>
+
+                                                </td>
+                                            </tr>
+                                        }
                                     }
-                                }
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="form-control-label">
+                        Total<span class="star">*</span>
+                    </label>
+                    @Html.TextBoxFor(m => m.TotalBill, new { @id = "txtTotal", @class = "form-control", @readonly = "true", required = "required", @placeholder = "Description" })
+                    @Html.ValidationMessageFor(model => model.TotalBill, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="form-control-label">
+                        Discount<span class="star">*</span>
+                    </label>
+                    @Html.TextBoxFor(m => m.Discount, new { @id = "txtDiscount", @type = "number", @class = "form-control", required = "required", @placeholder = "Discount" })
+                    @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="form-control-label">
+                        Net Amount<span class="star">*</span>
+                    </label>
+                    @Html.TextBoxFor(m => m.NetAmount, new { @id = "txtNetAmt", @type = "number", @class = "form-control", required = "required", @readonly = "true", @placeholder = "Net Amount" })
+                    @Html.ValidationMessageFor(model => model.NetAmount, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group" style="float: right;margin-top: 2em;">
+                    <button type="button" onclick="SubmitFinalNetAmountDetails()" class="btn btn_1 btn-primary" id="btnSave">Finalize</button>
+                </div>
+            </div>
 
+            @*<div class="col-md-4">
+                    <div class="form-group" style="float: right;margin-top: 2em;">
+                        <button type="button" onclick="SubmitBillingDetails11()" class="btn btn_1 btn-primary" id="btnSave">Save</button>
+                    </div>
+                </div>*@
+        </div>
+                                        }
 </div>
 <script>
+    function SubmitFinalNetAmountDetails() {
+        if (confirm('Do you want to finalize the bill ?')) {
+            var Total = parseFloat($("#txtTotal").val());
+            var Discount = parseFloat($("#txtDiscount").val());
+            var NetAmt = parseFloat($("#txtNetAmt").val());
+            var urllink = '@Url.Content("~/BillingDetails/SetBillAmount")'
+            $.ajax({
+                type: "POST",
+                url: urllink,
+                data: '{TotalAmt: "' + Total + '",Discount:"' + Discount + '",NetAmt:"' + NetAmt + '"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    window.location.href = '/PatientDetails/GetQueueList';
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        }
+    }
+
     function SubmitBillingDetails() {
 
         var form = $('#frmBillingDetails')[0];
@@ -187,17 +257,21 @@
                 $('#tblBilling tbody').empty();
                 var trHTML = '';
                 var j = 0;
+                var Total = 0;
+                var Discount = 0;
                 $.each(data, function (i, item) {
                     j = j + 1;
+                    Total = Total + parseFloat(item.Bill);
                     trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + j + '</td><td>' + item.ServiceName + '</td><td>' + item.Qty + '</td><td>' + item.UnitPrize + '</td><td>' + item.Bill + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id+'") aria-hidden="true"></i></td></tr>';
                 });
                 $('#tblBilling tbody').append(trHTML)
                 $("#hdnId").val('0');
                 $("#txtDescrption").val('');
-                $("#txtSince").val('');
-                $("#txtPeriod").val('');
-                $("#txtPhysicalExamination").val('');
-                $("#txtDiagnosis").val('');
+                $("#txtqty").val('');
+                $("#txtUnitPrice").val('');
+                $("#txtBill").val('');
+                $("#txtTotal").val(Total);
+                //$("#txtDiagnosis").val('');
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(errorThrown);
@@ -205,4 +279,71 @@
         })
 
     }
+    $("#txtUnitPrice").change(function () {
+        $("#txtBill").val("");
+        var Total = 0;
+        var qty = $("#txtqty").val();
+        var UnitPrice = $("#txtUnitPrice").val();
+        Total = parseFloat(UnitPrice) * parseFloat(qty);
+        $("#txtBill").val(Total);
+    });
+    $("#txtDiscount").change(function () {
+        $("#txtNetAmt").val("");
+        var Total = 0;
+        var Discount = $("#txtDiscount").val();
+        var Total = $("#txtTotal").val();
+        var Disc = (parseFloat(Discount) / 100);
+        var NetAmount = Total - (Total * Disc);
+        $("#txtNetAmt").val(NetAmount.toFixed(2));
+    });
+
+    $(".fa-pencil").on("click", function () {
+
+        var obj = $(this).parents("tr")
+        $("#hdnId").val(obj.find('td')[0].innerHTML);
+        $("#txtDescrption").val(obj.find('td')[2].innerHTML);
+        $("#txtqty").val(obj.find('td')[3].innerHTML);
+        $("#txtUnitPrice").val(obj.find('td')[4].innerHTML);
+        $("#txtBill").val(obj.find('td')[5].innerHTML);
+
+
+    });
+    function EditPICDetails(this1) {
+        var obj = $(this1).parents("tr")
+        $("#hdnId").val(obj.find('td')[0].innerHTML);
+        $("#txtDescrption").val(obj.find('td')[2].innerHTML);
+        $("#txtqty").val(obj.find('td')[3].innerHTML);
+        $("#txtUnitPrice").val(obj.find('td')[4].innerHTML);
+        $("#txtBill").val(obj.find('td')[5].innerHTML);
+    }
+     function DeleteRecord(id) {
+        if (confirm('Do you want to delete record ?')) {
+            var urllink = '@Url.Content("~/BillingDetails/DeleteBilling")'
+            $.ajax({
+                type: "post",
+                url: urllink,
+                data: '{Id: "' + id + '"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    $('#tblBilling tbody').empty();
+                    var trHTML = '';
+                    var j = 0;
+                    var Total = 0;
+                    var Discount = 0;
+                    $.each(data, function (i, item) {
+                        j = j + 1;
+                        Total = Total + parseFloat(item.Bill);
+                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + j + '</td><td>' + item.ServiceName + '</td><td>' + item.Qty + '</td><td>' + item.UnitPrize + '</td><td>' + item.Bill + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                    });
+                    $('#tblBilling tbody').append(trHTML);
+                    $("#txtTotal").val(Total);
+                    $("#txtDiscount").val(0);
+                    $("#txtNetAmt").val(0);
+                }
+            }
+
+           )
+        }
+    };
 </script>

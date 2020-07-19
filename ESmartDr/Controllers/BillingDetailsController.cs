@@ -20,15 +20,20 @@ namespace ESmartDr.Controllers
         [HttpPost]
         public ActionResult ManageBilling(BillingDetails BD)
         {
+            BAL_MyOPD BM = new BAL_MyOPD();
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-            PatientDetails patientDETAILS = (PatientDetails)Session["patientDetails"];
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             BD.CasePaperNo = patientDETAILS.CasePapaerNo;
             BD.HospitalId = patientDETAILS.HospitalId;
             BD.PatientId = patientDETAILS.Id;
             BD.CreatedBy = patientDETAILS.Id;
             BD.QueueId = patientDETAILS.QueueId;
             int i = BL.ManageBilling(BD);
-            return Json("1", JsonRequestBehavior.AllowGet);
+            BillingDetails bd = new BillingDetails();
+            List<BillingDetails> lst = new List<BillingDetails>();
+            bd = BM.GetBillingDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+            lst = bd.lst;
+            return Json(lst, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -78,6 +83,38 @@ namespace ESmartDr.Controllers
                 //return Json("1",JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        public ActionResult DeleteBilling(int Id)
+        {
+            try
+            {
+                PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
+                List<BillingDetails> lst = new List<BillingDetails>();
+                lst = BL.DeleteBilling(Id, patientDETAILS.QueueId);
+                return Json(lst, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public ActionResult SetBillAmount(float TotalAmt, float Discount, float NetAmt)
+        {
+            try
+            {
+                Discount = TotalAmt - NetAmt;
+                PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
+                List<BillingDetails> lst = new List<BillingDetails>();
+                int i = BL.SetBillAmount(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo, TotalAmt, Discount, NetAmt, 0);
+                return Json(i, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
             {
 
                 throw;
