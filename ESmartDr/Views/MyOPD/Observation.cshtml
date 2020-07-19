@@ -67,7 +67,7 @@
 <div class="card-body">
     @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmObservationDetails" }))
     {
-        @Html.HiddenFor(m => m.Id, new { @id = "hdnId" });
+        @Html.HiddenFor(m => m.Id, new { @id = "hdnODId" });
         <form>
             <div class="row">
                 <div class="col-md-4">
@@ -184,17 +184,6 @@
 <script src="~/js/front.js"></script>
 <script src="~/js/Notifier.min.js"></script>
 <script>
-
-    //var notifier = new Notifier({
-    //    position: 'bottom-right',
-    //    direction: 'bottom'
-    //});
-
-    // Success 
-    //document.getElementById("tostr-save").onclick = function () {
-    //    notifier.notify("success", "Personal details saved successfully!");
-    //};
-
     function SubmitObservationDetails() {
 
         var form = $('#frmObservationDetails')[0];
@@ -214,7 +203,7 @@
                     trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.Complaints + '</td><td>' + item.Since + '</td><td>' + item.Period + '</td><td>' + item.PhysicalExamination + '</td><td>' + item.Diagnosis + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
                 });
                 $('#tblObservation tbody').append(trHTML)
-                $("#hdnId").val('0');
+                $("#hdnODId").val('0');
                 $("#txtComplaints").val('');
                 $("#txtSince").val('');
                 $("#txtPeriod").val('');
@@ -230,7 +219,7 @@
     $(".fa-pencil").on("click", function () {
 
         var obj = $(this).parents("tr")
-        $("#hdnId").val(obj.find('td')[0].innerHTML);
+        $("#hdnODId").val(obj.find('td')[0].innerHTML);
         $("#txtComplaints").val(obj.find('td')[1].innerHTML);
         $("#txtSince").val(obj.find('td')[2].innerHTML);
         $("#txtPeriod").val(obj.find('td')[3].innerHTML);
@@ -240,7 +229,7 @@
     });
     function EditPICDetails(this1) {
         var obj = $(this1).parents("tr")
-        $("#hdnId").val(obj.find('td')[0].innerHTML);
+        $("#hdnODId").val(obj.find('td')[0].innerHTML);
         $("#txtComplaints").val(obj.find('td')[1].innerHTML);
         $("#txtSince").val(obj.find('td')[2].innerHTML);
         $("#txtPeriod").val(obj.find('td')[3].innerHTML);
@@ -249,33 +238,25 @@
     }
     function DeleteRecord(id) {
         if (confirm('Do you want to delete record ?')) {
-            var form = $('#frmPrecMedication')[0];
-
-            var fromData = new FormData(form);
             var urllink = '@Url.Content("~/Prescription/DeleteObservation")'
             $.ajax({
                 type: "post",
                 url: urllink,
-                dataType: 'application/json',
-                data: {
-
-                    'Id': id
-                },
-                success: function (response) {
-                    //var obj = $(this).parents("tr");
-                    //obj.remove();
-                    alert("Delete succesfuly ...");
-                    location.reload();
+                data: '{Id: "' + id + '"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    $('#tblObservation tbody').empty();
+                    var trHTML = '';
+                    $.each(data, function (i, item) {
+                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.Complaints + '</td><td>' + item.Since + '</td><td>' + item.Period + '</td><td>' + item.PhysicalExamination + '</td><td>' + item.Diagnosis + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                    });
+                    $('#tblObservation tbody').append(trHTML)
                 }
             }
 
            )
         }
     };
-
-    $('.grid-show').click(function () {
-        $('.mg-table').css("display", "block");
-    });
-
 
 </script>

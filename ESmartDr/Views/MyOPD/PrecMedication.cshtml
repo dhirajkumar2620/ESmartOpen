@@ -66,7 +66,7 @@
 <div class="card-body">
     @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmPrecMedication" }))
     {
-        @Html.HiddenFor(m => m.Id, new { @id = "hdnId" });
+        @Html.HiddenFor(m => m.Id, new { @id = "hdnPMId" });
         <form>
             <div class="row">
                 <div class="col-md-4">
@@ -265,7 +265,7 @@
                         trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.MedicineName + '</td><td>' + item.WhenMedicine + '</td><td>' + item.Dose + '</td><td>' + item.RepeatMedicine + '</td><td>' + item.ForMedicine + '</td><td>' + item.MedicineDays + '</td><td>' + item.SpecialInstruction + '</td><td>' + item.AlternateMedicine + '</td></td><td><i class="fa fa-pencil" onclick=EditDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
                     });
                     $('#tblprecMedication tbody').append(trHTML)
-                    $("#hdnId").val('0');
+                    $("#hdnPMId").val('0');
                     $("#txtMedicineName").val('');
                     $("#txtWhenMedicine").val('');
                     $("#txtDose").val('');
@@ -283,7 +283,7 @@
         }
         $(".fa-pencil").on("click", function () {
             var obj = $(this).parents("tr")
-            $("#hdnId").val(obj.find('td')[0].innerHTML);
+            $("#hdnPMId").val(obj.find('td')[0].innerHTML);
             $("#txtMedicineName").val(obj.find('td')[1].innerHTML);
             $("#txtWhenMedicine").val(obj.find('td')[2].innerHTML);
             $("#txtDose").val(obj.find('td')[3].innerHTML);
@@ -296,7 +296,7 @@
         });
         function EditDetails(this1) {
             var obj = $(this1).parents("tr")
-            $("#hdnId").val(obj.find('td')[0].innerHTML);
+            $("#hdnPMId").val(obj.find('td')[0].innerHTML);
             $("#txtMedicineName").val(obj.find('td')[1].innerHTML);
             $("#txtWhenMedicine").val(obj.find('td')[2].innerHTML);
             $("#txtDose").val(obj.find('td')[3].innerHTML);
@@ -308,20 +308,20 @@
         }
         function DeleteRecord(id) {
             if (confirm('Do you want to delete record ?')) {
-                var form = $('#frmPrecMedication')[0];
-
-                var fromData = new FormData(form);
                 var urllink = '@Url.Content("~/Prescription/DeleteMedication")'
                 $.ajax({
                     type: "post",
                     url: urllink,
-                    dataType: 'application/json',
-                    data: {
-
-                        'Id': id
-                    },
-                    success: function (response) {
-                        alert("succesfuly saved...");
+                    data: '{Id: "' + id + '"}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        $('#tblprecMedication tbody').empty();
+                        var trHTML = '';
+                        $.each(data, function (i, item) {
+                            trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.MedicineName + '</td><td>' + item.WhenMedicine + '</td><td>' + item.Dose + '</td><td>' + item.RepeatMedicine + '</td><td>' + item.ForMedicine + '</td><td>' + item.MedicineDays + '</td><td>' + item.SpecialInstruction + '</td><td>' + item.AlternateMedicine + '</td></td><td><i class="fa fa-pencil" onclick=EditDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                        });
+                        $('#tblprecMedication tbody').append(trHTML)
                     }
                 }
 
@@ -329,8 +329,5 @@
             }
         };
 
-        $('.grid-show').click(function () {
-            $('.mg-table').css("display", "block");
-        });
     </script>
 </div>

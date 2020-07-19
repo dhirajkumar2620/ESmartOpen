@@ -11,7 +11,7 @@ namespace ESmartDr.Controllers
 {
     public class PrescriptionController : Controller
     {
-       
+
         // GET: Prescription
         BAL_MyOPD BM = new BAL_MyOPD();
         public ActionResult Index()
@@ -37,7 +37,7 @@ namespace ESmartDr.Controllers
             {
                 Observation ob = new Observation();
                 List<Observation> lstObservation = new List<Observation>();
-                ob = BM.GetObservationDetails(patientDETAILS.QueueId,patientDETAILS.CasePapaerNo);
+                ob = BM.GetObservationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
                 lstObservation = ob.lst;
                 return Json(lstObservation, JsonRequestBehavior.AllowGet);
             }
@@ -63,7 +63,7 @@ namespace ESmartDr.Controllers
             {
                 Medication ob = new Medication();
                 List<Medication> lstObservation = new List<Medication>();
-                ob = BM.GetMedicationDetails(patientDETAILS.QueueId,patientDETAILS.CasePapaerNo);
+                ob = BM.GetMedicationDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
                 lstObservation = ob.lst;
                 return Json(lstObservation, JsonRequestBehavior.AllowGet);
             }
@@ -89,7 +89,7 @@ namespace ESmartDr.Controllers
             {
                 Common ob = new Common();
                 List<Common> lstObservation = new List<Common>();
-                ob = BM.GetCommonDetails(patientDETAILS.QueueId,patientDETAILS.CasePapaerNo);
+                ob = BM.GetCommonDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
                 lstObservation = ob.lst;
                 return Json(lstObservation, JsonRequestBehavior.AllowGet);
             }
@@ -122,12 +122,12 @@ namespace ESmartDr.Controllers
             try
             {
                 PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
-                int flag = BM.Set_SatatusFlag(patientDETAILS.QueueId,patientDETAILS.CasePapaerNo);
+                int flag = BM.Set_SatatusFlag(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
                 if (flag != 0)
                 {
                     return RedirectToAction("OpdExamination", "MyOPD");
                 }
-               
+
                 return RedirectToAction("OpdPrescription", "MyOPD");
             }
             catch (Exception)
@@ -137,15 +137,15 @@ namespace ESmartDr.Controllers
             }
         }
         [HttpPost]
-        public ActionResult  DeleteObservation(int Id)
+        public ActionResult DeleteObservation(int Id)
         {
             try
             {
                 BAL_MyOPD BL = new BAL_MyOPD();
                 List<Observation> LST = new List<Observation>();
                 LST = BL.DeleteObservation(Id);
-               
-                return View("PatientAppoinment", LST);
+
+                return Json(LST, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -161,8 +161,7 @@ namespace ESmartDr.Controllers
                 BAL_MyOPD BL = new BAL_MyOPD();
                 List<Medication> LST = new List<Medication>();
                 LST = BL.DeleteMedication(Id);
-
-                return View("PatientAppoinment", LST);
+                return Json(LST, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
@@ -178,8 +177,7 @@ namespace ESmartDr.Controllers
                 BAL_MyOPD BL = new BAL_MyOPD();
                 List<Common> LST = new List<Common>();
                 LST = BL.DeleteCommon(Id);
-
-                return View("PatientAppoinment", LST);
+                return Json(LST, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {

@@ -66,7 +66,7 @@
 <div class="card-body">
     @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmPrecCommon" }))
     {
-        @Html.HiddenFor(m => m.Id, new { @id = "hdnId" });
+        @Html.HiddenFor(m => m.Id, new { @id = "hdnPCId" });
         <form>
             <div class="row">
                 <div class="col-md-4">
@@ -202,17 +202,13 @@
             processData: false,
             contentType: false,
             success: function (data) {
-                //location.reload();
-
-                //$("#btnObservation").click();
-                //$("#collapseFour").addClass("active");
                 $('#tblCommonn tbody').empty();
                 var trHTML = '';
                 $.each(data, function (i, item) {
                     trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.InvSelectTests + '</td><td>' + item.InvNotes + '</td><td>' + item.AddAdvice + '</td><td>' + item.AddDiet + '</td><td>' + item.NextVisitAfter + '</td><td>' + item.FrequencyDate + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
                 });
                 $('#tblCommonn tbody').append(trHTML)
-                $("#hdnId").val('0');
+                $("#hdnPCId").val('0');
                 $("#txtinvTest").val('');
                 $("#txtinvNote").val('');
                 $("#txtAdvice").val('');
@@ -229,8 +225,9 @@
     $(".fa-pencil").on("click", function () {
         debugger
         var obj = $(this).parents("tr")
-        $("#hdnId").val(obj.find('td')[0].innerHTML);
+        $("#hdnPCId").val(obj.find('td')[0].innerHTML);
         $("#txtinvTest").val(obj.find('td')[1].innerHTML);
+        debugger
         $("#txtinvNote").val(obj.find('td')[2].innerHTML);
         $("#txtAdvice").val(obj.find('td')[3].innerHTML);
         $("#txtDiet").val(obj.find('td')[4].innerHTML);
@@ -239,9 +236,11 @@
 
     });
     function EditPICDetails(this1) {
+        debugger
         var obj = $(this1).parents("tr")
-        $("#hdnId").val(obj.find('td')[0].innerHTML);
+        $("#hdnPCId").val(obj.find('td')[0].innerHTML);
         $("#txtinvTest").val(obj.find('td')[1].innerHTML);
+        debugger
         $("#txtinvNote").val(obj.find('td')[2].innerHTML);
         $("#txtAdvice").val(obj.find('td')[3].innerHTML);
         $("#txtDiet").val(obj.find('td')[4].innerHTML);
@@ -250,27 +249,27 @@
     }
     function DeleteRecord(id) {
         if (confirm('Do you want to delete record ?')) {
-            var form = $('#frmPrecMedication')[0];
-
-            var fromData = new FormData(form);
             var urllink = '@Url.Content("~/Prescription/DeleteCommon")'
             $.ajax({
                 type: "post",
                 url: urllink,
-                dataType: 'application/json',
-                data: {
-
-                    'Id': id
-                },
-                success: function (response) {
-                    alert("succesfuly saved...");
+                data: '{Id: "' + id + '"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    $('#tblCommonn tbody').empty();
+                    var trHTML = '';
+                    $.each(data, function (i, item) {
+                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.InvSelectTests + '</td><td>' + item.InvNotes + '</td><td>' + item.AddAdvice + '</td><td>' + item.AddDiet + '</td><td>' + item.NextVisitAfter + '</td><td>' + item.FrequencyDate + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                    });
+                    $('#tblCommonn tbody').append(trHTML);
                 }
             }
 
            )
         }
     };
-    $('.grid-show').click(function () {
-        $('.mg-table').css("display", "block");
-    });
+    //$('.grid-show').click(function () {
+    //    $('.mg-table').css("display", "block");
+    //});
 </script>
