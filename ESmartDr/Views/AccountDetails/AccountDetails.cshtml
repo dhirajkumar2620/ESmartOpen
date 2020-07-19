@@ -47,7 +47,11 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Date<span class="star">*</span></label>
+                                                    <div style="display:none">
+                                                        @Html.TextBoxFor(m => m.ExId, new { @id = "txtExId", @type = "text", @class = "form-control datepicker", @placeholder = "eg. dd/mm/yyyy" })
+                                                    </div>
                                                     <div class="input-group date" data-provide="datepicker">
+                                                       
                                                         @Html.TextBoxFor(m => m.ExDate, new { @id = "txtDate", @type = "text", @class = "form-control datepicker", @placeholder = "eg. dd/mm/yyyy" })
                                                         @Html.ValidationMessageFor(model => model.ExDate, "", new { @class = "text-danger" })
                                                         <div class="input-group-addon">
@@ -107,7 +111,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group pull-right">
-                                                    <input type="submit" value="Save" class="btn btn_1 b33 btn-primary" style="margin-top: 2em;">
+                                                    <input type="submit" value="Save" class="btn btn_1 b33 btn-primary"  style="margin-top: 2em;">
                                                 </div>
                                             </div>
                                         </div>
@@ -162,6 +166,7 @@
                                                         </tbody>
                                                         <tfoot>
                                                             <tr>
+                                                                <th hidden>ExId</th>
                                                                 <th>Sr No.</th>
                                                                 <th>Date</th>
                                                                 <th>Catagory</th>
@@ -350,14 +355,14 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="//cdn.datatables.net/plug-ins/1.10.21/dataRender/datetime.js"></script>
 <script>
-    $('.b33').click(function () {
-        swal({
-            title: "New Medicine added successfully.",
-            //text: "You clicked the button!",
-            icon: "success",
-            button: "OK",
-        });
-    });
+    //$('.b33').click(function () {
+    //    swal({
+    //        title: "New Medicine added successfully.",
+    //        //text: "You clicked the button!",
+    //        icon: "success",
+    //        button: "OK",
+    //    });
+    //});
 
     $(document).ready(function () {
         $('#example7').DataTable();
@@ -373,33 +378,34 @@
 
 
 
-    $('.fa.fa-times').click(function () {
-        swal({
-            title: "Do you want to delete admin?",
-            //text: "Once deleted, you will not be able to recover this imaginary file!",
-            icon: "warning",
-            //dangerMode: true,
-            buttons: true,
-            confirmButtonText: 'YES',
-            cancelButtonText: "NO",
+//    $('.fa.fa-times').click(function () {
+//        confirm({
+//            title: "Do you want to delete admin?",
+//            //text: "Once deleted, you will not be able to recover this imaginary file!",
+//            icon: "warning",
+//            //dangerMode: true,
+//            buttons: true,
+//            confirmButtonText: 'YES',
+//            cancelButtonText: "NO",
 
-        })
-.then((willDelete) => {
-    if (willDelete) {
-        swal("Your are deleted admin successfully.", {
-            icon: "success",
-        });
-    }
-    else {
+//        })
+//.then((willDelete) => {
+//    if (willDelete) {
+//        confirm("Your are deleted admin successfully.", {
+//            icon: "success",
+//        });
+//    }
+//    else {
 
-        swal("Your admin is safe", {
-            icon: "success",
+//        swal("Your admin is safe", {
+//            icon: "success",
 
-        });
-    }
-});
-    });
+//        });
+//    }
+//});
+//    });
 
+   
 
     $(document).ready(function () {
         $('.button').click(function () {
