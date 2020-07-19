@@ -227,7 +227,7 @@ namespace ESmartDr.Controllers
                     LST = BP.GetQueueList(hospitalId, admObj.UserId, Date);
                 }
 
-                return Json(new { Status = 1, Message = string.Format(" {0} records found. ", LST) });
+                return Json(LST, JsonRequestBehavior.AllowGet);
                 //return View("PatientAppoinment", LST);
             }
             catch (Exception ex)

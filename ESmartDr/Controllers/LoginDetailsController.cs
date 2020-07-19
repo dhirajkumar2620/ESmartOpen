@@ -2,6 +2,7 @@
 using Bal_Layer;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -126,6 +127,12 @@ namespace ESmartDr.Controllers
                 ED.Email = EmailId;
                 ED.Note = Message;
                 int Flag = BL.ManageEnquiryDetails(ED);
+                if (Flag ==1)
+                {
+                    string ADMContactNo = ConfigurationManager.AppSettings["ADMnumber"];
+                    SMS sms = new SMS();
+                    sms.SendSMS(ADMContactNo, "Dear Admin, I am  " + FirstName + " " + LastName + " " + ContactNo + " " + EmailId + " " + Message + "");
+                }
                 return  RedirectToAction("Index", "LoginDetails");
             }
             catch (Exception)

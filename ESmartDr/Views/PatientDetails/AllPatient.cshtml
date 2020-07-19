@@ -364,29 +364,12 @@
         var x = confirm("Are you sure you want to Confirm Appoinment?");
         if (x) {
 
-
-            //var CPno = $(this).attr("data-image");
             var appCPno = document.getElementById("txtCPno").value;
             var appDate = document.getElementById("txtDate").value;
             var appTime = document.getElementById("txtTime").value;
             var appNote = document.getElementById("txtNote").value;
             var urllink = '@Url.Content("/PatientDetails/SetPatientAppoinment")'
-            // $.ajax({
-            //     type: "post",
-            //     url: urllink,
-            //     dataType: 'application/json',
-            //     data: {
-
-            //         'CPno': appCPno, 'AppoinmentDate': appDate, 'AppoinmentTime': appTime, 'Note': appNote
-
-            //     },
-            //     success: function (response) {
-
-            //         window.location.href = "../PatientDetails/GetQueueList";
-            //     }
-            // }
-
-            //)
+            
             $.ajax({
                 type: "POST",
                 url: urllink,
