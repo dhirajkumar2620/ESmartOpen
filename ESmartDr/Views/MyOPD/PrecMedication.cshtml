@@ -68,22 +68,24 @@
     {
         @Html.HiddenFor(m => m.Id, new { @id = "hdnPMId" });
         <form>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="form-control-label">
-                            Medicine<span class="star">*</span>
-                        </label>
-                        @Html.TextBoxFor(m => m.MedicineName, new { @id = "txtMedicineName", @class = "form-control", required = "required", @placeholder = "Medicine Name" })
-                        @Html.ValidationMessageFor(model => model.MedicineName, "", new { @class = "text-danger" })
+            @if (@Session["Language"].ToString() == "English")
+            {
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Medicine<span class="star">*</span>
+                            </label>
+                            @Html.TextBoxFor(m => m.MedicineName, new { @id = "txtMedicineName", @class = "form-control", required = "required", @placeholder = "Medicine Name" })
+                            @Html.ValidationMessageFor(model => model.MedicineName, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="form-control-label">
-                            When<span class="star">*</span>
-                        </label>
-                        @Html.DropDownListFor(m => m.WhenMedicine, new List<SelectListItem>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                When<span class="star">*</span>
+                            </label>
+                            @Html.DropDownListFor(m => m.WhenMedicine, new List<SelectListItem>
                             {
 
                             new SelectListItem{ Text="Morning", Value = "Morning" },
@@ -96,14 +98,14 @@
                             new SelectListItem{ Text="6 Times a days", Value = "6" },
                             new SelectListItem{ Text="SOS", Value = "SOS" },
                             }, new { @class = "form-control mb-3", @id = "ddlWhenMedicine" })
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="form-control-label">
-                            Dose
-                        </label>
-                        @Html.DropDownListFor(m => m.Dose, new List<SelectListItem>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Dose
+                            </label>
+                            @Html.DropDownListFor(m => m.Dose, new List<SelectListItem>
                                                      {
                                                          new SelectListItem{ Text="½ Qty", Value = "½ Qty" },
                                                          new SelectListItem{ Text="1  Qty", Value = "1  Qty" },
@@ -114,43 +116,43 @@
                                                             new SelectListItem{ Text="5  Qty", Value = "5  Qty" },
                                                             new SelectListItem{ Text="10  Qty", Value = "10  Qty" },
                                                              new SelectListItem{ Text="2 ½ ml", Value = "2 ½ ml" },
-                                                            new SelectListItem{ Text="5  ml", Value = "3  Qty." },
+                                                            new SelectListItem{ Text="5  ml", Value = "3  ml" },
                                                             new SelectListItem{ Text="7 ½ ml", Value = "7 ½ ml" },
                                                             new SelectListItem{ Text="10  ml", Value = "10  ml" },
                                                       }, new { @class = "form-control mb-3", @id = "ddlDose" })
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="form-control-label">
-                            Repeat<span class="star">*</span>
-                        </label>
-                        @Html.DropDownListFor(m => m.RepeatMedicine, new List<SelectListItem>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Repeat<span class="star">*</span>
+                            </label>
+                            @Html.DropDownListFor(m => m.RepeatMedicine, new List<SelectListItem>
                                                      {
                                                          new SelectListItem{ Text="Daily", Value = "Daily" },
                                                          new SelectListItem{ Text="Weekly", Value = "Weekly" },
-                                                          new SelectListItem{ Text="Monthy", Value = "Monthy" },
+                                                          new SelectListItem{ Text="Monthly", Value = "MonthlyB" },
                                                           new SelectListItem{ Text="Yearly", Value = "Yearly" },
                                                       }, new { @class = "form-control mb-3", @id = "ddlRepeatMedicine" })
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="form-control-label">
-                            For<span class="star">*</span>
-                        </label>
-                        @Html.TextBoxFor(m => m.ForMedicine, new { @id = "txtForMedicine", @type = "number", @class = "form-control", required = "required", @placeholder = "For Medicine" })
-                        @Html.ValidationMessageFor(model => model.ForMedicine, "", new { @class = "text-danger" })
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                For<span class="star">*</span>
+                            </label>
+                            @Html.TextBoxFor(m => m.ForMedicine, new { @id = "txtForMedicine", @type = "number", @class = "form-control", required = "required", @placeholder = "For Medicine" })
+                            @Html.ValidationMessageFor(model => model.ForMedicine, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="form-control-label">
-                            Days<span class="star">*</span>
-                        </label>
-                        @Html.DropDownListFor(m => m.MedicineDays, new List<SelectListItem>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Days<span class="star">*</span>
+                            </label>
+                            @Html.DropDownListFor(m => m.MedicineDays, new List<SelectListItem>
                                {
 
                                    new SelectListItem{ Text="Days", Value = "Days" },
@@ -158,16 +160,16 @@
                                     new SelectListItem{ Text="Months", Value = "Months" },
                                     new SelectListItem{ Text="Years", Value = "Years" },
                                 }, new { @class = "form-control mb-3", @id = "MedicineDays" })
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="form-control-label">
-                            Special Instruction<span class="star">*</span>
-                        </label>
-                        @Html.DropDownListFor(m => m.SpecialInstruction, new List<SelectListItem>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Special Instruction<span class="star">*</span>
+                            </label>
+                            @Html.DropDownListFor(m => m.SpecialInstruction, new List<SelectListItem>
                                {
 
                                    new SelectListItem{ Text="After Food", Value = "AfterFood" },
@@ -175,23 +177,151 @@
                                     new SelectListItem{ Text="With Food", Value = "WithFood" },
                                     new SelectListItem{ Text="Non", Value = "Non" },
                                 }, new { @class = "form-control mb-3", @id = "ddlSpecialInstruction" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group ">
+                            <label class="form-control-label">
+                                Alternate Medicine
+                            </label>
+                            @Html.TextBoxFor(m => m.AlternateMedicine, new { @id = "txtAlternateMedicine", @class = "form-control", required = "required", @placeholder = "Alternate Medicine" })
+                            @Html.ValidationMessageFor(model => model.AlternateMedicine, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4 obs-sv-btn">
+                        <div class="form-group pull-right">
+                            <button type="button" class="btn btn_1 btn-primary" onclick="SubmitObservationDetails()" id="tostr-save5">Save</button>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="form-group ">
-                        <label class="form-control-label">
-                            Alternate Medicine
-                        </label>
-                        @Html.TextBoxFor(m => m.AlternateMedicine, new { @id = "txtAlternateMedicine", @class = "form-control", required = "required", @placeholder = "Alternate Medicine" })
-                        @Html.ValidationMessageFor(model => model.AlternateMedicine, "", new { @class = "text-danger" })
+            }
+            @if (@Session["Language"].ToString() == "Marathi")
+            {
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Medicine<span class="star">*</span>
+                            </label>
+                            @Html.TextBoxFor(m => m.MedicineName, new { @id = "txtMedicineName", @class = "form-control", required = "required", @placeholder = "Medicine Name" })
+                            @Html.ValidationMessageFor(model => model.MedicineName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                When<span class="star">*</span>
+                            </label>
+                            @Html.DropDownListFor(m => m.WhenMedicine, new List<SelectListItem>
+                            {
+
+                            new SelectListItem{ Text="सकाळी", Value = "सकाळी" },
+                            new SelectListItem{ Text="दुपारी", Value = "दुपारी" },
+                             new SelectListItem{ Text="रात्री", Value = "रात्री" },
+                            new SelectListItem{ Text="दिवसातून 2 वेळा", Value = "दिवसातून 2 वेळा" },
+                            new SelectListItem{ Text="दिवसातून 3 वेळा", Value = "दिवसातून 3 वेळा" },
+                            new SelectListItem{ Text="दिवसातून 4 वेळा", Value = "दिवसातून 4 वेळा" },
+                            new SelectListItem{ Text="दिवसातून 5 वेळा", Value = "दिवसातून 5 वेळा" },
+                            new SelectListItem{ Text="दिवसातून 6 वेळा", Value = "दिवसातून 6 वेळा" },
+                            new SelectListItem{ Text="SOS", Value = "SOS" },
+                            }, new { @class = "form-control mb-3", @id = "ddlWhenMedicine" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Dose
+                            </label>
+                            @Html.DropDownListFor(m => m.Dose, new List<SelectListItem>
+                                                     {
+                                                         new SelectListItem{ Text="½ गोळी", Value = "½ गोळी" },
+                                                         new SelectListItem{ Text="1  गोळी", Value = "1  गोळी" },
+                                                          new SelectListItem{ Text="1 ½ गोळी", Value = "1 ½ गोळी" },
+                                                          new SelectListItem{ Text="2  गोळी" , Value = "2  गोळी" },
+                                                            new SelectListItem{ Text="2+1/2  गोळी", Value = "2+1/2  गोळी" },
+                                                            new SelectListItem{ Text="3  गोळी", Value = "3  गोळी" },
+                                                            new SelectListItem{ Text="5  गोळी", Value = "5  गोळी" },
+                                                            new SelectListItem{ Text="10  गोळी", Value = "10  गोळी" },
+                                                             new SelectListItem{ Text="2 ½ मि.ली.", Value = "2 ½ मि.ली." },
+                                                            new SelectListItem{ Text="5  मि.ली.", Value = "3  मि.ली.." },
+                                                            new SelectListItem{ Text="7 ½ मि.ली.", Value = "7 ½ मि.ली." },
+                                                            new SelectListItem{ Text="10  मि.ली.", Value = "10  मि.ली." },
+                                                      }, new { @class = "form-control mb-3", @id = "ddlDose" })
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4 obs-sv-btn">
-                    <div class="form-group pull-right">
-                        <button type="button" class="btn btn_1 btn-primary" onclick="SubmitObservationDetails()" id="tostr-save5">Save</button>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Repeat<span class="star">*</span>
+                            </label>
+                            @Html.DropDownListFor(m => m.RepeatMedicine, new List<SelectListItem>
+                                                     {
+                                                         new SelectListItem{ Text="दररोज", Value = "दररोज" },
+                                                         new SelectListItem{ Text="साप्ताहिक", Value = "साप्ताहिक" },
+                                                          new SelectListItem{ Text="मासिक", Value = "मासिक" },
+                                                          new SelectListItem{ Text="वार्षिक", Value = "वार्षिक" },
+                                                      }, new { @class = "form-control mb-3", @id = "ddlRepeatMedicine" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                For<span class="star">*</span>
+                            </label>
+                            @Html.TextBoxFor(m => m.ForMedicine, new { @id = "txtForMedicine", @type = "number", @class = "form-control", required = "required", @placeholder = "For Medicine" })
+                            @Html.ValidationMessageFor(model => model.ForMedicine, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Days<span class="star">*</span>
+                            </label>
+                            @Html.DropDownListFor(m => m.MedicineDays, new List<SelectListItem>
+                               {
+
+                                   new SelectListItem{ Text="दिवस", Value = "दिवस" },
+                                   new SelectListItem{ Text="आठवडे", Value = "आठवडे" },
+                                    new SelectListItem{ Text="महिने", Value = "महिने" },
+                                    new SelectListItem{ Text="वर्षे", Value = "वर्षे" },
+                                }, new { @class = "form-control mb-3", @id = "MedicineDays" })
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Special Instruction<span class="star">*</span>
+                            </label>
+                            @Html.DropDownListFor(m => m.SpecialInstruction, new List<SelectListItem>
+                               {
+
+                                   new SelectListItem{ Text="जेवणापूर्वी ", Value = "जेवणापूर्वी " },
+                                   new SelectListItem{ Text="जेवणानंतर", Value = "जेवणानंतर" },
+                                    new SelectListItem{ Text="जेवणासह", Value = "जेवणासह" },
+                                    new SelectListItem{ Text="Non", Value = "Non" },
+                                }, new { @class = "form-control mb-3", @id = "ddlSpecialInstruction" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group ">
+                            <label class="form-control-label">
+                                Alternate Medicine
+                            </label>
+                            @Html.TextBoxFor(m => m.AlternateMedicine, new { @id = "txtAlternateMedicine", @class = "form-control", required = "required", @placeholder = "Alternate Medicine" })
+                            @Html.ValidationMessageFor(model => model.AlternateMedicine, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4 obs-sv-btn">
+                        <div class="form-group pull-right">
+                            <button type="button" class="btn btn_1 btn-primary" onclick="SubmitObservationDetails()" id="tostr-save5">Save</button>
+                        </div>
+                    </div>
+                </div>
+            }
         </form>
 
     }

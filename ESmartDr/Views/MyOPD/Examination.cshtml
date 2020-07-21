@@ -65,70 +65,10 @@
 </style>
 <div class="bs-example">
     <div class="accordion" id="accordionExample1">
-        @*<div class="row">
-                <div class="col-md-6">
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                            Prescription For :
-                        </li>
-                        <li class="list-inline-item">
-                            <div class="form-group">
-                                <div class="input-group date" data-provide="datepicker">
-                                    <input type="text" class="form-control datepicker" placeholder="dd/mm/yyyy" />
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <input type="button" value="Copy Previous" class="btn btn_1 btn-primary pull-right">
-                </div>
-            </div>*@
+
+
+
         <div class="second-tab">
-            <div class="card">
-                <div class="card-body">
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                            <div class="i-checks">
-                                <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template tbl-7"> &nbsp;&nbsp; Vital Information
-                            </div>
-                        </li>
-                        <li class="list-inline-item">
-                            <div class="i-checks">
-                                <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template tbl-1"> &nbsp;&nbsp; Complaints
-                            </div>
-                        </li>
-                        <li class="list-inline-item">
-                            <div class="i-checks">
-                                <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template tbl-2"> &nbsp;&nbsp;Test
-                            </div>
-                        </li>
-                        <li class="list-inline-item">
-                            <div class="i-checks">
-                                <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template tbl-3"> &nbsp;&nbsp;Diagnosis
-                            </div>
-                        </li>
-                        <li class="list-inline-item">
-                            <div class="i-checks">
-                                <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template tbl-4"> &nbsp;&nbsp;Medication
-                            </div>
-                        </li>
-                        <li class="list-inline-item">
-                            <div class="i-checks">
-                                <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template tbl-5"> &nbsp;&nbsp;Observation
-                            </div>
-                        </li>
-                        <li class="list-inline-item">
-                            <div class="i-checks">
-                                <input id="checkboxCustom2" type="checkbox" value="" class="checkbox-template tbl-6"> &nbsp;&nbsp;Next Visit
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
             <div class="card" id="divPrint">
                 <div class="card-body mg-table">
                     <table class="table table-striped" style="width: 100%;" id="tbl1">
@@ -156,106 +96,113 @@
                         </tbody>
                     </table>
                     <br />
-                    <table id="example2" class="table table-striped tbl-view-7" style="width:100%;display:none;">
-                        <thead>
-                            <tr>
-                                <th>BloodPressure</th>
-                                <th>Temperature</th>
-                                <th>BloodGlucosePostPrandial</th>
-                                <th>Weight</th>
-                                <th>BloodGlucoseFasting</th>
-                                <th>BloodlucoseRandom</th>
-                                <th>Pulse</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.vlist)
-                            {
+                    @if (@Session["VitalInformation"].ToString() == "Yes")
+                    {
+                        <table id="example2" class="table table-striped tbl-view-7" style="width:100%;">
+                            <thead>
                                 <tr>
-                                    <td>@item.BloodPressure</td>
-                                    <td>@item.Temperature</td>
-                                    <td>@item.BloodGlucosePostPrandial</td>
-                                    <td>@item.Weight</td>
-                                    <td>@item.BloodGlucoseFasting</td>
-                                    <td>@item.BloodlucoseRandom</td>
-                                    <td>@item.Pulse</td>
+                                    <th>BloodPressure</th>
+                                    <th>Temperature</th>
+                                    <th>BloodGlucosePostPrandial</th>
+                                    <th>Weight</th>
+                                    <th>BloodGlucoseFasting</th>
+                                    <th>BloodlucoseRandom</th>
+                                    <th>Pulse</th>
                                 </tr>
-                            }
-                        </tbody>
-                        @*<tbody>
-                                <tr>
-                                    <th>Weight(Kg) : <span>80</span></th>
-                                    <th>Temperature(&#8457;): <span>26 Jun, 2020</span></th>
-                                    <th></th>
-                                </tr>
-                            </tbody>*@
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.vlist)
+                                {
+                                    <tr>
+                                        <td>@item.BloodPressure</td>
+                                        <td>@item.Temperature</td>
+                                        <td>@item.BloodGlucosePostPrandial</td>
+                                        <td>@item.Weight</td>
+                                        <td>@item.BloodGlucoseFasting</td>
+                                        <td>@item.BloodlucoseRandom</td>
+                                        <td>@item.Pulse</td>
+                                    </tr>
+                                }
+                            </tbody>
 
+                        </table>
+                    }
                     <br />
-                    <table id="example3" class="table table-striped tbl-view-1" style="width:100%;display:none;">
-                        <thead>
-                            <tr>
-                                <th>Complaints</th>
-                                <th>Since-When</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.olist)
-                            {
+                    @if (@Session["Complaints"].ToString() == "Yes")
+                    {
+                        <table id="example3" class="table table-striped tbl-view-1" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <th>Complaints</th>
+                                    <th>Since-When</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.olist)
+                                {
                                 <tr>
                                     <td>@item.Complaints</td>
                                     <td>@item.Since - @item.Period</td>
                                 </tr>
-                            }
-                        </tbody>
+                                }
+                            </tbody>
 
-                    </table>
-                    <table id="example8" class="table table-striped tbl-view-2" style="width:100%;display:none;">
-                        <thead>
-                            <tr>
-                                <th>Test</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            @foreach (var item in Model.clist)
-                            {
+                        </table>
+                    }
+                    @if (@Session["Test"].ToString() == "Yes")
+                    {
+                        <table id="example8" class="table table-striped tbl-view-2" style="width:100%;">
+                            <thead>
                                 <tr>
-                                    <td>@item.InvSelectTests</td>
+                                    <th>Test</th>
                                 </tr>
-                            }
-                    </table>
-                    <table id="example9" class="table table-striped tbl-view-3" style="width:100%;display:none;">
-                        <thead>
-                            <tr>
-                                <th>Diagnosis</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.olist)
-                            {
+                            </thead>
+                            <tbody>
+
+                                @foreach (var item in Model.clist)
+                                {
+                                    <tr>
+                                        <td>@item.InvSelectTests</td>
+                                    </tr>
+                                }
+                        </table>
+                    }
+                    @if (@Session["Diagnosis"].ToString() == "Yes")
+                    {
+                        <table id="example9" class="table table-striped tbl-view-3" style="width:100%;">
+                            <thead>
                                 <tr>
-                                    <td>@item.Diagnosis</td>
+                                    <th>Diagnosis</th>
                                 </tr>
-                            }
-                        </tbody>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.olist)
+                                {
+                                    <tr>
+                                        <td>@item.Diagnosis</td>
+                                    </tr>
+                                }
+                            </tbody>
 
-                    </table>
-                    <table id="example5" class="table table-striped tbl-view-4" style="width:100%;display:none;">
-                        <thead>
-                            <tr>
-                                <th>Medicine</th>
-                                <th>Dose</th>
-                                <th>Instruction</th>
-                                <th>Freq</th>
-                                <th>Alternate</th>
+                        </table>
+                    }
+                    @if (@Session["Medication"].ToString() == "Yes")
+                    {
+                        <table id="example5" class="table table-striped tbl-view-4" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <th>Medicine</th>
+                                    <th>Dose</th>
+                                    <th>Instruction</th>
+                                    <th>Freq</th>
+                                    <th>Alternate</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                            @foreach (var item in Model.mlist)
-                            {
+                                @foreach (var item in Model.mlist)
+                                {
                                 <tr>
                                     <td>@item.MedicineName</td>
                                     <td>@item.WhenMedicine</td>
@@ -263,51 +210,57 @@
                                     <td>@item.ForMedicine - @item.MedicineDays</td>
                                     <td>@item.AlternateMedicine</td>
                                 </tr>
-                            }
+                                }
 
-                        </tbody>
+                            </tbody>
 
-                    </table>
-                    <table id="example6" class="table table-striped tbl-view-5" style="width: 100%; display: none;">
-                        <thead>
-                            <tr>
-                                <th>Advice</th>
-                                <th>Diet & Exercise</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            @foreach (var item in Model.clist)
-                            {
+                        </table>
+                    }
+                    @if (@Session["Observation"].ToString() == "Yes")
+                    {
+                        <table id="example6" class="table table-striped tbl-view-5" style="width: 100%;">
+                            <thead>
                                 <tr>
-                                    <td>@item.AddAdvice</td>
-                                    <td>@item.AddDiet</td>
+                                    <th>Advice</th>
+                                    <th>Diet & Exercise</th>
                                 </tr>
-                            }
+                            </thead>
+                            <tbody>
 
-                        </tbody>
+                                @foreach (var item in Model.clist)
+                                {
+                                    <tr>
+                                        <td>@item.AddAdvice</td>
+                                        <td>@item.AddDiet</td>
+                                    </tr>
+                                }
 
-                    </table>
+                            </tbody>
 
-                    <table id="example7" class="table table-striped tbl-view-6" style="width:100%;display:none;">
+                        </table>
+                    }
+                    @if (@Session["NextVisit"].ToString() == "Yes")
+                    {
+                        <table id="example7" class="table table-striped tbl-view-6" style="width:100%;">
 
-                        <thead>
-                            <tr>
-                                <th>Next Visite</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            @foreach (var item in Model.NextList)
-                            {
+                            <thead>
                                 <tr>
-                                    <td>@item.CreatedDate</td>
+                                    <th>Next Visite</th>
                                 </tr>
-                            }
+                            </thead>
+                            <tbody>
 
-                        </tbody>
+                                @foreach (var item in Model.NextList)
+                                {
+                                    <tr>
+                                        <td>@item.CreatedDate</td>
+                                    </tr>
+                                }
 
-                    </table>
+                            </tbody>
+
+                        </table>
+                    }
                 </div>
 
             </div>
@@ -322,22 +275,7 @@
 <script src="~/js/front.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-    //function printDiv(x)
-    //{
 
-    //    var divToPrint = document.getElementById('#accordionExample1');
-
-    //    var newWin=window.open('','Print-Window');
-
-    //    newWin.document.open();
-
-    //    newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
-
-    //    newWin.document.close();
-
-    //    setTimeout(function(){newWin.close();},10);
-
-    //}
 </script>
 <script src="~/js/front.js"></script>
 <script>
