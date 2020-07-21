@@ -25,6 +25,21 @@ namespace ESmartDr.Controllers
             AdminDetails ad = new AdminDetails();
           
             ad = BP.GetLoginUserDetails(AD);
+            // ----setting -------
+            Bal_MedicineDetails BLs = new Bal_MedicineDetails();
+            Settings s = new Settings();
+            s = BLs.GetSettings(ad.UserId);
+            Session["Language"] = s.Language;
+            Session["VitalInformation"] = s.VitalInformation;
+            Session["Complaints"] =s.Complaints;
+            Session["Test"] =s.Test;
+            Session["Diagnosis"] = s.Diagnosis;
+            Session["Medication"] = s.Medication;
+            Session["Observation"] = s.Observation;
+            Session["NextVisit"] = s.NextVisit;
+            Session["Printer"] = s.Printer;
+         
+            //-------------
             Session["date"] = DateTime.Now.ToString("dd/MM/yyyy");
             DayOfWeek wk = DateTime.Today.DayOfWeek;
             Session["wkday"] = wk.ToString();

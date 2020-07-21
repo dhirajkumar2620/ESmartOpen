@@ -85,7 +85,16 @@ namespace Bal_Layer
             var dtImportMedicines = fileData.ToDataTable();
             return DP.BulkImportMedicines(dtImportMedicines);
         }
-    }
+
+        public int ManageSettings(Settings s)
+        {
+            return DP.ManageSettings(s);
+        }
+        public Settings GetSettings(int UserId)
+        {
+            return DP.GetSettings(UserId);
+        }
+        }
     public static class Extensions
     {
         public static DataTable ToDataTable<T>(this List<T> items)

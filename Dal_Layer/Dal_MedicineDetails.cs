@@ -143,5 +143,64 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
+
+        public int ManageSettings(Settings s)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[10];
+                sqlparam[0] = new SqlParameter("@UserId", s.UserId);
+                sqlparam[1] = new SqlParameter("@Language", s.Language);
+                sqlparam[2] = new SqlParameter("@VitalInformation", s.VitalInformation);
+                sqlparam[3] = new SqlParameter("@Complaints", s.Complaints);
+                sqlparam[4] = new SqlParameter("@Test", s.Test);
+                sqlparam[5] = new SqlParameter("@Diagnosis", s.Diagnosis);
+                sqlparam[6] = new SqlParameter("@Medication", s.Medication);
+                sqlparam[7] = new SqlParameter("@Observation", s.Observation);
+                sqlparam[8] = new SqlParameter("@NextVisit", s.NextVisit);
+                sqlparam[9] = new SqlParameter("@Printer", s.Printer);
+                return CommonFunction.Save("USP_ManageSettings", sqlparam, "");
+              
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+
+        }
+        public Settings GetSettings(int UserId)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@flag", "1");
+                sqlparam[1] = new SqlParameter("@UserId", UserId);
+
+                DataTable ds = CommonFunction.GetDataTable("USP_Get_Settings", sqlparam, "");
+                Settings Ob = new Settings();
+                List<Settings> lst = new List<Settings>();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Settings Model = new Settings();
+                        CommonFunction.ReflectSingleData(Ob, dr);
+                        lst.Add(Model);
+                    }
+                }
+                Ob.lst = lst;
+                return Ob;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
     }
 }

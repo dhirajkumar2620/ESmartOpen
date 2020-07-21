@@ -115,7 +115,7 @@ namespace ESmartDr.Controllers
 
             try
             {
-                var recordsImported = BL.ImportAll(importFile.InputStream ,admObj.HospitalId);
+                var recordsImported = BL.ImportAll(importFile.InputStream, admObj.HospitalId);
                 return Json(new { Status = 1, Message = string.Format("File Imported {0} records successfully ", recordsImported) });
             }
             catch (Exception ex)
@@ -123,5 +123,34 @@ namespace ESmartDr.Controllers
                 return Json(new { Status = 0, Message = ex.Message });
             }
         }
+
+        public ActionResult Setting()
+        {
+            AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+            Settings s = new Settings();
+            s = BL.GetSettings(admObj.UserId);
+            return View("Setting", s);
+        }
+        public ActionResult ManageSettings(Settings s)
+        {
+            try
+            {
+
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                s.UserId = admObj.UserId;
+
+                int flag = BL.ManageSettings(s);
+
+                // MD = BL.ViewAllMedicine(s);
+
+                return View("Setting", s);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
     }
 }
