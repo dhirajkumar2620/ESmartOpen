@@ -105,14 +105,18 @@
                         </label>
                         @Html.DropDownListFor(m => m.Dose, new List<SelectListItem>
                                                      {
-                                                         new SelectListItem{ Text="1/2", Value = "1/2" },
-                                                         new SelectListItem{ Text="1", Value = "1" },
-                                                          new SelectListItem{ Text="1+1/2", Value = "1+1/2" },
-                                                          new SelectListItem{ Text="2", Value = "2" },
-                                                            new SelectListItem{ Text="2+1/2", Value = "2+1/2" },
-                                                            new SelectListItem{ Text="3", Value = "3" },
-                                                            new SelectListItem{ Text="5", Value = "5" },
-                                                            new SelectListItem{ Text="10", Value = "10" },
+                                                         new SelectListItem{ Text="½ Qty", Value = "½ Qty" },
+                                                         new SelectListItem{ Text="1  Qty", Value = "1  Qty" },
+                                                          new SelectListItem{ Text="1 ½ Qty", Value = "1 ½ Qty" },
+                                                          new SelectListItem{ Text="2  Qty" , Value = "2  Qty" },
+                                                            new SelectListItem{ Text="2+1/2  Qty", Value = "2+1/2  Qty" },
+                                                            new SelectListItem{ Text="3  Qty", Value = "3  Qty" },
+                                                            new SelectListItem{ Text="5  Qty", Value = "5  Qty" },
+                                                            new SelectListItem{ Text="10  Qty", Value = "10  Qty" },
+                                                             new SelectListItem{ Text="2 ½ ml", Value = "2 ½ ml" },
+                                                            new SelectListItem{ Text="5  ml", Value = "3  Qty." },
+                                                            new SelectListItem{ Text="7 ½ ml", Value = "7 ½ ml" },
+                                                            new SelectListItem{ Text="10  ml", Value = "10  ml" },
                                                       }, new { @class = "form-control mb-3", @id = "ddlDose" })
                     </div>
                 </div>
