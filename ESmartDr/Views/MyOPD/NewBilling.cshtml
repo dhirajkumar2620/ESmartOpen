@@ -81,18 +81,18 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="form-control-label">
-                            Quantity<span class="star">*</span>
+                            Quantity
                         </label>
-                        @Html.TextBoxFor(m => m.Qty, new { @id = "txtqty", @type = "number", @class = "form-control", required = "required", @placeholder = "Quantity" })
+                        @Html.TextBoxFor(m => m.Qty, new { @id = "txtqty", @type = "number", @class = "form-control", @placeholder = "Quantity" })
                         @Html.ValidationMessageFor(model => model.Qty, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="form-control-label">
-                            Unit Price<span class="star">*</span>
+                            Unit Price (₹)
                         </label>
-                        @Html.TextBoxFor(m => m.UnitPrize, new { @id = "txtUnitPrice", @type = "number", @class = "form-control", required = "required", @placeholder = "Unit Price" })
+                        @Html.TextBoxFor(m => m.UnitPrize, new { @id = "txtUnitPrice", @type = "number", @class = "form-control", @placeholder = "Unit Price" })
                         @Html.ValidationMessageFor(model => model.UnitPrize, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -101,9 +101,9 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="form-control-label">
-                            Amount
+                            Amount (₹)
                         </label>
-                        @Html.TextBoxFor(m => m.Bill, new { @id = "txtBill", @class = "form-control", @readonly = "true", required = "required", @placeholder = "Amount" })
+                        @Html.TextBoxFor(m => m.Bill, new { @id = "txtBill", @class = "form-control",  @placeholder = "Amount" })
                         @Html.ValidationMessageFor(model => model.Bill, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -130,8 +130,8 @@
                                         <th>Sr.No.</th>
                                         <th>Description</th>
                                         <th>Quantity</th>
-                                        <th>Unit Price</th>
-                                        <th>Amount</th>
+                                        <th>Unit Price (₹)</th>
+                                        <th>Amount (₹)</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -174,7 +174,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label class="form-control-label">
-                        Total<span class="star">*</span>
+                        Total (₹)<span class="star">*</span>
                     </label>
                     @Html.TextBoxFor(m => m.TotalBill, new { @id = "txtTotal", @class = "form-control", @readonly = "true", required = "required", @placeholder = "Description" })
                     @Html.ValidationMessageFor(model => model.TotalBill, "", new { @class = "text-danger" })
@@ -183,18 +183,18 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label class="form-control-label">
-                        Discount<span class="star">*</span>
+                        Discount (₹)
                     </label>
-                    @Html.TextBoxFor(m => m.Discount, new { @id = "txtDiscount", @type = "number", @class = "form-control", required = "required", @placeholder = "Discount" })
+                    @Html.TextBoxFor(m => m.Discount, new { @id = "txtDiscount", @type = "number", @class = "form-control", @placeholder = "Discount" })
                     @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label class="form-control-label">
-                        Net Amount<span class="star">*</span>
+                        Net Amount (₹)<span class="star">*</span>
                     </label>
-                    @Html.TextBoxFor(m => m.NetAmount, new { @id = "txtNetAmt", @type = "number", @class = "form-control", required = "required", @readonly = "true", @placeholder = "Net Amount" })
+                    @Html.TextBoxFor(m => m.NetAmount, new { @id = "txtNetAmt", @type = "number", @class = "form-control", required = "required",  @placeholder = "Net Amount" })
                     @Html.ValidationMessageFor(model => model.NetAmount, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -292,8 +292,8 @@
         var Total = 0;
         var Discount = $("#txtDiscount").val();
         var Total = $("#txtTotal").val();
-        var Disc = (parseFloat(Discount) / 100);
-        var NetAmount = Total - (Total * Disc);
+        var Disc = (parseFloat(Discount));
+        var NetAmount = Total - (Disc);
         $("#txtNetAmt").val(NetAmount.toFixed(2));
     });
 
