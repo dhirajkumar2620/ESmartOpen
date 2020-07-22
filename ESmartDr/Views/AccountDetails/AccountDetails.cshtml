@@ -47,11 +47,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Date<span class="star">*</span></label>
-                                                    <div style="display:none">
-                                                        @Html.TextBoxFor(m => m.ExId, new { @id = "txtExId", @type = "text", @class = "form-control datepicker", @placeholder = "eg. dd/mm/yyyy" })
-                                                    </div>
                                                     <div class="input-group date" data-provide="datepicker">
-                                                       
                                                         @Html.TextBoxFor(m => m.ExDate, new { @id = "txtDate", @type = "text", @class = "form-control datepicker", @placeholder = "eg. dd/mm/yyyy" })
                                                         @Html.ValidationMessageFor(model => model.ExDate, "", new { @class = "text-danger" })
                                                         <div class="input-group-addon">
@@ -111,7 +107,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group pull-right">
-                                                    <input type="submit" value="Save" class="btn btn_1 b33 btn-primary"  style="margin-top: 2em;">
+                                                    <input type="submit" value="Save" class="btn btn_1 b33 btn-primary" style="margin-top: 2em;">
                                                 </div>
                                             </div>
                                         </div>
@@ -142,7 +138,7 @@
                                                                 int @No = @no + 1;
                                                                 @no = @no + 1;
 
-                                                                <tr  id=@item.ExId>
+                                                                <tr>
                                                                     <td hidden>@item.ExId</td>
                                                                     <td>@No</td>
                                                                     <td>@item.ExDate</td>
@@ -157,8 +153,7 @@
                                                                             </li>
 
                                                                             <li class="list-inline-item" data-toggle="modal" data-target="#ComfirmationPopup" title="Delete">
-                                                                                @*<a href="@Url.Content("~/AccountDetails/DeleteExpenses?Id="+item.ExId+"")">  <i class="fa fa-times" aria-hidden="true"></i></a>*@
-                                                                                <a href="#" onclick="DeleteRecord('@item.ExId')">  <i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                                <a href="@Url.Content("~/AccountDetails/DeleteExpenses?Id="+item.ExId+"")">  <i class="fa fa-times" aria-hidden="true"></i></a>
                                                                             </li>
                                                                         </ul>
                                                                     </td>
@@ -167,7 +162,6 @@
                                                         </tbody>
                                                         <tfoot>
                                                             <tr>
-                                                                <th hidden>ExId</th>
                                                                 <th>Sr No.</th>
                                                                 <th>Date</th>
                                                                 <th>Catagory</th>
@@ -280,7 +274,7 @@
                                                                     <td>
                                                                         <ul class="list-inline">
                                                                             <li class="list-inline-item" title="Print Bill">
-                                                                                <a href="@Url.Content("~/PatientDetails/PrintBill?CPno="+item.CasePaperNo+"&QueueID="+item.Id+"")"><i class="fa fa-print" aria-hidden="true"></i></a>
+                                                                                <a onclick="ShowPrint('@item.CasePaperNo','@item.Id')"><i class="fa fa-print" aria-hidden="true"></i></a>
                                                                             </li>
                                                                         </ul>
                                                                     </td>
@@ -332,11 +326,57 @@
     </footer>
 </div>
 
+<div class="modal fade" id="ComfirmationPopup" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+    <div id="Bill">
+    </div>
+</div>
+
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="//cdn.datatables.net/plug-ins/1.10.21/dataRender/datetime.js"></script>
 <script>
-    
+
+    function ShowPrint(CPno, QueueID) {
+        $.ajax({
+            type: "POST",
+            url: "/AccountDetails/PrintView",
+            data: '{CPno: "' + CPno + '", QueueID: "' + QueueID + '"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (response) {
+                $('#Bill').html(response);
+                PrintDiv();
+               // $('#ComfirmationPopup').modal('show');
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+    function PrintDiv() {
+        var Bill = document.getElementById("Bill").innerHTML;
+    var printWindow = window.open('', '', 'height=500,width=900');
+    printWindow.document.write('<html><head><title>DIV Contents</title>');
+    printWindow.document.write('</head><body>');
+        printWindow.document.write(Bill);
+    printWindow.document.write('</body></html>');
+    printWindow.document.close();
+    printWindow.print();
+    }
+
+    $('.b33').click(function () {
+        swal({
+            title: "New Medicine added successfully.",
+            //text: "You clicked the button!",
+            icon: "success",
+            button: "OK",
+        });
+    });
+
     $(document).ready(function () {
         $('#example7').DataTable();
     });
@@ -349,24 +389,35 @@
 
 
 
-    function DeleteRecord(ExId) {
-        if (confirm('Do you want to delete expenses ?')) {
-            $("#" + ExId).remove();
-            var urllink = '@Url.Content("~/AccountDetails/DeleteExpenses")'
-            $.ajax({
-                type: "post",
-                url: urllink,
-                data: '{Id: "' + ExId + '"}',
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data) {
 
-                }
-            }
 
-           )
-        }
-    };
+    $('.fa.fa-times').click(function () {
+        swal({
+            title: "Do you want to delete admin?",
+            //text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            //dangerMode: true,
+            buttons: true,
+            confirmButtonText: 'YES',
+            cancelButtonText: "NO",
+
+        })
+.then((willDelete) => {
+    if (willDelete) {
+        swal("Your are deleted admin successfully.", {
+            icon: "success",
+        });
+    }
+    else {
+
+        swal("Your admin is safe", {
+            icon: "success",
+
+        });
+    }
+});
+    });
+
 
     $(document).ready(function () {
         $('.button').click(function () {

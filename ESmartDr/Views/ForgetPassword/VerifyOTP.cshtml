@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Verify OTP</title>
+    <title>Forgot Password</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="all,follow">
@@ -33,71 +33,130 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <style>
+        .forget-pass-img {
+            background: #fff;
+            padding-right: 0;
+            padding-left: 0;
+        }
 
+            .forget-pass-img img {
+                width: 40%;
+            }
+
+            .forget-pass-img .y {
+                padding: 5em;
+            }
+
+            .forget-pass-img h2 {
+                font-size: 1.9em;
+                color: #f5a433;
+            }
+
+            .forget-pass-img p {
+                font-size: 1.2em;
+                color: #25a1a1;
+                margin-bottom: 0;
+            }
+
+        .forget-pass-txt {
+            background: #25a1a1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+            .forget-pass-txt .x {
+                width: 50%;
+                text-align: center;
+            }
+
+                .forget-pass-txt .x h5 {
+                    font-weight: normal;
+                }
+
+                .forget-pass-txt .x .form-control {
+                    background: #25a1a1;
+                    border-color: #25a1a1;
+                    border-bottom: 1px solid #fff;
+                    border-radius: inherit;
+                    font-size: 2.3em;
+                    color: #fff !important;
+                }
+
+        .main-b {
+            width: 60%;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .btn:focus {
+            box-shadow: none !important;
+        }
+    </style>
 </head>
+<body class="fp-pg" style="background: #d4d4d4;">
 
-        <body class="fp-pg" style="background: #d4d4d4;">
-            <div>
-                <h1>Verify OTP</h1><br>
-                
-                    <div class="row fp-box">
-                        <div class="forgot-password-page">
-                            <div class="col-md-12 col-xs-12 col-sm-12 content-log">
-                                @using (Html.BeginForm("VerifyOTP", "ForgetPassword", FormMethod.Post, new { @id = "frmForgetpasswordDetails" }))
-                                {
-                                    <div class="login-data login-pg">
-
-                                        <div class="form social-icons">
-                                            <!-- <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <button type="button" class="form-control"><img src="img/Google_Logo.png" class="img-responsive">&nbsp;Google</button>
-                            </li>
-                            <li class="list-inline-item">
-                                <button type="button" class="form-control"><img src="img/F_icon.png" class="img-responsive">&nbsp;Facebook</button>
-                            </li>
-                        </ul>
-                        <br> -->
-                                            <div class="login-btn ">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <label style="color:#fff;">OTP<span class="star">*</span></label>
-                                                        @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtOTP",@class = "form-control", @maxlength = "6" ,required = "required", @placeholder = "eg. 123456" })
-                                                        <br>
-
-                                                        @if (TempData["noticeOTP"] != null)
-                                                        {
-                                                            <p style="color:red">@TempData["noticeOTP"]</p>
-                                                        }
-                                                        <br>
-
-                                                        <br>
-                                                    </div>
-                                                </div>
-
-                                                <div class="text-center sn-in">
-                                                    <input type="submit" value="Submit" class="btn btn-primary">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                }
-
-                            </div>
-                        </div>
+    <h1></h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    @using (Html.BeginForm("VerifyOTP", "ForgetPassword", FormMethod.Post, new { @id = "frmForgetpasswordDetails" }))
+    {
+        <div class="row main-b">
+            <div class="col-md-6 forget-pass-img">
+                <div class="y">
+                    <img src="~/img/ChangePassword.png" />
+                    <h2>CODE VERIFICATION</h2>
                 </div>
-                
-
             </div>
-            <script src="~/vendor/jquery/jquery.min.js"></script>
-            <script src="~/vendor/popper.js/umd/popper.min.js"> </script>
-            <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
-            <script src="~/vendor/jquery.cookie/jquery.cookie.js"> </script>
-            <script src="~/vendor/chart.js/Chart.min.js"></script>
-            <script src="~/vendor/jquery-validation/jquery.validate.min.js"></script>
-            <!-- Main File-->
-            <script src="~/js/front.js"></script>
-            <script>
+            <div class="col-md-6 forget-pass-txt">
+                <div class="x">
+                    <p>Please wait while we are verify your number</p>
+                    <h2>+91-@Session["NoForChangePassword"].ToString()</h2>
+                    @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtOTP", @class = "form-control", @maxlength = "6", required = "required", @placeholder = "" })
+                    <br>
+                    <p>Dont receive code ? @Html.ActionLink("Resend OTP", "ResendOTP", "ForgetPassword")</p>
+                    <input type="submit" value="Submit" style="border-radius: 22px;margin-top: 2em;width: 100%;border-radius: 22px;background: #fff;border-color: #fff;color: #f5a433;font-weight: 700;" class="btn btn_2 btn-primary">
+                   <br />
+                   <br />
+                    @if (TempData["noticeOTP"] != null)
+                    {
+                        <p style="color:red">@TempData["noticeOTP"]</p>
+                    }
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+
+    }
+    <footer class="main-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- <div class="col-sm-6">
+                  <p>Your company &copy; 2017-2020</p>
+                </div> -->
+                <div class="col-sm-12 footer-img text-right">
+                    <p><span class="small">Powered by</span> <img src="/img/Powered By company logo.png" class="img-responsive"></p>
+                    <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="~/vendor/chart.js/Chart.min.js"></script>
+    <script src="~/vendor/jquery-validation/jquery.validate.min.js"></script>
+    <!-- Main File-->
+    <script src="~/js/front.js"></script>
+
+    <script>
         var SendOTP = function () {
             $.ajax({
                 url: "/ForgetPassword/SendOTP",
@@ -114,7 +173,8 @@
             })
         }
 
-                $("#txtOTP").val(""); 
-            </script>
-        </body>
+        $("#txtOTP").val("");
+    </script>
+
+</body>
 </html>

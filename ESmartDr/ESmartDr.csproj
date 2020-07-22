@@ -605,6 +605,7 @@
     <Content Include="Views\Home\Dashbord.cshtml" />
     <Content Include="Views\MyOPD\NewBilling.cshtml" />
     <Content Include="Views\MedicineDetails\Setting.cshtml" />
+    <Content Include="Views\AccountDetails\PrintBill.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

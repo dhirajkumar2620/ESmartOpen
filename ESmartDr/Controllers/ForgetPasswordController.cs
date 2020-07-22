@@ -30,6 +30,10 @@ namespace ESmartDr.Controllers
             bool isValidEmailId = LST.Any(x => x.EmailId == AD.EmailId);
             if (isValidWhatsAppNumber == true || isValidEmailId == true)
             {
+                if (AD.WhatsAppNumber ==null)
+                {
+                    AD.WhatsAppNumber = Session["NoForChangePassword"].ToString();
+                }
                 Session["NoForChangePassword"]= AD.WhatsAppNumber;
                 // set mobile number and Send otp -code 
                 String otp =RandomOTP();
@@ -47,7 +51,7 @@ namespace ESmartDr.Controllers
             }
             else
             {
-                TempData["notice"] = "Invalid mobile no.";
+                TempData["notice"] = "Invalid mobile number";
             }
 
             //ModelState.AddModelError("", "Invalid username and password");
@@ -106,6 +110,37 @@ namespace ESmartDr.Controllers
                
             }
             return View("ChangePassword");
+        }
+        
+        public ActionResult ResendOTP()
+        {
+            List<AdminDetails> LST = new List<AdminDetails>();
+            string mbNO = Session["NoForChangePassword"].ToString();
+            LST = BP.GetAllAdminDetails();
+            bool isValidWhatsAppNumber = LST.Any(x => x.WhatsAppNumber == mbNO);
+            bool isValidEmailId = LST.Any(x => x.EmailId == mbNO);
+            if (isValidWhatsAppNumber == true || isValidWhatsAppNumber == true)
+            {
+                // set mobile number and Send otp -code 
+                String otp = RandomOTP();
+                int flag = BP.SetOTPForUser(mbNO, otp);
+                SMS sms = new SMS();
+                string message = "Dear Customer, " + otp + " is OTP for your request initiated through eSmartDoctor. DO NOT disclose it to anyone.";
+                sms.SendOTP(mbNO, message);
+
+                Session["OTP"] = otp;
+                //ViewBag.Visibility = true;
+                TempData["noticeOTP"] = "OTP send sucessfully";
+                return View("VerifyOTP");
+               
+            }
+            else
+            {
+                ModelState.AddModelError("", "OTP send sucessfully");
+            }
+
+            //ModelState.AddModelError("", "Invalid username and password");
+            return View("VerifyOTP");
         }
     }
 }

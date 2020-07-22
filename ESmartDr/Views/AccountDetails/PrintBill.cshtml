@@ -1,0 +1,157 @@
+﻿@model App_Layer.BillPrint
+ 
+    <table style="margin: 0 auto;border: 1px solid #ccc;">
+        <tr>
+            <td>
+                <table style="width: 100%;display: inline;">
+                    <tr>
+
+                        <td>
+                            <ul style="list-style:none;">
+                                <li><b>@Model.HostClincName</b></li>
+                                <li>@Model.HospClinicAddess</li>
+                                <br>
+                                <li>@Model.HospClinicNumber</li>
+                                <li>@Model.FirmInTime1 :@Model.FirmInTime2 </li>
+                                <li>Clinic Holiday : @Model.Holiday</li>
+                            </ul>
+                        </td>
+
+                    </tr>
+                </table>
+                <table style="float: right;">
+                    <tr>
+                        <td>
+                            <ul style="list-style:none;float:right;">
+                                <li><b>@Model.DoctorName </b></li>
+                                <li>@Model.Degree</li>
+                                <li>@Model.RegNumber</li>
+                                <li>@Model.Speciality</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+                <table style="width: 100%;border-top: 1px solid #cccccc;border-bottom: 1px solid #cccccc;">
+                    <tr>
+                        <td style="font-weight: bold;">
+                            No.
+                        </td>
+                        <td style="text-align: right;font-size: 22px;">
+                            <h3 style="margin-top: 0;margin-bottom: 0;">INVOICE</h3>
+                        </td>
+                        <td style="text-align: right;font-weight: bold;">
+                            Date: @DateTime.Now.ToString("dd/MM/yyyy")
+                        </td>
+                    </tr>
+                </table>
+
+                <table style="width: 100%;padding: 0px 18px;">
+                    <tr>
+                        <td>First name:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.PatientName" style="border: none;border-bottom: 1px solid #c3c3c3;width: 86%;"><br></td>
+                    </tr>
+                </table>
+
+                <table style="width: 100%;padding: 0px 18px;">
+                    <tr>
+                        <td>
+                            Age:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.Age" style="border: none;border-bottom: 1px solid #c3c3c3;width: 80%;"><br>
+                        </td>
+                        <td>
+                            Gender:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.Gender" style="border: none;border-bottom: 1px solid #c3c3c3;width: 75%;"><br>
+                        </td>
+                        <td>
+                            CP No.:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.CasePapaerNo" style="border: none;border-bottom: 1px solid #c3c3c3;width: 69%;"><br>
+                        </td>
+                    </tr>
+                </table>
+
+                <table style="width: 100%;padding: 0px 18px;">
+                    <tr>
+                        <td>
+                            Address:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.PatientAddress" style="border: none;border-bottom: 1px solid #c3c3c3;width: 88%;"><br>
+                        </td>
+                    </tr>
+                </table>
+
+                <table style="width: 100%;padding: 0px 18px;">
+                    <tr>
+                        <td>
+                            Mobile No.:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.PatientWhatsAppNo" style="border: none;border-bottom: 1px solid #c3c3c3;width: 80%;"><br>
+                        </td>
+                        <td style="float:right;">
+                            Visit Date: @Model.InvoiceDate
+                        </td>
+                    </tr>
+                </table>
+
+                <br>
+                <table class="table" style="width: 100%;padding: 0px 18px;border: 1px solid #8a8a8a;">
+                    <thead>
+                        <tr style="text-align: left;">
+                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;">Sn. No.</th>
+                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;">Description</th>
+                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;">Quantity</th>
+                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;">Unit Price (₹)</th>
+                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;">Amount (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model.lstBill)
+                        {
+                            //id = id + 1;
+                            <tr>
+                                <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;">1</td>
+                                <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;">@item.Description</td>
+                                <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;">@item.Qty</td>
+                                <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;">@item.UnitPrize</td>
+                                <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;">@item.Amount</td>
+                            </tr>
+                        }
+
+
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" class="text-right" style="padding-top: 12px;padding-bottom: 12px;text-align:right;padding-right: 50px;">Total Amount (₹)</td>
+                            <td>@Model.TotalAmount</td>
+                        </tr>
+                        <tr>
+                            @*style="border: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;"*@
+                            <td colspan="4" class="text-right" style="padding-top: 12px;padding-bottom: 12px;text-align:right;padding-right: 50px;">Discount (₹)</td>
+                            <td>@Model.DiscountAmount</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="text-right" style="padding-top: 12px;padding-bottom: 12px;text-align:right;padding-right: 50px;">Net Amount (₹)</td>
+                            <td>@Model.NetAmount</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <br>
+                <br>
+                <table>
+                    <tr>
+                        <td>
+                            <ul style="list-style: none;">
+                                <li>Paid Amount:₹ @Model.PaidAmount</li>
+                                <br>
+                                <li>Balance Amount:₹ @Model.BalanceAmount</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+                <table style="float: right;text-align: center;padding-right: 50px;">
+                    <tr>
+                        <td>
+                            <ul style="list-style: none;">
+                                <li><small>Sign</small></li>
+                                <br>
+                                <li>For: Clinin Name</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
