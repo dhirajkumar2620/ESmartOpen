@@ -100,7 +100,7 @@ namespace ESmartDr.Controllers
                              .FirstOrDefault();
 
                    
-                    string message = "You are added to " + admObj.FirstName + ", your CP No. is " + CPNo + ". Download eSmartDoctor Patient app to manage your health records - http://esmartdoctor.com";
+                    string message = "You are added to " + admObj.FirstName + ", your CP No. is " + CPNo + ". Download 'Meet My Doctor' app to manage your health records - http://esmartdoctor.com";
                     sms.SendSMS(PD.WhatsAppNo, message);
                 }
                 Session["Msg"] = "1";
@@ -250,7 +250,7 @@ namespace ESmartDr.Controllers
                     LST = BP.DeleteAppoinment(hospitalId, Id, Note, admObj.RoleId);
                 if (true)
                 {
-                    string message = "Your appoinment has been cancellled, CP no: " + CPno + ". Download eSmartDoctor Patient app to manage your health records -  http://esmartdoctor.com";
+                    string message = "Your appoinment has been cancellled, CP no: " + CPno + ". Download 'Meet My Doctor' app to manage your health records -  http://esmartdoctor.com";
                     sms.SendSMS(MbNo, message);
                 }
                 
