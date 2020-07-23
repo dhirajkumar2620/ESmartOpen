@@ -208,6 +208,7 @@ namespace ESmartDr.Controllers
         {
             try
             {
+                string todaysdate;
                 int hospitalId;
                 // DateTime date = Convert.ToDateTime( Request["txtDate"].ToString());
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
@@ -219,12 +220,23 @@ namespace ESmartDr.Controllers
                 List<QueueDetails> LST = new List<QueueDetails>();
                 if (admObj.RoleId == "AHE")
                 {
+                    //todaysdate = DateTime.Now.ToString("yyyy/MM/dd"); ;
+                    //if (todaysdate == Date)
+                    //{
+                    //    return RedirectToAction("GetQueueList", "PatientDetails");
+                    //}
                     int UserId = 99999;
                     LST = BP.GetQueueList(hospitalId, UserId, Date);
                 }
                 if (admObj.RoleId == "ADM")
                 {
+                    //todaysdate = DateTime.Now.ToString("yyyy/MM/dd"); 
+                    //if (todaysdate == Date)
+                    //{
+                    //    return RedirectToAction("GetQueueList", "PatientDetails");
+                    //}
                     LST = BP.GetQueueList(hospitalId, admObj.UserId, Date);
+
                 }
 
                 return Json(LST, JsonRequestBehavior.AllowGet);
