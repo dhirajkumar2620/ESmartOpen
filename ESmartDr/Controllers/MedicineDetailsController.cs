@@ -140,6 +140,18 @@ namespace ESmartDr.Controllers
                 s.UserId = admObj.UserId;
 
                 int flag = BL.ManageSettings(s);
+                if (flag != 0)
+                {
+                    Session["Language"] = s.Language;
+                    Session["VitalInformation"] = s.VitalInformation;
+                    Session["Complaints"] = s.Complaints;
+                    Session["Test"] = s.Test;
+                    Session["Diagnosis"] = s.Diagnosis;
+                    Session["Medication"] = s.Medication;
+                    Session["Observation"] = s.Observation;
+                    Session["NextVisit"] = s.NextVisit;
+                    Session["Printer"] = s.Printer;
+                }
 
                 // MD = BL.ViewAllMedicine(s);
 
