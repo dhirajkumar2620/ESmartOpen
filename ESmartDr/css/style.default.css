@@ -3881,6 +3881,7 @@ select {
     border-color: #25a1a1;
     cursor: pointer;
 }
+
 .fa.fa-print {
     border: 1px solid #ccc;
     padding: 6px 7px;
@@ -3891,6 +3892,7 @@ select {
     border-color: #796AEE;
     cursor: pointer;
 }
+
 .fa.fa-plus {
     border: 1px solid #ccc;
     padding: 6px 7px;
@@ -4176,6 +4178,52 @@ table, .table {
         font-size: 1.2em;
         -webkit-transition: all 0.7s;
         transition: all 0.7s;
+    }
+
+    .main-b {
+        width: 100% !important;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .forget-pass-img .y {
+        padding: 2em 0em !important;
+    }
+
+    .forget-pass-txt {
+        padding: 2em 0em !important;
+    }
+
+    .for-btn-2 {
+        width: 100% !important;
+    }
+
+    .forget-pass-img img {
+        width: 25% !important;
+    }
+
+    .forget-pass-img p {
+        font-size: 1.1em !important;
+        color: #25a1a1;
+        margin-bottom: 0;
+    }
+
+    .forget-pass-txt .x {
+        width: 80% !important;
+        text-align: center;
+    }
+
+    .fp-pg {
+        background: #fff !important;
+    }
+
+    .forgtFooter {
+        position: relative !important;
+        bottom: 0;
+        width: 100%;
+        background: #ffffff!important;
+        color: #fff;
+        padding: 20px 10px;
     }
 }
 
