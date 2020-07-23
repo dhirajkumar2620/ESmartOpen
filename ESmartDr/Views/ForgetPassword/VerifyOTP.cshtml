@@ -2,7 +2,6 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
 
 <html>
@@ -95,13 +94,14 @@
         .btn:focus {
             box-shadow: none !important;
         }
+
+        .forgtFooter {
+            background: white !important;
+        }
     </style>
 </head>
 <body class="fp-pg" style="background: #d4d4d4;">
 
-    <h1></h1>
-    <br>
-    <br>
     <br>
     <br>
     @using (Html.BeginForm("VerifyOTP", "ForgetPassword", FormMethod.Post, new { @id = "frmForgetpasswordDetails" }))
@@ -117,12 +117,12 @@
                 <div class="x">
                     <p>Please wait while we are verify your number</p>
                     <h2>+91-@Session["NoForChangePassword"].ToString()</h2>
-                    @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtOTP", @class = "form-control", @maxlength = "6", required = "required", @placeholder = "" })
+                    @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtOTP", @class = "form-control text-center", @maxlength = "6", required = "required", @placeholder = "" })
                     <br>
                     <p>Dont receive code ? @Html.ActionLink("Resend OTP", "ResendOTP", "ForgetPassword")</p>
-                    <input type="submit" value="Submit" style="border-radius: 22px;margin-top: 2em;width: 100%;border-radius: 22px;background: #fff;border-color: #fff;color: #f5a433;font-weight: 700;" class="btn btn_2 btn-primary">
-                   <br />
-                   <br />
+                    <input type="submit" value="Submit" style="border-radius: 22px;margin-top: 2em;width: 100%;border-radius: 22px;background: #fff;border-color: #fff;color: #f5a433;font-weight: 700!important; font-size: 1em;" class="btn btn_2 btn-primary">
+                    <br />
+                    <br />
                     @if (TempData["noticeOTP"] != null)
                     {
                         <p style="color:red">@TempData["noticeOTP"]</p>
@@ -134,7 +134,7 @@
         <br />
 
     }
-    <footer class="main-footer">
+    <footer class="main-footer forgtFooter">
         <div class="container-fluid">
             <div class="row">
                 <!-- <div class="col-sm-6">

@@ -4218,7 +4218,7 @@ table, .table {
     }
 
     .forgtFooter {
-        position: relative !important;
+        position: absolute;
         bottom: 0;
         width: 100%;
         background: #ffffff!important;

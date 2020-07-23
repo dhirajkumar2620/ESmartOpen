@@ -100,6 +100,9 @@ namespace ESmartDr.Controllers
                 int Flag = BP.UpdatePassword(ad);
                 if (Flag ==1)
                 {
+                    SMS sms = new SMS();
+                    string message = "Dear , You are password has been updatedd successfully Username : "+ad.WhatsAppNumber+" & Password: "+ad.Passwod1+" .Download eSmartDoctor app to manage your Firm -  http://esmartdoctor.com ";
+                    sms.SendSMS(ad.WhatsAppNumber , message);
                     return RedirectToAction("Index", "LoginDetails");
                 }
                 
