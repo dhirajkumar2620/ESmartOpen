@@ -23,8 +23,17 @@ namespace Dal_Layer
                 sqlparam[2] = new SqlParameter("@CPno", CPno);
                 DataSet ds = CommonFunction.GetDataSet("USP_Get_Precription", sqlparam, "");
                 Precription p = new Precription();
+                if (ds != null && ds.Tables[7].Rows.Count > 0)
+                {
+                    DataTable dt = ds.Tables[7];
+                    foreach (DataRow dr in dt.Rows)
+                    {
 
-               
+                        CommonFunction.ReflectSingleData(p, dr);
+
+                    }
+                }
+
                 List<Observation> olst = new List<Observation>();
                 if (ds != null && ds.Tables[3].Rows.Count > 0)
                 {
@@ -100,6 +109,7 @@ namespace Dal_Layer
                         VList.Add(Model1);
                     }
                 }
+
                 p.vlist = VList;
                 p.olist = olst;
                 p.mlist = mlst;
