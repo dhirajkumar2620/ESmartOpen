@@ -30,6 +30,7 @@ namespace ESmartDr.Controllers
             {
 
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                MD.MedicineName = MD.MedicineType + " " + MD.MedicineName;
                 MD.CreatedBy = admObj.UserId.ToString();
                 MD.HospitalId = admObj.HospitalId;
                 int Flag = BL.ManageMedicineDetails(MD);
