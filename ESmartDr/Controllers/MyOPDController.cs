@@ -200,5 +200,15 @@ namespace ESmartDr.Controllers
             Cm = BM.GetCommonDetails(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
             return View("PrecCommon", Cm);
         }
+        [HttpPost]
+        public ActionResult Med(string search)
+        {
+            Bal_MedicineDetails BL = new Bal_MedicineDetails();
+            MedicineDetails MD = new MedicineDetails();
+            AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+            MD = BL.ViewAllMedicine(admObj.HospitalId);
+            var MedicineNamelst = MD.lst.Where(x => x.MedicineName.ToUpper().Contains(search.ToUpper())).ToList();
+            return new JsonResult { Data = MedicineNamelst, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
     }
 }

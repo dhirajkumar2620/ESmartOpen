@@ -379,6 +379,28 @@
         </div>
     </div>
     <script>
+
+        var urllink = '@Url.Content("~/MyOPD/Med")'
+        $("#txtMedicineName").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: urllink,
+                    type: "POST",
+                    dataType: "json",
+                    data: { search: $("#txtMedicineName").val() },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return { label: item.MedicineName, value: item.MedicineName };
+                        }));
+                    },
+                    error: function (xhr, status, error) {
+                        // alert("Error");
+                    }
+                });
+            }
+        });
+    </script>
+    <script>
         function SubmitObservationDetails() {
 
             var form = $('#frmPrecMedication')[0];

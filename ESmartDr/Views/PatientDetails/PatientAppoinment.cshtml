@@ -263,7 +263,7 @@
                     </div>
                     <div class="col-md-12 space-betw">
                         <label class="form-control-label">Bill (₹)</label>
-                        <input type="text" id="txtBill" class="form-control" placeholder="00:00" readonly />
+                        <input type="text" id="txtBill" class="form-control" placeholder="00:00" />
 
                     </div>
                     <div class="col-md-12 space-betw">
@@ -430,7 +430,8 @@
         $("#txtCPno").val(obj.find('td')[1].innerHTML);
         $("#txtStatus").val(obj.find('td')[7].innerHTML);
         $("#txtBill").val(obj.find('td')[5].innerHTML);
-        $("#txtDue").val(obj.find('td')[6].innerHTML);
+        //$("#txtDue").val(obj.find('td')[6].innerHTML);
+        $("#txtDue").val(0);
 
     }
 

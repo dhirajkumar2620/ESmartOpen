@@ -1,6 +1,6 @@
 ﻿@model App_Layer.BillPrint
  
-    <table style="margin: 0 auto;border: 1px solid #ccc;">
+    <table style="margin: 0 auto;">
         <tr>
             <td>
                 <table style="width: 100%;display: inline;">
@@ -10,9 +10,8 @@
                             <ul style="list-style:none;">
                                 <li><b>@Model.HostClincName</b></li>
                                 <li>@Model.HospClinicAddess</li>
-                                <br>
-                                <li>@Model.HospClinicNumber</li>
-                                <li>@Model.FirmInTime1 :@Model.FirmInTime2 </li>
+                                <li>+91 @Model.HospClinicNumber</li>
+                                <li>@Model.FirmInTime1 :@Model.FirmOutTime2 </li>
                                 <li>Clinic Holiday : @Model.Holiday</li>
                             </ul>
                         </td>
@@ -25,7 +24,7 @@
                             <ul style="list-style:none;float:right;">
                                 <li><b>@Model.DoctorName </b></li>
                                 <li>@Model.Degree</li>
-                                <li>@Model.RegNumber</li>
+                                <li>Reg. No. @Model.RegNumber</li>
                                 <li>@Model.Speciality</li>
                             </ul>
                         </td>
@@ -47,7 +46,7 @@
 
                 <table style="width: 100%;padding: 0px 18px;">
                     <tr>
-                        <td>First name:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.PatientName" style="border: none;border-bottom: 1px solid #c3c3c3;width: 86%;"><br></td>
+                        <td>Patient Name:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.PatientName" style="border: none;border-bottom: 1px solid #c3c3c3;width: 86%;"><br></td>
                     </tr>
                 </table>
 
@@ -85,10 +84,10 @@
                 </table>
 
                 <br>
-                <table class="table" style="width: 100%;padding: 0px 18px;border: 1px solid #8a8a8a;">
+                <table class="table" style="width: 100%;padding: 0px 18px;">
                     <thead>
                         <tr style="text-align: left;">
-                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;">Sn. No.</th>
+                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;">Sr. No.</th>
                             <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;">Description</th>
                             <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;">Quantity</th>
                             <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;">Unit Price (₹)</th>
@@ -134,9 +133,9 @@
                     <tr>
                         <td>
                             <ul style="list-style: none;">
-                                <li>Paid Amount:₹ @Model.PaidAmount</li>
+                                <li>Paid Amount: ₹ @Model.PaidAmount</li>
                                 <br>
-                                <li>Balance Amount:₹ @Model.BalanceAmount</li>
+                                <li>Balance Amount: ₹ @Model.BalanceAmount</li>
                             </ul>
                         </td>
                     </tr>
@@ -145,9 +144,9 @@
                     <tr>
                         <td>
                             <ul style="list-style: none;">
-                                <li><small>Sign</small></li>
+                                
                                 <br>
-                                <li>For: Clinin Name</li>
+                                <li>For: @Model.HostClincName</li>
                             </ul>
                         </td>
                     </tr>
