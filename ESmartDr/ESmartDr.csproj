@@ -225,6 +225,7 @@
     <Compile Include="Controllers\AccountDetailsController.cs" />
     <Compile Include="Controllers\AdminDetailsController.cs" />
     <Compile Include="Controllers\BillingDetailsController.cs" />
+    <Compile Include="Controllers\DashBordDetailsController.cs" />
     <Compile Include="Controllers\DignosticDetailsController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\ForgetPasswordController.cs" />
@@ -612,6 +613,7 @@
     <Folder Include="vendor\font-awesome\less\" />
     <Folder Include="vendor\font-awesome\scss\" />
     <Folder Include="Views\BillingDetails\" />
+    <Folder Include="Views\DashBordDetails\" />
     <Folder Include="Views\NewFolder1\" />
     <Folder Include="Views\TabDetails\" />
     <Folder Include="Views\Tab_Precreption\" />
