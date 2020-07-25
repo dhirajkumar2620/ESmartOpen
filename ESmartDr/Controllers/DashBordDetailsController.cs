@@ -32,5 +32,79 @@ namespace ESmartDr.Controllers
                 throw;
             }
         }
+        public ActionResult ViewFeedback(int hId)
+        {
+            try
+            {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                FeedbackDetails LST = new FeedbackDetails();
+                LST = BL.ViewFeedback(admObj.HospitalId);
+                return View();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public ActionResult GetFeatureAppoinmentList()
+        {
+            try
+            {
+                int hospitalId;
+                // DateTime date = Convert.ToDateTime( Request["txtDate"].ToString());
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                hospitalId = admObj.HospitalId;
+                
+                ModelState.Clear();
+                List<QueueDetails> LST = new List<QueueDetails>();
+                if (admObj.RoleId == "AHE")
+                {
+                    int UserId = 99999;
+                    LST = BL.GetFeatureAppoinmentList(hospitalId, UserId, "NNN");
+                }
+                if (admObj.RoleId == "ADM")
+                {
+                    LST = BL.GetFeatureAppoinmentList(hospitalId, admObj.UserId, "NNN");
+                }
+                return View();
+
+                //return View("PatientAppoinment", LST);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+        public ActionResult DeleteAppoinment(int Id, string Note, string CPno, string MbNo)
+        {
+            Bal_PatientDetails BP = new Bal_PatientDetails();
+            SMS sms = new SMS();
+            try
+            {
+                int hospitalId;
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                hospitalId = admObj.HospitalId;
+
+                List<QueueDetails> LST = new List<QueueDetails>();
+
+                LST = BP.DeleteAppoinment(hospitalId, Id, Note, admObj.RoleId);
+                if (true)
+                {
+                    string message = "Your appoinment has been cancellled, CP no: " + CPno + ". Download 'Meet My Doctor' app to manage your health records -  http://esmartdoctor.com";
+                    sms.SendSMS(MbNo, message);
+                }
+
+               // PatientCount(admObj.HospitalId, admObj.UserId);
+                return Json("1", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

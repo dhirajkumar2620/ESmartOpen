@@ -51,6 +51,7 @@
     <Compile Include="DignosticDetails.cs" />
     <Compile Include="EnquiryDetails.cs" />
     <Compile Include="ExpensesDetails.cs" />
+    <Compile Include="FeedbackDetails.cs" />
     <Compile Include="HistoryDetails.cs" />
     <Compile Include="IncomeDetails.cs" />
     <Compile Include="InvoiceDetails.cs" />

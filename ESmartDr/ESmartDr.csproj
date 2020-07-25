@@ -274,6 +274,7 @@
     <Content Include="img\002.jpg" />
     <Content Include="img\003.jpg" />
     <Content Include="img\004.jpg" />
+    <Content Include="img\logo_new.png" />
     <Content Include="img\LogoTechbulb.png" />
     <Content Include="img\ability_img.png" />
     <Content Include="img\about-image.png" />
@@ -298,7 +299,7 @@
     <Content Include="img\F_icon.png" />
     <Content Include="img\Google_Logo.png" />
     <Content Include="img\logo.jpg" />
-    <Content Include="img\logo_new.jpeg" />
+    <Content Include="img\logo_new1.jpeg" />
     <Content Include="img\Page-Animated.png" />
     <Content Include="img\Powered By company logo.png" />
     <Content Include="img\ResetPassward.png" />

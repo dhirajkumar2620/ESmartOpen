@@ -35,7 +35,8 @@ namespace App_Layer
         public string Paid { get; set; }
         public string TotalAmount { get; set; }
         public string DiscountAmount { get; set; }
-
+        public string AppoinmentTime { get; set; }
+       
 
 
 

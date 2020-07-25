@@ -15,5 +15,13 @@ namespace Bal_Layer
         {
             return DL.ViewDashbord(HospitalId);
         }
+        public FeedbackDetails ViewFeedback(int hId)
+        {
+            return DL.ViewFeedback(hId);
+        }
+        public List<QueueDetails> GetFeatureAppoinmentList(int hospitalId, int UserId, string Date)
+        {
+            return DL.GetFeatureAppoinmentList(hospitalId, UserId, Date);
+        }
     }
 }

@@ -72,5 +72,70 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
+        public FeedbackDetails ViewFeedback(int hId)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[2];
+                sqlparam[0] = new SqlParameter("@flag", "1");
+                //sqlparam[1] = new SqlParameter("@MedicineId", 0);
+                sqlparam[1] = new SqlParameter("@HId", hId);
+                DataSet ds = CommonFunction.GetDataSet("USP_Get_FeedbackForDashbord", sqlparam, "");
+                FeedbackDetails MD = new FeedbackDetails();
+                List<FeedbackDetails> lst = new List<FeedbackDetails>();
+                if (ds != null && ds.Tables[0].Rows.Count > 0)
+                {
+                    DataTable dt = ds.Tables[0];
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        FeedbackDetails Model = new FeedbackDetails();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        lst.Add(Model);
+                    }
+                }
+                MD.lst = lst;
+                return MD;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+        public List<QueueDetails> GetFeatureAppoinmentList(int hospitalId, int UserId, string Date)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[4];
+                sqlparam[0] = new SqlParameter("@Flag", "3");
+                sqlparam[1] = new SqlParameter("@HospitalId", hospitalId);
+                sqlparam[2] = new SqlParameter("@UserId", UserId);
+                sqlparam[3] = new SqlParameter("@Date", Date);
+
+                DataTable ds = CommonFunction.GetDataTable("USP_GET_QUELIST", sqlparam, "");
+
+                List<QueueDetails> lst = new List<QueueDetails>();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        QueueDetails Model = new QueueDetails();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        lst.Add(Model);
+                    }
+                }
+                return lst;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+
     }
 }
