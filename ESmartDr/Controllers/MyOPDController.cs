@@ -80,6 +80,7 @@ namespace ESmartDr.Controllers
             bd.TotalBill = TotalBill;
             bd.TotalPaid = TotalPaid;
             bd.Total = TotalBalance + TotalPaid + TotalBill;
+            bd.NetAmount = TotalBalance + TotalPaid + TotalBill;
             return View("NewBilling", bd);
         }
 

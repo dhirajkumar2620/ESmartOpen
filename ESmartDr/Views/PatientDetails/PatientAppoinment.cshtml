@@ -9,6 +9,18 @@
         <div class="container-fluid">
             <h2 class="no-margin-bottom">Queue List</h2>
         </div>
+        <style>
+            .fa.user1-md {
+                border: 1px solid #ccc;
+                padding: 6px 7px;
+                border-radius: 50%;
+                font-size: 12px;
+                background: #ffa01b;
+                color: #fff;
+                border-color: #ffa01b;
+                cursor: pointer;
+            }
+        </style>
     </header>
     <!-- Breadcrumb-->
     <!-- <div class="breadcrumb-holder container-fluid">
@@ -37,10 +49,10 @@
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col col-5 text-center">
-                                    <i class="fa fa-medkit" aria-hidden="true"></i>
+                                    <i class="fa fa-users" aria-hidden="true"></i>
                                 </div>
                                 <div class="col col-7">
-                                    <h6 class="mt-0 mb-1">Today <br />Appointment</h6>
+                                    <h6 class="mt-0 mb-1">Today's <br />Appointment</h6>
                                     <div class="count text-primary fs-20">@Session["TodayAppointment"].ToString()</div>
                                 </div>
                             </div>
@@ -52,7 +64,7 @@
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col col-5 text-center">
-                                    <i class="fa fa-wheelchair" aria-hidden="true"></i>
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>
                                 </div>
                                 <div class="col col-7">
                                     <h6 class="mt-0 mb-1">Today New <br /> Patients</h6>
@@ -70,7 +82,7 @@
                                     <i class="fa fa-heartbeat" aria-hidden="true"></i>
                                 </div>
                                 <div class="col col-7">
-                                    <h6 class="mt-0 mb-1">Yesterday<br /> Patients</h6>
+                                    <h6 class="mt-0 mb-1">Yesterday <br /> Visits</h6>
                                     <div class="count text-primary fs-20">@Session["YesterdayPatients"].ToString()</div>
                                 </div>
                             </div>
@@ -99,7 +111,7 @@
                                         <tr>
                                             <th id="ID">Q. No.</th>
                                             <th>CP No.</th>
-                                            <th>Patient</th>
+                                            <th>Patient Details</th>
                                             <th>Mobile No</th>
                                             <th>Doctor</th>
                                             <th>Bill (₹)</th>
@@ -154,14 +166,14 @@
                                                             <a href="#" data-toggle="modal" data-target="#saveAppointment" onclick="showModel(this)"><i class="fa fa-check" aria-hidden="true"></i></a>
                                                         </li>
                                                         <li class="list-inline-item" title="Examination">
-                                                            <a href="@Url.Content("~/Home/MyOPD?CPno="+item.CasePaperNo+"&QueueID="+item.Id+"")"><i class="fa fa-history" aria-hidden="true"></i></a>
+                                                            <a href="@Url.Content("~/Home/MyOPD?CPno="+item.CasePaperNo+"&QueueID="+item.Id+"")"><i class="fa fa-user-md user1-md " aria-hidden="true"></i></a>
                                                         </li>
-                                                        <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Delete">
+                                                        <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Cancle">
                                                             <a href="#" data-toggle="modal" data-target="#DeleteAppoinment" onclick="ShowDeleteAppoinment(this)"><i class="fa fa-times" aria-hidden="true"></i></a>
                                                         </li>
                                                         @*<li class="list-inline-item" title="Print Bill">
-                                                            <a href="@Url.Content("~/PatientDetails/PrintBill?CPno="+item.CasePaperNo+"&QueueID="+item.Id+"")"><i class="fa fa-print" aria-hidden="true"></i></a>
-                                                        </li>*@
+                                                                <a href="@Url.Content("~/PatientDetails/PrintBill?CPno="+item.CasePaperNo+"&QueueID="+item.Id+"")"><i class="fa fa-print" aria-hidden="true"></i></a>
+                                                            </li>*@
                                                     </ul>
                                                 </td>
                                             </tr>
@@ -171,7 +183,7 @@
                                         <tr>
                                             <th>Q. No.</th>
                                             <th>CP No.</th>
-                                            <th>Patient</th>
+                                            <th>Patient Details</th>
                                             <th>Mobile No</th>
                                             <th>Doctor</th>
                                             <th>Bill (₹)</th>
@@ -262,7 +274,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 space-betw">
-                        <label class="form-control-label">Bill (₹)</label>
+                        <label class="form-control-label">Visit Bill (₹)</label>
                         <input type="text" id="txtBill" class="form-control" placeholder="00:00" />
 
                     </div>
@@ -277,7 +289,7 @@
             <div class="modal-footer" style="border-top:none;">
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="button" onclick="SetStatus(this)" class="btn btn_1 btn-primary" data-dismiss="modal">Save</button>
+                        <button type="button" onclick="SetStatus(this)" class="btn btn_2 b22 btn-primary" data-dismiss="modal">Save</button>
                     </div>
                 </div>
             </div>
@@ -361,7 +373,7 @@
     };*@
     function NextAppView(x) {
 
-       var date1 = document.getElementById("txtDate").value;
+        var date1 = document.getElementById("txtDate").value;
         $.ajax({
             type: "POST",
             url: "/PatientDetails/GetQueueListByDate",
@@ -370,19 +382,19 @@
             dataType: "json",
             success: function (data) {
                 $('#example tbody').empty();
-                    var trHTML = '';
-                    var j = 0;
-                    var Total = 0;
-                    var Discount = 0;
-                    $.each(data, function (i, item) {
-                        j = j + 1;
-                        Total = Total + parseFloat(item.Bill);
-                        trHTML += '<tr id=' + item.Id + '><td>' + item.rowNum + '</td><td>' + item.CasePaperNo + '</td><td>' + item.PatientName + '<br>' + item.Age + ' / ' + item.Gender + '</td><td>' + item.WhatsAppNo + '<br>' + item.OtherNo + '</td><td>' + item.FirstName + '</td><td>' + item.Bill + '</td><td>' + item.Paid + '</td><td>In Queue</td><td hidden="">' + item.Id + '</td><td><ul class="list-inline"><li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Edit"><a href="#" data-toggle="modal" data-target="#saveAppointment" onclick="showModel(this)"><i class="fa fa-check" aria-hidden="true"></i></a></li><li class="list-inline-item" title="Examination"><a href="/Home/MyOPD?CPno=' + item.CasePaperNo + '&amp;QueueID=' + item.Id + '"><i class="fa fa-history" aria-hidden="true"></i></a></li><li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Delete"><a href="#" data-toggle="modal" data-target="#DeleteAppoinment" onclick="ShowDeleteAppoinment(this)"><i class="fa fa-times" aria-hidden="true"></i></a></li></ul></td></tr>'
-                       
-                            //'<tr id=' + item.Id + '><td>' + item.rowNum + '</td><td>' + item.CasePaperNo + '</td></tr>'
-                            //<td>' + item.PatientName + ' \ ' + item.Age + ' / ' + item.Gender + '</td><td>' + item.WhatsAppNo + ' / ' + item.OtherNo + '</td><td>' + item.FirstName + '</td><td>' + item.Bill + '</td><td>' + item.Paid + '</td><td>' + item.InQuee + '</td><td hidden>' + item.Id + '</td><td><i class="fa fa-check" onclick=showModel(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-history" onclick="" aria-hidden="true"></i>>&nbsp;&nbsp;<i class="fa fa-times" onclick=ShowDeleteAppoinment(this) aria-hidden="true"></i></td></tr>';
-                    });
-                    $('#example tbody').append(trHTML);
+                var trHTML = '';
+                var j = 0;
+                var Total = 0;
+                var Discount = 0;
+                $.each(data, function (i, item) {
+                    j = j + 1;
+                    Total = Total + parseFloat(item.Bill);
+                    trHTML += '<tr id=' + item.Id + '><td>' + item.rowNum + '</td><td>' + item.CasePaperNo + '</td><td>' + item.PatientName + '<br>' + item.Age + ' / ' + item.Gender + '</td><td>' + item.WhatsAppNo + '<br>' + item.OtherNo + '</td><td>' + item.FirstName + '</td><td>' + item.Bill + '</td><td>' + item.Paid + '</td><td>In Queue</td><td hidden="">' + item.Id + '</td><td><ul class="list-inline"><li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Edit"><a href="#" data-toggle="modal" data-target="#saveAppointment" onclick="showModel(this)"><i class="fa fa-check" aria-hidden="true"></i></a></li><li class="list-inline-item" title="Examination"><a href="/Home/MyOPD?CPno=' + item.CasePaperNo + '&amp;QueueID=' + item.Id + '"><i class="fa fa-user-md" aria-hidden="true"></i></a></li><li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Cancle"><a href="#" data-toggle="modal" data-target="#DeleteAppoinment" onclick="ShowDeleteAppoinment(this)"><i class="fa fa-times" aria-hidden="true"></i></a></li></ul></td></tr>'
+
+                    //'<tr id=' + item.Id + '><td>' + item.rowNum + '</td><td>' + item.CasePaperNo + '</td></tr>'
+                    //<td>' + item.PatientName + ' \ ' + item.Age + ' / ' + item.Gender + '</td><td>' + item.WhatsAppNo + ' / ' + item.OtherNo + '</td><td>' + item.FirstName + '</td><td>' + item.Bill + '</td><td>' + item.Paid + '</td><td>' + item.InQuee + '</td><td hidden>' + item.Id + '</td><td><i class="fa fa-check" onclick=showModel(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-user-md" onclick="" aria-hidden="true"></i>>&nbsp;&nbsp;<i class="fa fa-times" onclick=ShowDeleteAppoinment(this) aria-hidden="true"></i></td></tr>';
+                });
+                $('#example tbody').append(trHTML);
             },
             failure: function (response) {
                 alert(response.responseText);
@@ -391,7 +403,7 @@
                 alert(response.responseText);
             }
         });
-       
+
 
     }
     function ShowDeleteAppoinment(x) {
@@ -421,9 +433,9 @@
                 'Id': QueueId, 'Note': Note, 'CPno': CPno, 'MbNo': MbNo
             }
         });
-            $("#"+QueueId).remove();
-                alert("Deleted Successfully");
-        }
+        $("#" + QueueId).remove();
+        alert("Deleted Successfully");
+    }
     function showModel(x) {
         var obj = $(x).parents("tr")
         $("#txtQid").val(obj.find('td')[8].innerHTML);

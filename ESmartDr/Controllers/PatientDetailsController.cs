@@ -419,7 +419,7 @@ namespace ESmartDr.Controllers
             {
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 DataTable dt = BP.Get_ExportToExcel(admObj.HospitalId);
-                string attachment = "attachment; filename=TimeSheet.xls";
+                string attachment = "attachment; filename=My Patients.xls";
                 Response.ClearContent();
                 Response.AddHeader("content-disposition", attachment);
                 Response.ContentType = "application/vnd.ms-excel";

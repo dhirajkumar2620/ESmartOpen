@@ -301,10 +301,11 @@
     <Content Include="img\logo.jpg" />
     <Content Include="img\logo_new1.jpeg" />
     <Content Include="img\Page-Animated.png" />
-    <Content Include="img\Powered By company logo.png" />
+    <Content Include="img\Powered By company logo1.png" />
     <Content Include="img\ResetPassward.png" />
     <Content Include="img\screencapture-templatemonsterpreview-demo-77692-html-2020-06-02-15_29_33.png" />
     <Content Include="img\screencapture-templatemonsterpreview-demo-82788-html-2020-06-02-14_59_42.png" />
+    <Content Include="img\Powered By company logo.png" />
     <Content Include="js\api.js" />
     <Content Include="js\bootstrap-clockpicker.min.js" />
     <Content Include="js\charts-custom.js" />

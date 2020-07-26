@@ -5140,7 +5140,7 @@ legend.custom-border {
 }
 
 .save-appoint .modal-header {
-    background: #f5a433;
+    background: #25a1a1;
     border-radius: inherit !important;
 }
 
@@ -5158,6 +5158,9 @@ legend.custom-border {
 }
 
 .save-appoint .btn_1 {
+    width: auto !important;
+}
+.save-appoint .b22 {
     width: auto !important;
 }
 

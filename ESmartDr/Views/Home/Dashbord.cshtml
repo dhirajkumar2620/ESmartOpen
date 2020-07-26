@@ -1,10 +1,499 @@
 ﻿
-@{
-    ViewBag.Title = "Dashbord";
-}
+    @{
+        ViewBag.Title = "Dashbord";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    <link href="~/css/cssgraph_bar.css" rel="stylesheet" />
+    <link href="~/css/cssgraph_plot.css" rel="stylesheet" />
+    <style>
+        .sub-heading table tr {
+            box-shadow: none !important;
+        }
 
-   
-COMING SOON
-        
-    
+            .sub-heading table tr th {
+                border-top: none !important;
+                border-bottom: none !important;
+                padding-bottom: 0 !important;
+                padding-top: 0 !important;
+            }
 
+        textarea {
+            border-color: #e8e8e8;
+            background: #e8e8e8;
+        }
+
+        .table-responsive {
+            overflow-y: scroll;
+            height: auto !important;
+        }
+
+        #bar-ticks .tick p {
+            left: -1em !important;
+            margin: 0 0 0 0.5em;
+            position: absolute;
+            top: -0.8em;
+        }
+
+        #bar-graph thead tr {
+            bottom: auto;
+            right: 0;
+            top: -15px !important;
+        }
+
+        #bar-graph tbody .before {
+            border-color: transparent;
+            left: 20px;
+            background: #f5a333;
+        }
+
+        #bar-graph tbody .after {
+            background-color: #25a1a1 !important;
+            border-color: transparent;
+            left: 75px;
+        }
+
+        #bar-graph td:hover {
+            background-color: #e89523 !important;
+            color: white;
+        }
+
+        #bar-graph thead th.before {
+            line-height: 2;
+            right: 140px !important;
+        }
+
+        #bar-graph thead th {
+            height: auto;
+            font-weight: 400;
+            padding: 0;
+            width: 100% !important;
+        }
+
+            #bar-graph thead th.before:after {
+                content: '';
+                height: 10px;
+                left: 28px !important;
+                position: absolute;
+                top: 8px !important;
+                width: 10px;
+                background: #f5a333 !important;
+            }
+
+            #bar-graph thead th.after:after {
+                content: '';
+                height: 10px;
+                left: 13px !important;
+                position: absolute;
+                top: 8px !important;
+                width: 10px;
+                background: #25a1a1 !important;
+            }
+
+        #bar-graph .bar {
+            border-bottom: none;
+            border: 1px solid;
+            color: #000;
+            width: 22px;
+        }
+
+        #bar-graph tbody .after {
+            background-color: #25a1a1 !important;
+            border-color: transparent;
+            left: 42px;
+        }
+
+        .dashboard-border {
+            border: 1px solid #b1d7ec;
+            border-radius: 10px;
+        }
+
+            .dashboard-border ul:first-child {
+                background: #eef5f9;
+                padding: 1em;
+                overflow: hidden;
+                z-index: 000000;
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+                margin-bottom: 0;
+            }
+
+        .dash-patient-bg {
+            background: #f9f9f9;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            padding: 1em;
+        }
+
+        .dash-card .col-md-4 {
+            margin-top: 1em;
+        }
+
+        #bar-ticks .tick {
+            border-bottom: 1px solid #E7E7E7;
+            height: 59px;
+            position: relative;
+            width: 435px !important;
+        }
+
+        #bar-graph thead tr {
+            bottom: auto;
+            right: 105px !important;
+            top: -15px !important;
+        }
+
+        #bar-graph th {
+            width: 82px !important;
+        }
+    </style>
+
+    <div>
+        <header class="page-header">
+            <div class="container-fluid">
+                <h2 class="no-margin-bottom">Dashboard</h2>
+            </div>
+        </header>
+    </div>
+    <div class="">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option value="true">Select</option>
+                            <option value="true">Weekly</option>
+                            <option value="false">Monthly</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row" style="width: 100%;margin: 0 auto;">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="title" style="margin-bottom: 2em;">Patient Analysis</h2>
+                    <br />
+                    <table id="bar-graph">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="before">Total Visits</th>
+                                <th class="after">New Patients</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="section-1">
+                                <th scope="row">Jan</th>
+                                <td class="before bar"><p>4.7s</p></td>
+                                <td class="after bar"><p>1.1s</p></td>
+                            </tr>
+                            <tr id="section-2">
+                                <th scope="row">Feb</th>
+                                <td class="before bar"><p>3.1s</p></td>
+                                <td class="after bar"><p>1.5s</p></td>
+                            </tr>
+                            <tr id="section-3">
+                                <th scope="row">Mar</th>
+                                <td class="before bar"><p>4.8s</p></td>
+                                <td class="after bar"><p>1.4s</p></td>
+                            </tr>
+                            <tr id="section-4">
+                                <th scope="row">Apr</th>
+                                <td class="before bar"><p>4.8s</p></td>
+                                <td class="after bar"><p>1.4s</p></td>
+                            </tr>
+                            <tr id="section-5">
+                                <th scope="row">Apr</th>
+                                <td class="before bar"><p>4.8s</p></td>
+                                <td class="after bar"><p>1.4s</p></td>
+                            </tr>
+                            <tr id="section-6">
+                                <th scope="row">Apr</th>
+                                <td class="before bar"><p>4.8s</p></td>
+                                <td class="after bar"><p>1.4s</p></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="bar-ticks">
+                        <div class="tick"><p>5.0s</p></div>
+                        <div class="tick"><p>4.0s</p></div>
+                        <div class="tick"><p>3.0s</p></div>
+                        <div class="tick"><p>2.0s</p></div>
+                        <div class="tick"><p>1.0s</p></div>
+                        <div class="tick"><p>0.0s</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="title" style="margin-bottom: 2em;">Income-Expenses Analysis</h2>
+                    <br />
+                    <table id="bar-graph">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="before">Income</th>
+                                <th class="after">Expenses</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="section-1">
+                                <th scope="row">Jan</th>
+                                <td class="before bar"><p>4.7s</p></td>
+                                <td class="after bar"><p>1.1s</p></td>
+                            </tr>
+                            <tr id="section-2">
+                                <th scope="row">Feb</th>
+                                <td class="before bar"><p>3.1s</p></td>
+                                <td class="after bar"><p>1.5s</p></td>
+                            </tr>
+                            <tr id="section-3">
+                                <th scope="row">Mar</th>
+                                <td class="before bar"><p>4.8s</p></td>
+                                <td class="after bar"><p>1.4s</p></td>
+                            </tr>
+                            <tr id="section-4">
+                                <th scope="row">Apr</th>
+                                <td class="before bar"><p>4.8s</p></td>
+                                <td class="after bar"><p>1.4s</p></td>
+                            </tr>
+                            <tr id="section-5">
+                                <th scope="row">Apr</th>
+                                <td class="before bar"><p>4.8s</p></td>
+                                <td class="after bar"><p>1.4s</p></td>
+                            </tr>
+                            <tr id="section-6">
+                                <th scope="row">Apr</th>
+                                <td class="before bar"><p>4.8s</p></td>
+                                <td class="after bar"><p>1.4s</p></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="bar-ticks">
+                        <div class="tick"><p>5.0s</p></div>
+                        <div class="tick"><p>4.0s</p></div>
+                        <div class="tick"><p>3.0s</p></div>
+                        <div class="tick"><p>2.0s</p></div>
+                        <div class="tick"><p>1.0s</p></div>
+                        <div class="tick"><p>0.0s</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Appointment</h3>
+                    <div class="table-responsive">
+                        <div class="grid-btn pull-right">
+                            <a> <input type="Date" class="form-control text-letter" placeholder="dd/mm/yyyy"></a>
+                        </div>
+                        <br /><br />
+                        <table id="examples" class="table table-striped" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Sr.No.</th>
+                                    <th>CP No.</th>
+                                    <th>Patient Details</th>
+                                    <th>Mobile No.</th>
+                                    <th>App. Dt.</th>
+                                    <th>Timing</th>
+                                    <th>Doctor</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Old</td>
+                                    <td>Cold</td>
+                                    <td>8888888888</td>
+                                    <td>30/07/2020</td>
+                                    <td>1:00 PM</td>
+                                    <td>Dhiraj</td>
+                                    <td>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item" title="Edit">
+                                                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            </li>
+                                            <li class="list-inline-item" title="Delete">
+                                                <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Feedback</h3>
+                    <div class="row dash-card">
+                        <div class="col-md-4">
+                            <div class="dashboard-border">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        Date : DD/MM/YYYY
+                                    </li>
+                                    <li class="list-inline-item pull-right">
+                                        CP No. : AAA0001
+                                    </li>
+                                </ul>
+                                <div class="dash-patient-bg">
+                                    <h4>Patient Name</h4>
+                                    <ul class="list-unstyled">
+                                        <li>Overall Experience :</li>
+                                        <li>Clinic Cleanliness :</li>
+                                        <li>Staff Behavior :</li>
+                                        <li>Doctor Qualities :</li>
+                                    </ul>
+                                    <textarea placeholder="Feedback" style="width:100%;"></textarea>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="dashboard-border">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        Date : DD/MM/YYYY
+                                    </li>
+                                    <li class="list-inline-item pull-right">
+                                        CP No. : AAA0001
+                                    </li>
+                                </ul>
+                                <div class="dash-patient-bg">
+                                    <h4>Patient Name</h4>
+                                    <ul class="list-unstyled">
+                                        <li>Overall Experience :</li>
+                                        <li>Clinic Cleanliness :</li>
+                                        <li>Staff Behavior :</li>
+                                        <li>Doctor Qualities :</li>
+                                    </ul>
+                                    <textarea placeholder="Feedback" style="width:100%;"></textarea>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="dashboard-border">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        Date : DD/MM/YYYY
+                                    </li>
+                                    <li class="list-inline-item pull-right">
+                                        CP No. : AAA0001
+                                    </li>
+                                </ul>
+                                <div class="dash-patient-bg">
+                                    <h4>Patient Name</h4>
+                                    <ul class="list-unstyled">
+                                        <li>Overall Experience :</li>
+                                        <li>Clinic Cleanliness :</li>
+                                        <li>Staff Behavior :</li>
+                                        <li>Doctor Qualities :</li>
+                                    </ul>
+                                    <textarea placeholder="Feedback" style="width:100%;"></textarea>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row dash-card">
+                        <div class="col-md-4">
+                            <div class="dashboard-border">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        Date : DD/MM/YYYY
+                                    </li>
+                                    <li class="list-inline-item pull-right">
+                                        CP No. : AAA0001
+                                    </li>
+                                </ul>
+                                <div class="dash-patient-bg">
+                                    <h4>Patient Name</h4>
+                                    <ul class="list-unstyled">
+                                        <li>Overall Experience :</li>
+                                        <li>Clinic Cleanliness :</li>
+                                        <li>Staff Behavior :</li>
+                                        <li>Doctor Qualities :</li>
+                                    </ul>
+                                    <textarea placeholder="Feedback" style="width:100%;"></textarea>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="dashboard-border">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        Date : DD/MM/YYYY
+                                    </li>
+                                    <li class="list-inline-item pull-right">
+                                        CP No. : AAA0001
+                                    </li>
+                                </ul>
+                                <div class="dash-patient-bg">
+                                    <h4>Patient Name</h4>
+                                    <ul class="list-unstyled">
+                                        <li>Overall Experience :</li>
+                                        <li>Clinic Cleanliness :</li>
+                                        <li>Staff Behavior :</li>
+                                        <li>Doctor Qualities :</li>
+                                    </ul>
+                                    <textarea placeholder="Feedback" style="width:100%;"></textarea>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="dashboard-border">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        Date : DD/MM/YYYY
+                                    </li>
+                                    <li class="list-inline-item pull-right">
+                                        CP No. : AAA0001
+                                    </li>
+                                </ul>
+                                <div class="dash-patient-bg">
+                                    <h4>Patient Name</h4>
+                                    <ul class="list-unstyled">
+                                        <li>Overall Experience :</li>
+                                        <li>Clinic Cleanliness :</li>
+                                        <li>Staff Behavior :</li>
+                                        <li>Doctor Qualities :</li>
+                                    </ul>
+                                    <textarea placeholder="Feedback" style="width:100%;"></textarea>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script>
+    $('#examples').DataTable();
+    </script>
+
+
+    dashboard-new.txt
+    Displaying dashboard-new.txt.
