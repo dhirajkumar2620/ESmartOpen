@@ -115,10 +115,10 @@ namespace ESmartDr.Controllers
                 AD.HospitalId = admObj.HospitalId;
                 AD.AlphanumericPrefix = AD.AlphanumericPrefix.TrimEnd().ToUpper();
 
-                string path = UplodaImage(imgfile);
+                string path = UplodaImage(imgfile,AD.WhatsAppNumber);
                 if (path == "-1")
                 {
-                    path = "";
+                    path = AD.HospClinicLogo;
                 }
                     AD.HospClinicLogo = path; 
                     int Flag = BP.ManagePatientDetails(AD);
@@ -273,7 +273,7 @@ namespace ESmartDr.Controllers
         }
 
 
-        public string UplodaImage(HttpPostedFileBase file)
+        public string UplodaImage(HttpPostedFileBase file, string WhatsAppNumber)
         {
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
             Random r = new Random();
@@ -286,7 +286,7 @@ namespace ESmartDr.Controllers
                 {
                     try
                     {
-                        if (Path.GetFileName(file.FileName) == admObj.WhatsAppNumber + extension)
+                        if (Path.GetFileName(file.FileName) == WhatsAppNumber + extension)
                         {
                             path = Path.Combine(Server.MapPath("~/img/"), Path.GetFileName(file.FileName));
                             file.SaveAs(path);

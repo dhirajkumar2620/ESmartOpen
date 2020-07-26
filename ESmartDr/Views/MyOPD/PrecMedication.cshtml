@@ -378,12 +378,17 @@
             </div>
         </div>
     </div>
-
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
 
         var urllink = '@Url.Content("~/MyOPD/Med")'
         $("#txtMedicineName").autocomplete({
+            
             source: function (request, response) {
+                alert('k')
                 $.ajax({
                     url: urllink,
                     type: "POST",
