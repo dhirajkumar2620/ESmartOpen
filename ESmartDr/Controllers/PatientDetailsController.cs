@@ -121,6 +121,8 @@ namespace ESmartDr.Controllers
                 pd = BP.GetDetailsById(Id);
                 IList<AdminDetails> drList = new List<AdminDetails>();
                 drList = BP.GetDoctorListByHID(admObj.HospitalId).ToList();
+                pd.DOB = pd.DOB.Substring(0, pd.DOB.IndexOf(" ") + 1).TrimEnd();
+                pd.CpExpiryDate = pd.CpExpiryDate.Substring(0, pd.CpExpiryDate.IndexOf(" ") + 1).TrimEnd();
                 ViewBag.Organisations = drList;
                 PatientCount(admObj.HospitalId, admObj.UserId);
                 return View("PatientRegistration", pd);

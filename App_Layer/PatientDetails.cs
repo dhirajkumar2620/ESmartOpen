@@ -39,7 +39,7 @@ namespace App_Layer
         public bool IsAppoinment { get; set; }
         public string AppoinmentDate { get; set; }
         public string HospitalName { get; set; }
-        public DateTime CpExpiryDate { get; set; }
+        public string CpExpiryDate { get; set; }
         public string DueAmount { get; set; }
         public string VisitCount { get; set; }
 

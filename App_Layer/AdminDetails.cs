@@ -15,7 +15,7 @@ namespace App_Layer
         public string MiddleName { get; set; }
         public string LastName { get; set; }
         public string Gender { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
         public string Education { get; set; }
         public string WhatsAppNumber { get; set; }
         public string OtherNumber { get; set; }
@@ -31,7 +31,7 @@ namespace App_Layer
         public string RoleId { get; set; }
         public bool IsActive { get; set; }
         public string ActivationFor { get; set; }
-        public DateTime ActivationDate { get; set; }
+        public string ActivationDate { get; set; }
         public int ActivationPeriod { get; set; }
         public bool IsDelete { get; set; }
         public string CreatedBy { get; set; }
@@ -39,7 +39,7 @@ namespace App_Layer
         public string ModifiedBy { get; set; }
         public DateTime ModifiedDate { get; set; }
         public int HospitalId { get; set; }
-        public DateTime ExpiryDate { get; set; }
+        public string ExpiryDate { get; set; }
         public string FirmInTime1 { get; set; }
         public string FirmOutTime1 { get; set; }
         public string Holiday { get; set; }

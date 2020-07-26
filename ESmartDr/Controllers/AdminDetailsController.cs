@@ -167,6 +167,9 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 AdminDetails pd = new AdminDetails();
                 pd = BP.GetAdminById(UserId);
+                pd.DateOfBirth = pd.DateOfBirth.Substring(0, pd.DateOfBirth.IndexOf(" ") + 1).TrimEnd();
+                pd.ActivationDate = pd.ActivationDate.Substring(0, pd.ActivationDate.IndexOf(" ") + 1).TrimEnd();
+                pd.ExpiryDate = pd.ExpiryDate.Substring(0, pd.ExpiryDate.IndexOf(" ") + 1).TrimEnd();
                 CardDetails(admObj.HospitalId, admObj.UserId);
                 return View("AdminRegistration", pd);
             }
@@ -288,9 +291,10 @@ namespace ESmartDr.Controllers
                     {
                         if (Path.GetFileName(file.FileName) == WhatsAppNumber + extension)
                         {
-                            path = Path.Combine(Server.MapPath("~/img/"), Path.GetFileName(file.FileName));
+                            string impPath = ConfigurationManager.AppSettings["ImagePath"];
+                            path = Path.Combine(Server.MapPath(impPath), Path.GetFileName(file.FileName));
                             file.SaveAs(path);
-                            path = "/img/" + Path.GetFileName(file.FileName);
+                            path = "/UploadImage/" + Path.GetFileName(file.FileName);
                         }
                         else
                         {

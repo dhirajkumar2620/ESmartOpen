@@ -60,7 +60,7 @@ namespace Dal_Layer
 
                 if (PD.CpExpiryDate.ToString() == "1/1/0001 12:00:00 AM")
                 {
-                    PD.CpExpiryDate = Convert.ToDateTime("01/01/9999");
+                    PD.CpExpiryDate = Convert.ToString("01/01/9999");
                     sqlparam[23] = new SqlParameter("@CpExpiryDate", PD.CpExpiryDate);
                 }
                 else
