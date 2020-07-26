@@ -24,7 +24,7 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 Dashbord LST = new Dashbord();
                 LST = BL.ViewDashbord(admObj.HospitalId.ToString());
-                return View();
+                return View("Dashbord");
             }
             catch (Exception)
             {

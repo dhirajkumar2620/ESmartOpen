@@ -23,9 +23,9 @@
                         <td>
                             <ul style="list-style:none;float:right;">
                                 <li><b>@Model.DoctorName </b></li>
-                                <li>@Model.Degree</li>
-                                <li>Reg. No. @Model.RegNumber</li>
-                                <li>@Model.Speciality</li>
+                                <li style="text-align:right"><small>@Model.Degree</small></li>
+                                <li style="text-align:right">Reg. No. @Model.RegNumber</li>
+                                <li style="text-align:right">@Model.Speciality</li>
                             </ul>
                         </td>
                     </tr>
@@ -87,11 +87,11 @@
                 <table class="table" style="width: 100%;padding: 0px 18px;">
                     <thead>
                         <tr style="text-align: left;">
-                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;">Sr. No.</th>
-                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;">Description</th>
-                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;">Quantity</th>
-                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;">Unit Price (₹)</th>
-                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;">Amount (₹)</th>
+                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;width:10%">Sr. No.</th>
+                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;width:30%">Description</th>
+                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;width:20%;text-align:right">Quantity</th>
+                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;width:20%;text-align:right">Unit Price (₹)</th>
+                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;width:20%;text-align:right">Amount (₹)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -102,31 +102,54 @@
                             <tr>
                                 <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;">1</td>
                                 <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;">@item.Description</td>
-                                <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;">@item.Qty</td>
-                                <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;">@item.UnitPrize</td>
-                                <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;">@item.Amount</td>
+                                <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;text-align:right">@item.Qty</td>
+                                <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;text-align:right">@item.UnitPrize</td>
+                                <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;text-align:right">@item.Amount</td>
                             </tr>
                         }
 
 
 
                     </tbody>
-                    <tfoot>
+                    @*<tfoot>
                         <tr>
-                            <td colspan="4" class="text-right" style="padding-top: 12px;padding-bottom: 12px;text-align:right;padding-right: 50px;">Total Amount (₹)</td>
+                            <td colspan="4" class="text-right" style="padding-top: 12px;padding-bottom: 12px;text-align:right;padding-right: 30px;">Total Amount (₹)</td>
                             <td>@Model.TotalAmount</td>
                         </tr>
                         <tr>
-                            @*style="border: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;"*@
-                            <td colspan="4" class="text-right" style="padding-top: 12px;padding-bottom: 12px;text-align:right;padding-right: 50px;">Discount (₹)</td>
+                          
+                            <td colspan="4" class="text-right" style="padding-top: 12px;padding-bottom: 12px;text-align:right;padding-right: 30px;">Discount (₹)</td>
                             <td>@Model.DiscountAmount</td>
                         </tr>
                         <tr>
-                            <td colspan="4" class="text-right" style="padding-top: 12px;padding-bottom: 12px;text-align:right;padding-right: 50px;">Net Amount (₹)</td>
+                            <td colspan="4" class="text-right" style="padding-top: 12px;padding-bottom: 12px;text-align:right;padding-right: 30px;">Net Amount (₹)</td>
                             <td>@Model.NetAmount</td>
                         </tr>
-                    </tfoot>
+                    </tfoot>*@
                 </table>
+
+                <br>
+                <table style="float:right;margin-right:1em" >
+                    <tr>
+                        <td>
+                            <ul style="list-style: none;float:right" >
+                                <li style="float:right">Total Amount (₹):  @Model.TotalAmount</li>
+                                <br>
+                                <br>
+                                <li style="float:right">Discount (₹):  @Model.DiscountAmount</li>
+                                <br>
+                                <br>
+                                <li style="float:right">Net Amount (₹):  @Model.NetAmount</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
                 <br>
                 <br>
                 <table>
@@ -140,13 +163,16 @@
                         </td>
                     </tr>
                 </table>
-                <table style="float: right;text-align: center;padding-right: 50px;">
+                <br>
+                <br>
+               
+                <table style="float: right;padding-right: 10px;">
                     <tr>
                         <td>
                             <ul style="list-style: none;">
                                 
                                 <br>
-                                <li>For: @Model.HostClincName</li>
+                                <li>For, @Model.HostClincName</li>
                             </ul>
                         </td>
                     </tr>

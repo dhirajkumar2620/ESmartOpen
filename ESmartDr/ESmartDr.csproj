@@ -255,6 +255,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\bootstrap-clockpicker.min.css" />
+    <Content Include="css\cssgraph_bar.css" />
+    <Content Include="css\cssgraph_plot.css" />
     <Content Include="css\custom.css" />
     <Content Include="css\datepicker.css" />
     <Content Include="css\fontastic.css" />
@@ -609,13 +611,13 @@
     <Content Include="Views\MyOPD\NewBilling.cshtml" />
     <Content Include="Views\MedicineDetails\Setting.cshtml" />
     <Content Include="Views\AccountDetails\PrintBill.cshtml" />
+    <Content Include="Views\DashBordDetails\DashBord.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="vendor\font-awesome\less\" />
     <Folder Include="vendor\font-awesome\scss\" />
     <Folder Include="Views\BillingDetails\" />
-    <Folder Include="Views\DashBordDetails\" />
     <Folder Include="Views\NewFolder1\" />
     <Folder Include="Views\TabDetails\" />
     <Folder Include="Views\Tab_Precreption\" />
