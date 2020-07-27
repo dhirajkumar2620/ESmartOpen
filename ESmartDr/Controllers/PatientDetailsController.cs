@@ -79,9 +79,9 @@ namespace ESmartDr.Controllers
                 //string str = admObj.HostClincName.Substring(0, 3);
                 PD.CasePapaerNo = drObj.AlphanumericPrefix.Trim();
                 int Flag = BP.ManagePatientDetails(PD);
-                if (Flag != 1)
+                if (Flag != 0)
                 {
-                    return View();
+                    return RedirectToAction("ViewAllPatient", "PatientDetails");
                 }
                 PatientCount(admObj.HospitalId, admObj.UserId);
                 if (PD.Id == 0)
