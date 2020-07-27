@@ -51,7 +51,7 @@ namespace Dal_Layer
                 List<InvoiceExpenses> lst3 = new List<InvoiceExpenses>();
                 if (ds != null && ds.Tables[2].Rows.Count > 0)
                 {
-                    DataTable dt = ds.Tables[1];
+                    DataTable dt = ds.Tables[2];
 
                     foreach (DataRow dr in dt.Rows)
                     {
@@ -63,7 +63,7 @@ namespace Dal_Layer
                 List<FeedbackDetails> lst4 = new List<FeedbackDetails>();
                 if (ds != null && ds.Tables[3].Rows.Count > 0)
                 {
-                    DataTable dt = ds.Tables[1];
+                    DataTable dt = ds.Tables[3];
 
                     foreach (DataRow dr in dt.Rows)
                     {

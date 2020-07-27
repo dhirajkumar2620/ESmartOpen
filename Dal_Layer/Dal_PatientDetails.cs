@@ -174,11 +174,12 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[4];
-                sqlparam[0] = new SqlParameter("@CasePaperNo", Id);
-                sqlparam[1] = new SqlParameter("@AppoinmentDate", AppoinmentDate);
-                sqlparam[2] = new SqlParameter("@AppoinmentTime", AppoinmentTime);
-                sqlparam[3] = new SqlParameter("@Note", Note);
+                sqlparam = new SqlParameter[5];
+                sqlparam[0] = new SqlParameter("@Flag", 1);
+                sqlparam[1] = new SqlParameter("@CasePaperNo", Id);
+                sqlparam[2] = new SqlParameter("@AppoinmentDate", AppoinmentDate);
+                sqlparam[3] = new SqlParameter("@AppoinmentTime", AppoinmentTime);
+                sqlparam[4] = new SqlParameter("@Note", Note);
 
                 DataTable ds = CommonFunction.GetDataTable("USP_Set_Apoinment_App", sqlparam, "");
                 List<PatientDetails> lst = new List<PatientDetails>();

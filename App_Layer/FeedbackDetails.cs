@@ -12,7 +12,7 @@ namespace App_Layer
         public string Feedback { get; set; }
         public string CPNo { get; set; }
         public int HospitalId { get; set; }
-        public DateTime DateTime { get; set; }
+        public string Date { get; set; }
         public string Experience { get; set; }
         public string Cleanliness { get; set; }
         public string StaffAttention { get; set; }
@@ -20,6 +20,7 @@ namespace App_Layer
         public string ListenGiveTime { get; set; }
         public string Compassionate { get; set; }
         public string BadBehevior { get; set; }
+        public string PatientName { get; set; }
         public List<FeedbackDetails> lst { get; set; }
     }
 }
