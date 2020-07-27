@@ -24,7 +24,7 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 Dashbord LST = new Dashbord();
                 LST = BL.ViewDashbord(admObj.HospitalId.ToString());
-                return View("Dashbord");
+                return View("Dashbord", LST);
             }
             catch (Exception)
             {
@@ -68,7 +68,7 @@ namespace ESmartDr.Controllers
                 {
                     LST = BL.GetFeatureAppoinmentList(hospitalId, admObj.UserId, "NNN");
                 }
-                return View();
+                return View("Dashbord", LST);
 
                 //return View("PatientAppoinment", LST);
             }

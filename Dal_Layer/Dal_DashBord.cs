@@ -49,7 +49,7 @@ namespace Dal_Layer
                     }
                 }
                 List<InvoiceExpenses> lst3 = new List<InvoiceExpenses>();
-                if (ds != null && ds.Tables[1].Rows.Count > 0)
+                if (ds != null && ds.Tables[2].Rows.Count > 0)
                 {
                     DataTable dt = ds.Tables[1];
 
@@ -60,10 +60,24 @@ namespace Dal_Layer
                         lst3.Add(Model);
                     }
                 }
+                List<FeedbackDetails> lst4 = new List<FeedbackDetails>();
+                if (ds != null && ds.Tables[3].Rows.Count > 0)
+                {
+                    DataTable dt = ds.Tables[1];
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        FeedbackDetails Model = new FeedbackDetails();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        lst4.Add(Model);
+                    }
+                }
                 // exp_Inv
+
                 D.d1lst = lst1;
                 D.d2lst = lst2;
                 D.d3lst = lst3;
+                D.Fedlst = lst4;
                 return D;
             }
             catch (Exception Ex)
