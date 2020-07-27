@@ -123,13 +123,18 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[4];
+                sqlparam = new SqlParameter[7];
                 sqlparam[0] = new SqlParameter("@Flag", "3");
                 sqlparam[1] = new SqlParameter("@HospitalId", hospitalId);
                 sqlparam[2] = new SqlParameter("@UserId", UserId);
                 sqlparam[3] = new SqlParameter("@Date", Date);
 
-                DataTable ds = CommonFunction.GetDataTable("USP_GET_QUELIST", sqlparam, "");
+                sqlparam[4] = new SqlParameter("@Id", 0);
+                sqlparam[5] = new SqlParameter("@Note", "");
+                sqlparam[6] = new SqlParameter("@Role", "");
+
+
+                DataTable ds = CommonFunction.GetDataTable("USP_GET_DashbordAppoinmentList", sqlparam, "");
 
                 List<QueueDetails> lst = new List<QueueDetails>();
                 if (ds != null && ds.Rows.Count > 0)

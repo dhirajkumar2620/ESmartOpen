@@ -24,6 +24,23 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 Dashbord LST = new Dashbord();
                 LST = BL.ViewDashbord(admObj.HospitalId.ToString());
+
+                int hospitalId;
+                // DateTime date = Convert.ToDateTime( Request["txtDate"].ToString());
+                hospitalId = admObj.HospitalId;
+
+                ModelState.Clear();
+                List<QueueDetails> LST1 = new List<QueueDetails>();
+                if (admObj.RoleId == "AHE")
+                {
+                    int UserId = 99999;
+                    LST1 = BL.GetFeatureAppoinmentList(hospitalId, UserId, "NNN");
+                }
+                if (admObj.RoleId == "ADM")
+                {
+                    LST1 = BL.GetFeatureAppoinmentList(hospitalId, admObj.UserId, "NNN");
+                }
+                LST.Qlst = LST1;
                 return View("Dashbord", LST);
             }
             catch (Exception)

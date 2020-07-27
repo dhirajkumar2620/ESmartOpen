@@ -12,6 +12,8 @@ namespace App_Layer
         public List<Dashbord2> d2lst { get; set; }
         public List<InvoiceExpenses> d3lst { get; set; }
         public List<FeedbackDetails> Fedlst { get; set; }
+        public List<QueueDetails> Qlst { get; set; }
+        
 
     }
     public class Dashbord1
