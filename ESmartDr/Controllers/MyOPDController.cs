@@ -43,10 +43,31 @@ namespace ESmartDr.Controllers
         }
         public ActionResult OpdExamination()
         {
-            Bal_Precription bp= new Bal_Precription ();
+            Bal_Precription bp = new Bal_Precription();
             PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             Precription pd = new Precription();
-            pd = bp.ViewPricripion( patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+            pd = bp.ViewPricripion(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+            var Advice = "";
+            var Complaints = "";
+            var Diagnosis = "";
+            if (pd.clist.Count > 0)
+            {
+                foreach (var item in pd.clist)
+                {
+                    Advice = Advice + item.AddAdvice + "  " + ",";
+                }
+            }
+            if (pd.clist.Count > 0)
+            {
+                foreach (var item in pd.olist)
+                {
+                    Complaints = Complaints + item.Complaints + "  " + ",";
+                    Diagnosis = Diagnosis + item.Diagnosis + "  " + ",";
+                }
+            }
+            pd.AdviceNote = Advice.TrimEnd(',');
+            pd.Complaints = Complaints.TrimEnd(',');
+            pd.Diagnosis = Diagnosis.TrimEnd(',');
             return View("Examination", pd);
         }
         public ActionResult OpdHistory()

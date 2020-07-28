@@ -28,8 +28,10 @@ namespace App_Layer
         public string PatientAddress { get; set; }
         public string PatientWhatsAppNo { get; set; }
         public string InvoiceDate { get; set; }
-       
-      
+        public string AdviceNote { get; set; }
+        public string Diagnosis { get; set; }
+        public string Complaints { get; set; }
+
         public List<VitalInformation> vlist { get; set; }
         public List<Observation> olist { get; set; }
         public List<Medication> mlist { get; set; }
