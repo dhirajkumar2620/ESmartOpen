@@ -1282,7 +1282,7 @@ section.dashboard-counts div[class*='col-']:last-of-type .item {
 }
 
 .fp-align a {
-    color: #24a1a1 !important;
+    color: #fff!important;
 }
 
 #notifyjs-container-bottom-right {
@@ -4267,6 +4267,8 @@ table, .table {
     background: #ffffff;
     color: #828282;
     border-color: #fff;
+    font-weight: 700!important;
+    font-size: 1em;
 }
 
 .content h1 {
@@ -4297,7 +4299,7 @@ padding-left: 0;*/
 }
 
 .content-log {
-    background: #f5a433;
+    background: #25a1a1;
     padding-left: 0px;
 }
 /*.landing .container-fluid {

@@ -40,7 +40,7 @@
         }
 
             .forget-pass-img img {
-                width: 40%;
+                width: 50%;
             }
 
             .forget-pass-img .y {
@@ -48,12 +48,12 @@
             }
 
             .forget-pass-img h2 {
-                font-size: 1.9em;
+                font-size: 1.6em;
                 color: #f5a433;
             }
 
             .forget-pass-img p {
-                font-size: 1.2em;
+                font-size: 1em;
                 color: #25a1a1;
                 margin-bottom: 0;
             }
@@ -81,12 +81,12 @@
                     border-color: #25a1a1;
                     border-bottom: 1px solid #fff;
                     border-radius: inherit;
-                    font-size: 2.3em;
+                    font-size: 1.8em;
                     color: #fff !important;
                 }
 
         .main-b {
-            width: 60%;
+            width: 70%;
             text-align: center;
             margin: 0 auto;
         }
@@ -97,6 +97,13 @@
 
         .forgtFooter {
             background: white !important;
+        }
+        .fp-pg {
+            background: #eef5f9!important;
+        }
+        a {
+            color: #fff!important;
+            font-weight: 600!important;
         }
     </style>
 </head>
@@ -116,7 +123,7 @@
             <div class="col-md-6 forget-pass-txt">
                 <div class="x">
                     <p>Please wait while we are verify your number</p>
-                    <h2>+91-@Session["NoForChangePassword"].ToString()</h2>
+                    <h2 style="font-size :1.2em">+91-@Session["NoForChangePassword"].ToString()</h2>
                     @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtOTP", @class = "form-control text-center", @maxlength = "6", required = "required", @placeholder = "" })
                     <br>
                     <p>Dont receive code ? @Html.ActionLink("Resend OTP", "ResendOTP", "ForgetPassword")</p>
@@ -125,7 +132,7 @@
                     <br />
                     @if (TempData["noticeOTP"] != null)
                     {
-                        <p style="color:red">@TempData["noticeOTP"]</p>
+                        <p style="color:#fff">@TempData["noticeOTP"]</p>
                     }
                 </div>
             </div>
@@ -141,7 +148,7 @@
                   <p>Your company &copy; 2017-2020</p>
                 </div> -->
                 <div class="col-sm-12 footer-img text-right">
-                    <p><span class="small">Powered by</span> <img src="/img/Powered By company logo.png" class="img-responsive"></p>
+                    <p><span class="small" style="color:black">Powered by</span> <img src="~/img/LogoTechbulb.png" class="img-responsive"></p>
                     <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
                 </div>
             </div>
