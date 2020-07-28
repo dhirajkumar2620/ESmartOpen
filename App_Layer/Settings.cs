@@ -19,6 +19,7 @@ namespace App_Layer
         public string Observation { get; set; }
         public string NextVisit { get; set; }
         public string Printer { get; set; }
+        public string Template { get; set; }
         public List<Settings> lst { get; set; }
 
     }

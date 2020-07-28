@@ -165,7 +165,19 @@
 
 
                                         </div>
-                                    </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Template<span class="star">*</span></label>
+                                                @Html.DropDownListFor(m => m.Template, new List<SelectListItem>
+                                                     {
+                                                          new SelectListItem{ Text="Yes", Value = "Yes" },
+                                                          new SelectListItem{ Text="No", Value = "No" },
+
+                                                      }, new { @class = "form-control mb-3", @id = "dddlTemplate" })
+
+
+                                            </div>
+                                        </div>
 
                                 </div>
                                 <div class="row">
