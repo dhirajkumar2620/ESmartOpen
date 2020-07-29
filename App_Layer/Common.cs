@@ -24,4 +24,8 @@ namespace App_Layer
         public List<Common> lst { get; set; }
 
 }
-}
+    public class NestVisitlst
+    {
+        public string NestVisitDate { get; set; }
+    }
+    }

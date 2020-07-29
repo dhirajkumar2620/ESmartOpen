@@ -84,6 +84,19 @@ namespace Dal_Layer
                         NextList.Add(Model1);
                     }
                 }
+                List<NestVisitlst> NextListlst = new List<NestVisitlst>();
+                if (ds != null && ds.Tables[6].Rows.Count > 0)
+                {
+
+                    DataTable dt = ds.Tables[6];
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        NestVisitlst Model1 = new NestVisitlst();
+                        CommonFunction.ReflectSingleData(Model1, dr);
+
+                        NextListlst.Add(Model1);
+                    }
+                }
                 //List<VitalInformation> vlst = new List<VitalInformation>();
                 //if (ds != null && ds.Tables[3].Rows.Count > 0)
                 //{
@@ -115,6 +128,7 @@ namespace Dal_Layer
                 p.mlist = mlst;
                 p.clist = clst;
                 p.NextList = NextList;
+                p.NextListlst = NextListlst;
 
 
                 return p;

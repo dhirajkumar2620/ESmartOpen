@@ -40,6 +40,6 @@ namespace App_Layer
         public List<Medication> mlist { get; set; }
         public List<Common> clist { get; set; }
         public List<Common> NextList { get; set; }
-
+        public List<NestVisitlst> NextListlst { get; set; }
     }
 }

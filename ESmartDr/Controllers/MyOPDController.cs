@@ -70,9 +70,9 @@ namespace ESmartDr.Controllers
             }
             if (pd.clist.Count > 0)
             {
-                foreach (var item in pd.clist)
+                foreach (var item in pd.NextListlst)
                 {
-                    NextVisit = NextVisit +item.NextVisitAfter +"  " + ",";
+                    NextVisit = NextVisit +item.NestVisitDate + "  " + ",";
                 }
             }
             if (pd.clist.Count > 0)
