@@ -50,6 +50,9 @@ namespace ESmartDr.Controllers
             var Advice = "";
             var Complaints = "";
             var Diagnosis = "";
+            var TestBeforeVisit = "";
+            var NextVisit = "";
+            
             if (pd.clist.Count > 0)
             {
                 foreach (var item in pd.clist)
@@ -65,6 +68,22 @@ namespace ESmartDr.Controllers
                     Diagnosis = Diagnosis + item.Diagnosis + "  " + ",";
                 }
             }
+            if (pd.clist.Count > 0)
+            {
+                foreach (var item in pd.clist)
+                {
+                    NextVisit = NextVisit +item.NextVisitAfter +"  " + ",";
+                }
+            }
+            if (pd.clist.Count > 0)
+            {
+                foreach (var item in pd.clist)
+                {
+                    TestBeforeVisit = TestBeforeVisit+ item.InvSelectTests + "  " + ",";
+                }
+            }
+            pd.TestBeforeVisit = TestBeforeVisit.TrimEnd(',');
+            pd.NextVisit = NextVisit.TrimEnd(',');
             pd.AdviceNote = Advice.TrimEnd(',');
             pd.Complaints = Complaints.TrimEnd(',');
             pd.Diagnosis = Diagnosis.TrimEnd(',');

@@ -38,7 +38,7 @@ namespace ESmartDr.Controllers
             Session["Observation"] = s.Observation;
             Session["NextVisit"] = s.NextVisit;
             Session["Printer"] = s.Printer;
-         
+            Session["Template"] = s.Template;
             //-------------
             Session["date"] = DateTime.Now.ToString("dd/MM/yyyy");
             DayOfWeek wk = DateTime.Today.DayOfWeek;

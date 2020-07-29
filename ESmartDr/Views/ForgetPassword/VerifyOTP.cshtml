@@ -105,6 +105,14 @@
             color: #fff!important;
             font-weight: 600!important;
         }
+         footer.main-footer {
+            position: absolute !important;
+            bottom: 0;
+            width: 100%;
+            background: #2f333e;
+            color: #fff;
+            padding: 20px 10px;
+        }
     </style>
 </head>
 <body class="fp-pg" style="background: #d4d4d4;">
@@ -118,6 +126,9 @@
                 <div class="y">
                     <img src="~/img/ChangePassword.png" />
                     <h2>CODE VERIFICATION</h2>
+                    <p>  <br />  </p>
+                    <br />
+
                 </div>
             </div>
             <div class="col-md-6 forget-pass-txt">
@@ -127,15 +138,20 @@
                     @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtOTP", @class = "form-control text-center", @maxlength = "6", required = "required", @placeholder = "" })
                     <br>
                     <p>Dont receive code ? @Html.ActionLink("Resend OTP", "ResendOTP", "ForgetPassword")</p>
-                    <input type="submit" value="Submit" style="border-radius: 22px;margin-top: 2em;width: 100%;border-radius: 22px;background: #fff;border-color: #fff;color: #f5a433;font-weight: 700!important; font-size: 1em;" class="btn btn_2 btn-primary">
-                    <br />
+                    @*<input type="submit" value="Submit" style="border-radius: 22px;margin-top: 2em;width: 100%;border-radius: 22px;background: #fff;border-color: #fff;color: #f5a433;font-weight: 700!important; font-size: 1em;" class="btn btn_2 btn-primary">*@
+                    <input type="submit" value="Submit" style="border-radius: 22px;margin-top: 2em;width: 100%;border-radius: 22px;background: #fff;border-color: #fff;color: #f5a433;font-weight: 700!important; font-size: 1em;" class="btn btn_2 for-btn-2 btn-primary">
+                     <br />
+                    <p> </p>
                     <br />
                     @if (TempData["noticeOTP"] != null)
                     {
                         <p style="color:#fff">@TempData["noticeOTP"]</p>
                     }
                 </div>
+                <br /><br /><br />
             </div>
+            <br />
+            <br />
         </div>
         <br />
         <br />

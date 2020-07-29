@@ -49,10 +49,21 @@ namespace ESmartDr.Controllers
                 PatientCount(admObj.HospitalId, admObj.UserId);
                 if (admObj.RoleId =="ADM")
                 {
+                    if (LST.Count > 0)
+                    {
+                        foreach (var item in LST)
+                        {
+                           item.CpExpiryDate= Convert.ToDateTime( item.CpExpiryDate).Date.ToString("dd/MM/yyyy");
+                        }
+                    }
                     LST = BP.GetPatientDetails(admObj.RoleId, admObj.HospitalId,admObj.UserId);
                 }
                 if (admObj.RoleId=="AHE")
                 {
+                    foreach (var item in LST)
+                    {
+                        item.CpExpiryDate = Convert.ToDateTime(item.CpExpiryDate).ToString("dd/MM/yyyy");
+                    }
                     LST = BP.GetPatientDetails(admObj.RoleId, admObj.HospitalId,admObj.UserId);
                 }
                
