@@ -161,6 +161,8 @@ namespace Dal_Layer
                 sqlparam[8] = new SqlParameter("@NextVisit", s.NextVisit);
                 sqlparam[9] = new SqlParameter("@Printer", s.Printer);
                 sqlparam[10] = new SqlParameter("@Template", s.Template);
+                sqlparam[10] = new SqlParameter("@Advice", s.Advice);
+                
                 return CommonFunction.Save("USP_ManageSettings", sqlparam, "");
               
             }

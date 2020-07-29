@@ -74,61 +74,61 @@
                                 <td>
                                     @if (@Session["Template"].ToString() == "Yes")
                                     {
-                                    <table style="width: 100%; display: inline;">
-                                        <tr>
-                                            <td>
-                                                <ul style="list-style:none;">
-                                                    <li><b>@Model.HostClincName</b></li>
-                                                    <li>@Model.HospClinicAddess</li>
-                                                    <li>+91 @Model.HospClinicNumber</li>
-                                                    <li>@Model.FirmInTime1 :@Model.FirmOutTime2 </li>
-                                                    <li>Clinic Holiday : @Model.Holiday</li>
-                                                </ul>
-                                            </td>
+                                        <table style="width: 100%; display: inline;">
+                                            <tr>
+                                                <td>
+                                                    <ul style="list-style:none;">
+                                                        <li><b>@Model.HostClincName</b></li>
+                                                        <li>@Model.HospClinicAddess</li>
+                                                        <li>+91 @Model.HospClinicNumber</li>
+                                                        <li>@Model.FirmInTime1 :@Model.FirmOutTime2 </li>
+                                                        <li>Clinic Holiday : @Model.Holiday</li>
+                                                    </ul>
+                                                </td>
 
-                                        </tr>
-                                    </table>
-                                    <table style="float: right;">
-                                        <tr>
-                                            <td>
-                                                <ul style="list-style:none;float:right;">
-                                                    <li><b>@Model.DoctorName </b></li>
-                                                    <li>@Model.Degree</li>
-                                                    <li>Reg. No. @Model.RegNumber</li>
-                                                    <li>@Model.Speciality</li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                            </tr>
+                                        </table>
+                                        <table style="float: right;">
+                                            <tr>
+                                                <td>
+                                                    <ul style="list-style:none;float:right;">
+                                                        <li><b>@Model.DoctorName </b></li>
+                                                        <li>@Model.Degree</li>
+                                                        <li>Reg. No. @Model.RegNumber</li>
+                                                        <li>@Model.Speciality</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     }
                                     @if (@Session["Template"].ToString() == "No")
                                     {
-                                    <table style="width: 100%; display: inline;">
-                                        <tr>
-                                            <td>
-                                                <ul style="list-style:none;">
-                                                    <li><b> </b></li>
-                                                    <li> </li>
-                                                    <li> </li>
-                                                    <li>  </li>
-                                                    <li> </li>
-                                                </ul>
-                                            </td>
+                                        <table style="width: 100%; display: inline;">
+                                            <tr>
+                                                <td>
+                                                    <ul style="list-style:none;">
+                                                        <li><b> </b></li>
+                                                        <li> </li>
+                                                        <li> </li>
+                                                        <li>  </li>
+                                                        <li> </li>
+                                                    </ul>
+                                                </td>
 
-                                        </tr>
-                                    </table>
-                                    <table style="float: right;">
-                                        <tr>
-                                            <td>
-                                                <ul style="list-style:none;float:right;">
-                                                    <li><b>  </b></li>
-                                                    <li> </li>
-                                                    <li> </li>
-                                                    <li> </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                            </tr>
+                                        </table>
+                                        <table style="float: right;">
+                                            <tr>
+                                                <td>
+                                                    <ul style="list-style:none;float:right;">
+                                                        <li><b>  </b></li>
+                                                        <li> </li>
+                                                        <li> </li>
+                                                        <li> </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     }
                                     <table style="width: 100%;border:1px solid #cccccc;padding: 1.5em .5em;border-radius: 9px;">
                                         <tr>
@@ -146,24 +146,24 @@
                                     <br>
                                     @if (@Session["VitalInformation"].ToString() == "Yes")
                                     {
-                                    <table style="width: 100%;">
-                                        @if (Model.vlist.Count > 0)
-                                        {
-                                        foreach (var item in Model.vlist)
-                                        {
-                                        <tr>
-                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">BP(mmHg) </span><br />@item.BloodPressure</td>
-                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Temp  </span><br />@item.Temperature</td>
-                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Wt.(Kg) </span><br />@item.Weight</td>
-                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Ht.(cm)  </span><br />@item.Height</td>
-                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">PPBG(mg/dL) </span><br />@item.BloodGlucoseFasting</td>
-                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">FBG(mg/dL)</span><br />@item.BloodlucoseRandom</td>
-                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">RBG(mg/dL)</span><br />@item.BloodGlucosePostPrandial</td>
-                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Pulse(/min)</span><br />@item.Pulse</td>
-                                        </tr>
-                                        }
-                                        }
-                                    </table>
+                                        <table style="width: 100%;">
+                                            @if (Model.vlist.Count > 0)
+                                            {
+                                                foreach (var item in Model.vlist)
+                                                {
+                                                    <tr>
+                                                        <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">BP(mmHg) </span><br />@item.BloodPressure</td>
+                                                        <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Temp  </span><br />@item.Temperature</td>
+                                                        <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Wt.(Kg) </span><br />@item.Weight</td>
+                                                        <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Ht.(cm)  </span><br />@item.Height</td>
+                                                        <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">PPBG(mg/dL) </span><br />@item.BloodGlucoseFasting</td>
+                                                        <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">FBG(mg/dL)</span><br />@item.BloodlucoseRandom</td>
+                                                        <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">RBG(mg/dL)</span><br />@item.BloodGlucosePostPrandial</td>
+                                                        <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Pulse(/min)</span><br />@item.Pulse</td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </table>
                                     }
                                     <hr>
                                     <table style="width: 100%;padding: 0px 18px;">
@@ -172,16 +172,16 @@
                                             <ul style="list-style: none;padding-left: 5px;">
                                                 @if (@Session["Complaints"].ToString() == "Yes")
                                                 {
-                                                <li>
-                                                    Complaints :<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.Complaints" style="border: none;border-bottom: 1px solid #c3c3c3;width: 85%;"><br>
-                                                </li>
+                                                    <li>
+                                                        Complaints :<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.Complaints" style="border: none;border-bottom: 1px solid #c3c3c3;width: 85%;"><br>
+                                                    </li>
                                                 }
                                                 <br>
                                                 @if (@Session["Diagnosis"].ToString() == "Yes")
                                                 {
-                                                <li>
-                                                    Diagnosis :<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.Diagnosis" style="border: none;border-bottom: 1px solid #c3c3c3;width: 85%;"><br>
-                                                </li>
+                                                    <li>
+                                                        Diagnosis :<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.Diagnosis" style="border: none;border-bottom: 1px solid #c3c3c3;width: 85%;"><br>
+                                                    </li>
                                                 }
                                             </ul>
                                         </tr>
@@ -191,45 +191,45 @@
                                     <br>
                                     @if (@Session["Medication"].ToString() == "Yes")
                                     {
-                                    <table style="width: 100%;">
-                                        <tr>
-                                            <td>
-                                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAhCAYAAABeD2IVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASMSURBVFhH7VdLT1tHFO5PavAbGwdjoE2LBEQ0NiYsILHVCCFQWxYgQdsNUttl2w1SSYuXSAipBioEpa0Q0DqxE7OBUl4JmBhY8Kxt/Did78hjmRubXCdGaqWO/GnuvXPumc/fOXNm7lvpdJr+bfiflFr8d0mhoU+lUpROiXvxS14k+DqVEM8yY2jJZDL7HtvnuX4VriQFR9IZN5ARk6JPJzMEBdBL+9z3AdhLorn+rkJBUmhKJ3Aei8UoHo1RIn5BKUEs9neUEY/HKZFIMKLRKPf8BzJ+cn3I60JQnVNwtr29Te3t7eRyNjOcdxzU0uwiV7O4d7nI4XBQs7hua2uj3t5e8nq9tLq6ekkppd98UE0KDre2tqi+vp40N8pIr9WRQacnnUZL5aZyMplMZDAYGFqtlnQ6HZnNZia5uLjIyimVL4RX5lTuPf7x0tISVVXamBRgFoS8I16anp5mZbq7u8lqtTIpAARbW1vp8PCQLi5EyN+UVD7s7e1Rjb2aFYJSldab9CQYzKpwdnZGY2NjrBwI6fV6Vm90dJTHS5pTEiAFpYx6EaYyDVktFRQMBHgyAO38/JyampqYkEajYcX6+/tVqQQUTWpnZ4dsghRUAqqr7EwKDeMIEcg1NDRkQwgMDg7y82sJ3+7uLtXW1HL4kFMVZgs9DT7hMRmamZmZbPhACOGbm5vjsWshFQ6HyW6rYlIIH/JrbvZnDuv+/j4NDQ2RxWJhIpJQZ2cnHR0dXZ9SYaGUTHRZFioECZvNxuogj/TiGVTC/YMPH1DoaYjJXFtOhXd2s0oBZW/f4BAajUYmos08d9+7T1MTkxR5EaGE2CcjkQjnWz6fSrxWoiO5sfqgFFYi6tTAwAAXS6MIF563ttylv/5cExt2kn775VdyOp3k8/lUESuaFHIHSiGfoAjqVOBxgI6Pj3nZc+jEmMlgpE8++pj8v/9Bd10trGJPTw+dnJzk9ZuLoklh9UEpqIGJQSoYCPLYxsYG3W68zSoi17Ad3XrnXbatq6sjv9+fXaFXoficEquvtrqG1cCktpuVQqnH2UT+4eH3VG4UCS+ISHLoR0ZG3nz1yZdzneAaStkzSiF8CKWs6LDZ3Ngkxwd3mDQIwQZVf21trTQlAQ7QpCO09fX1bEkAoNQj/yMeYxvx++qLL5k0iEE1KOp2u2lzc/OS/0IoitTKygp1dXXxRJIU8srj9tDy8jLbPH/2nO633+MxEAM4vwTBxsZGGh4evjRHPqgiJa+xVWDZY0JZEvhsJSbF1oIT57dff8MkoOb7t95j0rDHxozq3tHR8dI8ShQkhaZU6uDggGZnZ2niRx/9NDlFk74JmhI9iiTq1/z8PFXb7XzGevjdMD3b2mY7ADVqfHycQqHQS3MpcaVSSoAckpU/FsT5HPmD4oizOhYAjsrlYmv5/NPPKB6LZz8sADWlQKIoUoUAsn19fbwBezweOj09zWunFiUhBSB8ODMtLCzwvQz566BkSqHHiROfWmjyQ0FpqwYlU0oSkAUSTWmjFiUjJY/BkhCUymenBiUNn4Tac1N+pOkfScsQNF0pJh4AAAAASUVORK5CYII=" alt="" />
-                                            </td>
-                                            <td>
-                                                Dose
-                                            </td>
-                                            <td>
-                                                frequency
-                                            </td>
-                                            <td>
-                                                Duration
-                                            </td>
-                                            <td>
-                                                Quantity
-                                            </td>
-                                        </tr>
-                                        @foreach (var item in Model.mlist)
-                                        {
-                                        <tr style="font-weight: 700;">
-                                            <td>
-                                                @item.MedicineName
-                                            </td>
-                                            <td>
-                                                @item.Dose
-                                            </td>
-                                            <td>
-                                                @item.WhenMedicine, @item.SpecialInstruction
-                                            </td>
-                                            <td>
-                                                @item.ForMedicine @item.MedicineDays
-                                            </td>
-                                            <td>
-                                                non
-                                            </td>
-                                        </tr>
-                                        }
-                                    </table>
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td>
+                                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAhCAYAAABeD2IVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASMSURBVFhH7VdLT1tHFO5PavAbGwdjoE2LBEQ0NiYsILHVCCFQWxYgQdsNUttl2w1SSYuXSAipBioEpa0Q0DqxE7OBUl4JmBhY8Kxt/Did78hjmRubXCdGaqWO/GnuvXPumc/fOXNm7lvpdJr+bfiflFr8d0mhoU+lUpROiXvxS14k+DqVEM8yY2jJZDL7HtvnuX4VriQFR9IZN5ARk6JPJzMEBdBL+9z3AdhLorn+rkJBUmhKJ3Aei8UoHo1RIn5BKUEs9neUEY/HKZFIMKLRKPf8BzJ+cn3I60JQnVNwtr29Te3t7eRyNjOcdxzU0uwiV7O4d7nI4XBQs7hua2uj3t5e8nq9tLq6ekkppd98UE0KDre2tqi+vp40N8pIr9WRQacnnUZL5aZyMplMZDAYGFqtlnQ6HZnNZia5uLjIyimVL4RX5lTuPf7x0tISVVXamBRgFoS8I16anp5mZbq7u8lqtTIpAARbW1vp8PCQLi5EyN+UVD7s7e1Rjb2aFYJSldab9CQYzKpwdnZGY2NjrBwI6fV6Vm90dJTHS5pTEiAFpYx6EaYyDVktFRQMBHgyAO38/JyampqYkEajYcX6+/tVqQQUTWpnZ4dsghRUAqqr7EwKDeMIEcg1NDRkQwgMDg7y82sJ3+7uLtXW1HL4kFMVZgs9DT7hMRmamZmZbPhACOGbm5vjsWshFQ6HyW6rYlIIH/JrbvZnDuv+/j4NDQ2RxWJhIpJQZ2cnHR0dXZ9SYaGUTHRZFioECZvNxuogj/TiGVTC/YMPH1DoaYjJXFtOhXd2s0oBZW/f4BAajUYmos08d9+7T1MTkxR5EaGE2CcjkQjnWz6fSrxWoiO5sfqgFFYi6tTAwAAXS6MIF563ttylv/5cExt2kn775VdyOp3k8/lUESuaFHIHSiGfoAjqVOBxgI6Pj3nZc+jEmMlgpE8++pj8v/9Bd10trGJPTw+dnJzk9ZuLoklh9UEpqIGJQSoYCPLYxsYG3W68zSoi17Ad3XrnXbatq6sjv9+fXaFXoficEquvtrqG1cCktpuVQqnH2UT+4eH3VG4UCS+ISHLoR0ZG3nz1yZdzneAaStkzSiF8CKWs6LDZ3Ngkxwd3mDQIwQZVf21trTQlAQ7QpCO09fX1bEkAoNQj/yMeYxvx++qLL5k0iEE1KOp2u2lzc/OS/0IoitTKygp1dXXxRJIU8srj9tDy8jLbPH/2nO633+MxEAM4vwTBxsZGGh4evjRHPqgiJa+xVWDZY0JZEvhsJSbF1oIT57dff8MkoOb7t95j0rDHxozq3tHR8dI8ShQkhaZU6uDggGZnZ2niRx/9NDlFk74JmhI9iiTq1/z8PFXb7XzGevjdMD3b2mY7ADVqfHycQqHQS3MpcaVSSoAckpU/FsT5HPmD4oizOhYAjsrlYmv5/NPPKB6LZz8sADWlQKIoUoUAsn19fbwBezweOj09zWunFiUhBSB8ODMtLCzwvQz566BkSqHHiROfWmjyQ0FpqwYlU0oSkAUSTWmjFiUjJY/BkhCUymenBiUNn4Tac1N+pOkfScsQNF0pJh4AAAAASUVORK5CYII=" alt="" />
+                                                </td>
+                                                <td>
+                                                    Dose
+                                                </td>
+                                                <td>
+                                                    frequency
+                                                </td>
+                                                <td>
+                                                    Duration
+                                                </td>
+                                                <td>
+                                                    Quantity
+                                                </td>
+                                            </tr>
+                                            @foreach (var item in Model.mlist)
+                                            {
+                                                <tr style="font-weight: 700;">
+                                                    <td>
+                                                        @item.MedicineName
+                                                    </td>
+                                                    <td>
+                                                        @item.Dose
+                                                    </td>
+                                                    <td>
+                                                        @item.WhenMedicine, @item.SpecialInstruction
+                                                    </td>
+                                                    <td>
+                                                        @item.ForMedicine @item.MedicineDays
+                                                    </td>
+                                                    <td>
+                                                        non
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </table>
                                     }
                                     <br><br>
 
@@ -238,18 +238,18 @@
                                         <tr>
                                             <td>
                                                 <ul style="list-style: none;padding-left: 5px;">
-
-                                                    <li>Advice Note : @Model.AdviceNote </li>
-
-                                                    <br>
-                                                    @if (@Session["Test"].ToString() == "Yes")
+                                                    @if (@Session["Advice"].ToString() == "Yes")
                                                     {
+                                                        <li>Advice Note : @Model.AdviceNote </li>
+                                                    }
+                                                    <br>
+
                                                     <li>Test before next visit : @Model.TestBeforeVisit</li>
                                                     }
                                                     <br>
                                                     @if (@Session["NextVisit"].ToString() == "Yes")
                                                     {
-                                                    <li>Next visit : @Model.NextVisit</li>
+                                                        <li>Next visit : @Model.NextVisit</li>
                                                     }
                                                 </ul>
                                             </td>
@@ -269,29 +269,27 @@
                                     </table>
                                     @if (@Session["Template"].ToString() == "Yes")
                                     {
-                                    <table style="width:100%;border-top: 1px solid #808080;">
-                                        <tr>
-                                            <td>
-                                                DO NOT REFILL MORE THAN ONCE
-                                            </td>
-                                            <td style="float: right;">
-                                                <small style="font-size: 8px;">Download <b>Meet My Doctor</b> App from Playstore Powered by TECHBULB<br>To view your visit record & book your appointment with doctor.</small>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                        <table style="width:100%;border-top: 1px solid #808080;">
+                                            <tr>
+                                                <td>
+                                                    DO NOT REFILL MORE THAN ONCE
+                                                </td>
+                                                <td style="float: right;">
+                                                    <small style="font-size: 8px;">Download <b>Meet My Doctor</b> App from Playstore Powered by TECHBULB<br>To view your visit record & book your appointment with doctor.</small>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     }
                                     @if (@Session["Template"].ToString() == "No")
                                     {
-                                    <table style="width:100%;border-top: 1px solid #808080;">
-                                        <tr>
-                                            <td>
-                                               
-                                            </td>
-                                            <td style="float: right;">
-                                                <small style="font-size: 8px;">  </small>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                        <table style="width:100%;border-top: 1px solid #808080;">
+                                            <tr>
+                                                <td></td>
+                                                <td style="float: right;">
+                                                    <small style="font-size: 8px;">  </small>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     }
 
                                 </td>
@@ -308,7 +306,7 @@
 </div>
 
 @*
-<script src="~/vendor/jquery/jquery.min.js"></script>*@
+    <script src="~/vendor/jquery/jquery.min.js"></script>*@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="~/js/front.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

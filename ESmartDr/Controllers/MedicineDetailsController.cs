@@ -152,7 +152,8 @@ namespace ESmartDr.Controllers
                     Session["Observation"] = s.Observation;
                     Session["NextVisit"] = s.NextVisit;
                     Session["Printer"] = s.Printer;
-                    Session["Template"] = s.Template;
+                    Session["Template"] = s.Template; 
+                    Session["Advice"] = s.Template;
                 }
 
                 // MD = BL.ViewAllMedicine(s);

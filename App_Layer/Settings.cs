@@ -20,6 +20,8 @@ namespace App_Layer
         public string NextVisit { get; set; }
         public string Printer { get; set; }
         public string Template { get; set; }
+        public string Advice { get; set; }
+        
         public List<Settings> lst { get; set; }
 
     }
