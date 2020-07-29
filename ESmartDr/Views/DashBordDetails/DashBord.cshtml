@@ -349,153 +349,34 @@
             <div class="card-body">
                 <h3>Patient Feedback</h3>
 
-                <div class="row dash-card">
+                <div class="row dash-card" style="overflow: scroll; height: 51vh;">
                     @foreach (var item in Model.Fedlst)
                     {
-                        <div class="col-md-4">
-                            <div class="dashboard-border">
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        Date : @item.Date
-                                    </li>
-                                    <li class="list-inline-item pull-right">
-                                        CP No. : @item.CPNo
-                                    </li>
+                    <div class="col-md-4">
+                        <div class="dashboard-border" style="font-size: 0.9em;">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <b>Date</b> : @item.Date
+                                </li>
+                                <li class="list-inline-item pull-right">
+                                    <b>CP No.</b> : @item.CPNo
+</li>
+                            </ul>
+                            <div class="dash-patient-bg">
+                                <h4>@item.PatientName</h4>
+                                <ul class="list-unstyled">
+                                    <li><b>Overall Experience </b>:@item.Experience</li>
+                                    <li><b>Clinic Cleanliness </b>:@item.Cleanliness</li>
+                                    <li><b>Staff Behavior </b>:@item.BadBehevior</li>
+                                    <li><b>Doctor Qualities </b>:@item.MedicalExpertise @item.ListenGiveTime <br />@item.Compassionate @item.BadBehevior</li>
                                 </ul>
-                                <div class="dash-patient-bg">
-                                    <h4>@item.PatientName</h4>
-                                    <ul class="list-unstyled">
-                                        <li>Overall Experience :@item.Experience</li>
-                                        <li>Clinic Cleanliness :@item.Cleanliness</li>
-                                        <li>Staff Behavior :@item.BadBehevior</li>
-                                        <li>Doctor Qualities :@item.MedicalExpertise @item.ListenGiveTime <br />@item.Compassionate @item.BadBehevior</li>
-                                    </ul>
-                                    <textarea placeholder="@item.Feedback" style="width:100%;"></textarea>
-                                </div>
-
+                                <textarea placeholder="@item.Feedback" style="width:100%;"></textarea>
                             </div>
+
                         </div>
+                    </div>
                     }
-                    @*<div class="col-md-4">
-                        <div class="dashboard-border">
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    Date : DD/MM/YYYY
-                                </li>
-                                <li class="list-inline-item pull-right">
-                                    CP No. : AAA0001
-                                </li>
-                            </ul>
-                            <div class="dash-patient-bg">
-                                <h4>Patient Name</h4>
-                                <ul class="list-unstyled">
-                                    <li>Overall Experience :</li>
-                                    <li>Clinic Cleanliness :</li>
-                                    <li>Staff Behavior :</li>
-                                    <li>Doctor Qualities :</li>
-                                </ul>
-                                <textarea placeholder="Feedback" style="width:100%;"></textarea>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="dashboard-border">
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    Date : DD/MM/YYYY
-                                </li>
-                                <li class="list-inline-item pull-right">
-                                    CP No. : AAA0001
-                                </li>
-                            </ul>
-                            <div class="dash-patient-bg">
-                                <h4>Patient Name</h4>
-                                <ul class="list-unstyled">
-                                    <li>Overall Experience :</li>
-                                    <li>Clinic Cleanliness :</li>
-                                    <li>Staff Behavior :</li>
-                                    <li>Doctor Qualities :</li>
-                                </ul>
-                                <textarea placeholder="Feedback" style="width:100%;"></textarea>
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
-
-                <br />
-                <div class="row dash-card">
-                    <div class="col-md-4">
-                        <div class="dashboard-border">
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    Date : DD/MM/YYYY
-                                </li>
-                                <li class="list-inline-item pull-right">
-                                    CP No. : AAA0001
-                                </li>
-                            </ul>
-                            <div class="dash-patient-bg">
-                                <h4>Patient Name</h4>
-                                <ul class="list-unstyled">
-                                    <li>Overall Experience :</li>
-                                    <li>Clinic Cleanliness :</li>
-                                    <li>Staff Behavior :</li>
-                                    <li>Doctor Qualities :</li>
-                                </ul>
-                                <textarea placeholder="Feedback" style="width:100%;"></textarea>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="dashboard-border">
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    Date : DD/MM/YYYY
-                                </li>
-                                <li class="list-inline-item pull-right">
-                                    CP No. : AAA0001
-                                </li>
-                            </ul>
-                            <div class="dash-patient-bg">
-                                <h4>Patient Name</h4>
-                                <ul class="list-unstyled">
-                                    <li>Overall Experience :</li>
-                                    <li>Clinic Cleanliness :</li>
-                                    <li>Staff Behavior :</li>
-                                    <li>Doctor Qualities :</li>
-                                </ul>
-                                <textarea placeholder="Feedback" style="width:100%;"></textarea>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="dashboard-border">
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    Date : DD/MM/YYYY
-                                </li>
-                                <li class="list-inline-item pull-right">
-                                    CP No. : AAA0001
-                                </li>
-                            </ul>
-                            <div class="dash-patient-bg">
-                                <h4>Patient Name</h4>
-                                <ul class="list-unstyled">
-                                    <li>Overall Experience :</li>
-                                    <li>Clinic Cleanliness :</li>
-                                    <li>Staff Behavior :</li>
-                                    <li>Doctor Qualities :</li>
-                                </ul>
-                                <textarea placeholder="Feedback" style="width:100%;"></textarea>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>*@
             </div>
         </div>
     </div>

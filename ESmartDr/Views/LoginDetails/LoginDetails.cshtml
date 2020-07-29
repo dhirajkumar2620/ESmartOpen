@@ -59,9 +59,21 @@
 
         };
     </script>
+    <style>
+        .scrollup {
+            position: fixed;
+            bottom: 70px;
+            right: 60px;
+            display: none;
+            color: #25a1a1;
+            font-size: 3em;
+            z-index: 9999;
+        }
+    </style>
 </head>
 
 <body>
+    <i class="fa fa-arrow-circle-up scrollup" aria-hidden="true"></i>
     <section class="backgroung-space">
         <header>
             <br />
@@ -152,8 +164,9 @@
                                     </div>
                                     <br>
                                     <div class="text-center sn-in">
-                                        <input type="submit" value="Sign In" class="btn btn-primary">
-                                        <p style="font-weight: 700!important;">Request A Demo <a href="#" class="click-to-reg" ></a></p>
+                                        <input type="submit" value="Sign In" class="btn btn-primary" style="font-weight: 700!important;color:#f5a433">
+                                        @*<p style="font-weight: 700!important;">Request A Demo <a href="#" class="click-to-reg" ></a></p>*@
+                                        <p> <a href="#" class="k" style="font-weight: 700!important;color:#fff">Request A Demo</a></p>
                                        
                                     </div>
                                 </div>
@@ -858,6 +871,25 @@
 
            )
         };
+
+        $(".k").click(function () {
+            $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+        });
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('.scrollup').fadeIn();
+            } else {
+                $('.scrollup').fadeOut();
+            }
+        });
+
+        $('.scrollup').click(function () {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 600);
+            return false;
+        });
     </script>
 </body>
 
