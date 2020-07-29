@@ -108,7 +108,7 @@
                                                 <td>@item.CasePapaerNo</td>
                                                 <td>@item.PatientName<br />@item.Age / @item.Gender</td>
                                                 <td>@item.WhatsAppNo<br />@item.OtherNo</td>
-                                                <td>@item.CpExpiryDate</td>
+                                                <td>@Convert.ToDateTime(item.CpExpiryDate).ToString("dd/MM/yyyy")</td>
                                                
                                                 @if (item.DueAmount.IsEmpty())
                                                 {

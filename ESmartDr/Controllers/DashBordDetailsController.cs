@@ -25,6 +25,14 @@ namespace ESmartDr.Controllers
                 Dashbord LST = new Dashbord();
                 LST = BL.ViewDashbord(admObj.HospitalId.ToString());
 
+                if (LST.Fedlst.Count > 0)
+                {
+                    foreach (var item in LST.Fedlst)
+                    {
+                        item.MedicalExpertise = item.MedicalExpertise + " ," + item.ListenGiveTime +  item.Compassionate +  item.BadBehevior;
+                        item.MedicalExpertise= item.MedicalExpertise.TrimEnd(',');
+                    }
+                }
                 int hospitalId;
                 // DateTime date = Convert.ToDateTime( Request["txtDate"].ToString());
                 hospitalId = admObj.HospitalId;
@@ -73,7 +81,7 @@ namespace ESmartDr.Controllers
                 // DateTime date = Convert.ToDateTime( Request["txtDate"].ToString());
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 hospitalId = admObj.HospitalId;
-                
+
                 ModelState.Clear();
                 List<QueueDetails> LST = new List<QueueDetails>();
                 if (admObj.RoleId == "AHE")
@@ -114,8 +122,88 @@ namespace ESmartDr.Controllers
                     sms.SendSMS(MbNo, message);
                 }
 
-               // PatientCount(admObj.HospitalId, admObj.UserId);
+                // PatientCount(admObj.HospitalId, admObj.UserId);
                 return Json("1", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        [HttpPost]
+        public JsonResult ViewDashbord1(string Id)
+        {
+            try
+            {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                Dashbord LST = new Dashbord();
+                LST = BL.ViewDashbord(admObj.HospitalId.ToString());
+
+                // var date = LST.d1lst[0].dates.ToShortDateString();
+
+                for (int i = 0; i < LST.d1lst.Count; i++)
+                {
+                    // LST.d1lst[i].date = LST.d1lst[i].dates.ToShortDateString();
+                    LST.d1lst[i].date = LST.d1lst[i].dates.ToString("ddd");
+                }
+
+                //var output = JsonConvert.SerializeObject(LST.d1lst); //(LST.d1lst, JsonRequestBehavior.AllowGet);
+                return Json(LST.d1lst, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        public JsonResult IncomeExpensesAnalysis(string Id)
+        {
+            try
+            {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                Dashbord LST = new Dashbord();
+                LST = BL.ViewDashbord(admObj.HospitalId.ToString());
+
+                // var date = LST.d1lst[0].dates.ToShortDateString();
+
+                for (int i = 0; i < LST.d2lst.Count; i++)
+                {
+                    // LST.d1lst[i].date = LST.d1lst[i].dates.ToShortDateString();
+                    LST.d2lst[i].date = LST.d2lst[i].dates.ToString("ddd");
+                }
+
+                //var output = JsonConvert.SerializeObject(LST.d1lst); //(LST.d1lst, JsonRequestBehavior.AllowGet);
+                return Json(LST.d2lst, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        public JsonResult IncomeExpensesAnalysis3(string Id)
+        {
+            try
+            {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                Dashbord LST = new Dashbord();
+                LST = BL.ViewDashbord(admObj.HospitalId.ToString());
+
+                // var date = LST.d1lst[0].dates.ToShortDateString();
+
+                for (int i = 0; i < LST.d3lst.Count; i++)
+                {
+                    //LST.d1lst[i].date = LST.d1lst[i].dates.ToShortDateString();
+                    LST.d3lst[i].date = LST.d3lst[i].dates.ToString("ddd");
+                }
+
+                //var output = JsonConvert.SerializeObject(LST.d1lst); //(LST.d1lst, JsonRequestBehavior.AllowGet);
+                return Json(LST.d3lst, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {

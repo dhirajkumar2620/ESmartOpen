@@ -141,7 +141,7 @@
                                                                 <tr>
                                                                     <td hidden>@item.ExId</td>
                                                                     <td>@No</td>
-                                                                    <td>@item.ExDate</td>
+                                                                    <td>@Convert.ToDateTime(item.ExDate).ToString("dd/MM/yyyy")</td>
                                                                     <td>@item.ExCatagory</td>
                                                                     <td>@item.ExAmount</td>
                                                                     <td>@item.ExDetails</td>
@@ -201,7 +201,7 @@
                                                                 @Ino = @Ino + 1;
                                                                 <tr>
                                                                     <td>@No</td>
-                                                                    <td>@item.Date</td>
+                                                                    <td>@Convert.ToDateTime(item.Date).ToString("dd/MM/yyyy")</td>
                                                                     <td>@item.PatientCount</td>
                                                                     <td>@item.Collection</td>
                                                                     <td>@item.Balance</td>
@@ -264,7 +264,7 @@
                                                                 @Vno = @Vno + 1;
                                                                 <tr>
                                                                     <td>@Vno</td>
-                                                                    <td>@item.Date</td>
+                                                                    <td>@Convert.ToDateTime(item.Date).ToString("dd/MM/yyyy")</td>
                                                                     <td>@item.CasePaperNo</td>
                                                                     <td>@item.PatientName</td>
                                                                     <td>@item.Bill</td>

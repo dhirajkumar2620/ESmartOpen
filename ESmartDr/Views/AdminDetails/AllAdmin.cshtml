@@ -120,7 +120,7 @@
                                                 <td>@item.HostClincName</td>
                                                 <td>@item.HospClinicAddess</td>
                                                 <td>@item.WhatsAppNumber<br />@item.OtherNumber</td>
-                                                <td>@item.ExpiryDate</td>
+                                                <td>@Convert.ToDateTime(item.ExpiryDate).ToString("dd/MM/yyyy")</td>
                                                 <td>@(item.IsActive ? "Active" : "De-active")</td>
                                                 <td>
                                                     <ul class="list-inline">
