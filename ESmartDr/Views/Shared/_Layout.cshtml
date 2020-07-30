@@ -198,7 +198,10 @@
                                 <i class="fa fa-user-plus" aria-hidden="true"></i>Create User
                             </a>
                             <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                                @*<li><a href='@Url.Content("~/AdminDetails/AdminDetails")'> Create Admin</a></li>*@
+                                @if (Session["DrCount"].ToString() != "0")
+                                {
+                                    <li><a href='@Url.Content("~/AdminDetails/AdminDetails")'> Create Admin</a></li>
+                                }
                                 <li><a href='@Url.Content("~/StaffDetails/StaffDetails")'>Add Staff Member</a></li>
                                 <li><a href='@Url.Content("~/PatientDetails/PatientDetails")'> Add Patient</a></li>
                             </ul>
@@ -206,7 +209,7 @@
                         @*<li><a href="@Url.Content("~/Home/MyOPD")"> <i class="fa fa-check-square-o" aria-hidden="true"></i>Patient Examination</a></li>*@
                         @*<li><a href="@Url.Content("~/Home/MyOPD")"> <i class="fa fa-check-square-o" aria-hidden="true"></i>Patient Examination</a></li>*@
                         @*<li><a href="@Url.Content("~/MedicineDetails/ViewAllMedicine")"> <i class="fa fa-plus-circle" aria-hidden="true"></i>Add Medicines </a></li>*@
-                       
+
                         <li><a href="@Url.Content("~/Home/CampaignMaster")"> <i class="fa fa-users" aria-hidden="true"></i>Campaign Master</a></li>
 
                         @*<li><a href="@Url.Content("~/Home/CampaignMaster")"> <i class="fa fa-users" aria-hidden="true"></i>Campaign Master</a></li>*@
@@ -262,7 +265,7 @@
                         </li>
                         @*<li><a href="@Url.Content("~/Home/MyOPD")"> <i class="fa fa-check-square-o" aria-hidden="true"></i>Patient Examination</a></li>*@
                         @*<li><a href="@Url.Content("~/MedicineDetails/ViewAllMedicine")"> <i class="fa fa-plus-circle" aria-hidden="true"></i>Add Medicines </a></li>*@
-                      
+
                         <li><a href="@Url.Content("~/Home/CampaignMaster")"> <i class="fa fa-users" aria-hidden="true"></i>Campaign Master</a></li>
 
 
@@ -317,7 +320,7 @@
             </div>
         </div>
     </div>
-    
+
 
     <script src="~/vendor/jquery/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
@@ -327,7 +330,7 @@
     <script src="~/vendor/jquery.cookie/jquery.cookie.js"></script>
     <script src="~/vendor/chart.js/Chart.min.js"></script>
     @*<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>*@
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>*@
     <script src="~/vendor/jquery-validation/jquery.validate.min.js"></script>
     <!-- Main File-->
     <script src="~/js/front.js"></script>
@@ -338,7 +341,7 @@
     <script src="~/js/Notifier.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
-   
+
     <script src="https://cdn.rawgit.com/unconditional/jquery-table2excel/master/src/jquery.table2excel.js"></script>
 </body>
 </html>

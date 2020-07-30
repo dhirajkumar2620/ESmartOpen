@@ -21,303 +21,9 @@
                 <div class="row">
                     <!-- Basic Form-->
                     <div class="col-lg-12">
-                       
-                            <div class="card">
-                                <div class="card-body">
-                                    <p>Need to fill mandatory fields.</p>
-                                    <form>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">Name<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.FirstName, new { @id = "txtName", @class = "form-control", required = "required", @placeholder = "Name" })
-                                                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">Degree<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.Education, new { @id = "txtDegree", @class = "form-control", required = "required", @placeholder = "eg. MBBS" })
-                                                    @Html.ValidationMessageFor(model => model.Education, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">Registration No.<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.RegNumber, new { @id = "txtRegNumber", @class = "form-control", required = "required", @placeholder = "eg. 12345" })
-                                                    @Html.ValidationMessageFor(model => model.RegNumber, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">
-                                                        Gender<span class="star">*</span>
-                                                    </label>
-                                                    @Html.DropDownListFor(m => m.Gender, new List<SelectListItem>
-                                                     {
-                                                         new SelectListItem{ Text="Male", Value = "Male" },
-                                                         new SelectListItem{ Text="Female", Value = "Female" },
-                                                          new SelectListItem{ Text="Other", Value = "Other" },
-                                                      }, new { @class = "form-control mb-3", @id = "ddlGender" })
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="form-control-label">Date of Birth</label>
-                                                <div class="input-group date" data-provide="datepicker">
-                                                    @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "txtDOB", @type = "text", @class = "form-control datepicker", @placeholder = "eg. dd/mm/yyyy" })
-                                                    @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">
-                                                        Age
-                                                    </label>
-                                                    @Html.TextBoxFor(m => m.Age, new { @id = "txtAge", @class = "form-control", @placeholder = "eg. 10" })
-                                                    @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">Mobile No.<span class="star">*</span></label>
-                                                    <div class="input-container">
-                                                        <span class="icon">+91</span>
-                                                        @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtWhatsAppNumber", @class = "form-control", @maxlength = "10", required = "required", @placeholder = "eg. 0123456789" })
-                                                        @Html.ValidationMessageFor(model => model.WhatsAppNumber, "", new { @class = "text-danger" })
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">Other No.</label>
-                                                    <div class="input-container">
-                                                        <span class="icon">+91</span>
-                                                        @Html.TextBoxFor(m => m.OtherNumber, new { @id = "txtOtherNo", @maxlength = "10", @class = "form-control", @onkeypress = "return isNumber(event)", @placeholder = "eg. 0123456789" })
-                                                        @Html.ValidationMessageFor(model => model.OtherNumber, "", new { @class = "text-danger" })
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">Email ID<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.EmailId, new { @id = "txtEmailId", @class = "form-control", required = "required", @placeholder = "eg. aaa@gmail.com" })
-                                                    @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">Firm Name<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.HostClincName, new { @id = "txtHCName", @class = "form-control", required = "required", @placeholder = "Firm Name" })
-                                                    @Html.ValidationMessageFor(model => model.HostClincName, "", new { @class = "text-danger" })
-
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">Firm No.<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.HospClinicNumber, new { @id = "txtHCNumbar", @class = "form-control", required = "required", @placeholder = "0123456789 or 222222" })
-                                                    @Html.ValidationMessageFor(model => model.HospClinicNumber, "", new { @class = "text-danger" })
-
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">Firm Add.<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.HospClinicAddess, new { @id = "txtHCAdress", @class = "form-control", required = "required", @placeholder = "Firm Address" })
-                                                    @Html.ValidationMessageFor(model => model.HospClinicAddess, "", new { @class = "text-danger" })
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label class="form-control-label">In</label>
-                                                        <div class="input-group clockpicker pull-center" data-autoclose="true">
-                                                            @Html.TextBoxFor(m => m.FirmInTime1, new { @id = "txtFirmInTime1", @class = "form-control", @placeholder = "hh:mm" })
-                                                            @Html.ValidationMessageFor(model => model.FirmInTime1, "", new { @class = "text-danger" })
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-clock-o page-date-icon" aria-hidden="true"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label class="form-control-label">Out</label>
-                                                        <div class="input-group clockpicker pull-center" data-autoclose="true">
-                                                            @Html.TextBoxFor(m => m.FirmOutTime1, new { @id = "txtFirmOutTime1", @class = "form-control", @placeholder = "hh:mm" })
-                                                            @Html.ValidationMessageFor(model => model.FirmOutTime1, "", new { @class = "text-danger" })
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-clock-o page-date-icon" aria-hidden="true"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label class="form-control-label">In</label>
-                                                        <div class="input-group clockpicker pull-center" data-autoclose="true">
-                                                            @Html.TextBoxFor(m => m.FirmInTime2, new { @id = "txtFirmInTime2", @class = "form-control", @placeholder = "hh:mm" })
-                                                            @Html.ValidationMessageFor(model => model.FirmInTime2, "", new { @class = "text-danger" })
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-clock-o page-date-icon" aria-hidden="true"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label class="form-control-label">Out</label>
-                                                        <div class="input-group clockpicker pull-center" data-autoclose="true">
-                                                            @Html.TextBoxFor(m => m.FirmOutTime2, new { @id = "txtFirmOutTime2", @class = "form-control", @placeholder = "hh:mm" })
-                                                            @Html.ValidationMessageFor(model => model.FirmOutTime2, "", new { @class = "text-danger" })
-                                                            <span class="input-group-addon">
-                                                                <i class="fa fa-clock-o page-date-icon" aria-hidden="true"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">Holiday</label>
-                                                    @Html.TextBoxFor(m => m.Holiday, new { @id = "txtHoliday", @class = "form-control", @placeholder = "eg. Sunday,Monday" })
-                                                    @Html.ValidationMessageFor(model => model.Holiday, "", new { @class = "text-danger" })
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">Activation For<span class="star">*</span></label>
-                                                    @Html.DropDownListFor(m => m.ActivationFor, new List<SelectListItem>
-                                                     {
-                                                         //new SelectListItem{ Text="Select Role", Value = "0" },
-                                                         new SelectListItem{ Text="Smart Clinic Manager", Value = "scm" },
-                                                         new SelectListItem{ Text="Smart OPD Manager", Value = "som" },
-                                                          new SelectListItem{ Text="Smart Lab Manager", Value = "slm" },
-                                                           new SelectListItem{ Text="Smart Diagnostic Manager", Value = "sdm" },
-                                                           new SelectListItem{ Text="Smart Lab & Diagnostic Manager", Value = "sjdm" },
-                                                           new SelectListItem{ Text="Smart OPD & IPD Managerr", Value = "soim" },
-                                                      }, new { @class = "form-control mb-4", @id = "ddlRole" })
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">Activation Date<span class="star">*</span></label>
-                                                    <div class="input-group date" data-provide="datepicker">
-                                                        @Html.TextBoxFor(m => m.ActivationDate, new { @id = "txtActivationDate", @type = "text", @class = "form-control datepicker", required = "required", @placeholder = "dd/mm/yyyy" })
-                                                        @Html.ValidationMessageFor(model => model.ActivationDate, "", new { @class = "text-danger" })
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">Expiry Date<span class="star">*</span></label>
-                                                    <div class="input-group date" data-provide="datepicker">
-                                                        @Html.TextBoxFor(m => m.ExpiryDate, new { @id = "txtExpiryDate", @type = "text", @class = "form-control datepicker", @placeholder = "dd/mm/yyyy" })
-                                                        @Html.ValidationMessageFor(model => model.ExpiryDate, "", new { @class = "text-danger" })
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">
-                                                        Upload Photo
-                                                    </label>
-                                                    <input type="file" id="imgfile" name="imgfile" placeholder="Email-Id / Mobile No." class="form-control">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">
-                                                        Status<span class="star">*</span>
-                                                    </label>
-                                                    @Html.DropDownListFor(m => m.IsActive, new List<SelectListItem>
-                                                     {
-                                                         new SelectListItem{ Text="Active", Value = "true" },
-                                                         new SelectListItem{ Text="De-Active", Value = "false" },
-
-                                                      }, new { @class = "form-control mb-4", @id = "ddlStatus" })
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">
-                                                        CP Alphanumeric Prefix<span class="star">*</span>
-                                                    </label>
-                                                    @Html.TextBoxFor(m => m.AlphanumericPrefix, new { @id = "txtAlphanumericPrefix", @class = "form-control", required = "required", @placeholder = "eg. AA" })
-                                                    @Html.ValidationMessageFor(model => model.AlphanumericPrefix, "", new { @class = "text-danger" })
-
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">
-                                                        Speciality<span class="star">*</span>
-                                                    </label>
-                                                    @Html.TextBoxFor(m => m.Speciality, new { @id = "txtSpeciality", @class = "form-control",  @placeholder = "eg. Dentist" })
-                                                    @Html.ValidationMessageFor(model => model.Speciality, "", new { @class = "text-danger" })
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12 text-right">
-                                                <a href="~/PatientDetails/GetQueueList"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
-                                                @*@if (Session["RoleId"].ToString() == "SA")
-                                                {*@
-                                                <input type="submit" value="Save" class="btn btn_2 btn-primary b22">
-                                                @*}*@
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                       
-                        @*else
+                        @if (Session["RoleId"].ToString() == "SA")
                         {
                             <div class="card">
-                                <!-- <div class="card-close">
-                                  <div class="dropdown">
-                                    <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                                    <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                                  </div>
-                                </div> -->
-                                <!-- <div class="card-header d-flex align-items-center">
-                                  <h3 class="h4">Basic Form</h3>
-                                </div> -->
                                 <div class="card-body">
                                     <p>Need to fill mandatory fields.</p>
                                     <form>
@@ -367,6 +73,7 @@
                                                         <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
                                                     </div>
                                                 </div>
+
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
@@ -580,23 +287,41 @@
                                                     <label class="form-control-label">
                                                         Speciality<span class="star">*</span>
                                                     </label>
-                                                    @Html.TextBoxFor(m => m.Speciality, new { @id = "txtSpeciality", @class = "form-control",  @placeholder = "eg. Dentist" })
+                                                    @Html.TextBoxFor(m => m.Speciality, new { @id = "txtSpeciality", @class = "form-control", @placeholder = "eg. Dentist" })
                                                     @Html.ValidationMessageFor(model => model.Speciality, "", new { @class = "text-danger" })
 
 
                                                 </div>
                                             </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="form-control-label">
+                                                        Dr. Count
+                                                    </label>
+                                                    @Html.TextBoxFor(m => m.DrCount, new { @id = "txtSpeciality", @class = "form-control", @placeholder = "eg. Dentist" })
+                                                    @Html.ValidationMessageFor(model => model.DrCount, "", new { @class = "text-danger" })
+
+
+                                                </div>
+                                            </div>
+
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12 text-right">
                                                 <a href="~/PatientDetails/GetQueueList"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
-                                                <input type="submit" value="Save" class="btn btn_2 btn-primary b22">
+                                                @if (Session["DrCount"].ToString() != "0")
+                                                {
+                                                    <input type="submit" value="Save" class="btn btn_2 btn-primary b22">
+                                                }
+
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                        }*@
+                        }
+
                     </div>
                 </div>
             </div>
@@ -636,7 +361,7 @@
             $(this).css('color', '#000');
 
         }
-    });     
+    });
     $("#txtWhatsAppNumber").change(function () {
         var MobileNumber = $('#txtWhatsAppNumber').val();
         debugger

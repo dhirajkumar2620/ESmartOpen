@@ -48,6 +48,7 @@ namespace App_Layer
         public string FirmInTime2 { get; set; }
         public string FirmOutTime2 { get; set; }
         public string Speciality { get; set; }
+        public string DrCount { get; set; }
         public List<AdminDetails> lst { get; set; }
     }
 }

@@ -167,6 +167,9 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 AdminDetails pd = new AdminDetails();
                 pd = BP.GetAdminById(UserId);
+                
+                    Session["DrCount"] = "non";
+              
                 pd.DateOfBirth = pd.DateOfBirth.Substring(0, pd.DateOfBirth.IndexOf(" ") + 1).TrimEnd();
                 pd.ActivationDate = pd.ActivationDate.Substring(0, pd.ActivationDate.IndexOf(" ") + 1).TrimEnd();
                 pd.ExpiryDate = pd.ExpiryDate.Substring(0, pd.ExpiryDate.IndexOf(" ") + 1).TrimEnd();

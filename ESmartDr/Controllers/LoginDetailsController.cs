@@ -69,6 +69,8 @@ namespace ESmartDr.Controllers
                 Session["HoutTime1"] = ad.FirmOutTime1;
                 Session["HinTime2"] = ad.FirmInTime2;
                 Session["HoutTime2"] = ad.FirmOutTime2;
+                //-----Doctor Count------
+                Session["DrCount"] = ad.DrCount;
                 if (string.IsNullOrEmpty(Session["HinTime1"] as string))
                 {
                     Session["HinTime1"] = " ";
