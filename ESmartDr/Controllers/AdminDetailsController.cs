@@ -83,7 +83,7 @@ namespace ESmartDr.Controllers
         public ActionResult CheckMobile(string Input)
         {
             try
-            {
+                {
                 List<AdminDetails> LST = new List<AdminDetails>();
                 LST = BP.GetAllAdminDetails();
                 bool Mobile = LST.Any(cus => cus.WhatsAppNumber == Input);
@@ -122,10 +122,10 @@ namespace ESmartDr.Controllers
                 }
                     AD.HospClinicLogo = path; 
                     int Flag = BP.ManagePatientDetails(AD);
-                    if (Flag != 1)
-                    {
-                        return View();
-                    }
+                    //if (Flag != 1)
+                    //{
+                    //    return View();
+                    //}
                 
                
                 List<AdminDetails> LST = new List<AdminDetails>();

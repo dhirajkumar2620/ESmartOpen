@@ -21,8 +21,8 @@
                 <div class="row">
                     <!-- Basic Form-->
                     <div class="col-lg-12">
-                        @if (Session["RoleId"].ToString() == "SA" )
-                        {
+                        @*@if (Session["RoleId"].ToString() == "SA" )
+                        {*@
                             <div class="card">
                                 <div class="card-body">
                                     <p>Need to fill mandatory fields.</p>
@@ -310,17 +310,17 @@
                                         <div class="row">
                                             <div class="col-md-12 text-right">
                                                 <a href="~/PatientDetails/GetQueueList"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>
-                                                @if (Session["DrCount"].ToString() != "0")
-                                                {
+                                                @*@if (Session["DrCount"].ToString() != "0")
+                                                {*@
                                                     <input type="submit" value="Save" class="btn btn_2 btn-primary b22">
-                                                }
+                                                @*}*@
 
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                        }
+                        
                     </div>
                 </div>
             </div>

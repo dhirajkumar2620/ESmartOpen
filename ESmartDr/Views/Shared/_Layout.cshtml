@@ -33,7 +33,7 @@
     <link href="~/css/cssgraph_bar.css" rel="stylesheet" />
     <link href="~/css/cssgraph_plot.css" rel="stylesheet" />
 </head>
-<body>
+<body onload="mp_onload();window.history.go(1);">
 
     <div class="page">
         <!-- Main Navbar-->
@@ -343,5 +343,14 @@
 
 
     <script src="https://cdn.rawgit.com/unconditional/jquery-table2excel/master/src/jquery.table2excel.js"></script>
+    <script type="text/javascript">
+
+        function mp_onload() {
+
+            if (window.body_onload != null)
+                window.body_onload();
+        }
+    </script>
+
 </body>
 </html>
