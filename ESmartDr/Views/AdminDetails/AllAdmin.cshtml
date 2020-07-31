@@ -93,9 +93,13 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <div class="grid-btn pull-right">
-                                    <a href="~/AdminDetails/AdminDetails">   <input type="button" value="Create Admin" style="margin-left: 1em;border-radius: 22px;" class="btn btn_2 btn-primary"></a>
-                                    <a href="#"><input type="button" onclick="ExportToExcel()" value="Export to Excel" class="btn btn_2 btn-primary" style="border-radius: 22px;"></a>
+                                    @if (Session["DrCount"].ToString() != "0")
+                                    {
+                                        <a href="~/AdminDetails/AdminDetails">   <input type="button" value="Create Admin" style="margin-left: 1em;border-radius: 22px;" class="btn btn_2 btn-primary"></a>
+                                        <a href="#"><input type="button" onclick="ExportToExcel()" value="Export to Excel" class="btn btn_2 btn-primary" style="border-radius: 22px;"></a>
+                                    }
                                 </div>
+
                                 <table id="example6" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
