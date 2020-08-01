@@ -350,7 +350,7 @@ namespace ESmartDr.Controllers
                     flag = 2;
                 }
                 DataTable dt = BP.Get_ExportToExcel(flag, admObj.HospitalId);
-                string attachment = "attachment; filename=TimeSheet.xls";
+                string attachment = "attachment; filename=Doctor Details.xls";
                 Response.ClearContent();
                 Response.AddHeader("content-disposition", attachment);
                 Response.ContentType = "application/vnd.ms-excel";
@@ -383,6 +383,7 @@ namespace ESmartDr.Controllers
             }
 
         }
+       
     }
 }
 

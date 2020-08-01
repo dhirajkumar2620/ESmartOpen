@@ -115,9 +115,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="table-responsive">
-                                                    <div class="grid-btn pull-right">
-                                                        <a href="#"><input type="button" onclick="ExportToExcel()" value="Export to Excel" class="btn btn_2 btn-primary" style="margin-left: 1em; border-radius: 22px;"></a>
-                                                    </div>
+ 
                                                     <table id="example7" class="table table-striped" style="width:100%">
                                                         <thead>
 
@@ -173,15 +171,23 @@
                                                         </tfoot>
                                                     </table>
                                                 </div>
+                                                <br />
+                                                <div class="row">
+                                                    <div class="col-md-12 text-right">
+                                                        @*<a href="#"><input type="button" onclick="ExportToExcel()" value="Export to Excel" class="btn btn_2 btn-primary" style="margin-left: 1em; border-radius: 22px;"></a>*@
+                                                        <a href="#"><input type="button" onclick="ExportToExcel()" value="Export to Excel" class="btn btn_2 btn-primary"></a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-
+                                       
                                     </div>
                                     <div class="tab-pane fade" id="pills-income" role="tabpanel" aria-labelledby="pills-profile-tab">
                                         <br />
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="table-responsive">
+                                                    
                                                     <table id="example8" class="table table-striped" style="width:100%">
                                                         <thead>
                                                             <tr>
@@ -236,8 +242,15 @@
                                                         </tfoot>
                                                     </table>
                                                 </div>
+                                                <br />
+                                                <div class="row">
+                                                    <div class="col-md-12 text-right">
+                                                        <a href="#"><input type="button" onclick="ExportToExcelIncome()" value="Export to Excel" class="btn btn_2 btn-primary"></a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+                                        
                                     </div>
                                     <div class="tab-pane fade" id="pills-invoice" role="tabpanel" aria-labelledby="pills-contact-tab">
 
@@ -245,6 +258,9 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="table-responsive">
+                                                    <div class="grid-btn pull-right">
+                                                      
+                                                    </div>
                                                     <table id="example9" class="table table-striped" style="width:100%">
                                                         <thead>
                                                             <tr>
@@ -301,9 +317,14 @@
                                                         </tfoot>
                                                     </table>
                                                 </div>
+                                                <br />
+                                                <div class="row">
+                                                    <div class="col-md-12 text-right">
+                                                        <a href="#"><input type="button" onclick="ExportToExcelInvoice()" value="Export to Excel" class="btn btn_2 btn-primary"></a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <br />
                                     </div>
                                 </div>
                             </div>
@@ -457,7 +478,43 @@
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (response) {
-                window.location.href = '/AccountDetails/ExportToExcel'
+                window.location.href = '/AccountDetails/ExportToExcelExpenses'
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+
+    }
+    function ExportToExcelIncome() {
+        $.ajax({
+            type: "GET",
+            url: "/AccountDetails/ExportToExcel1",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                window.location.href = '/AccountDetails/ExportToExcelIncome'
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+
+    }
+    function ExportToExcelInvoice() {
+        $.ajax({
+            type: "GET",
+            url: "/AccountDetails/ExportToExcel1",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                window.location.href = '/AccountDetails/ExportToExcelInvice'
             },
             failure: function (response) {
                 alert(response.responseText);

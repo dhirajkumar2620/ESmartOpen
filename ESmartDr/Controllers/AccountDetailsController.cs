@@ -104,8 +104,8 @@ namespace ESmartDr.Controllers
             }
         }
 
-
-        public ActionResult ExportToExcel()
+        //Expenses Details
+        public ActionResult ExportToExcelExpenses()
         {
             try
             {
@@ -113,6 +113,104 @@ namespace ESmartDr.Controllers
                
                 DataTable dt = BL.Get_ExportToExcel(6, admObj.HospitalId);
                 string attachment = "attachment; filename=Expenses Details.xls";
+                Response.ClearContent();
+                Response.AddHeader("content-disposition", attachment);
+                Response.ContentType = "application/vnd.ms-excel";
+                string tab = "";
+                foreach (DataColumn dc in dt.Columns)
+                {
+                    Response.Write(tab + dc.ColumnName);
+                    tab = "\t";
+                }
+                Response.Write("\n");
+                int i;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    tab = "";
+                    for (i = 0; i < dt.Columns.Count; i++)
+                    {
+                        Response.Write(tab + dr[i].ToString());
+                        tab = "\t";
+                    }
+                    Response.Write("\n");
+                }
+                Response.End();
+                return View("Layout1");
+                //return Json("", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        //Income Details
+        public ActionResult ExportToExcelIncome()
+        {
+            try
+            {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                int flag = 0;
+                if (admObj.HospitalId == 0)
+                {
+                    flag = 3;
+                }
+                else
+                {
+                    flag = 2;
+                }
+                DataTable dt = BL.Get_ExportToExcel(7, admObj.HospitalId);
+                string attachment = "attachment; filename=Income Details.xls";
+                Response.ClearContent();
+                Response.AddHeader("content-disposition", attachment);
+                Response.ContentType = "application/vnd.ms-excel";
+                string tab = "";
+                foreach (DataColumn dc in dt.Columns)
+                {
+                    Response.Write(tab + dc.ColumnName);
+                    tab = "\t";
+                }
+                Response.Write("\n");
+                int i;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    tab = "";
+                    for (i = 0; i < dt.Columns.Count; i++)
+                    {
+                        Response.Write(tab + dr[i].ToString());
+                        tab = "\t";
+                    }
+                    Response.Write("\n");
+                }
+                Response.End();
+                return View("Layout1");
+                //return Json("", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        //Invice Details
+        public ActionResult ExportToExcelInvice()
+        {
+            try
+            {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                int flag = 0;
+                if (admObj.HospitalId == 0)
+                {
+                    flag = 3;
+                }
+                else
+                {
+                    flag = 2;
+                }
+                DataTable dt = BL.Get_ExportToExcel(8, admObj.HospitalId);
+                string attachment = "attachment; filename=Invice Details.xls";
                 Response.ClearContent();
                 Response.AddHeader("content-disposition", attachment);
                 Response.ContentType = "application/vnd.ms-excel";
