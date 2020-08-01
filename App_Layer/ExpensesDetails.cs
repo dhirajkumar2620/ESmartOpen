@@ -9,7 +9,7 @@ namespace App_Layer
     public class ExpensesDetails
     {
         public int ExId { get; set; }
-        public DateTime ExDate { get; set; }
+        public string ExDate { get; set; }
         public string ExCatagory { get; set; }
         public string ExAmount { get; set; }
         public string ExDetails { get; set; }

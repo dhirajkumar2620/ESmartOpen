@@ -11,6 +11,7 @@ namespace App_Layer
        
         public DateTime Date { get; set; }
         public string PatientCount { get; set; }
+        public string Income { get; set; }
         public string Collection { get; set; }
         public int HospitalId { get; set; }
         public string Balance { get; set; }

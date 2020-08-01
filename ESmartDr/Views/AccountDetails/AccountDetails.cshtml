@@ -48,7 +48,7 @@
                                                 <div class="form-group">
                                                     <label class="form-control-label">Date<span class="star">*</span></label>
                                                     <div class="input-group date" data-provide="datepicker">
-                                                        @Html.TextBoxFor(m => m.ExDate, new { @id = "txtDate", @type = "text", @class = "form-control datepicker", @placeholder = "eg. dd/mm/yyyy" })
+                                                        @Html.TextBoxFor(m => m.ExDate, new { @id = "txtExpiryDate", @type = "text", @class = "form-control datepicker", @placeholder = "dd/mm/yyyy" })
                                                         @Html.ValidationMessageFor(model => model.ExDate, "", new { @class = "text-danger" })
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
@@ -77,7 +77,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="form-control-label">Amount<span class="star">*</span></label>
+                                                    <label class="form-control-label">Amount (₹)<span class="star">*</span></label>
                                                     @Html.TextBoxFor(m => m.ExAmount, new { @id = "txtAmount", @class = "form-control", required = "required", @placeholder = "eg. 100" })
                                                     @Html.ValidationMessageFor(model => model.ExAmount, "", new { @class = "text-danger" })
 
@@ -126,7 +126,7 @@
                                                                 <th>Sr No.</th>
                                                                 <th>Date</th>
                                                                 <th>Catagory</th>
-                                                                <th>Amount</th>
+                                                                <th>Amount (₹)</th>
                                                                 <th>Details</th>
                                                                 <th>Created By</th>
                                                                 <th>Action</th>
@@ -188,8 +188,9 @@
                                                                 <th>Sr no.</th>
                                                                 <th>Date</th>
                                                                 <th>Total Patients</th>
-                                                                <th>Revenue</th>
-                                                                <th>Balance</th>
+                                                                <th>Income (₹)</th>
+                                                                <th>Revenue (₹)</th>
+                                                                <th>Balance (₹)</th>
                                                                 @*<th>Action</th>*@
                                                             </tr>
                                                         </thead>
@@ -203,6 +204,7 @@
                                                                     <td>@No</td>
                                                                     <td>@Convert.ToDateTime(item.Date).ToString("dd/MM/yyyy")</td>
                                                                     <td>@item.PatientCount</td>
+                                                                    <td>@item.Income</td>
                                                                     <td>@item.Collection</td>
                                                                     <td>@item.Balance</td>
                                                                 </tr>
@@ -226,8 +228,9 @@
                                                                 <th>Sr no.</th>
                                                                 <th>Date</th>
                                                                 <th>Total Patients</th>
-                                                                <th>Revenue</th>
-                                                                <th>Balance</th>
+                                                                <th>Income (₹)</th>
+                                                                <th>Revenue (₹)</th>
+                                                                <th>Balance (₹)</th>
                                                                 @*<th>Action</th>*@
                                                             </tr>
                                                         </tfoot>
@@ -249,9 +252,9 @@
                                                                 <th>Date</th>
                                                                 <th>CP. No.</th>
                                                                 <th>Patient Name</th>
-                                                                <th>Bill</th>
-                                                                <th>Paid</th>
-                                                                <th>Balance</th>
+                                                                <th>Bill (₹)</th>
+                                                                <th>Paid (₹)</th>
+                                                                <th>Balance (₹)</th>
                                                                 <th hidden></th>
                                                                 <th>Action</th>
                                                             </tr>
@@ -289,9 +292,9 @@
                                                                 <th>Date</th>
                                                                 <th>CP. No.</th>
                                                                 <th>Patient Name</th>
-                                                                <th>Bill</th>
-                                                                <th>Paid</th>
-                                                                <th>Balance</th>
+                                                                <th>Bill (₹)</th>
+                                                                <th>Paid (₹)</th>
+                                                                <th>Balance (₹)</th>
                                                                 <th hidden></th>
                                                                 <th>Action</th>
                                                             </tr>
@@ -368,14 +371,14 @@
     printWindow.print();
     }
 
-    $('.b33').click(function () {
-        swal({
-            title: "New Medicine added successfully.",
-            //text: "You clicked the button!",
-            icon: "success",
-            button: "OK",
-        });
-    });
+    //$('.b33').click(function () {
+    //    swal({
+    //        title: "New Medicine added successfully.",
+    //        //text: "You clicked the button!",
+    //        icon: "success",
+    //        button: "OK",
+    //    });
+    //});
 
     $(document).ready(function () {
         $('#example7').DataTable();

@@ -58,15 +58,15 @@ namespace Dal_Layer
                 sqlparam[21] = new SqlParameter("@IsActive", 1);
                 sqlparam[22] = new SqlParameter("@HospitlName", PD.HospitalName);
 
-                if (PD.CpExpiryDate.ToString() == "1/1/0001 12:00:00 AM")
-                {
-                    PD.CpExpiryDate = Convert.ToString("01/01/9999");
+                //if (PD.CpExpiryDate.ToString() == "1/1/0001 12:00:00 AM" || PD.CpExpiryDate ==null)
+                //{
+                //    PD.CpExpiryDate = Convert.ToString("01/01/9999");
+                //    sqlparam[23] = new SqlParameter("@CpExpiryDate", PD.CpExpiryDate);
+                //}
+                //else
+                //{
                     sqlparam[23] = new SqlParameter("@CpExpiryDate", PD.CpExpiryDate);
-                }
-                else
-                {
-                    sqlparam[23] = new SqlParameter("@CpExpiryDate", PD.CpExpiryDate);
-                }
+               // }
                 return CommonFunction.Save("USP_ManagePatientDetails", sqlparam, "");
             }
             catch (Exception)

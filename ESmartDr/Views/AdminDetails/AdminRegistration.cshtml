@@ -38,14 +38,14 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Degree<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.Education, new { @id = "txtDegree", @class = "form-control", required = "required", @placeholder = "eg. MBBS" })
+                                                    @Html.TextBoxFor(m => m.Education, new { @id = "txtDegree", @class = "form-control", required = "required", @placeholder = "MBBS" })
                                                     @Html.ValidationMessageFor(model => model.Education, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Registration No.<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.RegNumber, new { @id = "txtRegNumber", @class = "form-control", required = "required", @placeholder = "eg. 12345" })
+                                                    @Html.TextBoxFor(m => m.RegNumber, new { @id = "txtRegNumber", @class = "form-control", required = "required", @placeholder = "12345" })
                                                     @Html.ValidationMessageFor(model => model.RegNumber, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
@@ -67,7 +67,7 @@
                                             <div class="col-md-4">
                                                 <label class="form-control-label">Date of Birth</label>
                                                 <div class="input-group date" data-provide="datepicker">
-                                                    @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "txtDOB", @type = "text", @class = "form-control datepicker", @placeholder = "eg. dd/mm/yyyy" })
+                                                    @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "txtDOB", @type = "text", @class = "form-control datepicker", @placeholder = "dd/mm/yyyy" })
                                                     @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
@@ -80,7 +80,7 @@
                                                     <label class="form-control-label">
                                                         Age
                                                     </label>
-                                                    @Html.TextBoxFor(m => m.Age, new { @id = "txtAge", @class = "form-control", @placeholder = "eg. 10" })
+                                                    @Html.TextBoxFor(m => m.Age, new { @id = "txtAge", @class = "form-control", @placeholder = "10" })
                                                     @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
 
                                                 </div>
@@ -92,7 +92,7 @@
                                                     <label class="form-control-label">Mobile No.<span class="star">*</span></label>
                                                     <div class="input-container">
                                                         <span class="icon">+91</span>
-                                                        @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtWhatsAppNumber", @class = "form-control", @maxlength = "10", required = "required", @placeholder = "eg. 0123456789" })
+                                                        @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtWhatsAppNumber", @class = "form-control", @maxlength = "10", required = "required", @placeholder = "0123456789" })
                                                         @Html.ValidationMessageFor(model => model.WhatsAppNumber, "", new { @class = "text-danger" })
                                                     </div>
                                                 </div>
@@ -102,7 +102,7 @@
                                                     <label class="form-control-label">Other No.</label>
                                                     <div class="input-container">
                                                         <span class="icon">+91</span>
-                                                        @Html.TextBoxFor(m => m.OtherNumber, new { @id = "txtOtherNo", @maxlength = "10", @class = "form-control", @onkeypress = "return isNumber(event)", @placeholder = "eg. 0123456789" })
+                                                        @Html.TextBoxFor(m => m.OtherNumber, new { @id = "txtOtherNo", @maxlength = "10", @class = "form-control", @onkeypress = "return isNumber(event)", @placeholder = "0123456789" })
                                                         @Html.ValidationMessageFor(model => model.OtherNumber, "", new { @class = "text-danger" })
                                                     </div>
                                                 </div>
@@ -110,7 +110,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Email ID<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.EmailId, new { @id = "txtEmailId", @class = "form-control", required = "required", @placeholder = "eg. aaa@gmail.com" })
+                                                    @Html.TextBoxFor(m => m.EmailId, new { @id = "txtEmailId", @class = "form-control", required = "required", @placeholder = "aaa@gmail.com" })
                                                     @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
@@ -210,12 +210,16 @@
                                                     @Html.DropDownListFor(m => m.ActivationFor, new List<SelectListItem>
                                                      {
                                                          //new SelectListItem{ Text="Select Role", Value = "0" },
-                                                         new SelectListItem{ Text="Smart Clinic Manager", Value = "scm" },
-                                                         new SelectListItem{ Text="Smart OPD Manager", Value = "som" },
-                                                          new SelectListItem{ Text="Smart Lab Manager", Value = "slm" },
-                                                           new SelectListItem{ Text="Smart Diagnostic Manager", Value = "sdm" },
-                                                           new SelectListItem{ Text="Smart Lab & Diagnostic Manager", Value = "sjdm" },
-                                                           new SelectListItem{ Text="Smart OPD & IPD Managerr", Value = "soim" },
+                                                         new SelectListItem{ Text="Smart Manager", Value = "Smart Manager" },
+                                                         new SelectListItem{ Text="Smart Doctor", Value = "Smart Doctor" },
+                                                          new SelectListItem{ Text="Smart OPD", Value = "Smart OPD" },
+                                                           new SelectListItem{ Text="Smart Dentist", Value = "Smart Dentist" },
+                                                           new SelectListItem{ Text="Smart Opto", Value = "Smart Opto" },
+                                                           new SelectListItem{ Text="Smart Optha", Value = "Smart Optha" },
+                                                           new SelectListItem{ Text="Smart Gynec", Value = "Smart Gynec" },
+                                                           new SelectListItem{ Text="Smart Lab", Value = "Smart Lab" },
+                                                           new SelectListItem{ Text="Smart Diagno", Value = "Smart Diagno" },
+                                                            new SelectListItem{ Text="Smart Diagno Lab", Value = "Smart Diagno Lab" },
                                                       }, new { @class = "form-control mb-4", @id = "ddlRole" })
 
                                                 </div>

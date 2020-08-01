@@ -78,7 +78,7 @@ namespace ESmartDr.Controllers
             {
                 var v = ED.lst.FirstOrDefault(x => x.ExId == Id);
                 ED.ExId = v.ExId;
-                ED.ExDate = v.ExDate;
+                ED.ExDate = v.ExDate.Substring(0, v.ExDate.ToString().IndexOf(" ") + 1).TrimEnd();
                 ED.ExDetails = v.ExDetails;
                 ED.ExAmount = v.ExAmount;
                 ED.ExCatagory = v.ExCatagory;
@@ -112,7 +112,7 @@ namespace ESmartDr.Controllers
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                
                 DataTable dt = BL.Get_ExportToExcel(6, admObj.HospitalId);
-                string attachment = "attachment; filename=TimeSheet.xls";
+                string attachment = "attachment; filename=Expenses Details.xls";
                 Response.ClearContent();
                 Response.AddHeader("content-disposition", attachment);
                 Response.ContentType = "application/vnd.ms-excel";
