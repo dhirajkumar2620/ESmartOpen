@@ -115,7 +115,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="table-responsive">
- 
+
                                                     <table id="example7" class="table table-striped" style="width:100%">
                                                         <thead>
 
@@ -175,19 +175,21 @@
                                                 <div class="row">
                                                     <div class="col-md-12 text-right">
                                                         @*<a href="#"><input type="button" onclick="ExportToExcel()" value="Export to Excel" class="btn btn_2 btn-primary" style="margin-left: 1em; border-radius: 22px;"></a>*@
+                                                        <input type="Date" id="txtStartDate1" class="form-control text-letter" placeholder="dd/mm/yyyy">
+                                                        <input type="Date" id="txtEndDate1" class="form-control text-letter" placeholder="dd/mm/yyyy">
                                                         <a href="#"><input type="button" onclick="ExportToExcel()" value="Export to Excel" class="btn btn_2 btn-primary"></a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                       
+
                                     </div>
                                     <div class="tab-pane fade" id="pills-income" role="tabpanel" aria-labelledby="pills-profile-tab">
                                         <br />
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="table-responsive">
-                                                    
+
                                                     <table id="example8" class="table table-striped" style="width:100%">
                                                         <thead>
                                                             <tr>
@@ -245,12 +247,14 @@
                                                 <br />
                                                 <div class="row">
                                                     <div class="col-md-12 text-right">
+                                                        <input type="Date" id="txtStartDate2" class="form-control text-letter" placeholder="dd/mm/yyyy">
+                                                        <input type="Date" id="txtEndDate2" class="form-control text-letter" placeholder="dd/mm/yyyy">
                                                         <a href="#"><input type="button" onclick="ExportToExcelIncome()" value="Export to Excel" class="btn btn_2 btn-primary"></a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="tab-pane fade" id="pills-invoice" role="tabpanel" aria-labelledby="pills-contact-tab">
 
@@ -259,7 +263,7 @@
                                             <div class="col-md-12">
                                                 <div class="table-responsive">
                                                     <div class="grid-btn pull-right">
-                                                      
+
                                                     </div>
                                                     <table id="example9" class="table table-striped" style="width:100%">
                                                         <thead>
@@ -320,6 +324,8 @@
                                                 <br />
                                                 <div class="row">
                                                     <div class="col-md-12 text-right">
+                                                        <input type="Date" id="txtStartDate3" class="form-control text-letter" placeholder="dd/mm/yyyy">
+                                                        <input type="Date" id="txtEndDate3" class="form-control text-letter" placeholder="dd/mm/yyyy">
                                                         <a href="#"><input type="button" onclick="ExportToExcelInvoice()" value="Export to Excel" class="btn btn_2 btn-primary"></a>
                                                     </div>
                                                 </div>
@@ -371,7 +377,7 @@
             success: function (response) {
                 $('#Bill').html(response);
                 PrintDiv();
-               // $('#ComfirmationPopup').modal('show');
+                // $('#ComfirmationPopup').modal('show');
             },
             failure: function (response) {
                 alert(response.responseText);
@@ -383,13 +389,13 @@
     }
     function PrintDiv() {
         var Bill = document.getElementById("Bill").innerHTML;
-    var printWindow = window.open('', '', 'height=500,width=900');
-    printWindow.document.write('<html><head><title>DIV Contents</title>');
-    printWindow.document.write('</head><body>');
+        var printWindow = window.open('', '', 'height=500,width=900');
+        printWindow.document.write('<html><head><title>DIV Contents</title>');
+        printWindow.document.write('</head><body>');
         printWindow.document.write(Bill);
-    printWindow.document.write('</body></html>');
-    printWindow.document.close();
-    printWindow.print();
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
     }
 
     //$('.b33').click(function () {
@@ -472,6 +478,8 @@
 
 
     function ExportToExcel() {
+        var StartDate1 = document.getElementById("txtStartDate1").value;
+        var EndDate1 = document.getElementById("txtEndDate1").value;
         $.ajax({
             type: "GET",
             url: "/AccountDetails/ExportToExcel1",
@@ -490,6 +498,8 @@
 
     }
     function ExportToExcelIncome() {
+        var StartDate2 = document.getElementById("txtStartDate2").value;
+        var EndDate2 = document.getElementById("txtEndDate2").value;
         $.ajax({
             type: "GET",
             url: "/AccountDetails/ExportToExcel1",
@@ -508,6 +518,8 @@
 
     }
     function ExportToExcelInvoice() {
+        var StartDate3 = document.getElementById("txtStartDate3").value;
+        var EndDate3 = document.getElementById("txtEndDate3").value;
         $.ajax({
             type: "GET",
             url: "/AccountDetails/ExportToExcel1",
@@ -526,9 +538,3 @@
 
     }
 </script>
-
-
-
-
-
-

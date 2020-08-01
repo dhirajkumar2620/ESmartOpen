@@ -254,18 +254,18 @@
                             <label class="form-control-label">Status<span class="star">*</span></label>
 
                             <div class="form-group">
-                                @*@Html.DropDownList("Status", new List<SelectListItem>
+                                @Html.DropDownList("Status", new List<SelectListItem>
                                         {
                                         new SelectListItem{ Text="With Doctor", Value = "With Doctor" },
                                         new SelectListItem{ Text="In Queue", Value = "In Queue" },
                                         new SelectListItem{ Text="Visited", Value = "Visited" },
-                                        }, new { @class = "form-control mb-3", id = "txtStatus" })*@
+                                        }, new { @class = "form-control mb-3", id = "txtStatus" })
 
 
-                                <select name="Status" class="form-control mb-3">
+                                @*<select name="Status" class="form-control mb-3">
                                         
                                         <option>Visited</option>
-                                    </select>
+                                    </select>*@
                             </div>
 
 

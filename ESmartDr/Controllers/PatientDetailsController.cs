@@ -29,7 +29,7 @@ namespace ESmartDr.Controllers
            ViewBag.Organisations = drList;
             return View("PatientRegistration");
         }
-        
+
         //public IEnumerable<AdminDetails> GetMobileList()
         //{
         //    AdminDetails admObj = (AdminDetails)Session["UserDetails"];
@@ -45,34 +45,52 @@ namespace ESmartDr.Controllers
             {
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
                 List<PatientDetails> LST = new List<PatientDetails>();
-
                 PatientCount(admObj.HospitalId, admObj.UserId);
-                if (admObj.RoleId =="ADM")
+                if (admObj.RoleId == "ADM")
                 {
                     if (LST.Count > 0)
                     {
                         foreach (var item in LST)
                         {
-                           item.CpExpiryDate= Convert.ToDateTime( item.CpExpiryDate).Date.ToString("dd/MM/yyyy");
+                            item.CpExpiryDate = Convert.ToDateTime(item.CpExpiryDate).Date.ToString("dd/MM/yyyy");
                         }
                     }
-                    LST = BP.GetPatientDetails(admObj.RoleId, admObj.HospitalId,admObj.UserId);
+                    LST = BP.GetPatientDetails(admObj.RoleId, admObj.HospitalId, admObj.UserId);
                 }
-                if (admObj.RoleId=="AHE")
+                if (admObj.RoleId == "AHE")
                 {
                     foreach (var item in LST)
                     {
                         item.CpExpiryDate = Convert.ToDateTime(item.CpExpiryDate).ToString("dd/MM/yyyy");
                     }
-                    LST = BP.GetPatientDetails(admObj.RoleId, admObj.HospitalId,admObj.UserId);
+                    LST = BP.GetPatientDetails(admObj.RoleId, admObj.HospitalId, admObj.UserId);
                 }
-               
-                return View("AllPatient", LST);
+
+
+                if (Session["DivViewAllPatient"].ToString() == "true")
+                {
+                    return View("AllPatient", LST);
+                }
+                else
+                {
+                    foreach (var item in LST)
+                    {
+                        if (item.OtherNo == null)
+                        {
+                            item.OtherNo = "";
+                        }
+                        item.CpExpiryDate = Convert.ToDateTime(item.CpExpiryDate).ToString("dd/MM/yyyy");
+
+                    }
+                    Session["DivViewAllPatient"] = "true";
+                    return Json(LST, JsonRequestBehavior.AllowGet);
+                }
+
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
         public ActionResult ManagePatientDetails(PatientDetails PD)
@@ -361,7 +379,31 @@ namespace ESmartDr.Controllers
                 throw;
             }
         }
+        [HttpPost]
+        public ActionResult SetDueAmountfor(string CPno, float PaidDue)
+        {
+            try
+            {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                List<PatientDetails> LST = new List<PatientDetails>();
+                int flag = BP.SetDueAmount(CPno, PaidDue);
+                if (flag != 0)
+                {
+                    Session["DivViewAllPatient"] = "false";
+                    // return Json("1", JsonRequestBehavior.AllowGet);
+                    return RedirectToAction("ViewAllPatient", "PatientDetails");
+                    // return Json(LST, JsonRequestBehavior.AllowGet);
+                }
 
+                PatientCount(admObj.HospitalId, admObj.UserId);
+                return RedirectToAction("ViewAllPatient", "PatientDetails");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public void PatientCount(int Hid , int UserId)
         {
             DataSet ds = BP.CountForCards(Hid, UserId);

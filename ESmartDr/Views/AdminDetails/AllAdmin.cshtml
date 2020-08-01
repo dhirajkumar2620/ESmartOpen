@@ -167,7 +167,23 @@
                             <br />
                             <div class="row">
                                 <div class="col-md-12 text-right">
-                                    <a href="#"><input type="button" onclick="ExportToExcel()" value="Export to Excel" class="btn btn_2 btn-primary" ></a>
+                                    @*<a href="~/PatientDetails/ViewAllPatient"><input type="button" value="Back" class="btn btn_1 btn-primary"></a>*@
+                                    <div class="row text-right" ">
+                                        <div class="col-md-3 space-betw">
+                                            <div class="form-group">
+                                                <input type="Date" id="txtStartDate" class="form-control text-letter" placeholder="dd/mm/yyyy">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 space-betw">
+                                            <input type="Date" id="txtEndDate" class="form-control text-letter" placeholder="dd/mm/yyyy">
+                                        </div>
+                                        <div class="col-md-3 space-betw">
+                                            <a href="#"><input type="button" onclick="ExportToExcel()" value="Export to Excel" class="btn btn_2 btn-primary"></a>
+                                        </div>
+                                    </div>
+
+
+
                                 </div>
                             </div>
                         </div>
@@ -280,6 +296,8 @@
 
 
     function ExportToExcel() {
+        var StartDate = document.getElementById("txtStartDate").value;
+        var EndDate = document.getElementById("txtEndDate").value;
         $.ajax({
             type: "GET",
             url: "/AdminDetails/ExportToExcel1",
