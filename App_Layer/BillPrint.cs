@@ -33,7 +33,8 @@ namespace App_Layer
         public string NetAmount { get; set; }
         public string PaidAmount { get; set; }
         public string BalanceAmount { get; set; }
-      public List<Bill> lstBill { get; set; }
+        public string OtherNumber { get; set; }
+        public List<Bill> lstBill { get; set; }
 
     }
     public class Bill

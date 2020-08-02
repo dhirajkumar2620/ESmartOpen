@@ -33,6 +33,7 @@ namespace App_Layer
         public string Complaints { get; set; }
         public string NextVisit { get; set; }
         public string TestBeforeVisit { get; set; }
+        public string OtherNumber { get; set; }
         
 
         public List<VitalInformation> vlist { get; set; }

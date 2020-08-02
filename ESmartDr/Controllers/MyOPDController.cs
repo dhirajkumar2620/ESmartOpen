@@ -82,6 +82,8 @@ namespace ESmartDr.Controllers
                     TestBeforeVisit = TestBeforeVisit+ item.InvSelectTests + "  " + ",";
                 }
             }
+            pd.HospClinicNumber = pd.HospClinicNumber + " ," + pd.OtherNumber;
+            pd.HospClinicNumber = pd.HospClinicNumber.TrimEnd(',');
             pd.TestBeforeVisit = TestBeforeVisit.TrimEnd(',');
             pd.NextVisit = NextVisit.TrimEnd(',');
             pd.AdviceNote = Advice.TrimEnd(',');
