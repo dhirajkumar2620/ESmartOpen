@@ -95,17 +95,18 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        @{int index = 1;}
                         @foreach (var item in Model.lstBill)
                         {
-                            //id = id + 1;
+                          
                             <tr>
-                                <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;">1</td>
+                                <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;">@index</td>
                                 <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;">@item.Description</td>
                                 <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;text-align:right">@item.Qty</td>
                                 <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;text-align:right">@item.UnitPrize</td>
                                 <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;text-align:right">@item.Amount</td>
                             </tr>
+                            index++;
                         }
 
 
