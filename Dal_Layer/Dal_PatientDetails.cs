@@ -349,25 +349,7 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
-        public DataTable Get_ExportToExcel(int HospitalId)
-        {
-            try
-            {
-                SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[2];
-                sqlparam[0] = new SqlParameter("@Flag", "1");
-                sqlparam[1] = new SqlParameter("@HospitalId", HospitalId);
-
-                DataTable dt = CommonFunction.GetDataTable("[USP_Get_ExportToExcel]", sqlparam, "");
-
-                return dt;
-            }
-            catch (Exception Ex)
-            {
-
-                throw Ex;
-            }
-        }
+        
 
         public AdminDetails GetDoctorUserDetails(int UserId)
         {

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Dal_Layer;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -11,6 +13,7 @@ namespace Bal_Layer
 {
     public class SMS
     {
+        Dal_Common ObjDal_Common = new Dal_Common();
         public string SendSMS(string mobileNumber, string message)
         {
             string sUserID = ConfigurationManager.AppSettings["sUserID"];
@@ -75,6 +78,12 @@ namespace Bal_Layer
             Random generator = new Random();
             String newOTP = generator.Next(0, 999999).ToString("D6");
             return newOTP;
+        }
+
+        public DataTable Get_ExportToExcel(int flag, int HospitalId, string StartDate, string EndDate)
+        {
+            return ObjDal_Common.Get_ExportToExcel(flag, HospitalId, StartDate, EndDate);
+
         }
     }
 }

@@ -13,6 +13,8 @@ namespace ESmartDr.Controllers
     {
         // GET: AccountDetails
         Bal_ExpensesDetails BL = new Bal_ExpensesDetails();
+        SMS Objcommon = new SMS();
+
         public ActionResult Index()
         {
             return View();
@@ -89,18 +91,19 @@ namespace ESmartDr.Controllers
             return View("AccountDetails", ED);
         }
 
-        public ActionResult ExportToExcel1()
+        public ActionResult ExportToExcel1(string StartDate1, string EndDate1)
         {
             try
             {
 
-
+                Session["StartDate"] = StartDate1;
+                Session["EndDate"] = EndDate1;
                 return Json("", JsonRequestBehavior.AllowGet);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 
@@ -109,9 +112,12 @@ namespace ESmartDr.Controllers
         {
             try
             {
-                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-               
-                DataTable dt = BL.Get_ExportToExcel(6, admObj.HospitalId);
+                string StartDate = Session["StartDate"].ToString();
+
+                string EndDate = Session["EndDate"].ToString();
+
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];               
+                DataTable dt = Objcommon.Get_ExportToExcel(6, admObj.HospitalId, StartDate, EndDate);
                 string attachment = "attachment; filename=Expenses Details.xls";
                 Response.ClearContent();
                 Response.AddHeader("content-disposition", attachment);
@@ -138,10 +144,10 @@ namespace ESmartDr.Controllers
                 return View("Layout1");
                 //return Json("", JsonRequestBehavior.AllowGet);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
 
         }
@@ -160,7 +166,7 @@ namespace ESmartDr.Controllers
                 {
                     flag = 2;
                 }
-                DataTable dt = BL.Get_ExportToExcel(7, admObj.HospitalId);
+                DataTable dt = Objcommon.Get_ExportToExcel(7, admObj.HospitalId, Session["StartDate"].ToString(), Session["EndDate"].ToString());
                 string attachment = "attachment; filename=Income Details.xls";
                 Response.ClearContent();
                 Response.AddHeader("content-disposition", attachment);
@@ -209,7 +215,7 @@ namespace ESmartDr.Controllers
                 {
                     flag = 2;
                 }
-                DataTable dt = BL.Get_ExportToExcel(8, admObj.HospitalId);
+                DataTable dt = Objcommon.Get_ExportToExcel(8, admObj.HospitalId, Session["StartDate"].ToString(), Session["EndDate"].ToString());
                 string attachment = "attachment; filename=Invice Details.xls";
                 Response.ClearContent();
                 Response.AddHeader("content-disposition", attachment);

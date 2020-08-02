@@ -15,6 +15,8 @@ namespace ESmartDr.Controllers
         // GET: PatientDetails Added by Shital 
         Bal_PatientDetails BP = new Bal_PatientDetails();
         SMS sms = new SMS();
+       
+
         public ActionResult Index()
         {
             return View();
@@ -218,7 +220,7 @@ namespace ESmartDr.Controllers
             catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 
@@ -452,11 +454,14 @@ namespace ESmartDr.Controllers
 
         }
 
-        public ActionResult ExportToExcel1()
+        public ActionResult ExportToExcel1(string StartDate, string EndDate)
         {
             try
             {
-
+               
+                    Session["StartDate"] = StartDate;
+                    Session["EndDate"] = EndDate;
+                
 
                 return Json("", JsonRequestBehavior.AllowGet);
             }
@@ -472,8 +477,12 @@ namespace ESmartDr.Controllers
         {
             try
             {
+                string StartDate = Session["StartDate"].ToString();
+
+                string EndDate = Session["EndDate"].ToString();
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-                DataTable dt = BP.Get_ExportToExcel(admObj.HospitalId);
+             
+                DataTable dt = sms.Get_ExportToExcel(1,admObj.HospitalId, StartDate, EndDate);
                 string attachment = "attachment; filename=Patients Details.xls";
                 Response.ClearContent();
                 Response.AddHeader("content-disposition", attachment);

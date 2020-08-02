@@ -44,11 +44,7 @@ namespace Bal_Layer
         {
             return DP.SetOTPForUser(mobileNumber, OTP);
         }
-        public DataTable Get_ExportToExcel(int flag, int HospitalId)
-        {
-            return DP.Get_ExportToExcel(flag, HospitalId);
-
-        }
+      
     }
 }
 

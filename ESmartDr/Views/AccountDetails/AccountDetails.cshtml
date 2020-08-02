@@ -249,7 +249,7 @@
                                                     <div class="col-md-12 text-right">
                                                         <input type="Date" id="txtStartDate2" class="form-control text-letter" placeholder="dd/mm/yyyy">
                                                         <input type="Date" id="txtEndDate2" class="form-control text-letter" placeholder="dd/mm/yyyy">
-                                                        <a href="#"><input type="button" onclick="ExportToExcelIncome()" value="Export to Excel" class="btn btn_2 btn-primary"></a>
+                                                        <a href="#"><input type="button" onclick="ExportToExcelIncome(this)" value="Export to Excel" class="btn btn_2 btn-primary"></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -326,7 +326,7 @@
                                                     <div class="col-md-12 text-right">
                                                         <input type="Date" id="txtStartDate3" class="form-control text-letter" placeholder="dd/mm/yyyy">
                                                         <input type="Date" id="txtEndDate3" class="form-control text-letter" placeholder="dd/mm/yyyy">
-                                                        <a href="#"><input type="button" onclick="ExportToExcelInvoice()" value="Export to Excel" class="btn btn_2 btn-primary"></a>
+                                                        <a href="#"><input type="button" onclick="ExportToExcelInvoice(this)" value="Export to Excel" class="btn btn_2 btn-primary"></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -477,14 +477,20 @@
 
 
 
-    function ExportToExcel() {
-        var StartDate1 = document.getElementById("txtStartDate1").value;
-        var EndDate1 = document.getElementById("txtEndDate1").value;
+    function ExportToExcel(x) {
+        var StartDate = document.getElementById("txtStartDate1").value;
+        var EndDate = document.getElementById("txtEndDate1").value;
+       
         $.ajax({
             type: "GET",
             url: "/AccountDetails/ExportToExcel1",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
+            data: {
+
+                'StartDate1': StartDate, 'EndDate1': EndDate
+
+            },
             success: function (response) {
                 window.location.href = '/AccountDetails/ExportToExcelExpenses'
             },
@@ -505,6 +511,11 @@
             url: "/AccountDetails/ExportToExcel1",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
+            data: {
+
+                'StartDate1': StartDate2, 'EndDate1': EndDate2
+
+            },
             success: function (response) {
                 window.location.href = '/AccountDetails/ExportToExcelIncome'
             },
@@ -525,6 +536,11 @@
             url: "/AccountDetails/ExportToExcel1",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
+            data: {
+
+                'StartDate1': StartDate3, 'EndDate1': EndDate3
+
+            },
             success: function (response) {
                 window.location.href = '/AccountDetails/ExportToExcelInvice'
             },

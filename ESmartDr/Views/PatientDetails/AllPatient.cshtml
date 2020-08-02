@@ -174,7 +174,7 @@
                                             <input type="Date" id="txtEndDate" class="form-control text-letter" placeholder="dd/mm/yyyy">
                                         </div>
                                         <div class="col-md-3 space-betw">
-                                            <a href="#"><input type="button" onclick="ExportToExcel()" value="Export to Excel" class="btn btn_2 btn-primary"></a>
+                                            <a href="#"><input type="button" onclick="ExportToExcel(this)" value="Export to Excel" class="btn btn_2 btn-primary"></a>
                                         </div>
                                     </div>
 
@@ -564,12 +564,17 @@
     });
 
 
-    function ExportToExcel() {
-        var StartDate = document.getElementById("txtStartDate").value;
-        var EndDate = document.getElementById("txtEndDate").value;
+   
+    function ExportToExcel(x) {
+
+        var StartDate = document.getElementById("txtStartDate").value;       
+        var EndDate = document.getElementById("txtEndDate").value;     
+       
+       
         $.ajax({
 
             type: "GET",
+            //url: "/PatientDetails/ExportToExcel",
             url: "/PatientDetails/ExportToExcel1",
             contentType: "application/json; charset=utf-8",
             dataType: "json",

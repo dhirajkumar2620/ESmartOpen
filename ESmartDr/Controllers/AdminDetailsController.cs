@@ -19,6 +19,7 @@ namespace ESmartDr.Controllers
         // GET: AdminDetails Added by Dhiraj 
         Bal_AdminDetails BP = new Bal_AdminDetails();
         Bal_PatientDetails c = new Bal_PatientDetails();
+        SMS Objcommon = new SMS();
         public ActionResult Index()
         {
             return View();
@@ -319,11 +320,12 @@ namespace ESmartDr.Controllers
             return path;
         }
 
-        public ActionResult ExportToExcel1()
+        public ActionResult ExportToExcel1(string StartDate1, string EndDate1)
         {
             try
             {
-
+                Session["StartDate"] = StartDate1;
+                Session["EndDate"] = EndDate1;
 
                 return Json("", JsonRequestBehavior.AllowGet);
             }
@@ -349,7 +351,7 @@ namespace ESmartDr.Controllers
                 {
                     flag = 2;
                 }
-                DataTable dt = BP.Get_ExportToExcel(flag, admObj.HospitalId);
+                DataTable dt = Objcommon.Get_ExportToExcel(flag, admObj.HospitalId, Session["StartDate"].ToString(), Session["EndDate"].ToString());
                 string attachment = "attachment; filename=Doctor Details.xls";
                 Response.ClearContent();
                 Response.AddHeader("content-disposition", attachment);
@@ -376,10 +378,10 @@ namespace ESmartDr.Controllers
                 return View("Layout1");
                 //return Json("", JsonRequestBehavior.AllowGet);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
 
         }
