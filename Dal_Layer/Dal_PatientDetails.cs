@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace Dal_Layer
                 sqlparam[0] = new SqlParameter("@Id", PD.Id);
                 sqlparam[1] = new SqlParameter("@PatientName", PD.PatientName);
                 sqlparam[2] = new SqlParameter("@Gender", PD.Gender);
-                sqlparam[3] = new SqlParameter("@DOB", PD.DOB);
+                sqlparam[3] = new SqlParameter("@DOB", DateTime.ParseExact(PD.DOB, "dd/MM/yyyy", CultureInfo.InvariantCulture));
                 //if (PD.DOB.ToString() == "1/1/0001 12:00:00 AM")
                 //{
                 //    PD.DOB = "01/01/9999";
@@ -65,11 +66,11 @@ namespace Dal_Layer
                 //}
                 //else
                 //{
-                    sqlparam[23] = new SqlParameter("@CpExpiryDate", PD.CpExpiryDate);
+                    sqlparam[23] = new SqlParameter("@CpExpiryDate", DateTime.ParseExact(PD.CpExpiryDate, "dd/MM/yyyy", CultureInfo.InvariantCulture));
                // }
                 return CommonFunction.Save("USP_ManagePatientDetails", sqlparam, "");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
