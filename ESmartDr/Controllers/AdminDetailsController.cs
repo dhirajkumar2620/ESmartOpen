@@ -171,9 +171,9 @@ namespace ESmartDr.Controllers
                 
                     Session["DrCount"] = "non";
               
-                pd.DateOfBirth = pd.DateOfBirth.Substring(0, pd.DateOfBirth.IndexOf(" ") + 1).TrimEnd();
-                pd.ActivationDate = pd.ActivationDate.Substring(0, pd.ActivationDate.IndexOf(" ") + 1).TrimEnd();
-                pd.ExpiryDate = pd.ExpiryDate.Substring(0, pd.ExpiryDate.IndexOf(" ") + 1).TrimEnd();
+                //pd.DateOfBirth = pd.DateOfBirth.Substring(1, pd.DateOfBirth.IndexOf(" ") + 1).TrimEnd();
+                //pd.ActivationDate = pd.ActivationDate.Substring(1, pd.ActivationDate.IndexOf(" ") + 1).TrimEnd();
+                //pd.ExpiryDate = pd.ExpiryDate.Substring(1, pd.ExpiryDate.IndexOf(" ") + 1).TrimEnd();
                 CardDetails(admObj.HospitalId, admObj.UserId);
                 return View("AdminRegistration", pd);
             }

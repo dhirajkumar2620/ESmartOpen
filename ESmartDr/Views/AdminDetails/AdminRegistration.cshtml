@@ -66,7 +66,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <label class="form-control-label">Date of Birth</label>
-                                                <div class="input-group date" data-provide="datepicker">
+                                                <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
                                                     @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "txtDOB", @type = "text", @class = "form-control datepicker", @placeholder = "dd/mm/yyyy" })
                                                     @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
                                                     <div class="input-group-addon">
@@ -227,7 +227,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Activation Date<span class="star">*</span></label>
-                                                    <div class="input-group date" data-provide="datepicker">
+                                                    <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
                                                         @Html.TextBoxFor(m => m.ActivationDate, new { @id = "txtActivationDate", @type = "text", @class = "form-control datepicker", required = "required", @placeholder = "dd/mm/yyyy" })
                                                         @Html.ValidationMessageFor(model => model.ActivationDate, "", new { @class = "text-danger" })
                                                         <div class="input-group-addon">
@@ -239,7 +239,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Expiry Date<span class="star">*</span></label>
-                                                    <div class="input-group date" data-provide="datepicker">
+                                                    <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
                                                         @Html.TextBoxFor(m => m.ExpiryDate, new { @id = "txtExpiryDate", @type = "text", @class = "form-control datepicker", @placeholder = "dd/mm/yyyy" })
                                                         @Html.ValidationMessageFor(model => model.ExpiryDate, "", new { @class = "text-danger" })
                                                         <div class="input-group-addon">

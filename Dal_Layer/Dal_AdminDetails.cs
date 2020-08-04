@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,16 +24,16 @@ namespace Dal_Layer
                 sqlparam[2] = new SqlParameter("@Education", AD.Education);
                 sqlparam[3] = new SqlParameter("@RegNo", AD.RegNumber);
                 sqlparam[4] = new SqlParameter("@Gender", AD.Gender);
-                sqlparam[5] = new SqlParameter("@DateOfBirth", AD.DateOfBirth);
+                sqlparam[5] = new SqlParameter("@DateOfBirth", DateTime.ParseExact(AD.DateOfBirth, "dd/MM/yyyy", CultureInfo.InvariantCulture));// AD.DateOfBirth);
                 sqlparam[6] = new SqlParameter("@WhatsAppNumber", AD.WhatsAppNumber);
                 sqlparam[7] = new SqlParameter("@OtherNumber", AD.OtherNumber);
                 sqlparam[8] = new SqlParameter("@HCDLName", AD.HostClincName);
                 sqlparam[9] = new SqlParameter("@HCDLNumber", AD.HospClinicNumber);
                 sqlparam[10] = new SqlParameter("@HCDLAddress", AD.HospClinicAddess);
                 sqlparam[11] = new SqlParameter("@ActivationFor", AD.ActivationFor);
-                sqlparam[12] = new SqlParameter("@ActivationDate", AD.ActivationDate);
+                sqlparam[12] = new SqlParameter("@ActivationDate", DateTime.ParseExact(AD.ActivationDate, "dd/MM/yyyy", CultureInfo.InvariantCulture));//AD.ActivationDate);
                 sqlparam[13] = new SqlParameter("@ActivationPeriod", AD.ActivationPeriod);
-                sqlparam[14] = new SqlParameter("@ExpiryDate", AD.ExpiryDate);
+                sqlparam[14] = new SqlParameter("@ExpiryDate", DateTime.ParseExact(AD.ExpiryDate, "dd/MM/yyyy", CultureInfo.InvariantCulture));// AD.ExpiryDate);
                 sqlparam[15] = new SqlParameter("@Role ", null);
                 if (AD.IsActive == true)
                 {
@@ -67,7 +68,7 @@ namespace Dal_Layer
             catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
         public List<AdminDetails> GetAllAdminDetails()
