@@ -67,7 +67,7 @@
                                             <div class="col-md-4">
                                                 <label class="form-control-label">Date of Birth</label>
                                                 <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
-                                                    @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "txtDOB", @type = "text", @class = "form-control datepicker", @placeholder = "dd/mm/yyyy" })
+                                                    @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "txtDOB", @type = "text", @class = "form-control datepicker", @placeholder = "dd/mm/yyyy", @onchange = "onchangeevent();" })
                                                     @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
@@ -449,21 +449,30 @@
     //$("#txtWhatsAppNumber").val("+91");
     //$("#txtOtherNo").val("+91");
 
-    $("#txtDOB").change(function () {
+    function onchangeevent() {
+      
+        //age calculator 
+        var date = document.getElementById("txtDOB").value;
+        var newdate = date.split("/").reverse().join("/");   
+        var today = new Date();
+        var birthDate = new Date(newdate);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        if (age > 0)
+        {           
+            $("#txtAge").val(age);
+        }
+        else
+        {           
+            $("#txtAge") = 1;
+        }        
 
-        var birthDate = new Date(document.getElementById("txtDOB").value);
-        var now = new Date();
-        var age = now.getFullYear() - birthDate.getFullYear();
-        $("#txtAge").val(age);
-    });
-    //$('.b22').click(function () {
-    //    swal({
-    //        title: "Your Admin Created Successfully.",
-    //        //text: "You clicked the button!",
-    //        icon: "success",
-    //        button: "OK",
-    //    });
-    //});
+       
+    }
+    
 
 </script>
 
