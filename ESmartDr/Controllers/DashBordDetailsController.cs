@@ -51,10 +51,10 @@ namespace ESmartDr.Controllers
                 LST.Qlst = LST1;
                 return View("Dashbord", LST);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
         public ActionResult ViewFeedback(int hId)
