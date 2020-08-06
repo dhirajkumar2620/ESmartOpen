@@ -378,15 +378,13 @@
             </div>
         </div>
     </div>
-    <script src="~/vendor/jquery/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
+    <script src="~/js/front.js"></script>
+    <script src="~/js/Notifier.min.js"></script>
+    @*<script>
 
         var urllink = '@Url.Content("~/MyOPD/Med")'
         $("#txtMedicineName").autocomplete({
-            
+
             source: function (request, response) {
                 alert('k')
                 $.ajax({
@@ -405,7 +403,7 @@
                 });
             }
         });
-    </script>
+    </script>*@
     <script>
         function SubmitObservationDetails() {
 
@@ -491,5 +489,57 @@
             }
         };
 
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#txtMedicineName").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/MyOPD/Med",
+                        type: "POST",
+                        dataType: "json",
+                        data: { Prefix: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item.MedicineName, value: item.MedicineName };
+                            }))
+
+                        }
+                    })
+                },
+                messages: {
+                    noResults: "", results: ""
+                }
+            });
+        })
+        //$(function () {
+        //    var Project = [
+        //        "DHTMLX DEMO",
+        //        "GHUMLI",
+        //        "PROJECT ABC",
+        //        "TIMESHEET",
+        //        "VINTAGE CARS",
+        //        "IPA-PCS",
+        //        "BID",
+        //        "DOC-AUDIT"
+        //    ];
+        //    var Activity = [
+        //        "Development",
+        //        "Deployment",
+        //        "Testing",
+        //        "Database Creation",
+        //        "Demo to User",
+        //        "Team Coordination",
+        //        "Planning",
+        //        "Project Setup",
+        //        "R&D"
+        //    ];
+        //    $("#txtComplaints").autocomplete({
+        //        source: Project
+        //    });
+        //    $("input[name=Activity]").autocomplete({
+        //        source: Activity
+        //    });
+        //});
     </script>
 </div>

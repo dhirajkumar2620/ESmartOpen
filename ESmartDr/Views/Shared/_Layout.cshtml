@@ -32,6 +32,13 @@
     <link href="~/css/bootstrap-clockpicker.min.css" rel="stylesheet" />
     <link href="~/css/cssgraph_bar.css" rel="stylesheet" />
     <link href="~/css/cssgraph_plot.css" rel="stylesheet" />
+    <style>
+       
+
+        .ui-autocomplete {
+            z-index: 1050;
+        }
+    </style>
 </head>
 <body onload="mp_onload();window.history.go(1);">
 
@@ -321,7 +328,6 @@
         </div>
     </div>
 
-
     <script src="~/vendor/jquery/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
     <script src="~/js/datepicker.all.min.js"></script>
@@ -329,8 +335,7 @@
     <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/vendor/jquery.cookie/jquery.cookie.js"></script>
     <script src="~/vendor/chart.js/Chart.min.js"></script>
-    @*<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>*@
+
     <script src="~/vendor/jquery-validation/jquery.validate.min.js"></script>
     <!-- Main File-->
     <script src="~/js/front.js"></script>
@@ -340,9 +345,8 @@
 
     <script src="~/js/Notifier.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-
-
-    <script src="https://cdn.rawgit.com/unconditional/jquery-table2excel/master/src/jquery.table2excel.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript">
 
         function mp_onload() {

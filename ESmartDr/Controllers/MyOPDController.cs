@@ -248,10 +248,13 @@ namespace ESmartDr.Controllers
         {
             Bal_MedicineDetails BL = new Bal_MedicineDetails();
             MedicineDetails MD = new MedicineDetails();
+            List<MedicineDetails> lst = new List<MedicineDetails>();
+
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
             MD = BL.ViewAllMedicine(admObj.HospitalId);
-            var MedicineNamelst = MD.lst.Where(x => x.MedicineName.ToUpper().Contains(search.ToUpper())).ToList();
-            return new JsonResult { Data = MedicineNamelst, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            lst = MD.lst;
+            // var MedicineNamelst = lst.Where(x => x.MedicineName.ToUpper().Contains(search.ToUpper())).ToList();
+            return Json(lst, JsonRequestBehavior.AllowGet);
         }
     }
 }
