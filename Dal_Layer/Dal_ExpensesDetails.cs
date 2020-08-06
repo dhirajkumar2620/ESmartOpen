@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace Dal_Layer
                 SqlParameter[] sqlparam;
                 sqlparam = new SqlParameter[9];
                 sqlparam[0] = new SqlParameter("@ExId", ED.ExId);
-                sqlparam[1] = new SqlParameter("@ExDate", ED.ExDate);
+                sqlparam[1] = new SqlParameter("@ExDate", DateTime.ParseExact(ED.ExDate, "dd/MM/yyyy", CultureInfo.InvariantCulture));// ED.ExDate);
                 sqlparam[2] = new SqlParameter("@ExCatagory", ED.ExCatagory);
                 sqlparam[3] = new SqlParameter("@ExAmount", ED.ExAmount);
                 sqlparam[4] = new SqlParameter("@ExDetails", ED.ExDetails);
