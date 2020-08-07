@@ -140,7 +140,9 @@
                         <table class="table" id="tblObservation">
                             <thead>
                                 <tr style="background: #f8f9fa;">
+                                   
                                     <th hidden>Id</th>
+                                    <th>index</th>
                                     <th>Complaints</th>
                                     <th>Since</th>
                                     <th>Period</th>
@@ -150,15 +152,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @if (Model.lst != null)
+                                @{int index = 1; }
+                                    @if (Model.lst != null)
                                 {
-                                    foreach (var item in Model.lst)
+                                        foreach (var item in Model.lst)
 
-                                    {
+                                        {
 
 
                                         <tr>
+                                            
                                             <td hidden>@item.Id</td>
+                                            <td>@index</td>
                                             <td>@item.Complaints</td>
                                             <td>@item.Since</td>
                                             <td>@item.Period</td>
@@ -170,8 +175,9 @@
 
                                             </td>
                                         </tr>
+                                            index++;
+                                        }
                                     }
-                                }
                             </tbody>
                         </table>
                     </div>
@@ -199,8 +205,11 @@
             success: function (data) {
                 $('#tblObservation tbody').empty();
                 var trHTML = '';
+                var index = 1;
                 $.each(data, function (i, item) {
-                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.Complaints + '</td><td>' + item.Since + '</td><td>' + item.Period + '</td><td>' + item.PhysicalExamination + '</td><td>' + item.Diagnosis + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+
+                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + index + '</td><td>' + item.Complaints + '</td><td>' + item.Since + '</td><td>' + item.Period + '</td><td>' + item.PhysicalExamination + '</td><td>' + item.Diagnosis + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                    index++;
                 });
                 $('#tblObservation tbody').append(trHTML)
                 $("#hdnODId").val('0');
