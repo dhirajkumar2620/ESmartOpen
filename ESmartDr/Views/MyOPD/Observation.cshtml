@@ -185,36 +185,52 @@
 <script src="~/js/Notifier.min.js"></script>
 <script>
     function SubmitObservationDetails() {
+        //validation
+        var Complaints = $("#txtComplaints").val();
+        var Since = $("#txtSince").val();
 
-        var form = $('#frmObservationDetails')[0];
+        if (Complaints == "" || Complaints == null) {
+            alert("Please Enter Complaints field is Required" + Complaints);
+            $("#txtComplaints").focus();
+            return;
 
-        var fromData = new FormData(form);
-        var urllink = '@Url.Content("~/Prescription/ManageObservation")'
-        $.ajax({
-            type: "post",
-            url: urllink,
-            data: fromData,
-            processData: false,
-            contentType: false,
-            success: function (data) {
-                $('#tblObservation tbody').empty();
-                var trHTML = '';
-                $.each(data, function (i, item) {
-                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.Complaints + '</td><td>' + item.Since + '</td><td>' + item.Period + '</td><td>' + item.PhysicalExamination + '</td><td>' + item.Diagnosis + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
-                });
-                $('#tblObservation tbody').append(trHTML)
-                $("#hdnODId").val('0');
-                $("#txtComplaints").val('');
-                $("#txtSince").val('');
-                $("#txtPeriod").val('');
-                $("#txtPhysicalExamination").val('');
-                $("#txtDiagnosis").val('');
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.log(errorThrown);
-            }
-        })
 
+        } if (Since == "" || Since == null) {
+            alert("Please Enter Since field is Required" + Since);
+            $("#txtSince").focus();
+            return;
+
+        }
+        else {
+            var form = $('#frmObservationDetails')[0];
+
+            var fromData = new FormData(form);
+            var urllink = '@Url.Content("~/Prescription/ManageObservation")'
+            $.ajax({
+                type: "post",
+                url: urllink,
+                data: fromData,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    $('#tblObservation tbody').empty();
+                    var trHTML = '';
+                    $.each(data, function (i, item) {
+                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.Complaints + '</td><td>' + item.Since + '</td><td>' + item.Period + '</td><td>' + item.PhysicalExamination + '</td><td>' + item.Diagnosis + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                    });
+                    $('#tblObservation tbody').append(trHTML)
+                    $("#hdnODId").val('0');
+                    $("#txtComplaints").val('');
+                    $("#txtSince").val('');
+                    $("#txtPeriod").val('');
+                    $("#txtPhysicalExamination").val('');
+                    $("#txtDiagnosis").val('');
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                }
+            })
+        }
     }
     $(".fa-pencil").on("click", function () {
 
@@ -282,5 +298,5 @@
     //        }
     //    });
     //})
-   
+
 </script>
