@@ -407,39 +407,50 @@
     <script>
         function SubmitObservationDetails() {
 
-            var form = $('#frmPrecMedication')[0];
 
-            var fromData = new FormData(form);
-            var urllink = '@Url.Content("~/Prescription/ManageMedication")'
+            var MedicineName = $("#txtMedicineName").val();            
 
-            $.ajax({
-                type: "post",
-                url: urllink,
-                data: fromData,
-                processData: false,
-                contentType: false,
-                success: function (data) {
-                    $('#tblprecMedication tbody').empty();
-                    var trHTML = '';
-                    $.each(data, function (i, item) {
-                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.MedicineName + '</td><td>' + item.WhenMedicine + '</td><td>' + item.Dose + '</td><td>' + item.RepeatMedicine + '</td><td>' + item.ForMedicine + '</td><td>' + item.MedicineDays + '</td><td>' + item.SpecialInstruction + '</td><td>' + item.AlternateMedicine + '</td></td><td><i class="fa fa-pencil" onclick=EditDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
-                    });
-                    $('#tblprecMedication tbody').append(trHTML)
-                    $("#hdnPMId").val('0');
-                    $("#txtMedicineName").val('');
-                    $("#txtWhenMedicine").val('');
-                    $("#txtDose").val('');
-                    $("#txtRepeatMedicine").val('');
-                    $("#txtForMedicine").val('');
-                    $("#txtMedicineDays").val('');
-                    $("#txtSpecialInstruction").val('');
-                    $("#txtAlternateMedicine").val('');
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    console.log(errorThrown);
-                }
-            })
+            if (MedicineName == "" || MedicineName == null) {
+                alert("Please Enter Medicine Name field is Required." + MedicineName);
+                $("#txtMedicineName").focus();
+                return;
 
+
+            } 
+            else {
+
+                var form = $('#frmPrecMedication')[0];
+                var fromData = new FormData(form);
+                var urllink = '@Url.Content("~/Prescription/ManageMedication")'
+
+                $.ajax({
+                    type: "post",
+                    url: urllink,
+                    data: fromData,
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        $('#tblprecMedication tbody').empty();
+                        var trHTML = '';
+                        $.each(data, function (i, item) {
+                            trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.MedicineName + '</td><td>' + item.WhenMedicine + '</td><td>' + item.Dose + '</td><td>' + item.RepeatMedicine + '</td><td>' + item.ForMedicine + '</td><td>' + item.MedicineDays + '</td><td>' + item.SpecialInstruction + '</td><td>' + item.AlternateMedicine + '</td></td><td><i class="fa fa-pencil" onclick=EditDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                        });
+                        $('#tblprecMedication tbody').append(trHTML)
+                        $("#hdnPMId").val('0');
+                        $("#txtMedicineName").val('');
+                        $("#txtWhenMedicine").val('');
+                        $("#txtDose").val('');
+                        $("#txtRepeatMedicine").val('');
+                        $("#txtForMedicine").val('');
+                        $("#txtMedicineDays").val('');
+                        $("#txtSpecialInstruction").val('');
+                        $("#txtAlternateMedicine").val('');
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(errorThrown);
+                    }
+                })
+            }
         }
         $(".fa-pencil").on("click", function () {
             var obj = $(this).parents("tr")
@@ -512,6 +523,13 @@
                 }
             });
         })
+
+
+
+
+
+
+        
         //$(function () {
         //    var Project = [
         //        "DHTMLX DEMO",
