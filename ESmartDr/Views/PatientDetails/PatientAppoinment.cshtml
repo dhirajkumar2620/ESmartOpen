@@ -256,9 +256,10 @@
                             <div class="form-group">
                                 @Html.DropDownList("Status", new List<SelectListItem>
                                         {
-                                        new SelectListItem{ Text="With Doctor", Value = "With Doctor" },
-                                        new SelectListItem{ Text="In Queue", Value = "In Queue" },
-                                        new SelectListItem{ Text="Visited", Value = "Visited" },
+                                        new SelectListItem{ Text="Visited", Value = "Visited", Selected=true},
+                                        //new SelectListItem{ Text="With Doctor", Value = "With Doctor" },
+                                        //new SelectListItem{ Text="In Queue", Value = "In Queue" },
+                                        
                                         }, new { @class = "form-control mb-3", id = "txtStatus" })
 
 
