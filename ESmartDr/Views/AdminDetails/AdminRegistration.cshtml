@@ -38,7 +38,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Degree<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.Education, new { @id = "txtDegree", @class = "form-control", autocomplete = "off", required = "required", @placeholder = "MBBS" })
+                                                    @Html.TextBoxFor(m => m.Education, new { @id = "txtDegree", @class = "form-control", autocomplete = "off", required = "required", @placeholder = "Degree" })
                                                     @Html.ValidationMessageFor(model => model.Education, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
@@ -110,7 +110,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Email ID<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.EmailId, new { @id = "txtEmailId", @class = "form-control", autocomplete = "off", required = "required", @placeholder = "aaa@gmail.com" })
+                                                    @Html.TextBoxFor(m => m.EmailId, new { @id = "txtEmailId", @class = "form-control", autocomplete = "off", required = "required", @placeholder = "Email" })
                                                     @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>

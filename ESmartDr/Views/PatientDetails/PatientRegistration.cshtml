@@ -139,7 +139,7 @@
                                             <div class="form-group">
                                                 <label class="form-control-label">Email ID</label>
 
-                                                @Html.TextBoxFor(m => m.EmailId, new { @id = "txtEmailId", autocomplete = "off", @class = "form-control", @placeholder = "aaa@gmail.com" })
+                                                @Html.TextBoxFor(m => m.EmailId, new { @id = "txtEmailId",  autocomplete = "off", @class = "form-control", @placeholder = "Email" })
                                                 @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -262,8 +262,25 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
   
+    $('#txtEmailId').keyup(function () {
 
+        var value = $(this).val();
+       
+        var valid = validateEmail(value);
+        if (!valid) {
+            $(this).css('color', 'red');
 
+        } else {
+
+            $(this).css('color', '#000');
+
+        }
+    });
+
+    var validateEmail = function (elementValue) {
+        var emailPattern = /^[a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return emailPattern.test(elementValue);
+    }
     function onchangeevent() {
 
         //age calculator 
