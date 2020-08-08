@@ -136,13 +136,13 @@
                 <div class="x">
                     <p>Please wait while we are verify your number</p>
                     <h2 style="font-size :1.2em">+91-@Session["NoForChangePassword"].ToString()</h2>
-                    @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtOTP", @class = "form-control text-center", @maxlength = "6", required = "required", @placeholder = "" })
+                    @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtOTP", autocomplete = "off", @class = "form-control text-center", @maxlength = "6", required = "required", @placeholder = "" })
                     <br>
                     <p>Dont receive code ? @Html.ActionLink("Resend OTP", "ResendOTP", "ForgetPassword")</p>
                     @*<input type="submit" value="Submit" style="border-radius: 22px;margin-top: 2em;width: 100%;border-radius: 22px;background: #fff;border-color: #fff;color: #f5a433;font-weight: 700!important; font-size: 1em;" class="btn btn_2 btn-primary">*@
                     @*<input type="submit" value="Submit" style="border-radius: 22px;margin-top: 2em;width: 100%;border-radius: 22px;background: #fff;border-color: #fff;color: #f5a433;font-weight: 700!important; font-size: 1em;" class="btn btn_2 for-btn-2 btn-primary">*@
                     <div class="text-center sn-in">
-                        <input type="submit" value="Submit" class="btn btn-primary" style="border-radius: 22px;margin-top: 2em;border-radius: 22px;background: #fff;border-color: #fff;color: #f5a433;font-weight: 700!important; font-size: 1em;" />   @*style="font-weight: 700!important;color:#f5a433"*@
+                        <input type="submit" value="Submit" class="btn btn-primary" style="width: 46%;border-radius: 22px;margin-top: 2em;border-radius: 22px;background: #fff;border-color: #fff;color: #f5a433;font-weight: 700!important; font-size: 1em;" />   @*style="font-weight: 700!important;color:#f5a433"*@
                     </div>
                     <br />
                     <p> </p>
