@@ -212,7 +212,7 @@ namespace Dal_Layer
                 sqlparam[0] = new SqlParameter("@Flag", "1");
                 sqlparam[1] = new SqlParameter("@HospitalId", hospitalId);
                 sqlparam[2] = new SqlParameter("@UserId", UserId);
-                sqlparam[3] = new SqlParameter("@Date", Date);
+                sqlparam[3] = new SqlParameter("@Date", Date); //DateTime.ParseExact(Date, "dd/MM/yyyy", CultureInfo.InvariantCulture));/// Date);
 
                 DataTable ds = CommonFunction.GetDataTable("USP_GET_QUELIST", sqlparam, "");
 
