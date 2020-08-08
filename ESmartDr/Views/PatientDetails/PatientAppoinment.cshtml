@@ -260,7 +260,7 @@
                                         //new SelectListItem{ Text="With Doctor", Value = "With Doctor" },
                                         //new SelectListItem{ Text="In Queue", Value = "In Queue" },
                                         
-                                        }, new { @class = "form-control mb-3", id = "txtStatus" })
+                                        }, new { @class = "form-control mb-3", id = "txtStatus1" })
 
 
                                 @*<select name="Status" class="form-control mb-3">
@@ -322,7 +322,8 @@
                 <div class="modal-footer" style="border-top:none;">
                     <div class="row">
                         <div class="col-md-12">
-                            <button type="button" onclick="DeleteAppoinment(this)" class="btn btn_1 btn-primary" data-dismiss="modal">Yes</button>
+                           <button type="button" onclick="DeleteAppoinment(this)" class="btn btn_2 b22 btn-primary" data-dismiss="modal">Yes</button>
+                            
                         </div>
                     </div>
                 </div>
@@ -431,7 +432,7 @@
             }
         });
         $("#" + QueueId).remove();
-        alert("Deleted Successfully");
+        alert("Cancel Successfully.");
     }
     function showModel(x) {
         var obj = $(x).parents("tr")
@@ -445,11 +446,16 @@
     }
 
     function SetStatus(x) {
+        
         var appCPno = document.getElementById("txtCPno").value;
-        var appStatus = document.getElementById("txtStatus").value;
+        var appStatus = "Visited";//document.getElementById("txtStatus").value;
         var appBill = document.getElementById("txtBill").value;
         var appPaidBill = document.getElementById("txtDue").value;
         var appQId = document.getElementById("txtQid").value;
+        if (appPaidBill == "" || appPaidBill == null || appPaidBill=="0") {
+            alert("You Are Not Enter Paid Bill.");
+        }
+        else {
         $.ajax({
             type: "POST",
             url: "/PatientDetails/GetData",
@@ -469,6 +475,7 @@
                 alert(response.responseText);
             }
         });
+            }
     }
     function SetStatus1(x) {
 
