@@ -31,21 +31,21 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Name<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.FirstName, new { @id = "txtName", autocomplete = "off", @class = "form-control", required = "required", @placeholder = "Name" })
+                                                    @Html.TextBoxFor(m => m.FirstName, new { @id = "txtName", @class = "form-control", required = "required", @placeholder = "Name" })
                                                     @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Degree<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.Education, new { @id = "txtDegree", @class = "form-control", autocomplete = "off", required = "required", @placeholder = "Degree" })
+                                                    @Html.TextBoxFor(m => m.Education, new { @id = "txtDegree", @class = "form-control", required = "required", @placeholder = "Degree" })
                                                     @Html.ValidationMessageFor(model => model.Education, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Registration No.<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.RegNumber, new { @id = "txtRegNumber", @class = "form-control", autocomplete = "off", required = "required", @placeholder = "12345" })
+                                                    @Html.TextBoxFor(m => m.RegNumber, new { @id = "txtRegNumber", @class = "form-control", required = "required", @placeholder = "12345" })
                                                     @Html.ValidationMessageFor(model => model.RegNumber, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
@@ -80,7 +80,7 @@
                                                     <label class="form-control-label">
                                                         Age
                                                     </label>
-                                                    @Html.TextBoxFor(m => m.Age, new { @id = "txtAge", @readonly = true, @class = "form-control", autocomplete = "off", @placeholder = "10" })
+                                                    @Html.TextBoxFor(m => m.Age, new { @id = "txtAge",  @class = "form-control", @placeholder = "10" })
                                                     @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
 
                                                 </div>
@@ -92,7 +92,7 @@
                                                     <label class="form-control-label">Mobile No.<span class="star">*</span></label>
                                                     <div class="input-container">
                                                         <span class="icon">+91</span>
-                                                        @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtWhatsAppNumber", autocomplete = "off", @class = "form-control", @maxlength = "10", required = "required", @placeholder = "0123456789" })
+                                                        @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtWhatsAppNumber", @class = "form-control", @maxlength = "10", required = "required", @placeholder = "0123456789" })
                                                         @Html.ValidationMessageFor(model => model.WhatsAppNumber, "", new { @class = "text-danger" })
                                                     </div>
                                                 </div>
@@ -102,7 +102,7 @@
                                                     <label class="form-control-label">Other No.</label>
                                                     <div class="input-container">
                                                         <span class="icon">+91</span>
-                                                        @Html.TextBoxFor(m => m.OtherNumber, new { @id = "txtOtherNo", autocomplete = "off", @maxlength = "10", @class = "form-control", @onkeypress = "return isNumber(event)", @placeholder = "0123456789" })
+                                                        @Html.TextBoxFor(m => m.OtherNumber, new { @id = "txtOtherNo", @maxlength = "10", @class = "form-control", @onkeypress = "return isNumber(event)", @placeholder = "0123456789" })
                                                         @Html.ValidationMessageFor(model => model.OtherNumber, "", new { @class = "text-danger" })
                                                     </div>
                                                 </div>
@@ -110,7 +110,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Email ID<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.EmailId, new { @id = "txtEmailId", @class = "form-control", autocomplete = "off", required = "required", @placeholder = "Email" })
+                                                    @Html.TextBoxFor(m => m.EmailId, new { @id = "txtEmailId", @class = "form-control", required = "required", @placeholder = "Email" })
                                                     @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
@@ -119,7 +119,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Firm Name<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.HostClincName, new { @id = "txtHCName", @class = "form-control", autocomplete = "off", required = "required", @placeholder = "Firm Name" })
+                                                    @Html.TextBoxFor(m => m.HostClincName, new { @id = "txtHCName", @class = "form-control", required = "required", @placeholder = "Firm Name" })
                                                     @Html.ValidationMessageFor(model => model.HostClincName, "", new { @class = "text-danger" })
 
 
@@ -128,7 +128,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Firm No.<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.HospClinicNumber, new { @id = "txtHCNumbar", @class = "form-control", autocomplete = "off", required = "required", @placeholder = "0123456789 or 222222" })
+                                                    @Html.TextBoxFor(m => m.HospClinicNumber, new { @id = "txtHCNumbar", @class = "form-control", required = "required", @placeholder = "0123456789 or 222222" })
                                                     @Html.ValidationMessageFor(model => model.HospClinicNumber, "", new { @class = "text-danger" })
 
 
@@ -137,7 +137,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Firm Add.<span class="star">*</span></label>
-                                                    @Html.TextBoxFor(m => m.HospClinicAddess, new { @id = "txtHCAdress", @class = "form-control", autocomplete = "off", required = "required", @placeholder = "Firm Address" })
+                                                    @Html.TextBoxFor(m => m.HospClinicAddess, new { @id = "txtHCAdress", @class = "form-control", required = "required", @placeholder = "Firm Address" })
                                                     @Html.ValidationMessageFor(model => model.HospClinicAddess, "", new { @class = "text-danger" })
 
 
@@ -151,7 +151,7 @@
                                                     <div class="col-md-6">
                                                         <label class="form-control-label">In</label>
                                                         <div class="input-group clockpicker pull-center" data-autoclose="true">
-                                                            @Html.TextBoxFor(m => m.FirmInTime1, new { @id = "txtFirmInTime1", autocomplete = "off", @class = "form-control", @placeholder = "hh:mm" })
+                                                            @Html.TextBoxFor(m => m.FirmInTime1, new { @id = "txtFirmInTime1", @class = "form-control", @placeholder = "hh:mm" })
                                                             @Html.ValidationMessageFor(model => model.FirmInTime1, "", new { @class = "text-danger" })
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-clock-o page-date-icon" aria-hidden="true"></i>
@@ -161,7 +161,7 @@
                                                     <div class="col-md-6">
                                                         <label class="form-control-label">Out</label>
                                                         <div class="input-group clockpicker pull-center" data-autoclose="true">
-                                                            @Html.TextBoxFor(m => m.FirmOutTime1, new { @id = "txtFirmOutTime1", @class = "form-control", autocomplete = "off", @placeholder = "hh:mm" })
+                                                            @Html.TextBoxFor(m => m.FirmOutTime1, new { @id = "txtFirmOutTime1", @class = "form-control", @placeholder = "hh:mm" })
                                                             @Html.ValidationMessageFor(model => model.FirmOutTime1, "", new { @class = "text-danger" })
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-clock-o page-date-icon" aria-hidden="true"></i>
@@ -175,7 +175,7 @@
                                                     <div class="col-md-6">
                                                         <label class="form-control-label">In</label>
                                                         <div class="input-group clockpicker pull-center" data-autoclose="true">
-                                                            @Html.TextBoxFor(m => m.FirmInTime2, new { @id = "txtFirmInTime2", autocomplete = "off", @class = "form-control", @placeholder = "hh:mm" })
+                                                            @Html.TextBoxFor(m => m.FirmInTime2, new { @id = "txtFirmInTime2", @class = "form-control", @placeholder = "hh:mm" })
                                                             @Html.ValidationMessageFor(model => model.FirmInTime2, "", new { @class = "text-danger" })
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-clock-o page-date-icon" aria-hidden="true"></i>
@@ -185,7 +185,7 @@
                                                     <div class="col-md-6">
                                                         <label class="form-control-label">Out</label>
                                                         <div class="input-group clockpicker pull-center" data-autoclose="true">
-                                                            @Html.TextBoxFor(m => m.FirmOutTime2, new { @id = "txtFirmOutTime2", autocomplete = "off",@class = "form-control", @placeholder = "hh:mm" })
+                                                            @Html.TextBoxFor(m => m.FirmOutTime2, new { @id = "txtFirmOutTime2",@class = "form-control", @placeholder = "hh:mm" })
                                                             @Html.ValidationMessageFor(model => model.FirmOutTime2, "", new { @class = "text-danger" })
                                                             <span class="input-group-addon">
                                                                 <i class="fa fa-clock-o page-date-icon" aria-hidden="true"></i>
@@ -197,7 +197,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Holiday</label>
-                                                    @Html.TextBoxFor(m => m.Holiday, new { @id = "txtHoliday", autocomplete = "off", @class = "form-control", @placeholder = "eg. Sunday,Monday" })
+                                                    @Html.TextBoxFor(m => m.Holiday, new { @id = "txtHoliday", @class = "form-control", @placeholder = "eg. Sunday,Monday" })
                                                     @Html.ValidationMessageFor(model => model.Holiday, "", new { @class = "text-danger" })
 
                                                 </div>
@@ -228,7 +228,7 @@
                                                 <div class="form-group">
                                                     <label class="form-control-label">Activation Date<span class="star">*</span></label>
                                                     <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
-                                                        @Html.TextBoxFor(m => m.ActivationDate, new { @id = "txtActivationDate", @type = "text", autocomplete = "off", @class = "form-control datepicker", required = "required", @placeholder = "dd/mm/yyyy" })
+                                                        @Html.TextBoxFor(m => m.ActivationDate, new { @id = "txtActivationDate", @type = "text", @class = "form-control datepicker", required = "required", @placeholder = "dd/mm/yyyy" })
                                                         @Html.ValidationMessageFor(model => model.ActivationDate, "", new { @class = "text-danger" })
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
@@ -240,7 +240,7 @@
                                                 <div class="form-group">
                                                     <label class="form-control-label">Expiry Date<span class="star">*</span></label>
                                                     <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
-                                                        @Html.TextBoxFor(m => m.ExpiryDate, new { @id = "txtExpiryDate", @type = "text", autocomplete = "off",@class = "form-control datepicker", @placeholder = "dd/mm/yyyy" })
+                                                        @Html.TextBoxFor(m => m.ExpiryDate, new { @id = "txtExpiryDate", @type = "text",@class = "form-control datepicker", @placeholder = "dd/mm/yyyy" })
                                                         @Html.ValidationMessageFor(model => model.ExpiryDate, "", new { @class = "text-danger" })
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
@@ -277,7 +277,7 @@
                                                     <label class="form-control-label">
                                                         CP Alphanumeric Prefix<span class="star">*</span>
                                                     </label>
-                                                    @Html.TextBoxFor(m => m.AlphanumericPrefix, new { @id = "txtAlphanumericPrefix", autocomplete = "off", @class = "form-control", required = "required", @placeholder = "eg. AA" })
+                                                    @Html.TextBoxFor(m => m.AlphanumericPrefix, new { @id = "txtAlphanumericPrefix", @class = "form-control", required = "required", @placeholder = "eg. AA" })
                                                     @Html.ValidationMessageFor(model => model.AlphanumericPrefix, "", new { @class = "text-danger" })
 
 
@@ -291,7 +291,7 @@
                                                     <label class="form-control-label">
                                                         Speciality<span class="star">*</span>
                                                     </label>
-                                                    @Html.TextBoxFor(m => m.Speciality, new { @id = "txtSpeciality", autocomplete = "off", @class = "form-control", @placeholder = "eg. Dentist" })
+                                                    @Html.TextBoxFor(m => m.Speciality, new { @id = "txtSpeciality", @class = "form-control", @placeholder = "eg. Dentist" })
                                                     @Html.ValidationMessageFor(model => model.Speciality, "", new { @class = "text-danger" })
 
 
@@ -303,7 +303,7 @@
                                                     <label class="form-control-label">
                                                         Dr. Count
                                                     </label>
-                                                    @Html.TextBoxFor(m => m.DrCount, new { @id = "txtSpeciality", @class = "form-control", autocomplete = "off", @placeholder = "eg. Dentist" })
+                                                    @Html.TextBoxFor(m => m.DrCount, new { @id = "txtSpeciality", @class = "form-control", @placeholder = "eg. Dentist" })
                                                     @Html.ValidationMessageFor(model => model.DrCount, "", new { @class = "text-danger" })
 
 

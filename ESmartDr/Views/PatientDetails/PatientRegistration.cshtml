@@ -73,8 +73,8 @@
                                             <div class="form-group">
                                                 <label class="form-control-label">Date of Birth</label>
                                                 @*<div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">*@
-                                                <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
-                                                    @Html.TextBoxFor(m => m.DOB, new { @id = "txtDOB", @type = "text", @class = "form-control datepicker", @placeholder = "dd/mm/yyyy", @onchange = "onchangeevent();" })
+                                                <div class="input-group date" data-provide="" data-date-format="dd/mm/yyyy">
+                                                    @Html.TextBoxFor(m => m.DOB, new { @id = "txtDOB", autocomplete = "off", @type = "text", @class = "form-control datepicker", @placeholder = "dd/mm/yyyy", @onchange = "onchangeevent();" })
                                                     @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
