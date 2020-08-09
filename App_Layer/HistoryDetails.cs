@@ -14,6 +14,7 @@ namespace App_Layer
             lstOD = new List<ObservationDetails>();
             lstMD = new List<MedicinesDetails>();
             lstTD = new List<TestDetails>();
+            lstHF = new List<HistoryFile>();
         }
         public int QueueId { get; set; }
         public string CasePaperNo { get; set; }
@@ -24,6 +25,8 @@ namespace App_Layer
         public List<TestDetails> lstTD { get; set; }
         public List<MedicinesDetails> lstMD { get; set; }
 
+        public List<HistoryFile> lstHF { get; set; }
+
     }
     public class ObservationDetails
     {
@@ -31,6 +34,15 @@ namespace App_Layer
         public string Observation { get; set; }
         public string Since { get; set; }
         public string Period { get; set; }
+
+    }
+
+
+    public class HistoryFile
+    {
+        public int QueueId { get; set; }
+        public string FileName { get; set; }
+       
 
     }
     public class TestDetails

@@ -74,6 +74,7 @@
                                                 <th>Medication</th>
                                                 <th>Test</th>
                                                 <th>Observation</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -128,6 +129,21 @@
                                                                 {
                                                                     <tr>
                                                                         <td>@item3.Observation - @item3.Since @item3.Period</td>
+
+                                                                    </tr>
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                    <td>
+                                                        <table class="inner-shdow">
+
+                                                            <tbody>
+
+                                                                @foreach (var item4 in item.lstHF)
+                                                                {
+                                                                    <tr>
+                                                                        <td>@item4.FileName</td>
 
                                                                     </tr>
                                                                 }

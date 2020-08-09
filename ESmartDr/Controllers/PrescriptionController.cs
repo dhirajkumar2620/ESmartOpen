@@ -84,6 +84,7 @@ namespace ESmartDr.Controllers
             co.CreatedBy = admObj.UserId.ToString();
             co.PatientId = patientDETAILS.Id.ToString();
             co.CasePaperNo = patientDETAILS.CasePapaerNo;
+            co.FileName = "Text";
             int Flag = BM.ManagePrecCommonDetails(co);
             if (Flag > 0)
             {

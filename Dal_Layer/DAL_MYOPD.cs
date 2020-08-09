@@ -72,7 +72,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[12];
+                sqlparam = new SqlParameter[13];
                 sqlparam[0] = new SqlParameter("@Id", Ob.Id);
                 sqlparam[1] = new SqlParameter("@InvSelectTests", Ob.InvSelectTests);
                 sqlparam[2] = new SqlParameter("@InvNotes", Ob.InvNotes);
@@ -85,6 +85,7 @@ namespace Dal_Layer
                 sqlparam[9] = new SqlParameter("@PatientId", Ob.PatientId);
                 sqlparam[10] = new SqlParameter("@CreatedBy", Ob.CreatedBy);
                 sqlparam[11] = new SqlParameter("@QueueId", Ob.QueueId);
+                sqlparam[12] = new SqlParameter("@FileName", Ob.FileName);
                 return CommonFunction.Save("USP_Prec_Common", sqlparam, "");
             }
             catch (Exception)
@@ -444,6 +445,7 @@ namespace Dal_Layer
                 List<ObservationDetails> OD = new List<ObservationDetails>();
                 List<TestDetails> TD = new List<TestDetails>();
                 List<MedicinesDetails> MD = new List<MedicinesDetails>();
+                List<HistoryFile> HF = new List<HistoryFile>();
                 //History 
                 if (ds != null && ds.Tables[0].Rows.Count > 0)
                 {
@@ -510,6 +512,22 @@ namespace Dal_Layer
                                     MedicinesDetails lstMD = new MedicinesDetails();
                                     CommonFunction.ReflectSingleData(lstMD, dr3);
                                     histrydetails.lstMD.Add(lstMD);
+                                }
+
+                            }
+                        }
+
+                        //
+                        if (ds != null && ds.Tables[4].Rows.Count > 0)
+                        {
+                            DataTable dt5 = ds.Tables[4];
+                            foreach (DataRow dr4 in dt5.Rows)
+                            {
+                                if (Convert.ToInt32(dr4["QueueId"]) == histrydetails.QueueId)
+                                {
+                                    HistoryFile lstHF = new HistoryFile();
+                                    CommonFunction.ReflectSingleData(lstHF, dr4);
+                                    histrydetails.lstHF.Add(lstHF);
                                 }
 
                             }
