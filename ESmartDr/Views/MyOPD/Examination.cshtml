@@ -311,28 +311,41 @@
 <script src="~/js/front.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-    function PrintDiv() {
-        //Get the HTML of div
-        var divElements = document.getElementById("printExamination").innerHTML;
-        //Get the HTML of whole page
-        var oldPage = document.body.innerHTML;
-        //Reset the page's HTML with div's HTML only
-        document.body.innerHTML =
-            "<html><head><title></title></head><body>" +
-            divElements + "</body>";
-
-        //Print Page
-        window.print();
-
-        //Restore orignal HTML
-        document.body.innerHTML = oldPage;
+    ////function PrintDiv() {
+    ////    alert("dsfds");
+    ////    //$('#printExamination').html(response);
+    ////    var Bill = document.getElementById("printExamination").innerHTML;
+    ////    var printWindow = window.open('', '', 'height=500,width=900');
+    ////    printWindow.document.write('<html><head><title>DIV Contents</title>');
+    ////    printWindow.document.write('</head><body>');
+    ////    printWindow.document.write(Bill);
+    ////    printWindow.document.write('</body></html>');
+    ////    printWindow.document.close();
+    ////    printWindow.print();
 
 
-    }
+
+        ////////Get the HTML of div
+        //////var divElements = document.getElementById("printExamination").innerHTML;
+        ////////Get the HTML of whole page
+        //////var oldPage = document.body.innerHTML;
+        ////////Reset the page's HTML with div's HTML only
+        //////document.body.innerHTML =
+        //////    "<html><head><title></title></head><body>" +
+        //////    divElements + "</body>";
+
+        ////////Print Page
+        //////window.print();
+
+        ////////Restore orignal HTML
+        //////document.body.innerHTML = oldPage;
+
+
+   /// }
 </script>
 <script>
 
-    function ShowPrint() {
+   // function ShowPrint() {
         //PrintDiv1();
         //    $.ajax({
         //        type: "POST",
@@ -352,16 +365,16 @@
         //        }
         //    });
         //}
-        function PrintDiv1() {
-            var Bill = document.getElementById("Bill").innerHTML;
-            var printWindow = window.open('', '', 'height=500,width=900');
-            printWindow.document.write('<html><head><title>DIV Contents</title>');
-            printWindow.document.write('</head><body>');
-            printWindow.document.write(Bill);
-            printWindow.document.write('</body></html>');
-            printWindow.document.close();
-            printWindow.print();
-        }
+        //function PrintDiv1() {
+        //    var Bill = document.getElementById("Bill").innerHTML;
+        //    var printWindow = window.open('', '', 'height=500,width=900');
+        //    printWindow.document.write('<html><head><title>DIV Contents</title>');
+        //    printWindow.document.write('</head><body>');
+        //    printWindow.document.write(Bill);
+        //    printWindow.document.write('</body></html>');
+        //    printWindow.document.close();
+        //    printWindow.print();
+        //}
 </script>
 
 <script src="~/js/front.js"></script>
@@ -450,9 +463,9 @@
     });
 </script>
 <script>
-    function PrintDiv(divID) {
+    function PrintDiv() {
         //Get the HTML of div
-        var divElements = document.getElementById(divID).innerHTML;
+        var divElements = document.getElementById("printExamination").innerHTML;
         //Get the HTML of whole page
         var oldPage = document.body.innerHTML;
         //Reset the page's HTML with div's HTML only
