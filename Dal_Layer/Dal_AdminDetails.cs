@@ -24,16 +24,41 @@ namespace Dal_Layer
                 sqlparam[2] = new SqlParameter("@Education", AD.Education);
                 sqlparam[3] = new SqlParameter("@RegNo", AD.RegNumber);
                 sqlparam[4] = new SqlParameter("@Gender", AD.Gender);
-                sqlparam[5] = new SqlParameter("@DateOfBirth", DateTime.ParseExact(AD.DateOfBirth, "dd/MM/yyyy", CultureInfo.InvariantCulture));// AD.DateOfBirth);
+                if (AD.DateOfBirth == null)
+                {
+                    sqlparam[5] = new SqlParameter("@DateOfBirth", DBNull.Value);
+                }
+                else
+                {
+                    sqlparam[5] = new SqlParameter("@DateOfBirth", DateTime.ParseExact(AD.DateOfBirth, "dd/MM/yyyy", CultureInfo.InvariantCulture));          
+                    
+                }
                 sqlparam[6] = new SqlParameter("@WhatsAppNumber", AD.WhatsAppNumber);
                 sqlparam[7] = new SqlParameter("@OtherNumber", AD.OtherNumber);
                 sqlparam[8] = new SqlParameter("@HCDLName", AD.HostClincName);
                 sqlparam[9] = new SqlParameter("@HCDLNumber", AD.HospClinicNumber);
                 sqlparam[10] = new SqlParameter("@HCDLAddress", AD.HospClinicAddess);
                 sqlparam[11] = new SqlParameter("@ActivationFor", AD.ActivationFor);
-                sqlparam[12] = new SqlParameter("@ActivationDate", DateTime.ParseExact(AD.ActivationDate, "dd/MM/yyyy", CultureInfo.InvariantCulture));//AD.ActivationDate);
+                if (AD.ActivationDate == null)
+                {
+                    sqlparam[12] = new SqlParameter("@ActivationDate", DBNull.Value);
+                }
+                else
+                {
+                    sqlparam[12] = new SqlParameter("@ActivationDate", DateTime.ParseExact(AD.ActivationDate, "dd/MM/yyyy", CultureInfo.InvariantCulture));                   
+
+                }
                 sqlparam[13] = new SqlParameter("@ActivationPeriod", AD.ActivationPeriod);
-                sqlparam[14] = new SqlParameter("@ExpiryDate", DateTime.ParseExact(AD.ExpiryDate, "dd/MM/yyyy", CultureInfo.InvariantCulture));// AD.ExpiryDate);
+                if (AD.ExpiryDate == null)
+                {
+                    sqlparam[14] = new SqlParameter("@ExpiryDate", DBNull.Value);
+                }
+                else
+                {
+                    sqlparam[14] = new SqlParameter("@ExpiryDate", DateTime.ParseExact(AD.ExpiryDate, "dd/MM/yyyy", CultureInfo.InvariantCulture));// AD.ExpiryDate);
+
+                }
+
                 sqlparam[15] = new SqlParameter("@Role ", null);
                 if (AD.IsActive == true)
                 {

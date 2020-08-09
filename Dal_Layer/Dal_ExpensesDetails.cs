@@ -21,7 +21,14 @@ namespace Dal_Layer
                 SqlParameter[] sqlparam;
                 sqlparam = new SqlParameter[9];
                 sqlparam[0] = new SqlParameter("@ExId", ED.ExId);
-                sqlparam[1] = new SqlParameter("@ExDate", DateTime.ParseExact(ED.ExDate, "dd/MM/yyyy", CultureInfo.InvariantCulture));// ED.ExDate);
+                if (ED.ExDate == null)
+                {
+                    sqlparam[1] = new SqlParameter("@ExDate", DBNull.Value);
+                }
+                else
+                {
+                    sqlparam[1] = new SqlParameter("@ExDate", DateTime.ParseExact(ED.ExDate, "dd/MM/yyyy", CultureInfo.InvariantCulture));// ED.ExDate);
+                }
                 sqlparam[2] = new SqlParameter("@ExCatagory", ED.ExCatagory);
                 sqlparam[3] = new SqlParameter("@ExAmount", ED.ExAmount);
                 sqlparam[4] = new SqlParameter("@ExDetails", ED.ExDetails);

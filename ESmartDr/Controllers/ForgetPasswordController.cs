@@ -98,7 +98,7 @@ namespace ESmartDr.Controllers
                 string mobileNo = Session["NoForChangePassword"].ToString();
                 ad.WhatsAppNumber = mobileNo;
                 int Flag = BP.UpdatePassword(ad);
-                if (Flag ==1)
+                if (Flag >=1)//if (Flag ==1)
                 {
                     SMS sms = new SMS();
                     string message = "Dear , You are password has been updatedd successfully Username : "+ad.WhatsAppNumber+" & Password: "+ad.Passwod1+" .Download eSmartDoctor app to manage your Firm -  http://esmartdoctor.com ";
