@@ -202,8 +202,51 @@ namespace ESmartDr.Controllers
                     LST.d3lst[i].date = LST.d3lst[i].dates.ToString("ddd");
                 }
 
+
+                for (int i = 0; i < LST.d1lst.Count; i++)
+                {
+                    
+                    LST.d1lst[i].date = LST.d1lst[i].dates.ToString();
+                }
+
+
                 //var output = JsonConvert.SerializeObject(LST.d1lst); //(LST.d1lst, JsonRequestBehavior.AllowGet);
                 return Json(LST.d3lst, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        public JsonResult IncomeExpensesAnalysis4(string Id)
+        {
+            try
+            {
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                Dashbord LST = new Dashbord();
+                LST = BL.ViewDashbord(admObj.HospitalId.ToString());
+
+                // var date = LST.d1lst[0].dates.ToShortDateString();
+
+                //for (int i = 0; i < LST.d5lst.Count; i++)
+                //{
+                //    //LST.d1lst[i].date = LST.d1lst[i].dates.ToShortDateString();
+                //    LST.d5lst[i].date = LST.d5lst[i].dates.ToString("ddd");
+                //}
+
+
+                for (int i = 0; i < LST.d5lst.Count; i++)
+                {
+
+                    LST.d5lst[i].date= LST.d5lst[i].dates.ToString("ddd");
+                }
+
+
+                //var output = JsonConvert.SerializeObject(LST.d1lst); //(LST.d1lst, JsonRequestBehavior.AllowGet);
+                return Json(LST.d5lst, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {

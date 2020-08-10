@@ -14,6 +14,8 @@ namespace App_Layer
         public List<FeedbackDetails> Fedlst { get; set; }
         public List<QueueDetails> Qlst { get; set; }
 
+        public List<Dashbord5> d5lst { get; set; }
+
 
     }
     public class Dashbord1
@@ -32,6 +34,17 @@ namespace App_Layer
         public int NewPatientcount { get; set; }
         public int Visitedcount { get; set; }
         public string date { get; set; }
+
+    }
+
+    public class Dashbord5
+    {
+        public DateTime dates { get; set; }
+        public int InvoiceAmount { get; set; }
+        public int EspensesAmount { get; set; }
+
+        public string date { get; set; }
+
 
     }
     public class InvoiceExpenses

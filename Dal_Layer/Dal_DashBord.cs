@@ -72,12 +72,31 @@ namespace Dal_Layer
                         lst4.Add(Model);
                     }
                 }
+
+                List<Dashbord5> lst5 = new List<Dashbord5>();
+                if (ds != null && ds.Tables[4].Rows.Count > 0)
+                {
+                    DataTable dt = ds.Tables[4];
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Dashbord5 Model = new Dashbord5();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        lst5.Add(Model);
+                    }
+                }
+
+
                 // exp_Inv
+
+                ///4/////
+
 
                 D.d1lst = lst1;
                 D.d2lst = lst2;
                 D.d3lst = lst3;
                 D.Fedlst = lst4;
+                D.d5lst = lst5;
                 return D;
             }
             catch (Exception Ex)
