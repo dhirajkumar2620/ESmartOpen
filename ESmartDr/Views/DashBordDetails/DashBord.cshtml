@@ -152,468 +152,468 @@
     <header class="page-header">
         <div class="container-fluid">
             <h2 class="no-margin-bottom">Dashboard</h2>
+
+            <select class="pull-right" id='purpose' style="display:none">
+                <option value="1">Weekly</option>
+                <option value="0">Monthly</option>
+            </select>
         </div>
     </header>
 </div>
+
+<br />
+<div class="row" style="width: 100%;margin: 0 auto;">
+
+    <div class="col-md-6" id="Div1">
+        <div class="card" style="padding: 1.1em 1.1em;">
+            <div id="columnchart_materiala" style="width: 500px; height: 200px;padding: 1.1em 1.1em;"></div>
+        </div>
+    </div>
+    <div class="col-md-6" id="Div2">
+        <div class="card" style="padding: 1.1em 1.1em;">
+            <div id="columnchart_material" style="width: 500px; height: 200px;padding: 1.1em 1.1em;"></div>
+        </div>
+    </div>
+
+
+    <div class="col-md-6" id="Div3">
+        <div class="card" style="padding: 1.1em 1.1em;">
+            <div id="chart4" style="width: 500px; height: 200px;padding: 1.1em 1.1em;"></div>
+        </div>
+    </div>
+    <div class="col-md-6" id="Div4">
+        <div class="card" style="padding: 1.1em 1.1em;">
+            <div id="chart_div" style="width: 500px; height: 200px;padding: 1.1em 1.1em;"></div>
+        </div>
+    </div>
+
+</div>
+<br />
+
+@*<div class="row" style="width: 100%;margin: 0 auto;"  id="DivYear" >
+    <div class="col-md-6">
+        <div class="card" style="padding: 1.1em 1.1em;">
+            <div id="columnchart_material" style="width: 500px; height: 300px;padding: 1.1em 1.1em;"></div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card" style="padding: 1.1em 1.1em;">
+            <div id="chart_div" style="width: 500px; height: 300px;padding: 1.1em 1.1em;"></div>
+        </div>
+    </div>
+    </div>*@
+
+
+<div class="row" style="width: 100%;margin: 0 auto;">
+
+</div>
+<br />
 <div class="">
     <div class="col-md-12">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="form-group">
-                    <select class="form-control">
-                        <option value="true">Select</option>
-                        <option value="true">Weekly</option>
-                        <option value="false">Monthly</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<br />
-<div class="row" style="width: 100%;margin: 0 auto;">
-    <div class="col-md-6">
         <div class="card">
-            <div id="columnchart_materiala" style="width: 800px; height: 500px;"></div>
-        </div>
-    </div>
-    
-   
-
-    <div class="col-md-6">
-        <div class="card">
-            <div id="chart4" style="width: 800px; height: 500px;"></div>
-        </div>
-    </div>
-
-   
-</div>
-<br />
-
-<div class="row" style="width: 100%;margin: 0 auto;">
-    <div class="col-md-6">
-        <div class="card">
-            <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card">
-            <div id="chart_div" style="width: 800px; height: 500px;"></div>
-        </div>
-    </div>
-    </div>
-
-
-    <div class="row" style="width: 100%;margin: 0 auto;">
-
-    </div>
-    <br />
-    <div class="">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h3>Appointment</h3>
-                    <div class="table-responsive">
-                        @*<div class="grid-btn pull-right">
-                                <a> <input type="Date" class="form-control text-letter" placeholder="dd/mm/yyyy"></a>
-                            </div>
-                            <br /><br />*@
-                        <table id="examples" class="table table-striped" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>Sr.No.</th>
-                                    <th>CP No.</th>
-                                    <th>Patient Details</th>
-                                    <th>Mobile No.</th>
-                                    <th>Apt. Date</th>
-                                    <th>Timing</th>
-                                    <th>Doctor</th>
-                                    <td hidden>Queue Id</td>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model.Qlst)
-                                {
-                                    <tr id=@item.Id>
-                                        <td>@item.rowNum</td>
-                                        <td>@item.CasePaperNo</td>
-                                        <td>@item.PatientName<br />@item.Age / @item.Gender</td>
-                                        <td>@item.WhatsAppNo<br />@item.OtherNo</td>
-                                        <td>@Convert.ToDateTime(item.DateTime).ToString("dd/MM/yyyy")</td>
-                                        <td>@item.AppoinmentTime</td>
-                                        <td>@item.FirstName</td>
-                                        <td hidden>@item.Id</td>
-                                        <td>
-                                            <ul class="list-inline">
-                                                @*<li class="list-inline-item" title="Edit">
-                                                        <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                                    </li>*@
-                                                <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Cancle">
-                                                    <a href="#" data-toggle="modal" data-target="#DeleteAppoinment" onclick="ShowDeleteAppoinment(this)"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h3>Patient Feedback</h3>
-
-                    <div class="row dash-card" style="overflow-y: scroll; height: 51vh;">
-                        @foreach (var item in Model.Fedlst)
-                        {
-                            <div class="col-md-4">
-                                <div class="dashboard-border" style="font-size: 0.9em;">
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <b>Date</b> : @item.Date
-                                        </li>
-                                        <li class="list-inline-item pull-right">
-                                            <b>CP No.</b> : @item.CPNo
-                                        </li>
-                                    </ul>
-                                    <div class="dash-patient-bg">
-                                        <h4>@item.PatientName</h4>
-                                        <ul class="list-unstyled">
-                                            <li><b>Overall Experience </b>:@item.Experience</li>
-                                            <li><b>Clinic Cleanliness </b>:@item.Cleanliness</li>
-                                            <li><b>Staff Behavior </b>:@item.BadBehevior</li>
-                                            <li><b>Doctor Qualities </b>:@item.MedicalExpertise </li>
+            <div class="card-body">
+                <h3>Appointment</h3>
+                <div class="table-responsive">
+                    @*<div class="grid-btn pull-right">
+                            <a> <input type="Date" class="form-control text-letter" placeholder="dd/mm/yyyy"></a>
+                        </div>
+                        <br /><br />*@
+                    <table id="examples" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Sr.No.</th>
+                                <th>CP No.</th>
+                                <th>Patient Details</th>
+                                <th>Mobile No.</th>
+                                <th>Apt. Date</th>
+                                <th>Timing</th>
+                                <th>Doctor</th>
+                                <td hidden>Queue Id</td>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Qlst)
+                            {
+                                <tr id=@item.Id>
+                                    <td>@item.rowNum</td>
+                                    <td>@item.CasePaperNo</td>
+                                    <td>@item.PatientName<br />@item.Age / @item.Gender</td>
+                                    <td>@item.WhatsAppNo<br />@item.OtherNo</td>
+                                    <td>@Convert.ToDateTime(item.DateTime).ToString("dd/MM/yyyy")</td>
+                                    <td>@item.AppoinmentTime</td>
+                                    <td>@item.FirstName</td>
+                                    <td hidden>@item.Id</td>
+                                    <td>
+                                        <ul class="list-inline">
+                                            @*<li class="list-inline-item" title="Edit">
+                                                    <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                </li>*@
+                                            <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Cancle">
+                                                <a href="#" data-toggle="modal" data-target="#DeleteAppoinment" onclick="ShowDeleteAppoinment(this)"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                            </li>
                                         </ul>
-                                        <textarea placeholder="@item.Feedback" style="width:100%;"></textarea>
-                                    </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h3>Patient Feedback</h3>
 
+                <div class="row dash-card" style="overflow-y: scroll; height: 51vh;">
+                    @foreach (var item in Model.Fedlst)
+                    {
+                        <div class="col-md-4">
+                            <div class="dashboard-border" style="font-size: 0.9em;">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <b>Date</b> : @item.Date
+                                    </li>
+                                    <li class="list-inline-item pull-right">
+                                        <b>CP No.</b> : @item.CPNo
+                                    </li>
+                                </ul>
+                                <div class="dash-patient-bg">
+                                    <h4>@item.PatientName</h4>
+                                    <ul class="list-unstyled">
+                                        <li><b>Overall Experience </b>:@item.Experience</li>
+                                        <li><b>Clinic Cleanliness </b>:@item.Cleanliness</li>
+                                        <li><b>Staff Behavior </b>:@item.BadBehevior</li>
+                                        <li><b>Doctor Qualities </b>:@item.MedicalExpertise </li>
+                                    </ul>
+                                    <textarea placeholder="@item.Feedback" style="width:100%;"></textarea>
                                 </div>
+
                             </div>
-                        }
-                    </div>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="DeleteAppoinment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content save-appoint">
-                <div class="modal-header" style="border-bottom:none;">
-                    <h3>Cancel Appinment</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
+</div>
+<div class="modal fade" id="DeleteAppoinment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content save-appoint">
+            <div class="modal-header" style="border-bottom:none;">
+                <h3>Cancel Appinment</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="col-md-12 space-betw">
+                        <div class="form-group">
+                            <label style="display:none" class="form-control-label">Remark<span class="star">*</span></label>
+                            <input type="text" value="Cancled" style="display:none" id="txtNote" class="form-control" placeholder="Note" />
+                            <input type="text" style="display:none" id="txtQueueId" class="form-control" placeholder="" />
+                            <input type="text" style="display:none" id="txtCP" class="form-control" placeholder="" />
+                            <input type="text" style="display:none" id="txtNo" class="form-control" placeholder="" />
+                        </div>
+                    </div>
+
+
                 </div>
-                <div class="modal-body">
+                <div class="modal-footer" style="border-top:none;">
                     <div class="row">
-
-                        <div class="col-md-12 space-betw">
-                            <div class="form-group">
-                                <label style="display:none" class="form-control-label">Remark<span class="star">*</span></label>
-                                <input type="text" value="Cancled" style="display:none" id="txtNote" class="form-control" placeholder="Note" />
-                                <input type="text" style="display:none" id="txtQueueId" class="form-control" placeholder="" />
-                                <input type="text" style="display:none" id="txtCP" class="form-control" placeholder="" />
-                                <input type="text" style="display:none" id="txtNo" class="form-control" placeholder="" />
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div class="modal-footer" style="border-top:none;">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <button type="button" onclick="DeleteAppoinment(this)" class="btn btn_1 btn-primary" data-dismiss="modal">Yes</button>
-                            </div>
+                        <div class="col-md-12">
+                            <button type="button" onclick="DeleteAppoinment(this)" class="btn btn_1 btn-primary" data-dismiss="modal">Yes</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="~/vendor/jquery/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-    <script>
-        $('#examples').DataTable();
-    </script>
-    <script>
-        function ShowDeleteAppoinment(x) {
-            var obj = $(x).parents("tr")
-            $("#txtQueueId").val(obj.find('td')[7].innerHTML);
-            $("#txtCP").val(obj.find('td')[1].innerHTML);
-            var mob = obj.find('td')[3].innerHTML;
-            $("#txtNo").val(mob.substr(0, 10));
+</div>
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $('#examples').DataTable();
+</script>
+<script>
+    function ShowDeleteAppoinment(x) {
+        var obj = $(x).parents("tr")
+        $("#txtQueueId").val(obj.find('td')[7].innerHTML);
+        $("#txtCP").val(obj.find('td')[1].innerHTML);
+        var mob = obj.find('td')[3].innerHTML;
+        $("#txtNo").val(mob.substr(0, 10));
+    };
+
+    function DeleteAppoinment(x) {
+        var QueueId = document.getElementById("txtQueueId").value;
+        var Note = document.getElementById("txtNote").value;
+        var CPno = document.getElementById("txtCP").value;
+        var MbNo = document.getElementById("txtNo").value;
+
+        var form = $('#frmObservationDetails')[0];
+
+        var fromData = new FormData(form);
+        var urllink = '@Url.Content("~/DashBordDetails/DeleteAppoinment")'
+        $.ajax({
+            type: "post",
+            url: urllink,
+            dataType: 'application/json',
+            data: {
+
+                'Id': QueueId, 'Note': Note, 'CPno': CPno, 'MbNo': MbNo
+            }
+        });
+        $("#" + QueueId).remove();
+        alert("Deleted Successfully");
+    }
+</script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    ///1
+
+    var id = 0;
+    var result = [];
+    var urllink = '@Url.Content("~/DashBordDetails/ViewDashbord1")'
+    $.ajax({
+        type: "post",
+        url: urllink,
+        data: '{Id: "' + id + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            var Header = ['', 'NewPatientcount', 'Visitedcount'];
+            result.push(Header);
+            for (var i = 0; i < data.length; i++) {
+                var RowData = [];
+                RowData.push(data[i].date);
+                RowData.push(data[i].NewPatientcount);
+                RowData.push(data[i].Visitedcount);
+
+                result.push(RowData);
+            }
+            google.charts.load('current', { 'packages': ['bar'] });
+            google.charts.setOnLoadCallback(drawChart);
+            //alert(JSON.parse(data));
+            // alert(JSON.stringify(data));
+        }
+    }
+   );
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable(result);
+        // LST.d1lst
+        //            ["Year", "Sales", "Expenses"],
+        //["2014", 3, 3]
+        //['Year', 'Sales', 'Expenses'],
+        //['2014', 1000, 400],
+        //['2015', 1170, 460],
+        //['2016', 660, 1120],
+        //['2017', 1030, 540]
+        //[{ "dates": "/Date(1595356200000)/", "NewPatientcount": 3, "Visitedcount": 3 },
+        //    { "dates": "/Date(1595442600000)/", "NewPatientcount": 1, "Visitedcount": 8 },
+        //    { "dates": "/Date(1595529000000)/", "NewPatientcount": 1, "Visitedcount": 2 },
+        //    { "dates": "/Date(1595615400000)/", "NewPatientcount": 0, "Visitedcount": 4 },
+        //    { "dates": "/Date(1595701800000)/", "NewPatientcount": 0, "Visitedcount": 1 },
+        //    { "dates": "/Date(1595788200000)/", "NewPatientcount": 4, "Visitedcount": 9 }]
+        //]);
+
+        var options = {
+            chart: {
+                title: 'Visit Analysis',
+                //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+            }
         };
 
-        function DeleteAppoinment(x) {
-            var QueueId = document.getElementById("txtQueueId").value;
-            var Note = document.getElementById("txtNote").value;
-            var CPno = document.getElementById("txtCP").value;
-            var MbNo = document.getElementById("txtNo").value;
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
 
-            var form = $('#frmObservationDetails')[0];
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
 
-            var fromData = new FormData(form);
-            var urllink = '@Url.Content("~/DashBordDetails/DeleteAppoinment")'
-            $.ajax({
-                type: "post",
-                url: urllink,
-                dataType: 'application/json',
-                data: {
 
-                    'Id': QueueId, 'Note': Note, 'CPno': CPno, 'MbNo': MbNo
-                }
-            });
-            $("#" + QueueId).remove();
-            alert("Deleted Successfully");
-        }
-    </script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        ///1
 
-        var id = 0;
-        var result = [];
-        var urllink = '@Url.Content("~/DashBordDetails/ViewDashbord1")'
-        $.ajax({
-            type: "post",
-            url: urllink,
-            data: '{Id: "' + id + '"}',
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (data) {
-                var Header = ['', 'NewPatientcount', 'Visitedcount'];
-                result.push(Header);
-                for (var i = 0; i < data.length; i++) {
-                    var RowData = [];
-                    RowData.push(data[i].date);
-                    RowData.push(data[i].NewPatientcount);
-                    RowData.push(data[i].Visitedcount);
 
-                    result.push(RowData);
-                }
-                google.charts.load('current', { 'packages': ['bar'] });
-                google.charts.setOnLoadCallback(drawChart);
-                //alert(JSON.parse(data));
-                // alert(JSON.stringify(data));
+
+    ////////////
+
+    var id2 = 0;
+    var result2 = [];
+    var urllink = '@Url.Content("~/DashBordDetails/IncomeExpensesAnalysis")'
+    $.ajax({
+        type: "post",
+        url: urllink,
+        data: '{Id: "' + id2 + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            var Header = ['', 'Income', 'Expenses'];
+            result2.push(Header);
+            for (var i = 0; i < data.length; i++) {
+                var RowData2 = [];
+                RowData2.push(data[i].date);
+                RowData2.push(data[i].NewPatientcount);
+                RowData2.push(data[i].Visitedcount);
+
+                result2.push(RowData2);
             }
+            google.charts.load('current', { 'packages': ['bar'] });
+            google.charts.setOnLoadCallback(drawChart2);
+            //alert(JSON.parse(data));
+            // alert(JSON.stringify(data));
         }
-       );
+    }
+   );
 
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable(result);
-            // LST.d1lst
-            //            ["Year", "Sales", "Expenses"],
-            //["2014", 3, 3]
-            //['Year', 'Sales', 'Expenses'],
-            //['2014', 1000, 400],
-            //['2015', 1170, 460],
-            //['2016', 660, 1120],
-            //['2017', 1030, 540]
-            //[{ "dates": "/Date(1595356200000)/", "NewPatientcount": 3, "Visitedcount": 3 },
-            //    { "dates": "/Date(1595442600000)/", "NewPatientcount": 1, "Visitedcount": 8 },
-            //    { "dates": "/Date(1595529000000)/", "NewPatientcount": 1, "Visitedcount": 2 },
-            //    { "dates": "/Date(1595615400000)/", "NewPatientcount": 0, "Visitedcount": 4 },
-            //    { "dates": "/Date(1595701800000)/", "NewPatientcount": 0, "Visitedcount": 1 },
-            //    { "dates": "/Date(1595788200000)/", "NewPatientcount": 4, "Visitedcount": 9 }]
-            //]);
+    function drawChart2() {
+        var data = google.visualization.arrayToDataTable(result2);
+        // LST.d1lst
+        //            ["Year", "Sales", "Expenses"],
+        //["2014", 3, 3]
+        //['Year', 'Sales', 'Expenses'],
+        //['2014', 1000, 400],
+        //['2015', 1170, 460],
+        //['2016', 660, 1120],
+        //['2017', 1030, 540]
+        //[{ "dates": "/Date(1595356200000)/", "NewPatientcount": 3, "Visitedcount": 3 },
+        //    { "dates": "/Date(1595442600000)/", "NewPatientcount": 1, "Visitedcount": 8 },
+        //    { "dates": "/Date(1595529000000)/", "NewPatientcount": 1, "Visitedcount": 2 },
+        //    { "dates": "/Date(1595615400000)/", "NewPatientcount": 0, "Visitedcount": 4 },
+        //    { "dates": "/Date(1595701800000)/", "NewPatientcount": 0, "Visitedcount": 1 },
+        //    { "dates": "/Date(1595788200000)/", "NewPatientcount": 4, "Visitedcount": 9 }]
+        //]);
 
-            var options = {
-                chart: {
-                    title: 'Visit Analysis',
-                    //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-                }
-            };
-
-            var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
-            chart.draw(data, google.charts.Bar.convertOptions(options));
-        }
-
-
-
-
-
-        ////////////
-
-        var id2 = 0;
-        var result2 = [];
-        var urllink = '@Url.Content("~/DashBordDetails/IncomeExpensesAnalysis")'
-        $.ajax({
-            type: "post",
-            url: urllink,
-            data: '{Id: "' + id2 + '"}',
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (data) {
-                var Header = ['', 'Income', 'Expenses'];
-                result2.push(Header);
-                for (var i = 0; i < data.length; i++) {
-                    var RowData2 = [];
-                    RowData2.push(data[i].date);
-                    RowData2.push(data[i].NewPatientcount);
-                    RowData2.push(data[i].Visitedcount);
-
-                    result2.push(RowData2);
-                }
-                google.charts.load('current', { 'packages': ['bar'] });
-                google.charts.setOnLoadCallback(drawChart2);
-                //alert(JSON.parse(data));
-                // alert(JSON.stringify(data));
+        var options = {
+            chart: {
+                title: 'Income-Expenses Analysis',
+                //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
             }
-        }
-       );
+        };
 
-        function drawChart2() {
-            var data = google.visualization.arrayToDataTable(result2);
-            // LST.d1lst
-            //            ["Year", "Sales", "Expenses"],
-            //["2014", 3, 3]
-            //['Year', 'Sales', 'Expenses'],
-            //['2014', 1000, 400],
-            //['2015', 1170, 460],
-            //['2016', 660, 1120],
-            //['2017', 1030, 540]
-            //[{ "dates": "/Date(1595356200000)/", "NewPatientcount": 3, "Visitedcount": 3 },
-            //    { "dates": "/Date(1595442600000)/", "NewPatientcount": 1, "Visitedcount": 8 },
-            //    { "dates": "/Date(1595529000000)/", "NewPatientcount": 1, "Visitedcount": 2 },
-            //    { "dates": "/Date(1595615400000)/", "NewPatientcount": 0, "Visitedcount": 4 },
-            //    { "dates": "/Date(1595701800000)/", "NewPatientcount": 0, "Visitedcount": 1 },
-            //    { "dates": "/Date(1595788200000)/", "NewPatientcount": 4, "Visitedcount": 9 }]
-            //]);
+        var chart2 = new google.charts.Bar(document.getElementById('columnchart_materiala'));
 
-            var options = {
-                chart: {
-                    title: 'Income-Expenses Analysis',
-                    //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-                }
-            };
-
-            var chart2 = new google.charts.Bar(document.getElementById('columnchart_materiala'));
-
-            chart2.draw(data, google.charts.Bar.convertOptions(options));
-        }
+        chart2.draw(data, google.charts.Bar.convertOptions(options));
+    }
 
 
-        ////////3
+    ////////3
 
 
-        var id3 = 0;
-        var result3 = [];
-        var urllink3 = '@Url.Content("~/DashBordDetails/IncomeExpensesAnalysis3")'
-        $.ajax({
-            type: "post",
-            url: urllink3,
-            data: '{Id: "' + id + '"}',
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (data) {
-                var Header = ['', 'InvoiceAmount', 'EspensesAmount'];
-                result3.push(Header);
-                for (var i = 0; i < data.length; i++) {
-                    var RowData3 = [];
-                    RowData3.push(data[i].date);
-                    RowData3.push(data[i].InvoiceAmount);
-                    RowData3.push(data[i].EspensesAmount);
+    var id3 = 0;
+    var result3 = [];
+    var urllink3 = '@Url.Content("~/DashBordDetails/IncomeExpensesAnalysis3")'
+    $.ajax({
+        type: "post",
+        url: urllink3,
+        data: '{Id: "' + id + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            var Header = ['', 'InvoiceAmount', 'EspensesAmount'];
+            result3.push(Header);
+            for (var i = 0; i < data.length; i++) {
+                var RowData3 = [];
+                RowData3.push(data[i].date);
+                RowData3.push(data[i].InvoiceAmount);
+                RowData3.push(data[i].EspensesAmount);
 
-                    result3.push(RowData3);
-                }
-                google.charts.load('current', { 'packages': ['bar'] });
-                google.charts.setOnLoadCallback(drawChart3);
-                //alert(JSON.parse(data));
-                // alert(JSON.stringify(data));
+                result3.push(RowData3);
             }
+            google.charts.load('current', { 'packages': ['bar'] });
+            google.charts.setOnLoadCallback(drawChart3);
+            //alert(JSON.parse(data));
+            // alert(JSON.stringify(data));
         }
-       );
+    }
+   );
 
-        function drawChart3() {
-            var data = google.visualization.arrayToDataTable(result3);
-            // LST.d1lst
-            //            ["Year", "Sales", "Expenses"],
-            //["2014", 3, 3]
-            //['Year', 'Sales', 'Expenses'],
-            //['2014', 1000, 400],
-            //['2015', 1170, 460],
-            //['2016', 660, 1120],
-            //['2017', 1030, 540]
-            //[{ "dates": "/Date(1595356200000)/", "NewPatientcount": 3, "Visitedcount": 3 },
-            //    { "dates": "/Date(1595442600000)/", "NewPatientcount": 1, "Visitedcount": 8 },
-            //    { "dates": "/Date(1595529000000)/", "NewPatientcount": 1, "Visitedcount": 2 },
-            //    { "dates": "/Date(1595615400000)/", "NewPatientcount": 0, "Visitedcount": 4 },
-            //    { "dates": "/Date(1595701800000)/", "NewPatientcount": 0, "Visitedcount": 1 },
-            //    { "dates": "/Date(1595788200000)/", "NewPatientcount": 4, "Visitedcount": 9 }]
-            //]);
+    function drawChart3() {
+        var data = google.visualization.arrayToDataTable(result3);
+        // LST.d1lst
+        //            ["Year", "Sales", "Expenses"],
+        //["2014", 3, 3]
+        //['Year', 'Sales', 'Expenses'],
+        //['2014', 1000, 400],
+        //['2015', 1170, 460],
+        //['2016', 660, 1120],
+        //['2017', 1030, 540]
+        //[{ "dates": "/Date(1595356200000)/", "NewPatientcount": 3, "Visitedcount": 3 },
+        //    { "dates": "/Date(1595442600000)/", "NewPatientcount": 1, "Visitedcount": 8 },
+        //    { "dates": "/Date(1595529000000)/", "NewPatientcount": 1, "Visitedcount": 2 },
+        //    { "dates": "/Date(1595615400000)/", "NewPatientcount": 0, "Visitedcount": 4 },
+        //    { "dates": "/Date(1595701800000)/", "NewPatientcount": 0, "Visitedcount": 1 },
+        //    { "dates": "/Date(1595788200000)/", "NewPatientcount": 4, "Visitedcount": 9 }]
+        //]);
 
-            var options = {
-                chart: {
-                    title: 'InvoiceAmount-EspensesAmount ',
-                    //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+        var options = {
+            chart: {
+                title: 'InvoiceAmount-EspensesAmount ',
+                //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
 
-                }
-            };
-
-            var chart3 = new google.charts.Bar(document.getElementById('chart_div'));
-
-            chart3.draw(data, google.charts.Bar.convertOptions(options));
-        }
-
-        ////4/////
-
-
-
-        var id4 = 0;
-        var result4 = [];
-        var urllink4 = '@Url.Content("~/DashBordDetails/IncomeExpensesAnalysis4")'
-        $.ajax({
-            type: "post",
-            url: urllink4,
-            data: '{Id: "' + id + '"}',
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (data) {
-                var Header = ['', 'InvoiceAmount', 'EspensesAmount'];
-                result4.push(Header);
-                for (var i = 0; i < data.length; i++) {
-                    var RowData4 = [];
-                    RowData4.push(data[i].date);
-                    RowData4.push(data[i].InvoiceAmount);
-                    RowData4.push(data[i].EspensesAmount);
-
-                    result4.push(RowData4);
-                }
-                google.charts.load('current', { 'packages': ['bar'] });
-                google.charts.setOnLoadCallback(drawChart4);
-                //alert(JSON.parse(data));
-                // alert(JSON.stringify(data));
             }
+        };
+
+        var chart3 = new google.charts.Bar(document.getElementById('chart_div'));
+
+        chart3.draw(data, google.charts.Bar.convertOptions(options));
+    }
+
+    ////4/////
+
+
+
+    var id4 = 0;
+    var result4 = [];
+    var urllink4 = '@Url.Content("~/DashBordDetails/IncomeExpensesAnalysis4")'
+    $.ajax({
+        type: "post",
+        url: urllink4,
+        data: '{Id: "' + id + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            var Header = ['', 'InvoiceAmount', 'EspensesAmount'];
+            result4.push(Header);
+            for (var i = 0; i < data.length; i++) {
+                var RowData4 = [];
+                RowData4.push(data[i].date);
+                RowData4.push(data[i].InvoiceAmount);
+                RowData4.push(data[i].EspensesAmount);
+
+                result4.push(RowData4);
+            }
+            google.charts.load('current', { 'packages': ['bar'] });
+            google.charts.setOnLoadCallback(drawChart4);
+            //alert(JSON.parse(data));
+            // alert(JSON.stringify(data));
         }
-       );
+    }
+   );
 
-        function drawChart4() {
-            var data = google.visualization.arrayToDataTable(result4);
-          
-
-            var options = {
-                chart: {
-                    title: 'InvoiceAmount-EspensesAmount ',
-                    //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-
-                }
-            };
-
-            var chart4 = new google.charts.Bar(document.getElementById('chart4'));
-
-            chart4.draw(data, google.charts.Bar.convertOptions(options));
-        }
+    function drawChart4() {
+        var data = google.visualization.arrayToDataTable(result4);
 
 
-        @*var id4 = 0;
+        var options = {
+            chart: {
+                title: 'InvoiceAmount-EspensesAmount ',
+                //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+
+            }
+        };
+
+        var chart4 = new google.charts.Bar(document.getElementById('chart4'));
+
+        chart4.draw(data, google.charts.Bar.convertOptions(options));
+    }
+
+
+    @*var id4 = 0;
         var result4 = [];
         var urllink4 = '@Url.Content("~/DashBordDetails/IncomeExpensesAnalysis")'
         $.ajax({
@@ -657,10 +657,41 @@
         }*@
 
 
-        $('select').val('the_value');
+    // $(document).ready(function () {
 
-        var $select = $('.selDiv .opts');
-        $select.val("SEL2").change();
-    </script>
+    //    alert("(document)");
+    //$("Div1").css('display', (this.value == '1') ? 'block' : 'none');
+    //$("Div2").css('display', (this.value == '1') ? 'block' : 'none');
+    //$("Div3").css('display', (this.value == '0') ? 'block' : 'none');
+    //$("Div4").css('display', (this.value == '0') ? 'block' : 'none');
+
+    // $("#business").css('display', (this.value == '1') ? 'block' : 'none');
+    // });
+
+
+    //$('#purpose').on('change', function () {
+    //    if (this.value == '1')
+    //        //.....................^.......
+    //    {
+    //        alert("(1)");
+    //        $("Div3").css('display','none');
+    //        $("Div4").css('display', 'none');
+
+    //        $("Div1").css('display', 'block');
+    //        $("Div2").css('display', 'block');
+    //    }
+    //    else {
+    //        alert("(2)");
+    //        $("Div1").css('display', 'none');
+    //        $("Div2").css('display', 'none');
+
+    //        $("Div3").css('display', 'block');
+    //        $("Div4").css('display', 'block');
+
+
+    //    }
+    //});
+
+</script>
 
 
