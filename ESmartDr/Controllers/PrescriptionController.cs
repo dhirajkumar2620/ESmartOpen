@@ -2,7 +2,9 @@
 using Bal_Layer;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -74,7 +76,7 @@ namespace ESmartDr.Controllers
         }
 
         [HttpPost]
-        public ActionResult ManagePrecCommonDetails(Common co)
+        public ActionResult ManagePrecCommonDetails(Common co, HttpPostedFileBase imgfile)
         {
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
             PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
@@ -84,7 +86,25 @@ namespace ESmartDr.Controllers
             co.CreatedBy = admObj.UserId.ToString();
             co.PatientId = patientDETAILS.Id.ToString();
             co.CasePaperNo = patientDETAILS.CasePapaerNo;
-            co.FileName = "Text";
+            
+
+            if (imgfile.FileName!="")
+            {
+              
+                string path;
+                string extension = Path.GetExtension(imgfile.FileName);
+                string impPath = ConfigurationManager.AppSettings["HistoryDoc"];
+                path = Path.Combine(Server.MapPath(impPath), Path.GetFileName(imgfile.FileName));
+                imgfile.SaveAs(path);
+                co.FileName = imgfile.FileName;
+                // path = "/UploadImage/" + Path.GetFileName(imgfile.FileName);
+            }
+            else
+            {
+                co.FileName = "";
+            }
+
+
             int Flag = BM.ManagePrecCommonDetails(co);
             if (Flag > 0)
             {

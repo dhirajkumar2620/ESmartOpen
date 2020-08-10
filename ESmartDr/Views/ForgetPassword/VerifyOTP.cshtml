@@ -114,6 +114,10 @@
             color: #fff;
             padding: 20px 10px;
         }
+
+        .fp-pg .sn-in p a {
+    color: #fff!important;
+}
     </style>
 </head>
 <body class="fp-pg" style="background: #d4d4d4;">
@@ -144,6 +148,17 @@
                     <div class="text-center sn-in">
                         <input type="submit" value="Submit" class="btn btn-primary" style="width: 46%;border-radius: 22px;margin-top: 2em;border-radius: 22px;background: #fff;border-color: #fff;color: #f5a433;font-weight: 700!important; font-size: 1em;" />   @*style="font-weight: 700!important;color:#f5a433"*@
                     </div>
+                   
+                    <div class="text-center sn-in">
+
+
+                        <p>
+                            <a href="#" class="k" style="font-weight: 700!important;color:#fff">
+                                @Html.ActionLink("Click For Login", "Index", "LoginDetails")
+                            </a>
+                        </p>
+
+                    </div>
                     <br />
                     <p> </p>
                     <br />
@@ -161,19 +176,16 @@
         <br />
 
     }
-    <footer class="main-footer verify-footer forgtFooter">
+    @*<footer class="main-footer verify-footer forgtFooter">
         <div class="container-fluid">
             <div class="row">
-                <!-- <div class="col-sm-6">
-                  <p>Your company &copy; 2017-2020</p>
-                </div> -->
+              
                 <div class="col-sm-12 footer-img text-right">
                     <p><span class="small" style="color:black">Powered by</span> <img src="~/img/LogoTechbulb.png" class="img-responsive"></p>
-                    <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
                 </div>
             </div>
         </div>
-    </footer>
+    </footer>*@
     <script src="~/vendor/jquery/jquery.min.js"></script>
     <script src="~/vendor/popper.js/umd/popper.min.js"> </script>
     <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -201,6 +213,16 @@
         }
 
         $("#txtOTP").val("");
+
+
+
+        $(document).ready(function () {
+            function disableBack() { window.history.forward() }
+
+            window.onload = disableBack();
+            window.onpageshow = function (evt) { if (evt.persisted) disableBack() }
+        });
+
     </script>
 
 </body>

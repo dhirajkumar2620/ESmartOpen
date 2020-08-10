@@ -3,9 +3,12 @@ using Bal_Layer;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.IO.IsolatedStorage;
+using System.Web.Hosting;
 
 namespace ESmartDr.Controllers
 {
@@ -13,7 +16,7 @@ namespace ESmartDr.Controllers
     {
         // GET: MyOPD
         BAL_MyOPD BM = new BAL_MyOPD();
-       
+
         public ActionResult Index()
         {
             return View();
@@ -37,8 +40,8 @@ namespace ESmartDr.Controllers
         }
         public ActionResult OpdPatientDetails()
         {
-           
-                return View("PatientDetails");
+
+            return View("PatientDetails");
 
         }
         public ActionResult OpdExamination()
@@ -52,7 +55,7 @@ namespace ESmartDr.Controllers
             var Diagnosis = "";
             var TestBeforeVisit = "";
             var NextVisit = "";
-            
+
             if (pd.clist.Count > 0)
             {
                 foreach (var item in pd.clist)
@@ -72,14 +75,14 @@ namespace ESmartDr.Controllers
             {
                 foreach (var item in pd.NextListlst)
                 {
-                    NextVisit = NextVisit +item.NestVisitDate + "  " + ",";
+                    NextVisit = NextVisit + item.NestVisitDate + "  " + ",";
                 }
             }
             if (pd.clist.Count > 0)
             {
                 foreach (var item in pd.clist)
                 {
-                    TestBeforeVisit = TestBeforeVisit+ item.InvSelectTests + "  " + ",";
+                    TestBeforeVisit = TestBeforeVisit + item.InvSelectTests + "  " + ",";
                 }
             }
             pd.HospClinicNumber = pd.HospClinicNumber + " ," + pd.OtherNumber;
@@ -100,11 +103,11 @@ namespace ESmartDr.Controllers
             hd.lstHD = Ld;
             ////WebHistory Ld = new WebHistory();
             ////Ld = BM.GetWEBHistory(patientDETAILS.CasePapaerNo);
-            return View("History",hd);
+            return View("History", hd);
         }
         public ActionResult OpdBilling()
         {
-            
+
             ModelState.Clear();
             PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             BillingDetails bd = new BillingDetails();
@@ -184,8 +187,8 @@ namespace ESmartDr.Controllers
         public ActionResult PatientVitalInformation()
         {
             BAL_MyOPD VI = new BAL_MyOPD();
-            List<VitalInformation> vi= new List<VitalInformation>();
-           VitalInformation v = new VitalInformation();
+            List<VitalInformation> vi = new List<VitalInformation>();
+            VitalInformation v = new VitalInformation();
             PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             vi = VI.GetVitalInformation(patientDETAILS.CasePapaerNo);
 
@@ -256,5 +259,37 @@ namespace ESmartDr.Controllers
             // var MedicineNamelst = lst.Where(x => x.MedicineName.ToUpper().Contains(search.ToUpper())).ToList();
             return Json(lst, JsonRequestBehavior.AllowGet);
         }
+
+        public FileResult Download(string fileName)
+        {
+            string fullName1 = System.IO.Path.Combine(Server.MapPath("~/Doc"), fileName);
+
+            //string fileName = FileUpload1.FileName;
+            //var filepath = System.IO.Path.Combine(Server.MapPath("~/Doc"), fileName);
+            //return File(filepath, MimeMapping.GetMimeMapping(filepath), fileName);
+            //var path = Server.MapPath(@"~/Doc/030002fb.jpg");
+            //var contents = System.IO.File.ReadAllBytes(path);
+            //return File(contents, "image/jpeg");
+
+            string fullPath = Path.Combine(Server.MapPath("~/Doc"), fileName);
+            byte[] fileBytes = System.IO.File.ReadAllBytes(fullPath);
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+
+        }
+        }
     }
-}
+
+        //var filepath = System.IO.Path.Combine(Server.MapPath("~/Doc"), fileName);
+        //return File(filepath, MimeMapping.GetMimeMapping(filepath), fileName);
+        //var path = Server.MapPath(@"~/Doc/030002fb.jpg");
+        //var contents = System.IO.File.ReadAllBytes(path);
+        //return File(contents, "image/jpeg");
+
+    
+        //    //Get the temp folder and file path in server
+        //    string fullPath = Path.Combine(Server.MapPath("~/Doc"), fileName);
+        //    byte[] fileByteArray = System.IO.File.ReadAllBytes(fullPath);
+        //    System.IO.File.Delete(fullPath);
+        //    return File(fileByteArray, "application/vnd.ms-excel", fileName);
+        //}
+

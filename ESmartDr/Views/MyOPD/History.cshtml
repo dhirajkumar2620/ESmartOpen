@@ -90,9 +90,9 @@
 
                                                                 @foreach (var item1 in item.lstMD)
                                                                 {
-                                                                    <tr>
-                                                                        <td>
-                                                                            @item1.MedicineName -
+                                                                <tr>
+                                                                    <td>
+                                                                        @item1.MedicineName -
                                                                         @item1.WhenMedicine - @item1.RepeatMedicine / @item1.MedicineCount @item1.MedicineDays /
                                                                         @item1.SpecialInstruction /
                                                                         @item1.AlternateMedicine
@@ -112,9 +112,9 @@
 
                                                                 @foreach (var item2 in item.lstTD)
                                                                 {
-                                                                    <tr>
-                                                                        <td>@item2.Test</td>
-                                                                    </tr>
+                                                                <tr>
+                                                                    <td>@item2.Test</td>
+                                                                </tr>
                                                                 }
 
                                                             </tbody>
@@ -127,10 +127,10 @@
 
                                                                 @foreach (var item3 in item.lstOD)
                                                                 {
-                                                                    <tr>
-                                                                        <td>@item3.Observation - @item3.Since @item3.Period</td>
+                                                                <tr>
+                                                                    <td>@item3.Observation - @item3.Since @item3.Period</td>
 
-                                                                    </tr>
+                                                                </tr>
                                                                 }
                                                             </tbody>
                                                         </table>
@@ -143,9 +143,21 @@
                                                                 @foreach (var item4 in item.lstHF)
                                                                 {
                                                                     <tr>
-                                                                        <td>@item4.FileName</td>
+                                                                       
+                                                                       
 
-                                                                    </tr>
+
+
+                                                                        <td>
+                                                                         
+                                                                         <a title="Download + @item4.FileName" href="@Url.Action("Download", "MyOPD", new { fileName = item4.FileName })"><i class="fa fa-download" aria-hidden="true"></i></a>
+                                                                 
+                                                                        </td>
+                                                                        
+                                                                       
+                                                                      
+
+                                                    </tr>
                                                                 }
                                                             </tbody>
                                                         </table>

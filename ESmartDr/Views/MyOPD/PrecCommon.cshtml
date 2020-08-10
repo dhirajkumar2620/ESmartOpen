@@ -64,7 +64,7 @@
     }
 </style>
 <div class="card-body">
-    @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmPrecCommon" }))
+    @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmPrecCommon", enctype = "multipart/form-data" }))
     {
         @Html.HiddenFor(m => m.Id, new { @id = "hdnPCId" });
         <form>
@@ -132,9 +132,20 @@
                     </div>
 
                 </div>
-            </div>
 
-        </form>
+            </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Upload Photo
+                            </label>
+                            <input type="file" id="imgfile" name="imgfile" placeholder="Email-Id / Mobile No." class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+</form>
     }
     <br />
     <div class="row">
@@ -192,7 +203,7 @@
     function SubmitCommonDetails() {
 
         var form = $('#frmPrecCommon')[0];
-
+        
         var fromData = new FormData(form);
         var urllink = '@Url.Content("~/Prescription/ManagePrecCommonDetails")'
         $.ajax({
