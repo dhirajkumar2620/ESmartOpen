@@ -153,9 +153,10 @@
         <div class="container-fluid">
             <h2 class="no-margin-bottom">Dashboard</h2>
 
-            <select class="pull-right" id='purpose' style="display:none">
+            <select class="pull-left" id='purpose' >
+                <option value="0">-ALL-</option>
                 <option value="1">Weekly</option>
-                <option value="0">Monthly</option>
+                <option value="2">Monthly</option>
             </select>
         </div>
     </header>
@@ -692,6 +693,43 @@
     //    }
     //});
 
+
+
+</script>
+
+<script type="text/javascript">
+    $(function () {
+       
+     
+    $("#purpose").change(function () {
+        
+       
+
+        if ($(this).val() == "1") {
+
+            $("#Div1").show();
+            $("#Div2").show();
+            $("#Div3").hide();
+            $("#Div4").hide();
+
+        } else if ($(this).val() == "2") {
+
+            $("#Div3").show();
+            $("#Div4").show();
+            $("#Div1").hide();
+            $("#Div2").hide();
+
+        }
+        else
+        {
+            $("#Div3").show();
+            $("#Div4").show();
+            $("#Div1").show();
+            $("#Div2").show();
+
+        }
+});
+});
 </script>
 
 
