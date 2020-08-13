@@ -60,21 +60,25 @@
         };
     </script>
     <style>
-        .scrollup {
-            position: fixed;
-            bottom: 70px;
-            right: 60px;
-            display: none;
-            color: #25a1a1;
-            font-size: 3em;
-            z-index: 9999;
-        }
+           .scrollup {
+               position: fixed;
+               bottom: 70px;
+               right: 60px;
+               display: none;
+               color: #25a1a1;
+               font-size: 3em;
+               z-index: 9999;
+           }
 
-        template::before, .radio-template::before {
+           template::before, .radio-template::before {
 
-                width: 15px;
-    height: 13px;
-        }
+                   width: 15px;
+       height: 13px;
+           }
+
+    .fp-align {
+           top: -1px;
+       }
     </style>
 </head>
 
@@ -156,11 +160,11 @@
                                     }
                                     <div class="row">
                                     
-                                            <div class="col s5 offset-s1 right-align ">
+                                            <div class="col s5 offset-s1 right-align">
                                                 <input type="checkbox"  onchange="checkAll(this)" class="checkbox-template" name="checkboxCustom" id="checkboxCustom" />
                                                 <label for="persist">Remember me</label>
                                             </div>
-                                            <div class="col s5 offset-s1 fp-align left-align">
+                                            <div class="col s5 offset-s1 fp-align" style="text-align: right;">
                                                 @Html.ActionLink("Forget Pssword", "Index", "ForgetPassword")
                                                
                                             </div>
