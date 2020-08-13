@@ -29,6 +29,9 @@ namespace ESmartDr.Controllers
             Bal_MedicineDetails BLs = new Bal_MedicineDetails();
             Settings s = new Settings();
             s = BLs.GetSettings(ad.UserId);
+
+
+            Session["User"] = ad;
             Session["Language"] = s.Language;
             Session["VitalInformation"] = s.VitalInformation;
             Session["Complaints"] =s.Complaints;
@@ -39,7 +42,7 @@ namespace ESmartDr.Controllers
             Session["NextVisit"] = s.NextVisit;
             Session["Printer"] = s.Printer;
             Session["Template"] = s.Template;
-            Session["Advice"] = s.Template;
+            Session["Advice"] = s.Advice;
             //-------------
             Session["date"] = DateTime.Now.ToString("dd/MM/yyyy");
             DayOfWeek wk = DateTime.Today.DayOfWeek;
@@ -63,6 +66,17 @@ namespace ESmartDr.Controllers
                 Session["regNo"] = ad.RegNumber;
                 Session["Hid"] = ad.HospitalId;
                 Session["Hname"] = ad.HostClincName;
+               // Session["Speciality"] = ad.Speciality;
+                //if (string.IsNullOrEmpty(Session["Speciality"] as string))
+                //{
+                //    Session["Speciality"] = " ";
+                //}
+                //else
+                //{
+                //    Session["Speciality"] = ad.Speciality;
+
+                //}
+                    
 
                 Session["Haddress"] = ad.HospClinicAddess;
                 Session["Hnumber"] = ad.WhatsAppNumber;

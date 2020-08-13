@@ -149,7 +149,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[11];
+                sqlparam = new SqlParameter[12];
                 sqlparam[0] = new SqlParameter("@UserId", s.UserId);
                 sqlparam[1] = new SqlParameter("@Language", s.Language);
                 sqlparam[2] = new SqlParameter("@VitalInformation", s.VitalInformation);
@@ -161,7 +161,7 @@ namespace Dal_Layer
                 sqlparam[8] = new SqlParameter("@NextVisit", s.NextVisit);
                 sqlparam[9] = new SqlParameter("@Printer", s.Printer);
                 sqlparam[10] = new SqlParameter("@Template", s.Template);
-                sqlparam[10] = new SqlParameter("@Advice", s.Advice);
+                sqlparam[11] = new SqlParameter("@Advice", s.Advice);
                 
                 return CommonFunction.Save("USP_ManageSettings", sqlparam, "");
               

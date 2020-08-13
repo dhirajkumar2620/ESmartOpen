@@ -101,34 +101,13 @@
                                             </tr>
                                         </table>
                                     }
-                                    @if (@Session["Template"].ToString() == "No")
+                                    else
                                     {
-                                        <table style="width: 100%; display: inline;">
-                                            <tr>
-                                                <td>
-                                                    <ul style="list-style:none;">
-                                                        <li><b> </b></li>
-                                                        <li> </li>
-                                                        <li> </li>
-                                                        <li>  </li>
-                                                        <li> </li>
-                                                    </ul>
-                                                </td>
-
-                                            </tr>
-                                        </table>
-                                        <table style="float: right;">
-                                            <tr>
-                                                <td>
-                                                    <ul style="list-style:none;float:right;">
-                                                        <li><b>  </b></li>
-                                                        <li> </li>
-                                                        <li> </li>
-                                                        <li> </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                         <br />
                                     }
                                     <table style="width: 100%;border:1px solid #cccccc;padding: 1.5em .5em;border-radius: 9px;">
                                         <tr>
@@ -245,7 +224,7 @@
                                                     <br>
 
                                                     <li>Test before next visit : @Model.TestBeforeVisit</li>
-                                                    
+
                                                     <br>
                                                     @if (@Session["NextVisit"].ToString() == "Yes")
                                                     {
@@ -280,16 +259,9 @@
                                             </tr>
                                         </table>
                                     }
-                                    @if (@Session["Template"].ToString() == "No")
+                                    else
                                     {
-                                        <table style="width:100%;border-top: 1px solid #808080;">
-                                            <tr>
-                                                <td></td>
-                                                <td style="float: right;">
-                                                    <small style="font-size: 8px;">  </small>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                        <br />  <br />
                                     }
 
                                 </td>
@@ -326,56 +298,56 @@
 
 
 
-        ////////Get the HTML of div
-        //////var divElements = document.getElementById("printExamination").innerHTML;
-        ////////Get the HTML of whole page
-        //////var oldPage = document.body.innerHTML;
-        ////////Reset the page's HTML with div's HTML only
-        //////document.body.innerHTML =
-        //////    "<html><head><title></title></head><body>" +
-        //////    divElements + "</body>";
+    ////////Get the HTML of div
+    //////var divElements = document.getElementById("printExamination").innerHTML;
+    ////////Get the HTML of whole page
+    //////var oldPage = document.body.innerHTML;
+    ////////Reset the page's HTML with div's HTML only
+    //////document.body.innerHTML =
+    //////    "<html><head><title></title></head><body>" +
+    //////    divElements + "</body>";
 
-        ////////Print Page
-        //////window.print();
+    ////////Print Page
+    //////window.print();
 
-        ////////Restore orignal HTML
-        //////document.body.innerHTML = oldPage;
+    ////////Restore orignal HTML
+    //////document.body.innerHTML = oldPage;
 
 
-   /// }
+    /// }
 </script>
 <script>
 
-   // function ShowPrint() {
-        //PrintDiv1();
-        //    $.ajax({
-        //        type: "POST",
-        //        url: "/MyOPD/PrintExaminatonDetails",
-        //        contentType: "application/json; charset=utf-8",
-        //        dataType: "html",
-        //        success: function (response) {
-        //            $('#Bill').html(response);
-        //            PrintDiv1();
-        //            //$('#ComfirmationPopup').modal('show');
-        //        },
-        //        failure: function (response) {
-        //            alert(response.responseText);
-        //        },
-        //        error: function (response) {
-        //            alert(response.responseText);
-        //        }
-        //    });
-        //}
-        //function PrintDiv1() {
-        //    var Bill = document.getElementById("Bill").innerHTML;
-        //    var printWindow = window.open('', '', 'height=500,width=900');
-        //    printWindow.document.write('<html><head><title>DIV Contents</title>');
-        //    printWindow.document.write('</head><body>');
-        //    printWindow.document.write(Bill);
-        //    printWindow.document.write('</body></html>');
-        //    printWindow.document.close();
-        //    printWindow.print();
-        //}
+    // function ShowPrint() {
+    //PrintDiv1();
+    //    $.ajax({
+    //        type: "POST",
+    //        url: "/MyOPD/PrintExaminatonDetails",
+    //        contentType: "application/json; charset=utf-8",
+    //        dataType: "html",
+    //        success: function (response) {
+    //            $('#Bill').html(response);
+    //            PrintDiv1();
+    //            //$('#ComfirmationPopup').modal('show');
+    //        },
+    //        failure: function (response) {
+    //            alert(response.responseText);
+    //        },
+    //        error: function (response) {
+    //            alert(response.responseText);
+    //        }
+    //    });
+    //}
+    //function PrintDiv1() {
+    //    var Bill = document.getElementById("Bill").innerHTML;
+    //    var printWindow = window.open('', '', 'height=500,width=900');
+    //    printWindow.document.write('<html><head><title>DIV Contents</title>');
+    //    printWindow.document.write('</head><body>');
+    //    printWindow.document.write(Bill);
+    //    printWindow.document.write('</body></html>');
+    //    printWindow.document.close();
+    //    printWindow.print();
+    //}
 </script>
 
 <script src="~/js/front.js"></script>

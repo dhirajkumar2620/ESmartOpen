@@ -1,8 +1,10 @@
 ﻿@model App_Layer.BillPrint
- 
-    <table style="margin: 0 auto;">
-        <tr>
-            <td>
+
+<table style="margin: 0 auto;">
+    <tr>
+        <td>
+            @if (@Session["Template"].ToString() == "Yes")
+            {
                 <table style="width: 100%;display: inline;">
                     <tr>
 
@@ -30,95 +32,103 @@
                         </td>
                     </tr>
                 </table>
-                <table style="width: 100%;border-top: 1px solid #cccccc;border-bottom: 1px solid #cccccc;">
-                    <tr>
-                        <td style="font-weight: bold;">
-                            No.
-                        </td>
-                        <td style="text-align: right;font-size: 22px;">
-                            <h3 style="margin-top: 0;margin-bottom: 0;">RECEIPT</h3>
-                        </td>
-                        <td style="text-align: right;font-weight: bold;">
-                            Date: @DateTime.Now.ToString("dd/MM/yyyy")
-                        </td>
-                    </tr>
-                </table>
+            }
+            else
+            {
+                <br />
+                <br /> 
+                <br />                     
+                 <br /> <br />
+            }
+            <table style="width: 100%;border-top: 1px solid #cccccc;border-bottom: 1px solid #cccccc;">
+                <tr>
+                    <td style="font-weight: bold;">
+                        No.
+                    </td>
+                    <td style="text-align: right;font-size: 22px;">
+                        <h3 style="margin-top: 0;margin-bottom: 0;">RECEIPT</h3>
+                    </td>
+                    <td style="text-align: right;font-weight: bold;">
+                        Date: @DateTime.Now.ToString("dd/MM/yyyy")
+                    </td>
+                </tr>
+            </table>
 
-                <table style="width: 100%;padding: 0px 18px;">
-                    <tr>
-                        <td>Patient Name:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.PatientName" style="border: none;border-bottom: 1px solid #c3c3c3;width: 86%;"><br></td>
-                    </tr>
-                </table>
+            <table style="width: 100%;padding: 0px 18px;">
+                <tr>
+                    <td>Patient Name:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.PatientName" style="border: none;border-bottom: 1px solid #c3c3c3;width: 86%;"><br></td>
+                </tr>
+            </table>
 
-                <table style="width: 100%;padding: 0px 18px;">
-                    <tr>
-                        <td>
-                            Age:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.Age" style="border: none;border-bottom: 1px solid #c3c3c3;width: 80%;"><br>
-                        </td>
-                        <td>
-                            Gender:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.Gender" style="border: none;border-bottom: 1px solid #c3c3c3;width: 75%;"><br>
-                        </td>
-                        <td>
-                            CP No.:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.CasePapaerNo" style="border: none;border-bottom: 1px solid #c3c3c3;width: 69%;"><br>
-                        </td>
-                    </tr>
-                </table>
+            <table style="width: 100%;padding: 0px 18px;">
+                <tr>
+                    <td>
+                        Age:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.Age" style="border: none;border-bottom: 1px solid #c3c3c3;width: 80%;"><br>
+                    </td>
+                    <td>
+                        Gender:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.Gender" style="border: none;border-bottom: 1px solid #c3c3c3;width: 75%;"><br>
+                    </td>
+                    <td>
+                        CP No.:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.CasePapaerNo" style="border: none;border-bottom: 1px solid #c3c3c3;width: 69%;"><br>
+                    </td>
+                </tr>
+            </table>
 
-                <table style="width: 100%;padding: 0px 18px;">
-                    <tr>
-                        <td>
-                            Address:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.PatientAddress" style="border: none;border-bottom: 1px solid #c3c3c3;width: 88%;"><br>
-                        </td>
-                    </tr>
-                </table>
+            <table style="width: 100%;padding: 0px 18px;">
+                <tr>
+                    <td>
+                        Address:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.PatientAddress" style="border: none;border-bottom: 1px solid #c3c3c3;width: 88%;"><br>
+                    </td>
+                </tr>
+            </table>
 
-                <table style="width: 100%;padding: 0px 18px;">
-                    <tr>
-                        <td>
-                            Mobile No.:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.PatientWhatsAppNo" style="border: none;border-bottom: 1px solid #c3c3c3;width: 80%;"><br>
-                        </td>
-                        <td style="float:right;">
-                            Visit Date: @Model.InvoiceDate
-                        </td>
-                    </tr>
-                </table>
+            <table style="width: 100%;padding: 0px 18px;">
+                <tr>
+                    <td>
+                        Mobile No.:<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.PatientWhatsAppNo" style="border: none;border-bottom: 1px solid #c3c3c3;width: 80%;"><br>
+                    </td>
+                    <td style="float:right;">
+                        Visit Date: @Model.InvoiceDate
+                    </td>
+                </tr>
+            </table>
 
-                <br>
-                <table class="table" style="width: 100%;padding: 0px 18px;">
-                    <thead>
-                        <tr style="text-align: left;">
-                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;width:10%">Sr. No.</th>
-                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;width:30%">Description</th>
-                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;width:20%;text-align:right">Quantity</th>
-                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;width:20%;text-align:right">Unit Price (₹)</th>
-                            <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;width:20%;text-align:right">Amount (₹)</th>
+            <br>
+            <table class="table" style="width: 100%;padding: 0px 18px;">
+                <thead>
+                    <tr style="text-align: left;">
+                        <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;width:10%">Sr. No.</th>
+                        <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;width:30%">Description</th>
+                        <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;width:20%;text-align:right">Quantity</th>
+                        <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;width:20%;text-align:right">Unit Price (₹)</th>
+                        <th style="border-bottom: 1px solid #000;padding-top: 15px;padding-bottom: 15px;width:20%;text-align:right">Amount (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{int index = 1;}
+                    @foreach (var item in Model.lstBill)
+                    {
+
+                        <tr>
+                            <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;">@index</td>
+                            <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;">@item.Description</td>
+                            <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;text-align:right">@item.Qty</td>
+                            <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;text-align:right">@item.UnitPrize</td>
+                            <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;text-align:right">@item.Amount</td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @{int index = 1;}
-                        @foreach (var item in Model.lstBill)
-                        {
-                          
-                            <tr>
-                                <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;">@index</td>
-                                <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;">@item.Description</td>
-                                <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;text-align:right">@item.Qty</td>
-                                <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;text-align:right">@item.UnitPrize</td>
-                                <td style="border-bottom: 1px solid #ccc;padding-top: 12px;padding-bottom: 12px;text-align:right">@item.Amount</td>
-                            </tr>
-                            index++;
-                        }
+                        index++;
+                    }
 
 
 
-                    </tbody>
-                    @*<tfoot>
+                </tbody>
+                @*<tfoot>
                         <tr>
                             <td colspan="4" class="text-right" style="padding-top: 12px;padding-bottom: 12px;text-align:right;padding-right: 30px;">Total Amount (₹)</td>
                             <td>@Model.TotalAmount</td>
                         </tr>
                         <tr>
-                          
+
                             <td colspan="4" class="text-right" style="padding-top: 12px;padding-bottom: 12px;text-align:right;padding-right: 30px;">Discount (₹)</td>
                             <td>@Model.DiscountAmount</td>
                         </tr>
@@ -127,57 +137,57 @@
                             <td>@Model.NetAmount</td>
                         </tr>
                     </tfoot>*@
-                </table>
+            </table>
 
-                <br>
-                <table style="float:right;margin-right:1em" >
-                    <tr>
-                        <td>
-                            <ul style="list-style: none;float:right" >
-                                <li style="float:right">Total Amount (₹):  @Model.TotalAmount</li>
-                                <br>
-                                <br>
-                                <li style="float:right">Discount (₹):  @Model.DiscountAmount</li>
-                                <br>
-                                <br>
-                                <li style="float:right">Net Amount (₹):  @Model.NetAmount</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <table>
-                    <tr>
-                        <td>
-                            <ul style="list-style: none;">
-                                <li>Paid Amount: ₹ @Model.PaidAmount</li>
-                                <br>
-                                <li>Balance Amount: ₹ @Model.BalanceAmount</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-                <br>
-                <br>
-               
-                <table style="float: right;padding-right: 10px;">
-                    <tr>
-                        <td>
-                            <ul style="list-style: none;">
-                                
-                                <br>
-                                <li>For, @Model.HostClincName</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+            <br>
+            <table style="float:right;margin-right:1em">
+                <tr>
+                    <td>
+                        <ul style="list-style: none;float:right">
+                            <li style="float:right">Total Amount (₹):  @Model.TotalAmount</li>
+                            <br>
+                            <br>
+                            <li style="float:right">Discount (₹):  @Model.DiscountAmount</li>
+                            <br>
+                            <br>
+                            <li style="float:right">Net Amount (₹):  @Model.NetAmount</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <table>
+                <tr>
+                    <td>
+                        <ul style="list-style: none;">
+                            <li>Paid Amount: ₹ @Model.PaidAmount</li>
+                            <br>
+                            <li>Balance Amount: ₹ @Model.BalanceAmount</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+
+            <table style="float: right;padding-right: 10px;">
+                <tr>
+                    <td>
+                        <ul style="list-style: none;">
+
+                            <br>
+                            <li>For, @Model.HostClincName</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

@@ -1,8 +1,70 @@
-﻿
+﻿@model App_Layer.AdminDetails
 @{
     ViewBag.Title = "Document";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    .table thead {
+        background: #ffffff;
+        color: #666;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #ffffff !important;
+    }
+
+    .table tbody {
+        background: #ffffff;
+    }
+
+    .table tr:hover {
+        box-shadow: 2px 4px 10px #fff;
+    }
+    /*.table thead th {
+        vertical-align: bottom;
+        border-bottom: 1px solid #dedede!important;
+    }
+        .table td {
+        border-top: 1px solid #dedede!important;
+        vertical-align: middle!important;
+    }*/
+    .table th {
+        padding-top: 15px;
+    }
+
+    .table {
+        margin-bottom: 0rem;
+    }
+
+    .mg-table .table {
+        border-bottom: 1px solid #d4d4d4;
+    }
+
+    .tbl-view-1 tr th:first-child {
+        width: 20%;
+    }
+
+    .tbl-view-2 tr th:first-child {
+        width: 20%;
+    }
+
+    .tbl-view-3 tr th:first-child {
+        width: 20%;
+    }
+
+    .tbl-view-4 tr th:first-child {
+        width: 20%;
+    }
+
+    .tbl-view-5 tr th:first-child {
+        width: 20%;
+    }
+
+    .tbl-view-5 tr th:first-child {
+        width: 20%;
+    }
+</style>
+
 <header class="page-header">
     <div class="container-fluid">
         <h2 class="no-margin-bottom">Documents</h2>
@@ -21,20 +83,20 @@
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
                                         <div class="i-checks ">
-                                            <input id="r1" type="radio"  value="option2" name="a" class="radio-template">
+                                            <input id="r1" type="radio" value="option2" name="a" class="radio-template">
 
                                             <label for="radioCustom2">Referral Letter</label>
                                         </div>
                                     </li>
                                     <li class="list-inline-item">
                                         <div class="i-checks ">
-                                            <input id="r2" type="radio"  value="option2" name="a" class="radio-template">
+                                            <input id="r2" type="radio" value="option2" name="a" class="radio-template">
                                             <label for="radioCustom2">Fitness Certificate </label>
                                         </div>
                                     </li>
                                     <li class="list-inline-item">
                                         <div class="i-checks ">
-                                            <input id="r3" type="radio"  value="option2" name="a" class="radio-template">
+                                            <input id="r3" type="radio" value="option2" name="a" class="radio-template">
                                             <label for="radioCustom2">Medical Certificate</label>
                                         </div>
                                     </li>
@@ -42,111 +104,361 @@
                             </div>
                         </div>
                         <div class="row refe-letr" style="display:none;">
-                            <div class="col-md-6">
+                            <div class="col-md-10">
                                 <div style="min-width:200px; font-family:'Arial' , sans-serif; font-size:16px; background-color:#FFFFFF; line-height:1.4; color:#4A4A4A; border:1px solid #DFDFDF; overflow:hidden;">
+                                    <div class="accordion" id="accordionExample1">
+                                        <div class="second-tab">
+                                            <div class="card" id="divPrint">
+                                                <div class="card-body mg-table">
+                                                    <div id="printExamination">
 
-                                    <div style="background-color: #f5a433;padding: 1em;text-align: center;">
-                                        <h3 style="font-size: 2em;color: #fff;">Create Referral Letter</h3>
-                                    </div>
-                                    <div class="row">
-                                        <!-- Basic Form-->
-                                        <div class="col-lg-12">
-                                            <div class="card " style="margin-bottom:0;">
-                                                <div class="card-body">
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">
-                                                                    Referred Doctor Name
-                                                                </label>
-                                                                <input type="text" placeholder="Referred Doctor Name" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">
-                                                                    Contact No.
-                                                                </label>
-                                                                <input type="number" placeholder="Contact No." class="form-control">
-                                                            </div>
-                                                        </div>
+                                                        <table style="margin: 0 auto;border: 1px solid #ccc;width: 80%;" id="Bill">
+                                                            <tr>
+                                                                <td>
+                                                                    @if (@Session["Template"].ToString() == "Yes")
+                                                                    {
+                                                                        <table style="width: 100%; display: inline;">
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <ul style="list-style:none;">
+
+                                                                                        <li>@Model.HostClincName</li>
+                                                                                        <li>@Model.HospClinicAddess</li>
+                                                                                        <li>+91 @Model.HospClinicNumber</li>
+                                                                                        <li>@Model.FirmInTime1</li>
+                                                                                        <li>Clinic Holiday :@Model.Holiday</li>
+                                                                                    </ul>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                        </table>
+                                                                        <table style="float: right;">
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <ul style="list-style:none;float:right;">
+                                                                                        <li><b>@Model.FirstName</b></li>
+                                                                                        <li>@Model.Education</li>
+                                                                                        <li>Reg. No. @Model.RegNumber</li>
+                                                                                        <li>@Model.Speciality</li>
+                                                                                    </ul>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+
+                                                                    }else
+                                                                    {
+                                                                        <br />                                                                       
+                                                                        <br />
+                                                                        <br />
+                                                                        <br />
+                                                                        <br />                                                                        
+                                                                        
+
+                                                                    }
+
+                                                                    <table style="width: 100%; display: inline;">
+                                                                        <tr>
+                                                                            <td>
+                                                                                <ul style="list-style:none;">
+                                                                                    <li><b> </b></li>
+                                                                                    <li> </li>
+                                                                                    <li> </li>
+                                                                                    <li>  </li>
+                                                                                    <li> </li>
+                                                                                </ul>
+                                                                            </td>
+
+                                                                        </tr>
+                                                                    </table>
+                                                                    <table style="float: right;">
+                                                                        <tr>
+                                                                            <td>
+                                                                                <ul style="list-style:none;float:right;">
+                                                                                    <li><b>  </b></li>
+                                                                                    <li> </li>
+                                                                                    <li> </li>
+                                                                                    <li> </li>
+                                                                                </ul>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+
+                                                                    <table style="width: 100%;border:1px solid #cccccc;padding: 1.5em .5em;border-radius: 9px;">
+                                                                        <tr>
+                                                                            <td style="padding-left: 90px;">
+                                                                                <div style="padding: 1em;text-align: center;">
+                                                                                    <h5>REFERENCE LETTER</h5>
+                                                                                </div>
+                                                                            </td>
+
+                                                                            <td style="text-align: right;padding-right: 70px;">
+                                                                                Date :
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                    <br>
+
+
+                                                                    <table style="width: 100%;padding: 0px 18px;">
+
+                                                                        <tr>
+                                                                            <ul style="list-style: none;padding-left: 5px;">
+
+                                                                                <li style="font-weight: 700;">
+                                                                                    Referred To-
+                                                                                </li>
+                                                                                <br>
+                                                                                <li>
+                                                                                    <input type="text" placeholder="Hospital Address" style="border: none;border-bottom: 1px solid #c3c3c3;width: 65%;"><br>
+                                                                                </li>
+
+                                                                                <br>
+
+                                                                                <li>
+                                                                                    <input type="text" placeholder="Contact Name" style="border: none;border-bottom: 1px solid #c3c3c3;width: 65%;"><br>
+                                                                                </li>
+                                                                                <br>
+
+                                                                                <li>
+                                                                                    <input type="text" placeholder="Hospital Name" style="border: none;border-bottom: 1px solid #c3c3c3;width: 65%;"><br>
+                                                                                </li>
+                                                                                <br>
+
+                                                                                <li>
+                                                                                    <input type="text" placeholder="Hospital Address" style="border: none;border-bottom: 1px solid #c3c3c3;width: 65%;"><br>
+                                                                                </li>
+
+
+                                                                            </ul>
+                                                                        </tr>
+
+
+                                                                    </table>
+                                                                    <br>
+                                                                    <table style="width: 100%;padding: 0px 18px;">
+                                                                        <tr>
+
+                                                                            <td><span style="font-weight:bold">Dear Sir,</span></td>
+                                                                        </tr>
+
+                                                                    </table>
+                                                                    <br />
+                                                                    <table style="width: 100%;padding: 0px 18px;">
+                                                                        <tr>
+
+                                                                            <td>Sending here with</td>
+                                                                        </tr>
+
+                                                                    </table>
+                                                                    <br />
+                                                                    <table style="width: 45%;padding: 0px 18px;border: none;">
+                                                                        <tr>
+                                                                            <td>
+                                                                                Mr/Mrs
+                                                                                @*<select>
+                                                                                        <option value="Mr">Mr</option>
+                                                                                        <option value="0">Mrs</option>
+                                                                                    </select>*@
+
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" placeholder="Patient Name" style="border: none;border-bottom: 1px solid #c3c3c3;width: 249%;"><br>
+                                                                            </td>
+
+                                                                        </tr>
+                                                                    </table>
+                                                                    <br />
+                                                                    <table style="width: 100%;padding: 0px 18px;">
+                                                                        <tr>
+
+                                                                            <td>Past History<input type="text" style="border: none;border-bottom: 1px solid #c3c3c3;width: 86%;"><br></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" style="border: none;border-bottom: 1px solid #c3c3c3;width: 86%;"><br></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                    <br />
+                                                                    <table style="width: 100%;padding: 0px 18px;">
+                                                                        <tr>
+                                                                            <td>Refering for<input type="text" style="border: none;border-bottom: 1px solid #c3c3c3;width: 87%;"><br></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;" style="border: none;border-bottom: 1px solid #c3c3c3;width: 86%;"><br></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                    <br />
+                                                                    <table style="width: 100%;padding: 0px 18px;">
+                                                                        <tr>
+                                                                            <td>Treatment Received<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;" style="border: none;border-bottom: 1px solid #c3c3c3;width: 79%;"><br></td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;" style="border: none;border-bottom: 1px solid #c3c3c3;width: 86%;"><br></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;" style="border: none;border-bottom: 1px solid #c3c3c3;width: 86%;"><br></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                    <br />
+
+
+
+                                                                    <br><br>
+
+                                                                    <br><br>
+                                                                    <table style="float: right;padding-right: 8px;">
+                                                                        <tr>
+                                                                            <td style="padding-right: 30px;">
+                                                                                <ul style="list-style: none;">
+                                                                                    <li><small></small></li>
+                                                                                    <br />
+                                                                                    <li><span style="font-weight:bold">@Model.FirstName</span></li>
+                                                                                    <li><span style="font-weight:bold">+91 @Model.HospClinicNumber</span></li>
+                                                                                </ul>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                    <br><br>
+                                                                    <br><br>
+                                                                    <br><br>
+                                                                    <br><br>
+                                                                    @if (@Session["Template"].ToString() == "Yes")
+                                                                    {
+                                                                        <table style="width:100%;border-top: 1px solid #808080;text-align: center;">
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <span style="border-radius:29%; border:solid black 1.5px;padding:5px">  Bring here with all privious reports & prescriptions </span>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                        </table>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <br />
+                                                                        <br />
+                                                                        
+                                                                    }
+
+                                                                   
+
+
+                                                                </td>
+                                                            </tr>
+
+                                                        </table>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">
-                                                                    Hospital Name
-                                                                </label>
-                                                                <input type="text" placeholder="Hospital Name" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">
-                                                                    Hospital Address
-                                                                </label>
-                                                                <input type="text" placeholder="Hospital Address" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <p>Dear Dr. <span>Nita Jadhav</span></p>
-                                                            <textarea placeholder="Enter text here..." class="form-control"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">
-                                                                    Aditional Note..
-                                                                </label>
-                                                                <textarea placeholder="Enter text here..." class="form-control"></textarea>
-                                                                <br />
-                                                                <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Patient History
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">
-                                                                    Referred By
-                                                                </label>
-                                                                <input type="text" placeholder="Referred By" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">
-                                                                    Doctor Name
-                                                                </label>
-                                                                <input type="number" placeholder="Doctor Name" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">
-                                                                    Contact No.
-                                                                </label>
-                                                                <input type="text" placeholder="Contact No." class="form-control">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">
-                                                                    Address
-                                                                </label>
-                                                                <textarea placeholder="Enter Address here..." class="form-control"></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <br />
+                                                    <input type='button' id='btn' value='Print' class="btn btn_1 btn-primary pull-right" onclick="PrintDiv()">
                                                 </div>
+                                                <br />
                                             </div>
                                         </div>
                                     </div>
+                                    @*<div style="background-color: #f5a433;padding: 1em;text-align: center;">
+                                            <h3 style="font-size: 2em;color: #fff;">Create Referral Letter</h3>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="col-lg-12">
+                                                <div class="card " style="margin-bottom:0;">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">
+                                                                        Referred Doctor Name
+                                                                    </label>
+                                                                    <input type="text" placeholder="Referred Doctor Name" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">
+                                                                        Contact No.
+                                                                    </label>
+                                                                    <input type="number" placeholder="Contact No." class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">
+                                                                        Hospital Name
+                                                                    </label>
+                                                                    <input type="text" placeholder="Hospital Name" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">
+                                                                        Hospital Address
+                                                                    </label>
+                                                                    <input type="text" placeholder="Hospital Address" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <p>Dear Dr. <span>Nita Jadhav</span></p>
+                                                                <textarea placeholder="Enter text here..." class="form-control"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">
+                                                                        Aditional Note..
+                                                                    </label>
+                                                                    <textarea placeholder="Enter text here..." class="form-control"></textarea>
+                                                                    <br />
+                                                                    <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Patient History
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">
+                                                                        Referred By
+                                                                    </label>
+                                                                    <input type="text" placeholder="Referred By" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">
+                                                                        Doctor Name
+                                                                    </label>
+                                                                    <input type="number" placeholder="Doctor Name" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">
+                                                                        Contact No.
+                                                                    </label>
+                                                                    <input type="text" placeholder="Contact No." class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">
+                                                                        Address
+                                                                    </label>
+                                                                    <textarea placeholder="Enter Address here..." class="form-control"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <a onclick="ShowPrint('DD18', '178')"><i class="fa fa-print" aria-hidden="true"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>*@
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -376,6 +688,13 @@
     </div>
 
 </section>
+
+
+<div class="modal fade" id="ComfirmationPopup" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+    <div id="Bill">
+    </div>
+</div>
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script>
 
@@ -394,5 +713,57 @@
         $('.fitn-cert').css("display", "none");
         $('.medicl-cert').css("display", "block");
     });
+
+
+
+    function PrintDiv() {
+        //Get the HTML of div
+        var divElements = document.getElementById("printExamination").innerHTML;
+        //Get the HTML of whole page
+        var oldPage = document.body.innerHTML;
+        //Reset the page's HTML with div's HTML only
+        document.body.innerHTML =
+            "<html><head><title></title></head><body>" +
+            divElements + "</body>";
+
+        //Print Page
+        window.print();
+
+        //Restore orignal HTML
+        document.body.innerHTML = oldPage;
+
+
+    }
+
+    //function ShowPrint(CPno, QueueID) {
+    //    $.ajax({
+    //        type: "POST",
+    //        url: "/AccountDetails/PrintView",
+    //        data: '{CPno: "' + CPno + '", QueueID: "' + QueueID + '"}',
+    //        contentType: "application/json; charset=utf-8",
+    //        dataType: "html",
+    //        success: function (response) {
+    //            $('#Bill').html(response);
+    //            PrintDiv();
+    //            // $('#ComfirmationPopup').modal('show');
+    //        },
+    //        failure: function (response) {
+    //            alert(response.responseText);
+    //        },
+    //        error: function (response) {
+    //            alert(response.responseText);
+    //        }
+    //    });
+    //}
+    //function PrintDiv() {
+    //    var Bill = document.getElementById("Bill").innerHTML;
+    //    var printWindow = window.open('', '', 'height=500,width=900');
+    //    printWindow.document.write('<html><head><title>DIV Contents</title>');
+    //    printWindow.document.write('</head><body>');
+    //    printWindow.document.write(Bill);
+    //    printWindow.document.write('</body></html>');
+    //    printWindow.document.close();
+    //    printWindow.print();
+    //}
 </script>
 
