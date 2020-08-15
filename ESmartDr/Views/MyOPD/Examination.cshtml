@@ -107,7 +107,7 @@
                                         <br />
                                         <br />
                                         <br />
-                                         <br />
+                                        <br />
                                     }
                                     <table style="width: 100%;border:1px solid #cccccc;padding: 1.5em .5em;border-radius: 9px;">
                                         <tr>
@@ -122,42 +122,115 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <br>
+
                                     @if (@Session["VitalInformation"].ToString() == "Yes")
                                     {
+                                        <br>
                                         <table style="width: 100%;">
                                             @if (Model.vlist.Count > 0)
                                             {
                                                 foreach (var item in Model.vlist)
                                                 {
                                                     <tr>
-                                                        <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">BP(mmHg) </span><br />@item.BloodPressure</td>
-                                                        <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Temp  </span><br />@item.Temperature</td>
-                                                        <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Wt.(Kg) </span><br />@item.Weight</td>
-                                                        <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Ht.(cm)  </span><br />@item.Height</td>
-                                                        <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">PPBG(mg/dL) </span><br />@item.BloodGlucoseFasting</td>
-                                                        <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">FBG(mg/dL)</span><br />@item.BloodlucoseRandom</td>
-                                                        <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">RBG(mg/dL)</span><br />@item.BloodGlucosePostPrandial</td>
-                                                        <td style="border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Pulse(/min)</span><br />@item.Pulse</td>
+
+                                                        @if (@item.BloodPressure != null)
+                                                        {
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">BP(mmHg) </span><br />@item.BloodPressure</td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">BP(mmHg) </span><br />-</td>
+                                                        }
+
+                                                        @if (@item.Temperature != null)
+                                                        {
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Temp  </span><br />@item.Temperature</td>
+                                                        }
+                                                        else
+                                                        {
+                                                          <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Temp  </span><br />-</td>
+                                                        }
+
+                                                        @if (@item.Weight != null)
+                                                        {
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Wt.(Kg) </span><br />@item.Weight</td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Wt.(Kg) </span><br />-</td>
+                                                        }
+
+                                                        @if (@item.Height != null)
+                                                        {
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Ht.(cm)  </span><br />@item.Height</td>
+
+                                                        }
+                                                        else
+                                                        {
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Ht.(cm)  </span><br />-</td>
+
+                                                        }
+                                                       
+                                                        @if (@item.BloodGlucoseFasting != null)
+                                                        {
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">PPBG(mg/dL) </span><br />@item.BloodGlucoseFasting</td>
+
+                                                        }
+                                                        else
+                                                        {
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">PPBG(mg/dL) </span><br />-</td>
+
+                                                        }
+                                                        @if (@item.BloodlucoseRandom != null)
+                                                        {
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">FBG(mg/dL)</span><br />@item.BloodlucoseRandom</td>
+
+                                                        }
+                                                        else
+                                                        {
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">FBG(mg/dL)</span><br />-</td>
+
+                                                        }
+                                                        @if (@item.BloodGlucosePostPrandial != null)
+                                                        {
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">RBG(mg/dL)</span><br />@item.BloodGlucosePostPrandial</td>
+
+                                                        }
+                                                        else
+                                                        {
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">RBG(mg/dL)</span><br />-</td>
+
+                                                        }
+                                                        @if (@item.Pulse != null)
+                                                        {
+                                                            <td style="border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Pulse(/min)</span><br />@item.Pulse</td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td style="border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Pulse(/min)</span><br />-</td>
+
+                                                        }
                                                     </tr>
                                                 }
                                             }
                                         </table>
                                     }
-                                    <hr>
+                                    @*<hr>*@
                                     <table style="width: 100%;padding: 0px 18px;">
 
                                         <tr>
                                             <ul style="list-style: none;padding-left: 5px;">
                                                 @if (@Session["Complaints"].ToString() == "Yes")
                                                 {
+                                                    <br>
                                                     <li>
                                                         Complaints :<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.Complaints" style="border: none;border-bottom: 1px solid #c3c3c3;width: 85%;"><br>
                                                     </li>
                                                 }
-                                                <br>
+
                                                 @if (@Session["Diagnosis"].ToString() == "Yes")
                                                 {
+                                                    <br>
                                                     <li>
                                                         Diagnosis :<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.Diagnosis" style="border: none;border-bottom: 1px solid #c3c3c3;width: 85%;"><br>
                                                     </li>
@@ -167,9 +240,9 @@
 
 
                                     </table>
-                                    <br>
+
                                     @if (@Session["Medication"].ToString() == "Yes")
-                                    {
+                                    {    <br>
                                         <table style="width: 100%;">
                                             <tr>
                                                 <td>
@@ -188,11 +261,13 @@
                                                     Quantity
                                                 </td>
                                             </tr>
+                                            @{ int index = 1; }
                                             @foreach (var item in Model.mlist)
                                             {
                                                 <tr style="font-weight: 700;">
+
                                                     <td>
-                                                        @item.MedicineName
+                                                        @index ]  @item.MedicineName
                                                     </td>
                                                     <td>
                                                         @item.Dose
@@ -204,13 +279,15 @@
                                                         @item.ForMedicine @item.MedicineDays
                                                     </td>
                                                     <td>
-                                                        non
+                                                        @item.AlternateMedicine
                                                     </td>
                                                 </tr>
+                                                index++;
                                             }
                                         </table>
-                                    }
-                                    <br><br>
+
+                                                }
+                                    <br>
 
                                     <table style="width: 100%;">
 
@@ -219,15 +296,23 @@
                                                 <ul style="list-style: none;padding-left: 5px;">
                                                     @if (@Session["Advice"].ToString() == "Yes")
                                                     {
+                                                        <br>
                                                         <li>Advice Note : @Model.AdviceNote </li>
                                                     }
-                                                    <br>
 
-                                                    <li>Test before next visit : @Model.TestBeforeVisit</li>
-
-                                                    <br>
-                                                    @if (@Session["NextVisit"].ToString() == "Yes")
+                                                    @if (@Session["Test"].ToString() == "Yes")
                                                     {
+                                                        <br>
+                                                        <li>Test before next visit : @Model.TestBeforeVisit</li>
+
+                                                    }
+
+
+
+                                                    @if (@Session["NextVisit"].ToString() == "Yes")
+
+                                                    {
+                                                        <br>
                                                         <li>Next visit : @Model.NextVisit</li>
                                                     }
                                                 </ul>
@@ -276,7 +361,7 @@
             </div>
         </div>
     </div>
-</div>Next visit
+</div>
 
 @*
     <script src="~/vendor/jquery/jquery.min.js"></script>*@

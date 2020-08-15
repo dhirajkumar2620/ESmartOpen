@@ -60,36 +60,54 @@ namespace ESmartDr.Controllers
             {
                 foreach (var item in pd.clist)
                 {
-                    Advice = Advice + item.AddAdvice + "  " + ",";
+                    if (item.AddAdvice != "" && item.AddAdvice != null)
+                    {
+                        Advice = Advice + item.AddAdvice + "  " + ",";
+                    }
                 }
             }
             if (pd.clist.Count > 0)
             {
                 foreach (var item in pd.olist)
                 {
-                    Complaints = Complaints + item.Complaints + "  " + ",";
-                    Diagnosis = Diagnosis + item.Diagnosis + "  " + ",";
+                    if (item.Complaints != "" && item.Complaints != null)
+                    {
+                        Complaints = Complaints + item.Complaints + "  " + ",";
+                    }
+                        
+                    if (item.Diagnosis != "" && item.Diagnosis != null)
+                    {
+                        Diagnosis = Diagnosis + item.Diagnosis + "  " + ",";
+                    }
                 }
             }
             if (pd.clist.Count > 0)
             {
                 foreach (var item in pd.NextListlst)
                 {
-                    NextVisit = NextVisit + item.NestVisitDate + "  " + ",";
+                    if (item.NestVisitDate != "" && item.NestVisitDate != null)
+                    {
+                        NextVisit = NextVisit + item.NestVisitDate + "  " + ",";
+                    }
                 }
             }
             if (pd.clist.Count > 0)
             {
                 foreach (var item in pd.clist)
                 {
-                    TestBeforeVisit = TestBeforeVisit + item.InvSelectTests + "  " + ",";
+                    if (item.InvSelectTests != "" && item.InvSelectTests != null)
+                    {
+                        TestBeforeVisit = TestBeforeVisit + item.InvSelectTests + "  " + ",";
+                    }
                 }
             }
             pd.HospClinicNumber = pd.HospClinicNumber + " ," + pd.OtherNumber;
             pd.HospClinicNumber = pd.HospClinicNumber.TrimEnd(',');
             pd.TestBeforeVisit = TestBeforeVisit.TrimEnd(',');
             pd.NextVisit = NextVisit.TrimEnd(',');
+            
             pd.AdviceNote = Advice.TrimEnd(',');
+
             pd.Complaints = Complaints.TrimEnd(',');
             pd.Diagnosis = Diagnosis.TrimEnd(',');
             return View("Examination", pd);
