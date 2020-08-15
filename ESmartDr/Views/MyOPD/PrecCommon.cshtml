@@ -90,9 +90,9 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="form-control-label">
-                            Add Advice
+                            Advice
                         </label>
-                        @Html.TextBoxFor(m => m.AddAdvice, new { @id = "txtAdvice", @class = "form-control", @placeholder = "Complaints" })
+                        @Html.TextBoxFor(m => m.AddAdvice, new { @id = "txtAdvice", @class = "form-control", @placeholder = "Advice" })
                         @Html.ValidationMessageFor(model => model.AddAdvice, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -101,9 +101,9 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="form-control-label">
-                            Add Diet
+                            Diet
                         </label>
-                        @Html.TextBoxFor(m => m.AddDiet, new { @id = "txtDiet", @class = "form-control", @placeholder = "Complaints" })
+                        @Html.TextBoxFor(m => m.AddDiet, new { @id = "txtDiet", @class = "form-control", @placeholder = "Diet" })
                         @Html.ValidationMessageFor(model => model.AddDiet, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                         <label class="form-control-label">
                             Next Visit After
                         </label>
-                        @Html.TextBoxFor(m => m.NextVisitAfter, new { @id = "txtVisit", @type = "number", @class = "form-control", @placeholder = "Complaints" })
+                        @Html.TextBoxFor(m => m.NextVisitAfter, new { @id = "txtVisit", @type = "number", @class = "form-control", @placeholder = "Next Visit After" })
                         @Html.ValidationMessageFor(model => model.NextVisitAfter, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="form-control-label">
-                                Upload Photo
+                                Attachment
                             </label>
                             <input type="file" id="imgfile" name="imgfile" placeholder="Email-Id / Mobile No." class="form-control">
                         </div>

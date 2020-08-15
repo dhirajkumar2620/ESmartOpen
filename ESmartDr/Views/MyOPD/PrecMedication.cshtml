@@ -107,18 +107,19 @@
                             </label>
                             @Html.DropDownListFor(m => m.Dose, new List<SelectListItem>
                                                      {
-                                                         new SelectListItem{ Text="½ Qty", Value = "½ Qty" },
                                                          new SelectListItem{ Text="1 Qty", Value = "1 Qty" },
+                                                          new SelectListItem{ Text="½ Qty", Value = "½ Qty" },
                                                           new SelectListItem{ Text="1 ½ Qty", Value = "1 ½ Qty" },
                                                           new SelectListItem{ Text="2 Qty" , Value = "2 Qty" },
                                                             new SelectListItem{ Text="2+1/2  Qty", Value = "2+1/2 Qty" },
                                                             new SelectListItem{ Text="3 Qty", Value = "3 Qty" },
-                                                            new SelectListItem{ Text="5 Qty", Value = "5 Qty" },
-                                                            new SelectListItem{ Text="10 Qty", Value = "10 Qty" },
                                                              new SelectListItem{ Text="2 ½ ml", Value = "2 ½ ml" },
                                                             new SelectListItem{ Text="5  ml", Value = "3  ml" },
                                                             new SelectListItem{ Text="7 ½ ml", Value = "7 ½ ml" },
                                                             new SelectListItem{ Text="10  ml", Value = "10  ml" },
+                                                              new SelectListItem{ Text="15 ml", Value = "15 ml" },
+                                                            new SelectListItem{ Text="20 ml", Value = "20 ml" },
+                                                              new SelectListItem{ Text="NA", Value = "NA" },
                                                       }, new { @class = "form-control mb-3", @id = "ddlDose" })
                         </div>
                     </div>
@@ -182,9 +183,9 @@
                     <div class="col-md-4">
                         <div class="form-group ">
                             <label class="form-control-label">
-                                Alternate Medicine
+                                Medicine Qty.
                             </label>
-                            @Html.TextBoxFor(m => m.AlternateMedicine, new { @id = "txtAlternateMedicine", @class = "form-control", required = "required", @placeholder = "Alternate Medicine" })
+                            @Html.TextBoxFor(m => m.AlternateMedicine, new { @id = "txtAlternateMedicine", @class = "form-control", required = "required", @placeholder = "Medicine Qty" })
                             @Html.ValidationMessageFor(model => model.AlternateMedicine, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -234,18 +235,19 @@
                             </label>
                             @Html.DropDownListFor(m => m.Dose, new List<SelectListItem>
                                                      {
-                                                         new SelectListItem{ Text="½ गोळी", Value = "½ गोळी" },
                                                          new SelectListItem{ Text="1  गोळी", Value = "1  गोळी" },
+                                                          new SelectListItem{ Text="½ गोळी", Value = "½ गोळी" },
                                                           new SelectListItem{ Text="1 ½ गोळी", Value = "1 ½ गोळी" },
                                                           new SelectListItem{ Text="2  गोळी" , Value = "2  गोळी" },
                                                             new SelectListItem{ Text="2+1/2  गोळी", Value = "2+1/2  गोळी" },
                                                             new SelectListItem{ Text="3  गोळी", Value = "3  गोळी" },
-                                                            new SelectListItem{ Text="5  गोळी", Value = "5  गोळी" },
-                                                            new SelectListItem{ Text="10  गोळी", Value = "10  गोळी" },
                                                              new SelectListItem{ Text="2 ½ मि.ली.", Value = "2 ½ मि.ली." },
                                                             new SelectListItem{ Text="5  मि.ली.", Value = "3  मि.ली.." },
                                                             new SelectListItem{ Text="7 ½ मि.ली.", Value = "7 ½ मि.ली." },
                                                             new SelectListItem{ Text="10  मि.ली.", Value = "10  मि.ली." },
+                                                             new SelectListItem{ Text="15 मि.ली.", Value = "15 मि.ली." },
+                                                            new SelectListItem{ Text="20  मि.ली.", Value = "20  मि.ली." },
+                                                             new SelectListItem{ Text="NA", Value = "NA" },
                                                       }, new { @class = "form-control mb-3", @id = "ddlDose" })
                         </div>
                     </div>
@@ -309,9 +311,9 @@
                     <div class="col-md-4">
                         <div class="form-group ">
                             <label class="form-control-label">
-                                Alternate Medicine
+                                Medicine Qty.
                             </label>
-                            @Html.TextBoxFor(m => m.AlternateMedicine, new { @id = "txtAlternateMedicine", @class = "form-control", required = "required", @placeholder = "Alternate Medicine" })
+                            @Html.TextBoxFor(m => m.AlternateMedicine, new { @id = "txtAlternateMedicine", @class = "form-control", required = "required", @placeholder = "Medicine Qty." })
                             @Html.ValidationMessageFor(model => model.AlternateMedicine, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -342,7 +344,7 @@
                                     <th>For</th>
                                     <th>Days</th>
                                     <th>Special Instruction</th>
-                                    <th>Alternate Medicine</th>
+                                    <th>Medicine Qty.</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -382,33 +384,33 @@
     <script src="~/js/Notifier.min.js"></script>
     @*<script>
 
-        var urllink = '@Url.Content("~/MyOPD/Med")'
-        $("#txtMedicineName").autocomplete({
+            var urllink = '@Url.Content("~/MyOPD/Med")'
+            $("#txtMedicineName").autocomplete({
 
-            source: function (request, response) {
-                alert('k')
-                $.ajax({
-                    url: urllink,
-                    type: "POST",
-                    dataType: "json",
-                    data: { search: $("#txtMedicineName").val() },
-                    success: function (data) {
-                        response($.map(data, function (item) {
-                            return { label: item.MedicineName, value: item.MedicineName };
-                        }));
-                    },
-                    error: function (xhr, status, error) {
-                        // alert("Error");
-                    }
-                });
-            }
-        });
-    </script>*@
+                source: function (request, response) {
+                    alert('k')
+                    $.ajax({
+                        url: urllink,
+                        type: "POST",
+                        dataType: "json",
+                        data: { search: $("#txtMedicineName").val() },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item.MedicineName, value: item.MedicineName };
+                            }));
+                        },
+                        error: function (xhr, status, error) {
+                            // alert("Error");
+                        }
+                    });
+                }
+            });
+        </script>*@
     <script>
         function SubmitObservationDetails() {
 
 
-            var MedicineName = $("#txtMedicineName").val();            
+            var MedicineName = $("#txtMedicineName").val();
 
             if (MedicineName == "" || MedicineName == null) {
                 alert("Please Enter Medicine Name field is Required." + MedicineName);
@@ -416,7 +418,7 @@
                 return;
 
 
-            } 
+            }
             else {
 
                 var form = $('#frmPrecMedication')[0];
@@ -529,7 +531,7 @@
 
 
 
-        
+
         //$(function () {
         //    var Project = [
         //        "DHTMLX DEMO",

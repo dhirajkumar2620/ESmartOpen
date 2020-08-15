@@ -86,11 +86,9 @@ namespace ESmartDr.Controllers
             co.CreatedBy = admObj.UserId.ToString();
             co.PatientId = patientDETAILS.Id.ToString();
             co.CasePaperNo = patientDETAILS.CasePapaerNo;
-            
 
-            if (imgfile.FileName!="")
+            if (imgfile != null)
             {
-              
                 string path;
                 string extension = Path.GetExtension(imgfile.FileName);
                 string impPath = ConfigurationManager.AppSettings["HistoryDoc"];
@@ -99,6 +97,7 @@ namespace ESmartDr.Controllers
                 co.FileName = imgfile.FileName;
                 // path = "/UploadImage/" + Path.GetFileName(imgfile.FileName);
             }
+
             else
             {
                 co.FileName = "";
