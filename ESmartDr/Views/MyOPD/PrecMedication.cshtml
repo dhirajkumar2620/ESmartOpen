@@ -505,6 +505,9 @@
     </script>
     <script>
         $(document).ready(function () {
+
+            var MedicineName = $("#txtMedicineName").val();
+
             $("#txtMedicineName").autocomplete({
                 source: function (request, response) {
                     $.ajax({

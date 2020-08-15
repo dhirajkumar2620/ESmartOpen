@@ -265,7 +265,7 @@ namespace ESmartDr.Controllers
             return View("PrecCommon", Cm);
         }
         [HttpPost]
-        public ActionResult Med(string search)
+        public ActionResult Med(string Prefix)
         {
             Bal_MedicineDetails BL = new Bal_MedicineDetails();
             MedicineDetails MD = new MedicineDetails();
@@ -273,8 +273,8 @@ namespace ESmartDr.Controllers
 
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
             MD = BL.ViewAllMedicine(admObj.HospitalId);
-            lst = MD.lst;
-            // var MedicineNamelst = lst.Where(x => x.MedicineName.ToUpper().Contains(search.ToUpper())).ToList();
+            //lst = MD.lst;
+             lst = MD.lst.Where(x => x.MedicineName.ToUpper().Contains(Prefix.ToUpper())).ToList();
             return Json(lst, JsonRequestBehavior.AllowGet);
         }
 
