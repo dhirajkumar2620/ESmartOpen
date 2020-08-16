@@ -172,7 +172,7 @@ namespace ESmartDr.Controllers
                 for (int i = 0; i < LST.d2lst.Count; i++)
                 {
                     // LST.d1lst[i].date = LST.d1lst[i].dates.ToShortDateString();
-                    LST.d2lst[i].date = LST.d2lst[i].dates.ToString("ddd");
+                    LST.d2lst[i].date = LST.d2lst[i].dates.ToString("MMM");
                 }
 
                 //var output = JsonConvert.SerializeObject(LST.d1lst); //(LST.d1lst, JsonRequestBehavior.AllowGet);
@@ -199,7 +199,7 @@ namespace ESmartDr.Controllers
                 for (int i = 0; i < LST.d3lst.Count; i++)
                 {
                     //LST.d1lst[i].date = LST.d1lst[i].dates.ToShortDateString();
-                    LST.d3lst[i].date = LST.d3lst[i].dates.ToString("ddd");
+                    LST.d3lst[i].date = LST.d3lst[i].dates.ToString("MMM");
                 }
 
 
