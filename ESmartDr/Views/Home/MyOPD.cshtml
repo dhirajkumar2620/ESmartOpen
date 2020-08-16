@@ -116,6 +116,48 @@
 
                                 </div>
 
+                                <div class="col-md-12">
+                                    @if (Session["RoleId"].ToString() == "AHE")
+                                    {
+                                        <ul class="nav nav-pills mb-3" id="pills-tab1" role="tablist">
+
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="pills-patient-tab1" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdPatientDetails", "MyOPD")" role="tab" aria-controls="pills-patient" aria-selected="true">Patient Details</a>
+                                            </li>
+
+
+
+                                        </ul>
+                                    }
+                                    else
+                                    {
+                                        <ul class="nav nav-pills mb-3" id="pills-tab1" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="pills-patient-tab1" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdPatientDetails", "MyOPD")" role="tab" aria-controls="pills-patient" aria-selected="true">Patient Details</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="pills-precription-tab1" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdPrescription", "MyOPD")" role="tab" aria-controls="pills-precription" aria-selected="false">Examination</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="pills-examination-tab1" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdExamination", "MyOPD")" role="tab" aria-controls="pills-examination" aria-selected="false">Precription</a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="pills-history-tab1" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdHistory", "MyOPD")" role="tab" aria-controls="pills-history" aria-selected="false">History</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="pills-billing-tab1" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdBilling", "MyOPD")" role="tab" aria-controls="pills-billing" aria-selected="false">Billing</a>
+                                            </li>
+                                            @*<li class="nav-item">
+                        <a class="nav-link" id="pills-certificate-tab" data-toggle="pill" href="#" data-request-url="@Url.Action("DocumentCertificate", "MyOPD")" role="tab" aria-controls="pills-certificate" aria-selected="false">Document Certificate</a>
+                    </li>*@
+
+
+                                        </ul>
+                                    }
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -145,34 +187,139 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
     $(document).ready(function () {
+        //Top Tab
         var url = "/MyOPD/OpdPatientDetails";
-
         $("#tabpanel").load(url);
+
+
+        //Down Tob
+        var url = "/MyOPD/OpdPatientDetails";
+        $("#tabpanel1").load(url);
     });
+
+
+    //Top Tab
     $("#pills-precription-tab").on('click', function () {
-        var url = $(this).data('request-url');
-
+        var url = $(this).data('request-url');       
         $("#tabpanel").load(url);
+
+        $("#pills-precription-tab1").addClass("nav-link active");
+
+        $("#pills-patient-tab1").removeClass("active");
+        $("#pills-examination-tab1").removeClass("active");
+        $("#pills-history-tab1").removeClass("active");
+        $("#pills-billing-tab1").removeClass("active");
     });
-    $("#pills-patient-tab").on('click', function () {
+    $("#pills-patient-tab").on('click', function () {      
         var url = $(this).data('request-url');
-
         $("#tabpanel").load(url);
+
+        $("#pills-patient-tab1").addClass("nav-link active");
+
+        $("#pills-precription-tab1").removeClass("active");
+        $("#pills-examination-tab1").removeClass("active");
+        $("#pills-history-tab1").removeClass("active");
+        $("#pills-billing-tab1").removeClass("active");
+
     });
     $("#pills-examination-tab").on('click', function () {
         var url = $(this).data('request-url');
 
         $("#tabpanel").load(url);
+
+        $("#pills-examination-tab1").addClass("nav-link active");
+
+        $("#pills-patient-tab1").removeClass("active");
+        $("#pills-precription-tab1").removeClass("active");
+        $("#pills-history-tab1").removeClass("active");
+        $("#pills-billing-tab1").removeClass("active");
+
     });
     $("#pills-history-tab").on('click', function () {
         var url = $(this).data('request-url');
 
         $("#tabpanel").load(url);
+        $("#pills-history-tab1").addClass("nav-link active");
+
+        $("#pills-patient-tab1").removeClass("active");
+        $("#pills-precription-tab1").removeClass("active");
+        $("#pills-billing-tab1").removeClass("active");
+        $("#pills-examination-tab1").removeClass("active")
     });
     $("#pills-billing-tab").on('click', function () {
         var url = $(this).data('request-url');
 
         $("#tabpanel").load(url);
+        $("#pills-billing-tab1").addClass("nav-link active");
+
+        $("#pills-patient-tab1").removeClass("active");
+        $("#pills-precription-tab1").removeClass("active");
+        $("#pills-history-tab1").removeClass("active");
+        $("#pills-examination-tab1").removeClass("active")
+    });
+
+
+
+    //Down Tab
+    $("#pills-precription-tab1").on('click', function () {
+        var url = $(this).data('request-url');
+
+        $("#tabpanel").load(url);
+        $("#pills-precription-tab").addClass("nav-link active");
+
+        $("#pills-patient-tab").removeClass("active");;
+        $("#pills-history-tab").removeClass("active");
+        $("#pills-billing-tab").removeClass("active");
+        $("#pills-examination-tab").removeClass("active")
+    });
+    $("#pills-patient-tab1").on('click', function () {
+        var url1 = $(this).data('request-url');
+       
+        $("#tabpanel").load(url1);
+        $("#pills-patient-tab").addClass("nav-link active");
+
+        
+        $("#pills-precription-tab").removeClass("active");
+        $("#pills-history-tab").removeClass("active");
+        $("#pills-billing-tab").removeClass("active");
+        $("#pills-examination-tab").removeClass("active")
+    });
+    $("#pills-examination-tab1").on('click', function () {
+        var url1 = $(this).data('request-url');
+       
+        $("#tabpanel").load(url1);
+        $("#pills-examination-tab").addClass("nav-link active");
+
+
+        $("#pills-patient-tab").removeClass("active");
+        $("#pills-precription-tab").removeClass("active");
+        $("#pills-history-tab").removeClass("active");
+        $("#pills-billing-tab").removeClass("active");
+      
+    });
+    $("#pills-history-tab1").on('click', function () {
+        var url1 = $(this).data('request-url');
+        $("#tabpanel").load(url1);
+
+        $("#pills-history-tab").addClass("nav-link active");
+
+        $("#pills-patient-tab").removeClass("active");
+        $("#pills-precription-tab").removeClass("active");
+        $("#pills-billing-tab").removeClass("active");
+        $("#pills-examination-tab").removeClass("active")
+
+    });
+    $("#pills-billing-tab1").on('click', function () {
+        var url1 = $(this).data('request-url');
+        $("#tabpanel").load(url1);
+
+        $("#pills-billing-tab").addClass("nav-link active");
+
+        $("#pills-patient-tab").removeClass("active");
+        $("#pills-precription-tab").removeClass("active");
+        $("#pills-history-tab").removeClass("active");
+        $("#pills-examination-tab").removeClass("active")
+
     });
 
 
