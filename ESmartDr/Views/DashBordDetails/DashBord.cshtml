@@ -146,6 +146,9 @@
     .table-responsive {
         overflow: auto !important;
     }
+
+
+
 </style>
 
 <div>
@@ -276,7 +279,10 @@
                                         <li><b>Staff Behavior </b>:@item.BadBehevior</li>
                                         <li><b>Doctor Qualities </b>:@item.MedicalExpertise </li>
                                     </ul>
-                                    <textarea placeholder="@item.Feedback" style="width:100%;" readonly></textarea>
+                                    <textarea onselect="return false;"
+   readonly="readonly"
+   unselectable="on"
+   disabled="disabled" placeholder="@item.Feedback" style="width:100%;"  ></textarea>
                                 </div>
 
                             </div>
