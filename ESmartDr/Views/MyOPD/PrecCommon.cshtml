@@ -190,132 +190,142 @@
     </div>
 
 </div>
-<br />
-<hr />
-<div class="card-body">
-    <div class="row">
-        <div class="col-md-9">
-            <div class="form-group pull-right">
-                <label class="form-control-label">
-                    Attachment
-                </label>
-                <input type="file" id="imgfile" name="imgfile" placeholder="Email-Id / Mobile No." class="form-control">
+
+@using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmPrecCommonAttachment", enctype = "multipart/form-data" }))
+{
+    <form>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="form-group pull-right">
+                        <label class="form-control-label">
+                            Attachment
+                        </label>
+                        <input type="file" id="imgfile" name="imgfile" placeholder="Email-Id / Mobile No." class="form-control">
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <br />
+                    <div class="form-group pull-right" style="padding-top:0.5em">
+                        <button type="submit" onclick="UploadFile()" class="btn btn_1 btn-primary" id="tostr-save6">Upload File</button>
+                    </div>
+                </div>
             </div>
         </div>
-       
-        <div class="col-md-3">
-            <br />
-            <div class="form-group pull-right" style="padding-top:0.5em">
-                <button type="submit" onclick="UploadFile()" class="btn btn_1 btn-primary" id="tostr-save6">Upload File</button>
-            </div>
-        </div>
-    </div>
-</div>
-<script>
-
-    function UploadFile() {
-
-        var form = $('#frmPrecCommon')[0];
-
-        var fromData = new FormData(form);
-        var urllink = '@Url.Content("~/Prescription/UploadFile")'
-        $.ajax({
-            type: "post",
-            url: urllink,
-            data: fromData,
-            processData: false,
-            contentType: false,
-            success: function (data) {
-             
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.log(errorThrown);
-            }
-        })
-
-    }
-
-    function SubmitCommonDetails() {
-
-        var form = $('#frmPrecCommon')[0];
-
-        var fromData = new FormData(form);
-        var urllink = '@Url.Content("~/Prescription/ManagePrecCommonDetails")'
-        $.ajax({
-            type: "post",
-            url: urllink,
-            data: fromData,
-            processData: false,
-            contentType: false,
-            success: function (data) {
-                $('#tblCommonn tbody').empty();
-                var trHTML = '';
-                $.each(data, function (i, item) {
-                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.InvSelectTests + '</td><td>' + item.InvNotes + '</td><td>' + item.AddAdvice + '</td><td>' + item.AddDiet + '</td><td>' + item.NextVisitAfter + '</td><td>' + item.FrequencyDate + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
-                });
-                $('#tblCommonn tbody').append(trHTML)
-                $("#hdnPCId").val('0');
-                $("#txtinvTest").val('');
-                $("#txtinvNote").val('');
-                $("#txtAdvice").val('');
-                $("#txtDiet").val('');
-                $("#txtVisit").val('');
-                $("#ddlFrequency").val('');
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.log(errorThrown);
-            }
-        })
-
-    }
-    $(".fa-pencil").on("click", function () {
-        debugger
-        var obj = $(this).parents("tr")
-        $("#hdnPCId").val(obj.find('td')[0].innerHTML);
-        $("#txtinvTest").val(obj.find('td')[1].innerHTML);
-        debugger
-        $("#txtinvNote").val(obj.find('td')[2].innerHTML);
-        $("#txtAdvice").val(obj.find('td')[3].innerHTML);
-        $("#txtDiet").val(obj.find('td')[4].innerHTML);
-        $("#txtVisit").val(obj.find('td')[5].innerHTML);
-        $("#ddlFrequency").val(obj.find('td')[6].innerHTML);
-
-    });
-    function EditPICDetails(this1) {
-        debugger
-        var obj = $(this1).parents("tr")
-        $("#hdnPCId").val(obj.find('td')[0].innerHTML);
-        $("#txtinvTest").val(obj.find('td')[1].innerHTML);
-        debugger
-        $("#txtinvNote").val(obj.find('td')[2].innerHTML);
-        $("#txtAdvice").val(obj.find('td')[3].innerHTML);
-        $("#txtDiet").val(obj.find('td')[4].innerHTML);
-        $("#txtVisit").val(obj.find('td')[5].innerHTML);
-        $("#ddlFrequency").val(obj.find('td')[6].innerHTML);
-    }
-    function DeleteRecord(id) {
-        if (confirm('Do you want to delete record ?')) {
-            var urllink = '@Url.Content("~/Prescription/DeleteCommon")'
-            $.ajax({
-                type: "post",
-                url: urllink,
-                data: '{Id: "' + id + '"}',
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data) {
-                    $('#tblCommonn tbody').empty();
-                    var trHTML = '';
-                    $.each(data, function (i, item) {
-                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.InvSelectTests + '</td><td>' + item.InvNotes + '</td><td>' + item.AddAdvice + '</td><td>' + item.AddDiet + '</td><td>' + item.NextVisitAfter + '</td><td>' + item.FrequencyDate + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
-                    });
-                    $('#tblCommonn tbody').append(trHTML);
-                }
-            }
-
-           )
+        </form>
         }
-    };
-    //$('.grid-show').click(function () {
-    //    $('.mg-table').css("display", "block");
-    //});
-</script>
+        <script>
+
+            function UploadFile() {
+                debugger;
+                var form = $('#frmPrecCommonAttachment')[0];
+
+                var fromData = new FormData(form);
+                var urllink = '@Url.Content("~/Prescription/UploadFile")'
+                $.ajax({
+                    type: "post",
+                    url: urllink,
+                    data: fromData,
+                    processData: false,
+                    contentType: false,
+                    success: function (result) {
+                        debugger;
+                        //if (data.Flag == 1)
+                        //{
+                        alert("File Uploaded Successfully." + result);
+                        //}
+                        return;
+
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(errorThrown);
+                    }
+                })
+                return;
+            }
+
+            function SubmitCommonDetails() {
+
+                var form = $('#frmPrecCommon')[0];
+
+                var fromData = new FormData(form);
+                var urllink = '@Url.Content("~/Prescription/ManagePrecCommonDetails")'
+                $.ajax({
+                    type: "post",
+                    url: urllink,
+                    data: fromData,
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        $('#tblCommonn tbody').empty();
+                        var trHTML = '';
+                        $.each(data, function (i, item) {
+                            trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.InvSelectTests + '</td><td>' + item.InvNotes + '</td><td>' + item.AddAdvice + '</td><td>' + item.AddDiet + '</td><td>' + item.NextVisitAfter + '</td><td>' + item.FrequencyDate + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                        });
+                        $('#tblCommonn tbody').append(trHTML)
+                        $("#hdnPCId").val('0');
+                        $("#txtinvTest").val('');
+                        $("#txtinvNote").val('');
+                        $("#txtAdvice").val('');
+                        $("#txtDiet").val('');
+                        $("#txtVisit").val('');
+                        $("#ddlFrequency").val('');
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(errorThrown);
+                    }
+                })
+
+            }
+            $(".fa-pencil").on("click", function () {
+                debugger
+                var obj = $(this).parents("tr")
+                $("#hdnPCId").val(obj.find('td')[0].innerHTML);
+                $("#txtinvTest").val(obj.find('td')[1].innerHTML);
+                debugger
+                $("#txtinvNote").val(obj.find('td')[2].innerHTML);
+                $("#txtAdvice").val(obj.find('td')[3].innerHTML);
+                $("#txtDiet").val(obj.find('td')[4].innerHTML);
+                $("#txtVisit").val(obj.find('td')[5].innerHTML);
+                $("#ddlFrequency").val(obj.find('td')[6].innerHTML);
+
+            });
+            function EditPICDetails(this1) {
+                debugger
+                var obj = $(this1).parents("tr")
+                $("#hdnPCId").val(obj.find('td')[0].innerHTML);
+                $("#txtinvTest").val(obj.find('td')[1].innerHTML);
+                debugger
+                $("#txtinvNote").val(obj.find('td')[2].innerHTML);
+                $("#txtAdvice").val(obj.find('td')[3].innerHTML);
+                $("#txtDiet").val(obj.find('td')[4].innerHTML);
+                $("#txtVisit").val(obj.find('td')[5].innerHTML);
+                $("#ddlFrequency").val(obj.find('td')[6].innerHTML);
+            }
+            function DeleteRecord(id) {
+                if (confirm('Do you want to delete record ?')) {
+                    var urllink = '@Url.Content("~/Prescription/DeleteCommon")'
+                    $.ajax({
+                        type: "post",
+                        url: urllink,
+                        data: '{Id: "' + id + '"}',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (data) {
+                            $('#tblCommonn tbody').empty();
+                            var trHTML = '';
+                            $.each(data, function (i, item) {
+                                trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.InvSelectTests + '</td><td>' + item.InvNotes + '</td><td>' + item.AddAdvice + '</td><td>' + item.AddDiet + '</td><td>' + item.NextVisitAfter + '</td><td>' + item.FrequencyDate + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                            });
+                            $('#tblCommonn tbody').append(trHTML);
+                        }
+                    }
+
+                   )
+                }
+            };
+            //$('.grid-show').click(function () {
+            //    $('.mg-table').css("display", "block");
+            //});
+        </script>

@@ -22,13 +22,13 @@ namespace ESmartDr
         }
         protected void Application_Error(object sender, EventArgs e)
         {
-            //Exception exception = Server.GetLastError();
-            //var action = new StackTrace(exception).GetFrames().FirstOrDefault(f => typeof(IController).IsAssignableFrom(f.GetMethod().DeclaringType)).GetMethod();
-            //var ControllerName = (action.DeclaringType.FullName.Substring(action.DeclaringType.FullName.LastIndexOf("."))).Replace('.', ' ');
-            //var ActionMethod = action.ToString().Substring(action.ToString().LastIndexOf(" "));
-            //BL.SetLOG(action.ToString(), ControllerName, ActionMethod, "");
-            //Server.ClearError();
-            //Response.Redirect("/LoginDetails/Index");
+            Exception exception = Server.GetLastError();
+            var action = new StackTrace(exception).GetFrames().FirstOrDefault(f => typeof(IController).IsAssignableFrom(f.GetMethod().DeclaringType)).GetMethod();
+            var ControllerName = (action.DeclaringType.FullName.Substring(action.DeclaringType.FullName.LastIndexOf("."))).Replace('.', ' ');
+            var ActionMethod = action.ToString().Substring(action.ToString().LastIndexOf(" "));
+            BL.SetLOG(action.ToString(), ControllerName, ActionMethod, "");
+            Server.ClearError();
+            Response.Redirect("/LoginDetails/Index");
         }
     }
 }

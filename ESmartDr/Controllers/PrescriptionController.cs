@@ -85,6 +85,7 @@ namespace ESmartDr.Controllers
             ModelState.Clear();
            
 
+
             if (imgfile != null)
             {
                 string path;
@@ -100,9 +101,12 @@ namespace ESmartDr.Controllers
             historyFileDetails.CasePaperNo = patientDETAILS.CasePapaerNo;
             historyFileDetails.HospitalId = patientDETAILS.HospitalId;
             historyFileDetails.PatientId = patientDETAILS.Id;
-            historyFileDetails.CreatedBy = patientDETAILS.Id;
+            historyFileDetails.CreatedBy = admObj.UserId;
             int Flag = BM.UploadFile(historyFileDetails);
-            return Json("", JsonRequestBehavior.AllowGet);
+            //return Json(Flag, JsonRequestBehavior.AllowGet);
+            List<Common> lstObservation = new List<Common>();
+            //return Json(lstObservation, JsonRequestBehavior.AllowGet);
+            return Json("File Uploaded Successfully!");
         }
 
         [HttpPost]
