@@ -170,53 +170,29 @@
 
 <br />
 <div class="row" style="width: 100%;margin: 0 auto;">
-
-
     <div class="col-md-6" id="Div1">
-        <div class="card" style="padding: 1.1em 1.1em;">
-            <div id="columnchart_material" style="width: 500px; height: 200px;padding: 1.1em 1.1em;"></div>
+        <div class="card">
+            <div id="columnchart_material" style="width: 500px; height: 200px;padding: 0.5em 0.5em;"></div>
         </div>
     </div>
-
-
-
-
-
-
     <div class="col-md-6" id="Div2">
-        <div class="card" style="padding: 1.1em 1.1em;">
-            <div id="chart4" style="width: 500px; height: 200px;padding: 1.1em 1.1em;"></div>
+        <div class="card">
+            <div id="chart4" style="width: 500px; height: 200px;padding: 0.5em 0.5em;"></div>
         </div>
     </div>
-
-
     <div class="col-md-6" id="Div3">
-        <div class="card" style="padding: 1.1em 1.1em;">
-            <div id="columnchart_materiala" style="width: 500px; height: 200px;padding: 1.1em 1.1em;"></div>
+        @*<div class="card" style="padding: 0.1em 0.1em;">*@
+        <div class="card">
+            <div id="columnchart_materiala" style="width: 100%; height: 200px;padding: 0.51em 0.5em;"></div>
         </div>
     </div>
     <div class="col-md-6" id="Div4">
-        <div class="card" style="padding: 1.1em 1.1em;">
-            <div id="chart_div" style="width: 500px; height: 200px;padding: 1.1em 1.1em;"></div>
+        <div class="card">
+            <div id="chart_div" style="width: 100%; height: 200px;padding: 0.5em 0.5em;"></div>
         </div>
     </div>
-
 </div>
 <br />
-
-@*<div class="row" style="width: 100%;margin: 0 auto;"  id="DivYear" >
-    <div class="col-md-6">
-        <div class="card" style="padding: 1.1em 1.1em;">
-            <div id="columnchart_material" style="width: 500px; height: 300px;padding: 1.1em 1.1em;"></div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card" style="padding: 1.1em 1.1em;">
-            <div id="chart_div" style="width: 500px; height: 300px;padding: 1.1em 1.1em;"></div>
-        </div>
-    </div>
-    </div>*@
-
 
 <div class="row" style="width: 100%;margin: 0 auto;">
 
@@ -228,10 +204,6 @@
             <div class="card-body">
                 <h3>Appointment</h3>
                 <div class="table-responsive">
-                    @*<div class="grid-btn pull-right">
-                            <a> <input type="Date" class="form-control text-letter" placeholder="dd/mm/yyyy"></a>
-                        </div>
-                        <br /><br />*@
                     <table id="examples" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
@@ -392,7 +364,6 @@
 <script type="text/javascript">
 
     ///1
-
     var id = 0;
     var result = [];
     var urllink = '@Url.Content("~/DashBordDetails/ViewDashbord1")'
@@ -425,29 +396,13 @@
         var options = {
             legend: 'none',
             title: 'Visit Analysis',
-            //candlestick: {
-            //    risingColor: { stroke: '#f5a433', fill: 'white' },
-            //    fallingColor: { stroke: '#25a1a1' }
-            //},
             colors: ['#f5a433', '#25a1a1']
         };
-        //var options = {
-        //    chart: {
-        //        title: 'Visit Analysis',
-
-        //        //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-        //    }
-        //};
         var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
         chart.draw(data, google.charts.Bar.convertOptions(options));
     }
 
-
-
-
-
     ////////////3
-
     var id2 = 0;
     var result2 = [];
     var urllink = '@Url.Content("~/DashBordDetails/IncomeExpensesAnalysis")'
@@ -479,26 +434,14 @@
         var options = {
             legend: 'none',
             title: 'Visit Analysis',
-            //candlestick: {
-            //    risingColor: { stroke: '#f5a433', fill: 'white' },
-            //    fallingColor: { stroke: '#25a1a1' }
-            //},
             colors: ['#f5a433', '#25a1a1']
         };
-        //var options = {
-        //    chart: {
-        //        title: 'Visit Analysis',
-        //        //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-        //    }
-        //};
         var chart2 = new google.charts.Bar(document.getElementById('columnchart_materiala'));
         chart2.draw(data, google.charts.Bar.convertOptions(options));
     }
 
 
     ////////4
-
-
     var id3 = 0;
     var result3 = [];
     var urllink3 = '@Url.Content("~/DashBordDetails/IncomeExpensesAnalysis3")'
@@ -529,26 +472,15 @@
 
         var options = {
             legend: 'none',
-            title: 'Invoice Amount-Espenses Amount',
-            //candlestick: {
-            //    risingColor: { stroke: '#f5a433', fill: 'white' },
-            //    fallingColor: { stroke: '#25a1a1' }
-            //},
+            title: 'Invoice Amount - Espenses Amount',
             colors: ['#f5a433', '#25a1a1']
         };
-        //var options = {
-        //    chart: {
-        //        title: 'Invoice Amount-Espenses Amount ',
-        //        //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-        //    }
-        //};
         var chart3 = new google.charts.Bar(document.getElementById('chart_div'));
         chart3.draw(data, google.charts.Bar.convertOptions(options));
     }
 
 
     ////2/////
-
     var id4 = 0;
     var result4 = [];
     var urllink4 = '@Url.Content("~/DashBordDetails/IncomeExpensesAnalysis4")'
@@ -580,40 +512,17 @@
         var data = google.visualization.arrayToDataTable(result4);
         var options = {
             legend: 'none',
-            title: 'Invoice Amount-Espenses Amount',
-            //candlestick: {
-            //    risingColor: { stroke: '#f5a433', fill: 'white' },
-            //    fallingColor: { stroke: '#25a1a1' }
-            //},
+            title: 'Invoice Amount - Espenses Amount',
             colors: ['#f5a433', '#25a1a1']
         };
-
-        //var options = {
-        //    chart: {
-        //        title: 'Invoice Amount-Espenses Amount ',
-        //        //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-        //    }
-        //};
-
         var chart4 = new google.charts.Bar(document.getElementById('chart4'));
-
         chart4.draw(data, google.charts.Bar.convertOptions(options));
     }
-
-
-
-
-
 </script>
 
 <script type="text/javascript">
     $(function () {
-
-
         $("#purpose").change(function () {
-
-
-
             if ($(this).val() == "1") {
 
                 $("#Div1").show();
