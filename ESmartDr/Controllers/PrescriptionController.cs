@@ -75,8 +75,37 @@ namespace ESmartDr.Controllers
             }
         }
 
+
         [HttpPost]
-        public ActionResult ManagePrecCommonDetails(Common co, HttpPostedFileBase imgfile)
+        public ActionResult UploadFile( HttpPostedFileBase imgfile)
+        {
+            AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
+            HistoryFileDetails historyFileDetails = new HistoryFileDetails();
+            ModelState.Clear();
+           
+
+            if (imgfile != null)
+            {
+                string path;
+                string extension = Path.GetExtension(imgfile.FileName);
+                string impPath = ConfigurationManager.AppSettings["HistoryDoc"];
+                path = Path.Combine(Server.MapPath(impPath), Path.GetFileName(imgfile.FileName));
+                imgfile.SaveAs(path);
+               
+                // path = "/UploadImage/" + Path.GetFileName(imgfile.FileName);
+            }
+            historyFileDetails.QueueId = patientDETAILS.QueueId;
+            historyFileDetails.FileName = imgfile.FileName;
+            historyFileDetails.CasePaperNo = patientDETAILS.CasePapaerNo;
+            historyFileDetails.HospitalId = patientDETAILS.HospitalId;
+            historyFileDetails.PatientId = patientDETAILS.Id;
+            int Flag = BM.UploadFile(historyFileDetails);
+            return Json("", JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult ManagePrecCommonDetails(Common co)
         {
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
             PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
@@ -87,21 +116,21 @@ namespace ESmartDr.Controllers
             co.PatientId = patientDETAILS.Id.ToString();
             co.CasePaperNo = patientDETAILS.CasePapaerNo;
 
-            if (imgfile != null)
-            {
-                string path;
-                string extension = Path.GetExtension(imgfile.FileName);
-                string impPath = ConfigurationManager.AppSettings["HistoryDoc"];
-                path = Path.Combine(Server.MapPath(impPath), Path.GetFileName(imgfile.FileName));
-                imgfile.SaveAs(path);
-                co.FileName = imgfile.FileName;
-                // path = "/UploadImage/" + Path.GetFileName(imgfile.FileName);
-            }
+            //if (imgfile != null)
+            //{
+            //    string path;
+            //    string extension = Path.GetExtension(imgfile.FileName);
+            //    string impPath = ConfigurationManager.AppSettings["HistoryDoc"];
+            //    path = Path.Combine(Server.MapPath(impPath), Path.GetFileName(imgfile.FileName));
+            //    imgfile.SaveAs(path);
+            //    co.FileName = imgfile.FileName;
+            //    // path = "/UploadImage/" + Path.GetFileName(imgfile.FileName);
+            //}
 
-            else
-            {
-                co.FileName = "";
-            }
+            //else
+            //{
+            //    co.FileName = "";
+            //}
 
 
             int Flag = BM.ManagePrecCommonDetails(co);

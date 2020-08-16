@@ -123,5 +123,10 @@ namespace Bal_Layer
         {
             return DM.GetBillingDetails(queueId, casePapaerNo);
         }
+        public int UploadFile(HistoryFileDetails historyFileDetails)
+        {
+            return DM.UploadFile(historyFileDetails);
+        }
+        
     }
 }

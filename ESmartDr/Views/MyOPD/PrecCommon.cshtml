@@ -134,18 +134,9 @@
                 </div>
 
             </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="form-control-label">
-                                Attachment
-                            </label>
-                            <input type="file" id="imgfile" name="imgfile" placeholder="Email-Id / Mobile No." class="form-control">
-                        </div>
-                    </div>
-                </div>
 
-</form>
+
+        </form>
     }
     <br />
     <div class="row">
@@ -199,11 +190,55 @@
     </div>
 
 </div>
+<br />
+<hr />
+<div class="card-body">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="form-group pull-right">
+                <label class="form-control-label">
+                    Attachment
+                </label>
+                <input type="file" id="imgfile" name="imgfile" placeholder="Email-Id / Mobile No." class="form-control">
+            </div>
+        </div>
+       
+        <div class="col-md-3">
+            <br />
+            <div class="form-group pull-right" style="padding-top:0.5em">
+                <button type="submit" onclick="UploadFile()" class="btn btn_1 btn-primary" id="tostr-save6">Upload File</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
+
+    function UploadFile() {
+
+        var form = $('#frmPrecCommon')[0];
+
+        var fromData = new FormData(form);
+        var urllink = '@Url.Content("~/Prescription/UploadFile")'
+        $.ajax({
+            type: "post",
+            url: urllink,
+            data: fromData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+             
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        })
+
+    }
+
     function SubmitCommonDetails() {
 
         var form = $('#frmPrecCommon')[0];
-        
+
         var fromData = new FormData(form);
         var urllink = '@Url.Content("~/Prescription/ManagePrecCommonDetails")'
         $.ajax({

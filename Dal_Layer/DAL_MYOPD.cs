@@ -72,7 +72,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[13];
+                sqlparam = new SqlParameter[12];
                 sqlparam[0] = new SqlParameter("@Id", Ob.Id);
                 sqlparam[1] = new SqlParameter("@InvSelectTests", Ob.InvSelectTests);
                 sqlparam[2] = new SqlParameter("@InvNotes", Ob.InvNotes);
@@ -85,7 +85,7 @@ namespace Dal_Layer
                 sqlparam[9] = new SqlParameter("@PatientId", Ob.PatientId);
                 sqlparam[10] = new SqlParameter("@CreatedBy", Ob.CreatedBy);
                 sqlparam[11] = new SqlParameter("@QueueId", Ob.QueueId);
-                sqlparam[12] = new SqlParameter("@FileName", Ob.FileName);
+                //sqlparam[12] = new SqlParameter("@FileName", Ob.FileName);
                 return CommonFunction.Save("USP_Prec_Common", sqlparam, "");
             }
             catch (Exception)
@@ -888,6 +888,26 @@ namespace Dal_Layer
             {
 
                 throw Ex;
+            }
+        }
+        public int UploadFile(HistoryFileDetails historyFileDetails)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[5];
+                sqlparam[0] = new SqlParameter("@QueueId", historyFileDetails.QueueId);
+                sqlparam[1] = new SqlParameter("@FileName", historyFileDetails.FileName);
+                sqlparam[2] = new SqlParameter("@CasePaperNo", historyFileDetails.CasePaperNo);
+                sqlparam[3] = new SqlParameter("@HospitalId", historyFileDetails.HospitalId);
+                sqlparam[4] = new SqlParameter("@PatientId", historyFileDetails.PatientId);
+
+                return CommonFunction.Save("USP_Set_HistoryFileDetails", sqlparam, "");
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }
