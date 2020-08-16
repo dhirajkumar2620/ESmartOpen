@@ -100,6 +100,7 @@ namespace ESmartDr.Controllers
             historyFileDetails.CasePaperNo = patientDETAILS.CasePapaerNo;
             historyFileDetails.HospitalId = patientDETAILS.HospitalId;
             historyFileDetails.PatientId = patientDETAILS.Id;
+            historyFileDetails.CreatedBy = patientDETAILS.Id;
             int Flag = BM.UploadFile(historyFileDetails);
             return Json("", JsonRequestBehavior.AllowGet);
         }

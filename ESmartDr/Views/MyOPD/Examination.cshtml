@@ -69,7 +69,7 @@
             <div class="card" id="divPrint">
                 <div class="card-body mg-table">
                     <div id="printExamination">
-                        <table style="margin: 0 auto;border: 1px solid #ccc;width: 80%;" id="Bill">
+                        <table style="margin: 0 auto;width: 80%;" id="Bill">
                             <tr>
                                 <td>
                                     @if (@Session["Template"].ToString() == "Yes")
@@ -81,7 +81,7 @@
                                                         <li><b>@Model.HostClincName</b></li>
                                                         <li>@Model.HospClinicAddess</li>
                                                         <li>+91 @Model.HospClinicNumber</li>
-                                                        <li>@Model.FirmInTime1 :@Model.FirmOutTime2 </li>
+                                                        <li>@Model.FirmInTime1 :@Model.FirmOutTime1 - @Model.FirmInTime2 :@Model.FirmOutTime2 </li>
                                                         <li>Clinic Holiday : @Model.Holiday</li>
                                                     </ul>
                                                 </td>
@@ -112,7 +112,7 @@
                                     <table style="width: 100%;border:1px solid #cccccc;padding: 1.5em .5em;border-radius: 9px;">
                                         <tr>
                                             <td style="padding-left: 5px;">
-                                                Patient Details :@Model.PatientName
+                                                Patient Details : <input type="text" @Model.PatientName style="border: none;border-bottom: 1px solid #c3c3c3;width: 85%;">
                                             </td>
                                             <td style="text-align: right;width: 35%;">
                                                 CP No. : @Model.CasePapaerNo
@@ -135,79 +135,79 @@
 
                                                         @if (@item.BloodPressure != null)
                                                         {
-                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">BP(mmHg) </span><br />@item.BloodPressure</td>
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">BP(mmHg) </span>@item.BloodPressure</td>
                                                         }
                                                         else
                                                         {
-                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">BP(mmHg) </span><br />-</td>
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">BP(mmHg) </span>-</td>
                                                         }
 
                                                         @if (@item.Temperature != null)
                                                         {
-                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Temp  </span><br />@item.Temperature</td>
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Temp(&#8457;/℃) </span>@item.Temperature</td>
                                                         }
                                                         else
                                                         {
-                                                          <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Temp  </span><br />-</td>
+                                                          <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Temp(&#8457;/℃) </span>-</td>
                                                         }
 
                                                         @if (@item.Weight != null)
                                                         {
-                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Wt.(Kg) </span><br />@item.Weight</td>
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Wt.(Kg) </span>@item.Weight</td>
                                                         }
                                                         else
                                                         {
-                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Wt.(Kg) </span><br />-</td>
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Wt.(Kg) </span>-</td>
                                                         }
 
                                                         @if (@item.Height != null)
                                                         {
-                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Ht.(cm)  </span><br />@item.Height</td>
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Ht.(cm)  </span>@item.Height</td>
 
                                                         }
                                                         else
                                                         {
-                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Ht.(cm)  </span><br />-</td>
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Ht.(cm)  </span>-</td>
 
                                                         }
                                                        
                                                         @if (@item.BloodGlucoseFasting != null)
                                                         {
-                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">PPBG(mg/dL) </span><br />@item.BloodGlucoseFasting</td>
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">PPBG(mg/dL) </span>@item.BloodGlucoseFasting</td>
 
                                                         }
                                                         else
                                                         {
-                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">PPBG(mg/dL) </span><br />-</td>
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">PPBG(mg/dL) </span>-</td>
 
                                                         }
                                                         @if (@item.BloodlucoseRandom != null)
                                                         {
-                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">FBG(mg/dL)</span><br />@item.BloodlucoseRandom</td>
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">FBG(mg/dL)</span>@item.BloodlucoseRandom</td>
 
                                                         }
                                                         else
                                                         {
-                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">FBG(mg/dL)</span><br />-</td>
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">FBG(mg/dL)</span>-</td>
 
                                                         }
                                                         @if (@item.BloodGlucosePostPrandial != null)
                                                         {
-                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">RBG(mg/dL)</span><br />@item.BloodGlucosePostPrandial</td>
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">RBG(mg/dL)</span>@item.BloodGlucosePostPrandial</td>
 
                                                         }
                                                         else
                                                         {
-                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">RBG(mg/dL)</span><br />-</td>
+                                                            <td style="border-right: 1px solid #000;border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">RBG(mg/dL)</span>-</td>
 
                                                         }
                                                         @if (@item.Pulse != null)
                                                         {
-                                                            <td style="border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Pulse(/min)</span><br />@item.Pulse</td>
+                                                            <td style="border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Pulse(/min)</span>@item.Pulse</td>
                                                         }
                                                         else
                                                         {
-                                                            <td style="border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Pulse(/min)</span><br />-</td>
+                                                            <td style="border-width: 1px;height: 63px;position: relative;width: 12.5%;text-align: center;"><span style="position: relative;top: -19px;font-size: 12px;">Pulse(/min)</span>-</td>
 
                                                         }
                                                     </tr>
@@ -252,7 +252,7 @@
                                                     Dose
                                                 </td>
                                                 <td>
-                                                    frequency
+                                                    Frequency
                                                 </td>
                                                 <td>
                                                     Duration
@@ -279,7 +279,7 @@
                                                         @item.ForMedicine @item.MedicineDays
                                                     </td>
                                                     <td>
-                                                        @item.AlternateMedicine
+                                                        @item.AlternateMedicine Nos.
                                                     </td>
                                                 </tr>
                                                 index++;
@@ -297,13 +297,13 @@
                                                     @if (@Session["Advice"].ToString() == "Yes")
                                                     {
                                                         <br>
-                                                        <li>Advice Note : @Model.AdviceNote </li>
+                                                        <li>Advice Note : <input type="text" @Model.AdviceNote style="border: none;border-bottom: 1px solid #c3c3c3;width: 85%;"></li>
                                                     }
 
                                                     @if (@Session["Test"].ToString() == "Yes")
                                                     {
                                                         <br>
-                                                        <li>Test before next visit : @Model.TestBeforeVisit</li>
+                                                        <li>Test before next visit : <input type="text" @Model.TestBeforeVisit style="border: none;border-bottom: 1px solid #c3c3c3;width: 85%;"></li>
 
                                                     }
 
@@ -313,7 +313,7 @@
 
                                                     {
                                                         <br>
-                                                        <li>Next visit : @Model.NextVisit</li>
+                                                        <li>Next visit : <input type="text" @Model.NextVisit style="border: none;border-bottom: 1px solid #c3c3c3;width: 85%;"></li>
                                                     }
                                                 </ul>
                                             </td>
@@ -326,13 +326,12 @@
                                                 <ul style="list-style: none;">
                                                     <li><small></small></li>
                                                     <br>
-                                                    <li>@Model.DoctorName</li>
+                                                    <li><input type="text" @Model.DoctorName style="border: none;border-bottom: 1px solid #c3c3c3;width: 85%;"></li>
                                                 </ul>
                                             </td>
                                         </tr>
                                     </table>
-                                    @if (@Session["Template"].ToString() == "Yes")
-                                    {
+                                   
                                         <table style="width:100%;border-top: 1px solid #808080;">
                                             <tr>
                                                 <td>
@@ -343,12 +342,7 @@
                                                 </td>
                                             </tr>
                                         </table>
-                                    }
-                                    else
-                                    {
-                                        <br />  <br />
-                                    }
-
+                                   
                                 </td>
                             </tr>
 

@@ -101,7 +101,7 @@ namespace ESmartDr.Controllers
                     }
                 }
             }
-            pd.HospClinicNumber = pd.HospClinicNumber + " ," + pd.OtherNumber;
+            pd.HospClinicNumber = pd.HospClinicNumber + " ,+91 " + pd.OtherNumber;
             pd.HospClinicNumber = pd.HospClinicNumber.TrimEnd(',');
             pd.TestBeforeVisit = TestBeforeVisit.TrimEnd(',');
             pd.NextVisit = NextVisit.TrimEnd(',');

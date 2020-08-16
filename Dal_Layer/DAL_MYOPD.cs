@@ -895,13 +895,13 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[5];
+                sqlparam = new SqlParameter[6];
                 sqlparam[0] = new SqlParameter("@QueueId", historyFileDetails.QueueId);
                 sqlparam[1] = new SqlParameter("@FileName", historyFileDetails.FileName);
                 sqlparam[2] = new SqlParameter("@CasePaperNo", historyFileDetails.CasePaperNo);
                 sqlparam[3] = new SqlParameter("@HospitalId", historyFileDetails.HospitalId);
-                sqlparam[4] = new SqlParameter("@PatientId", historyFileDetails.PatientId);
-
+                sqlparam[4] = new SqlParameter("@PatientId", historyFileDetails.PatientId); 
+                sqlparam[5] = new SqlParameter("@CreatedBy", historyFileDetails.Id);
                 return CommonFunction.Save("USP_Set_HistoryFileDetails", sqlparam, "");
             }
             catch (Exception)
