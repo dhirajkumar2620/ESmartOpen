@@ -50,5 +50,6 @@ namespace App_Layer
         public string Speciality { get; set; }
         public string DrCount { get; set; }
         public List<AdminDetails> lst { get; set; }
+        public bool RememberMe { get; set; }
     }
 }

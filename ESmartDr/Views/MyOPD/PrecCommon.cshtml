@@ -64,7 +64,7 @@
     }
 </style>
 <div class="card-body">
-    @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmPrecCommon", enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmPrecCommon" }))
     {
         @Html.HiddenFor(m => m.Id, new { @id = "hdnPCId" });
         <form>
@@ -191,9 +191,9 @@
 
 </div>
 
-@using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmPrecCommonAttachment", enctype = "multipart/form-data" }))
-{
-    <form>
+
+
+   
         <div class="card-body">
             <div class="row">
                 <div class="col-md-9">
@@ -201,20 +201,26 @@
                         <label class="form-control-label">
                             Attachment
                         </label>
-                        <input type="file" id="imgfile" name="imgfile" placeholder="Email-Id / Mobile No." class="form-control">
-                    </div>
+@using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmPrecCommonAttachment", enctype = "multipart/form-data" }))
+{
+                        <form>
+                            <input type="file" id="imgfile" name="imgfile" placeholder="Email-Id / Mobile No." class="form-control">
+                        </form>
+}</div>
                 </div>
 
-                <div class="col-md-3">
-                    <br />
-                    <div class="form-group pull-right" style="padding-top:0.5em">
-                        <button type="submit" onclick="UploadFile()" class="btn btn_1 btn-primary" id="tostr-save6">Upload File</button>
-                    </div>
-                </div>
-            </div>
+               
+           
+        
+     
+<div class="col-md-3">
+    <br />
+    <div class="form-group pull-right" style="padding-top:0.5em">
+        <button type="submit" onclick="UploadFile()" class="btn btn_1 btn-primary" id="tostr-save6">Upload File</button>
+    </div>
+</div>
+ </div>
         </div>
-        </form>
-        }
         <script>
 
             function UploadFile() {
@@ -233,7 +239,7 @@
                         debugger;
                         //if (data.Flag == 1)
                         //{
-                        alert("File Uploaded Successfully." + result);
+                        alert(result);
                         //}
                         return;
 
