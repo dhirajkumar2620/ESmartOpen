@@ -691,20 +691,31 @@
 
 
     function PrintDiv() {
+
+
+        var Bill = document.getElementById("printExamination").innerHTML;
+        var printWindow = window.open('', '', 'height=500,width=900');
+        printWindow.document.write('<html><head><title>DIV Contents</title>');
+        printWindow.document.write('</head><body>');
+        printWindow.document.write(Bill);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+
         //Get the HTML of div
-        var divElements = document.getElementById("printExamination").innerHTML;
-        //Get the HTML of whole page
-        var oldPage = document.body.innerHTML;
-        //Reset the page's HTML with div's HTML only
-        document.body.innerHTML =
-            "<html><head><title></title></head><body>" +
-            divElements + "</body>";
+        //var divElements = document.getElementById("printExamination").innerHTML;
+        ////Get the HTML of whole page
+        //var oldPage = document.body.innerHTML;
+        ////Reset the page's HTML with div's HTML only
+        //document.body.innerHTML =
+        //    "<html><head><title></title></head><body>" +
+        //    divElements + "</body>";
 
-        //Print Page
-        window.print();
+        ////Print Page
+        //window.print();
 
-        //Restore orignal HTML
-        document.body.innerHTML = oldPage;
+        ////Restore orignal HTML
+        //document.body.innerHTML = oldPage;
 
 
     }
