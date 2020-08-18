@@ -77,36 +77,52 @@ namespace ESmartDr.Controllers
 
 
         [HttpPost]
-        public ActionResult UploadFile( HttpPostedFileBase imgfile)
+        public ActionResult UploadFile(HttpPostedFileBase imgfile)
         {
-            AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
-            HistoryFileDetails historyFileDetails = new HistoryFileDetails();
-            ModelState.Clear();
-           
-
-
-            if (imgfile != null)
+            try
             {
-                string path;
-                string extension = Path.GetExtension(imgfile.FileName);
+                AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+                PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
+                HistoryFileDetails historyFileDetails = new HistoryFileDetails();
+                ModelState.Clear();
                 string impPath = ConfigurationManager.AppSettings["HistoryDoc"];
-                path = Path.Combine(Server.MapPath(impPath), Path.GetFileName(imgfile.FileName));
-                imgfile.SaveAs(path);
-               
-                // path = "/UploadImage/" + Path.GetFileName(imgfile.FileName);
+                if (impPath != null)
+                {
+
+                    if (imgfile != null)
+                    {
+                        string path;
+                        string extension = Path.GetExtension(imgfile.FileName);
+                        path = Path.Combine(Server.MapPath(impPath), Path.GetFileName(imgfile.FileName));
+                        imgfile.SaveAs(path);
+
+                    }
+                    else
+                    {
+                        return Json("Please upload file !");
+                    }
+                }
+                else
+                {
+                    return Json("File Upload is not available folder !");
+                }
+                historyFileDetails.QueueId = patientDETAILS.QueueId;
+                historyFileDetails.FileName = imgfile.FileName;
+                historyFileDetails.CasePaperNo = patientDETAILS.CasePapaerNo;
+                historyFileDetails.HospitalId = patientDETAILS.HospitalId;
+                historyFileDetails.PatientId = patientDETAILS.Id;
+                historyFileDetails.CreatedBy = admObj.UserId;
+                int Flag = BM.UploadFile(historyFileDetails);
+                //return Json(Flag, JsonRequestBehavior.AllowGet);
+                List<Common> lstObservation = new List<Common>();
+                //return Json(lstObservation, JsonRequestBehavior.AllowGet);
+                return Json("File Uploaded Successfully!");
             }
-            historyFileDetails.QueueId = patientDETAILS.QueueId;
-            historyFileDetails.FileName = imgfile.FileName;
-            historyFileDetails.CasePaperNo = patientDETAILS.CasePapaerNo;
-            historyFileDetails.HospitalId = patientDETAILS.HospitalId;
-            historyFileDetails.PatientId = patientDETAILS.Id;
-            historyFileDetails.CreatedBy = admObj.UserId;
-            int Flag = BM.UploadFile(historyFileDetails);
-            //return Json(Flag, JsonRequestBehavior.AllowGet);
-            List<Common> lstObservation = new List<Common>();
-            //return Json(lstObservation, JsonRequestBehavior.AllowGet);
-            return Json("File Uploaded Successfully!");
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         [HttpPost]

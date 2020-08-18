@@ -915,14 +915,13 @@
 
     <script src="https://pagecdn.io/lib/jquery-cookie/v1.4.1/jquery.cookie.js" integrity="sha256-uEFhyfv3UgzRTnAZ+SEgvYepKKB0FW6RqZLrqfyUNug=" crossorigin="anonymous"></script>
     <script type="text/javascript">
-        $(document).on("click", "#btnlogin", function () {
 
-                var remcondition = $('#checkboxCustom').prop('checked');
-               
+        //Remember me Check Box
+        $(document).on("click", "#btnlogin", function () {
+                var remcondition = $('#checkboxCustom').prop('checked');               
                 if (remcondition == true) {
                     var username = $('#txtWhatsAppNumber').val();
-                    var password = $('#txtPasswod1').val();
-                   
+                    var password = $('#txtPasswod1').val();                   
                     // set cookies to expire in 14 days
                     $.cookie('txtWhatsAppNumber', username, { expires: 2 });
                     $.cookie('txtPasswod1', password, { expires: 2 });
@@ -956,6 +955,9 @@
                     }
                 }
             });
+
+
+
     </script>
 </body>
 
