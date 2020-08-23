@@ -71,9 +71,9 @@
                                         <thead>
                                             <tr>
                                                 <th>Date</th>
+                                                <th>Observation</th> 
                                                 <th>Medication</th>
-                                                <th>Suggestion</th>
-                                                <th>Observation</th>                                                
+                                                <th>Suggestion</th>                                                                                               
                                                 <th>Attachment</th>
                                             </tr>
                                         </thead>
@@ -83,6 +83,29 @@
                                                 <tr>
                                                     <td>@item.DateTime</td>
                                                     <td class="nested1">
+
+                                                        <table class="inner-shdow">
+
+                                                            <tbody>
+
+                                                                @foreach (var item3 in item.lstOD)
+                                                                {
+                                                                    <tr>
+                                                                        <td>
+                                                                            @item3.Complaints -  @item3.Since - @item3.Period 
+                                                                             - @item3.PhysicalExamination-@item3.Observation-@item3.Diagnosis
+                                                                        </td>
+
+                                                                    </tr>
+                                                                }
+                                                            </tbody>
+                                                        </table>
+
+
+
+                                                       
+                                                    </td>
+                                                    <td>
                                                         <table class="table inner-shdow">
 
                                                             <tbody>
@@ -90,15 +113,15 @@
 
                                                                 @foreach (var item1 in item.lstMD)
                                                                 {
-                                                                <tr>
-                                                                    <td>
-                                                                        @item1.MedicineName -
-                                                                        @item1.WhenMedicine - @item1.RepeatMedicine / @item1.MedicineCount @item1.MedicineDays /
-                                                                        @item1.SpecialInstruction /
-                                                                        @item1.AlternateMedicine
-                                                                    </td>
+                                                                    <tr>
+                                                                        <td>
+                                                                            @item1.MedicineName -
+                                                                            @item1.WhenMedicine -@item1.Dose- @item1.RepeatMedicine -@item1.ForMedicine - @item1.MedicineDays  -
+                                                                            @item1.SpecialInstruction-
+                                                                            @item1.AlternateMedicine
+                                                                        </td>
 
-                                                                </tr>
+                                                                    </tr>
 
 
                                                                 }
@@ -117,29 +140,14 @@
                                                                 @foreach (var item2 in item.lstTD)
                                                                 {
                                                                 <tr>
-                                                                    <td>@item2.Test-@item2.InvNotes/@item2.AddAdvice/@item2.AddDiet/@item2.NextVisitAfter/@item2.FrequencyDate</td>
+                                                                    <td>@item2.Test-@item2.InvNotes-@item2.AddAdvice-@item2.AddDiet-@item2.NextVisitAfter-@item2.FrequencyDate</td>
                                                                 </tr>
                                                                 }
 
                                                             </tbody>
                                                         </table>
                                                     </td>
-                                                    <td>
-                                                        <table class="inner-shdow">
-
-                                                            <tbody>
-
-                                                                @foreach (var item3 in item.lstOD)
-                                                                {
-                                                                <tr>
-                                                                    <td>@item3.Complaints -@item3.Observation/
-                                                                    @item3.Since - @item3.Period / @item3.PhysicalExamination/@item3.Diagnosis</td>
-
-                                                                </tr>
-                                                                }
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
+                                                   
 
                                                     
 

@@ -73,7 +73,11 @@ namespace App_Layer
         public string AlternateMedicine { get; set; }
         public string MedicineDays { get; set; }
         public string RepeatMedicine { get; set; }
-       
+        public string Dose { get; set; }
+
+        public string ForMedicine { get; set; }
+
+        
 
     }
 
