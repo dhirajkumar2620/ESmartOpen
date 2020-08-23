@@ -34,6 +34,10 @@ namespace App_Layer
         public string Observation { get; set; }
         public string Since { get; set; }
         public string Period { get; set; }
+        public string Complaints { get; set; }
+        public string PhysicalExamination { get; set; }
+        public string Diagnosis { get; set; }
+
 
     }
 
@@ -49,6 +53,15 @@ namespace App_Layer
     {
         public int QueueId { get; set; }
         public string Test { get; set; }
+
+        public string InvSelectTests { get; set; }
+        public string InvNotes { get; set; }
+        public string NextVisitAfter { get; set; }
+        public string AddDiet { get; set; }
+
+        public string FrequencyDate { get; set; }
+
+        public string AddAdvice { get; set; }
     }
     public class MedicinesDetails
     {
