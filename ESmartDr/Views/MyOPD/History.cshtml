@@ -92,8 +92,7 @@
                                                                 {
                                                                     <tr>
                                                                         <td>
-                                                                            @item3.Complaints -  @item3.Since - @item3.Period 
-                                                                             - @item3.PhysicalExamination-@item3.Observation-@item3.Diagnosis
+                                                                            @item3.Complaints- @item3.Since - @item3.Period  @item3.PhysicalExamination-@item3.Observation-@item3.Diagnosis
                                                                         </td>
 
                                                                     </tr>
@@ -109,14 +108,16 @@
                                                         <table class="table inner-shdow">
 
                                                             <tbody>
+                                                              
 
+                                                                
 
                                                                 @foreach (var item1 in item.lstMD)
                                                                 {
                                                                     <tr>
                                                                         <td>
                                                                             @item1.MedicineName -
-                                                                            @item1.WhenMedicine -@item1.Dose- @item1.RepeatMedicine -@item1.ForMedicine - @item1.MedicineDays  -
+                                                                            @item1.WhenMedicine -@item1.Dose- @item1.RepeatMedicine @item1.ForMedicine - @item1.MedicineDays  -
                                                                             @item1.SpecialInstruction-
                                                                             @item1.AlternateMedicine
                                                                         </td>
