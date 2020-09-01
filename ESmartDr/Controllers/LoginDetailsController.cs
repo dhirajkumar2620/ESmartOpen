@@ -22,7 +22,7 @@ namespace ESmartDr.Controllers
         [HttpPost]
         public ActionResult Login(AdminDetails AD)
         {
-            AdminDetails ad = new AdminDetails();
+           AdminDetails ad = new AdminDetails();
           
             ad = BP.GetLoginUserDetails(AD);
             // ----setting -------
