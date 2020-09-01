@@ -30,7 +30,8 @@ namespace ESmartDr.Controllers
             Settings s = new Settings();
             s = BLs.GetSettings(ad.UserId);
 
-
+            
+                Session["ActivationFor"] = ad.ActivationFor;
             Session["User"] = ad;
             Session["Language"] = s.Language;
             Session["VitalInformation"] = s.VitalInformation;
@@ -85,7 +86,15 @@ namespace ESmartDr.Controllers
                 Session["HinTime2"] = ad.FirmInTime2;
                 Session["HoutTime2"] = ad.FirmOutTime2;
                 //-----Doctor Count------
-                Session["DrCount"] = ad.DrCount;
+                if(ad.DrCount ==null)
+                {
+                    Session["DrCount"] = "";
+                }
+                else
+                {
+                    Session["DrCount"] = ad.DrCount;
+                }
+                
                 if (string.IsNullOrEmpty(Session["HinTime1"] as string))
                 {
                     Session["HinTime1"] = " ";
