@@ -165,9 +165,18 @@
                                                         <li class="list-inline-item" data-toggle="modal" data-target="#forAppontment" title="Edit">
                                                             <a href="#" data-toggle="modal" data-target="#saveAppointment" onclick="showModel(this)"><i class="fa fa-check" aria-hidden="true"></i></a>
                                                         </li>
-                                                        <li class="list-inline-item" title="Examination">
-                                                            <a href="@Url.Content("~/Home/MyOPD?CPno="+item.CasePaperNo+"&QueueID="+item.Id+"")"><i class="fa fa-user-md user1-md " aria-hidden="true"></i></a>
-                                                        </li>
+                                                        @if (Session["ActivationFor"].ToString() == "Smart Manager")
+                                                        {
+
+                                                        }
+                                                        else
+                                                        {
+                                                            <li class="list-inline-item" title="Examination">
+                                                                <a href="@Url.Content("~/Home/MyOPD?CPno="+item.CasePaperNo+"&QueueID="+item.Id+"")"><i class="fa fa-user-md user1-md " aria-hidden="true"></i></a>
+                                                            </li>
+
+                                                        }
+
                                                         <li class="list-inline-item" data-toggle="modal" data-target="#whatsappModal" title="Cancle">
                                                             <a href="#" data-toggle="modal" data-target="#DeleteAppoinment" onclick="ShowDeleteAppoinment(this)"><i class="fa fa-times" aria-hidden="true"></i></a>
                                                         </li>
@@ -259,12 +268,12 @@
                                         new SelectListItem{ Text="Visited", Value = "Visited", Selected=true},
                                         //new SelectListItem{ Text="With Doctor", Value = "With Doctor" },
                                         //new SelectListItem{ Text="In Queue", Value = "In Queue" },
-                                        
+
                                         }, new { @class = "form-control mb-3", id = "txtStatus1" })
 
 
                                 @*<select name="Status" class="form-control mb-3">
-                                        
+
                                         <option>Visited</option>
                                     </select>*@
                             </div>
@@ -322,8 +331,8 @@
                 <div class="modal-footer" style="border-top:none;">
                     <div class="row">
                         <div class="col-md-12">
-                           <button type="button" onclick="DeleteAppoinment(this)" class="btn btn_2 b22 btn-primary" data-dismiss="modal">Yes</button>
-                            
+                            <button type="button" onclick="DeleteAppoinment(this)" class="btn btn_2 b22 btn-primary" data-dismiss="modal">Yes</button>
+
                         </div>
                     </div>
                 </div>
@@ -370,6 +379,10 @@
        )
     };*@
     function NextAppView(x) {
+
+
+        if()
+
 
         var date1 = document.getElementById("txtDate").value;
         $.ajax({
@@ -446,7 +459,7 @@
     }
 
     function SetStatus(x) {
-        
+
         var appCPno = document.getElementById("txtCPno").value;
         var appStatus = "Visited";//document.getElementById("txtStatus").value;
         var appBill = document.getElementById("txtBill").value;
@@ -513,7 +526,7 @@
         var today = new Date();
         var currentdate = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
         document.getElementById("txtDate").value = currentdate;
-       
+
     });
 
 

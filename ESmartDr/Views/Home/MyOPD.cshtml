@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="col-md-2 text-center">
                                     <h6 class="mt-0 mb-1">Blood Group</h6>
-                                    <div class="count text-primary fs-20">@Session["BloodGroup"].ToString()</div> 
+                                    <div class="count text-primary fs-20">@Session["BloodGroup"].ToString()</div>
                                 </div>
                             </div>
                         </div>
@@ -71,9 +71,6 @@
                                             <li class="nav-item">
                                                 <a class="nav-link active" id="pills-patient-tab" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdPatientDetails", "MyOPD")" role="tab" aria-controls="pills-patient" aria-selected="true">Patient Details</a>
                                             </li>
-
-
-
                                         </ul>
                                     }
                                     else
@@ -82,9 +79,12 @@
                                             <li class="nav-item">
                                                 <a class="nav-link active" id="pills-patient-tab" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdPatientDetails", "MyOPD")" role="tab" aria-controls="pills-patient" aria-selected="true">Patient Details</a>
                                             </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="pills-precription-tab" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdPrescription", "MyOPD")" role="tab" aria-controls="pills-precription" aria-selected="false">Examination</a>
-                                            </li>
+                                            @if (Session["ActivationFor"].ToString() == "Smart Doctor" || Session["ActivationFor"].ToString() == "Smart OPD")
+                                            {
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="pills-precription-tab" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdPrescription", "MyOPD")" role="tab" aria-controls="pills-precription" aria-selected="false">Examination</a>
+                                                </li>
+                                            }
                                             <li class="nav-item">
                                                 <a class="nav-link" id="pills-examination-tab" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdExamination", "MyOPD")" role="tab" aria-controls="pills-examination" aria-selected="false">Precription</a>
                                             </li>
@@ -96,12 +96,14 @@
                                                 <a class="nav-link" id="pills-billing-tab" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdBilling", "MyOPD")" role="tab" aria-controls="pills-billing" aria-selected="false">Billing</a>
                                             </li>
                                             @*<li class="nav-item">
-                                                <a class="nav-link" id="pills-certificate-tab" data-toggle="pill" href="#" data-request-url="@Url.Action("DocumentCertificate", "MyOPD")" role="tab" aria-controls="pills-certificate" aria-selected="false">Document Certificate</a>
-                                            </li>*@
+                                                    <a class="nav-link" id="pills-certificate-tab" data-toggle="pill" href="#" data-request-url="@Url.Action("DocumentCertificate", "MyOPD")" role="tab" aria-controls="pills-certificate" aria-selected="false">Document Certificate</a>
+                                                </li>*@
 
 
                                         </ul>
                                     }
+
+
 
                                 </div>
                                 <br>
@@ -135,9 +137,12 @@
                                             <li class="nav-item">
                                                 <a class="nav-link active" id="pills-patient-tab1" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdPatientDetails", "MyOPD")" role="tab" aria-controls="pills-patient" aria-selected="true">Patient Details</a>
                                             </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="pills-precription-tab1" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdPrescription", "MyOPD")" role="tab" aria-controls="pills-precription" aria-selected="false">Examination</a>
-                                            </li>
+                                            @if (Session["ActivationFor"].ToString() == "Smart Doctor" || Session["ActivationFor"].ToString() == "Smart OPD")
+                                            {
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="pills-precription-tab1" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdPrescription", "MyOPD")" role="tab" aria-controls="pills-precription" aria-selected="false">Examination</a>
+                                                </li>
+                                            }
                                             <li class="nav-item">
                                                 <a class="nav-link" id="pills-examination-tab1" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdExamination", "MyOPD")" role="tab" aria-controls="pills-examination" aria-selected="false">Precription</a>
                                             </li>
@@ -149,8 +154,8 @@
                                                 <a class="nav-link" id="pills-billing-tab1" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdBilling", "MyOPD")" role="tab" aria-controls="pills-billing" aria-selected="false">Billing</a>
                                             </li>
                                             @*<li class="nav-item">
-                        <a class="nav-link" id="pills-certificate-tab" data-toggle="pill" href="#" data-request-url="@Url.Action("DocumentCertificate", "MyOPD")" role="tab" aria-controls="pills-certificate" aria-selected="false">Document Certificate</a>
-                    </li>*@
+                                                    <a class="nav-link" id="pills-certificate-tab" data-toggle="pill" href="#" data-request-url="@Url.Action("DocumentCertificate", "MyOPD")" role="tab" aria-controls="pills-certificate" aria-selected="false">Document Certificate</a>
+                                                </li>*@
 
 
                                         </ul>
@@ -200,7 +205,7 @@
 
     //Top Tab
     $("#pills-precription-tab").on('click', function () {
-        var url = $(this).data('request-url');       
+        var url = $(this).data('request-url');
         $("#tabpanel").load(url);
 
         $("#pills-precription-tab1").addClass("nav-link active");
@@ -210,7 +215,7 @@
         $("#pills-history-tab1").removeClass("active");
         $("#pills-billing-tab1").removeClass("active");
     });
-    $("#pills-patient-tab").on('click', function () {      
+    $("#pills-patient-tab").on('click', function () {
         var url = $(this).data('request-url');
         $("#tabpanel").load(url);
 
@@ -274,11 +279,11 @@
     });
     $("#pills-patient-tab1").on('click', function () {
         var url1 = $(this).data('request-url');
-       
+
         $("#tabpanel").load(url1);
         $("#pills-patient-tab").addClass("nav-link active");
 
-        
+
         $("#pills-precription-tab").removeClass("active");
         $("#pills-history-tab").removeClass("active");
         $("#pills-billing-tab").removeClass("active");
@@ -286,7 +291,7 @@
     });
     $("#pills-examination-tab1").on('click', function () {
         var url1 = $(this).data('request-url');
-       
+
         $("#tabpanel").load(url1);
         $("#pills-examination-tab").addClass("nav-link active");
 
@@ -295,7 +300,7 @@
         $("#pills-precription-tab").removeClass("active");
         $("#pills-history-tab").removeClass("active");
         $("#pills-billing-tab").removeClass("active");
-      
+
     });
     $("#pills-history-tab1").on('click', function () {
         var url1 = $(this).data('request-url');

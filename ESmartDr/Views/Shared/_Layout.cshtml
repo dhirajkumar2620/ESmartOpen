@@ -33,8 +33,6 @@
     <link href="~/css/cssgraph_bar.css" rel="stylesheet" />
     <link href="~/css/cssgraph_plot.css" rel="stylesheet" />
     <style>
-       
-
         .ui-autocomplete {
             z-index: 1050;
         }
@@ -57,9 +55,21 @@
                     <div class="navbar-holder d-flex align-items-center justify-content-between">
                         <!-- Navbar Header-->
                         <div class="navbar-header">
-                            <!-- Navbar Brand --><a href="~/DashBordDetails/ViewDashbord" class="navbar-brand" style="width: 17%;">
-                                <div class="brand-text d-lg-inline-block"><img src="~/img/logo_new.png" class="img-fluid"></div>
-                            </a>
+
+                            <!-- Navbar Brand -->
+                            @if (Session["ActivationFor"].ToString() != "ADM")
+                            {
+                                <a href="~/DashBordDetails/ViewDashbord" class="navbar-brand" style="width: 17%;">
+                                    <div class="brand-text d-lg-inline-block"><img src="~/img/logo_new.png" class="img-fluid"></div>
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="#" class="navbar-brand" style="width: 17%;">
+                                    <div class="brand-text d-lg-inline-block"><img src="~/img/logo_new.png" class="img-fluid"></div>
+                                </a>
+
+                            }
                             <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
                         </div>
                         <!-- Navbar Menu -->
@@ -138,7 +148,7 @@
                             </li>
                             <!-- Languages dropdown    -->
                             <!-- Logout    -->
-                          
+
                             <li><i class="fa fa-sign-out" title="Log Out" aria-hidden="true"></i></li>
                             <li class="nav-item"><a href="~/LoginDetails/Index" class="logout">LogOut</a></li>
                         </ul>
@@ -197,6 +207,264 @@
                 }
                 else if (Session["RoleId"].ToString() == "ADM")
                 {
+                    //Smart Manager Menu
+                    if (Session["ActivationFor"].ToString() == "Smart Manager")
+                    {
+                        <ul class="list-unstyled">
+
+                            <li><a href="@Url.Content("~/PatientDetails/GetQueueList")"> <i class="fa fa-users" aria-hidden="true"></i>Todays Appointment</a></li>
+                            <li><a href="@Url.Content("~/PatientDetails/ViewAllPatient")"> <i class="fa fa-search-plus" aria-hidden="true"></i>View All Patient </a></li>
+                            <li>
+                                <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>Create User
+                                </a>
+                                <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                                    @if (Session["DrCount"].ToString() != "0")
+                                    {
+                                        @*<li><a href='@Url.Content("~/AdminDetails/AdminDetails")'> Create Admin</a></li>*@
+                                    }
+
+                                    <li><a href='@Url.Content("~/PatientDetails/PatientDetails")'> Add Patient</a></li>
+                                </ul>
+                            </li>
+
+
+
+                            <li><a href="@Url.Content("~/Document/GetDocument")"> <i class="fa fa-user-md" aria-hidden="true"></i>Document</a></li>
+                            <li><a href="@Url.Content("~/AccountDetails/ViewAllExpenses")"> <i class="fa fa-user-md" aria-hidden="true"></i>Account</a></li>
+
+                        </ul>
+
+                    }
+                    //Smart Doctor Menu
+                    if (Session["ActivationFor"].ToString() == "Smart Doctor")
+                    {
+                        <ul class="list-unstyled">
+                            <li><a href="@Url.Content("~/PatientDetails/GetQueueList")"> <i class="fa fa-users" aria-hidden="true"></i>Todays Appointment</a></li>
+                            <li><a href="@Url.Content("~/PatientDetails/ViewAllPatient")"> <i class="fa fa-search-plus" aria-hidden="true"></i>View All Patient </a></li>
+                            <li>
+                                <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>Create User
+                                </a>
+                                <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                                    <li><a href='@Url.Content("~/StaffDetails/StaffDetails")'>Add Staff Member</a></li>
+                                    <li><a href='@Url.Content("~/PatientDetails/PatientDetails")'> Add Patient</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="@Url.Content("~/Document/GetDocument")"> <i class="fa fa-user-md" aria-hidden="true"></i>Document</a></li>
+                            <li><a href="@Url.Content("~/AccountDetails/ViewAllExpenses")"> <i class="fa fa-user-md" aria-hidden="true"></i>Account</a></li>
+                            <li>
+                                <a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>Setting
+                                </a>
+                                <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
+                                    <li><a href='@Url.Content("~/MedicineDetails/ViewAllMedicine")'>Medicines</a></li>
+                                    <li><a href='@Url.Content("~/MedicineDetails/Setting")'>Print</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    }
+                    //Smart OPD Menu
+                    if (Session["ActivationFor"].ToString() == "Smart OPD")
+                    {
+                        <ul class="list-unstyled">
+                            <li><a href="@Url.Content("~/PatientDetails/GetQueueList")"> <i class="fa fa-users" aria-hidden="true"></i>Todays Appointment</a></li>
+                            <li><a href="@Url.Content("~/PatientDetails/ViewAllPatient")"> <i class="fa fa-search-plus" aria-hidden="true"></i>View All Patient </a></li>
+                            <li>
+                                <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>Create User
+                                </a>
+                                <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                                    @if (Session["DrCount"].ToString() != "0")
+                                    {
+                                        <li><a href='@Url.Content("~/AdminDetails/AdminDetails")'> Create Admin</a></li>
+                                    }
+                                    <li><a href='@Url.Content("~/StaffDetails/StaffDetails")'>Add Staff Member</a></li>
+                                    <li><a href='@Url.Content("~/PatientDetails/PatientDetails")'> Add Patient</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-address-book-o" aria-hidden="true"></i>User Management
+                                </a>
+                                <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
+                                    <li><a href="@Url.Content("~/AdminDetails/ViewAllAdmin")">Admin Management</a></li>
+                                    <li><a href="@Url.Content("~/StaffDetails/ViewAllStaff")">Staff Management</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="@Url.Content("~/Document/GetDocument")"> <i class="fa fa-user-md" aria-hidden="true"></i>Document</a></li>
+                            <li><a href="@Url.Content("~/AccountDetails/ViewAllExpenses")"> <i class="fa fa-user-md" aria-hidden="true"></i>Account</a></li>
+                            <li>
+                                <a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>Setting
+                                </a>
+                                <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
+                                    <li><a href='@Url.Content("~/MedicineDetails/ViewAllMedicine")'>Medicines</a></li>
+                                    <li><a href='@Url.Content("~/MedicineDetails/Setting")'>Print</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    }
+
+                    if (Session["ActivationFor"].ToString() == "Smart Dentist")
+                    {
+                        <ul class="list-unstyled">
+                            <li><a href="@Url.Content("~/PatientDetails/GetQueueList")"> <i class="fa fa-users" aria-hidden="true"></i>Todays Appointment</a></li>
+                            <li><a href="@Url.Content("~/PatientDetails/ViewAllPatient")"> <i class="fa fa-search-plus" aria-hidden="true"></i>View All Patient </a></li>
+                            <li>
+                                <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>Create User
+                                </a>
+                                <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                                    @if (Session["DrCount"].ToString() != "0")
+                                    {
+                                        <li><a href='@Url.Content("~/AdminDetails/AdminDetails")'> Create Admin</a></li>
+                                    }
+                                    <li><a href='@Url.Content("~/StaffDetails/StaffDetails")'>Add Staff Member</a></li>
+                                    <li><a href='@Url.Content("~/PatientDetails/PatientDetails")'> Add Patient</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-address-book-o" aria-hidden="true"></i>User Management
+                                </a>
+                                <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
+                                    <li><a href="@Url.Content("~/AdminDetails/ViewAllAdmin")">Admin Management</a></li>
+                                    <li><a href="@Url.Content("~/StaffDetails/ViewAllStaff")">Staff Management</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="@Url.Content("~/Document/GetDocument")"> <i class="fa fa-user-md" aria-hidden="true"></i>Document</a></li>
+                            <li><a href="@Url.Content("~/AccountDetails/ViewAllExpenses")"> <i class="fa fa-user-md" aria-hidden="true"></i>Account</a></li>
+                            <li>
+                                <a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>Setting
+                                </a>
+                                <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
+                                    <li><a href='@Url.Content("~/MedicineDetails/ViewAllMedicine")'>Medicines</a></li>
+                                    <li><a href='@Url.Content("~/MedicineDetails/Setting")'>Print</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    }
+                    if (Session["ActivationFor"].ToString() == "Smart Opto")
+                    {
+
+                        <ul class="list-unstyled">
+                            <li><a href="@Url.Content("~/PatientDetails/GetQueueList")"> <i class="fa fa-users" aria-hidden="true"></i>Todays Appointment</a></li>
+                            <li><a href="@Url.Content("~/PatientDetails/ViewAllPatient")"> <i class="fa fa-search-plus" aria-hidden="true"></i>View All Patient </a></li>
+                            <li>
+                                <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>Create User
+                                </a>
+                                <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                                    <li><a href='@Url.Content("~/PatientDetails/PatientDetails")'> Add Patient</a></li>
+                                </ul>
+                            </li>
+
+
+                            <li><a href="@Url.Content("~/Document/GetDocument")"> <i class="fa fa-user-md" aria-hidden="true"></i>Document</a></li>
+                            <li><a href="@Url.Content("~/AccountDetails/ViewAllExpenses")"> <i class="fa fa-user-md" aria-hidden="true"></i>Account</a></li>
+                            <li>
+                                <a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>Setting
+                                </a>
+                                <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
+                                    <li><a href='@Url.Content("~/MedicineDetails/ViewAllMedicine")'>Medicines</a></li>
+                                    <li><a href='@Url.Content("~/MedicineDetails/Setting")'>Print</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    }
+                    if (Session["ActivationFor"].ToString() == "Smart Optha")
+                    {
+
+                        <ul class="list-unstyled">
+                            <li><a href="@Url.Content("~/PatientDetails/GetQueueList")"> <i class="fa fa-users" aria-hidden="true"></i>Todays Appointment</a></li>
+                            <li><a href="@Url.Content("~/PatientDetails/ViewAllPatient")"> <i class="fa fa-search-plus" aria-hidden="true"></i>View All Patient </a></li>
+                            <li>
+                                <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>Create User
+                                </a>
+                                <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                                    @if (Session["DrCount"].ToString() != "0")
+                                    {
+                                        <li><a href='@Url.Content("~/AdminDetails/AdminDetails")'> Create Admin</a></li>
+                                    }
+                                    <li><a href='@Url.Content("~/StaffDetails/StaffDetails")'>Add Staff Member</a></li>
+                                    <li><a href='@Url.Content("~/PatientDetails/PatientDetails")'> Add Patient</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-address-book-o" aria-hidden="true"></i>User Management
+                                </a>
+                                <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
+                                    <li><a href="@Url.Content("~/AdminDetails/ViewAllAdmin")">Admin Management</a></li>
+                                    <li><a href="@Url.Content("~/StaffDetails/ViewAllStaff")">Staff Management</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="@Url.Content("~/Document/GetDocument")"> <i class="fa fa-user-md" aria-hidden="true"></i>Document</a></li>
+                            <li><a href="@Url.Content("~/AccountDetails/ViewAllExpenses")"> <i class="fa fa-user-md" aria-hidden="true"></i>Account</a></li>
+                            <li>
+                                <a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>Setting
+                                </a>
+                                <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
+                                    <li><a href='@Url.Content("~/MedicineDetails/ViewAllMedicine")'>Medicines</a></li>
+                                    <li><a href='@Url.Content("~/MedicineDetails/Setting")'>Print</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    }
+
+                    if (Session["ActivationFor"].ToString() == "Smart Gynec")
+                    {
+
+                        <ul class="list-unstyled">
+                            <li><a href="@Url.Content("~/PatientDetails/GetQueueList")"> <i class="fa fa-users" aria-hidden="true"></i>Todays Appointment</a></li>
+                            <li><a href="@Url.Content("~/PatientDetails/ViewAllPatient")"> <i class="fa fa-search-plus" aria-hidden="true"></i>View All Patient </a></li>
+                            <li>
+                                <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>Create User
+                                </a>
+                                <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                                    @if (Session["DrCount"].ToString() != "0")
+                                    {
+                                        <li><a href='@Url.Content("~/AdminDetails/AdminDetails")'> Create Admin</a></li>
+                                    }
+                                    <li><a href='@Url.Content("~/StaffDetails/StaffDetails")'>Add Staff Member</a></li>
+                                    <li><a href='@Url.Content("~/PatientDetails/PatientDetails")'> Add Patient</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-address-book-o" aria-hidden="true"></i>User Management
+                                </a>
+                                <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
+                                    <li><a href="@Url.Content("~/AdminDetails/ViewAllAdmin")">Admin Management</a></li>
+                                    <li><a href="@Url.Content("~/StaffDetails/ViewAllStaff")">Staff Management</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="@Url.Content("~/Document/GetDocument")"> <i class="fa fa-user-md" aria-hidden="true"></i>Document</a></li>
+                            <li><a href="@Url.Content("~/AccountDetails/ViewAllExpenses")"> <i class="fa fa-user-md" aria-hidden="true"></i>Account</a></li>
+                            <li>
+                                <a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>Setting
+                                </a>
+                                <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
+                                    <li><a href='@Url.Content("~/MedicineDetails/ViewAllMedicine")'>Medicines</a></li>
+                                    <li><a href='@Url.Content("~/MedicineDetails/Setting")'>Print</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    }
+
                     <ul class="list-unstyled">
                         @*<li><a href="@Url.Content("~/Home/Apoinment")"> <i class="icon-home"></i>Home </a></li>*@
 
@@ -275,7 +543,7 @@
                         @*<li><a href="@Url.Content("~/Home/MyOPD")"> <i class="fa fa-check-square-o" aria-hidden="true"></i>Patient Examination</a></li>*@
                         @*<li><a href="@Url.Content("~/MedicineDetails/ViewAllMedicine")"> <i class="fa fa-plus-circle" aria-hidden="true"></i>Add Medicines </a></li>*@
 
-                       @* <li><a href="@Url.Content("~/Home/CampaignMaster")"> <i class="fa fa-users" aria-hidden="true"></i>Campaign Master</a></li>*@
+                        @* <li><a href="@Url.Content("~/Home/CampaignMaster")"> <i class="fa fa-users" aria-hidden="true"></i>Campaign Master</a></li>*@
 
 
                         <li>

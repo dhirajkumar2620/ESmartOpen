@@ -98,13 +98,16 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <div class="grid-btn pull-right">
-                                    <a href="~/StaffDetails/StaffDetails">   <input type="button" value="Add New Staff" style="margin-left: 1em;border-radius: 22px;" class="btn btn_2 btn-primary"></a>
-                                </div>
+                                @if (Session["ActivationFor"].ToString() != "Smart Opto")
+                                {
+                                    <div class="grid-btn pull-right">
+                                        <a href="~/StaffDetails/StaffDetails">   <input type="button" value="Add New Staff" style="margin-left: 1em;border-radius: 22px;" class="btn btn_2 btn-primary"></a>
+                                    </div>
+                                }
                                 <table id="example7" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
-                                            
+
                                             <th hidden>ReceptionId</th>
                                             <th>Name</th>
                                             <th>OPD Name</th>
@@ -131,16 +134,16 @@
                                                 <td>
                                                     <ul class="list-inline">
                                                         @*<li class="list-inline-item" title="Appointment">
-                                                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                        </li>*@
+                                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                            </li>*@
 
                                                         <li class="list-inline-item" title="Edit">
                                                             <a href="@Url.Content("~/StaffDetails/GetStaffById?ReceptionId=" + item.ReceptionId+"")">   <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal"></i></a>
                                                             @*<a href="@Url.Content("~/StaffDetails/StaffDetails")">   <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal"></i></a>*@
                                                         </li>
                                                         @*<li class="list-inline-item whtap" data-toggle="modal" data-target="#whatsappModal" title="Whatsapp">
-                                                            <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                                                        </li>*@
+                                                                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                            </li>*@
                                                         <li class="list-inline-item msg" title="Message">
                                                             <i class="fa fa-envelope" aria-hidden="true"></i>
                                                         </li>
