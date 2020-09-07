@@ -279,6 +279,8 @@
                             </div>
                         </div>
                     </div>
+                    @*@if (Session["ActivationFor"].ToString() != "Smart OPD" || (Session["ActivationFor"].ToString() != "Smart Manager"))
+                    {*@
                     <div class="col-md-12 space-betw">
                         <label class="form-control-label">Visit Bill (₹)</label>
                         <input type="text" id="txtBill" class="form-control" placeholder="00:00" />
@@ -290,6 +292,7 @@
                         <input style="display:none" type="text" id="txtCPno" class="form-control" placeholder="Note" />
                         <input style="display:none" type="text" id="txtQid" class="form-control" placeholder="Note" />
                     </div>
+                    @* } *@
                 </div>
             </div>
             <div class="modal-footer" style="border-top:none;">
@@ -380,10 +383,6 @@
     };*@
     function NextAppView(x) {
 
-
-        if()
-
-
         var date1 = document.getElementById("txtDate").value;
         $.ajax({
             type: "POST",
@@ -463,7 +462,16 @@
         var appCPno = document.getElementById("txtCPno").value;
         var appStatus = "Visited";//document.getElementById("txtStatus").value;
         var appBill = document.getElementById("txtBill").value;
+        //if (appBill = 0 || appBill =="")
+        //{
+        //    appBill = 0;
+        //}
+        
         var appPaidBill = document.getElementById("txtDue").value;
+        //if (appPaidBill = 0 || appPaidBill == "")
+        //{
+        //    appPaidBill = 0;
+        //}
         var appQId = document.getElementById("txtQid").value;
         if (appPaidBill == "" || appPaidBill == null || appPaidBill=="0") {
             alert("You Are Not Enter Paid Bill.");
