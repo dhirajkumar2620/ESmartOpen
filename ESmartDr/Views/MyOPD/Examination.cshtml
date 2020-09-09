@@ -68,7 +68,7 @@
         <div class="second-tab">
             <div class="card" id="divPrint">
                 <div class="card-body mg-table">
-                    <div id="printExamination" style="display:none" >
+                    <div id="printExamination" style="display:none">
                         <table style="margin: 0 auto;width: 80%;" id="Bill">
                             <tr>
                                 <td>
@@ -79,15 +79,17 @@
                                                 <td>
                                                     <ul style="list-style:none;padding-left: 0px;margin-bottom: .1rem;">
                                                         <li><b>@Model.HostClincName</b></li>
-                                                        <li><textarea onselect="return false;"
-          readonly="readonly"
-          unselectable="on"
-          disabled="disabled" cols="40" rows="3" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;"></textarea></li>
+                                                        <li>
+                                                            <textarea onselect="return false;"
+                                                                      readonly="readonly"
+                                                                      unselectable="on"
+                                                                      disabled="disabled" cols="40" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;"></textarea>
+                                                        </li>
                                                         <li>+91 @Model.HospClinicNumber</li>
                                                         <li>@Model.FirmInTime1 : @Model.FirmOutTime1 - @Model.FirmInTime2 : @Model.FirmOutTime2 </li>
                                                         <li>Clinic Holiday : @Model.Holiday</li>
                                                     </ul>
-                                                </td>   
+                                                </td>
 
                                             </tr>
                                         </table>
@@ -225,7 +227,7 @@
                                             <ul style="list-style: none;padding-left: 5px;">
                                                 @if (@Session["Complaints"].ToString() == "Yes")
                                                 {
-                                                    
+
                                                     <li>
                                                         Complaints :<input type="text" value="&nbsp;&nbsp;&nbsp;&nbsp;@Model.Complaints" style="border: none;border-bottom: 1px solid #c3c3c3;width: 85%;"><br>
                                                     </li>
@@ -336,27 +338,25 @@
                                     </table>
                                     <br />
                                     <br />
-                                        <table style="width:100%;border-top: 1px solid #808080;">
-                                            <tr>
-                                                <td>
-                                                    DO NOT REFILL MORE THAN ONCE
-                                                </td>
-                                                <td style="float: right;">
-                                                    <small style="font-size: 8px;">Download <b>Meet My Doctor</b> App from Playstore Powered by TECHBULB</small>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                   
-                                                </td>
-                                                <td style="float: right;padding-top:-3em">
-                                                    <small style="font-size: 8px;">To view your visit record & book your appointment with doctor. </small>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                   
-                                     
-                                    
+                                    <table style="width:100%;border-top: 1px solid #808080;">
+                                        <tr>
+                                            <td>
+                                                DO NOT REFILL MORE THAN ONCE
+                                            </td>
+                                            <td style="float: right;">
+                                                <small style="font-size: 8px;">Download <b>Meet My Doctor</b> App from Playstore Powered by TECHBULB</small>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td style="float: right;padding-top:-3em">
+                                                <small style="font-size: 8px;">To view your visit record & book your appointment with doctor. </small>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+
+
 
                                 </td>
                             </tr>
@@ -364,7 +364,7 @@
                         </table>
                     </div>
                     <br />
-                   
+
                     <input type='button' id='btn' value='Print' class="btn btn_1 btn-primary pull-right" onclick="PrintDiv()">
                     <br /><br /><br /><br /><br /><br /><br />
                 </div>

@@ -63,6 +63,11 @@
     .tbl-view-5 tr th:first-child {
         width: 20%;
     }
+
+
+    hr.new1 {
+        border-top: 1px solid;
+    }
 </style>
 
 <header class="page-header">
@@ -112,7 +117,7 @@
                                                 <div class="card-body mg-table">
                                                     <div id="printExamination">
 
-                                                        <table style="margin: 0 auto;border: 1px solid #ccc;width: 80%;" id="Bill">
+                                                        <table style="margin: 0 auto;width: 80%;" id="Bill">
                                                             <tr>
                                                                 <td>
                                                                     @if (@Session["Template"].ToString() == "Yes")
@@ -123,7 +128,11 @@
                                                                                     <ul style="list-style:none;">
 
                                                                                         <li><b>@Model.HostClincName</b></li>
-                                                                                        <li>@Model.HospClinicAddess</li>
+                                                                                        <li>
+                                                                                            <textarea onselect="return false;" readonly="readonly"
+                                                                                                      unselectable="on"
+                                                                                                      disabled="disabled" cols="40" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;"></textarea>
+                                                                                        </li>
                                                                                         <li>+91 @Model.HospClinicNumber</li>
                                                                                         <li>@Model.FirmInTime1</li>
                                                                                         <li>Clinic Holiday :@Model.Holiday</li>
@@ -144,28 +153,23 @@
                                                                                 </td>
                                                                             </tr>
                                                                         </table>
-
-                                                                    }else
-                                                                    {
-                                                                        <br />                                                                       
-                                                                        <br />                                                                                                                                                                                                               
-                                                                        
-
                                                                     }
-
-                                                                   
-                                                                   
-
-                                                                    <table style="width: 100%;border:1px solid #cccccc;padding: 1.5em .5em;border-radius: 9px;">
+                                                                    else
+                                                                    {
+                                                                        <br />
+                                                                        <br />
+                                                                    }
+                                                                    <hr />
+                                                                    <table style="padding: 1em;text-align: center;">
                                                                         <tr>
-                                                                            <td style="padding-left: 90px;">
+                                                                            <td style="padding-left: 10em;">
                                                                                 <div style="padding: 1em;text-align: center;">
                                                                                     <h5>REFERENCE LETTER</h5>
                                                                                 </div>
                                                                             </td>
 
-                                                                            <td style="text-align: right;padding-right: 70px;">
-                                                                                Date :
+                                                                            <td style="text-align: right; padding-left: 4em;">
+                                                                                Date : &nbsp;&nbsp;   /  &nbsp;&nbsp;   /&nbsp;20
                                                                             </td>
                                                                         </tr>
                                                                     </table>
@@ -310,10 +314,10 @@
                                                                     {
                                                                         <br />
                                                                         <br />
-                                                                        
+
                                                                     }
 
-                                                                   
+
 
 
                                                                 </td>
@@ -329,110 +333,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @*<div style="background-color: #f5a433;padding: 1em;text-align: center;">
-                                            <h3 style="font-size: 2em;color: #fff;">Create Referral Letter</h3>
-                                        </div>
-                                        <div class="row">
 
-                                            <div class="col-lg-12">
-                                                <div class="card " style="margin-bottom:0;">
-                                                    <div class="card-body">
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">
-                                                                        Referred Doctor Name
-                                                                    </label>
-                                                                    <input type="text" placeholder="Referred Doctor Name" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">
-                                                                        Contact No.
-                                                                    </label>
-                                                                    <input type="number" placeholder="Contact No." class="form-control">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">
-                                                                        Hospital Name
-                                                                    </label>
-                                                                    <input type="text" placeholder="Hospital Name" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">
-                                                                        Hospital Address
-                                                                    </label>
-                                                                    <input type="text" placeholder="Hospital Address" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <p>Dear Dr. <span>Nita Jadhav</span></p>
-                                                                <textarea placeholder="Enter text here..." class="form-control"></textarea>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">
-                                                                        Aditional Note..
-                                                                    </label>
-                                                                    <textarea placeholder="Enter text here..." class="form-control"></textarea>
-                                                                    <br />
-                                                                    <input id="checkboxCustom" type="checkbox" value="" class="checkbox-template"> &nbsp;Patient History
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">
-                                                                        Referred By
-                                                                    </label>
-                                                                    <input type="text" placeholder="Referred By" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">
-                                                                        Doctor Name
-                                                                    </label>
-                                                                    <input type="number" placeholder="Doctor Name" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">
-                                                                        Contact No.
-                                                                    </label>
-                                                                    <input type="text" placeholder="Contact No." class="form-control">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">
-                                                                        Address
-                                                                    </label>
-                                                                    <textarea placeholder="Enter Address here..." class="form-control"></textarea>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <a onclick="ShowPrint('DD18', '178')"><i class="fa fa-print" aria-hidden="true"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>*@
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -599,58 +500,555 @@
                             </div>
                         </div>
                         <div class="row medicl-cert" style="display:none;">
-                            <div class="col-md-6">
-                                <div>
-                                    <div class="row">
-                                        <!-- Basic Form-->
-                                        <div class="col-lg-12">
-                                            <div class="card " style="margin-bottom:0;">
-                                                <div class="card-body">
-                                                    <div class="row">
-                                                        <div class="col-md-3">
-                                                            <img src="~/img/doc_snake.png" class="img-fluid" />
-                                                        </div>
-                                                        <div class="col-md-3" style="padding: 2em;">
-                                                            <h5>Dr. Dhiraj S</h5>
-                                                            <p>MBBS</p>
-                                                            <p>Reg. No.:<span>12345</span></p>
-                                                        </div>
-                                                        <div class="col-md-6" style="padding: 2em;text-align: right;">
-                                                            <h5>Dr. Dhiraj S'S Clinic</h5>
-                                                        </div>
+                            <div class="col-md-10">
+                                <div style="min-width:200px; font-family:'Arial' , sans-serif; font-size:16px; background-color:#FFFFFF; line-height:1.4; color:#4A4A4A; border:1px solid #DFDFDF; overflow:hidden;">
+                                    <div class="accordion" id="accordionExample1">
+                                        <div class="second-tab">
+                                            <div class="card" id="divPrint">
+                                                <div class="card-body mg-table">
+                                                    <div id="DivMedicalCertificate1">
+
+                                                        <table style="margin: 0 auto;width: 80%;" id="Bill">
+                                                            <tr>
+                                                                <td>
+                                                                    @if (@Session["Template"].ToString() == "Yes")
+                                                                    {
+                                                                        <table style="width: 100%; display: inline;">
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <ul style="list-style:none;">
+
+                                                                                        <li><b>@Model.HostClincName</b></li>
+                                                                                        <li>
+                                                                                            <textarea onselect="return false;"
+                                                                                                      readonly="readonly"
+                                                                                                      unselectable="on"
+                                                                                                      disabled="disabled" cols="40" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;"></textarea>
+                                                                                        </li>
+                                                                                        <li>+91 @Model.HospClinicNumber</li>
+                                                                                        <li>@Model.FirmInTime1</li>
+                                                                                        <li>Clinic Holiday :@Model.Holiday</li>
+                                                                                    </ul>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                        </table>
+                                                                        <table style="float: right;">
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <ul style="list-style:none;float:right;">
+                                                                                        <li><b>@Model.FirstName</b></li>
+                                                                                        <li>@Model.Education</li>
+                                                                                        <li>Reg. No. @Model.RegNumber</li>
+                                                                                        <li>@Model.Speciality</li>
+                                                                                    </ul>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <br />
+
+
+
+                                                                    }
+
+
+
+
+                                                                    <table style="width: 100%;">
+                                                                        <tr>
+                                                                            <td style="padding-left: 90px;">
+                                                                                <div style="padding: 1em;text-align: center;">
+                                                                                    <div style="padding: 1em;text-align: center;">
+                                                                                        <h5><u>MEDICAL CERTIFICATE</u></h5>
+                                                                                    </div>
+
+
+                                                                                    <div style="padding: 1em;text-align: center;">
+                                                                                        <h5>TO WHOMSOEVER IT MAY CONCERN</h5>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">This is to certify that</label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <select id="ddlmis" class="form-control mb-3">
+                                                                                    <option value="Mr.">Mr.</option>
+                                                                                    <option value="Mis.">Mis.</option>
+                                                                                    <option value="Mrs.">Mrs.</option>
+                                                                                    <option value="Master.">Master.</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <input id="txtName1" type="text" placeholder="Patient Name" class="form-control">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <br />
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">has been under my treatment for</label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <input id="txtTreatmentName" type="text" placeholder="Treatment Name" class="form-control">
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label"></label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label"></label>
+                                                                                <select id="ddlFromDate" class="form-control mb-3">
+                                                                                    <option value="From">From</option>
+                                                                                    <option value="On">On</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label"></label>
+                                                                                <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                                                                                    <input id="txtFromDate" type="text" placeholder="Start Date" class="form-control">
+                                                                                    <div class="input-group-addon">
+                                                                                        <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label"></label>
+                                                                                <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                                                                                    <input type="text" id="txtToDate" placeholder="End Date" class="form-control">
+                                                                                    <div class="input-group-addon">
+                                                                                        <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <br />
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">He/She is advised complete rest</label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label"></label>
+                                                                                <select id="ddlOn" class="form-control mb-3">
+                                                                                    <option value="From">From</option>
+                                                                                    <option value="On">On</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label"></label>
+                                                                                <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                                                                                    <input id="txtOnFromDate" type="text" placeholder="Start Date" class="form-control">
+                                                                                    <div class="input-group-addon">
+                                                                                        <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label"></label>
+                                                                                <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                                                                                    <input id="txtOnToDate" type="text" placeholder="End Date" class="form-control">
+                                                                                    <div class="input-group-addon">
+                                                                                        <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <br />
+                                                                    <div class="row">
+                                                                        <div class="col-md-8">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label">
+                                                                                    which was absolutely essential for the
+                                                                                    restoration of his health.
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+
+                                                                                <label class="form-control-label"></label>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+
+                                                                                <label class="form-control-label"></label>
+
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                    <br />
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+
+                                                                                <input type="checkbox" id="ChkResume" name="vehicle1" class="checkbox-template" value="Bike">
+                                                                                <label class="form-control-label">He/She is fit to resume </label>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label"></label>
+                                                                                <select id="ddlResumeType" class="form-control mb-3">
+                                                                                    <option value="Wrok">Wrok</option>
+                                                                                    <option value="Duty">Duty</option>
+                                                                                    <option value="College">College</option>
+                                                                                    <option value="School">School</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label"></label>
+                                                                                <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                                                                                    <input id="txtResumeFromDate" type="text" placeholder="Resume Date" class="form-control">
+                                                                                    <div class="input-group-addon">
+                                                                                        <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <br />
+                                                                    <br />
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+
+                                                                                <input type="checkbox" id="Chkthumb" class="checkbox-template" name="vehicle1" value="Bike">
+                                                                                <label class="form-control-label">Inlude patients signature/thum________ </label>
+
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <div class="form-group">
+
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+
+                                                                    <br><br>
+                                                                    <br><br>
+                                                                    @if (@Session["Template"].ToString() == "Yes")
+                                                                    {
+                                                                        <table>
+                                                                            <tr>
+                                                                                <td></td>
+
+                                                                            </tr>
+                                                                        </table>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <br />
+                                                                        <br />
+
+                                                                    }
+
+
+
+
+                                                                </td>
+                                                            </tr>
+
+                                                        </table>
+
                                                     </div>
-                                                    <hr />
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="text-center">
-                                                                <h3 style="margin-bottom:2em;text-decoration: underline;">MEDICAL CERTIFICATE</h3>
-                                                                <h3>TO WHOMSOEVER IT MAY CONCERN </h3>
-                                                            </div>
-                                                            <br />
-                                                            <p>This is to certify that <span contenteditable="true" style="text-decoration:underline;"><b>ABD</b></span> has been under my treatment for ACNE, ACIDOSIS, INFLUENZA from <span contenteditable="true" style="text-decoration:underline;"> 09-Jun-2020</span> to <span contenteditable="true" style="text-decoration:underline;"> 09-Jun-2020</span></p>
-                                                            <p>He is advised complete rest from <span contenteditable="true" style="text-decoration:underline;"> 09-Jun-2020</span> to <span contenteditable="true" style="text-decoration:underline;"> 09-Jun-2020</span> which is absolutely essential for the restoration on his health</p>
-                                                            <p style="margin-top: 5em;">Patient signature/thumb impression<span contenteditable="true" style="text-decoration:underline;"></span></p>
-                                                            <div style="margin-top:4em;">
-                                                                <ul class="list-unstyled">
-                                                                    <li><b>Place : <span contenteditable="true" style="text-decoration:underline;">Mumbai</span></b></li>
-                                                                    <li><b>Date : <span contenteditable="true" style="text-decoration:underline;"> 09-Jun-2020</span></b></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
+
+
+                                                    <div id="DivMedicalCertificate" style="display:none">
+
+
+                                                        <table style="margin: 0 auto;width: 80%;" id="Bill">
+                                                            <tr>
+                                                                <td>
+                                                                    @if (@Session["Template"].ToString() == "Yes")
+                                                                    {
+                                                                        <table style="width: 100%; display: inline;">
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <ul style="list-style:none;">
+
+                                                                                        <li><b>@Model.HostClincName</b></li>
+                                                                                        <li>
+                                                                                            <textarea onselect="return false;"
+                                                                                                      readonly="readonly"
+                                                                                                      unselectable="on"
+                                                                                                      disabled="disabled" cols="40" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;"></textarea>
+                                                                                        </li>
+                                                                                        <li>+91 @Model.HospClinicNumber</li>
+                                                                                        <li>@Model.FirmInTime1</li>
+                                                                                        <li>Clinic Holiday :@Model.Holiday</li>
+                                                                                    </ul>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                        </table>
+                                                                        <table style="float: right;">
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <ul style="list-style:none;float:right;">
+                                                                                        <li><b>@Model.FirstName</b></li>
+                                                                                        <li>@Model.Education</li>
+                                                                                        <li>Reg. No. @Model.RegNumber</li>
+                                                                                        <li>@Model.Speciality</li>
+                                                                                    </ul>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <br />
+
+                                                                    }
+                                                                    <hr />
+                                                                    <br />
+                                                                    <table style="width: 100%;">
+                                                                        <tr>
+                                                                            <td style="padding-left: 90px;">
+                                                                                <div style="padding: 0em;text-align: center;">
+                                                                                    <div style="padding: 0em;text-align: center;">
+                                                                                        <h5><u>MEDICAL CERTIFICATE</u></h5>
+                                                                                    </div>
+                                                                                    <div style="padding: 0em;text-align: center;">
+                                                                                        <h5>TO WHOMSOEVER IT MAY CONCERN</h5>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label id="lblline1" type="text" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label"></label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <br />
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label id="lblline2" type="text" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label"></label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <br />
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label id="lblline3" type="text" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label"></label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <br />
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label id="lblline4" type="text" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label class="form-control-label"></label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <br />
+                                                                    <br />
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label id="lblline5" type="text" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <br />
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label id="lblline6" type="text" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <br />
+                                                                    <br />
+                                                                    <br />
+                                                                    <br />
+                                                                    <br />
+
+                                                                    <table style="float: right;">
+                                                                        <tr>
+                                                                            <td>
+                                                                                <ul style="list-style:none;float:right;">
+                                                                                    <li><b>@Model.FirstName</b></li>
+                                                                                    <li>@Model.Education</li>
+                                                                                    <li>Reg. No. @Model.RegNumber</li>
+                                                                                </ul>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                    @if (@Session["Template"].ToString() == "Yes")
+                                                                    {
+                                                                        <table>
+                                                                            <tr>
+                                                                                <td></td>
+
+                                                                            </tr>
+                                                                        </table>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <br />
+                                                                        <br />
+
+                                                                    }
+
+
+
+
+                                                                </td>
+
+                                                            </tr>
+
+                                                        </table>
+
+
+
+
                                                     </div>
-                                                    <div class="row text-right">
-                                                        <div class="col-md-12" style="padding: 2em;">
-                                                            <h5>Dr. Dhiraj S</h5>
-                                                            <p>MBBS</p>
-                                                            <p>Reg. No.:<span>12345</span></p>
-                                                        </div>
-                                                    </div>
+                                                    <br />
+                                                    <input type='button' id='btn' value='Print' class="btn btn_1 btn-primary pull-right" onclick="PrintDivMedicalCertificate()">
+
                                                 </div>
+                                                <br />
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
+
                             <div class="col-md-6">
 
                             </div>
@@ -693,6 +1091,7 @@
     function PrintDiv() {
 
 
+
         var Bill = document.getElementById("printExamination").innerHTML;
         var printWindow = window.open('', '', 'height=500,width=900');
         printWindow.document.write('<html><head><title>DIV Contents</title>');
@@ -702,53 +1101,60 @@
         printWindow.document.close();
         printWindow.print();
 
-        //Get the HTML of div
-        //var divElements = document.getElementById("printExamination").innerHTML;
-        ////Get the HTML of whole page
-        //var oldPage = document.body.innerHTML;
-        ////Reset the page's HTML with div's HTML only
-        //document.body.innerHTML =
-        //    "<html><head><title></title></head><body>" +
-        //    divElements + "</body>";
-
-        ////Print Page
-        //window.print();
-
-        ////Restore orignal HTML
-        //document.body.innerHTML = oldPage;
-
-
     }
 
-    //function ShowPrint(CPno, QueueID) {
-    //    $.ajax({
-    //        type: "POST",
-    //        url: "/AccountDetails/PrintView",
-    //        data: '{CPno: "' + CPno + '", QueueID: "' + QueueID + '"}',
-    //        contentType: "application/json; charset=utf-8",
-    //        dataType: "html",
-    //        success: function (response) {
-    //            $('#Bill').html(response);
-    //            PrintDiv();
-    //            // $('#ComfirmationPopup').modal('show');
-    //        },
-    //        failure: function (response) {
-    //            alert(response.responseText);
-    //        },
-    //        error: function (response) {
-    //            alert(response.responseText);
-    //        }
-    //    });
-    //}
-    //function PrintDiv() {
-    //    var Bill = document.getElementById("Bill").innerHTML;
-    //    var printWindow = window.open('', '', 'height=500,width=900');
-    //    printWindow.document.write('<html><head><title>DIV Contents</title>');
-    //    printWindow.document.write('</head><body>');
-    //    printWindow.document.write(Bill);
-    //    printWindow.document.write('</body></html>');
-    //    printWindow.document.close();
-    //    printWindow.print();
-    //}
+    // Medical Certificate Page
+    function PrintDivMedicalCertificate() {
+        var ddlmis = document.getElementById("ddlmis").value;
+        var strName = $("#txtName1").val();
+        var TreatmentName = $("#txtTreatmentName").val();
+        var FromDate = document.getElementById("txtFromDate").value;
+        var ToDate = document.getElementById("txtToDate").value;
+        var FromDateddl = document.getElementById("ddlFromDate").value;
+        var Line1 = 'This is to certify that ' + ddlmis + ' ' + strName + ' has been under my treatment for ' + TreatmentName + ' ' + FromDateddl + ' ' + FromDate + ' to ' + ToDate + '.';
+        $('#lblline1').text(Line1);
+
+        var Resume = "";
+        var Complete = "";
+        if (ddlmis == "Mr." || ddlmis == "Master.") {
+            Complete = 'She was advised complete rest';
+            Resume = 'She ';
+        }
+        else {
+            Complete = 'He is advised complete rest';
+            Resume = 'He ';
+        }
+        var On = document.getElementById("ddlOn").value;
+        var OnFromDate = document.getElementById("txtOnFromDate").value;
+        var OnToDate = document.getElementById("txtOnToDate").value;
+        var Line2 = Complete + ' ' + ' ' + On + ' ' + ' ' + OnFromDate + ' to ' + OnToDate + ' which was absolutely essential for the restoration of his health.';
+        $('#lblline2').text(Line2);
+
+        var ResumeFromDate = document.getElementById("txtResumeFromDate").value;
+        var ResumeType = document.getElementById("ddlResumeType").value;
+        if (ChkResume.checked) {
+            var lblline3 = Resume + 'is ﬁt to resume Work from ' + ResumeFromDate;
+            $('#lblline3').text(lblline3);
+        }
+        if (Chkthumb.checked) {
+            var lblline4 = 'Patient signature/thumb impression' + '_____________________';
+            $('#lblline4').text(lblline4);
+        }
+        var lblline5 = 'Place:';
+        $('#lblline5').text(lblline5);
+
+        var lblline6 = 'Date :';
+        $('#lblline6').text(lblline6);
+        var Bill = document.getElementById("DivMedicalCertificate").innerHTML;
+        var printWindow = window.open('', '', 'height=500,width=900');
+        printWindow.document.write('<html><head><title>DIV Contents</title>');
+        printWindow.document.write('</head><body>');
+        printWindow.document.write(Bill);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    }
+
+
 </script>
 
