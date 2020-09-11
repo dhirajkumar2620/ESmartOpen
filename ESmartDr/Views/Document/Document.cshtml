@@ -117,21 +117,22 @@
                                                 <div class="card-body mg-table">
                                                     <div id="printExamination">
 
-                                                        <table style="margin: 0 auto;width: 80%;" id="Bill">
+                                                        <table style="margin: 0 auto;width: 90%;" id="Bill">
                                                             <tr>
                                                                 <td>
                                                                     @if (@Session["Template"].ToString() == "Yes")
                                                                     {
-                                                                        <table style="width: 100%; display: inline;">
+                                                                        <table style="width: 100%; display: none;" >
                                                                             <tr>
                                                                                 <td>
-                                                                                    <ul style="list-style:none;">
+                                                                                    <ul style="list-style:none;padding-left:1px;">
 
                                                                                         <li><b>@Model.HostClincName</b></li>
                                                                                         <li>
-                                                                                            <textarea onselect="return false;" readonly="readonly"
+                                                                                            <textarea onselect="return false;"
+                                                                                                      readonly="readonly"
                                                                                                       unselectable="on"
-                                                                                                      disabled="disabled" cols="40" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;"></textarea>
+                                                                                                      disabled="disabled" cols="50" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;"></textarea>
                                                                                         </li>
                                                                                         <li>+91 @Model.HospClinicNumber</li>
                                                                                         <li>@Model.FirmInTime1</li>
@@ -141,25 +142,26 @@
 
                                                                             </tr>
                                                                         </table>
-                                                                        <table style="float: right;">
+                                                                        <table style="float: right;  display: none;">
                                                                             <tr>
                                                                                 <td>
                                                                                     <ul style="list-style:none;float:right;">
-                                                                                        <li><b>@Model.FirstName</b></li>
-                                                                                        <li>@Model.Education</li>
-                                                                                        <li>Reg. No. @Model.RegNumber</li>
-                                                                                        <li>@Model.Speciality</li>
+                                                                                        <li><b>@Model.FirstName </b></li>
+                                                                                        <li style="text-align:right"><small>@Model.Education</small></li>
+                                                                                        <li style="text-align:right">Reg. No. @Model.RegNumber</li>
+                                                                                        <li style="text-align:right">@Model.Speciality</li>
                                                                                     </ul>
                                                                                 </td>
                                                                             </tr>
                                                                         </table>
+                                                                     
                                                                     }
                                                                     else
                                                                     {
                                                                         <br />
-                                                                        <br />
+                                                                      
                                                                     }
-                                                                    <hr />
+                                                                  
                                                                     <table style="padding: 1em;text-align: center;">
                                                                         <tr>
                                                                             <td style="padding-left: 10em;">
@@ -233,9 +235,9 @@
                                                                             <td>
                                                                                 Mr/Mrs.
                                                                                 @*<select>
-                                                                                        <option value="Mr">Mr</option>
-                                                                                        <option value="0">Mrs</option>
-                                                                                    </select>*@
+                                    <option value="Mr">Mr</option>
+                                    <option value="0">Mrs</option>
+                                </select>*@
 
                                                                             </td>
                                                                             <td>
@@ -313,7 +315,7 @@
                                                                     else
                                                                     {
                                                                         <br />
-                                                                        <br />
+                                                                       
 
                                                                     }
 
@@ -510,49 +512,49 @@
 
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                @if (@Session["Template"].ToString() == "Yes")
-                                                                {
-                                                                    <div class="row">
-                                                                        <div class="col-md-4">
-                                                                            <ul style="list-style:none;" class="nav nav-pills mb-3">
+                                                                @*@if (@Session["Template"].ToString() == "Yes")
+                                                                    {
+                                                                        <div class="row">
+                                                                            <div class="col-md-4">
+                                                                                <ul style="list-style:none;" class="nav nav-pills mb-3">
 
-                                                                                <li class="nav-item"><b>@Model.HostClincName</b></li>
-                                                                                <li class="nav-item">
-                                                                                    <textarea onselect="return false;"
-                                                                                              readonly="readonly"
-                                                                                              unselectable="on"
-                                                                                              disabled="disabled" cols="40" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;"></textarea>
-                                                                                </li>
-                                                                                <li class="nav-item">+91 @Model.HospClinicNumber</li>
-                                                                                <li class="nav-item">@Model.FirmInTime1</li>
-                                                                                <li class="nav-item">Clinic Holiday :@Model.Holiday</li>
-                                                                            </ul>
+                                                                                    <li class="nav-item"><b>@Model.HostClincName</b></li>
+                                                                                    <li class="nav-item">
+                                                                                        <textarea onselect="return false;"
+                                                                                                  readonly="readonly"
+                                                                                                  unselectable="on"
+                                                                                                  disabled="disabled" cols="40" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;"></textarea>
+                                                                                    </li>
+                                                                                    <li class="nav-item">+91 @Model.HospClinicNumber</li>
+                                                                                    <li class="nav-item">@Model.FirmInTime1</li>
+                                                                                    <li class="nav-item">Clinic Holiday :@Model.Holiday</li>
+                                                                                </ul>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="col-md-4">
+                                                                        <div class="row">
+                                                                            <div class="col-md-4">
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <ul style="list-style:none;float:right;">
+                                                                                    <li><b>@Model.FirstName</b></li>
+                                                                                    <li>@Model.Education</li>
+                                                                                    <li>Reg. No. @Model.RegNumber</li>
+                                                                                    <li>@Model.Speciality</li>
+                                                                                </ul>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="col-md-4">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <div class="col-md-4">
-                                                                        </div>
-                                                                        <div class="col-md-4">
-                                                                        </div>
-                                                                        <div class="col-md-4">
-                                                                            <ul style="list-style:none;float:right;">
-                                                                                <li><b>@Model.FirstName</b></li>
-                                                                                <li>@Model.Education</li>
-                                                                                <li>Reg. No. @Model.RegNumber</li>
-                                                                                <li>@Model.Speciality</li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                }
-                                                                else
-                                                                {
-                                                                    <br />
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <br />
 
-                                                                }
+                                                                    }*@
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         <div class="form-group center-block">
@@ -566,7 +568,7 @@
                                                                     <div class="col-md-12">
                                                                         <div class="form-group center-block">
                                                                             <div style="text-align: center;">
-                                                                                <label class="form-control-label"><h5>TO WHOMSOEVER IT MAY CONCERN<</h5></label>
+                                                                                <label class="form-control-label"><h5>TO WHOMSOEVER IT MAY CONCERN</h5></label>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -844,10 +846,10 @@
                                                     </div>
 
 
-                                                    <div id="DivMedicalCertificate" style="display:none">
+                                                    <div id="DivMedicalCertificate">
 
 
-                                                        <table style="margin: 0 auto;width: 80%;" id="Bill">
+                                                        <table style="margin: 0 auto;width: 90%;" id="Bill">
                                                             <tr>
                                                                 <td>
                                                                     @if (@Session["Template"].ToString() == "Yes")
@@ -855,14 +857,14 @@
                                                                         <table style="width: 100%; display: inline;">
                                                                             <tr>
                                                                                 <td>
-                                                                                    <ul style="list-style:none;">
+                                                                                    <ul style="list-style:none;padding-left:1px;">
 
                                                                                         <li><b>@Model.HostClincName</b></li>
                                                                                         <li>
                                                                                             <textarea onselect="return false;"
                                                                                                       readonly="readonly"
                                                                                                       unselectable="on"
-                                                                                                      disabled="disabled" cols="40" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;"></textarea>
+                                                                                                      disabled="disabled" cols="50" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;"></textarea>
                                                                                         </li>
                                                                                         <li>+91 @Model.HospClinicNumber</li>
                                                                                         <li>@Model.FirmInTime1</li>
@@ -876,32 +878,44 @@
                                                                             <tr>
                                                                                 <td>
                                                                                     <ul style="list-style:none;float:right;">
-                                                                                        <li><b>@Model.FirstName</b></li>
-                                                                                        <li>@Model.Education</li>
-                                                                                        <li>Reg. No. @Model.RegNumber</li>
-                                                                                        <li>@Model.Speciality</li>
+                                                                                        <li><b>@Model.FirstName </b></li>
+                                                                                        <li style="text-align:right"><small>@Model.Education</small></li>
+                                                                                        <li style="text-align:right">Reg. No. @Model.RegNumber</li>
+                                                                                        <li style="text-align:right">@Model.Speciality</li>
                                                                                     </ul>
                                                                                 </td>
                                                                             </tr>
                                                                         </table>
-
+                                                                        @*<table style="float: right;margin-bottom: -1rem">
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <ul style="list-style:none;float:right;">
+                                                                                            <li ><b>@Model.FirstName</b></li>
+                                                                                            <li>@Model.Education</li>
+                                                                                            <li>Reg. No. @Model.RegNumber</li>
+                                                                                            <li>@Model.Speciality</li>
+                                                                                        </ul>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>*@
+                                                                        <hr />
                                                                     }
                                                                     else
                                                                     {
                                                                         <br />
 
                                                                     }
-                                                                    <hr />
+
                                                                     <br />
                                                                     <table style="width: 100%;">
                                                                         <tr>
-                                                                            <td style="padding-left: 90px;">
+                                                                            <td>
                                                                                 <div style="padding: 0em;text-align: center;">
-                                                                                    <div style="padding: 0em;text-align: center;">
-                                                                                        <h5><u>MEDICAL CERTIFICATE</u></h5>
+                                                                                    <div style="padding: 0em;text-align: center;font-size: 1.1rem;">
+                                                                                        <h6><u>MEDICAL CERTIFICATE</u></h6>
                                                                                     </div>
-                                                                                    <div style="padding: 0em;text-align: center;">
-                                                                                        <h5>TO WHOMSOEVER IT MAY CONCERN</h5>
+                                                                                    <div style="padding: 0em;text-align: center;font-size: 1.1rem;">
+                                                                                        <h6>TO WHOMSOEVER IT MAY CONCERN</h6>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
@@ -1112,12 +1126,13 @@
         var Resume = "";
         var Complete = "";
         if (ddlmis == "Mr." || ddlmis == "Master.") {
-            Complete = 'She was advised complete rest';
-            Resume = 'She ';
-        }
-        else {
             Complete = 'He is advised complete rest';
             Resume = 'He ';
+        }
+        else {
+            Complete = 'She was advised complete rest';
+            Resume = 'She ';
+
         }
         var On = document.getElementById("ddlOn").value;
         var OnFromDate = document.getElementById("txtOnFromDate").value;

@@ -232,7 +232,14 @@
 
                             <li><a href="@Url.Content("~/Document/GetDocument")"> <i class="fa fa-user-md" aria-hidden="true"></i>Document</a></li>
                             <li><a href="@Url.Content("~/AccountDetails/ViewAllExpenses")"> <i class="fa fa-user-md" aria-hidden="true"></i>Account</a></li>
-
+                            <li>
+                                <a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>Setting
+                                </a>
+                                <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">                                  
+                                    <li><a href='@Url.Content("~/MedicineDetails/Setting")'>Print</a></li>
+                                </ul>
+                            </li>
                         </ul>
 
                     }
@@ -305,6 +312,14 @@
                                     <li><a href='@Url.Content("~/MedicineDetails/Setting")'>Print</a></li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>Setting
+                                </a>
+                                <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">                                   
+                                    <li><a href='@Url.Content("~/MedicineDetails/Setting")'>Print</a></li>
+                                </ul>
+                            </li>
                         </ul>
 
                     }
@@ -348,6 +363,7 @@
                                     <li><a href='@Url.Content("~/MedicineDetails/Setting")'>Print</a></li>
                                 </ul>
                             </li>
+
                         </ul>
                     }
                     if (Session["ActivationFor"].ToString() == "Smart Opto")
@@ -377,6 +393,7 @@
                                     <li><a href='@Url.Content("~/MedicineDetails/Setting")'>Print</a></li>
                                 </ul>
                             </li>
+
                         </ul>
                     }
                     if (Session["ActivationFor"].ToString() == "Smart Optha")
@@ -487,14 +504,8 @@
                                 <li><a href='@Url.Content("~/PatientDetails/PatientDetails")'> Add Patient</a></li>
                             </ul>
                         </li>
-                        @*<li><a href="@Url.Content("~/Home/MyOPD")"> <i class="fa fa-check-square-o" aria-hidden="true"></i>Patient Examination</a></li>*@
-                        @*<li><a href="@Url.Content("~/Home/MyOPD")"> <i class="fa fa-check-square-o" aria-hidden="true"></i>Patient Examination</a></li>*@
-                        @*<li><a href="@Url.Content("~/MedicineDetails/ViewAllMedicine")"> <i class="fa fa-plus-circle" aria-hidden="true"></i>Add Medicines </a></li>*@
-
+                       
                         <li><a href="@Url.Content("~/Home/CampaignMaster")"> <i class="fa fa-users" aria-hidden="true"></i>Campaign Master</a></li>
-
-                        @*<li><a href="@Url.Content("~/Home/CampaignMaster")"> <i class="fa fa-users" aria-hidden="true"></i>Campaign Master</a></li>*@
-
 
                         <li>
                             <a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse">
@@ -505,15 +516,7 @@
                                 <li><a href="@Url.Content("~/StaffDetails/ViewAllStaff")">Staff Management</a></li>
                             </ul>
                         </li>
-                        @*<li>
-                                <a href="#exampledropdownDropdown2" aria-expanded="false" data-toggle="collapse">
-                                    <i class="fa fa-file-text-o" aria-hidden="true"></i>Test
-                                </a>
-                                <ul id="exampledropdownDropdown2" class="collapse list-unstyled ">
-                                    <li><a href="@Url.Content("~/DignosticDetails/DignosticDetails")">Diagnosis</a></li>
-                                    <li><a href="@Url.Content("~/LaboratoryDetails/LaboratoryDetails")">laboratory </a></li>
-                                </ul>
-                            </li>*@
+                        
                         <li><a href="@Url.Content("~/Document/GetDocument")"> <i class="fa fa-user-md" aria-hidden="true"></i>Document</a></li>
                         <li><a href="@Url.Content("~/AccountDetails/ViewAllExpenses")"> <i class="fa fa-user-md" aria-hidden="true"></i>Account</a></li>
                         <li>
