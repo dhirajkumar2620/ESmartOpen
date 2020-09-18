@@ -53,15 +53,16 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
+
                                                     <label class="form-control-label">
-                                                        Gender<span class="star">*</span>
+                                                        Speciality<span class="star">*</span>
                                                     </label>
-                                                    @Html.DropDownListFor(m => m.Gender, new List<SelectListItem>
-                                                     {
-                                                         new SelectListItem{ Text="Male", Value = "Male" },
-                                                         new SelectListItem{ Text="Female", Value = "Female" },
-                                                          new SelectListItem{ Text="Other", Value = "Other" },
-                                                      }, new { @class = "form-control mb-3", @id = "ddlGender" })
+                                                    @Html.TextBoxFor(m => m.Speciality, new { @id = "txtSpeciality", @class = "form-control", @placeholder = "eg. Dentist" })
+                                                    @Html.ValidationMessageFor(model => model.Speciality, "", new { @class = "text-danger" })
+
+
+
+                                                   
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -288,13 +289,16 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
+                                                   
                                                     <label class="form-control-label">
-                                                        Speciality<span class="star">*</span>
+                                                        Gender<span class="star">*</span>
                                                     </label>
-                                                    @Html.TextBoxFor(m => m.Speciality, new { @id = "txtSpeciality", @class = "form-control", @placeholder = "eg. Dentist" })
-                                                    @Html.ValidationMessageFor(model => model.Speciality, "", new { @class = "text-danger" })
-
-
+                                                    @Html.DropDownListFor(m => m.Gender, new List<SelectListItem>
+                                                     {
+                                                         new SelectListItem{ Text="Male", Value = "Male" },
+                                                         new SelectListItem{ Text="Female", Value = "Female" },
+                                                          new SelectListItem{ Text="Other", Value = "Other" },
+                                                      }, new { @class = "form-control mb-3", @id = "ddlGender" })
                                                 </div>
                                             </div>
 
