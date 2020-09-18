@@ -366,7 +366,7 @@
                         </div>
 
 
-
+                        <!-- Refferal Certificate Print-->
 
                         <div class="row refe-letr1" style="display:none" >
                             <div class="col-md-10">
@@ -626,8 +626,11 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-8">
-                                                                    <input class="form-control" id="txtNameFitnessCertificate" name="FirstName" placeholder="Name" required="required" type="text" value="">
+                                                                <div class="col-md-4">
+                                                                    <input class="form-control" id="txtNameFitnessCertificate" name="FirstName" placeholder="Name"  type="text" value="">
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <input class="form-control" id="txtAgeFitnessCertificate" name="Age" placeholder="Age" type="text" value="">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -698,7 +701,7 @@
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
                                                                                 <label class="form-control-label">
-                                                                                    I certify that this person is<span class="star">*</span>
+                                                                                    I certify that this person is
                                                                                 </label>
                                                                                 <select id="ddlPhysically" name="account" class="form-control mb-3">
                                                                                     <option value="Physically">Physically</option>
@@ -709,36 +712,65 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+
                                                                     <div class="row">
-                                                                        <div class="col-md-5">
-                                                                            <select id="ddlFitUnfit" name="account" class="form-control mb-3">
-                                                                                <option value="Fit">Fit</option>
-                                                                                <option value="Unfit">Unfit</option>
-                                                                            </select>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+
+                                                                                <input id="checkboxWhichisundercontrolwithmedicines" type="checkbox" value="" class="checkbox-template"> &nbsp;
+                                                                                <label class="form-control-label">
+                                                                                   Which is under control with medicines
+                                                                                </label>
+
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="col-md-2 text-center">
-                                                                            <p style="margin-top: 0.3em!important;">For</p>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="col-md-5">
-                                                                            <select id="ddlWork" name="account" class="form-control mb-3">
-                                                                                <option value="Work">Work</option>
-                                                                                <option value="Duty">Duty</option>
-                                                                                <option value="School">School</option>
-                                                                                <option value="College">College</option>
-                                                                                <option value="Surgery">Surgery</option>
-                                                                                <option value="Other">Other</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
+
+                                                                    <br />
                                                                     <div class="row">
+                                                                      
                                                                         <div class="col-md-12">
-                                                                            <ul class="list-inline certifi-check">
-                                                                                <li class="list-inline-item">
-                                                                                    <input id="checkboxIncludepatientsignature" type="checkbox" value="" class="checkbox-template"> &nbsp;Patient signature/thumb impression____________
-                                                                                </li>
-                                                                            </ul>
+                                                                            <div class="form-group">
+                                                                                Any other major diseases  <input id="txtAnyothermajordiseases" type="text" value="" class="checkbox-template"> &nbsp;
+                                                                              
+                                                                            </div>
                                                                         </div>
                                                                     </div>
+                                                                     <br />
+                                                                                <div class="row">
+                                                                                    <div class="col-md-5">
+                                                                                        <select id="ddlFitUnfit" name="account" class="form-control mb-3">
+                                                                                            <option value="Fit">Fit</option>
+                                                                                            <option value="Unfit">Unfit</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <div class="col-md-2 text-center">
+                                                                                        <p style="margin-top: 0.3em!important;">For</p>
+                                                                                    </div>
+                                                                                    <div class="col-md-5">
+                                                                                        <select id="ddlWork" name="account" class="form-control mb-3">
+                                                                                            <option value="Work">Work</option>
+                                                                                            <option value="Duty">Duty</option>
+                                                                                            <option value="School">School</option>
+                                                                                            <option value="College">College</option>
+                                                                                            <option value="Surgery">Surgery</option>
+                                                                                            <option value="Other">Other</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-12">
+                                                                                        <ul class="list-inline certifi-check">
+                                                                                            <li class="list-inline-item">
+                                                                                                <input id="checkboxIncludepatientsignature" type="checkbox" value="" class="checkbox-template"> &nbsp;Patient signature/thumb impression____________
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
 
                                                                 </fieldset>
                                                                 <div class="row">
@@ -757,9 +789,9 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Fitness Certificate Print-->
+                        <!-- style="display:none;" Fitness Certificate Print-->
 
-                        <div style="display:none;" id="DivPrintFitnessCertificate">
+                        <div  id="DivPrintFitnessCertificate">
                             <div class="col-md-12">
                                 <table style="margin: 0 auto;width: 90%;" id="Bill">
                                     <tr>
@@ -813,7 +845,7 @@
                                                     <td>
                                                         <div style="padding: 0em;text-align: center;">
                                                             <div style="padding: 0em;text-align: center;font-size: 1.1rem;">
-                                                                <h6><u>FITNESS CERTIFICATE</u></h6>
+                                                                <h7><u>FITNESS CERTIFICATE</u></h7>
                                                             </div>
                                                             <div style="padding: 0em;text-align: center;font-size: 1.1rem;">
                                                                 <h6>To WHOMSOEVER IT MAY CONCERN</h6>
@@ -882,6 +914,16 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label id="lblstrtxtAnyothermajordiseases" type="text" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            
 
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -941,7 +983,7 @@
                                                         <ul style="list-style:none;float:right;">
                                                             <li><b>@Model.FirstName</b></li>
                                                             <li>@Model.Education</li>
-                                                            <li>Reg. No. @Model.RegNumber</li>
+                                                            <li>Phone No:- @Model.WhatsAppNumber</li>
                                                         </ul>
                                                     </td>
                                                 </tr>
@@ -1498,7 +1540,9 @@
 
         var ddlmis = document.getElementById("ddlmisFitnessCertificate").value;
         var strNameFitnessCertificate = $("#txtNameFitnessCertificate").val();
-        var Line11 = 'This is to certify that I have carefully examined ' + ddlmis + ' ' + strNameFitnessCertificate + ' Year,whose signature is given below';
+        var AgeFitnessCertificate = $("#txtAgeFitnessCertificate").val();
+
+        var Line11 = 'This is to certify that I have carefully examined ' + ddlmis + ' ' + strNameFitnessCertificate + ' Age -' + AgeFitnessCertificate + ' Year,whose signature is given below';
         $('#lblline11').text(Line11);
 
 
@@ -1509,11 +1553,11 @@
         var ddlhe = document.getElementById("ddlhe").value;
         if (checkboxAsthma.checked) {
             strAsthma = 'Asthma';
-            Line22 = 'He' + ' ' + ddlhe + ' ' + strAsthma;
+            Line22 = 'He ' + ' ' + ddlhe + ' ' + strAsthma;
         }
         else if (checkboxFitsConvulsions.checked) {
             strAsthma = 'Fits/Convulsions';
-            Line22 = 'He' + ' ' + ddlhe + ' ' + strAsthma;
+            Line22 = 'He ' + ' ' + ddlhe + ' ' + strAsthma;
 
         }
         else if (checkboxDiabetes.checked) {
@@ -1537,33 +1581,49 @@
             strAsthma = 'Allergy';
             Line22 = 'He' + ' ' + ddlhe + ' ' + strAsthma;
         }
+
+        if (checkboxWhichisundercontrolwithmedicines.checked) {
+
+            var strcheckboxWhichisundercontrolwithmedicines = 'Which is under control with medicines';
+            var strstrcheckboxWhichisundercontrolwithmedicines = strcheckboxWhichisundercontrolwithmedicines;
+           
+        }
         if (checkboxOther.checked) {
 
             var ddlhe = document.getElementById("ddlhe").value;
             var txtOtherName = $("#txtOtherName").val();
-            Line22 = 'He' + ' ' + ddlhe + ' ' + txtOtherName;
+            Line22 = 'He' + ' ' + ddlhe + ' ' + txtOtherName +' '+ strstrcheckboxWhichisundercontrolwithmedicines;
+            $('#lblline22').text(Line22);
+
         }
 
 
-        $('#lblline22').text(Line22);
+      
 
+
+        var strtxtAnyothermajordiseases = $("#txtAnyothermajordiseases").val();
+        
+        var str = 'Any other major diseases' +' ' + strtxtAnyothermajordiseases;
+        $('#lblstrtxtAnyothermajordiseases').text(str);
 
 
         if (checkboxHehastakenallnecessaryvaccination.checked) {
 
-            var strcheckboxHehastakenallnecessaryvaccination = 'He has taken all necessary vaccination';
+            var strcheckboxHehastakenallnecessaryvaccination = 'He has taken all necessary vaccination.';
             var lblline33 = strcheckboxHehastakenallnecessaryvaccination;
             $('#lblline33').text(lblline33);
         }
+
+        
 
 
 
         var ddlPhysically = document.getElementById("ddlPhysically").value;
         var ddlWork = document.getElementById("ddlWork").value;
-        var lblline4 = 'I Certify that ' + ddlmis + ' ' + strNameFitnessCertificate + ddlPhysically + ' For ' + ddlWork;
+        var lblline4 = 'I Certify that  ' + ddlmis + ' ' + strNameFitnessCertificate + ' ' + ddlPhysically + ' For ' + ddlWork +'.';
         $('#lblline44').text(lblline4);
         if (checkboxIncludepatientsignature.checked) {
-            var lblline5 = 'Patient signature/thumb impression____________';
+            var lblline5 = 'Patient signature/thumb impression____________.';
             $('#lblline55').text(lblline5);
         }
 
