@@ -272,7 +272,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            Year,under your care.
+                                                            year, under your care.
                                                         </div>
                                                         <div class="col-md-4">
                                                         </div>
@@ -355,6 +355,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <br />
                             <div class="row">
                                 <div class="col-md-12 text-center">
 
@@ -367,7 +368,7 @@
 
 
 
-                        <div class="row refe-letr1" style="display:none;">
+                        <div class="row refe-letr1" style="display:none" >
                             <div class="col-md-10">
                                 <div style="min-width:200px; font-family:'Arial' , sans-serif; font-size:16px; background-color:#FFFFFF; line-height:1.4; color:#4A4A4A; border:1px solid #DFDFDF; overflow:hidden;">
                                     <div class="accordion" id="accordionExample1">
@@ -423,9 +424,9 @@
 
                                                                     <table style="padding: 1em;text-align: center;">
                                                                         <tr>
-                                                                            <td style="padding-left: 10em;">
+                                                                            <td style="padding-left: 13em;">
                                                                                 <div style="padding: 1em;text-align: center;">
-                                                                                    <h5>REFERENCE LETTER</h5>
+                                                                                    <h6><U>REFERENCE LETTER</U></h6>
                                                                                 </div>
                                                                             </td>
 
@@ -486,13 +487,7 @@
 
                                                                     </table>
                                                                    
-                                                                    <table style="width: 100%;padding: 0px 18px;">
-                                                                        <tr>
-
-                                                                            <td>I am Referring my Patient</td>
-                                                                        </tr>
-
-                                                                    </table>
+                                          
                                                                     <br />
                                                                     <div class="row">
                                                                         <div class="col-md-12">
@@ -557,6 +552,8 @@
                                                                                     <li><small></small></li>
                                                                                     <br />
                                                                                     <li><span style="font-weight:bold">@Model.FirstName</span></li>
+                                                                                    <li><span>@Model.Education</span></li>
+                                                                                   
                                                                                     <li><span style="font-weight:bold">+91 @Model.HospClinicNumber</span></li>
                                                                                 </ul>
                                                                             </td>
@@ -1682,12 +1679,12 @@
 
         var ddlmisreferring = document.getElementById("ddlmisreferring").value;
         var txtreferringPatientName = $("#txtreferringPatientName").val();
-        var Line5 = ddlmisreferring +' ' + txtreferringPatientName;
+        var Line5 = 'I am Referring my Patient ' + ddlmisreferring +' ' + txtreferringPatientName;
         $('#lblReferenceLetterline5').text(Line5);
 
 
         var txtPatientAge = $("#txtPatientAge").val();     
-        var Line6 = txtPatientAge + ' Year under your Care'
+        var Line6 = txtPatientAge + ' year  under your Care'
         $('#lblReferenceLetterline6').text(Line6);
 
         
@@ -1719,10 +1716,9 @@
         var lblline10 = 'Place:';
         $('#lblReferenceLetterline10').text(lblline10);
 
-        var d = new Date();
-        var strDate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
+        
 
-        var lblline11 = 'Date :' + strDate;
+        var lblline11 = 'Date :' ;
         $('#lblReferenceLetterline11').text(lblline11);
 
 
