@@ -244,7 +244,7 @@
                                                                     <option value="Mr.">Mr.</option>
                                                                     <option value="Mis.">Mis.</option>
                                                                     <option value="Mrs.">Mrs.</option>
-                                                                    <option value="Master.">Master.</option>
+                                                                    <option value="Master">Master.</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -622,7 +622,7 @@
                                                                             <option value="Mr.">Mr.</option>
                                                                             <option value="Mis.">Mis.</option>
                                                                             <option value="Mrs.">Mrs.</option>
-                                                                            <option value="Master.">Master.</option>
+                                                                            <option value="Master">Master.</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -789,9 +789,9 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- style="display:none;" Fitness Certificate Print-->
+                        <!--  Fitness Certificate Print-->
 
-                        <div  id="DivPrintFitnessCertificate">
+                        <div style="display:none;" id="DivPrintFitnessCertificate">
                             <div class="col-md-12">
                                 <table style="margin: 0 auto;width: 90%;" id="Bill">
                                     <tr>
@@ -1061,7 +1061,7 @@
                                                                     <option value="Mr.">Mr.</option>
                                                                     <option value="Mis.">Mis.</option>
                                                                     <option value="Mrs.">Mrs.</option>
-                                                                    <option value="Master.">Master.</option>
+                                                                    <option value="Master">Master.</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -1114,7 +1114,7 @@
                                                             <div class="form-group">
                                                                 <label class="form-control-label"></label>
                                                                 <select id="ddlFromDate" class="form-control mb-3">
-                                                                    <option value="From">From</option>
+                                                                    <option value="from">From</option>
                                                                     <option value="On">On</option>
                                                                 </select>
                                                             </div>
@@ -1164,7 +1164,7 @@
                                                             <div class="form-group">
                                                                 <label class="form-control-label"></label>
                                                                 <select id="ddlOn" class="form-control mb-3">
-                                                                    <option value="From">From</option>
+                                                                    <option value="from">From</option>
                                                                     <option value="On">On</option>
                                                                 </select>
                                                             </div>
@@ -1367,7 +1367,7 @@
                                                 <td>
                                                     <div style="padding: 0em;text-align: center;">
                                                         <div style="padding: 0em;text-align: center;font-size: 1.1rem;">
-                                                            <h6><u>MEDICAL CERTIFICATE</u></h6>
+                                                            <h7><u>MEDICAL CERTIFICATE</u></h7>
                                                         </div>
                                                         <div style="padding: 0em;text-align: center;font-size: 1.1rem;">
                                                             <h6>TO WHOMSOEVER IT MAY CONCERN</h6>
@@ -1429,13 +1429,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label class="form-control-label"></label>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <br />
+                                       
                                         <br />
                                         <br />
                                         <div class="row">
@@ -1466,7 +1461,7 @@
                                                     <ul style="list-style:none;float:right;">
                                                         <li><b>@Model.FirstName</b></li>
                                                         <li>@Model.Education</li>
-                                                        <li>Reg. No. @Model.RegNumber</li>
+                                                        <li>Phone @Model.WhatsAppNumber</li>
                                                     </ul>
                                                 </td>
                                             </tr>
@@ -1662,7 +1657,7 @@
 
         var Resume = "";
         var Complete = "";
-        if (ddlmis == "Mr." || ddlmis == "Master.") {
+        if (ddlmis == "Mr." || ddlmis == "Master") {
             Complete = 'He is advised complete rest';
             Resume = 'He ';
         }
@@ -1684,7 +1679,7 @@
             $('#lblline3').text(lblline3);
         }
         if (Chkthumb.checked) {
-            var lblline4 = 'Patient signature/thumb impression' + '_____________________';
+            var lblline4 = 'Patient signature/thumb impression' + '_____________________.';
             $('#lblline4').text(lblline4);
         }
         var lblline5 = 'Place:';
