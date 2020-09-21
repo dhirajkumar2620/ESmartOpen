@@ -75,7 +75,7 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label class="form-control-label">Medicine name<span class="star">*</span></label>
+                                                <label class="form-control-label">Medicine Name<span class="star">*</span></label>
                                                 @Html.TextBoxFor(m => m.MedicineName, new { @id = "txtMedicineName", @onchange = "ChangeText(this)", @class = "form-control", required = "required", @placeholder = "Precription Name" })
                                                 @Html.ValidationMessageFor(model => model.MedicineName, "", new { @class = "text-danger" })
 

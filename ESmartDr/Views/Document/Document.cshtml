@@ -128,7 +128,7 @@
 
                                                                 @*<input id="checkboxHehastakenallnecessaryvaccination" type="checkbox" value="" class="checkbox-template"> &nbsp;*@
                                                                 <label class="form-control-label">
-                                                                    Referred To-
+                                                                   Referred To -
                                                                 </label>
 
                                                             </div>
@@ -332,7 +332,7 @@
                                                             </div>
                                                         </div>
                                                             <div class="col-md-6">
-                                                                <input id="txtTreatmentReceived" type="text" placeholder="Patient Name" class="form-control"> 
+                                                                <input id="txtTreatmentReceived" type="text" placeholder="Treatment" class="form-control"> 
 
 
                                                             </div>
@@ -382,38 +382,38 @@
                                                                 <td>
                                                                     @if (@Session["Template"].ToString() == "Yes")
                                                                     {
-                                                                    <table style="width: 100%; display: none;">
-                                                                        <tr>
-                                                                            <td>
-                                                                                <ul style="list-style:none;padding-left:1px;">
+                                                                        <table style="width: 100%; display: inline;">
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <ul style="list-style:none;padding-left:1px;">
 
-                                                                                    <li><b>@Model.HostClincName</b></li>
-                                                                                    <li>
-                                                                                        <textarea onselect="return false;"
-                                                                                                  readonly="readonly"
-                                                                                                  unselectable="on"
-                                                                                                  disabled="disabled" cols="50" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;"></textarea>
-                                                                                    </li>
-                                                                                    <li>+91 @Model.HospClinicNumber</li>
-                                                                                    <li>@Model.FirmInTime1</li>
-                                                                                    <li>Clinic Holiday :@Model.Holiday</li>
-                                                                                </ul>
-                                                                            </td>
+                                                                                        <li><b>@Model.HostClincName</b></li>
+                                                                                        <li>
+                                                                                            <textarea onselect="return false;"
+                                                                                                      readonly="readonly"
+                                                                                                      unselectable="on"
+                                                                                                      disabled="disabled" cols="50" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;"></textarea>
+                                                                                        </li>
+                                                                                        <li>+91 @Model.HospClinicNumber</li>
+                                                                                        <li>@Model.FirmInTime1</li>
+                                                                                        <li>Clinic Holiday :@Model.Holiday</li>
+                                                                                    </ul>
+                                                                                </td>
 
-                                                                        </tr>
-                                                                    </table>
-                                                                    <table style="float: right;  display: none;">
-                                                                        <tr>
-                                                                            <td>
-                                                                                <ul style="list-style:none;float:right;">
-                                                                                    <li><b>@Model.FirstName </b></li>
-                                                                                    <li style="text-align:right"><small>@Model.Education</small></li>
-                                                                                    <li style="text-align:right">Reg. No. @Model.RegNumber</li>
-                                                                                    <li style="text-align:right">@Model.Speciality</li>
-                                                                                </ul>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </table>
+                                                                            </tr>
+                                                                        </table>
+                                                                        <table style="float: right;">
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <ul style="list-style:none;float:right;">
+                                                                                        <li><b>@Model.FirstName </b></li>
+                                                                                        <li style="text-align:right"><small>@Model.Education</small></li>
+                                                                                        <li style="text-align:right">Reg. No. @Model.RegNumber</li>
+                                                                                        <li style="text-align:right">@Model.Speciality</li>
+                                                                                    </ul>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
 
                                                                     }
                                                                     else
@@ -430,7 +430,7 @@
                                                                                 </div>
                                                                             </td>
 
-                                                                            <td style="text-align: right; padding-left: 4em;">
+                                                                            <td style="text-align: right; padding-left: 6em;">
                                                                                 Date : &nbsp;&nbsp;   /  &nbsp;&nbsp;   /&nbsp;20
                                                                             </td>
                                                                         </tr>
@@ -479,7 +479,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <br />
-                                                                    <table style="width: 100%;padding: 0px 18px;">
+                                                                    <table style="width: 100%">
                                                                         <tr>
 
                                                                             <td><span style="font-weight:bold">Dear Sir/Madam,</span></td>
@@ -492,18 +492,18 @@
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
-                                                                                <label id="lblReferenceLetterline5" type="text" />
+                                                                                <label id="lblReferenceLetterline5" type="text" /> 
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <br />
-                                                                    <div class="row">
-                                                                        <div class="col-md-12">
-                                                                            <div class="form-group">
-                                                                                <label id="lblReferenceLetterline6" type="text" />
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                                                                                                        @*<div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label id="lblReferenceLetterline6" type="text" />
+                </div>
+            </div>
+        </div>*@
                                                                     <br />
                                                                     <div class="row">
                                                                         <div class="col-md-12">
@@ -551,10 +551,9 @@
                                                                                 <ul style="list-style: none;">
                                                                                     <li><small></small></li>
                                                                                     <br />
-                                                                                    <li><span style="font-weight:bold">@Model.FirstName</span></li>
-                                                                                    <li><span>@Model.Education</span></li>
-                                                                                   
-                                                                                    <li><span style="font-weight:bold">+91 @Model.HospClinicNumber</span></li>
+                                                                                    <li><span style="font-weight:bold">@Model.FirstName</span></li> 
+                                                                                      <li  style="text-align:right"><span>@Model.Education</span> </li>
+                                                                                    <li style="text-align:right"><span> +91 @Model.HospClinicNumber</span></li>
                                                                                 </ul>
                                                                             </td>
                                                                         </tr>
@@ -698,20 +697,28 @@
 
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-group">
-                                                                                <label class="form-control-label">
-                                                                                    I certify that this person is
-                                                                                </label>
-                                                                                <select id="ddlPhysically" name="account" class="form-control mb-3">
-                                                                                    <option value="Physically">Physically</option>
-                                                                                    <option value="Physically and Mentally">Physically and Mentally</option>
-                                                                                    <option value="Physically Mentally and Psychologically">Physically Mentally and Psychologically</option>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-3">
+                                                                                <div class="form-group">
+                                                                                    <label class="form-control-label">
+                                                                                        I certify that this person is
+                                                                                    </label>
+                                                                                   
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <div class="form-group">
+                                                                                  
+                                                                                    <select id="ddlPhysically" name="account" class="form-control mb-3">
+                                                                                        <option value="Physically">Physically</option>
+                                                                                        <option value="Physically and Mentally">Physically and Mentally</option>
+                                                                                        <option value="Physically Mentally and Psychologically">Physically Mentally and Psychologically</option>
 
-                                                                                </select>
+                                                                                    </select>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
 
                                                                     <div class="row">
                                                                         <div class="col-md-6">
@@ -733,16 +740,23 @@
                                                                     <br />
                                                                     <div class="row">
                                                                       
-                                                                        <div class="col-md-12">
+                                                                        <div class="col-md-3">
                                                                             <div class="form-group">
-                                                                                Any other major diseases  <input id="txtAnyothermajordiseases" type="text" value="" class="checkbox-template"> &nbsp;
-                                                                              
+                                                                                <label class="form-control-label">
+                                                                                    Any other major diseases
+                                                                                    </label>
+</div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                 <input id="txtAnyothermajordiseases" type="text" value="" class="form-control"> &nbsp;
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                      <br />
                                                                                 <div class="row">
-                                                                                    <div class="col-md-5">
+                                                                                    <div class="col-md-4">
                                                                                         <select id="ddlFitUnfit" name="account" class="form-control mb-3">
                                                                                             <option value="Fit">Fit</option>
                                                                                             <option value="Unfit">Unfit</option>
@@ -751,7 +765,7 @@
                                                                                     <div class="col-md-2 text-center">
                                                                                         <p style="margin-top: 0.3em!important;">For</p>
                                                                                     </div>
-                                                                                    <div class="col-md-5">
+                                                                                    <div class="col-md-4">
                                                                                         <select id="ddlWork" name="account" class="form-control mb-3">
                                                                                             <option value="Work">Work</option>
                                                                                             <option value="Duty">Duty</option>
@@ -981,9 +995,9 @@
                                                 <tr>
                                                     <td>
                                                         <ul style="list-style:none;float:right;">
-                                                            <li><b>@Model.FirstName</b></li>
-                                                            <li>@Model.Education</li>
-                                                            <li>Phone No:- @Model.WhatsAppNumber</li>
+                                                            <li><span style="font-weight:bold">@Model.FirstName</span></li>
+                                                            <li style="text-align:right"><span>@Model.Education</span> </li>
+                                                            <li style="text-align:right"><span> +91 @Model.HospClinicNumber</span></li>
                                                         </ul>
                                                     </td>
                                                 </tr>
@@ -1261,7 +1275,7 @@
                                                             <div class="form-group">
 
                                                                 <input type="checkbox" id="Chkthumb" class="checkbox-template" name="vehicle1" value="Bike">
-                                                                <label class="form-control-label">Inlude patients signature/thum______________________________ </label>
+                                                                <label class="form-control-label">Inlude patients signature/thumb______________________________ </label>
 
 
 
@@ -1459,9 +1473,9 @@
                                             <tr>
                                                 <td>
                                                     <ul style="list-style:none;float:right;">
-                                                        <li><b>@Model.FirstName</b></li>
-                                                        <li>@Model.Education</li>
-                                                        <li>Phone @Model.WhatsAppNumber</li>
+                                                        <li><span style="font-weight:bold">@Model.FirstName</span></li>
+                                                        <li style="text-align:right"><span>@Model.Education</span> </li>
+                                                        <li style="text-align:right"><span> +91 @Model.HospClinicNumber</span></li>
                                                     </ul>
                                                 </td>
                                             </tr>
@@ -1615,21 +1629,21 @@
 
         var ddlPhysically = document.getElementById("ddlPhysically").value;
         var ddlWork = document.getElementById("ddlWork").value;
-        var lblline4 = 'I Certify that  ' + ddlmis + ' ' + strNameFitnessCertificate + ' ' + ddlPhysically + ' For ' + ddlWork +'.';
+        var lblline4 = ' I certify that  ' + ddlmis + ' ' + strNameFitnessCertificate + ' ' + ddlPhysically + ' For ' + ddlWork +'.';
         $('#lblline44').text(lblline4);
         if (checkboxIncludepatientsignature.checked) {
-            var lblline5 = 'Patient signature/thumb impression____________.';
+            var lblline5 = 'Patient signature/thumb impression____________';
             $('#lblline55').text(lblline5);
         }
 
 
-        var lblline6 = 'Place:';
+        var lblline6 = 'Place : ';
         $('#lblline66').text(lblline6);
 
         var d = new Date();
         var strDate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
 
-        var lblline7 = 'Date:-' + strDate;
+        var lblline7 = 'Date : ' + strDate;
         $('#lblline77').text(lblline7);
 
         var DivFitnessCertificate = document.getElementById("DivPrintFitnessCertificate").innerHTML;
@@ -1679,16 +1693,16 @@
             $('#lblline3').text(lblline3);
         }
         if (Chkthumb.checked) {
-            var lblline4 = 'Patient signature/thumb impression' + '_____________________.';
+            var lblline4 = 'Patient signature/thumb impression' + '_____________________';
             $('#lblline4').text(lblline4);
         }
-        var lblline5 = 'Place:';
+        var lblline5 = 'Place :';
         $('#lblline5').text(lblline5);
 
         var d = new Date();
         var strDate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
 
-        var lblline6 = 'Date :' + strDate;
+        var lblline6 = 'Date : ' + strDate;
         $('#lblline6').text(lblline6);
         var Bill = document.getElementById("DivMedicalCertificate").innerHTML;
         var printWindow = window.open('', '', 'height=500,width=900');
@@ -1708,7 +1722,7 @@
     function PrintDivReferenceLetter() {
 
       
-        var Line0 = 'Referred To,';
+        var Line0 = 'Referred To -';
         $('#lblReferenceLetterline0').text(Line0);
 
         var txtDrName = $("#txtDrName").val();
@@ -1734,13 +1748,14 @@
 
         var ddlmisreferring = document.getElementById("ddlmisreferring").value;
         var txtreferringPatientName = $("#txtreferringPatientName").val();
-        var Line5 = 'I am Referring my Patient ' + ddlmisreferring +' ' + txtreferringPatientName;
+        var txtPatientAge = $("#txtPatientAge").val();     
+        var Line5 = 'I am Referring my Patient ' + ddlmisreferring +' ' + txtreferringPatientName+' '+ txtPatientAge + ' year,  under your Care';
         $('#lblReferenceLetterline5').text(Line5);
 
 
-        var txtPatientAge = $("#txtPatientAge").val();     
-        var Line6 = txtPatientAge + ' year  under your Care'
-        $('#lblReferenceLetterline6').text(Line6);
+        //var txtPatientAge = $("#txtPatientAge").val();     
+        //var Line6 = 
+        //$('#lblReferenceLetterline6').text(Line6);
 
         
 
@@ -1768,14 +1783,18 @@
             $('#lblReferenceLetterline9').text(lblline9);
         }
 
-        var lblline10 = 'Place:';
+        var lblline10 = 'Place : ';
         $('#lblReferenceLetterline10').text(lblline10);
 
-        
+        var d = new Date();
+        var strDate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
 
-        var lblline11 = 'Date :' ;
+        var lblline11 = 'Date :' + strDate;
         $('#lblReferenceLetterline11').text(lblline11);
 
+       
+
+      
 
         var Bill = document.getElementById("printReferenceLetter").innerHTML;
         var printWindow = window.open('', '', 'height=500,width=900');
