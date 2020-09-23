@@ -29,8 +29,16 @@ namespace ESmartDr.Controllers
                 {
                     foreach (var item in LST.Fedlst)
                     {
-                        item.MedicalExpertise = item.MedicalExpertise + " ," + item.ListenGiveTime +  item.Compassionate +  item.BadBehevior;
+                        item.MedicalExpertise = item.MedicalExpertise +  item.ListenGiveTime +  item.Compassionate +  item.BadBehevior;
                         item.MedicalExpertise= item.MedicalExpertise.TrimEnd(',');
+                        item.MedicalExpertise = item.MedicalExpertise.TrimStart(',');
+
+                        if (item.BadBehevior != null)
+                        {
+                            item.BadBehevior = item.BadBehevior.TrimEnd(',');
+                        }
+
+                        item.Dates = item.Date.ToString("dd/MM/yyyy");
                     }
                 }
                 int hospitalId;
