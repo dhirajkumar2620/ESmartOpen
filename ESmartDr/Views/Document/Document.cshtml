@@ -723,10 +723,13 @@
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
 
-                                                                                <input id="checkboxWhichisundercontrolwithmedicines" type="checkbox" value="" class="checkbox-template"> &nbsp;
-                                                                                <label class="form-control-label">
-                                                                                   Which is under control with medicines
-                                                                                </label>
+                                                                                <div id="DivWhichisundercontrolwithmedicines" style="display:none;">
+                                                                                    <input id="checkboxWhichisundercontrolwithmedicines" type="checkbox" value="" class="checkbox-template"> &nbsp;
+                                                                                    <label class="form-control-label">
+                                                                                        Which is under control with medicines
+                                                                                    </label>
+
+                                                                                </div>
 
                                                                             </div>
                                                                         </div>
@@ -1939,24 +1942,22 @@
 
 
 
-    $(function () {
-
+    $(document).ready(function () {
+       
 
         $('#ddlhe').on('change', function () {
-            var ddlhe1 = document.getElementById("ddlhe").value;
-            
+            var ddlhe1 = document.getElementById("ddlhe").value;           
 
-            if (ddlhe1 == 'Has') {
+            if (ddlhe1 == 'Has') {                
 
-
-                document.getElementById("DivWhichisundercontrolwithmedicines").style.display = 'none';
-
+                document.getElementById("DivWhichisundercontrolwithmedicines").style.display = 'inline';
+                
 
 
             }
             else {
-
-                document.getElementById("DivWhichisundercontrolwithmedicines").style.display = 'inline';
+               
+                document.getElementById("DivWhichisundercontrolwithmedicines").style.display = 'none';
 
             }
 
