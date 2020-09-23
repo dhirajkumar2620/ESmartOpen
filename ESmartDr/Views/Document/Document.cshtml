@@ -1542,7 +1542,7 @@
 
 
 
-  
+
 
     function PrintDivFitnessCertificate() {
 
@@ -1558,60 +1558,188 @@
 
         var Line22 = '';
         var strAsthma = '';
-        var ddlhe = document.getElementById("ddlhe").value;
-        if (checkboxAsthma.checked) {
-            strAsthma = 'Asthma';
-            Line22 = 'He ' + ' ' + ddlhe + ' ' + strAsthma;
-        }
-        else if (checkboxFitsConvulsions.checked) {
-            strAsthma = 'Fits/Convulsions';
-            Line22 = 'He ' + ' ' + ddlhe + ' ' + strAsthma;
 
-        }
-        else if (checkboxDiabetes.checked) {
-            strAsthma = 'Diabetes';
-            Line22 = 'He' + ' ' + ddlhe + ' ' + strAsthma;
-        }
-        else if (checkboxPhysicalDisability.checked) {
-            strAsthma = 'Physical Disability';
-            Line22 = 'He' + ' ' + ddlhe + ' ' + strAsthma;
-        }
 
-        else if (checkboxHypertension.checked) {
-            strAsthma = 'Hypertension';
-            Line22 = 'He' + ' ' + ddlhe + ' ' + strAsthma;
-        }
-        else if (checkboxMentalDisability.checked) {
-            strAsthma = 'Mental Disability';
-            Line22 = 'He' + ' ' + ddlhe + ' ' + strAsthma;
-        }
-        else if (checkboxAllergy.checked) {
-            strAsthma = 'Allergy';
-            Line22 = 'He' + ' ' + ddlhe + ' ' + strAsthma;
-        }
+        //if (checkboxAsthma.checked) {
+        //    strAsthma = 'Asthma';
+        //    Line22 = 'He ' + ' ' + ddlhe + ' ' + strAsthma;
+        //}
+        //else if (checkboxFitsConvulsions.checked) {
+        //    strAsthma = 'Fits/Convulsions';
+        //    Line22 = 'He ' + ' ' + ddlhe + ' ' + strAsthma;
 
+        //}
+        //else if (checkboxDiabetes.checked) {
+        //    strAsthma = 'Diabetes';
+        //    Line22 = 'He' + ' ' + ddlhe + ' ' + strAsthma;
+        //}
+        //else if (checkboxPhysicalDisability.checked) {
+        //    strAsthma = 'Physical Disability';
+        //    Line22 = 'He' + ' ' + ddlhe + ' ' + strAsthma;
+        //}
+
+        //else if (checkboxHypertension.checked) {
+        //    strAsthma = 'Hypertension';
+        //    Line22 = 'He' + ' ' + ddlhe + ' ' + strAsthma;
+        //}
+        //else if (checkboxMentalDisability.checked) {
+        //    strAsthma = 'Mental Disability';
+        //    Line22 = 'He' + ' ' + ddlhe + ' ' + strAsthma;
+        //}
+        //else if (checkboxAllergy.checked) {
+        //    strAsthma = 'Allergy';
+        //    Line22 = 'He' + ' ' + ddlhe + ' ' + strAsthma;
+        //}
+
+        var strstrcheckboxWhichisundercontrolwithmedicines = '';
         if (checkboxWhichisundercontrolwithmedicines.checked) {
 
             var strcheckboxWhichisundercontrolwithmedicines = 'Which is under control with medicines';
-            var strstrcheckboxWhichisundercontrolwithmedicines = strcheckboxWhichisundercontrolwithmedicines;
-           
+            strstrcheckboxWhichisundercontrolwithmedicines = strcheckboxWhichisundercontrolwithmedicines;
+
         }
+        else {
+            strstrcheckboxWhichisundercontrolwithmedicines = '';
+        }
+
+        var strChkMutiple = '';
+        if (checkboxAsthma.checked) {
+            strChkMutiple += 'Asthma';
+            if (strChkMutiple == '') {
+
+            }
+            else {
+                strChkMutiple += ','
+            }
+
+        }
+
+        if (checkboxFitsConvulsions.checked) {
+
+            strChkMutiple += 'Fits/Convulsions';
+            if (strChkMutiple == '') {
+
+            }
+            else {
+                strChkMutiple += ','
+            }
+
+        }
+        if (checkboxDiabetes.checked) {
+            strChkMutiple += 'Diabetes,';
+            if (strChkMutiple == '') {
+
+            }
+            else {
+                strChkMutiple += ','
+            }
+        }
+
+        if (checkboxPhysicalDisability.checked) {
+            strChkMutiple += 'Physical Disability';
+            if (strChkMutiple == '') {
+
+            }
+            else {
+                strChkMutiple += ','
+            }
+        }
+
+
+        if (checkboxFitsConvulsions.checked) {
+            strChkMutiple += 'Fits/Convulsions';
+            if (strChkMutiple == '') {
+
+            }
+            else {
+                strChkMutiple += ','
+            }
+        }
+
+
+        if (checkboxHypertension.checked) {
+            strChkMutiple += 'Hypertension';
+            if (strChkMutiple == '') {
+
+            }
+            else {
+                strChkMutiple += ','
+            }
+        }
+
+
+        if (checkboxMentalDisability.checked) {
+            strChkMutiple += 'Mental Disability';
+            if (strChkMutiple == '') {
+
+            }
+            else {
+                strChkMutiple += ','
+            }
+        }
+
+
+        if (checkboxAllergy.checked) {
+            strChkMutiple += 'Allergy';
+            if (strChkMutiple == '') {
+
+            }
+            else {
+                strChkMutiple += ','
+            }
+        }
+
+        var removelast = strChkMutiple.slice(-1);
+        if (removelast == ',') {
+            removelast = strChkMutiple.slice(0, -1);
+        }
+        var ddlhe = document.getElementById("ddlhe").value;
+
         if (checkboxOther.checked) {
 
-            var ddlhe = document.getElementById("ddlhe").value;
             var txtOtherName = $("#txtOtherName").val();
-            Line22 = 'He' + ' ' + ddlhe + ' ' + txtOtherName +' '+ strstrcheckboxWhichisundercontrolwithmedicines;
-            $('#lblline22').text(Line22);
+            if (txtOtherName == "") {
 
+
+                alert('Please Enter Other Name');
+                return;
+
+            } else {
+                alert(removelast + 'removelast');
+
+
+                if (removelast == '') {
+                    Line22 = 'He' + ' ' + ddlhe + ' ' + txtOtherName + ' ' + strstrcheckboxWhichisundercontrolwithmedicines;
+
+                }
+                else {
+                    Line22 = 'He' + ' ' + ddlhe + ' ' + txtOtherName + ',' + removelast + ' ' + strstrcheckboxWhichisundercontrolwithmedicines;
+
+                }
+                $('#lblline22').text(Line22);
+            }
+
+
+
+
+        }
+        else {
+
+
+            Line22 = 'He' + ' ' + ddlhe + ' ' + removelast + ' ' + strstrcheckboxWhichisundercontrolwithmedicines;
+            $('#lblline22').text(Line22);
         }
 
 
-      
+
+
+
+
 
 
         var strtxtAnyothermajordiseases = $("#txtAnyothermajordiseases").val();
-        
-        var str = 'Any other major diseases' +' ' + strtxtAnyothermajordiseases;
+
+        var str = 'Any other major diseases' + ' ' + strtxtAnyothermajordiseases;
         $('#lblstrtxtAnyothermajordiseases').text(str);
 
 
@@ -1622,28 +1750,31 @@
             $('#lblline33').text(lblline33);
         }
 
-        
+
 
 
 
         var ddlPhysically = document.getElementById("ddlPhysically").value;
         var ddlWork = document.getElementById("ddlWork").value;
-        var lblline4 = ' I certify that  ' + ddlmis + ' ' + strNameFitnessCertificate + ' ' + ddlPhysically + ' For ' + ddlWork +'.';
+        var lblline4 = 'I Certify that  ' + ddlmis + ' ' + strNameFitnessCertificate + ' ' + ddlPhysically + ' For ' + ddlWork + '.';
         $('#lblline44').text(lblline4);
         if (checkboxIncludepatientsignature.checked) {
-            var lblline5 = 'Patient signature/thumb impression____________';
+            var lblline5 = 'Patient signature/thumb impression____________.';
             $('#lblline55').text(lblline5);
         }
 
 
-        var lblline6 = 'Place : ';
+        var lblline6 = 'Place:';
         $('#lblline66').text(lblline6);
 
         var d = new Date();
         var strDate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
 
-        var lblline7 = 'Date : ' + strDate;
+        var lblline7 = 'Date:-' + strDate;
         $('#lblline77').text(lblline7);
+
+
+
 
         var DivFitnessCertificate = document.getElementById("DivPrintFitnessCertificate").innerHTML;
         var printWindow = window.open('', '', 'height=500,width=900');
@@ -1692,16 +1823,16 @@
             $('#lblline3').text(lblline3);
         }
         if (Chkthumb.checked) {
-            var lblline4 = 'Patient signature/thumb impression' + '_____________________';
+            var lblline4 = 'Patient signature/thumb impression' + '_____________________.';
             $('#lblline4').text(lblline4);
         }
-        var lblline5 = 'Place :';
+        var lblline5 = 'Place:';
         $('#lblline5').text(lblline5);
 
         var d = new Date();
         var strDate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
 
-        var lblline6 = 'Date : ' + strDate;
+        var lblline6 = 'Date :' + strDate;
         $('#lblline6').text(lblline6);
         var Bill = document.getElementById("DivMedicalCertificate").innerHTML;
         var printWindow = window.open('', '', 'height=500,width=900');
@@ -1720,19 +1851,19 @@
 
     function PrintDivReferenceLetter() {
 
-      
-        var Line0 = 'Referred To -';
+
+        var Line0 = 'Referred To,';
         $('#lblReferenceLetterline0').text(Line0);
 
         var txtDrName = $("#txtDrName").val();
         var Line1 = txtDrName;
-        
+
         $('#lblReferenceLetterline1').text(Line1);
-        
+
         var HospitalName = $("#txtHospitalName").val();
-       
+
         var Line2 = HospitalName;
-       
+
         $('#lblReferenceLetterline2').text(Line2);
 
         var HospitalAddress = $("#txtHospitalAddress").val();
@@ -1743,33 +1874,32 @@
         var HospitalPhone = $("#txtHospitalPhone").val();
         var Line4 = HospitalPhone;
         $('#lblReferenceLetterline4').text(Line4);
-       
+
 
         var ddlmisreferring = document.getElementById("ddlmisreferring").value;
         var txtreferringPatientName = $("#txtreferringPatientName").val();
-        var txtPatientAge = $("#txtPatientAge").val();     
-        var Line5 = 'I am Referring my Patient ' + ddlmisreferring +' ' + txtreferringPatientName+' '+ txtPatientAge + ' year,  under your Care';
+        var Line5 = 'I am Referring my Patient ' + ddlmisreferring + ' ' + txtreferringPatientName;
         $('#lblReferenceLetterline5').text(Line5);
 
 
-        //var txtPatientAge = $("#txtPatientAge").val();     
-        //var Line6 = 
-        //$('#lblReferenceLetterline6').text(Line6);
+        var txtPatientAge = $("#txtPatientAge").val();
+        var Line6 = txtPatientAge + ' year  under your Care'
+        $('#lblReferenceLetterline6').text(Line6);
 
-        
+
 
 
         if (ChkPastHistory.checked) {
 
-          
+
             var txtPastHistory = $("#txtPastHistory").val();
             var lblline7 = 'Past History ' + txtPastHistory;
             $('#lblReferenceLetterline7').text(lblline7);
-           
+
         }
         if (ChkReferingFor.checked) {
             var ReferingFor = $("#txtReferingFor").val();
-         
+
             var lblline8 = 'Refering for ' + ReferingFor;
             $('#lblReferenceLetterline8').text(lblline8);
         }
@@ -1777,23 +1907,19 @@
 
         if (ChkTreatmentReceived.checked) {
             var TreatmentReceived = $("#txtTreatmentReceived").val();
-          
+
             var lblline9 = 'Treatment Received ' + TreatmentReceived;
             $('#lblReferenceLetterline9').text(lblline9);
         }
 
-        var lblline10 = 'Place : ';
+        var lblline10 = 'Place:';
         $('#lblReferenceLetterline10').text(lblline10);
 
-        var d = new Date();
-        var strDate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
 
-        var lblline11 = 'Date :' + strDate;
+
+        var lblline11 = 'Date :';
         $('#lblReferenceLetterline11').text(lblline11);
 
-       
-
-      
 
         var Bill = document.getElementById("printReferenceLetter").innerHTML;
         var printWindow = window.open('', '', 'height=500,width=900');
@@ -1806,5 +1932,36 @@
     }
 
 
+
+
+
+
+
+
+
+    $(function () {
+
+
+        $('#ddlhe').on('change', function () {
+            var ddlhe1 = document.getElementById("ddlhe").value;
+            
+
+            if (ddlhe1 == 'Has') {
+
+
+                document.getElementById("DivWhichisundercontrolwithmedicines").style.display = 'none';
+
+
+
+            }
+            else {
+
+                document.getElementById("DivWhichisundercontrolwithmedicines").style.display = 'inline';
+
+            }
+
+
+        });
+    });
 </script>
 
