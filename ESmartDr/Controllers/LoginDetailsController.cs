@@ -65,19 +65,20 @@ namespace ESmartDr.Controllers
                 Session["name"] = ad.FirstName;
                 Session["degree"] = ad.Education;
                 Session["regNo"] = ad.RegNumber;
+                //Session["specality"] = ad.Speciality;
                 Session["Hid"] = ad.HospitalId;
                 Session["Hname"] = ad.HostClincName;
-               // Session["Speciality"] = ad.Speciality;
-                //if (string.IsNullOrEmpty(Session["Speciality"] as string))
-                //{
-                //    Session["Speciality"] = " ";
-                //}
-                //else
-                //{
-                //    Session["Speciality"] = ad.Speciality;
+                // Session["Speciality"] = ad.Speciality;
+                if (string.IsNullOrEmpty(Session["specality"] as string))
+                {
+                    Session["specality"] = " ";
+                }
+                else
+                {
+                    Session["specality"] = ad.Speciality;
 
-                //}
-                    
+                }
+
 
                 Session["Haddress"] = ad.HospClinicAddess;
                 Session["Hnumber"] = ad.WhatsAppNumber;
