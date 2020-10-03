@@ -127,14 +127,13 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="form-control-label">Observation<span class="star">*</span></label>
+                                        <div class="form-group" >
+                                            <label class="form-control-label">Observation</label>
                                             @Html.DropDownListFor(m => m.Observation, new List<SelectListItem>
                                                      {
                                                          new SelectListItem{ Text="Yes", Value = "Yes" },
-                                                          new SelectListItem{ Text="No", Value = "No" },
-
-                                                      }, new { @class = "form-control mb-3", @id = "ddlObservation" })
+                                                          //new SelectListItem{ Text="No", Value = "No" },
+                                                      }, new { @class = "form-control mb-3", @id = "ddlObservation"})
 
 
                                         </div>
