@@ -146,9 +146,6 @@
     .table-responsive {
         overflow: auto !important;
     }
-
-
-
 </style>
 
 <div>
@@ -217,6 +214,7 @@
                                 <th>Apt. Date</th>
                                 <th>Timing</th>
                                 <th>Doctor</th>
+                                <th>Note</th>
                                 <td hidden>Queue Id</td>
                                 <th>Action</th>
                             </tr>
@@ -232,6 +230,7 @@
                                     <td>@Convert.ToDateTime(item.DateTime).ToString("dd/MM/yyyy")</td>
                                     <td>@item.AppoinmentTime</td>
                                     <td>@item.FirstName</td>
+                                    <td>@item.Note</td>
                                     <td hidden>@item.Id</td>
                                     <td>
                                         <ul class="list-inline">
@@ -274,15 +273,15 @@
                                 <div class="dash-patient-bg">
                                     <h4>@item.PatientName</h4>
                                     <ul class="list-unstyled">
-                                        <li><b>Overall Experience </b>:@item.Experience</li>
-                                        <li><b>Clinic Cleanliness </b>:@item.Cleanliness</li>
-                                        <li><b>Staff Behavior </b>:@item.BadBehevior</li>
-                                        <li><b>Doctor Qualities </b>:@item.MedicalExpertise </li>
+                                        <li><b>Overall Experience </b>: @item.Experience</li>
+                                        <li><b>Clinic Cleanliness </b>: @item.Cleanliness</li>
+                                        <li><b>Staff Behavior </b>: @item.BadBehevior</li>
+                                        <li><b>Doctor Qualities </b>: @item.MedicalExpertise </li>
                                     </ul>
                                     <textarea onselect="return false;"
-   readonly="readonly"
-   unselectable="on"
-   disabled="disabled" placeholder="@item.Feedback" style="width:100%;"  ></textarea>
+                                              readonly="readonly"
+                                              unselectable="on"
+                                              disabled="disabled" placeholder="@item.Feedback" style="width:100%;"></textarea>
                                 </div>
 
                             </div>
