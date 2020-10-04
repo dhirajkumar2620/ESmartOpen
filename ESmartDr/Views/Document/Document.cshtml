@@ -365,9 +365,9 @@
                         </div>
 
 
-                        <!-- Refferal Certificate Print-->
+                        <!-- Refferal Certificate Print -->
 
-                        <div class="row refe-letr1" style="display:none" >
+                        <div class="row refe-letr1" style="display:none">
                             <div class="col-md-10">
                                 <div style="min-width:200px; font-family:'Arial' , sans-serif; font-size:16px; background-color:#FFFFFF; line-height:1.4; color:#4A4A4A; border:1px solid #DFDFDF; overflow:hidden;">
                                     <div class="accordion" id="accordionExample1">
@@ -417,23 +417,32 @@
                                                                     }
                                                                     else
                                                                     {
-                                                                    <br />
+                                                                        <br />
+                                                                        <br />
+                                                                        <br />
+                                                                        <br />
+                                                                        <br />
+                                                                        <br />
 
                                                                     }
 
-                                                                    <table style="padding: 1em;text-align: center;">
+
+                                                                    <table style="width: 100%;">
                                                                         <tr>
-                                                                            <td style="padding-left: 13em;">
-                                                                                <div style="padding: 1em;text-align: center;">
-                                                                                    <h6><U>REFERENCE LETTER</U></h6>
+                                                                            <td>
+                                                                                <div style="padding: 0em;text-align: center;">
+                                                                                    <div style="padding: 0em;text-align: center;font-size: 1.1rem;">
+                                                                                        <h7><u>REFERENCE LETTER</u></h7>
+                                                                                    </div>
+                                                                                    <div style="padding: 0em;text-align: center;font-size: 1.1rem;">
+                                                                                        @*<h6>To WHOMSOEVER IT MAY CONCERN</h6>*@
+                                                                                    </div>
                                                                                 </div>
                                                                             </td>
-
-                                                                            @*<td style="text-align: right; padding-left: 6em;">
-                                                                                Date : &nbsp;&nbsp;   /  &nbsp;&nbsp;   /&nbsp;20
-                                                                            </td>*@
                                                                         </tr>
                                                                     </table>
+
+                                 
 
                                                                     <div class="row">
                                                                         <div class="col-md-12">
@@ -496,13 +505,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <br />
-                                                                                                                                        @*<div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label id="lblReferenceLetterline6" type="text" />
-                </div>
-            </div>
-        </div>*@
+                                                                                                                                       
                                                                     <br />
                                                                     <div class="row">
                                                                         <div class="col-md-12">
@@ -805,9 +808,9 @@
                                 </div>
                             </div>
                         </div>
-                        <!--  Fitness Certificate Print-->
+                        <!--  Fitness Certificate Print -->
 
-                        <div style="display:none;" id="DivPrintFitnessCertificate">
+                        <div  id="DivPrintFitnessCertificate" style="display:none;">
                             <div class="col-md-12">
                                 <table style="margin: 0 auto;width: 90%;" id="Bill">
                                     <tr>
@@ -852,10 +855,16 @@
                                             else
                                             {
                                                 <br />
+                                                <br />                                       
+                                               <br />
+                                                <br />
+                                                <br />
 
                                             }
 
                                             <br />
+
+
                                             <table style="width: 100%;">
                                                 <tr>
                                                     <td>
@@ -870,6 +879,8 @@
                                                     </td>
                                                 </tr>
                                             </table>
+
+                                       
 
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -1565,36 +1576,6 @@
         var strAsthma = '';
 
 
-        //if (checkboxAsthma.checked) {
-        //    strAsthma = 'Asthma';
-        //    Line22 = 'He ' + ' ' + ddlhe + ' ' + strAsthma;
-        //}
-        //else if (checkboxFitsConvulsions.checked) {
-        //    strAsthma = 'Fits/Convulsions';
-        //    Line22 = 'He ' + ' ' + ddlhe + ' ' + strAsthma;
-
-        //}
-        //else if (checkboxDiabetes.checked) {
-        //    strAsthma = 'Diabetes';
-        //    Line22 = 'He' + ' ' + ddlhe + ' ' + strAsthma;
-        //}
-        //else if (checkboxPhysicalDisability.checked) {
-        //    strAsthma = 'Physical Disability';
-        //    Line22 = 'He' + ' ' + ddlhe + ' ' + strAsthma;
-        //}
-
-        //else if (checkboxHypertension.checked) {
-        //    strAsthma = 'Hypertension';
-        //    Line22 = 'He' + ' ' + ddlhe + ' ' + strAsthma;
-        //}
-        //else if (checkboxMentalDisability.checked) {
-        //    strAsthma = 'Mental Disability';
-        //    Line22 = 'He' + ' ' + ddlhe + ' ' + strAsthma;
-        //}
-        //else if (checkboxAllergy.checked) {
-        //    strAsthma = 'Allergy';
-        //    Line22 = 'He' + ' ' + ddlhe + ' ' + strAsthma;
-        //}
 
         var strstrcheckboxWhichisundercontrolwithmedicines = '';
         if (checkboxWhichisundercontrolwithmedicines.checked) {
@@ -1609,7 +1590,7 @@
 
         var strChkMutiple = '';
         if (checkboxAsthma.checked) {
-            strChkMutiple += ' Asthma';
+            strChkMutiple += '  Asthma';
             if (strChkMutiple == '') {
 
             }
@@ -1621,7 +1602,7 @@
 
         if (checkboxFitsConvulsions.checked) {
 
-            strChkMutiple += ' Fits/Convulsions';
+            strChkMutiple += '  Fits/Convulsions';
             if (strChkMutiple == '') {
 
             }
@@ -1631,7 +1612,7 @@
 
         }
         if (checkboxDiabetes.checked) {
-            strChkMutiple += ' Diabetes,';
+            strChkMutiple += '  Diabetes,';
             if (strChkMutiple == '') {
 
             }
@@ -1641,7 +1622,7 @@
         }
 
         if (checkboxPhysicalDisability.checked) {
-            strChkMutiple += ' Physical Disability';
+            strChkMutiple += '  Physical Disability';
             if (strChkMutiple == '') {
 
             }
@@ -1652,7 +1633,7 @@
 
 
         if (checkboxFitsConvulsions.checked) {
-            strChkMutiple += ' Fits/Convulsions';
+            strChkMutiple += '  Fits/Convulsions';
             if (strChkMutiple == '') {
 
             }
@@ -1663,7 +1644,7 @@
 
 
         if (checkboxHypertension.checked) {
-            strChkMutiple += ' Hypertension';
+            strChkMutiple += '  Hypertension';
             if (strChkMutiple == '') {
 
             }
@@ -1674,7 +1655,7 @@
 
 
         if (checkboxMentalDisability.checked) {
-            strChkMutiple += ' Mental Disability';
+            strChkMutiple += '  Mental Disability';
             if (strChkMutiple == '') {
 
             }
@@ -1776,7 +1757,7 @@
         var strDate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
 
         var lblline7 = 'Date:' + strDate;
-        $('#lblline7').text(lblline7);
+        $('#lblline77').text(lblline7);
 
 
 
@@ -1921,8 +1902,10 @@
         $('#lblReferenceLetterline10').text(lblline10);
 
 
+        var d = new Date();
+        var strDate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
 
-        var lblline11 = 'Date :';
+        var lblline11 = 'Date :' + strDate;
         $('#lblReferenceLetterline11').text(lblline11);
 
 
