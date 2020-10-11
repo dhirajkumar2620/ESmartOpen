@@ -1,0 +1,193 @@
+﻿@model App_Layer.DentalExamination
+@{
+    Layout = null;
+}
+
+<style>
+    .table thead {
+        background: #ffffff;
+        color: #666;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #ffffff !important;
+    }
+
+    .table tbody {
+        background: #ffffff;
+    }
+
+    .table tr:hover {
+        box-shadow: 2px 4px 10px #fff;
+    }
+    /*.table thead th {
+        vertical-align: bottom;
+        border-bottom: 1px solid #dedede!important;
+    }
+        .table td {
+        border-top: 1px solid #dedede!important;
+        vertical-align: middle!important;
+    }*/
+    .table th {
+        padding-top: 15px;
+    }
+
+    .table {
+        margin-bottom: 0rem;
+    }
+
+    .mg-table .table {
+        border-bottom: 1px solid #d4d4d4;
+    }
+
+    .tbl-view-1 tr th:first-child {
+        width: 20%;
+    }
+
+    .tbl-view-2 tr th:first-child {
+        width: 20%;
+    }
+
+    .tbl-view-3 tr th:first-child {
+        width: 20%;
+    }
+
+    .tbl-view-4 tr th:first-child {
+        width: 20%;
+    }
+
+    .tbl-view-5 tr th:first-child {
+        width: 20%;
+    }
+
+    .tbl-view-5 tr th:first-child {
+        width: 20%;
+    }
+</style>
+<div class="card-body">
+    @using (Html.BeginForm("", "", FormMethod.Post))
+    {
+       
+        <form>
+
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Medical History<span class="star">*</span>
+                        </label>
+                        @Html.TextAreaFor(m => m.MedicalHistory, new { @id = "txtMedicalHistory", @class = "form-control", required = "required", @placeholder = "MedicalHistory" })
+                      
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                       
+                       
+                    </div>
+                </div>
+               
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="form-control-label">Dental Chart</label>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <div class="i-checks ">
+
+                                @Html.RadioButtonFor(model => model.DentalChartType, "Y", new { @class = "radio-template" })
+
+                                <label for="radioSmokingYes">Yes</label>
+                            </div>
+                        </li>
+                        <li class="list-inline-item">
+                            <div class="i-checks ">
+                                @Html.RadioButtonFor(model => model.DentalChartType, "N", new { @class = "radio-template" })
+                                <label for="radioSmokingNo">No</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Amount
+                            </label>
+                            @Html.TextBoxFor(m => m.Amount, new { @id = "txtAmount", @class = "form-control", required = "required", @placeholder = "MedicalHistory" })
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 obs-sv-btn">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Notes
+                            </label>
+                            @Html.TextBoxFor(m => m.Notes, new { @id = "txtNotes", @class = "form-control", required = "required", @placeholder = "MedicalHistory" })
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Date
+                            </label>
+                            @Html.TextBoxFor(m => m.date, new { @id = "txtdate", @class = "form-control", required = "required", @placeholder = "MedicalHistory" })
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 obs-sv-btn">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Procedure
+                            </label>
+
+                            @Html.DropDownListFor(m => m.Procedure, new List<SelectListItem>
+                                                     {
+                                                         new SelectListItem{ Text="Bonding", Value = "Bonding" },
+                                                         new SelectListItem{ Text="Braces", Value = "Braces" },
+                                                          new SelectListItem{ Text="Bridges And Implants", Value = "BridgesandImplants" },
+                                                          new SelectListItem{ Text="Dentures", Value = "Dentures" },
+                                                          new SelectListItem{ Text="Extractions", Value = "Dentures" },
+                                                          new SelectListItem{ Text="Dentures", Value = "Dentures" },
+                                                          new SelectListItem{ Text="Fillings And Repairs", Value = "FillingsandRepairs" },
+                                                          new SelectListItem{ Text="Gum Surgery", Value = "GumSurgery" },
+                                                          new SelectListItem{ Text="Oral cancer Examinations", Value = "gumsurgery" },
+                                                          new SelectListItem{ Text="Root Canals", Value = "rootcanals" },
+                                                           new SelectListItem{ Text="Sealants", Value = "Sealants" },
+                                                      }, new { @class = "form-control mb-3", @id = "dlPeriod" })
+
+                          
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group" style="float: right;margin-top: 2em;">
+                            <button type="button" onclick="SubmitObservationDetails()" class="btn btn_1 btn-primary" id="btnSave">Save</button>
+                        </div>
+                    </div>
+                </div>
+
+</form>
+    }
+    </div>

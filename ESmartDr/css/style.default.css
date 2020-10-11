@@ -3884,6 +3884,19 @@ select {
     cursor: pointer;
 }
 
+
+.fa.fa-stethoscope {  
+   
+    padding: 6px 7px;
+    border-radius: 50%;
+    font-size: 12px;
+    background: #f5a433;
+    color: #fff;
+    border-color: #25a1a1;
+    cursor: pointer;
+   
+}
+
 .fa.fa-print {
     border: 1px solid #ccc;
     padding: 6px 7px;

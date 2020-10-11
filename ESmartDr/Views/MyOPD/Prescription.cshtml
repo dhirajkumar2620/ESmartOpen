@@ -7,6 +7,20 @@
        
            
             <div class="second-tab">
+
+                <div class="card">
+
+                    <div class="card-header" id="headingDentalExaminationPage">
+                        <h2 class="mb-0">
+                            <button type="button" class="btn btn-link" id="btnDentalExaminationPage" data-toggle="collapse" data-target="#collapseDentalExaminationPage" data-request-url="@Url.Action("DentalExaminationPage", "MyOPD")"><i class="fa fa-plus"></i> <span class="accor-heading">Dental Examination Page</span></button>
+                        </h2>
+                    </div>
+                    <div id="collapseDentalExaminationPage" class="collapse" aria-labelledby="headingDentalExaminationPage" data-parent="#accordionExample1">
+                        <div id="tabDentalExaminationPage"></div>
+                    </div>
+                </div>
+
+
                 <div class="card">
 
                     <div class="card-header" id="headingFour">
@@ -49,6 +63,13 @@
 <script src="~/js/front.js"></script>
 <script>
     //$(".nav-tabs li").removeClass("active"); btnInvestigation
+
+    $("#btnDentalExaminationPage").on('click', function () {
+        var url = $(this).data('request-url');
+
+        $("#tabDentalExaminationPage").load(url);
+    });
+
     $("#btnObservation").on('click', function () {
         var url = $(this).data('request-url');
 

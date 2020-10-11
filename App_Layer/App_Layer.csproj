@@ -48,6 +48,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="Dashbord.cs" />
+    <Compile Include="DentalExamination.cs" />
     <Compile Include="DignosticDetails.cs" />
     <Compile Include="EnquiryDetails.cs" />
     <Compile Include="ExpensesDetails.cs" />

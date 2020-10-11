@@ -147,6 +147,12 @@ namespace ESmartDr.Controllers
             return View("NewBilling", bd);
         }
 
+        public ActionResult DentalExaminationPage()
+        {
+            return View("DentalExaminationPage");
+        }
+
+
 
         public ActionResult PrecObservation()
         {
