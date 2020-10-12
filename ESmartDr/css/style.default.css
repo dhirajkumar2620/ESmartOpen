@@ -22,7 +22,7 @@ body{
     font-family: 'Rajdhani-Regular'!important;
 }*/
 
-@font-face {
+/*@font-face {
     font-family: 'Play-Regular';
     src: url('../fonts/Play-Regular.ttf') format('truetype');
 }
@@ -30,7 +30,16 @@ body{
 body {
     overflow-x: hidden;
     font-family: 'Play-Regular' !important;
+}*/
+
+/*@font-face {
+    font-family: 'glyphicons-halflings-regular';
+    src: url('../fonts/glyphicons-halflings-regular.ttf') format('truetype');
 }
+
+body{
+    font-family: 'glyphicons-halflings-regular';
+}*/
 
 
 
