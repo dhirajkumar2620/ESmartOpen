@@ -3886,13 +3886,13 @@ select {
 
 
 .fa.fa-stethoscope {  
-   
+    border: 1px solid #f5a433;
     padding: 6px 7px;
     border-radius: 50%;
     font-size: 12px;
     background: #f5a433;
     color: #fff;
-    border-color: #25a1a1;
+    border-color: #f5a433;
     cursor: pointer;
    
 }
