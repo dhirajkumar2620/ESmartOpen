@@ -50,14 +50,25 @@ namespace Bal_Layer
                         var dataTable = dataSet.Tables[0];
                         foreach (DataRow objDataRow in dataTable.Rows)
                         {
+
+                            if(objDataRow["MedicineType"].ToString()!="OTH")
+                            {
+
+                                objDataRow["MedicineName"] = objDataRow["MedicineType"].ToString() + ' ' + objDataRow["MedicineName"].ToString();
+                                    //objDataRow["MedicineType"] = "";
+                            }
+                            
                             if (objDataRow.ItemArray.All(x => string.IsNullOrEmpty(x?.ToString()))) continue;
                             lstMedicineDetails.Add(new MedicineDetails()
                             {
                                 MedicineId = Convert.ToInt32(objDataRow["MedicineId"].ToString()),
+
+
                                 MedicineName = objDataRow["MedicineName"].ToString(),
                                 MedicineType = objDataRow["MedicineType"].ToString(),
                                 GenericName = objDataRow["GenericName"].ToString(),
                                 Range = objDataRow["Range"].ToString(),
+                                CompanyName = objDataRow["CompanyName"].ToString(),
                                 Other = objDataRow["Other"].ToString(),
                                 HospitalId = Hid
                             });

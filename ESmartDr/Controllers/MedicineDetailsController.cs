@@ -30,9 +30,17 @@ namespace ESmartDr.Controllers
             {
 
                 AdminDetails admObj = (AdminDetails)Session["UserDetails"];
-                MD.MedicineName = MD.MedicineType + " " + MD.MedicineName;
+                if (MD.MedicineType != "OTH")
+                {
+                    MD.MedicineName = MD.MedicineType + " " + MD.MedicineName;
+                }
+                else
+                {
+                    MD.MedicineName =  MD.MedicineName;
+                }
                 MD.CreatedBy = admObj.UserId.ToString();
                 MD.HospitalId = admObj.HospitalId;
+                
                 int Flag = BL.ManageMedicineDetails(MD);
 
                 MD = BL.ViewAllMedicine(admObj.HospitalId);
@@ -117,6 +125,7 @@ namespace ESmartDr.Controllers
             try
             {
                 var recordsImported = BL.ImportAll(importFile.InputStream, admObj.HospitalId);
+                
                 return Json(new { Status = 1, Message = string.Format("File Imported {0} records successfully ", recordsImported) });
             }
             catch (Exception ex)
