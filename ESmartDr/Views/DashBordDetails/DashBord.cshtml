@@ -457,7 +457,7 @@
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {
-            var Header = ['', 'Invoice', 'Espenses'];
+            var Header = ['', 'Income', 'Espenses'];
             result3.push(Header);
             for (var i = 0; i < data.length; i++) {
                 var RowData3 = [];
@@ -477,7 +477,7 @@
 
         var options = {
             legend: 'none',
-            title: 'Invoice Amount - Espenses Amount',
+            title: 'Income - Espenses Analysis',
             colors: ['#f5a433', '#25a1a1']
         };
         var chart3 = new google.charts.Bar(document.getElementById('chart_div'));
@@ -496,7 +496,7 @@
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {
-            var Header = ['', 'Invoice', 'Espenses'];
+            var Header = ['', 'Income', 'Espenses'];
             result4.push(Header);
             for (var i = 0; i < data.length; i++) {
                 var RowData4 = [];
@@ -517,7 +517,7 @@
         var data = google.visualization.arrayToDataTable(result4);
         var options = {
             legend: 'none',
-            title: 'Invoice Amount - Espenses Amount',
+            title: 'Income - Espenses Analysis',
             colors: ['#f5a433', '#25a1a1']
         };
         var chart4 = new google.charts.Bar(document.getElementById('chart4'));

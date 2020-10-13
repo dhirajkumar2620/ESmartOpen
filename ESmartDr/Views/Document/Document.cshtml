@@ -391,7 +391,7 @@
                                                                                             <textarea onselect="return false;"
                                                                                                       readonly="readonly"
                                                                                                       unselectable="on"
-                                                                                                      disabled="disabled" cols="50" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;"></textarea>
+                                                                                                      disabled="disabled" cols="50" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto; font-family:'Arial' , sans-serif;"></textarea>
                                                                                         </li>
                                                                                         <li>+91 @Model.HospClinicNumber</li>
                                                                                         <li>@Model.FirmInTime1</li>
@@ -827,7 +827,7 @@
                                                                     <textarea onselect="return false;"
                                                                               readonly="readonly"
                                                                               unselectable="on"
-                                                                              disabled="disabled" cols="50" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;"></textarea>
+                                                                              disabled="disabled" cols="50" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;font-family:'Arial' , sans-serif;"></textarea>
                                                                 </li>
                                                                 <li>+91 @Model.HospClinicNumber</li>
                                                                 <li>@Model.FirmInTime1</li>
@@ -1359,7 +1359,7 @@
                                                                 <textarea onselect="return false;"
                                                                           readonly="readonly"
                                                                           unselectable="on"
-                                                                          disabled="disabled" cols="50" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;"></textarea>
+                                                                          disabled="disabled" cols="50" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;font-family:'Arial' , sans-serif;"></textarea>
                                                             </li>
                                                             <li>+91 @Model.HospClinicNumber</li>
                                                             <li>@Model.FirmInTime1</li>
@@ -1769,7 +1769,7 @@
 
         var DivFitnessCertificate = document.getElementById("DivPrintFitnessCertificate").innerHTML;
         var printWindow = window.open('', '', 'height=500,width=900');
-        printWindow.document.write('<html><head><title>DIV Contents</title>');
+        printWindow.document.write('<html><head><title>FitnessCertificate</title>');
         printWindow.document.write('</head><body>');
         printWindow.document.write(DivFitnessCertificate);
         printWindow.document.write('</body></html>');
@@ -1827,7 +1827,7 @@
         $('#lblline6').text(lblline6);
         var Bill = document.getElementById("DivMedicalCertificate").innerHTML;
         var printWindow = window.open('', '', 'height=500,width=900');
-        printWindow.document.write('<html><head><title>DIV Contents</title>');
+        printWindow.document.write('<html><head><title>MedicalCertificate</title>');
         printWindow.document.write('</head><body>');
         printWindow.document.write(Bill);
         printWindow.document.write('</body></html>');
@@ -1916,7 +1916,7 @@
 
         var Bill = document.getElementById("printReferenceLetter").innerHTML;
         var printWindow = window.open('', '', 'height=500,width=900');
-        printWindow.document.write('<html><head><title>DIV Contents</title>');
+        printWindow.document.write('<html><head><title>ReferenceLetter</title>');
         printWindow.document.write('</head><body>');
         printWindow.document.write(Bill);
         printWindow.document.write('</body></html>');

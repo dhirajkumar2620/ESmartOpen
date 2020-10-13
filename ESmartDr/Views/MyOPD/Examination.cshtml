@@ -68,8 +68,8 @@
         <div class="second-tab">
             <div class="card" id="divPrint">
                 <div class="card-body mg-table">
-                    <div id="printExamination" style="display:none">
-                        <table style="margin: 0 auto;width: 80%;" id="Bill">
+                    <div id="printExamination" style="display:block">
+                        <table style="margin: 0 auto;width: 85%;" id="Bill">
                             <tr>
                                 <td>
                                     @if (@Session["Template"].ToString() == "Yes")
@@ -83,7 +83,7 @@
                                                             <textarea onselect="return false;"
                                                                       readonly="readonly"
                                                                       unselectable="on"
-                                                                      disabled="disabled" cols="40" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;"></textarea>
+                                                                      disabled="disabled" cols="35" rows="2" placeholder="@Model.HospClinicAddess" style="background-color:#FFF;border: none;resize: none;overflow: auto;font-family:'Arial' , sans-serif;"></textarea>
                                                         </li>
                                                         <li>+91 @Model.HospClinicNumber</li>
                                                         <li>@Model.FirmInTime1 : @Model.FirmOutTime1 - @Model.FirmInTime2 : @Model.FirmOutTime2 </li>
@@ -250,6 +250,7 @@
                                     {    <br>
                                         <table style="width: 100%;">
                                             <tr>
+                                                <td></td>
                                                 <td>
                                                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAhCAYAAABeD2IVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASMSURBVFhH7VdLT1tHFO5PavAbGwdjoE2LBEQ0NiYsILHVCCFQWxYgQdsNUttl2w1SSYuXSAipBioEpa0Q0DqxE7OBUl4JmBhY8Kxt/Did78hjmRubXCdGaqWO/GnuvXPumc/fOXNm7lvpdJr+bfiflFr8d0mhoU+lUpROiXvxS14k+DqVEM8yY2jJZDL7HtvnuX4VriQFR9IZN5ARk6JPJzMEBdBL+9z3AdhLorn+rkJBUmhKJ3Aei8UoHo1RIn5BKUEs9neUEY/HKZFIMKLRKPf8BzJ+cn3I60JQnVNwtr29Te3t7eRyNjOcdxzU0uwiV7O4d7nI4XBQs7hua2uj3t5e8nq9tLq6ekkppd98UE0KDre2tqi+vp40N8pIr9WRQacnnUZL5aZyMplMZDAYGFqtlnQ6HZnNZia5uLjIyimVL4RX5lTuPf7x0tISVVXamBRgFoS8I16anp5mZbq7u8lqtTIpAARbW1vp8PCQLi5EyN+UVD7s7e1Rjb2aFYJSldab9CQYzKpwdnZGY2NjrBwI6fV6Vm90dJTHS5pTEiAFpYx6EaYyDVktFRQMBHgyAO38/JyampqYkEajYcX6+/tVqQQUTWpnZ4dsghRUAqqr7EwKDeMIEcg1NDRkQwgMDg7y82sJ3+7uLtXW1HL4kFMVZgs9DT7hMRmamZmZbPhACOGbm5vjsWshFQ6HyW6rYlIIH/JrbvZnDuv+/j4NDQ2RxWJhIpJQZ2cnHR0dXZ9SYaGUTHRZFioECZvNxuogj/TiGVTC/YMPH1DoaYjJXFtOhXd2s0oBZW/f4BAajUYmos08d9+7T1MTkxR5EaGE2CcjkQjnWz6fSrxWoiO5sfqgFFYi6tTAwAAXS6MIF563ttylv/5cExt2kn775VdyOp3k8/lUESuaFHIHSiGfoAjqVOBxgI6Pj3nZc+jEmMlgpE8++pj8v/9Bd10trGJPTw+dnJzk9ZuLoklh9UEpqIGJQSoYCPLYxsYG3W68zSoi17Ad3XrnXbatq6sjv9+fXaFXoficEquvtrqG1cCktpuVQqnH2UT+4eH3VG4UCS+ISHLoR0ZG3nz1yZdzneAaStkzSiF8CKWs6LDZ3Ngkxwd3mDQIwQZVf21trTQlAQ7QpCO09fX1bEkAoNQj/yMeYxvx++qLL5k0iEE1KOp2u2lzc/OS/0IoitTKygp1dXXxRJIU8srj9tDy8jLbPH/2nO633+MxEAM4vwTBxsZGGh4evjRHPqgiJa+xVWDZY0JZEvhsJSbF1oIT57dff8MkoOb7t95j0rDHxozq3tHR8dI8ShQkhaZU6uDggGZnZ2niRx/9NDlFk74JmhI9iiTq1/z8PFXb7XzGevjdMD3b2mY7ADVqfHycQqHQS3MpcaVSSoAckpU/FsT5HPmD4oizOhYAjsrlYmv5/NPPKB6LZz8sADWlQKIoUoUAsn19fbwBezweOj09zWunFiUhBSB8ODMtLCzwvQz566BkSqHHiROfWmjyQ0FpqwYlU0oSkAUSTWmjFiUjJY/BkhCUymenBiUNn4Tac1N+pOkfScsQNF0pJh4AAAAASUVORK5CYII=" alt="" />
                                                 </td>
@@ -269,21 +270,24 @@
                                             @{ int index = 1; }
                                             @foreach (var item in Model.mlist)
                                             {
-                                                <tr style="font-weight: 700;">
+                                                <tr style="font-weight: 600;">
 
-                                                    <td>
-                                                        @index ]  @item.MedicineName
+                                                    <td style="vertical-align:top;font-weight:normal">
+                                                        @index]
                                                     </td>
-                                                    <td>
+                                                    <td style="vertical-align:top ; margin-top:5px;font-weight:normal">
+                                                        @item.MedicineName
+                                                    </td>
+                                                    <td style="vertical-align:top;font-weight:normal">
                                                         @item.Dose, @item.RepeatMedicine
                                                     </td>
-                                                    <td>
+                                                    <td style="vertical-align:top;font-weight:normal">
                                                         @item.WhenMedicine, @item.SpecialInstruction
                                                     </td>
-                                                    <td>
+                                                    <td style="vertical-align:top;font-weight:normal">
                                                         @item.ForMedicine @item.MedicineDays
                                                     </td>
-                                                    <td>
+                                                    <td style="vertical-align:top; margin-top:5px;font-weight:normal">
                                                         @item.AlternateMedicine Nos.
                                                     </td>
                                                 </tr>
@@ -365,190 +369,190 @@
                     </div>
                     <br />
                     <div class="row">
-                        <div class="col-md-8"style="text-align: center;">
+                        <div class="col-md-8" style="text-align: center;">
                             For Priview/Download/Print click on "Print"
                         </div>
-                            <div class="col-md-4">
+                        <div class="col-md-4">
 
-                                <input type='button' id='btn' value='Print' class="btn btn_1 btn-primary pull-right" onclick="PrintDiv()">
-                            </div>
-                            <br /><br /><br /><br /><br /><br /><br />
+                            <input type='button' id='btn' value='Print' class="btn btn_1 btn-primary pull-right" onclick="PrintDiv()">
                         </div>
-                        <br />
+                        <br /><br /><br /><br /><br /><br /><br />
                     </div>
+                    <br />
                 </div>
+            </div>
+        </div>
     </div>
-</div>
 
-@*
-    <script src="~/vendor/jquery/jquery.min.js"></script>*@
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="~/js/front.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-    ////function PrintDiv() {
-    ////    alert("dsfds");
-    ////    //$('#printExamination').html(response);
-    ////    var Bill = document.getElementById("printExamination").innerHTML;
-    ////    var printWindow = window.open('', '', 'height=500,width=900');
-    ////    printWindow.document.write('<html><head><title>DIV Contents</title>');
-    ////    printWindow.document.write('</head><body>');
-    ////    printWindow.document.write(Bill);
-    ////    printWindow.document.write('</body></html>');
-    ////    printWindow.document.close();
-    ////    printWindow.print();
-
+    @*
+        <script src="~/vendor/jquery/jquery.min.js"></script>*@
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/js/front.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        ////function PrintDiv() {
+        ////    alert("dsfds");
+        ////    //$('#printExamination').html(response);
+        ////    var Bill = document.getElementById("printExamination").innerHTML;
+        ////    var printWindow = window.open('', '', 'height=500,width=900');
+        ////    printWindow.document.write('<html><head><title>DIV Contents</title>');
+        ////    printWindow.document.write('</head><body>');
+        ////    printWindow.document.write(Bill);
+        ////    printWindow.document.write('</body></html>');
+        ////    printWindow.document.close();
+        ////    printWindow.print();
 
 
-    ////////Get the HTML of div
-    //////var divElements = document.getElementById("printExamination").innerHTML;
-    ////////Get the HTML of whole page
-    //////var oldPage = document.body.innerHTML;
-    ////////Reset the page's HTML with div's HTML only
-    //////document.body.innerHTML =
-    //////    "<html><head><title></title></head><body>" +
-    //////    divElements + "</body>";
 
-    ////////Print Page
-    //////window.print();
+        ////////Get the HTML of div
+        //////var divElements = document.getElementById("printExamination").innerHTML;
+        ////////Get the HTML of whole page
+        //////var oldPage = document.body.innerHTML;
+        ////////Reset the page's HTML with div's HTML only
+        //////document.body.innerHTML =
+        //////    "<html><head><title></title></head><body>" +
+        //////    divElements + "</body>";
 
-    ////////Restore orignal HTML
-    //////document.body.innerHTML = oldPage;
+        ////////Print Page
+        //////window.print();
 
-
-    /// }
-</script>
-<script>
-
-    // function ShowPrint() {
-    //PrintDiv1();
-    //    $.ajax({
-    //        type: "POST",
-    //        url: "/MyOPD/PrintExaminatonDetails",
-    //        contentType: "application/json; charset=utf-8",
-    //        dataType: "html",
-    //        success: function (response) {
-    //            $('#Bill').html(response);
-    //            PrintDiv1();
-    //            //$('#ComfirmationPopup').modal('show');
-    //        },
-    //        failure: function (response) {
-    //            alert(response.responseText);
-    //        },
-    //        error: function (response) {
-    //            alert(response.responseText);
-    //        }
-    //    });
-    //}
-    //function PrintDiv1() {
-    //    var Bill = document.getElementById("Bill").innerHTML;
-    //    var printWindow = window.open('', '', 'height=500,width=900');
-    //    printWindow.document.write('<html><head><title>DIV Contents</title>');
-    //    printWindow.document.write('</head><body>');
-    //    printWindow.document.write(Bill);
-    //    printWindow.document.write('</body></html>');
-    //    printWindow.document.close();
-    //    printWindow.print();
-    //}
-</script>
-
-<script src="~/js/front.js"></script>
-<script>
-    //$(".nav-tabs li").removeClass("active"); btnInvestigation
-    $("#btnObservation").on('click', function () {
-        var url = $(this).data('request-url');
-
-        $("#tabObservation").load(url);
-    });
-    $("#btnMedication").on('click', function () {
-        var url = $(this).data('request-url');
-
-        $("#tabMedication").load(url);
-    });
-    $("#btnCommon").on('click', function () {
-        var url = $(this).data('request-url');
-
-        $("#tabCommon").load(url);
-    });
-</script>
-<script>
-
-    //$('.opd-table .add-row').click(function () {
-    //    $('.opd-table .table').append('<tr><td contenteditable="true">001</td><td contenteditable="true">Fever</td><td contenteditable="true">2 Week</td><td><ul class="list-inline"><li class="list-inline-item" title="Edit"><i class="fa fa-times"  onclick="SomeDeleteRowFunction(this);" aria-hidden="true"></i></li></ul></td></tr>');
-    //});
+        ////////Restore orignal HTML
+        //////document.body.innerHTML = oldPage;
 
 
-    $('.opd-table1 .add-row-billing').click(function () {
-        $('.opd-table1 .table').append('<tr><td>1</td><td contenteditable="true">Fever</td><td contenteditable="true">1000</td><td contenteditable="true">Paid</td><td contenteditable="true">0</td><td><ul class="list-inline"><li class="list-inline-item" title="Edit"><i class="fa fa-times add-row-billing" onclick="SomeDeleteRowFunction(this);" aria-hidden="true"></i></li></ul></td></tr>');
-    });
+        /// }
+    </script>
+    <script>
 
-    function SomeDeleteRowFunction(btndel) {
-        if (typeof (btndel) == "object") {
-            $(btndel).closest("tr").remove();
-        } else {
-            return false;
+        // function ShowPrint() {
+        //PrintDiv1();
+        //    $.ajax({
+        //        type: "POST",
+        //        url: "/MyOPD/PrintExaminatonDetails",
+        //        contentType: "application/json; charset=utf-8",
+        //        dataType: "html",
+        //        success: function (response) {
+        //            $('#Bill').html(response);
+        //            PrintDiv1();
+        //            //$('#ComfirmationPopup').modal('show');
+        //        },
+        //        failure: function (response) {
+        //            alert(response.responseText);
+        //        },
+        //        error: function (response) {
+        //            alert(response.responseText);
+        //        }
+        //    });
+        //}
+        //function PrintDiv1() {
+        //    var Bill = document.getElementById("Bill").innerHTML;
+        //    var printWindow = window.open('', '', 'height=500,width=900');
+        //    printWindow.document.write('<html><head><title>DIV Contents</title>');
+        //    printWindow.document.write('</head><body>');
+        //    printWindow.document.write(Bill);
+        //    printWindow.document.write('</body></html>');
+        //    printWindow.document.close();
+        //    printWindow.print();
+        //}
+    </script>
+
+    <script src="~/js/front.js"></script>
+    <script>
+        //$(".nav-tabs li").removeClass("active"); btnInvestigation
+        $("#btnObservation").on('click', function () {
+            var url = $(this).data('request-url');
+
+            $("#tabObservation").load(url);
+        });
+        $("#btnMedication").on('click', function () {
+            var url = $(this).data('request-url');
+
+            $("#tabMedication").load(url);
+        });
+        $("#btnCommon").on('click', function () {
+            var url = $(this).data('request-url');
+
+            $("#tabCommon").load(url);
+        });
+    </script>
+    <script>
+
+        //$('.opd-table .add-row').click(function () {
+        //    $('.opd-table .table').append('<tr><td contenteditable="true">001</td><td contenteditable="true">Fever</td><td contenteditable="true">2 Week</td><td><ul class="list-inline"><li class="list-inline-item" title="Edit"><i class="fa fa-times"  onclick="SomeDeleteRowFunction(this);" aria-hidden="true"></i></li></ul></td></tr>');
+        //});
+
+
+        $('.opd-table1 .add-row-billing').click(function () {
+            $('.opd-table1 .table').append('<tr><td>1</td><td contenteditable="true">Fever</td><td contenteditable="true">1000</td><td contenteditable="true">Paid</td><td contenteditable="true">0</td><td><ul class="list-inline"><li class="list-inline-item" title="Edit"><i class="fa fa-times add-row-billing" onclick="SomeDeleteRowFunction(this);" aria-hidden="true"></i></li></ul></td></tr>');
+        });
+
+        function SomeDeleteRowFunction(btndel) {
+            if (typeof (btndel) == "object") {
+                $(btndel).closest("tr").remove();
+            } else {
+                return false;
+            }
         }
-    }
 
-    function SomeDeleteRowFunction1(btndel) {
-        if (typeof (btndel) == "object") {
-            $(btndel).closest("tr").remove();
-        } else {
-            return false;
+        function SomeDeleteRowFunction1(btndel) {
+            if (typeof (btndel) == "object") {
+                $(btndel).closest("tr").remove();
+            } else {
+                return false;
+            }
         }
-    }
 
-    $('#r1').click(function () {
-        $('.refe-letr').css("display", "block");
-        $('.fitn-cert').css("display", "none");
-        $('.medicl-cert').css("display", "none");
-    });
-    $('#r2').click(function () {
-        $('.refe-letr').css("display", "none");
-        $('.fitn-cert').css("display", "block");
-        $('.medicl-cert').css("display", "none");
-    });
-    $('#r3').click(function () {
-        $('.refe-letr').css("display", "none");
-        $('.fitn-cert').css("display", "none");
-        $('.medicl-cert').css("display", "block");
-    });
-
-
-    $('.tbl-1').click(function () {
-        $('.tbl-view-1').slideToggle();
-    });
-    $('.tbl-2').click(function () {
-        $('.tbl-view-2').slideToggle();
-    });
-    $('.tbl-3').click(function () {
-        $('.tbl-view-3').slideToggle();
-    });
-    $('.tbl-4').click(function () {
-        $('.tbl-view-4').slideToggle();
-    });
-    $('.tbl-5').click(function () {
-        $('.tbl-view-5').slideToggle();
-    });
-    $('.tbl-6').click(function () {
-        $('.tbl-view-6').slideToggle();
-    });
-    $('.tbl-7').click(function () {
-        $('.tbl-view-7').slideToggle();
-    });
-</script>
-<script>
-    function PrintDiv() {
-        //Get the HTML of div
-        var Bill = document.getElementById("printExamination").innerHTML;
-        var printWindow = window.open('', '', 'height=500,width=900');
-        printWindow.document.write('<html><head><title>DIV Contents</title>');
-        printWindow.document.write('</head><body>');
-        printWindow.document.write(Bill);
-        printWindow.document.write('</body></html>');
-        printWindow.document.close();
-        printWindow.print();
+        $('#r1').click(function () {
+            $('.refe-letr').css("display", "block");
+            $('.fitn-cert').css("display", "none");
+            $('.medicl-cert').css("display", "none");
+        });
+        $('#r2').click(function () {
+            $('.refe-letr').css("display", "none");
+            $('.fitn-cert').css("display", "block");
+            $('.medicl-cert').css("display", "none");
+        });
+        $('#r3').click(function () {
+            $('.refe-letr').css("display", "none");
+            $('.fitn-cert').css("display", "none");
+            $('.medicl-cert').css("display", "block");
+        });
 
 
-    }
-</script>
+        $('.tbl-1').click(function () {
+            $('.tbl-view-1').slideToggle();
+        });
+        $('.tbl-2').click(function () {
+            $('.tbl-view-2').slideToggle();
+        });
+        $('.tbl-3').click(function () {
+            $('.tbl-view-3').slideToggle();
+        });
+        $('.tbl-4').click(function () {
+            $('.tbl-view-4').slideToggle();
+        });
+        $('.tbl-5').click(function () {
+            $('.tbl-view-5').slideToggle();
+        });
+        $('.tbl-6').click(function () {
+            $('.tbl-view-6').slideToggle();
+        });
+        $('.tbl-7').click(function () {
+            $('.tbl-view-7').slideToggle();
+        });
+    </script>
+    <script>
+        function PrintDiv() {
+            //Get the HTML of div
+            var Bill = document.getElementById("printExamination").innerHTML;
+            var printWindow = window.open('', '', 'height=500,width=900');
+            printWindow.document.write('<html><head><title>DIV Contents</title>');
+            printWindow.document.write('</head><body>');
+            printWindow.document.write(Bill);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+
+
+        }
+    </script>
