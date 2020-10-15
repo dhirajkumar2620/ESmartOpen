@@ -174,7 +174,7 @@ namespace ESmartDr.Controllers
                 {
                     string ADMContactNo = ConfigurationManager.AppSettings["ADMnumber"];
                     SMS sms = new SMS();
-                    sms.SendSMS(ADMContactNo, "Dear Admin, I am  " + FirstName + " " + LastName + " " + ContactNo + " " + EmailId + " " + Message + "");
+                    sms.SendSMS(ADMContactNo, "Dear Admin, I am  " + FirstName + " / " + LastName + " / " + ContactNo + " / " + EmailId + " / " + Message + " /");
                 }
                 return  RedirectToAction("Index", "LoginDetails");
             }
