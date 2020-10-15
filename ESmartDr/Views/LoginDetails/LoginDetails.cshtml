@@ -899,6 +899,12 @@
         var EmailId = document.getElementById("txtEmailId").value;
         var Message = document.getElementById("txtMessage").value;
 
+        if (FirstName == "")
+        {
+            alert("Enter Name");
+            return;
+        }
+
         var form = $('#frmObservationDetails')[0];
         alert("Enquery send succesfuly");
         var fromData = new FormData(form);
