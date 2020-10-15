@@ -891,6 +891,7 @@
 
 
     function SetEnquery(x) {
+        
         var CPno = $(this).attr("data-image");
         var FirstName = document.getElementById("txtFistName").value;
         var LastName = document.getElementById("txtLastName").value;
@@ -899,7 +900,7 @@
         var Message = document.getElementById("txtMessage").value;
 
         var form = $('#frmObservationDetails')[0];
-
+        alert("Enquery send succesfuly");
         var fromData = new FormData(form);
         var urllink = '@Url.Content("~/LoginDetails/ManageEnquiryDetails")'
         $.ajax({
