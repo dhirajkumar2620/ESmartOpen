@@ -473,10 +473,10 @@
         //    appPaidBill = 0;
         //}
         var appQId = document.getElementById("txtQid").value;
-        //if (appPaidBill == "" || appPaidBill == null || appPaidBill=="0") { 16102020
-        //    alert("You Are Not Enter Paid Bill.");
-        //}
-        //else {
+        if (appPaidBill == "" || appPaidBill == null){// || appPaidBill=="0") {
+            alert("You Are Not Enter Paid Bill.");
+        }
+        else {
         $.ajax({
             type: "POST",
             url: "/PatientDetails/GetData",
@@ -497,7 +497,7 @@
             }
         });
             }
-   // }
+    }
     function SetStatus1(x) {
 
         debugger;
