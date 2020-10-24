@@ -276,10 +276,13 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="img\001.jpg" />
+    <Content Include="img\21 greay.png" />
+    <Content Include="img\21 white.png" />
     <Content Include="img\ChangePassword.png" />
     <Content Include="img\002.jpg" />
     <Content Include="img\003.jpg" />
     <Content Include="img\004.jpg" />
+    <Content Include="img\Dental Chart.jpg" />
     <Content Include="img\LogoTechbulb.png" />
     <Content Include="img\ability_img.png" />
     <Content Include="img\about-image.png" />
