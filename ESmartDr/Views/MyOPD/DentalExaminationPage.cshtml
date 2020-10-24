@@ -31,7 +31,7 @@
 
     .teethSize {
         height: 35px;
-        width: 30px;
+        width: 22px;
     }
     /*.table thead th {
         vertical-align: bottom;
@@ -76,6 +76,11 @@
     .tbl-view-5 tr th:first-child {
         width: 20%;
     }
+
+    .btnSizeColor {
+        width: 35px;
+        height: 17px;
+    }
 </style>
 <div class="card-body">
     @using (Html.BeginForm("", "", FormMethod.Post))
@@ -87,142 +92,182 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="form-group">
-                        <label class="form-control-label">
-                            Medical History<span class="star">*</span>
+                        <label class="form-control-label ">
+                            <span> <b>Treatment Plan</b></span>
                         </label>
-                        @Html.TextAreaFor(m => m.MedicalHistory, new { @id = "txtMedicalHistory", @class = "form-control", required = "required", @placeholder = "MedicalHistory" })
 
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-
-
+                    <div class="col-md-4">
                     </div>
                 </div>
-
             </div>
+
 
             <div class="row">
+
                 <div class="col-md-3">
-                    <label class="form-control-label">Dental Chart</label>
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                            <div class="i-checks ">
-
-                                @Html.RadioButtonFor(model => model.DentalChartType, "Y", new { onclick = "javascript:yesnoCheck();", @class = "radio-template" })
-
-                                <label for="radioSmokingYes">Adult</label>
-                            </div>
-                        </li>
-                        <li class="list-inline-item">
-                            <div class="i-checks ">
-                                @Html.RadioButtonFor(model => model.DentalChartType, "N", new { @class = "radio-template" })
-                                <label for="radioSmokingNo">Pediatric</label>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-
-            </div>
-
-            <div class="row" style="width: 100%;margin: 0 auto;" id="DivAdult1">
-                <div class="col-md-12" >
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btn1','img1')" id="btn1"><img id="img1" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btn2','img2')" id="btn2"><img id="img2" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btn3','img3')" id="btn3"><img id="img3" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btn4','img4')" id="btn4"><img id="img4" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btn5','img5')" id="btn5"><img id="img5" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btn6','img6')" id="btn6"><img id="img6" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btn7','img7')" id="btn7"><img id="img7" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btn8','img8')" id="btn8"><img id="img8" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btn9','img9')" id="btn9"><img id="img9" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btn10','img10')" id="btn10"><img id="img10" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btn11','img11')" id="btn11"><img id="img11" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btn12','img12')" id="btn12"><img id="img12" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btn13','img13')" id="btn13"><img id="img13" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btn14','img14')" id="btn14"><img id="img14" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btn15','img15')" id="btn15"><img id="img15" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btn16','img16')" id="btn16"><img id="img16" class="teethSize" src="~/img/21 greay.png" /></button>
-                </div>
-                <br />
-                <br />
-                <br />
-               
-                    <div class="col-md-12">
-
-                        <button type="button" class="btnGreen" onclick="BtnSetValue('btn17','img17')" id="btn17"><img id="img17" class="teethSize" src="~/img/21 greay.png" /></button>
-                        <button type="button" class="btnGreen" onclick="BtnSetValue('btn18','img18')" id="btn18"><img id="img18" class="teethSize" src="~/img/21 greay.png" /></button>
-                        <button type="button" class="btnGreen" onclick="BtnSetValue('btn19','img19')" id="btn19"><img id="img19" class="teethSize" src="~/img/21 greay.png" /></button>
-                        <button type="button" class="btnGreen" onclick="BtnSetValue('btn20','img20')" id="btn20"><img id="img20" class="teethSize" src="~/img/21 greay.png" /></button>
-                        <button type="button" class="btnGreen" onclick="BtnSetValue('btn21','img21')" id="btn21"><img id="img21" class="teethSize" src="~/img/21 greay.png" /></button>
-                        <button type="button" class="btnGreen" onclick="BtnSetValue('btn22','img22')" id="btn22"><img id="img22" class="teethSize" src="~/img/21 greay.png" /></button>
-                        <button type="button" class="btnGreen" onclick="BtnSetValue('btn23','img23')" id="btn23"><img id="img23" class="teethSize" src="~/img/21 greay.png" /></button>
-                        <button type="button" class="btnGreen" onclick="BtnSetValue('btn24','img24')" id="btn24"><img id="img24" class="teethSize" src="~/img/21 greay.png" /></button>
-                        <button type="button" class="btnGreen" onclick="BtnSetValue('btn25','img25')" id="btn25"><img id="img25" class="teethSize" src="~/img/21 greay.png" /></button>
-                        <button type="button" class="btnGreen" onclick="BtnSetValue('btn26','img26')" id="btn26"><img id="img26" class="teethSize" src="~/img/21 greay.png" /></button>
-                        <button type="button" class="btnGreen" onclick="BtnSetValue('btn27','img27')" id="btn27"><img id="img27" class="teethSize" src="~/img/21 greay.png" /></button>
-                        <button type="button" class="btnGreen" onclick="BtnSetValue('btn28','img28')" id="btn28"><img id="img28" class="teethSize" src="~/img/21 greay.png" /></button>
-                        <button type="button" class="btnGreen" onclick="BtnSetValue('btn29','img29')" id="btn29"><img id="img29" class="teethSize" src="~/img/21 greay.png" /></button>
-                        <button type="button" class="btnGreen" onclick="BtnSetValue('btn30','img30')" id="btn30"><img id="img30" class="teethSize" src="~/img/21 greay.png" /></button>
-                        <button type="button" class="btnGreen" onclick="BtnSetValue('btn31','img31')" id="btn31"><img id="img31" class="teethSize" src="~/img/21 greay.png" /></button>
-                        <button type="button" class="btnGreen" onclick="BtnSetValue('btn32','img32')" id="btn32"><img id="img32" class="teethSize" src="~/img/21 greay.png" /></button>
+                    <div class="form-group" style="text-align:right">
+                        <label class="form-control-label">
+                            <span class="accor-heading"> Dental Chart</span>
+                        </label>
 
                     </div>
-                
 
-
-
-            </div>
-            <div class="row" style="width: 100%;margin: 0 auto;" id="DivPediatric2">
-                <div class="col-md-12">
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric1', 'imgPediatric1')" id="btnPediatric1"><img id="imgPediatric1" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric2', 'imgPediatric2')" id="btnPediatric2"><img id="imgPediatric2" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric3', 'imgPediatric3')" id="btnPediatric3"><img id="imgPediatric3" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric4', 'imgPediatric4')" id="btnPediatric4"><img id="imgPediatric4" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric5', 'imgPediatric5')" id="btnPediatric5"><img id="imgPediatric5" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric6', 'imgPediatric6')" id="btnPediatric6"><img id="imgPediatric6" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric7', 'imgPediatric7')" id="btnPediatric7"><img id="imgPediatric7" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric8', 'imgPediatric8')" id="btnPediatric8"><img id="imgPediatric8" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric9', 'imgPediatric9')" id="btnPediatric9"><img id="imgPediatric9" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric10', 'imgPediatric10')" id="btnPediatric10"><img id="imgPediatric10" class="teethSize" src="~/img/21 greay.png" /></button>
-                </div>
-
-                <br />
-                <br />
-                <br />
-
-                <div class="col-md-12">
-
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric11', 'imgPediatric11')" id="btnPediatric11"><img id="imgPediatric11" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric12', 'imgPediatric12')" id="btnPediatric12"><img id="imgPediatric12" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric13', 'imgPediatric13')" id="btnPediatric13"><img id="imgPediatric13" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric14', 'imgPediatric14')" id="btnPediatric14"><img id="imgPediatric14" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric15', 'imgPediatric15')" id="btnPediatric15"><img id="imgPediatric15" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric16', 'imgPediatric16')" id="btnPediatric16"><img id="imgPediatric16" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric17', 'imgPediatric17')" id="btnPediatric17"><img id="imgPediatric17" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric18', 'imgPediatric18')" id="btnPediatric18"><img id="imgPediatric18" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric19', 'imgPediatric19')" id="btnPediatric19"><img id="imgPediatric19" class="teethSize" src="~/img/21 greay.png" /></button>
-                    <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric20', 'imgPediatric20')" id="btnPediatric20"><img id="imgPediatric20" class="teethSize" src="~/img/21 greay.png" /></button>
                 </div>
             </div>
-    
+
+
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="radio" id="chkAdult" checked name="chkPassPort" />
+                                <label for="chkYes">
+                                    Adult
+                                </label>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 obs-sv-btn">
+                            <div class="form-group">
+                                <input type="radio" id="chkPediatric" name="chkPassPort" />
+                                <label for="chkNo">
+                                    Pediatric
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="dvAdult" class="col-md-12" style="background: rgb(232 ,232, 232)">
+                        Adult
+                        <div class="row" style="width: 100%;margin: 0 auto; padding-left:5px" id="DivAdult1">
+                            <div class="col-md-12">
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn1','img1')" id="btn1"><img id="img1" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn2','img2')" id="btn2"><img id="img2" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn3','img3')" id="btn3"><img id="img3" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn4','img4')" id="btn4"><img id="img4" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn5','img5')" id="btn5"><img id="img5" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn6','img6')" id="btn6"><img id="img6" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn7','img7')" id="btn7"><img id="img7" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn8','img8')" id="btn8"><img id="img8" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn9','img9')" id="btn9"><img id="img9" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn10','img10')" id="btn10"><img id="img10" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn11','img11')" id="btn11"><img id="img11" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn12','img12')" id="btn12"><img id="img12" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn13','img13')" id="btn13"><img id="img13" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn14','img14')" id="btn14"><img id="img14" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn15','img15')" id="btn15"><img id="img15" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn16','img16')" id="btn16"><img id="img16" class="teethSize" src="~/img/21 greay.png" /></button>
+                            </div>
+                            <br />
+                            <br />
+                            <br />
+
+                            <div class="col-md-12">
+
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn17','img17')" id="btn17"><img id="img17" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn18','img18')" id="btn18"><img id="img18" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn19','img19')" id="btn19"><img id="img19" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn20','img20')" id="btn20"><img id="img20" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn21','img21')" id="btn21"><img id="img21" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn22','img22')" id="btn22"><img id="img22" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn23','img23')" id="btn23"><img id="img23" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn24','img24')" id="btn24"><img id="img24" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn25','img25')" id="btn25"><img id="img25" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn26','img26')" id="btn26"><img id="img26" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn27','img27')" id="btn27"><img id="img27" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn28','img28')" id="btn28"><img id="img28" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn29','img29')" id="btn29"><img id="img29" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn30','img30')" id="btn30"><img id="img30" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn31','img31')" id="btn31"><img id="img31" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btn32','img32')" id="btn32"><img id="img32" class="teethSize" src="~/img/21 greay.png" /></button>
+
+                            </div>
+
+
+
+
+                        </div>
+                        <br />
+                    </div>
+
+
+
+                    <div id="dvPediatric" class="col-md-12" style="display: none ;background: rgb(232 ,232, 232)">
+                        Pediatric
+                        <div class="row" style="width: 100%;margin: 0 auto;" id="DivPediatric2">
+                            <div class="col-md-12">
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric1', 'imgPediatric1')" id="btnPediatric1"><img id="imgPediatric1" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric2', 'imgPediatric2')" id="btnPediatric2"><img id="imgPediatric2" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric3', 'imgPediatric3')" id="btnPediatric3"><img id="imgPediatric3" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric4', 'imgPediatric4')" id="btnPediatric4"><img id="imgPediatric4" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric5', 'imgPediatric5')" id="btnPediatric5"><img id="imgPediatric5" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric6', 'imgPediatric6')" id="btnPediatric6"><img id="imgPediatric6" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric7', 'imgPediatric7')" id="btnPediatric7"><img id="imgPediatric7" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric8', 'imgPediatric8')" id="btnPediatric8"><img id="imgPediatric8" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric9', 'imgPediatric9')" id="btnPediatric9"><img id="imgPediatric9" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric10', 'imgPediatric10')" id="btnPediatric10"><img id="imgPediatric10" class="teethSize" src="~/img/21 greay.png" /></button>
+                            </div>
+
+                            <br />
+                            <br />
+                            <br />
+
+                            <div class="col-md-12">
+
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric11', 'imgPediatric11')" id="btnPediatric11"><img id="imgPediatric11" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric12', 'imgPediatric12')" id="btnPediatric12"><img id="imgPediatric12" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric13', 'imgPediatric13')" id="btnPediatric13"><img id="imgPediatric13" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric14', 'imgPediatric14')" id="btnPediatric14"><img id="imgPediatric14" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric15', 'imgPediatric15')" id="btnPediatric15"><img id="imgPediatric15" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric16', 'imgPediatric16')" id="btnPediatric16"><img id="imgPediatric16" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric17', 'imgPediatric17')" id="btnPediatric17"><img id="imgPediatric17" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric18', 'imgPediatric18')" id="btnPediatric18"><img id="imgPediatric18" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric19', 'imgPediatric19')" id="btnPediatric19"><img id="imgPediatric19" class="teethSize" src="~/img/21 greay.png" /></button>
+                                <button type="button" class="btnGreen" onclick="BtnSetValue('btnPediatric20', 'imgPediatric20')" id="btnPediatric20"><img id="imgPediatric20" class="teethSize" src="~/img/21 greay.png" /></button>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                    <br />
+
+                    <hr />
+
+
 
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    Medical History<span class="star">*</span>
+                                </label>
+                                @Html.TextAreaFor(m => m.MedicalHistory, new { @id = "txtMedicalHistory", @class = "form-control", required = "required", @placeholder = "MedicalHistory" })
+
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5">
                             <div class="form-group">
                                 <label class="form-control-label">
                                     Amount
                                 </label>
                                 @Html.TextBoxFor(m => m.Amount, new { @id = "txtAmount", @class = "form-control", required = "required", @placeholder = "MedicalHistory" })
-
-
-
-
                             </div>
                         </div>
-                        <div class="col-md-4 obs-sv-btn">
+                        <div class="col-md-5 obs-sv-btn">
                             <div class="form-group">
                                 <label class="form-control-label">
                                     Notes
@@ -234,12 +279,10 @@
 
                             </div>
                         </div>
-                        <div class="col-md-4">
 
-                        </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <div class="form-group">
                                 <label class="form-control-label">
                                     Date
@@ -251,7 +294,7 @@
 
                             </div>
                         </div>
-                        <div class="col-md-4 obs-sv-btn">
+                        <div class="col-md-5 obs-sv-btn">
                             <div class="form-group">
                                 <label class="form-control-label">
                                     Procedure
@@ -273,74 +316,215 @@
                                                       }, new { @class = "form-control mb-3", @id = "dlPeriod" })
 
 
-
-
-
-
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group" style="float: right;margin-top: 2em;">
-                                <button type="button" onclick="SubmitObservationDetails()" class="btn btn_1 btn-primary" id="btnSave">Save</button>
-                            </div>
-                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3" style="background: rgb(232 ,232, 232)" height=10px >
+                    <div>
+                        <label>
+                           Color Code
+                         
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            @Html.RadioButtonFor(m => m.Amount, "Agree")
+                            <button type="button" class="btnSizeColor" style="background-color:black "></button>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            @Html.RadioButtonFor(m => m.Amount, "Disagree")
+                            <button type="button" class="btnSizeColor" style="background-color:black"></button>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            @Html.RadioButtonFor(m => m.Amount, "Not Sure")
+                            <button type="button" class="btnSizeColor" style="background-color:purple"></button>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            @Html.RadioButtonFor(m => m.Amount, "Agree")
+                            <button type="button" class="btnSizeColor" style="background-color:cadetblue "></button>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            @Html.RadioButtonFor(m => m.Amount, "Disagree")
+                            <button type="button" class="btnSizeColor" style="background-color:darkorange"></button>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            @Html.RadioButtonFor(m => m.Amount, "Not Sure")
+                            <button type="button" class="btnSizeColor" style="background-color:aqua"></button>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            @Html.RadioButtonFor(m => m.Amount, "Agree")
+                            <button type="button" class="btnSizeColor" style="background-color:darksalmon "></button>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            @Html.RadioButtonFor(m => m.Amount, "Disagree")
+                            <button type="button" class="btnSizeColor" style="background-color:green"></button>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            @Html.RadioButtonFor(m => m.Amount, "Not Sure")
+                            <button type="button" class="btnSizeColor" style="background-color:brown"></button>
+                        </label>
+                    </div>
+                  
+
+                </div>
+            </div>
+
+
+
+            <div class="modal-footer" style="border-top:none;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" onclick="SaveDentalExaminationPage(this)" class="btn btn_1 btn-primary" data-dismiss="modal">Save</button>
                     </div>
 
-                    </form>
+
+
+
+
+                </div>
+            </div>
+
+        </form>
     }
-    </div>
-
-    <script type="text/javascript">
-        function BtnSetValue(id, img) {
-
-            // var img = document.getElementById(img);
-
-            //Set the src property of our element to the new image URL
-            // img.src = '../img/21 white.png';
+</div>
 
 
-            if (document.getElementById(id).classList.contains('btnGreen')) {
-                alert('1' + img);
-                document.getElementById(img).src = "";
-                document.getElementById(id).classList.remove('btnGreen');
-                document.getElementById(id).classList.add('btnRed');
-                document.getElementById(img).src = '../img/21 white.png';
-                //var img = document.getElementById(img);
-                //'#img1'.src = '../img/21 white.png';
+
+<script>
+
+    function SaveDentalExaminationPage(x) {
+
+        alert(x[0]);
+
+
+        //var appCPno = document.getElementById("txtCPno").value;
+        //var appStatus = "Visited";//document.getElementById("txtStatus").value;
+        //var appBill = document.getElementById("txtBill").value;
+        ////if (appBill = 0 || appBill =="")
+        ////{
+        ////    appBill = 0;
+        ////}
+
+        //var appPaidBill = document.getElementById("txtDue").value;
+        ////if (appPaidBill = 0 || appPaidBill == "")
+        ////{
+        ////    appPaidBill = 0;
+        ////}
+        //var appQId = document.getElementById("txtQid").value;
+        //if (appPaidBill == "" || appPaidBill == null) {// || appPaidBill=="0") {
+        //    alert("You Are Not Enter Paid Bill.");
+        //}
+        //else {
+        //    $.ajax({
+        //        type: "POST",
+        //        url: "/PatientDetails/SaveDentalExaminationPage",
+        //        data: '{Qid: "' + appQId + '",CPno:"' + appCPno + '",Bill:"' + appBill + '",paidBill:"' + appPaidBill + '", Status:"' + appStatus + '"}',
+        //        contentType: "application/json; charset=utf-8",
+        //        dataType: "json",
+        //        success: function (response) {
+
+        //            // if (confirm('Data updated successfuly..')) {
+        //            window.location.href = '/PatientDetails/GetQueueList'
+        //            //}
+        //        },
+        //        failure: function (response) {
+        //            alert(response.responseText);
+        //        },
+        //        error: function (response) {
+        //            alert(response.responseText);
+        //        }
+        //    });
+        //}
+    }
+</script>
+
+<script type="text/javascript">
+    $(function () {
+
+        $("input[name='chkPassPort']").click(function () {
+
+            if ($("#chkAdult").is(":checked")) {
+                $("#dvAdult").show();
+
+                $("#dvPediatric").hide();
+            } else {
+                $("#dvAdult").hide();
+                $("#dvPediatric").show();
             }
-
-            else {
-                alert('2' + img);
-                document.getElementById(img).src = "";
-                document.getElementById(id).classList.remove('btnRed');
-                document.getElementById(id).classList.add('btnGreen');
-                document.getElementById(img).src = '../img/21 greay.png';
-                //'#img1'.src = '../img/21 greay.png';
-
-
-            }
-
-        };
-
-    </script>
-    <script type="text/javascript">
-
-        $(function () {
-            $("#purpose").change(function () {
-                if ($(this).val() == "1") {
-
-
-                    $("#DivAdult1").show();
-                    $("#DivPediatric2").hide();
-
-                } else if ($(this).val() == "2") {
-
-
-                    $("#DivAdult1").hide();
-                    $("#DivPediatric2").show();
-
-                }
-
-            });
         });
-    </script>
+    });
+</script>
+<script type="text/javascript">
+
+
+    function BtnSetValue(id, img) {
+
+        // var img = document.getElementById(img);
+
+        //Set the src property of our element to the new image URL
+        // img.src = '../img/21 white.png';
+
+
+        if (document.getElementById(id).classList.contains('btnGreen')) {
+
+            document.getElementById(img).src = "";
+            document.getElementById(id).classList.remove('btnGreen');
+            document.getElementById(id).classList.add('btnRed');
+            document.getElementById(img).src = '../img/21 white.png';
+            //var img = document.getElementById(img);
+            //'#img1'.src = '../img/21 white.png';
+        }
+
+        else {
+
+            document.getElementById(img).src = "";
+            document.getElementById(id).classList.remove('btnRed');
+            document.getElementById(id).classList.add('btnGreen');
+            document.getElementById(img).src = '../img/21 greay.png';
+            //'#img1'.src = '../img/21 greay.png';
+
+
+        }
+
+    };
+
+</script>
+<script type="text/javascript">
+
+    $(function () {
+        $("#purpose").change(function () {
+            if ($(this).val() == "1") {
+
+
+                $("#DivAdult1").show();
+                $("#DivPediatric2").hide();
+
+            } else if ($(this).val() == "2") {
+
+
+                $("#DivAdult1").hide();
+                $("#DivPediatric2").show();
+
+            }
+
+        });
+    });
+</script>

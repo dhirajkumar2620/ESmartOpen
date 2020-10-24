@@ -17,6 +17,13 @@ namespace ESmartDr.Controllers
         // GET: MyOPD
         BAL_MyOPD BM = new BAL_MyOPD();
 
+        public enum AnswerType
+        {
+            Agree,
+            Disagree,
+            NotSure
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -33,6 +40,13 @@ namespace ESmartDr.Controllers
 
                 throw;
             }
+        }
+
+       
+
+        public ActionResult SaveDentalExaminationPage()
+        {
+            return View();
         }
         public ActionResult OpdPrescription()
         {
