@@ -262,11 +262,6 @@ namespace ESmartDr.Controllers
             return View("VitalInformation", viralInfo);
         }
 
-        public ActionResult SaveDentalExaminationPage()
-        {
-            return View();
-        }
-            
         public ActionResult CommonPrec()
         {
             PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
