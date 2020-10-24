@@ -31,7 +31,7 @@ namespace ESmartDr.Controllers
             s = BLs.GetSettings(ad.UserId);
 
             
-                Session["ActivationFor"] = ad.ActivationFor;
+                Session["ActivationFor"] = ad.RoleId;
             Session["User"] = ad;
             Session["Language"] = s.Language;
             Session["VitalInformation"] = s.VitalInformation;
