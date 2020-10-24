@@ -223,7 +223,17 @@ namespace ESmartDr.Controllers
 
         public void CardDetails(int Hid,int UserId)
         {
-            DataSet ds = c.CountForCards(Hid, UserId);
+            AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+            int flag = 1;
+                if (admObj.RoleId == "AHE")
+            {
+                flag = 2;
+            }
+            else
+            {
+                flag = 1;
+            }
+            DataSet ds = c.CountForCards(Hid, UserId,  flag);
             if (ds.Tables[5].Rows[0][0].ToString() == null)
             {
                 Session["TotalFrimCount"] = "0";

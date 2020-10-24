@@ -408,7 +408,17 @@ namespace ESmartDr.Controllers
         }
         public void PatientCount(int Hid , int UserId)
         {
-            DataSet ds = BP.CountForCards(Hid, UserId);
+            AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+            int flag = 1;
+            if (admObj.RoleId == "AHE")
+            {
+                flag = 2;
+            }
+            else
+            {
+                flag = 1;
+            }
+            DataSet ds = BP.CountForCards(Hid, UserId, flag);
             if (ds.Tables[0].Rows[0][0].ToString() == null)
             {
                 Session["TodayAppointment"] = "0";
