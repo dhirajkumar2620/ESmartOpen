@@ -87,7 +87,7 @@ namespace ESmartDr.Controllers
                 {
                     if (item.NestVisitDate != "" && item.NestVisitDate != null)
                     {
-                        NextVisit = NextVisit + item.NestVisitDate + "  " + ",";
+                        NextVisit = NextVisit + Convert.ToDateTime(item.NestVisitDate).Date.ToString("dd/MM/yyyy") + "  " + ",";
                     }
                 }
             }

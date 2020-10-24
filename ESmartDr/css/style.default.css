@@ -509,11 +509,12 @@ nav.side-navbar {
         }
 
     nav.side-navbar .sidebar-header {
-        padding: 47px 15px 5px;
+        padding: 14px 10px 1px;
+        /*padding: 47px 15px 5px;*/
     }
 
     nav.side-navbar .avatar {
-        width: 60px;
+        width: 65px;
         height: 70px;
     }
 
@@ -4334,7 +4335,7 @@ padding-left: 0;*/
 }*/
 .abt-us-heading h1 {
     font-size: 3.5em;
-    padding: 7vh 0vh;
+    padding: 4vh 0vh;
     color: #223a66;
 }
 

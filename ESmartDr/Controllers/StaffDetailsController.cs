@@ -119,7 +119,17 @@ namespace ESmartDr.Controllers
         }
         public void StaffCount(int Hid ,int UserId)
         {
-            DataSet ds = c.CountForCards(Hid, UserId);
+            AdminDetails admObj = (AdminDetails)Session["UserDetails"];
+            int flag = 1;
+            if (admObj.RoleId == "AHE")
+            {
+                flag = 2;
+            }
+            else
+            {
+                flag = 1;
+            }
+            DataSet ds = c.CountForCards(Hid, UserId, flag);
             if (ds.Tables[8].Rows[0][0].ToString() == null)
             {
                 Session["TotalStaffCount"] = "0";

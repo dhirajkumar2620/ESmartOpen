@@ -263,11 +263,11 @@ namespace Dal_Layer
             }
         }
 
-        public DataSet CountForCards(int hospitalId,int UserId)
+        public DataSet CountForCards(int hospitalId,int UserId, int flag)
         {
             SqlParameter[] sqlparam;
             sqlparam = new SqlParameter[3];
-            sqlparam[0] = new SqlParameter("@Flag", "1");
+            sqlparam[0] = new SqlParameter("@Flag", flag);
             sqlparam[1] = new SqlParameter("@HospitalId", hospitalId);
             sqlparam[2] = new SqlParameter("@UserId", UserId);  
 

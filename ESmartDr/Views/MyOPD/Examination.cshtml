@@ -272,22 +272,22 @@
                                             {
                                                 <tr style="font-weight: 600;">
 
-                                                    <td style="vertical-align:top;font-weight:normal">
+                                                    <td style="vertical-align:top;font-weight:normal; padding:5px">
                                                         @index]
                                                     </td>
-                                                    <td style="vertical-align:top ; margin-top:5px;font-weight:normal">
+                                                    <td style="vertical-align:top ; margin-top:5px;font-weight:normal; padding:5px">
                                                         @item.MedicineName
                                                     </td>
-                                                    <td style="vertical-align:top;font-weight:normal">
+                                                    <td style="vertical-align:top;font-weight:normal; padding:5px">
                                                         @item.Dose, @item.RepeatMedicine
                                                     </td>
-                                                    <td style="vertical-align:top;font-weight:normal">
+                                                    <td style="vertical-align:top;font-weight:normal; padding:5px">
                                                         @item.WhenMedicine, @item.SpecialInstruction
                                                     </td>
-                                                    <td style="vertical-align:top;font-weight:normal">
+                                                    <td style="vertical-align:top;font-weight:normal; padding:5px">
                                                         @item.ForMedicine @item.MedicineDays
                                                     </td>
-                                                    <td style="vertical-align:top; margin-top:5px;font-weight:normal">
+                                                    <td style="vertical-align:top; margin-top:5px;font-weight:normal; padding:5px">
                                                         @item.AlternateMedicine Nos.
                                                     </td>
                                                 </tr>
@@ -308,16 +308,12 @@
                                                         <br>
                                                         <li>Advice Note : <b>@Model.AdviceNote</b> </li>
                                                     }
-
                                                     @if (@Session["Test"].ToString() == "Yes")
                                                     {
                                                         <br>
                                                         <li>Test before next visit : <b>@Model.TestBeforeVisit</b></li>
 
                                                     }
-
-
-
                                                     @if (@Session["NextVisit"].ToString() == "Yes")
 
                                                     {
@@ -369,12 +365,12 @@
                     </div>
                     <br />
                     <div class="row">
-                        <div class="col-md-8" style="text-align: center;">
+                        <div class="col-md-7" style="text-align: right;">
                             For Priview/Download/Print click on "Print"
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-5" style="text-align: left;">
 
-                            <input type='button' id='btn' value='Print' class="btn btn_1 btn-primary pull-right" onclick="PrintDiv()">
+                            <input type='button' id='btn' value='Print' class="btn btn_1 btn-primary" onclick="PrintDiv()">
                         </div>
                         <br /><br /><br /><br /><br /><br /><br />
                     </div>

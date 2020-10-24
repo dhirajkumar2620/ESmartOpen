@@ -117,248 +117,143 @@
                                 <div class="carousel-item">
                                     <img src="~/img/004.jpg" class="img-fluid" />
                                 </div>*@
-</div>
-<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-</a>
-<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-</a>
-</div>
-</div>
-<div class="col-md-4 col-xs-12 col-sm-12 content-log p-both">
-    @using (Html.BeginForm("Login", "LoginDetails", FormMethod.Post, new { @id = "frmLoginDetails" }))
-{
-    <div class="login-data login-pg">
-        <h1>Login</h1><br>
-        <div class="form social-icons">
-            <!-- <ul class="list-inline">
-                <li class="list-inline-item">
-                    <button type="button" class="form-control"><img src="img/Google_Logo.png" class="img-responsive">&nbsp;Google</button>
-                </li>
-                <li class="list-inline-item">
-                    <button type="button" class="form-control"><img src="img/F_icon.png" class="img-responsive">&nbsp;Facebook</button>
-                </li>
-            </ul>
-            <br> -->
-            <div class="login-btn ">
-                <label>Username<span>*</span></label>
-                @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtWhatsAppNumber", @class = "form-control", required = "required", @placeholder = "Mobile number" })
-    <br>
-    <div class="form-group pass_show">
-        <label>Password<span>*</span></label>
-        @Html.TextBoxFor(m => m.Passwod1, new { @id = "txtPasswod1", type = "password", @class = "form-control", required = "required", @placeholder = "Password" })
-</div>
-
-<br>
-@if (TempData["notice"] != null)
-    {
-        <p style="color:red">@TempData["notice"]</p>
-    }
-    <div class="row">
-
-        <div class="col s5 offset-s1 right-align">
-            @Html.CheckBoxFor(m => m.RememberMe, new { @id = "checkboxCustom", type = "checkbox" })
-@*<input type="checkbox"  onchange="checkAll(this)"  name="checkboxCustom" id="checkboxCustom" />*@
-<label for="persist">Remember me</label>
-</div>
-<div class="col s5 offset-s1 fp-align" style="text-align: right;">
-    @Html.ActionLink("Forget Pssword", "Index", "ForgetPassword")
-
-</div>
-
-@*<div class="col-md-6">
-        <div class="i-checks">
-            <input id="checkboxCustom" type="checkbox" value="" style="display:block"
-                   onchange="checkAll(this)" class="checkbox-template">&nbsp;&nbsp;Remember Me
-        </div>
-    </div>
-
-    <div class="col-md-6 fp-align text-right">
-         @Html.ActionLink("Forget Pssword", "Index", "ForgetPassword")
-
-    </div>*@
-
-</div>
-<br>
-<div class="text-center sn-in">
-    <input type="submit" id="btnlogin" value="Sign In" class="btn btn-primary" style="font-weight: 700!important;color:#f5a433">
-    @*<p style="font-weight: 700!important;">Request A Demo <a href="#" class="click-to-reg" ></a></p>*@
-<p> <a href="#" class="k" style="font-weight: 700!important;color:#fff">Click For Demo</a></p>
-
-</div>
-</div>
-</div>
-</div>
-}
-<div class="login-data reg-page" style="display: none;">
-    <h1>Registration</h1><br>
-    <div class="form social-icons">
-        <!-- <ul class="list-inline">
-            <li class="list-inline-item">
-                <button type="button" class="form-control"><img src="img/Google_Logo.png" class="img-responsive">&nbsp;Google</button>
-            </li>
-            <li class="list-inline-item">
-                <button type="button" class="form-control"><img src="img/F_icon.png" class="img-responsive">&nbsp;Facebook</button>
-            </li>
-        </ul>
-        <br> -->
-        <div class="login-btn1">
-            <div class="row">
-                <div class="col-md-6">
-                    <label>Firstname</label>
-                    <input type="text" placeholder="Firstname" class="form-control">
-                </div>
-                <div class="col-md-6">
-                    <label>Lastname</label>
-                    <input type="text" placeholder="Lastname" class="form-control">
-                </div>
-            </div>
-            <br>
-            <label>Email-Id / Mobile No.</label>
-            <input type="text" placeholder="Email-Id / Mobile No." class="form-control">
-            <br>
-            <label>Password</label>
-            <input type="password" placeholder="Password" class="form-control">
-            <br>
-            <label>Confirm Password</label>
-            <input type="password" placeholder="Confirm Password" class="form-control">
-            <br>
-
-            <div class="text-center reg-in">
-                <input type="button" value="Register Now" class="btn btn-primary b22">
-                <p>Already have an account? <a href="#" class="click-to-signin">Sign In</a></p>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-</div>
-</div>
-
-</section>
-@*<section>
-        <div class="container">
-            <div class="abt-us-heading">
-                <h1 class="text-center">About <span class="break-text">Us</span></h1>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row abt-head">
-                <div class="col-md-6">
-                    <div class="pull-right">
-                        <h2>Our Patients Are at the<br>Center of Everything<br>We Do</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non molestiae<br> doloremque
-                            asperiores consectetur dolorem earum, consequatur nemo neque nobis qui.<br> Natus libero in
-                            velit delectus quae eveniet culpa optio ullam?
-                        </p>
-                        <ul class="list-inline list-abt">
-                            <li class="list-inline-item">
-                                <i class="fa fa-shield" aria-hidden="true"></i> &nbsp;<span>Modern Technology</span>
-                            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <li class="list-inline-item">
-                                <i class="fa fa-shield" aria-hidden="true"></i> &nbsp;<span>Modern Technology</span>
-                            </li>
-                        </ul>
-                        <br>
-                        <ul class="list-inline list-abt">
-                            <li class="list-inline-item">
-                                <i class="fa fa-shield" aria-hidden="true"></i> &nbsp;<span>Modern Technology</span>
-                            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <li class="list-inline-item">
-                                <i class="fa fa-shield" aria-hidden="true"></i> &nbsp;<span>Modern Technology</span>
-                            </li>
-                        </ul>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <img src="~/img/ability_img.png" class="img-fluid">
+                <div class="col-md-4 col-xs-12 col-sm-12 content-log p-both">
+                    @using (Html.BeginForm("Login", "LoginDetails", FormMethod.Post, new { @id = "frmLoginDetails" }))
+                    {
+                        <div class="login-data login-pg">
+                            <h1>Login</h1><br>
+                            <div class="form social-icons">
+                                <!-- <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <button type="button" class="form-control"><img src="img/Google_Logo.png" class="img-responsive">&nbsp;Google</button>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <button type="button" class="form-control"><img src="img/F_icon.png" class="img-responsive">&nbsp;Facebook</button>
+                                    </li>
+                                </ul>
+                                <br> -->
+                                <div class="login-btn ">
+                                    <label>Username<span>*</span></label>
+                                    @Html.TextBoxFor(m => m.WhatsAppNumber, new { @id = "txtWhatsAppNumber", @class = "form-control", required = "required", @placeholder = "Mobile number" })
+                                    <br>
+                                    <div class="form-group pass_show">
+                                        <label>Password<span>*</span></label>
+                                        @Html.TextBoxFor(m => m.Passwod1, new { @id = "txtPasswod1", type = "password", @class = "form-control", required = "required", @placeholder = "Password" })
+                                    </div>
+
+                                    <br>
+                                    @if (TempData["notice"] != null)
+                                    {
+                                        <p style="color:red">@TempData["notice"]</p>
+                                    }
+                                    <div class="row">
+
+                                        <div class="col s5 offset-s1 right-align">
+                                            @Html.CheckBoxFor(m => m.RememberMe, new { @id = "checkboxCustom", type = "checkbox" })
+                                            @*<input type="checkbox"  onchange="checkAll(this)"  name="checkboxCustom" id="checkboxCustom" />*@
+                                            <label for="persist">Remember me</label>
+                                        </div>
+                                        <div class="col s5 offset-s1 fp-align" style="text-align: right;">
+                                            @Html.ActionLink("Forget Pssword", "Index", "ForgetPassword")
+
+                                        </div>
+
+                                        @*<div class="col-md-6">
+                                                <div class="i-checks">
+                                                    <input id="checkboxCustom" type="checkbox" value="" style="display:block"
+                                                           onchange="checkAll(this)" class="checkbox-template">&nbsp;&nbsp;Remember Me
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 fp-align text-right">
+                                                 @Html.ActionLink("Forget Pssword", "Index", "ForgetPassword")
+
+                                            </div>*@
+
+                                    </div>
+                                    <br>
+                                    <div class="text-center sn-in">
+                                        <input type="submit" id="btnlogin" value="Sign In" class="btn btn-primary" style="font-weight: 700!important;color:#f5a433">
+                                        @*<p style="font-weight: 700!important;">Request A Demo <a href="#" class="click-to-reg" ></a></p>*@
+                                        <p> <a href="#" class="k" style="font-weight: 700!important;color:#fff">Click For Demo</a></p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <div class="login-data reg-page" style="display: none;">
+                        <h1>Registration</h1><br>
+                        <div class="form social-icons">
+                            <!-- <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <button type="button" class="form-control"><img src="img/Google_Logo.png" class="img-responsive">&nbsp;Google</button>
+                                </li>
+                                <li class="list-inline-item">
+                                    <button type="button" class="form-control"><img src="img/F_icon.png" class="img-responsive">&nbsp;Facebook</button>
+                                </li>
+                            </ul>
+                            <br> -->
+                            <div class="login-btn1">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Firstname</label>
+                                        <input type="text" placeholder="Firstname" class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Lastname</label>
+                                        <input type="text" placeholder="Lastname" class="form-control">
+                                    </div>
+                                </div>
+                                <br>
+                                <label>Email-Id / Mobile No.</label>
+                                <input type="text" placeholder="Email-Id / Mobile No." class="form-control">
+                                <br>
+                                <label>Password</label>
+                                <input type="password" placeholder="Password" class="form-control">
+                                <br>
+                                <label>Confirm Password</label>
+                                <input type="password" placeholder="Confirm Password" class="form-control">
+                                <br>
+
+                                <div class="text-center reg-in">
+                                    <input type="button" value="Register Now" class="btn btn-primary b22">
+                                    <p>Already have an account? <a href="#" class="click-to-signin">Sign In</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>*@
-@*<section>
-        <div class="container-fluid">
 
-        </div>
-        <div class="container-fluid service-bg">
+    </section>
+    @*<section>
             <div class="container">
                 <div class="abt-us-heading">
-                    <h1 class="text-center">Our <span class="break-text">Services</span></h1>
+                    <h1 class="text-center">About <span class="break-text">Us</span></h1>
                 </div>
+            </div>
+            <div class="container">
                 <div class="row abt-head">
-                    <div class="col-md-7">
-                        <div class="row service-point">
-                            <div class="col-md-6">
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <span>Better future</span>
-                                    </li>
-                                    <p>
-                                        Darkness multiply rule Which from without life creature blessed give moveth
-                                        moveth seas make day which divided our have.
-                                    </p>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <span>Better future</span>
-                                    </li>
-                                    <p>
-                                        Darkness multiply rule Which from without life creature blessed give moveth
-                                        moveth seas make day which divided our have.
-                                    </p>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row service-point">
-                            <div class="col-md-6">
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <span>Better future</span>
-                                    </li>
-                                    <p>
-                                        Darkness multiply rule Which from without life creature blessed give moveth
-                                        moveth seas make day which divided our have.
-                                    </p>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <span>Better future</span>
-                                    </li>
-                                    <p>
-                                        Darkness multiply rule Which from without life creature blessed give moveth
-                                        moveth seas make day which divided our have.
-                                    </p>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div>
+                    <div class="col-md-6">
+                        <div class="pull-right">
                             <h2>Our Patients Are at the<br>Center of Everything<br>We Do</h2>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Non molestiae<br> doloremque
-                                asperiores consectetur dolorem earum, consequatur nemo neque nobis qui.<br> Natus libero
-                                in velit delectus quae eveniet culpa optio ullam?
+                                asperiores consectetur dolorem earum, consequatur nemo neque nobis qui.<br> Natus libero in
+                                velit delectus quae eveniet culpa optio ullam?
                             </p>
                             <ul class="list-inline list-abt">
                                 <li class="list-inline-item">
@@ -379,632 +274,745 @@
                             </ul>
                         </div>
                     </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="container">
-            <div class="abt-us-heading">
-                <h1 class="text-center">Whats Our <span class="break-text">Speciality</span></h1>
-            </div>
-        </div>
-        <div class="container landing-tab">
-            <div class="row abt-head">
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="p" data-toggle="pill" href="#p1" role="tab"
-                           aria-controls="p1-tab" aria-selected="true">MODERN TECHNOLOGY</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="p" data-toggle="pill" href="#p2" role="tab" aria-controls="p2-tab"
-                           aria-selected="false">SUCESS OF TREATMENTS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="p" data-toggle="pill" href="#p3" role="tab" aria-controls="p3-tab"
-                           aria-selected="false">CERTIFIED DOCTORS</a>
-                    </li>
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="p1" role="tabpanel" aria-labelledby="p1-tab">
-                        <div class="container">
-                            <br>
-                            <div class="row abt-head">
-                                <div class="col-md-6">
-                                    <div class="pull-right">
-                                        <h2>Our Patients Are at the<br>Center of Everything<br>We Do</h2>
-                                        <p>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non molestiae<br>
-                                            doloremque
-                                            asperiores consectetur dolorem earum, consequatur nemo neque nobis qui.<br>
-                                            Natus libero in
-                                            velit delectus quae eveniet culpa optio ullam?
-                                        </p>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <img src="~/img/dept-1.jpg" class="img-fluid">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="p2" role="tabpanel" aria-labelledby="p2-tab">
-                        <div class="container">
-                            <br>
-                            <div class="row abt-head">
-                                <div class="col-md-6">
-                                    <div class="pull-right">
-                                        <h2>Our Patients Are at the<br>Center of Everything<br>We Do</h2>
-                                        <p>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non molestiae<br>
-                                            doloremque
-                                            asperiores consectetur dolorem earum, consequatur nemo neque nobis qui.<br>
-                                            Natus libero in
-                                            velit delectus quae eveniet culpa optio ullam?
-                                        </p>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <img src="~/img/dept-1.jpg" class="img-fluid">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="p3" role="tabpanel" aria-labelledby="p3-tab">
-                        <div class="container">
-                            <br>
-                            <div class="row abt-head">
-                                <div class="col-md-6">
-                                    <div class="pull-right">
-                                        <h2>Our Patients Are at the<br>Center of Everything<br>We Do</h2>
-                                        <p>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non molestiae<br>
-                                            doloremque
-                                            asperiores consectetur dolorem earum, consequatur nemo neque nobis qui.<br>
-                                            Natus libero in
-                                            velit delectus quae eveniet culpa optio ullam?
-                                        </p>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <img src="~/img/dept-1.jpg" class="img-fluid">
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-md-6">
+                        <img src="~/img/ability_img.png" class="img-fluid">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section>
-        <div class="container-fluid service-bg">
+        </section>*@
+    @*<section>
+            <div class="container-fluid">
 
+            </div>
+            <div class="container-fluid service-bg">
+                <div class="container">
+                    <div class="abt-us-heading">
+                        <h1 class="text-center">Our <span class="break-text">Services</span></h1>
+                    </div>
+                    <div class="row abt-head">
+                        <div class="col-md-7">
+                            <div class="row service-point">
+                                <div class="col-md-6">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <span>Better future</span>
+                                        </li>
+                                        <p>
+                                            Darkness multiply rule Which from without life creature blessed give moveth
+                                            moveth seas make day which divided our have.
+                                        </p>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <span>Better future</span>
+                                        </li>
+                                        <p>
+                                            Darkness multiply rule Which from without life creature blessed give moveth
+                                            moveth seas make day which divided our have.
+                                        </p>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row service-point">
+                                <div class="col-md-6">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <span>Better future</span>
+                                        </li>
+                                        <p>
+                                            Darkness multiply rule Which from without life creature blessed give moveth
+                                            moveth seas make day which divided our have.
+                                        </p>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <span>Better future</span>
+                                        </li>
+                                        <p>
+                                            Darkness multiply rule Which from without life creature blessed give moveth
+                                            moveth seas make day which divided our have.
+                                        </p>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div>
+                                <h2>Our Patients Are at the<br>Center of Everything<br>We Do</h2>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non molestiae<br> doloremque
+                                    asperiores consectetur dolorem earum, consequatur nemo neque nobis qui.<br> Natus libero
+                                    in velit delectus quae eveniet culpa optio ullam?
+                                </p>
+                                <ul class="list-inline list-abt">
+                                    <li class="list-inline-item">
+                                        <i class="fa fa-shield" aria-hidden="true"></i> &nbsp;<span>Modern Technology</span>
+                                    </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <li class="list-inline-item">
+                                        <i class="fa fa-shield" aria-hidden="true"></i> &nbsp;<span>Modern Technology</span>
+                                    </li>
+                                </ul>
+                                <br>
+                                <ul class="list-inline list-abt">
+                                    <li class="list-inline-item">
+                                        <i class="fa fa-shield" aria-hidden="true"></i> &nbsp;<span>Modern Technology</span>
+                                    </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <li class="list-inline-item">
+                                        <i class="fa fa-shield" aria-hidden="true"></i> &nbsp;<span>Modern Technology</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
 
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
             <div class="container">
                 <div class="abt-us-heading">
-                    <h1 class="text-center">Our Qualified <span class="break-text">Doctors</span></h1>
-                </div>
-                <div class="row doc-images-landing text-center">
-                    <div class="col-md-3">
-                        <div class="box10">
-                            <img src="~/img/doc-1.jpg" class="img-fluid">
-                            <div class="box-content">
-                                <h3 class="title">Dr. Rachel Parker</h3>
-                                <span>OPHTHALMOLOGIST</span>
-
-                            </div>
-                            <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="box10">
-                            <img src="~/img/doc-1.jpg" class="img-fluid">
-                            <div class="box-content">
-                                <h3 class="title">Dr. Rachel Parker</h3>
-                                <span>OPHTHALMOLOGIST</span>
-
-                            </div>
-                            <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="box10">
-                            <img src="~/img/doc-1.jpg" class="img-fluid">
-                            <div class="box-content">
-                                <h3 class="title">Dr. Rachel Parker</h3>
-                                <span>OPHTHALMOLOGIST</span>
-
-                            </div>
-                            <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="box10">
-                            <img src="~/img/doc-1.jpg" class="img-fluid">
-                            <div class="box-content">
-                                <h3 class="title">Dr. Rachel Parker</h3>
-                                <span>OPHTHALMOLOGIST</span>
-
-                            </div>
-                            <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-                        </div>
-                    </div>
-
+                    <h1 class="text-center">Whats Our <span class="break-text">Speciality</span></h1>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="our-suc">
+            <div class="container landing-tab">
+                <div class="row abt-head">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="p" data-toggle="pill" href="#p1" role="tab"
+                               aria-controls="p1-tab" aria-selected="true">MODERN TECHNOLOGY</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="p" data-toggle="pill" href="#p2" role="tab" aria-controls="p2-tab"
+                               aria-selected="false">SUCESS OF TREATMENTS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="p" data-toggle="pill" href="#p3" role="tab" aria-controls="p3-tab"
+                               aria-selected="false">CERTIFIED DOCTORS</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="p1" role="tabpanel" aria-labelledby="p1-tab">
+                            <div class="container">
+                                <br>
+                                <div class="row abt-head">
+                                    <div class="col-md-6">
+                                        <div class="pull-right">
+                                            <h2>Our Patients Are at the<br>Center of Everything<br>We Do</h2>
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non molestiae<br>
+                                                doloremque
+                                                asperiores consectetur dolorem earum, consequatur nemo neque nobis qui.<br>
+                                                Natus libero in
+                                                velit delectus quae eveniet culpa optio ullam?
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img src="~/img/dept-1.jpg" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="p2" role="tabpanel" aria-labelledby="p2-tab">
+                            <div class="container">
+                                <br>
+                                <div class="row abt-head">
+                                    <div class="col-md-6">
+                                        <div class="pull-right">
+                                            <h2>Our Patients Are at the<br>Center of Everything<br>We Do</h2>
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non molestiae<br>
+                                                doloremque
+                                                asperiores consectetur dolorem earum, consequatur nemo neque nobis qui.<br>
+                                                Natus libero in
+                                                velit delectus quae eveniet culpa optio ullam?
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img src="~/img/dept-1.jpg" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="p3" role="tabpanel" aria-labelledby="p3-tab">
+                            <div class="container">
+                                <br>
+                                <div class="row abt-head">
+                                    <div class="col-md-6">
+                                        <div class="pull-right">
+                                            <h2>Our Patients Are at the<br>Center of Everything<br>We Do</h2>
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non molestiae<br>
+                                                doloremque
+                                                asperiores consectetur dolorem earum, consequatur nemo neque nobis qui.<br>
+                                                Natus libero in
+                                                velit delectus quae eveniet culpa optio ullam?
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img src="~/img/dept-1.jpg" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container-fluid service-bg">
+
+
+                <div class="container">
+                    <div class="abt-us-heading">
+                        <h1 class="text-center">Our Qualified <span class="break-text">Doctors</span></h1>
+                    </div>
+                    <div class="row doc-images-landing text-center">
+                        <div class="col-md-3">
+                            <div class="box10">
+                                <img src="~/img/doc-1.jpg" class="img-fluid">
+                                <div class="box-content">
+                                    <h3 class="title">Dr. Rachel Parker</h3>
+                                    <span>OPHTHALMOLOGIST</span>
+
+                                </div>
+                                <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="box10">
+                                <img src="~/img/doc-1.jpg" class="img-fluid">
+                                <div class="box-content">
+                                    <h3 class="title">Dr. Rachel Parker</h3>
+                                    <span>OPHTHALMOLOGIST</span>
+
+                                </div>
+                                <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="box10">
+                                <img src="~/img/doc-1.jpg" class="img-fluid">
+                                <div class="box-content">
+                                    <h3 class="title">Dr. Rachel Parker</h3>
+                                    <span>OPHTHALMOLOGIST</span>
+
+                                </div>
+                                <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="box10">
+                                <img src="~/img/doc-1.jpg" class="img-fluid">
+                                <div class="box-content">
+                                    <h3 class="title">Dr. Rachel Parker</h3>
+                                    <span>OPHTHALMOLOGIST</span>
+
+                                </div>
+                                <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-suc">
+            <div class="container">
+                <div class="abt-us-heading">
+                    <h1 class="text-center">Our <span class="break-text">Success</span></h1>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <div class="counter">
+                            <i class="fa fa-code fa-2x"></i>
+                            <h2 class="timer count-title count-number" data-to="100" data-speed="1500"></h2>
+                            <p class="count-text ">Our Customer</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="counter">
+                            <i class="fa fa-coffee fa-2x"></i>
+                            <h2 class="timer count-title count-number" data-to="1700" data-speed="1500"></h2>
+                            <p class="count-text ">Happy Clients</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="counter">
+                            <i class="fa fa-lightbulb-o fa-2x"></i>
+                            <h2 class="timer count-title count-number" data-to="11900" data-speed="1500"></h2>
+                            <p class="count-text ">Project Complete</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="counter">
+                            <i class="fa fa-bug fa-2x"></i>
+                            <h2 class="timer count-title count-number" data-to="157" data-speed="1500"></h2>
+                            <p class="count-text ">Coffee With Clients</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container-fluid service-bg">
+                <div class="container">
+                    <div class="abt-us-heading">
+                        <h1 class="text-center">Our <span class="break-text">App</span></h1>
+                    </div>
+                    <div class="row doc-images-landing text-center">
+                        <div id="carousel">
+                            <ul class="flip-items">
+                                <li>
+                                    <img src="~/img/Capture6.PNG" />
+                                </li>
+                                <li>
+                                    <img src="~/img/Capture04.PNG" />
+                                </li>
+                                <li>
+                                    <img src="~/img/Capture02.PNG" />
+                                </li>
+                                <li>
+                                    <img src="~/img/Capture1.PNG" />
+                                </li>
+                                <li>
+                                    <img src="~/img/Capture03.PNG" />
+                                </li>
+                                <li>
+                                    <img src="~/img/Capture05.PNG" />
+                                </li>
+                                <li>
+                                    <img src="~/img/Capture7.PNG" />
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>*@
+    <section class="touch-section">
         <div class="container">
-            <div class="abt-us-heading">
-                <h1 class="text-center">Our <span class="break-text">Success</span></h1>
-            </div>
-            <div class="row text-center">
-                <div class="col-md-3">
-                    <div class="counter">
-                        <i class="fa fa-code fa-2x"></i>
-                        <h2 class="timer count-title count-number" data-to="100" data-speed="1500"></h2>
-                        <p class="count-text ">Our Customer</p>
-                    </div>
+            <div class="row landing-touch">
+                <div class="col-md-6 abt-us-heading">
+                    <h1 class="text-center" style="color: #25A1A1">Get In <span class="break-text1" style="color: #f5a433;margin-top:5px">Touch</span></h1>
+                    <p style="color:#5a5a5a">
+                        <b>PUNE</b>: C1001, Puraniks Abitante, Pune Banglore
+                        Highway, Near Crystal Honda Showroom, Uttam Nagar,
+                        Bavdhan, Pune, Maharashtra, India - 411021
+                        <br />
+                        <br />
+                        <b>KOLHAPUR</b>: 1st floor, above Trushna Shockabsorbers,
+                        Opp. Shree Travels, Near Naik & Co., Shahupuri 6th Lane,
+                        Kolhapur, Maharashtra, India - 416001
+                    </p>
+                    <form>
+                        <div class="form-group credential" style="color:#5a5a5a">
+                            <label style="color:#5a5a5a"><b>Email Us</b></label>
+                            @*<br />
+                                <label style="color:#5a5a5a">esmartdoctor@gmail.com</label>*@
+                            <br />
+                            <label style="color:#5a5a5a">carrer@esmartdoctor.com</label>
+                            <br />
+                            <label style="color:#5a5a5a">support@esmartdoctor.com</label>
+                            
+                        </div>
+                    </form>
+                    <form>
+                        <div class="form-group credential" style="color:#5a5a5a">
+                            <label style="color:#5a5a5a"><b>Contact</b></label>
+                            @*<br />
+                <label style="color:#5a5a5a">esmartdoctor@gmail.com</label>*@
+                            <br />
+                            <label style="color:#5a5a5a">+91 77589 46339 | +91 77579 46339</label>
+                        </div>
+                    </form>
+                    <form>
+                        <div class="form-group" style="color:  #25A1A1">
+                            @*<label>Connect with Social Sites</label>*@
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </li>
+                                <li class="list-inline-item">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </li>
+                                <li class="list-inline-item">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+
                 </div>
-                <div class="col-md-3">
-                    <div class="counter">
-                        <i class="fa fa-coffee fa-2x"></i>
-                        <h2 class="timer count-title count-number" data-to="1700" data-speed="1500"></h2>
-                        <p class="count-text ">Happy Clients</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="counter">
-                        <i class="fa fa-lightbulb-o fa-2x"></i>
-                        <h2 class="timer count-title count-number" data-to="11900" data-speed="1500"></h2>
-                        <p class="count-text ">Project Complete</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="counter">
-                        <i class="fa fa-bug fa-2x"></i>
-                        <h2 class="timer count-title count-number" data-to="157" data-speed="1500"></h2>
-                        <p class="count-text ">Coffee With Clients</p>
+                <div class="col-md-6">
+                    <div class="login-btn cont-us">
+                        <label style="color:#5a5a5a">Name</label>
+                        <input type="text" id="txtFistName" placeholder="Name" class="form-control">
+                        <br>
+                        <label style="color:#5a5a5a">Speciality</label>
+                        <select id="txtLastName" name="Speciality" class="form-control">
+                            <option value="General Practitioners">General Practitioners</option>
+                            <option value="General Physicians">General Physicians</option>
+                            <option value="Pediatricians">Pediatricians</option>
+                            <option value="Dentist">Dentist</option>
+                            <option value="ENT Specialist">ENT Specialist</option>
+                            <option value="Eye Specialist">Eye Specialist</option>
+                            <option value="Gynecologists">Gynecologists</option>
+                            <option value="Dermatologists">Dermatologists</option>
+                            <option value="Orthopedic">Orthopedic</option>
+                            <option value="Urologist">Urologist</option>
+                            <option value="Psychologists">Psychologists</option>
+                            <option value="Skin & Hair Specialist">Skin & Hair Specialist</option>
+                            <option value="Ayurvedic">Ayurvedic</option>
+                            <option value="Homeopathic">Homeopathic</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        @*<input type="text" id="txtLastName" placeholder="Last Name" class="form-control">*@
+                        <br>
+                        <label style="color:#5a5a5a">Contact No.</label>
+
+                        <input type="number" id="txtContcatNo" placeholder="Contact No." class="form-control">
+                        <br>
+                        <label style="color:#5a5a5a">Email Address</label>
+                        <input type="text" id="txtEmailId" placeholder="Email Address" class="form-control">
+                        <br>
+                        <label style="color:#5a5a5a">Message</label>
+                        <textarea class="form-control" id="txtMessage" placeholder="Message"></textarea>
+                        <br>
+                        <div class="text-right sn-in">
+                            <input type="button" onclick="SetEnquery(this)" style="width: 16vh!important; color: #ffff;background-color:#25A1A1" value="SEND" class="btn btn_1 btn-primary">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <section>
-        <div class="container-fluid service-bg">
-            <div class="container">
-                <div class="abt-us-heading">
-                    <h1 class="text-center">Our <span class="break-text">App</span></h1>
-                </div>
-                <div class="row doc-images-landing text-center">
-                    <div id="carousel">
-                        <ul class="flip-items">
-                            <li>
-                                <img src="~/img/Capture6.PNG" />
-                            </li>
-                            <li>
-                                <img src="~/img/Capture04.PNG" />
-                            </li>
-                            <li>
-                                <img src="~/img/Capture02.PNG" />
-                            </li>
-                            <li>
-                                <img src="~/img/Capture1.PNG" />
-                            </li>
-                            <li>
-                                <img src="~/img/Capture03.PNG" />
-                            </li>
-                            <li>
-                                <img src="~/img/Capture05.PNG" />
-                            </li>
-                            <li>
-                                <img src="~/img/Capture7.PNG" />
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>*@
-<section class="touch-section">
-    <div class="container">
-        <div class="row landing-touch">
-            <div class="col-md-6 abt-us-heading">
-                <h1 class="text-center" style="color: #25A1A1">Get In <span class="break-text1" style="color: #f5a433">Touch</span></h1>
-                <p style="color:#5a5a5a">
-                    <b>PUNE</b>: C1001, Puraniks Abitante, Pune Banglore
-                    Highway, Near Crystal Honda Showroom, Uttam Nagar,
-                    Bavdhan, Pune, Maharashtra, India - 411021
-                    <br />
-                    <br />
-                    <b>KOLHAPUR</b>: 1st floor, above Trushna Shockabsorbers,
-                    Opp. Shree Travels, Near Naik & Co., Shahupuri 6th Lane,
-                    Kolhapur, Maharashtra, India - 416001
-                </p>
-                <form>
-                    <div class="form-group credential" style="color:#5a5a5a">
-                        <label style="color:#5a5a5a"><b>Email Us</b></label>
-                        @*<br />
-                            <label style="color:#5a5a5a">esmartdoctor@gmail.com</label>*@
-<br />
-<label style="color:#5a5a5a">carrer@esmartdoctor.com</label>
-<br />
-<label style="color:#5a5a5a">support@esmartdoctor.com</label>
-</div>
-</form>
-<form>
-    <div class="form-group" style="color:  #25A1A1">
-        @*<label>Connect with Social Sites</label>*@
-<ul class="list-inline">
-    <li class="list-inline-item">
-        <i class="fa fa-facebook" aria-hidden="true"></i>
-    </li>
-    <li class="list-inline-item">
-        <i class="fa fa-twitter" aria-hidden="true"></i>
-    </li>
-    <li class="list-inline-item">
-        <i class="fa fa-instagram" aria-hidden="true"></i>
-    </li>
-</ul>
-</div>
-</form>
-
-</div>
-<div class="col-md-6">
-    <div class="login-btn cont-us">
-        <label style="color:#5a5a5a">Name</label>
-        <input type="text" id="txtFistName" placeholder="Name" class="form-control">
-        <br>
-        <label style="color:#5a5a5a">Speciality</label>
-        <select id="txtLastName" name="Speciality" class="form-control">
-            <option value="General Practitioners">General Practitioners</option>
-            <option value="General Physicians">General Physicians</option>
-            <option value="Pediatricians">Pediatricians</option>
-            <option value="Dentist">Dentist</option>
-            <option value="ENT Specialist">ENT Specialist</option>
-            <option value="Eye Specialist">Eye Specialist</option>
-            <option value="Gynecologists">Gynecologists</option>
-            <option value="Dermatologists">Dermatologists</option>
-            <option value="Orthopedic">Orthopedic</option>
-            <option value="Urologist">Urologist</option>
-            <option value="Psychologists">Psychologists</option>
-            <option value="Skin & Hair Specialist">Skin & Hair Specialist</option>
-            <option value="Ayurvedic">Ayurvedic</option>
-            <option value="Homeopathic">Homeopathic</option>
-            <option value="Other">Other</option>
-        </select>
-        @*<input type="text" id="txtLastName" placeholder="Last Name" class="form-control">*@
-        <br>
-        <label style="color:#5a5a5a">Contact No.</label>
-        
-<input type="number" id="txtContcatNo" placeholder="Contact No." class="form-control">
-<br>
-<label style="color:#5a5a5a">Email Address</label>
-<input type="text" id="txtEmailId" placeholder="Email Address" class="form-control">
-<br>
-<label style="color:#5a5a5a">Message</label>
-<textarea class="form-control" id="txtMessage" placeholder="Message"></textarea>
-<br>
-<div class="text-right sn-in">
-    <input type="button" onclick="SetEnquery(this)" style="width: 16vh!important; color: #ffff;background-color:#25A1A1" value="SEND" class="btn btn_1 btn-primary">
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section>
-    <footer class="main-footer1">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-12 footer-img text-right">
-                    <p><span class="small">Powered by</span><img src="~/img/TechBULB.png" class="img-responsive"></p>
-                    <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-                </div>
-            </div>
-        </div>
-    </footer>
-</section>
-
-<div class="modal fade" id="whatsappModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content text-center">
-            <div class="modal-header" style="border-bottom:none;">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body forgot-popup">
+        <footer class="main-footer1">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
-                        <h3>Forgot Password</h3>
-                        <input type="text" class="form-control" />
+                    <div class="col-sm-12 footer-img text-right">
+                        <p><span class="small">Powered by</span><img src="~/img/TechBULB.png" class="img-responsive"></p>
+                        <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
                     </div>
                 </div>
-
             </div>
-            <div class="modal-footer" style="border-top:none;">
+        </footer>
+    </section>
 
-                <button type="button" class="btn btn_2 btn-primary">Reset my Password</button>
+    <div class="modal fade" id="whatsappModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content text-center">
+                <div class="modal-header" style="border-bottom:none;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body forgot-popup">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Forgot Password</h3>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer" style="border-top:none;">
+
+                    <button type="button" class="btn btn_2 btn-primary">Reset my Password</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<!-- JavaScript files-->
-<script src="~/vendor/jquery/jquery.min.js"></script>
-<script src="~/vendor/popper.js/umd/popper.min.js"> </script>
-<script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="~/vendor/jquery.cookie/jquery.cookie.js"> </script>
-<script src="~/vendor/chart.js/Chart.min.js"></script>
-<script src="~/vendor/jquery-validation/jquery.validate.min.js"></script>
-<!-- Main File-->
-<script src="~/js/front.js"></script>
-<script src="~/js/jquery.flipster.min.js"></script>
+    <!-- JavaScript files-->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="~/vendor/chart.js/Chart.min.js"></script>
+    <script src="~/vendor/jquery-validation/jquery.validate.min.js"></script>
+    <!-- Main File-->
+    <script src="~/js/front.js"></script>
+    <script src="~/js/jquery.flipster.min.js"></script>
 
-<script>
-    $('.click-to-reg').click(function () {
-        $('.login-pg').css("display", "none");
-        $('.reg-page').css("display", "block");
-        $('.content-log').css("background", "#25a1a1");
-    });
+    <script>
+        $('.click-to-reg').click(function () {
+            $('.login-pg').css("display", "none");
+            $('.reg-page').css("display", "block");
+            $('.content-log').css("background", "#25a1a1");
+        });
 
-    $('.click-to-signin').click(function () {
-        $('.reg-page').css("display", "none");
-        $('.login-pg').css("display", "block");
-        $('.content-log').css("background", "#25a1a1");
-    });
-
-
+        $('.click-to-signin').click(function () {
+            $('.reg-page').css("display", "none");
+            $('.login-pg').css("display", "block");
+            $('.content-log').css("background", "#25a1a1");
+        });
 
 
 
-    (function ($) {
-        $.fn.countTo = function (options) {
-            options = options || {};
 
-            return $(this).each(function () {
-                var settings = $.extend({}, $.fn.countTo.defaults, {
-                    from: $(this).data('from'),
-                    to: $(this).data('to'),
-                    speed: $(this).data('speed'),
-                    refreshInterval: $(this).data('refresh-interval'),
-                    decimals: $(this).data('decimals')
-                }, options);
 
-                var loops = Math.ceil(settings.speed / settings.refreshInterval),
-                    increment = (settings.to - settings.from) / loops;
-                var self = this,
-                    $self = $(this),
-                    loopCount = 0,
-                    value = settings.from,
-                    data = $self.data('countTo') || {};
+        (function ($) {
+            $.fn.countTo = function (options) {
+                options = options || {};
 
-                $self.data('countTo', data);
-                if (data.interval) {
-                    clearInterval(data.interval);
-                }
-                data.interval = setInterval(updateTimer, settings.refreshInterval);
-                render(value);
+                return $(this).each(function () {
+                    var settings = $.extend({}, $.fn.countTo.defaults, {
+                        from: $(this).data('from'),
+                        to: $(this).data('to'),
+                        speed: $(this).data('speed'),
+                        refreshInterval: $(this).data('refresh-interval'),
+                        decimals: $(this).data('decimals')
+                    }, options);
 
-                function updateTimer() {
-                    value += increment;
-                    loopCount++;
+                    var loops = Math.ceil(settings.speed / settings.refreshInterval),
+                        increment = (settings.to - settings.from) / loops;
+                    var self = this,
+                        $self = $(this),
+                        loopCount = 0,
+                        value = settings.from,
+                        data = $self.data('countTo') || {};
 
+                    $self.data('countTo', data);
+                    if (data.interval) {
+                        clearInterval(data.interval);
+                    }
+                    data.interval = setInterval(updateTimer, settings.refreshInterval);
                     render(value);
 
-                    if (typeof (settings.onUpdate) == 'function') {
-                        settings.onUpdate.call(self, value);
-                    }
+                    function updateTimer() {
+                        value += increment;
+                        loopCount++;
 
-                    if (loopCount >= loops) {
-                        $self.removeData('countTo');
-                        clearInterval(data.interval);
-                        value = settings.to;
+                        render(value);
 
-                        if (typeof (settings.onComplete) == 'function') {
-                            settings.onComplete.call(self, value);
+                        if (typeof (settings.onUpdate) == 'function') {
+                            settings.onUpdate.call(self, value);
+                        }
+
+                        if (loopCount >= loops) {
+                            $self.removeData('countTo');
+                            clearInterval(data.interval);
+                            value = settings.to;
+
+                            if (typeof (settings.onComplete) == 'function') {
+                                settings.onComplete.call(self, value);
+                            }
                         }
                     }
-                }
 
-                function render(value) {
-                    var formattedValue = settings.formatter.call(self, value, settings);
-                    $self.html(formattedValue);
+                    function render(value) {
+                        var formattedValue = settings.formatter.call(self, value, settings);
+                        $self.html(formattedValue);
+                    }
+                });
+            };
+
+            $.fn.countTo.defaults = {
+                from: 0,
+                to: 0,
+                speed: 1000,
+                refreshInterval: 100,
+                decimals: 0,
+                formatter: formatter,
+                onUpdate: null,
+                onComplete: null
+            };
+
+            function formatter(value, settings) {
+                return value.toFixed(settings.decimals);
+            }
+        }(jQuery));
+
+        jQuery(function ($) {
+
+            $('.count-number').data('countToOptions', {
+                formatter: function (value, options) {
+                    return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
                 }
             });
-        };
 
-        $.fn.countTo.defaults = {
-            from: 0,
-            to: 0,
-            speed: 1000,
-            refreshInterval: 100,
-            decimals: 0,
-            formatter: formatter,
-            onUpdate: null,
-            onComplete: null
-        };
 
-        function formatter(value, settings) {
-            return value.toFixed(settings.decimals);
-        }
-    }(jQuery));
+            $('.timer').each(count);
 
-    jQuery(function ($) {
-
-        $('.count-number').data('countToOptions', {
-            formatter: function (value, options) {
-                return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+            function count(options) {
+                var $this = $(this);
+                options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+                $this.countTo(options);
             }
         });
 
 
-        $('.timer').each(count);
-
-        function count(options) {
-            var $this = $(this);
-            options = $.extend({}, options || {}, $this.data('countToOptions') || {});
-            $this.countTo(options);
-        }
-    });
-
-
-    $('.b22').click(function () {
-        swal({
-            title: "You are successfully registered",
-            //text: "You clicked the button!",
-            icon: "success",
-            button: "OK",
+        $('.b22').click(function () {
+            swal({
+                title: "You are successfully registered",
+                //text: "You clicked the button!",
+                icon: "success",
+                button: "OK",
+            });
         });
-    });
 
 
 
-    $(document).ready(function () {
-        $('.pass_show').append('<span class="ptxt">Show</span>');
-    });
+        $(document).ready(function () {
+            $('.pass_show').append('<span class="ptxt">Show</span>');
+        });
 
 
-    $(document).on('click', '.pass_show .ptxt', function () {
+        $(document).on('click', '.pass_show .ptxt', function () {
 
-        $(this).text($(this).text() == "Show" ? "Hide" : "Show");
+            $(this).text($(this).text() == "Show" ? "Hide" : "Show");
 
-        $(this).prev().attr('type', function (index, attr) { return attr == 'password' ? 'text' : 'password'; });
+            $(this).prev().attr('type', function (index, attr) { return attr == 'password' ? 'text' : 'password'; });
 
-    });
-
-
-    $("#carousel").flipster({
-        style: 'carousel',
-        spacing: -0.5,
-        nav: true,
-        buttons: true,
-    });
+        });
 
 
-    function SetEnquery(x) {
-        
-        var CPno = $(this).attr("data-image");
-        var FirstName = document.getElementById("txtFistName").value;
-        var LastName = document.getElementById("txtLastName").value;
-        var ContactNo = document.getElementById("txtContcatNo").value;
-        var EmailId = document.getElementById("txtEmailId").value;
-        var Message = document.getElementById("txtMessage").value;
-       
+        $("#carousel").flipster({
+            style: 'carousel',
+            spacing: -0.5,
+            nav: true,
+            buttons: true,
+        });
 
-        if (FirstName == "")
-        {
-            alert("Enter Name");
-            return;
-        } else if (ContactNo == "")
-        {
-            alert("Enter Contact No");
-            return;
-        }
 
-        else if (EmailId == "") {
-            alert("Enter Email Id");
-            return;
-        }
-        else {
-            
+        function SetEnquery(x) {
 
-            var form = $('#frmObservationDetails')[0];
-            alert("Enquery send succesfuly");
-            var fromData = new FormData(form);
-            var urllink = '@Url.Content("~/LoginDetails/ManageEnquiryDetails")'
-            $.ajax({
-                type: "post",
-                url: urllink,
-                dataType: 'application/json',
-                data: {
+            var CPno = $(this).attr("data-image");
+            var FirstName = document.getElementById("txtFistName").value;
+            var LastName = document.getElementById("txtLastName").value;
+            var ContactNo = document.getElementById("txtContcatNo").value;
+            var EmailId = document.getElementById("txtEmailId").value;
+            var Message = document.getElementById("txtMessage").value;
 
-                    'FirstName': FirstName, 'LastName': LastName, 'ContactNo': ContactNo, 'EmailId': EmailId, 'Message': Message
 
-                },
-                success: function (response) {
-                    alert("Enquery send succesfuly");
+            if (FirstName == "") {
+                alert("Enter Name");
+                return;
+            } else if (ContactNo == "") {
+                alert("Enter Contact No");
+                return;
+            }
+
+            else if (EmailId == "") {
+                alert("Enter Email Id");
+                return;
+            }
+            else {
+
+
+                var form = $('#frmObservationDetails')[0];
+                alert("Enquery send succesfuly");
+                var fromData = new FormData(form);
+                var urllink = '@Url.Content("~/LoginDetails/ManageEnquiryDetails")'
+                $.ajax({
+                    type: "post",
+                    url: urllink,
+                    dataType: 'application/json',
+                    data: {
+
+                        'FirstName': FirstName, 'LastName': LastName, 'ContactNo': ContactNo, 'EmailId': EmailId, 'Message': Message
+
+                    },
+                    success: function (response) {
+                        alert("Enquery send succesfuly");
+                    }
                 }
+
+               )
             }
+        };
 
-           )
-        }
-    };
+        //$(".k").click(function () {
+        //    $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+        //});
 
-    //$(".k").click(function () {
-    //    $("html, body").animate({ scrollTop: $(document).height() }, 1000);
-    //});
+        //$(window).scroll(function () {
+        //    if ($(this).scrollTop() > 100) {
+        //        $('.scrollup').fadeIn();
+        //    } else {
+        //        $('.scrollup').fadeOut();
+        //    }
+        //});
 
-    //$(window).scroll(function () {
-    //    if ($(this).scrollTop() > 100) {
-    //        $('.scrollup').fadeIn();
-    //    } else {
-    //        $('.scrollup').fadeOut();
-    //    }
-    //});
+        //$('.scrollup').click(function () {
+        //    $("html, body").animate({
+        //        scrollTop: 0
+        //    }, 600);
+        //    return false;
+        //});
+    </script>
 
-    //$('.scrollup').click(function () {
-    //    $("html, body").animate({
-    //        scrollTop: 0
-    //    }, 600);
-    //    return false;
-    //});
-</script>
+    <script src="https://pagecdn.io/lib/jquery-cookie/v1.4.1/jquery.cookie.js" integrity="sha256-uEFhyfv3UgzRTnAZ+SEgvYepKKB0FW6RqZLrqfyUNug=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
 
-<script src="https://pagecdn.io/lib/jquery-cookie/v1.4.1/jquery.cookie.js" integrity="sha256-uEFhyfv3UgzRTnAZ+SEgvYepKKB0FW6RqZLrqfyUNug=" crossorigin="anonymous"></script>
-<script type="text/javascript">
+        //Remember me Check Box
+        $(document).on("click", "#btnlogin", function () {
+            var remcondition = $('#checkboxCustom').prop('checked');
+            if (remcondition == true) {
+                var username = $('#txtWhatsAppNumber').val();
+                var password = $('#txtPasswod1').val();
+                // set cookies to expire in 14 days
+                $.cookie('txtWhatsAppNumber', username, { expires: 2 });
+                $.cookie('txtPasswod1', password, { expires: 2 });
+                $.cookie('checkboxCustom', true, { expires: 2 });
+            }
+            else {
+                // reset cookies
+                $.cookie('txtWhatsAppNumber', null);
+                $.cookie('txtPasswod1', null);
+                $.cookie('checkboxCustom', null);
+            }
+        });
 
-    //Remember me Check Box
-    $(document).on("click", "#btnlogin", function () {
-        var remcondition = $('#checkboxCustom').prop('checked');
-        if (remcondition == true) {
-            var username = $('#txtWhatsAppNumber').val();
-            var password = $('#txtPasswod1').val();
-            // set cookies to expire in 14 days
-            $.cookie('txtWhatsAppNumber', username, { expires: 2 });
-            $.cookie('txtPasswod1', password, { expires: 2 });
-            $.cookie('checkboxCustom', true, { expires: 2 });
-        }
-        else {
-            // reset cookies
-            $.cookie('txtWhatsAppNumber', null);
-            $.cookie('txtPasswod1', null);
-            $.cookie('checkboxCustom', null);
-        }
-    });
-
-    var remember = $.cookie('checkboxCustom');
-    if (remember == 'true') {
-        var username = $.cookie('txtWhatsAppNumber');
-        var password = $.cookie('txtPasswod1');
-        // autofill the fields
-        $('#txtWhatsAppNumber').attr("value", username);
-        $('#txtPasswod1').attr("value", password);
-    }
-
-    $(document).on("input", "#txtWhatsAppNumber", function () {
         var remember = $.cookie('checkboxCustom');
         if (remember == 'true') {
             var username = $.cookie('txtWhatsAppNumber');
-            var uname = $("#txtWhatsAppNumber").val();
-            if (username == uname) {
-                var password = $.cookie('txtPasswod1');
-                $('#txtPasswod1').val(password);
-            }
+            var password = $.cookie('txtPasswod1');
+            // autofill the fields
+            $('#txtWhatsAppNumber').attr("value", username);
+            $('#txtPasswod1').attr("value", password);
         }
-    });
+
+        $(document).on("input", "#txtWhatsAppNumber", function () {
+            var remember = $.cookie('checkboxCustom');
+            if (remember == 'true') {
+                var username = $.cookie('txtWhatsAppNumber');
+                var uname = $("#txtWhatsAppNumber").val();
+                if (username == uname) {
+                    var password = $.cookie('txtPasswod1');
+                    $('#txtPasswod1').val(password);
+                }
+            }
+        });
 
 
 
-</script>
+    </script>
 </body>
 
 </html>
