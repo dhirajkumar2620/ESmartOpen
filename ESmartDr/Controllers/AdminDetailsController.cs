@@ -147,7 +147,7 @@ namespace ESmartDr.Controllers
                              .FirstOrDefault();
 
                     SMS sms = new SMS();
-                    string message = "Dear " + AD.FirstName + ", You are added to eSmartDoctor,Your Reg No is ESD " + RegNo + " Download eSmartDoctor app to manage your Firm -  http://esmartdoctor.com ";
+                    string message = "Dear " + AD.FirstName + ", You are added to eSmartDoctor,Your Reg No is ESD " + RegNo + " Download eSmartDoctor app to manage your Firm -  https://esmartdoctor.com ";
                     sms.SendSMS(AD.WhatsAppNumber, message);
                 }
 
