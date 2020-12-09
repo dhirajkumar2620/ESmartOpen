@@ -126,7 +126,7 @@ namespace ESmartDr.Controllers
                 LST = BP.DeleteAppoinment(hospitalId, Id, Note, admObj.RoleId);
                 if (true)
                 {
-                    string message = "Your appoinment has been cancellled, CP no: " + CPno + ". Download 'Meet My Doctor' app to manage your health records -  http://esmartdoctor.com";
+                    string message = "Your appoinment has been cancellled, CP no: " + CPno + ". Download 'Meet My Doctor' app to manage your health records -  https://esmartdoctor.com";
                     sms.SendSMS(MbNo, message);
                 }
 

@@ -17,6 +17,13 @@ namespace ESmartDr.Controllers
         // GET: MyOPD
         BAL_MyOPD BM = new BAL_MyOPD();
 
+        public enum AnswerType
+        {
+            Agree,
+            Disagree,
+            NotSure
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -33,6 +40,13 @@ namespace ESmartDr.Controllers
 
                 throw;
             }
+        }
+
+       
+
+        public ActionResult SaveDentalExaminationPage()
+        {
+            return View();
         }
         public ActionResult OpdPrescription()
         {
@@ -62,7 +76,7 @@ namespace ESmartDr.Controllers
                 {
                     if (item.AddAdvice != "" && item.AddAdvice != null)
                     {
-                        Advice = Advice + item.AddAdvice + "  " + ",";
+                        Advice = Advice + item.AddAdvice  + "," + "  ";
                     }
                 }
             }
@@ -72,12 +86,12 @@ namespace ESmartDr.Controllers
                 {
                     if (item.Complaints != "" && item.Complaints != null)
                     {
-                        Complaints = Complaints + item.Complaints + "  " + ",";
+                        Complaints = Complaints + item.Complaints + "," + "  ";
                     }
                         
                     if (item.Diagnosis != "" && item.Diagnosis != null)
                     {
-                        Diagnosis = Diagnosis + item.Diagnosis + "  " + ",";
+                        Diagnosis = Diagnosis + item.Diagnosis + "," + "  ";
                     }
                 }
             }
@@ -87,7 +101,7 @@ namespace ESmartDr.Controllers
                 {
                     if (item.NestVisitDate != "" && item.NestVisitDate != null)
                     {
-                        NextVisit = NextVisit + Convert.ToDateTime(item.NestVisitDate).Date.ToString("dd/MM/yyyy") + "  " + ",";
+                        NextVisit = NextVisit + Convert.ToDateTime(item.NestVisitDate).Date.ToString("dd/MM/yyyy") +"," + "  ";
                     }
                 }
             }
@@ -97,7 +111,7 @@ namespace ESmartDr.Controllers
                 {
                     if (item.InvSelectTests != "" && item.InvSelectTests != null)
                     {
-                        TestBeforeVisit = TestBeforeVisit + item.InvSelectTests + "  " + ",";
+                        TestBeforeVisit = TestBeforeVisit + item.InvSelectTests + "," +"  " ;
                     }
                 }
             }
