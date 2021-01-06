@@ -137,8 +137,8 @@
                                             <li class="nav-item">
                                                 <a class="nav-link active" id="pills-patient-tab1" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdPatientDetails", "MyOPD")" role="tab" aria-controls="pills-patient" aria-selected="true">Patient Details</a>
                                             </li>
-                                            @if (Session["ActivationFor"].ToString() == "Smart Doctor" || Session["ActivationFor"].ToString() == "Smart OPD")
-                                            {
+                                           @if (Session["ActivationFor"].ToString() == "Smart Doctor" || Session["ActivationFor"].ToString() == "Smart OPD" || Session["ActivationFor"].ToString() == "Smart Dentist")
+                                           {
                                                 <li class="nav-item">
                                                     <a class="nav-link" id="pills-precription-tab1" data-toggle="pill" href="#" data-request-url="@Url.Action("OpdPrescription", "MyOPD")" role="tab" aria-controls="pills-precription" aria-selected="false">Examination</a>
                                                 </li>
