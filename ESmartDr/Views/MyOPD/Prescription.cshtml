@@ -4,11 +4,12 @@
 }
 <div class="bs-example">
     <div class="accordion" id="accordionExample1">
-       
-           
-            <div class="second-tab" >
 
-                <div class="card" style="display:none">
+
+        <div class="second-tab">
+            @if (Session["ActivationFor"].ToString() == "Smart Doctor" || Session["ActivationFor"].ToString() == "Smart Dentist")
+            {
+                <div class="card">
 
                     <div class="card-header" id="headingDentalExaminationPage">
                         <h2 class="mb-0">
@@ -19,43 +20,43 @@
                         <div id="tabDentalExaminationPage"></div>
                     </div>
                 </div>
+            }
 
+            <div class="card">
 
-                <div class="card">
-
-                    <div class="card-header" id="headingFour">
-                        <h2 class="mb-0">
-                            <button type="button" class="btn btn-link" id="btnObservation" data-toggle="collapse" data-target="#collapseFour" data-request-url="@Url.Action("PrecObservation", "MyOPD")"><i class="fa fa-plus"></i> <span class="accor-heading">Observation</span></button>
-                        </h2>
-                    </div>
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample1">
-                        <div id="tabObservation"></div>
-                    </div>
+                <div class="card-header" id="headingFour">
+                    <h2 class="mb-0">
+                        <button type="button" class="btn btn-link" id="btnObservation" data-toggle="collapse" data-target="#collapseFour" data-request-url="@Url.Action("PrecObservation", "MyOPD")"><i class="fa fa-plus"></i> <span class="accor-heading">Observation</span></button>
+                    </h2>
                 </div>
-                <div class="card">
-                    <div class="card-header" id="headingFive">
-                        <h2 class="mb-0">
-                            <button type="button" class="btn btn-link collapsed" id="btnMedication" data-toggle="collapse" data-request-url="@Url.Action("MedicationPrec", "MyOPD")" data-target="#collapseFive"><i class="fa fa-plus"></i> <span class="accor-heading">Medication</span></button>
-                        </h2>
-                    </div>
-                    <div id="collapseFive" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample1">
-                        <div id="tabMedication"></div>
-                    </div>
-
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample1">
+                    <div id="tabObservation"></div>
                 </div>
-                <div class="card">
-                    <div class="card-header" id="headingSix">
-                        <h2 class="mb-0">
-                            <button type="button" id="btnCommon" class="btn btn-link collapsed" data-toggle="collapse" data-request-url="@Url.Action("CommonPrec", "MyOPD")" data-target="#collapseSix"><i class="fa fa-plus"></i> <span class="accor-heading">Suggestion</span></button>
-                        </h2>
-                    </div>
-                    <div id="collapseSix" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample1">
-                        <div id="tabCommon"></div>
-                    </div>
-                </div>
-                @*<button type="button" onclick="SetStatus(this)" class="btn btn_1 btn-primary pull-right" data-dismiss="modal">Finalize</button>*@
             </div>
-      
+            <div class="card">
+                <div class="card-header" id="headingFive">
+                    <h2 class="mb-0">
+                        <button type="button" class="btn btn-link collapsed" id="btnMedication" data-toggle="collapse" data-request-url="@Url.Action("MedicationPrec", "MyOPD")" data-target="#collapseFive"><i class="fa fa-plus"></i> <span class="accor-heading">Medication</span></button>
+                    </h2>
+                </div>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample1">
+                    <div id="tabMedication"></div>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingSix">
+                    <h2 class="mb-0">
+                        <button type="button" id="btnCommon" class="btn btn-link collapsed" data-toggle="collapse" data-request-url="@Url.Action("CommonPrec", "MyOPD")" data-target="#collapseSix"><i class="fa fa-plus"></i> <span class="accor-heading">Suggestion</span></button>
+                    </h2>
+                </div>
+                <div id="collapseSix" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample1">
+                    <div id="tabCommon"></div>
+                </div>
+            </div>
+            @*<button type="button" onclick="SetStatus(this)" class="btn btn_1 btn-primary pull-right" data-dismiss="modal">Finalize</button>*@
+        </div>
+
     </div>
 </div>
 @*<script src="~/vendor/jquery/jquery.min.js"></script>*@
@@ -134,7 +135,7 @@
 
         debugger;
         var CPno = $(this).attr("data-image");
-       
+
 
         var form = $('#frmObservationDetails')[0];
 
@@ -147,7 +148,7 @@
             dataType: 'application/json',
             data: {
 
-               
+
             },
             success: function (response) {
                 alert("succesfuly saved...");
