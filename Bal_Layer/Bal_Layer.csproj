@@ -55,6 +55,7 @@
     <Compile Include="Bal_AppoinmentDeatils.cs" />
     <Compile Include="BAL_Billing.cs" />
     <Compile Include="Bal_DashBord.cs" />
+    <Compile Include="Bal_DentalDetails.cs" />
     <Compile Include="Bal_DignosticDetails.cs" />
     <Compile Include="Bal_EnquiryDetails.cs" />
     <Compile Include="Bal_ExpensesDetails.cs" />
