@@ -127,6 +127,17 @@ namespace Bal_Layer
         {
             return DM.UploadFile(historyFileDetails);
         }
-        
+
+
+        public DentalExamination GetDentalExamination(int QueueId, string CPno)
+        {
+            return DM.GetDentalExamination(QueueId, CPno);
+        }
+
+        public List<DentalExamination> DeleteDentalExamination(int Id,int QueueId)
+        {
+            return DM.DeleteDentalExamination(Id, QueueId);
+        }
+
     }
 }

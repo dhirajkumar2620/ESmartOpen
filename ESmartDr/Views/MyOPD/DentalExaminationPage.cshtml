@@ -83,8 +83,9 @@
     }
 </style>
 <div class="card-body">
-    @using (Html.BeginForm("", "", FormMethod.Post))
-    {
+    @*@using (Html.BeginForm("", "", FormMethod.Post))*@
+@using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmObservationDetails" }))
+{
 
         <form>
 
@@ -245,7 +246,7 @@
                                 <label class="form-control-label">
                                     Medical History<span class="star">*</span>
                                 </label>
-                                @Html.TextAreaFor(m => m.MedicalHistory, new { @id = "txtMedicalHistory", @class = "form-control", required = "required", @placeholder = "MedicalHistory" })
+                                @*@Html.TextAreaFor(m => m.MedicalHistory, new { @id = "txtMedicalHistory", @class = "form-control", required = "required", @placeholder = "MedicalHistory" })*@
 
                             </div>
                         </div>
@@ -264,7 +265,7 @@
                                 <label class="form-control-label">
                                     Amount
                                 </label>
-                                @Html.TextBoxFor(m => m.Amount, new { @id = "txtAmount", @class = "form-control", required = "required", @placeholder = "MedicalHistory" })
+                                @Html.TextBoxFor(m => m.Amount, new { @id = "txtAmount", @class = "form-control", required = "required", @placeholder = "Amount" })
                             </div>
                         </div>
                         <div class="col-md-5 obs-sv-btn">
@@ -272,7 +273,7 @@
                                 <label class="form-control-label">
                                     Notes
                                 </label>
-                                @Html.TextBoxFor(m => m.Notes, new { @id = "txtNotes", @class = "form-control", required = "required", @placeholder = "MedicalHistory" })
+                                @Html.TextBoxFor(m => m.Notes, new { @id = "txtNotes", @class = "form-control", required = "required", @placeholder = "Notes" })
 
 
 
@@ -287,9 +288,15 @@
                                 <label class="form-control-label">
                                     Date
                                 </label>
-                                @Html.TextBoxFor(m => m.date, new { @id = "txtdate", @class = "form-control", required = "required", @placeholder = "MedicalHistory" })
-
-
+                                @*@Html.TextBoxFor(m => m.CreatedDate, new { @id = "txtdate", @class = "form-control", required = "required", @placeholder = "MedicalHistory" })*@
+                                
+                                <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                                    @Html.TextBoxFor(m => m.CreatedDate, new { @id = "txtDate", @type = "text", @class = "form-control", autocomplete = "off", @placeholder = "dd/mm/yyyy" })
+                                    @*@Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })*@
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
+                                    </div>
+                                </div>
 
 
                             </div>
@@ -300,7 +307,7 @@
                                     Procedure
                                 </label>
 
-                                @Html.DropDownListFor(m => m.Procedure, new List<SelectListItem>
+                                @Html.DropDownListFor(m => m.ToothProcedure, new List<SelectListItem>
                                                      {
                                                          new SelectListItem{ Text="Bonding", Value = "Bonding" },
                                                          new SelectListItem{ Text="Braces", Value = "Braces" },
@@ -313,7 +320,7 @@
                                                           new SelectListItem{ Text="Oral cancer Examinations", Value = "gumsurgery" },
                                                           new SelectListItem{ Text="Root Canals", Value = "rootcanals" },
                                                            new SelectListItem{ Text="Sealants", Value = "Sealants" },
-                                                      }, new { @class = "form-control mb-3", @id = "dlPeriod" })
+                                                      }, new { @class = "form-control mb-3", @id = "ddlToothProcedure" })
 
 
                             </div>
@@ -330,55 +337,55 @@
                     </div>
                     <div>
                         <label>
-                            @Html.RadioButtonFor(m => m.Amount, "Agree")
-                            <button type="button" class="btnSizeColor" style="background-color:black "></button>
+                            @Html.RadioButtonFor(m => m.ColorCode, "1" , new { onchange = "this.form.ColorCode1('btnred1');" } )
+                            <button type="button"  class="btnSizeColor" id="btnred1" style="background-color:red "></button>
                         </label>
                     </div>
                     <div>
                         <label>
-                            @Html.RadioButtonFor(m => m.Amount, "Disagree")
-                            <button type="button" class="btnSizeColor" style="background-color:black"></button>
+                            @Html.RadioButtonFor(m => m.ColorCode, "2", new { onchange = "this.form.ColorCode1('btnblack');" })
+                            <button type="button"  class="btnSizeColor" id="btnblack" style="background-color:black"></button>
                         </label>
                     </div>
                     <div>
                         <label>
-                            @Html.RadioButtonFor(m => m.Amount, "Not Sure")
+                            @Html.RadioButtonFor(m => m.ColorCode, "3")
                             <button type="button" class="btnSizeColor" style="background-color:purple"></button>
                         </label>
                     </div>
                     <div>
                         <label>
-                            @Html.RadioButtonFor(m => m.Amount, "Agree")
+                            @Html.RadioButtonFor(m => m.ColorCode, "4")
                             <button type="button" class="btnSizeColor" style="background-color:cadetblue "></button>
                         </label>
                     </div>
                     <div>
                         <label>
-                            @Html.RadioButtonFor(m => m.Amount, "Disagree")
+                            @Html.RadioButtonFor(m => m.ColorCode, "5")
                             <button type="button" class="btnSizeColor" style="background-color:darkorange"></button>
                         </label>
                     </div>
                     <div>
                         <label>
-                            @Html.RadioButtonFor(m => m.Amount, "Not Sure")
+                            @Html.RadioButtonFor(m => m.ColorCode, "6")
                             <button type="button" class="btnSizeColor" style="background-color:aqua"></button>
                         </label>
                     </div>
                     <div>
                         <label>
-                            @Html.RadioButtonFor(m => m.Amount, "Agree")
+                            @Html.RadioButtonFor(m => m.ColorCode, "7")
                             <button type="button" class="btnSizeColor" style="background-color:darksalmon "></button>
                         </label>
                     </div>
                     <div>
                         <label>
-                            @Html.RadioButtonFor(m => m.Amount, "Disagree")
+                            @Html.RadioButtonFor(m => m.ColorCode, "8")
                             <button type="button" class="btnSizeColor" style="background-color:green"></button>
                         </label>
                     </div>
                     <div>
                         <label>
-                            @Html.RadioButtonFor(m => m.Amount, "Not Sure")
+                            @Html.RadioButtonFor(m => m.ColorCode, "9")
                             <button type="button" class="btnSizeColor" style="background-color:brown"></button>
                         </label>
                     </div>
@@ -402,6 +409,61 @@
                 </div>
             </div>
 
+
+
+            <div class="row mg-table">
+                <div class="col-lg-12">
+                    <div class="">
+                        <div class="">
+                            <div class="table-responsive opd-table ">
+                                <table class="table" id="tblDentalExamination">
+                                    <thead>
+                                        <tr style="background: #f8f9fa;">
+                                            <th hidden>Id</th>
+                                           
+                                            <th>Date</th>
+                                            <th>Color</th>
+                                            <th>Tooth No.</th>
+                                            <th>Procedure</th>
+                                            <th>Amount (₹)</th>
+                                            <th>Notes</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{ int rowNo = 0; }
+                                        @if (Model.lst!= null)
+                                        {
+
+                                            foreach (var item in Model.lst)
+
+                                            {
+                                                <tr>
+                                                    <td hidden>@item.Id</td>
+                                                 
+                                                    <td>@item.CreatedDate</td>
+                                                    <td>@item.ColorCode</td>
+                                                    <td>"T1"</td>
+                                                    <td>@item.ToothProcedure</td>
+                                                    <td>@item.Amount</td>
+                                                    <td>@item.Notes</td>
+
+                                                    <td>
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;
+                                                        <i class="fa fa-times" onclick="DeleteRecord('@item.Id')" aria-hidden="true"></i>
+
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </form>
     }
 </div>
@@ -410,9 +472,140 @@
 
 <script>
 
-    function SaveDentalExaminationPage(x) {
 
-        alert(x[0]);
+
+
+     function DeleteRecord(id) {
+            if (confirm('Do you want to delete record ?')) {
+                var urllink = '@Url.Content("~/MyOPD/DeleteDentalExamination")'
+                $.ajax({
+                    type: "post",
+                    url: urllink,
+                    data: '{Id: "' + id + '"}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        $('#tblDentalExamination tbody').empty();
+                        var trHTML = '';
+                        $.each(data, function (i, item) {
+                            trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.CreatedDate + '</td><td>' + item.ColorCode + '</td><td>' + "T1" + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td></td><td><i class="fa fa-pencil" onclick=EditDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                        });
+                        $('#tblDentalExamination tbody').append(trHTML)
+                    }
+                }
+
+               )
+            }
+        };
+
+
+
+
+
+    $(":radio").click(function () {
+
+        // ColorCode1(x);
+        //alert("sdfs1");
+
+        var Selectedvalue = $(this).val();
+       // alert("sdfs1" + Selectedvalue);
+        $.ajax({
+            type: "POST",
+            url: "/MyOPD/GetColorcode",
+            data: '{btnColorcode:"' + Selectedvalue + '"}',
+
+            //data: '{img: "' + img + '",id:"' + id + '",btnColorcode:"' + btnred1 + '",CreatedDate: "' + CreatedDate + '",ToothProcedure: "' + ToothProcedure + '",Amount: "' + Amount + '",Notes: "' + Notes + '"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+
+                // if (confirm('Data updated successfuly..')) {
+                // window.location.href = '/PatientDetails/GetQueueList'
+                //}
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+
+
+        //var isDiv = document.getElementById('instalmentScheduleDiv');
+
+        //if (Selectedvalue == "Yearly") {
+        //    isDiv.className = "HideDiv";
+        //}
+    });
+     
+    
+
+    function ColorCode1(x) {
+
+      //  alert("sdfs2");
+
+
+        //$.ajax({
+        //    type: "POST",
+        //    url: "/MyOPD/GetColorcode",
+        //    data: '{btnColorcode:"' + x + '"}',
+
+        //    //data: '{img: "' + img + '",id:"' + id + '",btnColorcode:"' + btnred1 + '",CreatedDate: "' + CreatedDate + '",ToothProcedure: "' + ToothProcedure + '",Amount: "' + Amount + '",Notes: "' + Notes + '"}',
+        //    contentType: "application/json; charset=utf-8",
+        //    dataType: "json",
+        //    success: function (response) {
+
+        //        // if (confirm('Data updated successfuly..')) {
+        //        // window.location.href = '/PatientDetails/GetQueueList'
+        //        //}
+        //    },
+        //    failure: function (response) {
+        //        alert(response.responseText);
+        //    },
+        //    error: function (response) {
+        //        alert(response.responseText);
+        //    }
+        //});
+
+    }
+
+    function SaveDentalExaminationPage() {
+
+      //  alert("sdfsdf");
+
+        var date1 = document.getElementById("txtDate").value
+        var Notes = document.getElementById("txtNotes").value;
+        var Amount = document.getElementById("txtAmount").value;
+        var ToothProcedure = document.getElementById("ddlToothProcedure").value;
+        //alert(Notes);
+        //alert(Amount);
+        //alert(ToothProcedure);
+        //alert(date1);
+
+
+        $.ajax({
+            type: "POST",
+            url: "/MyOPD/SavePage",
+            data: '{CreatedDate: "' + date1 + '",ToothProcedure: "' + ToothProcedure + '",Amount: "' + Amount + '",Notes: "' + Notes + '"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+
+                // if (confirm('Data updated successfuly..')) {
+                window.location.href = '/PatientDetails/GetQueueList'
+                //}
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+
+
+       // alert(x[0]);
 
 
         //var appCPno = document.getElementById("txtCPno").value;
@@ -475,10 +668,71 @@
 <script type="text/javascript">
 
 
+
+
+    function SaveDentalExaminationPage() {
+        //validation
+        //var Complaints = $("#txtComplaints").val();
+        //var Since = $("#txtSince").val();
+
+        //if (Complaints == "" || Complaints == null) {
+        //    alert("Please Enter Complaints field is Required" + Complaints);
+        //    $("#txtComplaints").focus();
+        //    return;
+
+
+        //} if (Since == "" || Since == null) {
+        //    alert("Please Enter Since field is Required" + Since);
+        //    $("#txtSince").focus();
+        //    return;
+
+        //}
+        //else {
+        alert("sdf");
+            var form = $('#frmObservationDetails')[0];
+
+            var fromData = new FormData(form);
+            var urllink = '@Url.Content("~/MyOPD/SavePage")'
+            $.ajax({
+                type: "post",
+                url: urllink,
+                data: fromData,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    $('#tblDentalExamination tbody').empty();
+                    var trHTML = '';
+                    $.each(data, function (i, item) {
+                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.Date + '</td><td>' + item.ColorCode + '</td><td>' + "T1" + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                    });
+                    $('#tblDentalExamination tbody').append(trHTML)
+                    //$("#hdnODId").val('0');
+                    //$("#txtComplaints").val('');
+                    //$("#txtSince").val('');
+                    //$("#txtPeriod").val('');
+                    //$("#txtPhysicalExamination").val('');
+                    //$("#txtDiagnosis").val('');
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                }
+            })
+       // }
+    }
+
+
+   
+
+
     function BtnSetValue(id, img) {
 
-        // var img = document.getElementById(img);
+       // var img = document.getElementById(img).value;
 
+         alert(img);
+
+         //var id = document.getElementById(id).value;
+
+         alert(id);
         //Set the src property of our element to the new image URL
         // img.src = '../img/21 white.png';
 
@@ -491,6 +745,56 @@
             document.getElementById(img).src = '../img/21 white.png';
             //var img = document.getElementById(img);
             //'#img1'.src = '../img/21 white.png';
+
+            
+                $.ajax({
+                    type: "POST",
+                    url: "/MyOPD/GetThootno",
+                    data: '{img: "' + img + '",btnColorcode:"' + btnred1 + '"}',
+
+                    //data: '{img: "' + img + '",id:"' + id + '",btnColorcode:"' + btnred1 + '",CreatedDate: "' + CreatedDate + '",ToothProcedure: "' + ToothProcedure + '",Amount: "' + Amount + '",Notes: "' + Notes + '"}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+
+                        // if (confirm('Data updated successfuly..')) {
+                       // window.location.href = '/PatientDetails/GetQueueList'
+                        //}
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+
+
+
+
+
+                //$.ajax({
+                //    type: "POST",
+                //    url: "/MyOPD/GetColorcode",
+                //    data: '{btnColorcode:"' + btnred1 + '"}',
+
+                //    //data: '{img: "' + img + '",id:"' + id + '",btnColorcode:"' + btnred1 + '",CreatedDate: "' + CreatedDate + '",ToothProcedure: "' + ToothProcedure + '",Amount: "' + Amount + '",Notes: "' + Notes + '"}',
+                //    contentType: "application/json; charset=utf-8",
+                //    dataType: "json",
+                //    success: function (response) {
+
+                //        // if (confirm('Data updated successfuly..')) {
+                //       // window.location.href = '/PatientDetails/GetQueueList'
+                //        //}
+                //    },
+                //    failure: function (response) {
+                //        alert(response.responseText);
+                //    },
+                //    error: function (response) {
+                //        alert(response.responseText);
+                //    }
+                //});
         }
 
         else {
@@ -501,6 +805,25 @@
             document.getElementById(img).src = '../img/21 greay.png';
             //'#img1'.src = '../img/21 greay.png';
 
+                //$.ajax({
+                //    type: "POST",
+                //    url: "/MyOPD/SavePage",
+                //    data: '{img: "' + img + '",id:"' + id + '",btnColorcode:"' + btnred1 + '"}',
+                //    contentType: "application/json; charset=utf-8",
+                //    dataType: "json",
+                //    success: function (response) {
+
+                //        // if (confirm('Data updated successfuly..')) {
+                //        window.location.href = '/PatientDetails/GetQueueList'
+                //        //}
+                //    },
+                //    failure: function (response) {
+                //        alert(response.responseText);
+                //    },
+                //    error: function (response) {
+                //        alert(response.responseText);
+                //    }
+                //});
 
         }
 

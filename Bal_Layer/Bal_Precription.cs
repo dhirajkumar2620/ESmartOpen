@@ -16,5 +16,15 @@ namespace Bal_Layer
         {
            return DP.ViewPricripion(QueueId, CPno);
         }
+
+        public int SavePage(DentalExamination de)
+        {
+            return DP.SavePage(de);
+        }
+
+        //public AdultDetails SavePage(AdultDetails d)
+        //{
+        //    return DP.SavePage(d);
+        //}
     }
 }

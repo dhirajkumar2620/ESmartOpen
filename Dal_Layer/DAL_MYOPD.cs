@@ -910,5 +910,82 @@ namespace Dal_Layer
                 throw;
             }
         }
+
+
+
+
+        public DentalExamination GetDentalExamination(int QueueId, string CPno)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[3];
+                sqlparam[0] = new SqlParameter("@flag", 9);
+                sqlparam[1] = new SqlParameter("@QueueId", QueueId);
+                sqlparam[2] = new SqlParameter("@CPno", CPno);
+
+                DataTable ds = CommonFunction.GetDataTable("USP_Get_Precription", sqlparam, "");
+                DentalExamination Ob = new DentalExamination();
+                List<DentalExamination> lst = new List<DentalExamination>();
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        DentalExamination Model = new DentalExamination();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        // Ob = Model;
+                        lst.Add(Model);
+                    }
+                }
+               // return lst;
+                Ob.lst = lst;
+                return Ob;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
+
+
+
+
+        public List<DentalExamination> DeleteDentalExamination(int Id,int QueueId)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[3];
+                sqlparam[0] = new SqlParameter("@flag", 5);
+                sqlparam[1] = new SqlParameter("@Id", Id);
+                sqlparam[2] = new SqlParameter("@QueueId", QueueId);
+                DataTable ds = CommonFunction.GetDataTable("USP_delete_Precription", sqlparam, "");
+               List<DentalExamination> lstDE = new List<DentalExamination>();
+
+               DentalExamination objDE = new DentalExamination();
+
+
+
+                if (ds != null && ds.Rows.Count > 0)
+                {
+                    DataTable dt = ds;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        DentalExamination Model = new DentalExamination();
+                        CommonFunction.ReflectSingleData(Model, dr);
+                        lstDE.Add(Model);
+                    }
+                }
+
+                return lstDE;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+        }
     }
 }

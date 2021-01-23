@@ -16,6 +16,7 @@ namespace ESmartDr.Controllers
     {
         // GET: MyOPD
         BAL_MyOPD BM = new BAL_MyOPD();
+        DentalExamination DE = new DentalExamination();
 
         public enum AnswerType
         {
@@ -42,11 +43,163 @@ namespace ESmartDr.Controllers
             }
         }
 
-       
+
 
         public ActionResult SaveDentalExaminationPage()
+
+
+
         {
-            return View();
+
+
+            try
+            {
+                return View();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
+
+
+        public ActionResult GetThootno(string img)
+        {
+            try
+            {
+
+                Session["Toothno"] = img;
+                return View();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        public ActionResult GetColorcode(string btnColorcode)
+        {
+            try
+            {
+
+                Session["btnColorcode"] = btnColorcode;
+                return View();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
+
+        public void a()
+        {
+          //  DentalExamination ObjDE = new DentalExamination();
+           // int retrunVal;
+            string img1 = Session["Toothno"].ToString();
+            //DentalExamination
+            img1 = img1.Substring(3, img1.Length - 3);
+          
+            if ("T" + img1.ToString() == "T1")
+            {
+                DE.T1 = Convert.ToInt16(img1);
+               // return retrunVal=ObjDE.T1;
+            }
+            // return 0;
+            else if ("T" + img1.ToString() == "T2")
+            {
+               DE.T2 = Convert.ToInt16(img1);
+               // return ObjDE.T2;
+            }
+
+            else if ("T" + img1.ToString() == "T3")
+            {
+               DE.T3 = Convert.ToInt16(img1);
+               // return ObjDE.T3;
+            }
+
+
+
+            // return  retrunVal;
+        }
+
+        public ActionResult SavePage(DateTime CreatedDate, string ToothProcedure, string Amount, string Notes)
+
+
+
+        {
+
+
+            try
+            {
+                PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
+                List<DentalExamination> lst = new List<DentalExamination>();
+                Bal_Precription BL = new Bal_Precription();
+                string img = Session["Toothno"].ToString();
+                //DentalExamination
+                img = img.Substring(3, img.Length - 3);
+               int btnColorcode=Convert.ToInt16(Session["btnColorcode"].ToString());
+                DE.ColorCode = Convert.ToInt16(btnColorcode);
+                Session["CreatedDate"] = CreatedDate;
+                Session["ToothProcedure"] = ToothProcedure;
+                Session["Amount"] = Amount;
+                Session["Notes"] = Notes;
+                DE.CreatedDate =Convert.ToDateTime(Session["CreatedDate"].ToString());
+                DE.ToothProcedure = ToothProcedure;
+                DE.Amount = Amount;
+                DE.Notes = Notes;
+                DE.QueueId = patientDETAILS.QueueId;
+                DE.HospitalId = patientDETAILS.HospitalId;
+                DE.CasePaperNo = patientDETAILS.CasePapaerNo;
+                DE.PatientId = patientDETAILS.Id;
+                DE.CreatedBy = patientDETAILS.DoctorReceptionId;
+               
+                a();
+                
+                           
+                int Flag = BL.SavePage(DE);
+                // BAL_MyOPD BM = new BAL_MyOPD();
+                // int Flag = BM.GetDentalExamination(DE);
+               List<DentalExamination> oblist = new List<DentalExamination>();
+                if (Flag > 0)
+                {
+                                
+                   DentalExamination objDE = new DentalExamination();
+
+                    objDE = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+                    oblist = objDE.lst;
+                    return Json(oblist, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json("", JsonRequestBehavior.AllowGet);
+                }
+
+                //Bal_Precription bp = new Bal_Precription();
+
+                //AdultDetails pd = new AdultDetails();
+
+
+                //pd.T12 = img;
+                //pd = bp.SavePage(pd); 
+
+                //return View();
+               // return View("DentalExamination", lstObservation);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
         }
         public ActionResult OpdPrescription()
         {
@@ -54,12 +207,13 @@ namespace ESmartDr.Controllers
         }
         public ActionResult OpdPatientDetails()
         {
-
+    
             return View("PatientDetails");
 
         }
         public ActionResult OpdExamination()
         {
+
             Bal_Precription bp = new Bal_Precription();
             PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             Precription pd = new Precription();
@@ -76,7 +230,7 @@ namespace ESmartDr.Controllers
                 {
                     if (item.AddAdvice != "" && item.AddAdvice != null)
                     {
-                        Advice = Advice + item.AddAdvice  + "," + "  ";
+                        Advice = Advice + item.AddAdvice + "," + "  ";
                     }
                 }
             }
@@ -88,7 +242,7 @@ namespace ESmartDr.Controllers
                     {
                         Complaints = Complaints + item.Complaints + "," + "  ";
                     }
-                        
+
                     if (item.Diagnosis != "" && item.Diagnosis != null)
                     {
                         Diagnosis = Diagnosis + item.Diagnosis + "," + "  ";
@@ -101,7 +255,7 @@ namespace ESmartDr.Controllers
                 {
                     if (item.NestVisitDate != "" && item.NestVisitDate != null)
                     {
-                        NextVisit = NextVisit + Convert.ToDateTime(item.NestVisitDate).Date.ToString("dd/MM/yyyy") +"," + "  ";
+                        NextVisit = NextVisit + Convert.ToDateTime(item.NestVisitDate).Date.ToString("dd/MM/yyyy") + "," + "  ";
                     }
                 }
             }
@@ -111,7 +265,7 @@ namespace ESmartDr.Controllers
                 {
                     if (item.InvSelectTests != "" && item.InvSelectTests != null)
                     {
-                        TestBeforeVisit = TestBeforeVisit + item.InvSelectTests + "," +"  " ;
+                        TestBeforeVisit = TestBeforeVisit + item.InvSelectTests + "," + "  ";
                     }
                 }
             }
@@ -119,7 +273,7 @@ namespace ESmartDr.Controllers
             pd.HospClinicNumber = pd.HospClinicNumber.TrimEnd(',');
             pd.TestBeforeVisit = TestBeforeVisit.TrimEnd(',');
             pd.NextVisit = NextVisit.TrimEnd(',');
-            
+
             pd.AdviceNote = Advice.TrimEnd(',');
 
             pd.Complaints = Complaints.TrimEnd(',');
@@ -163,11 +317,42 @@ namespace ESmartDr.Controllers
 
         public ActionResult DentalExaminationPage()
         {
-            return View("DentalExaminationPage");
+
+            PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
+            DentalExamination MD = new DentalExamination();
+            //Load lime always null not requird get data
+            MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+
+
+            //foreach (var item in MD)
+            //{
+            //    item.CpExpiryDate = Convert.ToDateTime(item.\).Date.ToString("dd/MM/yyyy");
+            //}
+
+            return View("DentalExaminationPage", MD);
+
+
+            //return View("DentalExaminationPage");
         }
 
 
+        [HttpPost]
+        public ActionResult DeleteDentalExamination(int Id)
+        {
+            try
+            {
+                PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
+                BAL_MyOPD BL = new BAL_MyOPD();
+                List<DentalExamination> ObjLST = new List<DentalExamination>();
+                ObjLST = BL.DeleteDentalExamination(Id, patientDETAILS.QueueId);
+                return Json(ObjLST, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
         public ActionResult PrecObservation()
         {
             PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
@@ -294,7 +479,7 @@ namespace ESmartDr.Controllers
             AdminDetails admObj = (AdminDetails)Session["UserDetails"];
             MD = BL.ViewAllMedicine(admObj.HospitalId);
             //lst = MD.lst;
-             lst = MD.lst.Where(x => x.MedicineName.ToUpper().Contains(Prefix.ToUpper())).ToList();
+            lst = MD.lst.Where(x => x.MedicineName.ToUpper().Contains(Prefix.ToUpper())).ToList();
             return Json(lst, JsonRequestBehavior.AllowGet);
         }
 
@@ -314,20 +499,20 @@ namespace ESmartDr.Controllers
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
 
         }
-        }
     }
+}
 
-        //var filepath = System.IO.Path.Combine(Server.MapPath("~/Doc"), fileName);
-        //return File(filepath, MimeMapping.GetMimeMapping(filepath), fileName);
-        //var path = Server.MapPath(@"~/Doc/030002fb.jpg");
-        //var contents = System.IO.File.ReadAllBytes(path);
-        //return File(contents, "image/jpeg");
+//var filepath = System.IO.Path.Combine(Server.MapPath("~/Doc"), fileName);
+//return File(filepath, MimeMapping.GetMimeMapping(filepath), fileName);
+//var path = Server.MapPath(@"~/Doc/030002fb.jpg");
+//var contents = System.IO.File.ReadAllBytes(path);
+//return File(contents, "image/jpeg");
 
-    
-        //    //Get the temp folder and file path in server
-        //    string fullPath = Path.Combine(Server.MapPath("~/Doc"), fileName);
-        //    byte[] fileByteArray = System.IO.File.ReadAllBytes(fullPath);
-        //    System.IO.File.Delete(fullPath);
-        //    return File(fileByteArray, "application/vnd.ms-excel", fileName);
-        //}
+
+//    //Get the temp folder and file path in server
+//    string fullPath = Path.Combine(Server.MapPath("~/Doc"), fileName);
+//    byte[] fileByteArray = System.IO.File.ReadAllBytes(fullPath);
+//    System.IO.File.Delete(fullPath);
+//    return File(fileByteArray, "application/vnd.ms-excel", fileName);
+//}
 
