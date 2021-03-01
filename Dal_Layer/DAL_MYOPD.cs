@@ -934,6 +934,10 @@ namespace Dal_Layer
                     {
                         DentalExamination Model = new DentalExamination();
                         CommonFunction.ReflectSingleData(Model, dr);
+                        //if (Model.ColorCode == "1")
+                        //{
+                        //    Model.ColorCode = "Red";
+                        //}
                         // Ob = Model;
                         lst.Add(Model);
                     }

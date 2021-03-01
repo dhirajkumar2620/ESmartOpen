@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO.IsolatedStorage;
 using System.Web.Hosting;
+using System.Web.UI;
 
 namespace ESmartDr.Controllers
 {
@@ -110,43 +111,179 @@ namespace ESmartDr.Controllers
             if ("T" + img1.ToString() == "T1")
             {
                 DE.T1 = Convert.ToInt16(img1);
-               // return retrunVal=ObjDE.T1;
             }
-            // return 0;
             else if ("T" + img1.ToString() == "T2")
             {
                DE.T2 = Convert.ToInt16(img1);
-               // return ObjDE.T2;
             }
-
             else if ("T" + img1.ToString() == "T3")
             {
                DE.T3 = Convert.ToInt16(img1);
-               // return ObjDE.T3;
             }
-
-
-
+            else if ("T" + img1.ToString() == "T4")
+            {
+                DE.T4 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T5")
+            {
+                DE.T5 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T6")
+            {
+                DE.T6 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T7")
+            {
+                DE.T7 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T8")
+            {
+                DE.T8 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T9")
+            {
+                DE.T9 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T10")
+            {
+                DE.T10 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T11")
+            {
+                DE.T11 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T12")
+            {
+                DE.T12 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T13")
+            {
+                DE.T13 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T14")
+            {
+                DE.T14 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T15")
+            {
+                DE.T15 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T16")
+            {
+                DE.T16 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T17")
+            {
+                DE.T17 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T18")
+            {
+                DE.T18 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T19")
+            {
+                DE.T19 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T20")
+            {
+                DE.T20 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T21")
+            {
+                DE.T21 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T22")
+            {
+                DE.T22 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T23")
+            {
+                DE.T23 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T24")
+            {
+                DE.T24 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T25")
+            {
+                DE.T25 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T26")
+            {
+                DE.T26 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T27")
+            {
+                DE.T3 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T3")
+            {
+                DE.T27 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T28")
+            {
+                DE.T28 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T29")
+            {
+                DE.T29 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T30")
+            {
+                DE.T30 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T31")
+            {
+                DE.T31 = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T32")
+            {
+                DE.T32 = Convert.ToInt16(img1);
+            }
             // return  retrunVal;
         }
 
         public ActionResult SavePage(DateTime CreatedDate, string ToothProcedure, string Amount, string Notes)
-
-
-
         {
-
-
             try
             {
+                //if (chkAdult.Checked)
+                //{
+
+                //}
+                //if (chkPediatric.Checked)
+                //{
+
+                //}
                 PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
                 List<DentalExamination> lst = new List<DentalExamination>();
                 Bal_Precription BL = new Bal_Precription();
                 string img = Session["Toothno"].ToString();
+                if (img == null )
+                {
+                    //ScriptManager.RegisterClientScriptBlock(, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+                    return View("DentalExaminationPage");
+                }
+                if ( CreatedDate == null  )
+                {
+                    return View("DentalExaminationPage");
+                }
+                if ( ToothProcedure == null)
+                {
+                    return View("DentalExaminationPage");
+                }
+                if ( Amount == null )
+                {
+                    return View("DentalExaminationPage");
+                }
+                else if ( Notes == null)
+                {
+                    return View("DentalExaminationPage");
+                }
                 //DentalExamination
                 img = img.Substring(3, img.Length - 3);
-               int btnColorcode=Convert.ToInt16(Session["btnColorcode"].ToString());
-                DE.ColorCode = Convert.ToInt16(btnColorcode);
+               string btnColorcode=Session["btnColorcode"].ToString();
+                DE.ColorCode = btnColorcode.ToString();
                 Session["CreatedDate"] = CreatedDate;
                 Session["ToothProcedure"] = ToothProcedure;
                 Session["Amount"] = Amount;
@@ -193,10 +330,10 @@ namespace ESmartDr.Controllers
                 //return View();
                // return View("DentalExamination", lstObservation);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
 
 

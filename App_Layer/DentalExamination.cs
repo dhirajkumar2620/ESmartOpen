@@ -51,7 +51,7 @@ namespace App_Layer
         public int T30 { get; set; }
         public int T31 { get; set; }
         public int T32 { get; set; }
-        public int ColorCode { get; set; }
+        public string ColorCode { get; set; }
         public string ToothProcedure { get; set; }
         public string Amount { get; set; }
         public string Notes { get; set; }
