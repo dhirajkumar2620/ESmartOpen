@@ -246,6 +246,7 @@ namespace ESmartDr.Controllers
 
         public ActionResult SavePage(DateTime CreatedDate, string ToothProcedure, string Amount, string Notes)
         {
+            List<DentalExamination> oblist = new List<DentalExamination>();
             try
             {
                 PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
@@ -298,7 +299,7 @@ namespace ESmartDr.Controllers
                     int Flag = BL.SaveAdultDetails(DE);
                     // BAL_MyOPD BM = new BAL_MyOPD();
                     // int Flag = BM.GetDentalExamination(DE);
-                    List<DentalExamination> oblist = new List<DentalExamination>();
+                  
                     if (Flag > 0)
                     {
 
@@ -330,7 +331,7 @@ namespace ESmartDr.Controllers
                     int Flag = BL.SavePediatricDetails(DE);
                     // BAL_MyOPD BM = new BAL_MyOPD();
                     // int Flag = BM.GetDentalExamination(DE);
-                    List<DentalExamination> oblist = new List<DentalExamination>();
+                    
                     if (Flag > 0)
                     {
 
@@ -345,6 +346,7 @@ namespace ESmartDr.Controllers
                         return Json("", JsonRequestBehavior.AllowGet);
                     }
                 }
+                return Json(oblist, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
@@ -475,15 +477,9 @@ namespace ESmartDr.Controllers
             DentalExamination MD = new DentalExamination();
             //Load lime always null not requird get data
             // Adult
-            if (Session["PageDetails"].ToString() == "A")
-            {
+          
                 MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
-            }
-            //Pediatric
-            else if (Session["PageDetails"].ToString() == "P")
-            {
-                MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
-            }
+            
            
 
 

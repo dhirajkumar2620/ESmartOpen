@@ -104,7 +104,7 @@ namespace Dal_Layer
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[30];
+                sqlparam = new SqlParameter[31];
                 sqlparam[0] = new SqlParameter("@Id", DE.Id);
                 sqlparam[1] = new SqlParameter("@A", DE.A);
                 sqlparam[2] = new SqlParameter("@B", DE.B);
