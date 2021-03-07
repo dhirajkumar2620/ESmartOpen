@@ -503,19 +503,25 @@ namespace ESmartDr.Controllers
                 PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
                 BAL_MyOPD BL = new BAL_MyOPD();
                 List<DentalExamination> ObjLST = new List<DentalExamination>();
+               //need to check session empty or null
+                //if (Session["PageDetails"].ToString() =="" || Session["PageDetails"].ToString() ==null)
+                //{
+                //    Session["PageDetails"] = "C";
+                //}
                 //Adult
                 if (Session["PageDetails"].ToString() == "A")
                 {
-                    ObjLST = BL.DeleteDentalExamination(Id, patientDETAILS.QueueId);
+                    ObjLST = BL.DeleteDentalExamination(Id, patientDETAILS.QueueId, "A");
                 }
                 //Pediatric
                 else if (Session["PageDetails"].ToString() == "P")
                 {
-                    ObjLST = BL.DeleteDentalExamination(Id, patientDETAILS.QueueId);
+                    ObjLST = BL.DeleteDentalExamination(Id, patientDETAILS.QueueId, "P");
                 }
+               
                 return Json(ObjLST, JsonRequestBehavior.AllowGet);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;

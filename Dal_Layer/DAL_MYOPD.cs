@@ -956,15 +956,16 @@ namespace Dal_Layer
 
 
 
-        public List<DentalExamination> DeleteDentalExamination(int Id,int QueueId)
+        public List<DentalExamination> DeleteDentalExamination(int Id,int QueueId, string TableName)
         {
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[3];
+                sqlparam = new SqlParameter[4];
                 sqlparam[0] = new SqlParameter("@flag", 5);
                 sqlparam[1] = new SqlParameter("@Id", Id);
                 sqlparam[2] = new SqlParameter("@QueueId", QueueId);
+                sqlparam[3] = new SqlParameter("@TableName", TableName);
                 DataTable ds = CommonFunction.GetDataTable("USP_delete_Precription", sqlparam, "");
                List<DentalExamination> lstDE = new List<DentalExamination>();
 
@@ -991,5 +992,6 @@ namespace Dal_Layer
                 throw Ex;
             }
         }
+
     }
 }
