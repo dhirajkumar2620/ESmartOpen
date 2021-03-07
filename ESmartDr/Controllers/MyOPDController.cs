@@ -67,12 +67,13 @@ namespace ESmartDr.Controllers
         }
 
 
-        public ActionResult GetThootno(string img)
+        public ActionResult GetThootno(string img, string PageDetails)
         {
             try
             {
 
                 Session["Toothno"] = img;
+                Session["PageDetails"] = PageDetails;
                 return View();
             }
             catch (Exception)
@@ -102,23 +103,23 @@ namespace ESmartDr.Controllers
 
         public void a()
         {
-          //  DentalExamination ObjDE = new DentalExamination();
-           // int retrunVal;
+            //  DentalExamination ObjDE = new DentalExamination();
+            // int retrunVal;
             string img1 = Session["Toothno"].ToString();
             //DentalExamination
             img1 = img1.Substring(3, img1.Length - 3);
-          
+
             if ("T" + img1.ToString() == "T1")
             {
                 DE.T1 = Convert.ToInt16(img1);
             }
             else if ("T" + img1.ToString() == "T2")
             {
-               DE.T2 = Convert.ToInt16(img1);
+                DE.T2 = Convert.ToInt16(img1);
             }
             else if ("T" + img1.ToString() == "T3")
             {
-               DE.T3 = Convert.ToInt16(img1);
+                DE.T3 = Convert.ToInt16(img1);
             }
             else if ("T" + img1.ToString() == "T4")
             {
@@ -247,48 +248,40 @@ namespace ESmartDr.Controllers
         {
             try
             {
-                //if (chkAdult.Checked)
-                //{
-
-                //}
-                //if (chkPediatric.Checked)
-                //{
-
-                //}
                 PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
                 List<DentalExamination> lst = new List<DentalExamination>();
                 Bal_Precription BL = new Bal_Precription();
                 string img = Session["Toothno"].ToString();
-                if (img == null )
+                if (img == null)
                 {
                     //ScriptManager.RegisterClientScriptBlock(, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
                     return View("DentalExaminationPage");
                 }
-                if ( CreatedDate == null  )
+                if (CreatedDate == null)
                 {
                     return View("DentalExaminationPage");
                 }
-                if ( ToothProcedure == null)
+                if (ToothProcedure == null)
                 {
                     return View("DentalExaminationPage");
                 }
-                if ( Amount == null )
+                if (Amount == null)
                 {
                     return View("DentalExaminationPage");
                 }
-                else if ( Notes == null)
+                else if (Notes == null)
                 {
                     return View("DentalExaminationPage");
                 }
                 //DentalExamination
                 img = img.Substring(3, img.Length - 3);
-               string btnColorcode=Session["btnColorcode"].ToString();
+                string btnColorcode = Session["btnColorcode"].ToString();
                 DE.ColorCode = btnColorcode.ToString();
                 Session["CreatedDate"] = CreatedDate;
                 Session["ToothProcedure"] = ToothProcedure;
                 Session["Amount"] = Amount;
                 Session["Notes"] = Notes;
-                DE.CreatedDate =Convert.ToDateTime(Session["CreatedDate"].ToString());
+                DE.CreatedDate = Convert.ToDateTime(Session["CreatedDate"].ToString());
                 DE.ToothProcedure = ToothProcedure;
                 DE.Amount = Amount;
                 DE.Notes = Notes;
@@ -297,38 +290,61 @@ namespace ESmartDr.Controllers
                 DE.CasePaperNo = patientDETAILS.CasePapaerNo;
                 DE.PatientId = patientDETAILS.Id;
                 DE.CreatedBy = patientDETAILS.DoctorReceptionId;
-               
+
                 a();
-                
-                           
-                int Flag = BL.SavePage(DE);
-                // BAL_MyOPD BM = new BAL_MyOPD();
-                // int Flag = BM.GetDentalExamination(DE);
-               List<DentalExamination> oblist = new List<DentalExamination>();
-                if (Flag > 0)
+
+                if (Session["PageDetails"].ToString()=="A")
                 {
-                                
-                   DentalExamination objDE = new DentalExamination();
+                    int Flag = BL.SaveAdultDetails(DE);
+                    // BAL_MyOPD BM = new BAL_MyOPD();
+                    // int Flag = BM.GetDentalExamination(DE);
+                    List<DentalExamination> oblist = new List<DentalExamination>();
+                    if (Flag > 0)
+                    {
 
-                    objDE = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
-                    oblist = objDE.lst;
-                    return Json(oblist, JsonRequestBehavior.AllowGet);
+                        DentalExamination objDE = new DentalExamination();
+
+                        objDE = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+                        oblist = objDE.lst;
+                        return Json(oblist, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        return Json("", JsonRequestBehavior.AllowGet);
+                    }
+
+                    //Bal_Precription bp = new Bal_Precription();
+
+                    //AdultDetails pd = new AdultDetails();
+
+
+                    //pd.T12 = img;
+                    //pd = bp.SavePage(pd); 
+
+                    //return View();
+                    // return View("DentalExamination", lstObservation);
                 }
-                else
+
+                else if (Session["PageDetails"].ToString() == "P")
                 {
-                    return Json("", JsonRequestBehavior.AllowGet);
+                    int Flag = BL.SavePediatricDetails(DE);
+                    // BAL_MyOPD BM = new BAL_MyOPD();
+                    // int Flag = BM.GetDentalExamination(DE);
+                    List<DentalExamination> oblist = new List<DentalExamination>();
+                    if (Flag > 0)
+                    {
+
+                        DentalExamination objDE = new DentalExamination();
+
+                        objDE = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+                        oblist = objDE.lst;
+                        return Json(oblist, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        return Json("", JsonRequestBehavior.AllowGet);
+                    }
                 }
-
-                //Bal_Precription bp = new Bal_Precription();
-
-                //AdultDetails pd = new AdultDetails();
-
-
-                //pd.T12 = img;
-                //pd = bp.SavePage(pd); 
-
-                //return View();
-               // return View("DentalExamination", lstObservation);
             }
             catch (Exception ex)
             {
@@ -344,7 +360,7 @@ namespace ESmartDr.Controllers
         }
         public ActionResult OpdPatientDetails()
         {
-    
+
             return View("PatientDetails");
 
         }
@@ -458,7 +474,17 @@ namespace ESmartDr.Controllers
             PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
             DentalExamination MD = new DentalExamination();
             //Load lime always null not requird get data
-            MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+            // Adult
+            if (Session["PageDetails"].ToString() == "A")
+            {
+                MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+            }
+            //Pediatric
+            else if (Session["PageDetails"].ToString() == "P")
+            {
+                MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+            }
+           
 
 
             //foreach (var item in MD)
@@ -481,7 +507,16 @@ namespace ESmartDr.Controllers
                 PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
                 BAL_MyOPD BL = new BAL_MyOPD();
                 List<DentalExamination> ObjLST = new List<DentalExamination>();
-                ObjLST = BL.DeleteDentalExamination(Id, patientDETAILS.QueueId);
+                //Adult
+                if (Session["PageDetails"].ToString() == "A")
+                {
+                    ObjLST = BL.DeleteDentalExamination(Id, patientDETAILS.QueueId);
+                }
+                //Pediatric
+                else if (Session["PageDetails"].ToString() == "P")
+                {
+                    ObjLST = BL.DeleteDentalExamination(Id, patientDETAILS.QueueId);
+                }
                 return Json(ObjLST, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)

@@ -99,16 +99,59 @@ namespace Dal_Layer
         //}
 
 
-        public int SavePage(DentalExamination DE)
+        public int SavePediatricDetails(DentalExamination DE)
+        {
+            try
+            {
+                SqlParameter[] sqlparam;
+                sqlparam = new SqlParameter[30];
+                sqlparam[0] = new SqlParameter("@Id", DE.Id);
+                sqlparam[1] = new SqlParameter("@A", DE.A);
+                sqlparam[2] = new SqlParameter("@B", DE.B);
+                sqlparam[3] = new SqlParameter("@C", DE.C);
+                sqlparam[4] = new SqlParameter("@D", DE.D);
+                sqlparam[5] = new SqlParameter("@E", DE.E);
+                sqlparam[6] = new SqlParameter("@F", DE.F);
+                sqlparam[7] = new SqlParameter("@G", DE.G);
+                sqlparam[8] = new SqlParameter("@H", DE.H);
+                sqlparam[9] = new SqlParameter("@I", DE.I);
+                sqlparam[10] = new SqlParameter("@J", DE.J);
+                sqlparam[11] = new SqlParameter("@K", DE.K);
+                sqlparam[12] = new SqlParameter("@L", DE.L);
+                sqlparam[13] = new SqlParameter("@M", DE.M);
+                sqlparam[14] = new SqlParameter("@N", DE.N);
+                sqlparam[15] = new SqlParameter("@O", DE.O);
+                sqlparam[16] = new SqlParameter("@P", DE.P);
+                sqlparam[17] = new SqlParameter("@Q", DE.Q);
+                sqlparam[18] = new SqlParameter("@R", DE.R);
+                sqlparam[19] = new SqlParameter("@S", DE.S);
+                sqlparam[20] = new SqlParameter("@T", DE.T);
+
+                sqlparam[21] = new SqlParameter("@ColorCode", DE.ColorCode);
+                sqlparam[22] = new SqlParameter("@ToothProcedure", DE.ToothProcedure);
+                sqlparam[23] = new SqlParameter("@Amount", DE.Amount);
+                sqlparam[24] = new SqlParameter("@Notes", DE.Notes);
+                sqlparam[25] = new SqlParameter("@CasePaperNo", DE.CasePaperNo);
+                sqlparam[26] = new SqlParameter("@HospitalId", DE.HospitalId);
+                sqlparam[27] = new SqlParameter("@PatientId", DE.PatientId);
+                sqlparam[28] = new SqlParameter("@CreatedBy", DE.CreatedBy);
+                sqlparam[29] = new SqlParameter("@QueueId", DE.QueueId);
+                sqlparam[30] = new SqlParameter("@CreatedDate", DE.CreatedDate);
+
+                return CommonFunction.Save("USP_D_ManagePediaticDetails", sqlparam, "");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public int SaveAdultDetails(DentalExamination DE)
         {
             try
             {
                 SqlParameter[] sqlparam;
                 sqlparam = new SqlParameter[43];
-
-               
-
-
                 sqlparam[0] = new SqlParameter("@Id", DE.Id);
                 sqlparam[1] = new SqlParameter("@T1", DE.T1);
                 sqlparam[2] = new SqlParameter("@T2", DE.T2);
@@ -141,7 +184,7 @@ namespace Dal_Layer
                 sqlparam[29] = new SqlParameter("@T29", DE.T29);
                 sqlparam[30] = new SqlParameter("@T30", DE.T30);
                 sqlparam[31] = new SqlParameter("@T31", DE.T31);
-                sqlparam[32] = new SqlParameter("@T32", DE.T32);           
+                sqlparam[32] = new SqlParameter("@T32", DE.T32);
 
 
 
@@ -149,13 +192,13 @@ namespace Dal_Layer
                 sqlparam[33] = new SqlParameter("@ColorCode", DE.ColorCode);
                 sqlparam[34] = new SqlParameter("@ToothProcedure", DE.ToothProcedure);
                 sqlparam[35] = new SqlParameter("@Amount", DE.Amount);
-                 sqlparam[36] = new SqlParameter("@Notes", DE.Notes);
-                 sqlparam[37] = new SqlParameter("@CasePaperNo", DE.CasePaperNo);
+                sqlparam[36] = new SqlParameter("@Notes", DE.Notes);
+                sqlparam[37] = new SqlParameter("@CasePaperNo", DE.CasePaperNo);
                 sqlparam[38] = new SqlParameter("@HospitalId", DE.HospitalId);
                 sqlparam[39] = new SqlParameter("@PatientId", DE.PatientId);
                 sqlparam[40] = new SqlParameter("@CreatedBy", DE.CreatedBy);
                 sqlparam[41] = new SqlParameter("@QueueId", DE.QueueId);
-                sqlparam[42] = new SqlParameter("@CreatedDate", DE.CreatedDate); 
+                sqlparam[42] = new SqlParameter("@CreatedDate", DE.CreatedDate);
 
                 return CommonFunction.Save("USP_D_ManageAdultDetails", sqlparam, "");
             }
@@ -165,7 +208,7 @@ namespace Dal_Layer
                 throw ex;
             }
         }
-        public Precription ViewPricripion(int QueueId ,string CPno)
+        public Precription ViewPricripion(int QueueId, string CPno)
         {
             try
             {
@@ -195,7 +238,7 @@ namespace Dal_Layer
                     {
                         Observation Model = new Observation();
                         CommonFunction.ReflectSingleData(Model, dr);
-                        
+
                         olst.Add(Model);
                     }
                 }
@@ -212,7 +255,7 @@ namespace Dal_Layer
                     }
                 }
                 List<Common> clst = new List<Common>();
-               
+
                 if (ds != null && ds.Tables[5].Rows.Count > 0)
                 {
                     DataTable dt = ds.Tables[5];
@@ -227,7 +270,7 @@ namespace Dal_Layer
                 List<Common> NextList = new List<Common>();
                 if (ds != null && ds.Tables[6].Rows.Count > 0)
                 {
-                   
+
                     DataTable dt = ds.Tables[6];
                     foreach (DataRow dr in dt.Rows)
                     {
