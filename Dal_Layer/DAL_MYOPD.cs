@@ -914,16 +914,16 @@ namespace Dal_Layer
 
 
 
-        public DentalExamination GetDentalExamination(int QueueId, string CPno)
+        public DentalExamination GetDentalExamination(int QueueId, string CPno, string TableName)
         {
             try
             {
                 SqlParameter[] sqlparam;
-                sqlparam = new SqlParameter[3];
+                sqlparam = new SqlParameter[4];
                 sqlparam[0] = new SqlParameter("@flag", 9);
                 sqlparam[1] = new SqlParameter("@QueueId", QueueId);
                 sqlparam[2] = new SqlParameter("@CPno", CPno);
-
+                sqlparam[3] = new SqlParameter("@TableName", TableName);
                 DataTable ds = CommonFunction.GetDataTable("USP_Get_Precription", sqlparam, "");
                 DentalExamination Ob = new DentalExamination();
                 List<DentalExamination> lst = new List<DentalExamination>();

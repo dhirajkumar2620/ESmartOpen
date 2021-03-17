@@ -88,9 +88,28 @@ namespace ESmartDr.Controllers
         {
             try
             {
-
+                PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
+                DentalExamination MD = new DentalExamination();
                 Session["btnColorcode"] = btnColorcode;
-                return View();
+                if (Session["PageDetails"] == null)
+                {
+                    MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo, "A");
+                    return View("DentalExaminationPage", MD);
+                }
+                else
+                {
+                    if (Session["PageDetails"].ToString() == "A")
+                    {
+                        MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo, "A");
+                        return View("DentalExaminationPage", MD);
+                    }
+                    else if (Session["PageDetails"].ToString() == "P")
+                    {
+                        MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo, "P");
+                        return View("DentalExaminationPage", MD);
+                    }
+                }
+                return View("DentalExaminationPage", MD);
             }
             catch (Exception)
             {
@@ -244,7 +263,7 @@ namespace ESmartDr.Controllers
             // return  retrunVal;
         }
 
-        public ActionResult SavePage(DateTime CreatedDate, string ToothProcedure, string Amount, string Notes)
+        public ActionResult SavePage(int Id, DateTime CreatedDate, string ToothProcedure, string Amount, string Notes)
         {
             List<DentalExamination> oblist = new List<DentalExamination>();
             try
@@ -291,6 +310,7 @@ namespace ESmartDr.Controllers
                 DE.CasePaperNo = patientDETAILS.CasePapaerNo;
                 DE.PatientId = patientDETAILS.Id;
                 DE.CreatedBy = patientDETAILS.DoctorReceptionId;
+                DE.Id = Id;
 
                 a();
 
@@ -305,7 +325,7 @@ namespace ESmartDr.Controllers
 
                         DentalExamination objDE = new DentalExamination();
 
-                        objDE = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+                        objDE = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo, "A");
                         oblist = objDE.lst;
                         return Json(oblist, JsonRequestBehavior.AllowGet);
                     }
@@ -337,7 +357,7 @@ namespace ESmartDr.Controllers
 
                         DentalExamination objDE = new DentalExamination();
 
-                        objDE = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+                        objDE = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo,"P");
                         oblist = objDE.lst;
                         return Json(oblist, JsonRequestBehavior.AllowGet);
                     }
@@ -477,11 +497,23 @@ namespace ESmartDr.Controllers
             DentalExamination MD = new DentalExamination();
             //Load lime always null not requird get data
             // Adult
-          
-                MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo);
+            //Adult
+            if (Session["PageDetails"] ==null)
+            {
+                MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo, "A");
+            }
+            else
+            {
+                if (Session["PageDetails"].ToString() == "A")
+                {
+                    MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo, "A");
+                }
+                else if (Session["PageDetails"].ToString() == "P")
+                {
+                    MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo, "P");
+                }
+            }
             
-           
-
 
             //foreach (var item in MD)
             //{

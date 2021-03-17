@@ -85,7 +85,7 @@
     @*@using (Html.BeginForm("", "", FormMethod.Post))*@
     @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmObservationDetails" }))
     {
-
+        @Html.HiddenFor(m => m.Id, new { @id = "hdnODId" });
         <form>
 
 
@@ -649,9 +649,11 @@
                 $("#dvAdult").show();
 
                 $("#dvPediatric").hide();
+                $('#tblDentalExamination tbody').empty();
             } else {
                 $("#dvAdult").hide();
                 $("#dvPediatric").show();
+                $('#tblDentalExamination tbody').empty();
             }
         });
     });
@@ -666,6 +668,11 @@
                 return;
             }
         });
+        var Id = document.getElementById("hdnODId").value;
+        //if (Amount = null || Amount == "") {
+        //    alert("Enter amount");
+        //    return;
+        //}
         var date1 = document.getElementById("txtDate").value
         if (date1 = null || date1 == "") {
             alert("Selete date");
@@ -703,19 +710,36 @@
                     trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.CreatedDate + '</td><td>' + item.ColorCode + '</td><td>' + "T1" + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
                 });
                 $('#tblDentalExamination tbody').append(trHTML)
-                //$("#hdnODId").val('0');
-                //$("#txtComplaints").val('');
-                //$("#txtSince").val('');
-                //$("#txtPeriod").val('');
-                //$("#txtPhysicalExamination").val('');
-                //$("#txtDiagnosis").val('');
+                $("#hdnODId").val('0');
+                $("#txtAmount").val('');
+                $("#txtNotes").val('');
+                $("#txtDate").val('');
+                $("#ddlToothProcedure").val('');
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(errorThrown);
             }
         })
     }
+    $(".fa-pencil").on("click", function () {
 
+        var obj = $(this1).parents("tr")
+        $("#hdnODId").val(obj.find('td')[0].innerHTML);
+        $("#Id").val(obj.find('td')[0].innerHTML);
+        $("#txtAmount").val(obj.find('td')[5].innerHTML);
+        $("#txtNotes").val(obj.find('td')[6].innerHTML);
+        $("#txtDate").val(obj.find('td')[1].innerHTML);
+        $("#ddlToothProcedure").val(obj.find('td')[4].innerHTML);
+    });
+    function EditPICDetails(this1) {
+        var obj = $(this1).parents("tr")
+        $("#hdnODId").val(obj.find('td')[0].innerHTML);
+        $("#Id").val(obj.find('td')[0].innerHTML);
+        $("#txtAmount").val(obj.find('td')[5].innerHTML);
+        $("#txtNotes").val(obj.find('td')[6].innerHTML);
+        $("#txtDate").val(obj.find('td')[1].innerHTML);
+        $("#ddlToothProcedure").val(obj.find('td')[4].innerHTML);
+    }
 
     function BtnSetValue(id, img,Page) {
 
@@ -735,6 +759,7 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
+                    $('#tblDentalExamination tbody').empty();
                 },
                 failure: function (response) {
                     alert(response.responseText);

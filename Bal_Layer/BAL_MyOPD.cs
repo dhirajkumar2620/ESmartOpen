@@ -129,9 +129,9 @@ namespace Bal_Layer
         }
 
 
-        public DentalExamination GetDentalExamination(int QueueId, string CPno)
+        public DentalExamination GetDentalExamination(int QueueId, string CPno, string TableName)
         {
-            return DM.GetDentalExamination(QueueId, CPno);
+            return DM.GetDentalExamination(QueueId, CPno, TableName);
         }
 
         public List<DentalExamination> DeleteDentalExamination(int Id,int QueueId, string TableName)
