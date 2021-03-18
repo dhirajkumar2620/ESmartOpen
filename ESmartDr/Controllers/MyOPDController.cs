@@ -91,25 +91,66 @@ namespace ESmartDr.Controllers
                 PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
                 DentalExamination MD = new DentalExamination();
                 Session["btnColorcode"] = btnColorcode;
-                if (Session["PageDetails"] == null)
+                //if (Session["PageDetails"] == null)
+                //{
+                //    MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo, "A");
+                //    return View("DentalExaminationPage", MD);
+                //}
+                //else
+                //{
+                //    if (Session["PageDetails"].ToString() == "A")
+                //    {
+                //        MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo, "A");
+                //        return View("DentalExaminationPage", MD);
+                //    }
+                //    else if (Session["PageDetails"].ToString() == "P")
+                //    {
+                //        MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo, "P");
+                //        return View("DentalExaminationPage", MD);
+                //    }
+                //}
+                //return View("DentalExaminationPage", MD);
+                return View();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
+
+        public ActionResult PageSwitch(string Page)
+        {
+            try
+            {
+                PatientAllDetails patientDETAILS = (PatientAllDetails)Session["patientDetails"];
+                BAL_MyOPD BL = new BAL_MyOPD();
+                List<DentalExamination> ObjLST = new List<DentalExamination>();
+                DentalExamination MD = new DentalExamination();
+
+                //Session["btnColorcode"] = Page;
+                if (Page == null)
                 {
                     MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo, "A");
-                    return View("DentalExaminationPage", MD);
+                    //return View("DentalExaminationPage", MD);
                 }
                 else
                 {
-                    if (Session["PageDetails"].ToString() == "A")
+                    if (Page == "A")
                     {
                         MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo, "A");
-                        return View("DentalExaminationPage", MD);
+                        //return View("DentalExaminationPage", MD);
                     }
-                    else if (Session["PageDetails"].ToString() == "P")
+                    else if (Page == "P")
                     {
                         MD = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo, "P");
-                        return View("DentalExaminationPage", MD);
+                        //return View("DentalExaminationPage", MD);
                     }
                 }
-                return View("DentalExaminationPage", MD);
+                //return View("DentalExaminationPage", MD);
+                return Json(MD.lst, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
