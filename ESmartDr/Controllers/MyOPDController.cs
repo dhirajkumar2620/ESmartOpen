@@ -149,6 +149,13 @@ namespace ESmartDr.Controllers
                         //return View("DentalExaminationPage", MD);
                     }
                 }
+                if (MD.lst.Count > 0)
+                {
+                    foreach (var item in MD.lst)
+                    {
+                        item.CreatedDate = Convert.ToDateTime(item.CreatedDate).Date.ToString("dd/MM/yyyy");
+                    }
+                }
                 //return View("DentalExaminationPage", MD);
                 return Json(MD.lst, JsonRequestBehavior.AllowGet);
             }
@@ -429,7 +436,7 @@ namespace ESmartDr.Controllers
                 Session["ToothProcedure"] = ToothProcedure;
                 Session["Amount"] = Amount;
                 Session["Notes"] = Notes;
-                DE.CreatedDate = Convert.ToDateTime(Session["CreatedDate"].ToString());
+                DE.CreatedDate = Session["CreatedDate"].ToString();
                 DE.ToothProcedure = ToothProcedure;
                 DE.Amount = Amount;
                 DE.Notes = Notes;
@@ -456,6 +463,13 @@ namespace ESmartDr.Controllers
 
                         objDE = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo, "A");
                         oblist = objDE.lst;
+                        if (oblist.Count > 0)
+                        {
+                            foreach (var item in oblist)
+                            {
+                                item.CreatedDate = Convert.ToDateTime(item.CreatedDate).Date.ToString("dd/MM/yyyy");
+                            }
+                        }
                         return Json(oblist, JsonRequestBehavior.AllowGet);
                     }
                     else
@@ -489,6 +503,13 @@ namespace ESmartDr.Controllers
 
                         objDE = BM.GetDentalExamination(patientDETAILS.QueueId, patientDETAILS.CasePapaerNo,"P");
                         oblist = objDE.lst;
+                        if (oblist.Count > 0)
+                        {
+                            foreach (var item in oblist)
+                            {
+                                item.CreatedDate = Convert.ToDateTime(item.CreatedDate).Date.ToString("dd/MM/yyyy");
+                            }
+                        }
                         return Json(oblist, JsonRequestBehavior.AllowGet);
                     }
                     else
@@ -674,13 +695,20 @@ namespace ESmartDr.Controllers
                 if (Session["PageDetails"].ToString() == "A")
                 {
                     ObjLST = BL.DeleteDentalExamination(Id, patientDETAILS.QueueId, "A");
+                    
                 }
                 //Pediatric
                 else if (Session["PageDetails"].ToString() == "P")
                 {
                     ObjLST = BL.DeleteDentalExamination(Id, patientDETAILS.QueueId, "P");
                 }
-               
+                if (ObjLST.Count > 0)
+                {
+                    foreach (var item in ObjLST)
+                    {
+                        item.CreatedDate = Convert.ToDateTime(item.CreatedDate).Date.ToString("dd/MM/yyyy");
+                    }
+                }
                 return Json(ObjLST, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)

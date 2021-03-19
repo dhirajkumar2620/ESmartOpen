@@ -59,7 +59,7 @@ namespace App_Layer
         public string HospitalId { get; set; }
         public int PatientId { get; set; }
         public int CreatedBy { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public string CreatedDate { get; set; }
         public DateTime ModifideDate { get; set; }
         public int ModifideBy { get; set; }
         public bool IsActive { get; set; }

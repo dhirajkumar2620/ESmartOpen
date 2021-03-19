@@ -213,6 +213,7 @@
                             <br />
                             <br />
                             <br />
+                            <br />
 
                             <div class="col-md-12">
 
@@ -280,9 +281,8 @@
                                 <label class="form-control-label">
                                     Date
                                 </label>
-                                @*@Html.TextBoxFor(m => m.CreatedDate, new { @id = "txtdate", @class = "form-control", required = "required", @placeholder = "MedicalHistory" })*@
                                 <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
-                                    @Html.TextBoxFor(m => m.CreatedDate, new { @id = "txtDate", @type = "text", @class = "form-control", autocomplete = "off", @placeholder = "dd/mm/yyyy" })
+                                    @Html.TextBoxFor(m => m.CreatedDate, new { @id = "txtDate", autocomplete = "off", @type = "text", @class = "form-control", @placeholder = "dd/mm/yyyy" })
                                     @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
                                     <div class="input-group-addon">
                                         <i class="fa fa-table page-date-icon" aria-hidden="true"></i>
@@ -425,7 +425,7 @@
                                                 <tr>
                                                     <td hidden>@item.Id</td>
 
-                                                    <td>@item.CreatedDate</td>
+                                                    <td>@Convert.ToDateTime(item.CreatedDate).ToString("dd/MM/yyyy")</td>
                                                     <td>@item.ColorCode</td>
                                                     <td>@item.ToothNumber</td>
                                                     <td>@item.ToothProcedure</td>
