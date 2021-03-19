@@ -161,7 +161,7 @@ namespace ESmartDr.Controllers
 
         }
 
-        public void a()
+        public void AdultToothNumberSet()
         {
             //  DentalExamination ObjDE = new DentalExamination();
             // int retrunVal;
@@ -304,6 +304,93 @@ namespace ESmartDr.Controllers
             // return  retrunVal;
         }
 
+        public void PediatricToothNumberSet()
+        {
+            string img1 = Session["Toothno"].ToString();
+            //DentalExamination
+            img1 = img1.Substring(3, img1.Length - 3);
+            if ("T" + img1.ToString() == "T1")
+            {
+                DE.A = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T2")
+            {
+                DE.B = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T3")
+            {
+                DE.C = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T4")
+            {
+                DE.D = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T5")
+            {
+                DE.E = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T6")
+            {
+                DE.F = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T7")
+            {
+                DE.G = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T8")
+            {
+                DE.H = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T9")
+            {
+                DE.I = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T10")
+            {
+                DE.J = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T11")
+            {
+                DE.K = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T12")
+            {
+                DE.L = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T13")
+            {
+                DE.M = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T14")
+            {
+                DE.N = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T15")
+            {
+                DE.O = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T16")
+            {
+                DE.P = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T17")
+            {
+                DE.Q = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T18")
+            {
+                DE.R = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T19")
+            {
+                DE.S = Convert.ToInt16(img1);
+            }
+            else if ("T" + img1.ToString() == "T20")
+            {
+                DE.T = Convert.ToInt16(img1);
+            }
+        }
+
         public ActionResult SavePage(int Id, DateTime CreatedDate, string ToothProcedure, string Amount, string Notes)
         {
             List<DentalExamination> oblist = new List<DentalExamination>();
@@ -353,10 +440,11 @@ namespace ESmartDr.Controllers
                 DE.CreatedBy = patientDETAILS.DoctorReceptionId;
                 DE.Id = Id;
 
-                a();
+                
 
                 if (Session["PageDetails"].ToString()=="A")
                 {
+                    AdultToothNumberSet();
                     int Flag = BL.SaveAdultDetails(DE);
                     // BAL_MyOPD BM = new BAL_MyOPD();
                     // int Flag = BM.GetDentalExamination(DE);
@@ -389,6 +477,7 @@ namespace ESmartDr.Controllers
 
                 else if (Session["PageDetails"].ToString() == "P")
                 {
+                    PediatricToothNumberSet();
                     int Flag = BL.SavePediatricDetails(DE);
                     // BAL_MyOPD BM = new BAL_MyOPD();
                     // int Flag = BM.GetDentalExamination(DE);

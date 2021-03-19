@@ -427,7 +427,7 @@
 
                                                     <td>@item.CreatedDate</td>
                                                     <td>@item.ColorCode</td>
-                                                    <td>"T1"</td>
+                                                    <td>@item.ToothNumber</td>
                                                     <td>@item.ToothProcedure</td>
                                                     <td>@item.Amount</td>
                                                     <td>@item.Notes</td>
@@ -468,7 +468,7 @@
                     $('#tblDentalExamination tbody').empty();
                     var trHTML = '';
                     $.each(data, function (i, item) {
-                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.CreatedDate + '</td><td>' + item.ColorCode + '</td><td>' + "T1" + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td></td><td><i class="fa fa-pencil" onclick=EditDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.CreatedDate + '</td><td>' + item.ColorCode + '</td><td>' + item.ToothNumber + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td></td><td><i class="fa fa-pencil" onclick=EditDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
                     });
                     $('#tblDentalExamination tbody').append(trHTML)
                 }
@@ -532,7 +532,7 @@
                     $('#tblDentalExamination tbody').empty();
                     var trHTML = '';
                     $.each(data, function (i, item) {
-                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.CreatedDate + '</td><td>' + item.ColorCode + '</td><td>' + "T1" + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td></td><td><i class="fa fa-pencil" onclick=EditDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.CreatedDate + '</td><td>' + item.ColorCode + '</td><td>' + item.ToothNumber + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td></td><td><i class="fa fa-pencil" onclick=EditDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
                     });
                     $('#tblDentalExamination tbody').append(trHTML)
                 },
@@ -556,7 +556,7 @@
                     $('#tblDentalExamination tbody').empty();
                     var trHTML = '';
                     $.each(data, function (i, item) {
-                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.CreatedDate + '</td><td>' + item.ColorCode + '</td><td>' + "T1" + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td></td><td><i class="fa fa-pencil" onclick=EditDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.CreatedDate + '</td><td>' + item.ColorCode + '</td><td>' + item.ToothNumber + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td></td><td><i class="fa fa-pencil" onclick=EditDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
                     });
                     $('#tblDentalExamination tbody').append(trHTML)
                 },
@@ -675,7 +675,7 @@
                 $('#tblDentalExamination tbody').empty();
                 var trHTML = '';
                 $.each(data, function (i, item) {
-                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.CreatedDate + '</td><td>' + item.ColorCode + '</td><td>' + "T1" + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.CreatedDate + '</td><td>' + item.ColorCode + '</td><td>' + item.ToothNumber + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
                 });
                 $('#tblDentalExamination tbody').append(trHTML)
                 $("#hdnODId").val('0');

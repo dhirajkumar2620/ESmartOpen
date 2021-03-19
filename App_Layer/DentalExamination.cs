@@ -89,6 +89,8 @@ namespace App_Layer
         public int R { get; set; }
         public int S { get; set; }
         public int T { get; set; }
+        public int ToothNumber { get; set; }
+
 
 
     }
