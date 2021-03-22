@@ -21,14 +21,14 @@
         box-shadow: 2px 4px 10px #fff;
     }
 
-    /*.btnGreen {
-        background-color: green;
+    .btnGreen {
+       border: none;
     }
 
     .btnRed {
-        background-color: red;
-    }*/
-
+        background-color: #f5a433;
+    }
+    
     .teethSize {
     }
     /*.table thead th {
@@ -141,7 +141,7 @@
 
                     </div>
 
-                    <div id="dvAdult" class="col-md-12" style="background: rgb(232 ,232, 232)">
+                    <div id="dvAdult" class="col-md-12" style="background: #EFEFEF">
                         Adult
                         <div class="row" style="width: 100%;margin: 0 auto; padding-left:5px" id="DivAdult1">
                             <div class="col-md-12">
@@ -194,7 +194,7 @@
 
 
 
-                    <div id="dvPediatric" class="col-md-12" style="display: none ;background: rgb(232 ,232, 232)">
+                    <div id="dvPediatric" class="col-md-12" style="display: none ;background:  #EFEFEF">
                         Pediatric
                         <div class="row" style="width: 100%;margin: 0 auto;" id="DivPediatric2">
                             <div class="col-md-12">
@@ -415,7 +415,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @{ int rowNo = 0; }
+                                       
                                         @if (Model.lst != null)
                                         {
 
@@ -433,7 +433,7 @@
                                                     <td>@item.Notes</td>
 
                                                     <td>
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;
+                                                        <i class="fa fa-pencil"  onclick="EditPICDetails(this)" aria-hidden="true"></i>&nbsp;&nbsp;
                                                         <i class="fa fa-times" onclick="DeleteRecord('@item.Id')" aria-hidden="true"></i>
 
                                                     </td>
@@ -457,7 +457,7 @@
 <script>
     function DeleteRecord(id) {
         if (confirm('Do you want to delete record ?')) {
-            var urllink = '@Url.Content("~/MyOPD/DeleteDentalExamination")'
+            var urllink = '@Url.Content("/MyOPD/DeleteDentalExamination")'
             $.ajax({
                 type: "post",
                 url: urllink,
@@ -468,7 +468,7 @@
                     $('#tblDentalExamination tbody').empty();
                     var trHTML = '';
                     $.each(data, function (i, item) {
-                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.CreatedDate + '</td><td>' + item.ColorCode + '</td><td>' + item.ToothNumber + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td></td><td><i class="fa fa-pencil" onclick=EditDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.CreatedDate + '</td><td>' + item.ColorCode + '</td><td>' + item.ToothNumber + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td></td><td><i class="fa fa-pencil" onclick=EditPICDetails(this1) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
                     });
                     $('#tblDentalExamination tbody').append(trHTML)
                 }
@@ -518,9 +518,7 @@
     //    });
     //}
     $(":radio").click(function () {
-        debugger;
         if ($("#chkAdult").prop("checked")) {
-            debugger;
             $.ajax({
                 type: "POST",
                 url: "/MyOPD/PageSwitch",
@@ -532,7 +530,7 @@
                     $('#tblDentalExamination tbody').empty();
                     var trHTML = '';
                     $.each(data, function (i, item) {
-                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.CreatedDate + '</td><td>' + item.ColorCode + '</td><td>' + item.ToothNumber + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td></td><td><i class="fa fa-pencil" onclick=EditDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.CreatedDate + '</td><td>' + item.ColorCode + '</td><td>' + item.ToothNumber + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td></td><td><i class="fa fa-pencil" onclick=EditPICDetails(this1) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
                     });
                     $('#tblDentalExamination tbody').append(trHTML)
                 },
@@ -544,7 +542,6 @@
                 }
             });
         } if ($("#chkPediatric").prop("checked")) {
-            debugger;
             $.ajax({
                 type: "POST",
                 url: "/MyOPD/PageSwitch",
@@ -556,7 +553,7 @@
                     $('#tblDentalExamination tbody').empty();
                     var trHTML = '';
                     $.each(data, function (i, item) {
-                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.CreatedDate + '</td><td>' + item.ColorCode + '</td><td>' + item.ToothNumber + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td></td><td><i class="fa fa-pencil" onclick=EditDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                        trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.CreatedDate + '</td><td>' + item.ColorCode + '</td><td>' + item.ToothNumber + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td></td><td><i class="fa fa-pencil" onclick=EditPICDetails(this1) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
                     });
                     $('#tblDentalExamination tbody').append(trHTML)
                 },
@@ -570,43 +567,10 @@
         };
     });
 
-
-
-    function ColorCode1(x) {
-
-        //  alert("sdfs2");
-
-
-        //$.ajax({
-        //    type: "POST",
-        //    url: "/MyOPD/GetColorcode",
-        //    data: '{btnColorcode:"' + x + '"}',
-
-        //    //data: '{img: "' + img + '",id:"' + id + '",btnColorcode:"' + btnred1 + '",CreatedDate: "' + CreatedDate + '",ToothProcedure: "' + ToothProcedure + '",Amount: "' + Amount + '",Notes: "' + Notes + '"}',
-        //    contentType: "application/json; charset=utf-8",
-        //    dataType: "json",
-        //    success: function (response) {
-
-        //        // if (confirm('Data updated successfuly..')) {
-        //        // window.location.href = '/PatientDetails/GetQueueList'
-        //        //}
-        //    },
-        //    failure: function (response) {
-        //        alert(response.responseText);
-        //    },
-        //    error: function (response) {
-        //        alert(response.responseText);
-        //    }
-        //});
-
-    }
-
-
 </script>
 
 <script type="text/javascript">
     $(function () {
-
         $("input[name='chkPassPort']").click(function () {
 
             if ($("#chkAdult").is(":checked")) {
@@ -627,7 +591,6 @@
 </script>
 <script type="text/javascript">
     function SaveDentalExaminationPage() {
-
         $(":radio").click(function () {
             var Selectedvalue = $(this).val();
             if (Selectedvalue = null || Selectedvalue == "") {
@@ -635,36 +598,54 @@
                 return;
             }
         });
-        var Id = document.getElementById("hdnODId").value;
-        //if (Amount = null || Amount == "") {
-        //    alert("Enter amount");
-        //    return;
-        //}
-       
-        var Amount = document.getElementById("txtAmount").value;
         if (Amount = null || Amount == "") {
             alert("Enter amount");
             return;
         }
-        var Notes = document.getElementById("txtNotes").value;
         if (Notes = null || Notes == "") {
             alert("Enter note");
             return;
         }
-        var date1 = document.getElementById("txtDate").value
         if (date1 = null || date1 == "") {
             alert("Selete date");
             return;
         }
-        var ToothProcedure = document.getElementById("ddlToothProcedure").value;
         if (ToothProcedure = null || ToothProcedure == "") {
             alert("Select tooth procedure");
             return;
         }
-        var form = $('#frmObservationDetails')[0];
+        var Id = document.getElementById("hdnODId").value;
+        var Amount = document.getElementById("txtAmount").value;
+        var Notes = document.getElementById("txtNotes").value;
+        var date1 = document.getElementById("txtDate").value
+        var ToothProcedure = document.getElementById("ddlToothProcedure").value;
+       
+        $.ajax({
+            type: "post",
+            url:'@Url.Content("/MyOPD/SavePage")',
+            data: '{Id: "' + Id + '",CreatedDate:"' + date1 + '",ToothProcedure: "' + ToothProcedure + '",Amount:"' + Amount + '",Notes:"' + Notes + '"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                $('#tblDentalExamination tbody').empty();
+                var trHTML = '';
+                $.each(data, function (i, item) {
+                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.CreatedDate + '</td><td>' + item.ColorCode + '</td><td>' + item.ToothNumber + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
+                });
+                $('#tblDentalExamination tbody').append(trHTML)
+                $("#hdnODId").val('0');
+                $("#txtAmount").val('');
+                $("#txtNotes").val('');
+                $("#txtDate").val('');
+                $("#ddlToothProcedure").val('');
+            },
+        }
+
+          )
+        @*var form = $('#frmObservationDetails')[0];
 
         var fromData = new FormData(form);
-        var urllink = '@Url.Content("~/MyOPD/SavePage")'
+        var urllink = '@Url.Content("/MyOPD/SavePage")'
         $.ajax({
             type: "post",
             url: urllink,
@@ -687,18 +668,17 @@
             error: function (jqXHR, textStatus, errorThrown) {
                 //console.log(errorThrown);
             }
-        })
+        })*@
     }
-    $(".fa-pencil").on("click", function () {
-
-        var obj = $(this1).parents("tr")
-        $("#hdnODId").val(obj.find('td')[0].innerHTML);
-        $("#Id").val(obj.find('td')[0].innerHTML);
-        $("#txtAmount").val(obj.find('td')[5].innerHTML);
-        $("#txtNotes").val(obj.find('td')[6].innerHTML);
-        $("#txtDate").val(obj.find('td')[1].innerHTML);
-        $("#ddlToothProcedure").val(obj.find('td')[4].innerHTML);
-    });
+    //$(".fa-pencil").on("click", function () {
+    //    var obj = $(this1).parents("tr")
+    //    $("#hdnODId").val(obj.find('td')[0].innerHTML);
+    //    $("#Id").val(obj.find('td')[0].innerHTML);
+    //    $("#txtAmount").val(obj.find('td')[5].innerHTML);
+    //    $("#txtNotes").val(obj.find('td')[6].innerHTML);
+    //    $("#txtDate").val(obj.find('td')[1].innerHTML);
+    //    $("#ddlToothProcedure").val(obj.find('td')[4].innerHTML);
+    //});
     function EditPICDetails(this1) {
         var obj = $(this1).parents("tr")
         $("#hdnODId").val(obj.find('td')[0].innerHTML);
@@ -710,9 +690,8 @@
     }
 
     function BtnSetValue(id, img, Page) {
-
         if (document.getElementById(id).classList.contains('btnGreen')) {
-            debugger
+
             document.getElementById(img).src = "";
             document.getElementById(id).classList.remove('btnGreen');
             document.getElementById(id).classList.add('btnRed');

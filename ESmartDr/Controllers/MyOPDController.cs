@@ -398,7 +398,9 @@ namespace ESmartDr.Controllers
             }
         }
 
-        public ActionResult SavePage(int Id, DateTime CreatedDate, string ToothProcedure, string Amount, string Notes)
+      
+        
+        public ActionResult SavePage(int Id, string CreatedDate, string ToothProcedure, string Amount, string Notes)
         {
             List<DentalExamination> oblist = new List<DentalExamination>();
             try
@@ -432,7 +434,7 @@ namespace ESmartDr.Controllers
                 img = img.Substring(3, img.Length - 3);
                 string btnColorcode = Session["btnColorcode"].ToString();
                 DE.ColorCode = btnColorcode.ToString();
-                Session["CreatedDate"] = CreatedDate;
+                Session["CreatedDate"] = Convert.ToDateTime( CreatedDate);
                 Session["ToothProcedure"] = ToothProcedure;
                 Session["Amount"] = Amount;
                 Session["Notes"] = Notes;
