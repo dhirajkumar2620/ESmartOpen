@@ -679,6 +679,16 @@ namespace ESmartDr.Controllers
             //return View("DentalExaminationPage");
         }
 
+       
+        public ActionResult PrintDentalView(string Print)
+        {
+            Bal_ExpensesDetails BL = new Bal_ExpensesDetails();
+            BillPrint bill = new BillPrint();
+           int QueueID = Convert.ToInt16( Session["QueueID"].ToString());
+           string CPno = Session["CPno"].ToString();
+            bill = BL.PrintBill(QueueID, CPno);
+            return PartialView("PrintDental", bill);
+        }
 
         [HttpPost]
         public ActionResult DeleteDentalExamination(int Id)

@@ -53,6 +53,7 @@ namespace EsmartDr.Controllers
 
             //--------------END---------------
             patientDetails.QueueId = QueueID;
+            Session["CPno"] = CPno;
             Session["QueueID"] = QueueID;
             Session["patientDetails"] = patientDetails;
             Session["PatientName"] = patientDetails.PatientName;

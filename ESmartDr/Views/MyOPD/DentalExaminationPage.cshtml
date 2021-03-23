@@ -326,13 +326,13 @@
                     </div>
                     <div>
                         <label>
-                            @Html.RadioButtonFor(m => m.ColorCode, "Red", new { onchange = "this.form.ColorCode1('btnred1');" })
+                            @Html.RadioButtonFor(m => m.ColorCode, "Red")
                             <button type="button" class="btnSizeColor" id="btnred1" style="background-color:red "></button>
                         </label>
                     </div>
                     <div>
                         <label>
-                            @Html.RadioButtonFor(m => m.ColorCode, "Black", new { onchange = "this.form.ColorCode1('btnblack');" })
+                            @Html.RadioButtonFor(m => m.ColorCode, "Black")
                             <button type="button" class="btnSizeColor" id="btnblack" style="background-color:black"></button>
                         </label>
                     </div>
@@ -447,12 +447,30 @@
                     </div>
                 </div>
             </div>
+            <br />
+            <br />
 
+
+
+            <div class="row" style="display:none">
+                <div class="col-md-7" style="text-align: right;">
+                    For Priview/Download/Print click on "Print"
+                </div>
+                <div class="col-md-5" style="text-align: left;">
+
+                    <input type='button' id='btn' value='Print' class="btn btn_1 btn-primary" onclick="ShowDentalPrint()">
+                </div>
+                <br /><br /><br /><br /><br /><br /><br />
+            </div>
         </form>
     }
 </div>
 
+<div class="modal fade" id="ComfirmationPopup" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 
+    <div id="printDental">
+    </div>
+</div>
 
 <script>
     function DeleteRecord(id) {
@@ -480,6 +498,7 @@
 
     $(":radio").click(function () {
         var Selectedvalue = $(this).val();
+        debugger;
         $.ajax({
             type: "POST",
             url: "/MyOPD/GetColorcode",
@@ -738,4 +757,37 @@
             }
         });
     });
+</script>
+<script>
+    function ShowDentalPrint() {
+        $.ajax({
+        type: "POST",
+        url: "/MyOPD/PrintDentalView",
+        data: '{Print:"' + 'P' + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "html",
+        success: function (response) {
+            $('#printDental').html(response);
+            PrintDiv();
+            // $('#ComfirmationPopup').modal('show');
+        },
+        failure: function (response) {
+            alert(response.responseText);
+        },
+        error: function (response) {
+            alert(response.responseText);
+        }
+    });
+    }
+    function PrintDiv() {
+        var printDental = document.getElementById("printDental").innerHTML;
+        var printWindow = window.open('', '', 'height=500,width=900');
+        printWindow.document.write('<html><head><title>DIV Contents</title>');
+        printWindow.document.write('</head><body>');
+        printWindow.document.write(printDental);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    }
+
 </script>
