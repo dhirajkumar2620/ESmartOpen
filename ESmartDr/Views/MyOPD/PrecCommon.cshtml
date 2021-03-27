@@ -224,7 +224,6 @@
         <script>
 
             function UploadFile() {
-                debugger;
                 var form = $('#frmPrecCommonAttachment')[0];
 
                 var fromData = new FormData(form);
@@ -236,7 +235,6 @@
                     processData: false,
                     contentType: false,
                     success: function (result) {
-                        debugger;
                         //if (data.Flag == 1)
                         //{
                         alert(result);
@@ -285,11 +283,9 @@
 
             }
             $(".fa-pencil").on("click", function () {
-                debugger
                 var obj = $(this).parents("tr")
                 $("#hdnPCId").val(obj.find('td')[0].innerHTML);
                 $("#txtinvTest").val(obj.find('td')[1].innerHTML);
-                debugger
                 $("#txtinvNote").val(obj.find('td')[2].innerHTML);
                 $("#txtAdvice").val(obj.find('td')[3].innerHTML);
                 $("#txtDiet").val(obj.find('td')[4].innerHTML);
@@ -298,11 +294,9 @@
 
             });
             function EditPICDetails(this1) {
-                debugger
                 var obj = $(this1).parents("tr")
                 $("#hdnPCId").val(obj.find('td')[0].innerHTML);
                 $("#txtinvTest").val(obj.find('td')[1].innerHTML);
-                debugger
                 $("#txtinvNote").val(obj.find('td')[2].innerHTML);
                 $("#txtAdvice").val(obj.find('td')[3].innerHTML);
                 $("#txtDiet").val(obj.find('td')[4].innerHTML);

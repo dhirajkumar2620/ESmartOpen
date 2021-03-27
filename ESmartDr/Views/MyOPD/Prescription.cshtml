@@ -7,21 +7,7 @@
 
 
         <div class="second-tab">
-            @if (Session["ActivationFor"].ToString() == "Smart Doctor" || Session["ActivationFor"].ToString() == "Smart Dentist")
-            {
-                <div class="card">
-
-                    <div class="card-header" id="headingDentalExaminationPage">
-                        <h2 class="mb-0">
-                            <button type="button" class="btn btn-link" id="btnDentalExaminationPage" data-toggle="collapse" data-target="#collapseDentalExaminationPage" data-request-url="@Url.Action("DentalExaminationPage", "MyOPD")"><i class="fa fa-plus"></i> <span class="accor-heading">Dental Examination Page</span></button>
-                        </h2>
-                    </div>
-                    <div id="collapseDentalExaminationPage" class="collapse" aria-labelledby="headingDentalExaminationPage" data-parent="#accordionExample1">
-                        <div id="tabDentalExaminationPage"></div>
-                    </div>
-                </div>
-            }
-
+           
             <div class="card">
 
                 <div class="card-header" id="headingFour">
@@ -33,6 +19,21 @@
                     <div id="tabObservation"></div>
                 </div>
             </div>
+            @if (Session["ActivationFor"].ToString() == "Smart Doctor" || Session["ActivationFor"].ToString() == "Smart Dentist")
+            {
+                <div class="card">
+
+                    <div class="card-header" id="headingDentalExaminationPage">
+                        <h2 class="mb-0">
+                            <button type="button" class="btn btn-link" id="btnDentalExaminationPage" data-toggle="collapse" data-target="#collapseDentalExaminationPage" data-request-url="@Url.Action("DentalExaminationPage", "MyOPD")"><i class="fa fa-plus"></i> <span class="accor-heading">Treatment Plan</span></button>
+                        </h2>
+                    </div>
+                    <div id="collapseDentalExaminationPage" class="collapse" aria-labelledby="headingDentalExaminationPage" data-parent="#accordionExample1">
+                        <div id="tabDentalExaminationPage"></div>
+                    </div>
+                </div>
+            }
+
             <div class="card">
                 <div class="card-header" id="headingFive">
                     <h2 class="mb-0">
@@ -133,7 +134,6 @@
 
     function SetStatus(x) {
 
-        debugger;
         var CPno = $(this).attr("data-image");
 
 
@@ -141,7 +141,6 @@
 
         var fromData = new FormData(form);
         var urllink = '@Url.Content("~/Prescription/StatusChange")'
-        debugger;
         $.ajax({
             type: "post",
             url: urllink,

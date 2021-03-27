@@ -500,7 +500,6 @@
     }
     function SetStatus1(x) {
 
-        debugger;
         var CPno = $(this).attr("data-image");
         var appCPno = document.getElementById("txtCPno").value;
         var appStatus = document.getElementById("txtStatus").value;
@@ -512,7 +511,6 @@
 
         var fromData = new FormData(form);
         var urllink = '@Url.Content("~/PatientDetails/SetStatus")'
-        debugger;
         $.ajax({
             type: "post",
             url: urllink,
