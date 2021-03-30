@@ -1,4 +1,4 @@
-﻿@model App_Layer.DentalExamination
+﻿﻿@model App_Layer.DentalExamination
 @{
     Layout = null;
 }
@@ -30,23 +30,24 @@
     }
 
     .teethSize {
-       
     }
-    .teethNumber{
-          height: 10px;
-         width: 22px;
-         border-color:white;
-         color:#25A1A1;
-         padding-left: 13px;
-         padding-right: 21px;
+
+    .teethNumber {
+        height: 10px;
+        width: 22px;
+        border-color: white;
+        color: #25A1A1;
+        padding-left: 13px;
+        padding-right: 21px;
     }
-    .teethNumber2{
-          height: 10px;
-         width: 34px;
-         border-color:white;
-         color:#25A1A1;
-         padding-left: 12px;
-         /*padding-right: 10px;*/
+
+    .teethNumber2 {
+        height: 10px;
+        width: 34px;
+        border-color: white;
+        color: #25A1A1;
+        padding-left: 12px;
+        /*padding-right: 10px;*/
     }
     /*.table thead th {
         vertical-align: bottom;
@@ -180,7 +181,7 @@
                                 <button type="button" class="btnGreen" onclick="BtnSetValue('btn16', 'img16', 'A')" id="btn16"><img id="img16" class="teethSize" style="height: 60px;width: 22px;" src="~/img/A16.png" /></button>
                             </div>
                             <div class="col-md-12">
-                                <label   id="lbl1" class="teethNumber">1</label>
+                                <label id="lbl1" class="teethNumber">1</label>
                                 <label id="lbl2" class="teethNumber">2</label>
                                 <label id="lbl3" class="teethNumber">3</label>
                                 <label id="lbl4" class="teethNumber">4</label>
@@ -217,7 +218,7 @@
                                 <label id="lbl31" class="teethNumber2">31</label>
                                 <label id="lbl32" class="teethNumber2">32</label>
                             </div>
-                           
+
 
                             <div class="col-md-12">
 
@@ -272,7 +273,7 @@
                                 <label id="lbl8" class="teethNumber">8</label>
                                 <label id="lbl9" class="teethNumber">9</label>
                                 <label id="lbl10" class="teethNumber2">10</label>
-                                
+
                             </div>
                             <br />
                             <br />
@@ -520,11 +521,6 @@
     }
 </div>
 
-<div class="modal fade" id="ComfirmationPopup" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-
-    <div id="printDental">
-    </div>
-</div>
 
 <script>
     function DeleteRecord(id) {
@@ -664,11 +660,12 @@
 <script type="text/javascript">
     function SaveDentalExaminationPage() {
         $(":radio").click(function () {
-            var Selectedvalue = $(this).val();
+
             if (Selectedvalue = null || Selectedvalue == "") {
                 alert("Selete color code");
                 return;
             }
+            var Selectedvalue = $(this).val();
         });
         if (Amount = null || Amount == "") {
             alert("Enter amount");
@@ -694,7 +691,7 @@
 
         $.ajax({
             type: "post",
-            url:'@Url.Content("/MyOPD/SavePage")',
+            url: '@Url.Content("/MyOPD/SaveDentalPage")',
             data: '{Id: "' + Id + '",CreatedDate:"' + date1 + '",ToothProcedure: "' + ToothProcedure + '",Amount:"' + Amount + '",Notes:"' + Notes + '"}',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -711,9 +708,7 @@
                 $("#txtDate").val('');
                 $("#ddlToothProcedure").val('');
             },
-        }
-
-          )
+        });
         @*var form = $('#frmObservationDetails')[0];
 
         var fromData = new FormData(form);
@@ -812,35 +807,7 @@
     });
 </script>
 <script>
-    function ShowDentalPrint() {
-        $.ajax({
-            type: "POST",
-            url: "/MyOPD/PrintDentalView",
-            data: '{Print:"' + 'P' + '"}',
-            contentType: "application/json; charset=utf-8",
-            dataType: "html",
-            success: function (response) {
-                $('#printDental').html(response);
-                PrintDiv();
-                // $('#ComfirmationPopup').modal('show');
-            },
-            failure: function (response) {
-                alert(response.responseText);
-            },
-            error: function (response) {
-                alert(response.responseText);
-            }
-        });
-    }
-    function PrintDiv() {
-        var printDental = document.getElementById("printDental").innerHTML;
-        var printWindow = window.open('', '', 'height=500,width=900');
-        printWindow.document.write('<html><head><title>DIV Contents</title>');
-        printWindow.document.write('</head><body>');
-        printWindow.document.write(printDental);
-        printWindow.document.write('</body></html>');
-        printWindow.document.close();
-        printWindow.print();
-    }
 
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>

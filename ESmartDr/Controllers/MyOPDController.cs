@@ -400,7 +400,7 @@ namespace ESmartDr.Controllers
 
       
         
-        public ActionResult SavePage(int Id, string CreatedDate, string ToothProcedure, string Amount, string Notes)
+        public ActionResult SaveDentalPage(int Id, string CreatedDate, string ToothProcedure, string Amount, string Notes)
         {
             List<DentalExamination> oblist = new List<DentalExamination>();
             try
@@ -438,7 +438,7 @@ namespace ESmartDr.Controllers
                 Session["ToothProcedure"] = ToothProcedure;
                 Session["Amount"] = Amount;
                 Session["Notes"] = Notes;
-                DE.CreatedDate = Session["CreatedDate"].ToString();
+                DE.CreatedDate = CreatedDate;
                 DE.ToothProcedure = ToothProcedure;
                 DE.Amount = Amount;
                 DE.Notes = Notes;
