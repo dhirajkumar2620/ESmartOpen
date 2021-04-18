@@ -438,7 +438,7 @@ namespace ESmartDr.Controllers
                 Session["ToothProcedure"] = ToothProcedure;
                 Session["Amount"] = Amount;
                 Session["Notes"] = Notes;
-                DE.CreatedDate = CreatedDate;
+                DE.CreatedDate = Convert.ToDateTime(CreatedDate).Date.ToString("dd/MM/yyyy"); 
                 DE.ToothProcedure = ToothProcedure;
                 DE.Amount = Amount;
                 DE.Notes = Notes;
