@@ -130,8 +130,9 @@ namespace ESmartDr.Controllers
                              .ToList()
                              .FirstOrDefault();
 
-                   
-                    string message = "You are added to " + admObj.FirstName + ", your CP No. is " + CPNo + ". Download 'Meet My Doctor' app to manage your health records - https://esmartdoctor.com";
+
+                    //string message = "You are added to " + admObj.FirstName + ", your CP No. is " + CPNo + ". Download 'Meet My Doctor' app to manage your health records - https://esmartdoctor.com";
+                    string message = "You are added to " + admObj.FirstName + ", your CP No, is" + CPNo + ". Download â€œMeet My Doctorâ€ patient app to manage your health records - TECHBULB";
                     sms.SendSMS(PD.WhatsAppNo, message);
                 }
                 Session["Msg"] = "1";

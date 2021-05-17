@@ -89,7 +89,8 @@ namespace ESmartDr.Controllers
 
 
                     SMS sms = new SMS();
-                    string message = "Dear "+PD.Name+", You are added to  " + admObj.HostClincName + ", Download eSmartDoctor app to manage - http://bit.ly/2RGTEHTR ";
+                    //string message = "Dear "+PD.Name+", You are added to  " + admObj.HostClincName + ", Download eSmartDoctor app to manage - http://bit.ly/2RGTEHTR ";
+                    string message = "Dear "+PD.Name+", this is to inform you that you are added to" + admObj.HostClincName + ", login to esmartdoctor.com - TECHBULB";
                     sms.SendSMS(PD.WhatsAppNumber, message);
                 }
                 return RedirectToAction("ViewAllStaff", "StaffDetails");

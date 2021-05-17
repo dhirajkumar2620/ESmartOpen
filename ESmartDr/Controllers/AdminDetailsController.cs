@@ -147,7 +147,8 @@ namespace ESmartDr.Controllers
                              .FirstOrDefault();
 
                     SMS sms = new SMS();
-                    string message = "Dear " + AD.FirstName + ", You are added to eSmartDoctor,Your Reg No is ESD " + RegNo + " Download eSmartDoctor app to manage your Firm -  https://esmartdoctor.com ";
+                    string message = "Dear Customer, this is to inform you that you are added to eSmartDoctor, your Reg. No. is ESD"+RegNo+". Login to esmartdoctor.com manage your firm - TECHBULB";
+                   // string message = "Dear " + AD.FirstName + ", You are added to eSmartDoctor,Your Reg No is ESD " + RegNo + " Download eSmartDoctor app to manage your Firm -  https://esmartdoctor.com ";
                     sms.SendSMS(AD.WhatsAppNumber, message);
                 }
 

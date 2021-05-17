@@ -101,7 +101,8 @@ namespace ESmartDr.Controllers
                 if (Flag >=1)//if (Flag ==1)
                 {
                     SMS sms = new SMS();
-                    string message = "Dear , You are password has been updatedd successfully Username : "+ad.WhatsAppNumber+" & Password: "+ad.Passwod1+" .Download eSmartDoctor app to manage your Firm -  http://esmartdoctor.com ";
+                    //string message = "Dear , You are password has been updatedd successfully Username : "+ad.WhatsAppNumber+" & Password: "+ad.Passwod1+" .Download eSmartDoctor app to manage your Firm -  http://esmartdoctor.com ";
+                    string message = "Dear Customer, this is to inform you that your password of esmartdoctor.com is updated successfully. Username : "+ad.WhatsAppNumber+" & Password : " +ad.Passwod1+" - TECHBULB";
                     sms.SendSMS(ad.WhatsAppNumber , message);
                     return RedirectToAction("Index", "LoginDetails");
                 }
@@ -128,7 +129,9 @@ namespace ESmartDr.Controllers
                 String otp = RandomOTP();
                 int flag = BP.SetOTPForUser(mbNO, otp);
                 SMS sms = new SMS();
-                string message = "Dear Customer, " + otp + " is OTP for your request initiated through eSmartDoctor. DO NOT disclose it to anyone.";
+                //  string message = "Dear Customer, " + otp + " is OTP for your request initiated through eSmartDoctor. DO NOT disclose it to anyone.";
+                string message = "Dear Customer, your OTP for esmartdoctor.com login is  " + otp + ". Do not disclose it to anyone - TECHBULB";
+                
                 sms.SendOTP(mbNO, message);
 
                 Session["OTP"] = otp;
