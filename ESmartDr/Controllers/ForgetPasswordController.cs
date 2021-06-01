@@ -39,7 +39,9 @@ namespace ESmartDr.Controllers
                 String otp =RandomOTP();
                 int flag = BP.SetOTPForUser(AD.WhatsAppNumber, otp);
                 SMS sms = new SMS();
-                string message = "Dear Customer, " + otp + " is OTP for your request initiated through eSmartDoctor. DO NOT disclose it to anyone.";
+                //string message = "Dear Customer, " + otp + " is OTP for your request initiated through eSmartDoctor. DO NOT disclose it to anyone.";
+                string message = "Dear Customer, your OTP for esmartdoctor.com login is  " + otp + ". Do not disclose it to anyone - TECHBULB";
+
                 sms.SendOTP(AD.WhatsAppNumber, message);
                
                     Session["OTP"] = otp;

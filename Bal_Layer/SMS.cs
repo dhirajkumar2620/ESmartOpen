@@ -39,12 +39,18 @@ namespace Bal_Layer
             string sPwd = ConfigurationManager.AppSettings["sPwdOTP"];
             string sNumber = mobileNumber;
             string sSID = ConfigurationManager.AppSettings["sSID"];
+            string sChannel = ConfigurationManager.AppSettings["sChannel"];
+            string sDCS = ConfigurationManager.AppSettings["sDCS"];
+            string sFlashsms = ConfigurationManager.AppSettings["sFlashsms"];
             string sMessage = message;
-            string sURL = " http://2fa.atsithub.com/vendorsms/pushsms.aspx?user="
-                 + sUserID + "&password="
-                 + sPwd + "&msisdn="
-                 + sNumber + "&sid="
-                 + sSID + "&msg="
+            string sURL = " http://otp.auurumdigital.com/api/mt/SendSMS?user="
+            + sUserID + "&password="
+                 + sPwd + "&senderid="
+                 + sSID + "&channel="
+                 + sChannel + "&DCS="
+                 + sDCS + "&Flashsms="
+                 + sFlashsms + "&number="
+                 + sNumber + "&text="
                  + sMessage + "&fl=0&gwid=2";
             string sResponse = GetResponse(sURL);
             //Response.Write(sResponse);
