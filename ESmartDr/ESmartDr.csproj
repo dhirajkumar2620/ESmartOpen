@@ -236,6 +236,7 @@
     <Compile Include="Controllers\MyOPDController.cs" />
     <Compile Include="Controllers\PatientDetailsController.cs" />
     <Compile Include="Controllers\PrescriptionController.cs" />
+    <Compile Include="Controllers\PrivacyPolicyController.cs" />
     <Compile Include="Controllers\StaffDetailsController.cs" />
     <Compile Include="Controllers\TabDetailsController.cs" />
     <Compile Include="Controllers\Tab_PrecreptionController.cs" />
@@ -667,6 +668,7 @@
     <Content Include="Views\DashBordDetails\DashBord.cshtml" />
     <Content Include="Views\MyOPD\DentalExaminationPage.cshtml" />
     <Content Include="Views\MyOPD\PrintDental.cshtml" />
+    <Content Include="Views\PrivacyPolicy\PrivacyPolicy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
