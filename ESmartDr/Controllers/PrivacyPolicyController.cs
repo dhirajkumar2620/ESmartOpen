@@ -13,5 +13,9 @@ namespace ESmartDr.Controllers
         {
             return View("PrivacyPolicy");
         }
+        public ActionResult GetPolicy()
+        {
+            return View("PrivacyPolicy");
+        }
     }
 }
