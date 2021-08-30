@@ -136,7 +136,7 @@ namespace Dal_Layer
                 sqlparam[27] = new SqlParameter("@PatientId", DE.PatientId);
                 sqlparam[28] = new SqlParameter("@CreatedBy", DE.CreatedBy);
                 sqlparam[29] = new SqlParameter("@QueueId", DE.QueueId);
-                sqlparam[30] = new SqlParameter("@CreatedDate", DE.CreatedDate);
+                sqlparam[30] = new SqlParameter("@CreatedDate", DateTime.Parse(DE.CreatedDate));
 
                 return CommonFunction.Save("USP_D_ManagePediaticDetails", sqlparam, "");
             }
