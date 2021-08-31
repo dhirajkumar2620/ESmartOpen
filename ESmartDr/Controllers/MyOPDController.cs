@@ -398,8 +398,8 @@ namespace ESmartDr.Controllers
             }
         }
 
-      
-        
+
+        [HttpPost]
         public ActionResult SaveDentalPage(int Id, string CreatedDate, string ToothProcedure, string Amount, string Notes)
         {
             List<DentalExamination> oblist = new List<DentalExamination>();

@@ -103,9 +103,10 @@
         height: 17px;
     }
 </style>
+<script ...></script>
 <div class="card-body">
     @*@using (Html.BeginForm("", "", FormMethod.Post))*@
-    @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmObservationDetails" }))
+    @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmDentalDetails" }))
     {
         @Html.HiddenFor(m => m.Id, new { @id = "hdnODId" });
         <form>
@@ -715,18 +716,26 @@
             alert("Select tooth procedure");
             return;
         }
+        debugger;
         var Id = document.getElementById("hdnODId").value;
         var Amount = document.getElementById("txtAmount").value;
         var Notes = document.getElementById("txtNotes").value;
         var date1 = document.getElementById("txtDate").value
         var ToothProcedure = document.getElementById("ddlToothProcedure").value;
 
+        var form = $('#frmDentalDetails')[0];
+
+        var fromData = new FormData(form);
+        var urllink = '@Url.Content("~/MyOPD/SaveDentalPage")'
+
         $.ajax({
             type: "post",
-            url: '@Url.Content("/MyOPD/SaveDentalPage")',
+            url: urllink,
             data: '{Id: "' + Id + '",CreatedDate:"' + date1 + '",ToothProcedure: "' + ToothProcedure + '",Amount:"' + Amount + '",Notes:"' + Notes + '"}',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
+            processData: false,
+            contentType: false,
             success: function (data) {
                 $('#tblDentalExamination tbody').empty();
                 var trHTML = '';
@@ -789,7 +798,6 @@
     }
 
     function BtnSetValue(id, img, Page) {
-        debugger;
         if (document.getElementById(id).classList.contains('btnGreen')) {
             
             document.getElementById('btn1').classList.remove('btnGreen');
