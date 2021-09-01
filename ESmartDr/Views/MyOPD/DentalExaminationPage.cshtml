@@ -103,7 +103,7 @@
         height: 17px;
     }
 </style>
-<script ...></script>
+
 <div class="card-body">
     @*@using (Html.BeginForm("", "", FormMethod.Post))*@
     @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "frmDentalDetails" }))
@@ -716,26 +716,20 @@
             alert("Select tooth procedure");
             return;
         }
-        debugger;
         var Id = document.getElementById("hdnODId").value;
         var Amount = document.getElementById("txtAmount").value;
         var Notes = document.getElementById("txtNotes").value;
         var date1 = document.getElementById("txtDate").value
         var ToothProcedure = document.getElementById("ddlToothProcedure").value;
 
-        var form = $('#frmDentalDetails')[0];
-
-        var fromData = new FormData(form);
         var urllink = '@Url.Content("~/MyOPD/SaveDentalPage")'
-
         $.ajax({
             type: "post",
             url: urllink,
             data: '{Id: "' + Id + '",CreatedDate:"' + date1 + '",ToothProcedure: "' + ToothProcedure + '",Amount:"' + Amount + '",Notes:"' + Notes + '"}',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            processData: false,
-            contentType: false,
+
             success: function (data) {
                 $('#tblDentalExamination tbody').empty();
                 var trHTML = '';
@@ -750,43 +744,9 @@
                 $("#ddlToothProcedure").val('');
             },
         });
-        @*var form = $('#frmObservationDetails')[0];
 
-        var fromData = new FormData(form);
-        var urllink = '@Url.Content("/MyOPD/SavePage")'
-        $.ajax({
-            type: "post",
-            url: urllink,
-            data: fromData,
-            processData: false,
-            contentType: false,
-            success: function (data) {
-                $('#tblDentalExamination tbody').empty();
-                var trHTML = '';
-                $.each(data, function (i, item) {
-                    trHTML += '<tr ><td hidden>' + item.Id + '</td><td>' + item.CreatedDate + '</td><td>' + item.ColorCode + '</td><td>' + item.ToothNumber + '</td><td>' + item.ToothProcedure + '</td><td>' + item.Amount + '</td><td>' + item.Notes + '</td><td><i class="fa fa-pencil" onclick=EditPICDetails(this) aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-times" onclick=DeleteRecord("' + item.Id + '") aria-hidden="true"></i></td></tr>';
-                });
-                $('#tblDentalExamination tbody').append(trHTML)
-                $("#hdnODId").val('0');
-                $("#txtAmount").val('');
-                $("#txtNotes").val('');
-                $("#txtDate").val('');
-                $("#ddlToothProcedure").val('');
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                //console.log(errorThrown);
-            }
-        })*@
     }
-    //$(".fa-pencil").on("click", function () {
-    //    var obj = $(this1).parents("tr")
-    //    $("#hdnODId").val(obj.find('td')[0].innerHTML);
-    //    $("#Id").val(obj.find('td')[0].innerHTML);
-    //    $("#txtAmount").val(obj.find('td')[5].innerHTML);
-    //    $("#txtNotes").val(obj.find('td')[6].innerHTML);
-    //    $("#txtDate").val(obj.find('td')[1].innerHTML);
-    //    $("#ddlToothProcedure").val(obj.find('td')[4].innerHTML);
-    //});
+
     function EditPICDetails(this1) {
         var obj = $(this1).parents("tr")
         $("#hdnODId").val(obj.find('td')[0].innerHTML);
@@ -799,7 +759,7 @@
 
     function BtnSetValue(id, img, Page) {
         if (document.getElementById(id).classList.contains('btnGreen')) {
-            
+
             document.getElementById('btn1').classList.remove('btnGreen');
             document.getElementById('btn2').classList.remove('btnGreen');
             document.getElementById('btn3').classList.remove('btnGreen');
@@ -832,7 +792,7 @@
             document.getElementById('btn30').classList.remove('btnGreen');
             document.getElementById('btn31').classList.remove('btnGreen');
             document.getElementById('btn32').classList.remove('btnGreen');
-           
+
             document.getElementById('btnPediatric1').classList.remove('btnGreen');
             document.getElementById('btnPediatric2').classList.remove('btnGreen');
             document.getElementById('btnPediatric3').classList.remove('btnGreen');
@@ -853,7 +813,7 @@
             document.getElementById('btnPediatric18').classList.remove('btnGreen');
             document.getElementById('btnPediatric19').classList.remove('btnGreen');
             document.getElementById('btnPediatric20').classList.remove('btnGreen');
-            
+
             var imgNumber = img.substring(3);
             var imgName = "P" + imgNumber;
 
@@ -915,7 +875,7 @@
 
             var imgNumber = img.substring(3);
             var imgName = "P" + imgNumber;
-           // document.getElementById(id).classList.remove('btnRed');
+            // document.getElementById(id).classList.remove('btnRed');
             document.getElementById(id).classList.add('btnGreen');
             //document.getElementById(img).src = '../img/' + imgName + '.png';
 
